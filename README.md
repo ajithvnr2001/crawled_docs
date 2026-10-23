@@ -43,6 +43,8 @@ phrases and block-page titles instead.
 crawled_docs/
 ├── README.md                 this file
 ├── GUIDE.md                  operations runbook (VM, tokens, repairs)
+├── HOW_IT_WORKS.md           detailed architecture + end-to-end update flow
+├── MIGRATION.md              old repository → directory mapping
 ├── shared/                   cross-corpus tooling
 │   ├── docguard.py           block/404 detection + image absolutisation
 │   ├── audit_corpus.py       CI integrity gate
