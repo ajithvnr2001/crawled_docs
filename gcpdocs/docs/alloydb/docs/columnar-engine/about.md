@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/columnar-engine/about/
 title: About the AlloyDB columnar engine \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:00:16.232642+00:00
+fetched_at: 2026-10-23T16:49:19.450227+00:00
 ---
 
 # About the AlloyDB columnar engine  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  About the AlloyDB columnar engine Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page provides an overview of the columnar engine that AlloyDB for PostgreSQL offers and shows how to use it.
+The AlloyDB for PostgreSQL columnar engine speeds up SQL queries that scan, join, and aggregate large amounts of data by storing selected columns in memory in a column-oriented format. You can use it on primary and read pool instances, and auto-columnarization can choose the columns for you.
 
-The AlloyDB columnar engine accelerates SQL query processing of scans, joins, and aggregates by providing these components:
+The columnar engine provides the following components:
 
   * A column store that contains table and materialized-view data for selected columns, reorganized into a column-oriented format. You can also add [frequently used expressions](https://docs.cloud.google.com/alloydb/docs/columnar-engine/add-frequent-expressions) to the column store.
 

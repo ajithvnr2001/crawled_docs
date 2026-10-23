@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/
 title: Dataform documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:16.528195+00:00
+fetched_at: 2026-10-23T16:53:34.020358+00:00
 ---
 
 # Dataform documentation  |  Google Cloud Documentation

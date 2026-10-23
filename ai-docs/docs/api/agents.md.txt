@@ -2,359 +2,330 @@
 url: https://ai.google.dev/api/agents.md.txt
 title: agents
 method: httpx-raw-text
-fetched_at: 2026-10-23T12:07:26.511768+00:00
+fetched_at: 2026-10-23T16:39:42.118367+00:00
 ---
 
 # agents
 
 > Source: https://ai.google.dev/api/agents.md.txt
 
-<!-- mdformat off(generated) -->
-<!-- disableFinding(G3DOC_JINJA) -->
-<!-- disableFinding(HEADING_FUNCTION) -->
-<!-- disableFinding(LINE_OVER_80) -->
-<!-- disableFinding(SPACES) -->
-
-
-
-# Gemini Agents API
-
-Note: This API is in Beta. Endpoints are under `/v1beta/`.
-
 Agents are systems that leverage Gemini models, a set of tools, and reasoning capabilities to perform complex, multi-step tasks and achieve specific goals. Unlike a single model call, an agent can plan, execute a series of actions, interact with external systems, and synthesize information to fulfill a user's request.
+[View as markdown](https://ai.google.dev/static/api/agents.md.txt) [View the OpenAPI Spec](https://ai.google.dev/static/api/interactions.openapi.json)
 
-## Agents
+> [!NOTE]
+> This API is in Beta. Endpoints are under `/v1beta/`.
 
-### CreateAgent
+## CreateAgent
 
-`POST https://generativelanguage.googleapis.com/v1beta/agents`
+post https://generativelanguage.googleapis.com/v1beta/agents Creates a new Agent (Typed version for SDK).
+- [Path / Query parameters](https://ai.google.dev/api/agents#CreateAgent.PATH_PARAMETERS)
+- [Request body](https://ai.google.dev/api/agents#CreateAgent.request_body)
+- [Response](https://ai.google.dev/api/agents#CreateAgent.response)
 
-Creates a new Agent (Typed version for SDK).
+### Path / Query Parameters
 
-#### Parameters
-- **parent** (`string`) *(Required)* Required. The parent resource where this agent will be created. Format: `projects/{project}/locations/{location}`
+parent string (required) Required. The parent resource where this agent will be created.
+Format: \`projects/{project}/locations/{location}\`
 
+### Request body
 
-#### Request Body
-- **agent_config** (`AntigravityAgentConfig`) Configuration parameters for the agent.
-  - **type** (`object`) *(Required)*
-    Value: `antigravity`
-  - **model** (`string`)   The model to use for agent reasoning.
+The request body contains data with the following structure:
+agent_config AntigravityAgentConfig (optional) Configuration parameters for the agent.
+Configuration for the Antigravity agent runtime.
+Provides server-side control over the agent's execution environment
+and tool configuration.
 
-  - **max_total_tokens** (`string`)   Max total tokens for the agent run.
+#### Fields
 
+type object (required) No description provided.
 
-- **base_environment** (`EnvironmentConfig or string`) The environment configuration for the agent.
-  - **type** (`object`) *(Required)*
-    Value: `remote`
-  - **network** (`EnvironmentNetworkEgressAllowlist or enum (string)`)   Network configuration for the environment.
-    Possible values:
-    - `disabled`: All network egress is blocked.
-    - **allowlist** (`array (EgressRule) or enum (string)`)     List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-      Possible values:
-      - `disabled`: All network egress is blocked.
+Always set to `"antigravity"`.
+model string (optional) The model to use for agent reasoning.
+max_total_tokens string (optional) Max total tokens for the agent run.
+base_environment EnvironmentConfig or string (optional) The environment configuration for the agent.
+Configuration for a custom environment.
 
+#### Fields
 
-  - **sources** (`array (Source)`)
-    - **type** (`enum (string)`)
-      Possible values:
-      - `gcs`: A Cloud Storage bucket.
-      - `inline`: Inline content.
-      - `repository`: A generic repository. The protocol prefix in the source URL
-identifies the provider (e.g., github://, gcs://).
+type object (required) No description provided.
 
-    - **source** (`string`)     The source of the environment. For Cloud Storage, this is the Cloud Storage path. For GitHub, this is the GitHub path.
+Always set to `"remote"`.
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional) Network configuration for the environment.
+Network egress configuration for the environment.
 
-    - **target** (`string`)     Where the source should appear in the environment.
+#### Fields
 
-    - **content** (`string`)     The inline content if `type` is `INLINE`.
+allowlist array (EgressRule) or enum (string) (optional) List of allowed domains and their configurations. Set to \`"disabled"\`
+to block all network egress.
 
-    - **encoding** (`string`)     Optional encoding for inline content (e.g. `base64`).
+Possible
+values:
 
+- `disabled`
 
-  - **environment_id** (`string`)   Optional. The environment ID for the interaction. If specified, the request will update the existing environment instead of creating a new one.
+  All network egress is blocked.
+sources array (Source) (optional) No description provided.
+A source to be mounted into the environment.
 
-  - **env** (`object or string`)   Environment variables to set in the sandbox environment.
+#### Fields
 
+type enum (string) (optional) No description provided.
 
-- **id** (`string`) The unique identifier for the agent.
+Possible
+values:
 
-- **base_agent** (`string`) The base agent to extend.
+- `gcs`
 
-- **system_instruction** (`string`) System instruction for the agent.
+  A Cloud Storage bucket.
+- `inline`
 
-- **description** (`string`) Agent description for developers to quickly read and understand.
+  Inline content.
+- `repository`
 
-- **tools** (`array (AgentTool)`) The tools available to the agent.
-  **Possible Types:**
-  - **CodeExecution**: A tool that can be used by the model to execute code.
-  - **type** (`object`) *(Required)*
-    Value: `code_execution`
-  - **Function**: A tool that can be used by the model.
-  - **type** (`object`) *(Required)*
-    Value: `function`
-  - **name** (`string`)   The name of the function.
+  A generic repository. The protocol prefix in the source URL
+  identifies the provider (e.g., github://, gcs://).
+source string (optional) The source of the environment.
+For Cloud Storage, this is the Cloud Storage path.
+For GitHub, this is the GitHub path.
+target string (optional) Where the source should appear in the environment.
+content string (optional) The inline content if \`type\` is \`INLINE\`.
+encoding string (optional) Optional encoding for inline content (e.g. \`base64\`).
+environment_id string (optional) Optional. The environment ID for the interaction. If specified, the request will
+update the existing environment instead of creating a new one.
+env object or string (optional) Environment variables to set in the sandbox environment.
 
-  - **description** (`string`)   A description of the function.
+#### Possible Types
 
-  - **parameters** (`object`)   The JSON Schema for the function's parameters.  Supports a subset of JSON Schema. `minLength`, `maxLength`, `minProperties`, `maxProperties`, `uniqueItems`, `contains`, `minContains`, and `maxContains` are ignored and not enforced.
+object <br />
 
-  - **GoogleSearch**: A tool that can be used by the model to search Google.
-  - **type** (`object`) *(Required)*
-    Value: `google_search`
-  - **search_types** (`array (enum (string))`)   The types of search grounding to enable.
-    Possible values:
-    - `web_search`: Setting this field enables web search. Only text results are returned.
-    - `image_search`: Setting this field enables image search. Image bytes are returned.
+string A direct string value.
+id string (optional) The unique identifier for the agent.
+base_agent string (optional) The base agent to extend.
+system_instruction string (optional) System instruction for the agent.
+description string (optional) Agent description for developers to quickly read and understand.
+tools array (AgentTool) (optional) The tools available to the agent.
+A tool that the agent can use.
 
-  - **McpServer**: A MCPServer is a server that can be called by the model to perform actions.
-  - **type** (`object`) *(Required)*
-    Value: `mcp_server`
-  - **url** (`string`)   The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
+#### Possible Types
 
-  - **name** (`string`)   The name of the MCPServer.
+CodeExecution A tool that can be used by the model to execute code.
+type object (required) No description provided.
 
-  - **headers** (`object`)   Optional: Fields for authentication headers, timeouts, etc., if needed.
+Always set to `"code_execution"`.
+Function A tool that can be used by the model.
+type object (required) No description provided.
 
-  - **allowed_tools** (`array (AllowedTools)`)   The allowed tools.
-    - **mode** (`enum (string)`)     The mode of the tool choice.
-      Possible values:
-      - `auto`: Auto tool choice.
-      - `any`: Any tool choice.
-      - `none`: No tool choice.
-      - `validated`: Validated tool choice.
+Always set to `"function"`.
+name string (optional) The name of the function.
+description string (optional) A description of the function.
+parameters object (optional) The JSON Schema for the function's parameters.
 
-    - **tools** (`array (string)`)     The names of the allowed tools.
+Supports a subset of JSON Schema. \`minLength\`, \`maxLength\`,
+\`minProperties\`, \`maxProperties\`, \`uniqueItems\`, \`contains\`,
+\`minContains\`, and \`maxContains\` are ignored and not enforced.
+GoogleSearch A tool that can be used by the model to search Google.
+type object (required) No description provided.
 
+Always set to `"google_search"`.
+search_types array (enum (string)) (optional) The types of search grounding to enable.
 
-  - **UrlContext**: A tool that can be used by the model to fetch URL context.
-  - **type** (`object`) *(Required)*
-    Value: `url_context`
+Possible
+values:
 
+- `web_search`
 
-#### Response
-- **agent_config** (`AntigravityAgentConfig`) Configuration parameters for the agent.
-  - **type** (`object`) *(Required)*
-    Value: `antigravity`
-  - **model** (`string`)   The model to use for agent reasoning.
+  Setting this field enables web search. Only text results are returned.
+- `image_search`
 
-  - **max_total_tokens** (`string`)   Max total tokens for the agent run.
+  Setting this field enables image search. Image bytes are returned.
+McpServer A MCPServer is a server that can be called by the model to perform actions.
+type object (required) No description provided.
 
+Always set to `"mcp_server"`.
+url string (optional) The full URL for the MCPServer endpoint.
+Example: "https://api.example.com/mcp"
+name string (optional) The name of the MCPServer.
+headers object (optional) Optional: Fields for authentication headers, timeouts, etc., if needed.
+allowed_tools array (AllowedTools) (optional) The allowed tools.
+The configuration for allowed tools.
 
-- **base_environment** (`EnvironmentConfig or string`) The environment configuration for the agent.
-  - **type** (`object`) *(Required)*
-    Value: `remote`
-  - **network** (`EnvironmentNetworkEgressAllowlist or enum (string)`)   Network configuration for the environment.
-    Possible values:
-    - `disabled`: All network egress is blocked.
-    - **allowlist** (`array (EgressRule) or enum (string)`)     List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-      Possible values:
-      - `disabled`: All network egress is blocked.
+#### Fields
 
+mode enum (string) (optional) The mode of the tool choice.
 
-  - **sources** (`array (Source)`)
-    - **type** (`enum (string)`)
-      Possible values:
-      - `gcs`: A Cloud Storage bucket.
-      - `inline`: Inline content.
-      - `repository`: A generic repository. The protocol prefix in the source URL
-identifies the provider (e.g., github://, gcs://).
+Possible
+values:
 
-    - **source** (`string`)     The source of the environment. For Cloud Storage, this is the Cloud Storage path. For GitHub, this is the GitHub path.
+- `auto`
 
-    - **target** (`string`)     Where the source should appear in the environment.
+  Auto tool choice.
+- `any`
 
-    - **content** (`string`)     The inline content if `type` is `INLINE`.
+  Any tool choice.
+- `none`
 
-    - **encoding** (`string`)     Optional encoding for inline content (e.g. `base64`).
+  No tool choice.
+- `validated`
 
+  Validated tool choice.
+tools array (string) (optional) The names of the allowed tools.
+UrlContext A tool that can be used by the model to fetch URL context.
+type object (required) No description provided.
 
-  - **environment_id** (`string`)   Optional. The environment ID for the interaction. If specified, the request will update the existing environment instead of creating a new one.
+Always set to `"url_context"`.
 
-  - **env** (`object or string`)   Environment variables to set in the sandbox environment.
+### Response
 
+If successful, the response body contains data with the following structure:
+agent_config AntigravityAgentConfig (optional) Configuration parameters for the agent.
+Configuration for the Antigravity agent runtime.
+Provides server-side control over the agent's execution environment
+and tool configuration.
 
-- **id** (`string`) The unique identifier for the agent.
+#### Fields
 
-- **base_agent** (`string`) The base agent to extend.
+type object (required) No description provided.
 
-- **system_instruction** (`string`) System instruction for the agent.
+Always set to `"antigravity"`.
+model string (optional) The model to use for agent reasoning.
+max_total_tokens string (optional) Max total tokens for the agent run.
+base_environment EnvironmentConfig or string (optional) The environment configuration for the agent.
+Configuration for a custom environment.
 
-- **description** (`string`) Agent description for developers to quickly read and understand.
+#### Fields
 
-- **tools** (`array (AgentTool)`) The tools available to the agent.
-  **Possible Types:**
-  - **CodeExecution**: A tool that can be used by the model to execute code.
-  - **type** (`object`) *(Required)*
-    Value: `code_execution`
-  - **Function**: A tool that can be used by the model.
-  - **type** (`object`) *(Required)*
-    Value: `function`
-  - **name** (`string`)   The name of the function.
-
-  - **description** (`string`)   A description of the function.
+type object (required) No description provided.
 
-  - **parameters** (`object`)   The JSON Schema for the function's parameters.  Supports a subset of JSON Schema. `minLength`, `maxLength`, `minProperties`, `maxProperties`, `uniqueItems`, `contains`, `minContains`, and `maxContains` are ignored and not enforced.
-
-  - **GoogleSearch**: A tool that can be used by the model to search Google.
-  - **type** (`object`) *(Required)*
-    Value: `google_search`
-  - **search_types** (`array (enum (string))`)   The types of search grounding to enable.
-    Possible values:
-    - `web_search`: Setting this field enables web search. Only text results are returned.
-    - `image_search`: Setting this field enables image search. Image bytes are returned.
-
-  - **McpServer**: A MCPServer is a server that can be called by the model to perform actions.
-  - **type** (`object`) *(Required)*
-    Value: `mcp_server`
-  - **url** (`string`)   The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
-
-  - **name** (`string`)   The name of the MCPServer.
-
-  - **headers** (`object`)   Optional: Fields for authentication headers, timeouts, etc., if needed.
-
-  - **allowed_tools** (`array (AllowedTools)`)   The allowed tools.
-    - **mode** (`enum (string)`)     The mode of the tool choice.
-      Possible values:
-      - `auto`: Auto tool choice.
-      - `any`: Any tool choice.
-      - `none`: No tool choice.
-      - `validated`: Validated tool choice.
-
-    - **tools** (`array (string)`)     The names of the allowed tools.
-
-
-  - **UrlContext**: A tool that can be used by the model to fetch URL context.
-  - **type** (`object`) *(Required)*
-    Value: `url_context`
-
-
-#### Examples
-**Create Agent**
-
-**REST**
-
-```sh
-curl -X POST https://generativelanguage.googleapis.com/v1beta/agents \
-  -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "id": "research-assistant-abc123",
-    "base_agent": "antigravity-preview-05-2026",
-    "description": "A helpful research assistant.",
-    "system_instruction": "You are a helpful research assistant.",
-    "base_environment": "remote",
-    "tools": [{"type": "google_search"}]
-  }'
-```
-**Python**
-
-```python
-import uuid
-from google import genai
-
-client = genai.Client()
-agent = client.agents.create(
-    id=f"research-assistant-{uuid.uuid4().hex[:8]}",
-    base_agent="antigravity-preview-05-2026",
-    description="A helpful research assistant.",
-    system_instruction="You are a helpful research assistant.",
-    base_environment="remote",
-    tools=[{"type": "google_search"}],
-)
-print(agent.id)
-```
-**JavaScript**
-
-```javascript
-import {GoogleGenAI} from '@google/genai';
-
-const ai = new GoogleGenAI({});
-const agentId = `research-assistant-${crypto.randomUUID().slice(0, 8)}`;
-const agent = await ai.agents.create({
-  id: agentId,
-  base_agent: 'antigravity-preview-05-2026',
-  description: 'A helpful research assistant.',
-  system_instruction: 'You are a helpful research assistant.',
-  base_environment: 'remote',
-  tools: [{type: 'google_search'}],
-});
-if (!agent.id) {
-  throw new Error('Agent creation failed: ID is undefined');
-}
-console.log(agent.id);
-```
-**Java**
-
-```java
-import com.google.genai.gaos.models.agents.Agent;
-import com.google.genai.gaos.models.agents.BaseEnvironment;
-import com.google.genai.Client;
-import com.google.genai.gaos.models.operations.CreateAgentResponse;
-import com.google.genai.gaos.models.interactions.GoogleSearch;
-
-Client client = new Client();
-String agentId = "research-assistant-" + UUID.randomUUID().toString().substring(0, 8);
-Agent agent =
-    Agent.builder()
-        .id(agentId)
-        .baseAgent("antigravity-preview-05-2026")
-        .description("A helpful research assistant.")
-        .systemInstruction("You are a helpful research assistant.")
-        .baseEnvironment(BaseEnvironment.of("remote"))
-        .tools(List.of(new GoogleSearch()))
-        .build();
-CreateAgentResponse response = client.agents.create(agent);
-System.out.println(response.agent().flatMap(Agent::id).orElse(""));
-```
-**Go**
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "time"
-    "google.golang.org/genai"
-    gaos_agents "google.golang.org/genai/interactions/models/agents"
-    gaos_interactions "google.golang.org/genai/interactions/models/interactions"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    agentID := fmt.Sprintf("research-assistant-%d", time.Now().UnixNano())
-    req := operations.CreateAgentRequest{
-        Body: gaos_agents.Agent{
-            ID:                genai.Ptr(agentID),
-            BaseAgent:         genai.Ptr("antigravity-preview-05-2026"),
-            Description:       genai.Ptr("A helpful research assistant."),
-            SystemInstruction: genai.Ptr("You are a helpful research assistant."),
-            BaseEnvironment:   genai.Ptr(gaos_agents.NewBaseEnvironment("remote")),
-            Tools: []gaos_agents.AgentTool{
-                gaos_agents.NewAgentTool(gaos_interactions.GoogleSearch{}),
-            },
-        },
-    }
-
-    res, err := client.Agents.Create(ctx, req)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    if res.Agent != nil && res.Agent.ID != nil {
-        fmt.Println(*res.Agent.ID)
-    }
-}
-```
-Response:
+Always set to `"remote"`.
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional) Network configuration for the environment.
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional) List of allowed domains and their configurations. Set to \`"disabled"\`
+to block all network egress.
+
+Possible
+values:
+
+- `disabled`
+
+  All network egress is blocked.
+sources array (Source) (optional) No description provided.
+A source to be mounted into the environment.
+
+#### Fields
+
+type enum (string) (optional) No description provided.
+
+Possible
+values:
+
+- `gcs`
+
+  A Cloud Storage bucket.
+- `inline`
+
+  Inline content.
+- `repository`
+
+  A generic repository. The protocol prefix in the source URL
+  identifies the provider (e.g., github://, gcs://).
+source string (optional) The source of the environment.
+For Cloud Storage, this is the Cloud Storage path.
+For GitHub, this is the GitHub path.
+target string (optional) Where the source should appear in the environment.
+content string (optional) The inline content if \`type\` is \`INLINE\`.
+encoding string (optional) Optional encoding for inline content (e.g. \`base64\`).
+environment_id string (optional) Optional. The environment ID for the interaction. If specified, the request will
+update the existing environment instead of creating a new one.
+env object or string (optional) Environment variables to set in the sandbox environment.
+
+#### Possible Types
+
+object <br />
+
+string A direct string value.
+id string (optional) The unique identifier for the agent.
+base_agent string (optional) The base agent to extend.
+system_instruction string (optional) System instruction for the agent.
+description string (optional) Agent description for developers to quickly read and understand.
+tools array (AgentTool) (optional) The tools available to the agent.
+A tool that the agent can use.
+
+#### Possible Types
+
+CodeExecution A tool that can be used by the model to execute code.
+type object (required) No description provided.
+
+Always set to `"code_execution"`.
+Function A tool that can be used by the model.
+type object (required) No description provided.
+
+Always set to `"function"`.
+name string (optional) The name of the function.
+description string (optional) A description of the function.
+parameters object (optional) The JSON Schema for the function's parameters.
+
+Supports a subset of JSON Schema. \`minLength\`, \`maxLength\`,
+\`minProperties\`, \`maxProperties\`, \`uniqueItems\`, \`contains\`,
+\`minContains\`, and \`maxContains\` are ignored and not enforced.
+GoogleSearch A tool that can be used by the model to search Google.
+type object (required) No description provided.
+
+Always set to `"google_search"`.
+search_types array (enum (string)) (optional) The types of search grounding to enable.
+
+Possible
+values:
+
+- `web_search`
+
+  Setting this field enables web search. Only text results are returned.
+- `image_search`
+
+  Setting this field enables image search. Image bytes are returned.
+McpServer A MCPServer is a server that can be called by the model to perform actions.
+type object (required) No description provided.
+
+Always set to `"mcp_server"`.
+url string (optional) The full URL for the MCPServer endpoint.
+Example: "https://api.example.com/mcp"
+name string (optional) The name of the MCPServer.
+headers object (optional) Optional: Fields for authentication headers, timeouts, etc., if needed.
+allowed_tools array (AllowedTools) (optional) The allowed tools.
+The configuration for allowed tools.
+
+#### Fields
+
+mode enum (string) (optional) The mode of the tool choice.
+
+Possible
+values:
+
+- `auto`
+
+  Auto tool choice.
+- `any`
+
+  Any tool choice.
+- `none`
+
+  No tool choice.
+- `validated`
+
+  Validated tool choice.
+tools array (string) (optional) The names of the allowed tools.
+UrlContext A tool that can be used by the model to fetch URL context.
+type object (required) No description provided.
+
+Always set to `"url_context"`.
+
+### Create Agent
+
+<iframe src="https:///frame/api/agents_8fda3d0bdc9bf7451f28aae6403a2e804dc37796f0ce7e70ad04075bda260300.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+
+#### Example Response
 
 ```json
 {
@@ -370,201 +341,12 @@ Response:
   ]
 }
 ```
-**Agent with Sources**
 
-**REST**
+### Agent with Sources
 
-```sh
-curl -X POST https://generativelanguage.googleapis.com/v1beta/agents \
-  -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "id": "data-analyst-abc123",
-    "base_agent": "antigravity-preview-05-2026",
-    "system_instruction": "You are a data analyst. Always include visualizations and export results as PDF.",
-    "base_environment": {
-      "type": "remote",
-      "sources": [
-        {
-          "type": "inline",
-          "target": ".agents/AGENTS.md",
-          "content": "Always use matplotlib for charts. Include a summary table in every report."
-        },
-        {
-          "type": "repository",
-          "source": "https://github.com/my-org/analysis-templates",
-          "target": "/workspace/templates"
-        }
-      ]
-    }
-  }'
-```
-**Python**
+<iframe src="https:///frame/api/agents_71c4be50bf087e3dcf78fbd1f9e46434ec2cce79ee92a38082d6313454e6e435.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
 
-```python
-import uuid
-from google import genai
-
-client = genai.Client()
-agent = client.agents.create(
-    id=f"data-analyst-{uuid.uuid4().hex[:8]}",
-    base_agent="antigravity-preview-05-2026",
-    system_instruction=(
-        "You are a data analyst. Always include visualizations and export"
-        " results as PDF."
-    ),
-    base_environment={
-        "type": "remote",
-        "sources": [
-            {
-                "type": "inline",
-                "target": ".agents/AGENTS.md",
-                "content": (
-                    "Always use matplotlib for charts. Include a summary"
-                    " table in every report."
-                ),
-            },
-            {
-                "type": "repository",
-                "source": "https://github.com/my-org/analysis-templates",
-                "target": "/workspace/templates",
-            },
-        ],
-    },
-)
-print(f"Created agent: {agent.id}")
-```
-**JavaScript**
-
-```javascript
-import {GoogleGenAI} from '@google/genai';
-
-const ai = new GoogleGenAI({});
-const agentId = `data-analyst-${crypto.randomUUID().slice(0, 8)}`;
-const agent = await ai.agents.create({
-  id: agentId,
-  base_agent: 'antigravity-preview-05-2026',
-  system_instruction:
-    'You are a data analyst. Always include visualizations and export results as PDF.',
-  base_environment: {
-    type: 'remote',
-    sources: [
-      {
-        type: 'inline',
-        target: '.agents/AGENTS.md',
-        content:
-          'Always use matplotlib for charts. Include a summary table in every report.',
-      },
-      {
-        type: 'repository',
-        source: 'https://github.com/my-org/analysis-templates',
-        target: '/workspace/templates',
-      },
-    ],
-  },
-});
-console.log(`Created agent: ${agent.id}`);
-```
-**Java**
-
-```java
-import com.google.genai.gaos.models.agents.Agent;
-import com.google.genai.gaos.models.agents.BaseEnvironment;
-import com.google.genai.Client;
-import com.google.genai.gaos.models.operations.CreateAgentResponse;
-import com.google.genai.gaos.models.environments.Environment;
-import com.google.genai.gaos.models.interactions.Source;
-import com.google.genai.gaos.models.interactions.SourceType;
-
-Client client = new Client();
-String agentId = "data-analyst-" + UUID.randomUUID().toString().substring(0, 8);
-com.google.genai.gaos.models.interactions.Environment env =
-    com.google.genai.gaos.models.interactions.Environment.builder()
-        .sources(
-            List.of(
-                Source.builder()
-                    .type(SourceType.INLINE)
-                    .target(".agents/AGENTS.md")
-                    .content(
-                        "Always use matplotlib for charts. Include a summary table in every"
-                            + " report.")
-                    .build(),
-                Source.builder()
-                    .type(SourceType.REPOSITORY)
-                    .source("https://github.com/my-org/analysis-templates")
-                    .target("/workspace/templates")
-                    .build()))
-        .build();
-Agent agent =
-    Agent.builder()
-        .id(agentId)
-        .baseAgent("antigravity-preview-05-2026")
-        .systemInstruction(
-            "You are a data analyst. Always include visualizations and export results as PDF.")
-        .baseEnvironment(BaseEnvironment.of(env))
-        .build();
-CreateAgentResponse response = client.agents.create(agent);
-System.out.println("Created agent: " + response.agent().flatMap(Agent::id).orElse(""));
-```
-**Go**
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "time"
-    "google.golang.org/genai"
-    gaos_agents "google.golang.org/genai/interactions/models/agents"
-    gaos_interactions "google.golang.org/genai/interactions/models/interactions"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    agentID := fmt.Sprintf("data-analyst-%d", time.Now().UnixNano())
-    env := gaos_interactions.Environment{
-        Sources: []gaos_interactions.Source{
-            {
-                Type:    genai.Ptr(gaos_interactions.SourceTypeInline),
-                Target:  genai.Ptr(".agents/AGENTS.md"),
-                Content: genai.Ptr("Always use matplotlib for charts. Include a summary table in every report."),
-            },
-            {
-                Type:   genai.Ptr(gaos_interactions.SourceTypeRepository),
-                Source: genai.Ptr("https://github.com/my-org/analysis-templates"),
-                Target: genai.Ptr("/workspace/templates"),
-            },
-        },
-    }
-
-    req := operations.CreateAgentRequest{
-        Body: gaos_agents.Agent{
-            ID:                genai.Ptr(agentID),
-            BaseAgent:         genai.Ptr("antigravity-preview-05-2026"),
-            SystemInstruction: genai.Ptr("You are a data analyst. Always include visualizations and export results as PDF."),
-            BaseEnvironment:   genai.Ptr(gaos_agents.NewBaseEnvironment(env)),
-        },
-    }
-
-    res, err := client.Agents.Create(ctx, req)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    if res.Agent != nil && res.Agent.ID != nil {
-        fmt.Printf("Created agent: %s\n", *res.Agent.ID)
-    }
-}
-```
-Response:
+#### Example Response
 
 ```json
 {
@@ -588,194 +370,12 @@ Response:
   "system_instruction": "You are a data analyst. Always include visualizations and export results as PDF."
 }
 ```
-**Agent Forked from Environment**
 
-**REST**
+### Agent Forked from Environment
 
-```sh
-# Step 1: Set up the environment interactively
-RESPONSE=$(curl -s -X POST https://generativelanguage.googleapis.com/v1beta/interactions \
-  -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "agent": "antigravity-preview-05-2026",
-    "input": "Write a basic Hello World template to /workspace/template.py.",
-    "environment": "remote"
-  }')
-ENV_ID=$(echo "$RESPONSE" | python3 -c "import sys,json; print(json.load(sys.stdin)['environment_id'])")
+<iframe src="https:///frame/api/agents_57df9b3c031d360b81d70d21949b98912bdc97eb046d82849f39ca15056e5269.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
 
-# Step 2: Fork that environment into a named agent
-curl -X POST https://generativelanguage.googleapis.com/v1beta/agents \
-  -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d "{
-    \"id\": \"my-data-analyst\",
-    \"base_agent\": \"antigravity-preview-05-2026\",
-    \"system_instruction\": \"You are a data analyst. Use the template at /workspace/template.py for all reports.\",
-    \"base_environment\": \"$ENV_ID\"
-  }"
-```
-**Python**
-
-```python
-import uuid
-from google import genai
-
-client = genai.Client()
-
-# Step 1: Set up the environment interactively.
-interaction = client.interactions.create(
-    agent="antigravity-preview-05-2026",
-    input="Write a basic Hello World template to /workspace/template.py.",
-    environment="remote",
-)
-
-# Step 2: Fork that environment into a named agent.
-agent_id = f"my-data-analyst-{uuid.uuid4().hex[:8]}"
-agent = client.agents.create(
-    id=agent_id,
-    base_agent="antigravity-preview-05-2026",
-    system_instruction=(
-        "You are a data analyst. Use the template at /workspace/template.py"
-        " for all reports."
-    ),
-    base_environment=interaction.environment_id,
-)
-print(f"Forked agent: {agent.id}")
-```
-**JavaScript**
-
-```javascript
-import {GoogleGenAI} from '@google/genai';
-
-const ai = new GoogleGenAI({});
-
-// Step 1: Set up the environment interactively.
-const interaction = await ai.interactions.create({
-  agent: 'antigravity-preview-05-2026',
-  input: 'Write a basic Hello World template to /workspace/template.py.',
-  environment: 'remote',
-});
-
-// Step 2: Fork that environment into a named agent.
-const agentId = `my-data-analyst-${crypto.randomUUID().slice(0, 8)}`;
-const agent = await ai.agents.create({
-  id: agentId,
-  base_agent: 'antigravity-preview-05-2026',
-  system_instruction:
-    'You are a data analyst. Use the template at /workspace/template.py for all reports.',
-  base_environment: interaction.environment_id,
-});
-console.log(`Forked agent: ${agent.id}`);
-```
-**Java**
-
-```java
-import com.google.genai.gaos.models.agents.Agent;
-import com.google.genai.gaos.models.interactions.AgentOption;
-import com.google.genai.gaos.models.agents.BaseEnvironment;
-import com.google.genai.Client;
-import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
-import com.google.genai.gaos.models.interactions.CreateAgentInteractionEnvironment;
-import com.google.genai.gaos.models.operations.CreateAgentResponse;
-import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import com.google.genai.gaos.models.operations.CreateInteractionResponse;
-import com.google.genai.gaos.models.interactions.Interaction;
-import com.google.genai.gaos.models.interactions.InteractionsInput;
-import com.google.genai.gaos.models.interactions.Step;
-
-Client client = new Client();
-
-// Step 1: Set up the environment interactively.
-CreateAgentInteraction params =
-    CreateAgentInteraction.builder()
-        .agent(AgentOption.of("antigravity-preview-05-2026"))
-        .input(
-            InteractionsInput.of(
-                "Write a basic Hello World template to /workspace/template.py."))
-        .environment(CreateAgentInteractionEnvironment.of("remote"))
-        .build();
-CreateInteractionResponse interactionResponse =
-    client.interactions.create(CreateInteractionRequestBody.of(params));
-Interaction interaction =
-    interactionResponse
-        .interaction()
-        .orElseThrow(() -> new RuntimeException("No interaction returned"));
-
-// Step 2: Fork that environment into a named agent.
-String agentId = "my-data-analyst-" + UUID.randomUUID().toString().substring(0, 8);
-Agent agent =
-    Agent.builder()
-        .id(agentId)
-        .baseAgent("antigravity-preview-05-2026")
-        .systemInstruction(
-            "You are a data analyst. Use the template at /workspace/template.py for all"
-                + " reports.")
-        .baseEnvironment(BaseEnvironment.of(interaction.environmentId().orElse("")))
-        .build();
-CreateAgentResponse agentResponse = client.agents.create(agent);
-System.out.println("Forked agent: " + agentResponse.agent().flatMap(Agent::id).orElse(""));
-```
-**Go**
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "time"
-    "google.golang.org/genai"
-    gaos_agents "google.golang.org/genai/interactions/models/agents"
-    gaos_interactions "google.golang.org/genai/interactions/models/interactions"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Step 1: Set up the environment interactively.
-    interactionReq := operations.CreateInteractionRequest{
-        Body: operations.NewCreateInteractionRequestBody(gaos_interactions.CreateAgentInteraction{
-            Agent:       gaos_interactions.AgentOption("antigravity-preview-05-2026"),
-            Input:       genai.Ptr(gaos_interactions.NewInteractionsInput("Write a basic Hello World template to /workspace/template.py.")),
-            Environment: genai.Ptr(gaos_interactions.NewCreateAgentInteractionEnvironment("remote")),
-        }),
-    }
-    interactionRes, err := client.Interactions.Create(ctx, interactionReq)
-    if err != nil {
-        log.Fatal(err)
-    }
-    envID := ""
-    if interactionRes.Interaction != nil && interactionRes.Interaction.EnvironmentID != nil {
-        envID = *interactionRes.Interaction.EnvironmentID
-    }
-
-    // Step 2: Fork that environment into a named agent.
-    agentID := fmt.Sprintf("my-data-analyst-%d", time.Now().UnixNano())
-    req := operations.CreateAgentRequest{
-        Body: gaos_agents.Agent{
-            ID:                genai.Ptr(agentID),
-            BaseAgent:         genai.Ptr("antigravity-preview-05-2026"),
-            SystemInstruction: genai.Ptr("You are a data analyst. Use the template at /workspace/template.py for all reports."),
-            BaseEnvironment:   genai.Ptr(gaos_agents.NewBaseEnvironment(envID)),
-        },
-    }
-    res, err := client.Agents.Create(ctx, req)
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.Agent != nil && res.Agent.ID != nil {
-        fmt.Printf("Forked agent: %s\n", *res.Agent.ID)
-    }
-}
-```
-Response:
+#### Example Response
 
 ```json
 {
@@ -785,110 +385,31 @@ Response:
   "system_instruction": "You are a data analyst. Use the template at /workspace/template.py for all reports."
 }
 ```
----
 
-### ListAgents
+## ListAgents
 
-`GET https://generativelanguage.googleapis.com/v1beta/agents`
+get https://generativelanguage.googleapis.com/v1beta/agents Lists all Agents.
+- [Path / Query parameters](https://ai.google.dev/api/agents#ListAgents.PATH_PARAMETERS)
+- [Response](https://ai.google.dev/api/agents#ListAgents.response)
 
-Lists all Agents.
+### Path / Query Parameters
 
-#### Parameters
-- **parent** (`string`) *(Required)* Required. The parent resource to list agents from. Format: `projects/{project}/locations/{location}`
+parent string (required) Required. The parent resource to list agents from.
+Format: \`projects/{project}/locations/{location}\`
+page_size integer (optional) No description provided.
+page_token string (optional) No description provided.
 
-- **page_size** (`integer`)
+### Response
 
-- **page_token** (`string`)
+If successful, the response body contains data with the following structure:
+agents array ([Agent](https://ai.google.dev/api/agents#Resource:Agent)) (optional) The list of agents.
+next_page_token string (optional) A token to retrieve the next page of results.
 
+### List Agents
 
+<iframe src="https:///frame/api/agents_f1afef0d3641d7c21e3109238867e0214f7501acb3a549f4523adaa82ed61070.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
 
-#### Response
-- **agents** (`array (<a href="#Resource:Agent">Agent</a>)`) The list of agents.
-
-- **next_page_token** (`string`) A token to retrieve the next page of results.
-
-
-#### Examples
-**List Agents**
-
-**REST**
-
-```sh
-curl -X GET https://generativelanguage.googleapis.com/v1beta/agents \
-  -H "x-goog-api-key: $GEMINI_API_KEY"
-```
-**Python**
-
-```python
-from google import genai
-
-client = genai.Client()
-response = client.agents.list()
-for agent in response.agents or []:
-  print(agent.id)
-```
-**JavaScript**
-
-```javascript
-import {GoogleGenAI} from '@google/genai';
-
-const ai = new GoogleGenAI({});
-const agents = await ai.agents.list();
-for (const agent of agents.agents ?? []) {
-  console.log(agent.id);
-}
-```
-**Java**
-
-```java
-import com.google.genai.gaos.models.agents.Agent;
-import com.google.genai.gaos.models.agents.AgentListResponse;
-import com.google.genai.Client;
-import com.google.genai.gaos.models.operations.ListAgentsResponse;
-
-Client client = new Client();
-ListAgentsResponse response = client.agents.list().call();
-List<Agent> agents =
-    response.agentListResponse().flatMap(AgentListResponse::agents).orElse(List.of());
-for (Agent agent : agents) {
-  agent.id().ifPresent(System.out::println);
-}
-```
-**Go**
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "google.golang.org/genai"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    res, err := client.Agents.List(ctx, operations.ListAgentsRequest{})
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    if res.AgentListResponse != nil {
-        for _, agent := range res.AgentListResponse.Agents {
-            if agent.ID != nil {
-                fmt.Println(*agent.ID)
-            }
-        }
-    }
-}
-```
-Response:
+#### Example Response
 
 ```json
 {
@@ -907,197 +428,169 @@ Response:
   ]
 }
 ```
----
 
-### GetAgent
+## GetAgent
 
-`GET https://generativelanguage.googleapis.com/v1beta/agents/{agentsId}`
+get https://generativelanguage.googleapis.com/v1beta/agents/{agentsId} Gets a specific Agent.
+- [Path / Query parameters](https://ai.google.dev/api/agents#GetAgent.PATH_PARAMETERS)
+- [Response](https://ai.google.dev/api/agents#GetAgent.response)
 
-Gets a specific Agent.
+### Path / Query Parameters
 
-#### Parameters
-- **agentsId** (`string`) *(Required)* Required. The name of the agent to retrieve.
+agentsId string (required) Required. The name of the agent to retrieve.
 
+### Response
 
+If successful, the response body contains data with the following structure:
+agent_config AntigravityAgentConfig (optional) Configuration parameters for the agent.
+Configuration for the Antigravity agent runtime.
+Provides server-side control over the agent's execution environment
+and tool configuration.
 
-#### Response
-- **agent_config** (`AntigravityAgentConfig`) Configuration parameters for the agent.
-  - **type** (`object`) *(Required)*
-    Value: `antigravity`
-  - **model** (`string`)   The model to use for agent reasoning.
+#### Fields
 
-  - **max_total_tokens** (`string`)   Max total tokens for the agent run.
+type object (required) No description provided.
 
+Always set to `"antigravity"`.
+model string (optional) The model to use for agent reasoning.
+max_total_tokens string (optional) Max total tokens for the agent run.
+base_environment EnvironmentConfig or string (optional) The environment configuration for the agent.
+Configuration for a custom environment.
 
-- **base_environment** (`EnvironmentConfig or string`) The environment configuration for the agent.
-  - **type** (`object`) *(Required)*
-    Value: `remote`
-  - **network** (`EnvironmentNetworkEgressAllowlist or enum (string)`)   Network configuration for the environment.
-    Possible values:
-    - `disabled`: All network egress is blocked.
-    - **allowlist** (`array (EgressRule) or enum (string)`)     List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-      Possible values:
-      - `disabled`: All network egress is blocked.
+#### Fields
 
+type object (required) No description provided.
 
-  - **sources** (`array (Source)`)
-    - **type** (`enum (string)`)
-      Possible values:
-      - `gcs`: A Cloud Storage bucket.
-      - `inline`: Inline content.
-      - `repository`: A generic repository. The protocol prefix in the source URL
-identifies the provider (e.g., github://, gcs://).
+Always set to `"remote"`.
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional) Network configuration for the environment.
+Network egress configuration for the environment.
 
-    - **source** (`string`)     The source of the environment. For Cloud Storage, this is the Cloud Storage path. For GitHub, this is the GitHub path.
+#### Fields
 
-    - **target** (`string`)     Where the source should appear in the environment.
+allowlist array (EgressRule) or enum (string) (optional) List of allowed domains and their configurations. Set to \`"disabled"\`
+to block all network egress.
 
-    - **content** (`string`)     The inline content if `type` is `INLINE`.
+Possible
+values:
 
-    - **encoding** (`string`)     Optional encoding for inline content (e.g. `base64`).
+- `disabled`
 
+  All network egress is blocked.
+sources array (Source) (optional) No description provided.
+A source to be mounted into the environment.
 
-  - **environment_id** (`string`)   Optional. The environment ID for the interaction. If specified, the request will update the existing environment instead of creating a new one.
+#### Fields
 
-  - **env** (`object or string`)   Environment variables to set in the sandbox environment.
+type enum (string) (optional) No description provided.
 
+Possible
+values:
 
-- **id** (`string`) The unique identifier for the agent.
+- `gcs`
 
-- **base_agent** (`string`) The base agent to extend.
+  A Cloud Storage bucket.
+- `inline`
 
-- **system_instruction** (`string`) System instruction for the agent.
+  Inline content.
+- `repository`
 
-- **description** (`string`) Agent description for developers to quickly read and understand.
+  A generic repository. The protocol prefix in the source URL
+  identifies the provider (e.g., github://, gcs://).
+source string (optional) The source of the environment.
+For Cloud Storage, this is the Cloud Storage path.
+For GitHub, this is the GitHub path.
+target string (optional) Where the source should appear in the environment.
+content string (optional) The inline content if \`type\` is \`INLINE\`.
+encoding string (optional) Optional encoding for inline content (e.g. \`base64\`).
+environment_id string (optional) Optional. The environment ID for the interaction. If specified, the request will
+update the existing environment instead of creating a new one.
+env object or string (optional) Environment variables to set in the sandbox environment.
 
-- **tools** (`array (AgentTool)`) The tools available to the agent.
-  **Possible Types:**
-  - **CodeExecution**: A tool that can be used by the model to execute code.
-  - **type** (`object`) *(Required)*
-    Value: `code_execution`
-  - **Function**: A tool that can be used by the model.
-  - **type** (`object`) *(Required)*
-    Value: `function`
-  - **name** (`string`)   The name of the function.
+#### Possible Types
 
-  - **description** (`string`)   A description of the function.
+object <br />
 
-  - **parameters** (`object`)   The JSON Schema for the function's parameters.  Supports a subset of JSON Schema. `minLength`, `maxLength`, `minProperties`, `maxProperties`, `uniqueItems`, `contains`, `minContains`, and `maxContains` are ignored and not enforced.
+string A direct string value.
+id string (optional) The unique identifier for the agent.
+base_agent string (optional) The base agent to extend.
+system_instruction string (optional) System instruction for the agent.
+description string (optional) Agent description for developers to quickly read and understand.
+tools array (AgentTool) (optional) The tools available to the agent.
+A tool that the agent can use.
 
-  - **GoogleSearch**: A tool that can be used by the model to search Google.
-  - **type** (`object`) *(Required)*
-    Value: `google_search`
-  - **search_types** (`array (enum (string))`)   The types of search grounding to enable.
-    Possible values:
-    - `web_search`: Setting this field enables web search. Only text results are returned.
-    - `image_search`: Setting this field enables image search. Image bytes are returned.
+#### Possible Types
 
-  - **McpServer**: A MCPServer is a server that can be called by the model to perform actions.
-  - **type** (`object`) *(Required)*
-    Value: `mcp_server`
-  - **url** (`string`)   The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
+CodeExecution A tool that can be used by the model to execute code.
+type object (required) No description provided.
 
-  - **name** (`string`)   The name of the MCPServer.
+Always set to `"code_execution"`.
+Function A tool that can be used by the model.
+type object (required) No description provided.
 
-  - **headers** (`object`)   Optional: Fields for authentication headers, timeouts, etc., if needed.
+Always set to `"function"`.
+name string (optional) The name of the function.
+description string (optional) A description of the function.
+parameters object (optional) The JSON Schema for the function's parameters.
 
-  - **allowed_tools** (`array (AllowedTools)`)   The allowed tools.
-    - **mode** (`enum (string)`)     The mode of the tool choice.
-      Possible values:
-      - `auto`: Auto tool choice.
-      - `any`: Any tool choice.
-      - `none`: No tool choice.
-      - `validated`: Validated tool choice.
+Supports a subset of JSON Schema. \`minLength\`, \`maxLength\`,
+\`minProperties\`, \`maxProperties\`, \`uniqueItems\`, \`contains\`,
+\`minContains\`, and \`maxContains\` are ignored and not enforced.
+GoogleSearch A tool that can be used by the model to search Google.
+type object (required) No description provided.
 
-    - **tools** (`array (string)`)     The names of the allowed tools.
+Always set to `"google_search"`.
+search_types array (enum (string)) (optional) The types of search grounding to enable.
 
+Possible
+values:
 
-  - **UrlContext**: A tool that can be used by the model to fetch URL context.
-  - **type** (`object`) *(Required)*
-    Value: `url_context`
+- `web_search`
 
+  Setting this field enables web search. Only text results are returned.
+- `image_search`
 
-#### Examples
-**Get Agent**
+  Setting this field enables image search. Image bytes are returned.
+McpServer A MCPServer is a server that can be called by the model to perform actions.
+type object (required) No description provided.
 
-**REST**
+Always set to `"mcp_server"`.
+url string (optional) The full URL for the MCPServer endpoint.
+Example: "https://api.example.com/mcp"
+name string (optional) The name of the MCPServer.
+headers object (optional) Optional: Fields for authentication headers, timeouts, etc., if needed.
+allowed_tools array (AllowedTools) (optional) The allowed tools.
+The configuration for allowed tools.
 
-```sh
-curl -X GET https://generativelanguage.googleapis.com/v1beta/agents/ag_abc123 \
-  -H "x-goog-api-key: $GEMINI_API_KEY"
-```
-**Python**
+#### Fields
 
-```python
-import uuid
-from google import genai
+mode enum (string) (optional) The mode of the tool choice.
 
-client = genai.Client()
+Possible
+values:
 
+- `auto`
 
-agent = client.agents.get(agent_id)
-print(agent.id)
-```
-**JavaScript**
+  Auto tool choice.
+- `any`
 
-```javascript
-import {GoogleGenAI} from '@google/genai';
+  Any tool choice.
+- `none`
 
-const ai = new GoogleGenAI({});
+  No tool choice.
+- `validated`
 
+  Validated tool choice.
+tools array (string) (optional) The names of the allowed tools.
+UrlContext A tool that can be used by the model to fetch URL context.
+type object (required) No description provided.
 
-const agent = await ai.agents.get(agentId);
-if (!agent.id) {
-  throw new Error('Agent retrieval failed: ID is undefined');
-}
-console.log(agent.id);
-```
-**Java**
+Always set to `"url_context"`.
 
-```java
-import com.google.genai.gaos.models.agents.Agent;
-import com.google.genai.Client;
-import com.google.genai.gaos.models.operations.GetAgentResponse;
+### Get Agent
 
-Client client = new Client();
+<iframe src="https:///frame/api/agents_ad542c89d49837b14bbafa22e73c7f943bf028850e25a5f93a48a450b4f1efbe.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
 
-
-GetAgentResponse response = client.agents.get(agentId);
-Agent agent = response.agent().orElseThrow(() -> new RuntimeException("No agent returned"));
-System.out.println(agent.id().orElse(""));
-```
-**Go**
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "google.golang.org/genai"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-
-    res, err := client.Agents.Get(ctx, operations.GetAgentRequest{ID: agentID})
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    if res.Agent != nil && res.Agent.ID != nil {
-        fmt.Println(*res.Agent.ID)
-    }
-}
-```
-Response:
+#### Example Response
 
 ```json
 {
@@ -1114,205 +607,182 @@ Response:
   "updated": "2025-11-26T12:25:15Z"
 }
 ```
----
 
-### DeleteAgent
+## DeleteAgent
 
-`DELETE https://generativelanguage.googleapis.com/v1beta/agents/{agentsId}`
+delete https://generativelanguage.googleapis.com/v1beta/agents/{agentsId} Deletes an Agent.
+- [Path / Query parameters](https://ai.google.dev/api/agents#DeleteAgent.PATH_PARAMETERS)
+- [Response](https://ai.google.dev/api/agents#DeleteAgent.response)
 
-Deletes an Agent.
+### Path / Query Parameters
 
-#### Parameters
-- **agentsId** (`string`) *(Required)* Required. The name of the agent to delete.
+agentsId string (required) Required. The name of the agent to delete.
 
+### Response
 
+If successful, the response is empty.
 
-#### Response
+### Delete Agent
 
-#### Examples
-**Delete Agent**
-
-**REST**
-
-```sh
-curl -X DELETE https://generativelanguage.googleapis.com/v1beta/agents/ag_abc123 \
-  -H "x-goog-api-key: $GEMINI_API_KEY"
-```
-**Python**
-
-```python
-import uuid
-from google import genai
-
-client = genai.Client()
-
-
-client.agents.delete(agent_id)
-print("Agent deleted successfully.")
-```
-**JavaScript**
-
-```javascript
-import {GoogleGenAI} from '@google/genai';
-
-const ai = new GoogleGenAI({});
-
-
-await ai.agents.delete(agentId);
-console.log('Agent deleted successfully.');
-```
-**Java**
-
-```java
-import com.google.genai.gaos.models.agents.Agent;
-import com.google.genai.Client;
-
-Client client = new Client();
-
-
-client.agents.delete(agentId);
-System.out.println("Agent deleted successfully.");
-```
-**Go**
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "google.golang.org/genai"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-
-    _, err = client.Agents.Delete(ctx, operations.DeleteAgentRequest{ID: agentID})
-    if err != nil {
-        log.Fatal(err)
-    }
-    fmt.Println("Agent deleted successfully.")
-}
-```
----
-
+<iframe src="https:///frame/api/agents_9e1cfa5f5054649b428f469bf30759ff1d19de70f62f2ac09860856e8a4634db.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
 
 ## Resources
-### Agent { #Resource:Agent }
+
+### Agent
+
 An agent definition for the CreateAgent API.
 This message is the target for annotation-parser-based JSON parsing.
 New format:
-  {
-    "id": "customer-sentinel",
-    "base_agent": "",
-    "system_instruction": "...",
-    "base_environment": { "type": "remote", "sources": [...] },
-    "tools": [ {"type": "code_execution"} ]
-  }
+{
+"id": "customer-sentinel",
+"base_agent": "",
+"system_instruction": "...",
+"base_environment": { "type": "remote", "sources": \[...\] },
+"tools": \[ {"type": "code_execution"} \]
+}
 
-**Properties:**
-- **agent_config** (`AntigravityAgentConfig`) Configuration parameters for the agent.
-  - **type** (`object`) *(Required)*
-    Value: `antigravity`
-  - **model** (`string`)   The model to use for agent reasoning.
+#### Fields
 
-  - **max_total_tokens** (`string`)   Max total tokens for the agent run.
+agent_config AntigravityAgentConfig (optional) Configuration parameters for the agent.
+Configuration for the Antigravity agent runtime.
+Provides server-side control over the agent's execution environment
+and tool configuration.
 
+#### Fields
 
-- **base_environment** (`EnvironmentConfig or string`) The environment configuration for the agent.
-  - **type** (`object`) *(Required)*
-    Value: `remote`
-  - **network** (`EnvironmentNetworkEgressAllowlist or enum (string)`)   Network configuration for the environment.
-    Possible values:
-    - `disabled`: All network egress is blocked.
-    - **allowlist** (`array (EgressRule) or enum (string)`)     List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-      Possible values:
-      - `disabled`: All network egress is blocked.
+type object (required) No description provided.
 
+Always set to `"antigravity"`.
+model string (optional) The model to use for agent reasoning.
+max_total_tokens string (optional) Max total tokens for the agent run.
+base_environment EnvironmentConfig or string (optional) The environment configuration for the agent.
+Configuration for a custom environment.
 
-  - **sources** (`array (Source)`)
-    - **type** (`enum (string)`)
-      Possible values:
-      - `gcs`: A Cloud Storage bucket.
-      - `inline`: Inline content.
-      - `repository`: A generic repository. The protocol prefix in the source URL
-identifies the provider (e.g., github://, gcs://).
+#### Fields
 
-    - **source** (`string`)     The source of the environment. For Cloud Storage, this is the Cloud Storage path. For GitHub, this is the GitHub path.
+type object (required) No description provided.
 
-    - **target** (`string`)     Where the source should appear in the environment.
+Always set to `"remote"`.
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional) Network configuration for the environment.
+Network egress configuration for the environment.
 
-    - **content** (`string`)     The inline content if `type` is `INLINE`.
+#### Fields
 
-    - **encoding** (`string`)     Optional encoding for inline content (e.g. `base64`).
+allowlist array (EgressRule) or enum (string) (optional) List of allowed domains and their configurations. Set to \`"disabled"\`
+to block all network egress.
 
+Possible
+values:
 
-  - **environment_id** (`string`)   Optional. The environment ID for the interaction. If specified, the request will update the existing environment instead of creating a new one.
+- `disabled`
 
-  - **env** (`object or string`)   Environment variables to set in the sandbox environment.
+  All network egress is blocked.
+sources array (Source) (optional) No description provided.
+A source to be mounted into the environment.
 
+#### Fields
 
-- **id** (`string`) The unique identifier for the agent.
+type enum (string) (optional) No description provided.
 
-- **base_agent** (`string`) The base agent to extend.
+Possible
+values:
 
-- **system_instruction** (`string`) System instruction for the agent.
+- `gcs`
 
-- **description** (`string`) Agent description for developers to quickly read and understand.
+  A Cloud Storage bucket.
+- `inline`
 
-- **tools** (`array (AgentTool)`) The tools available to the agent.
-  **Possible Types:**
-  - **CodeExecution**: A tool that can be used by the model to execute code.
-  - **type** (`object`) *(Required)*
-    Value: `code_execution`
-  - **Function**: A tool that can be used by the model.
-  - **type** (`object`) *(Required)*
-    Value: `function`
-  - **name** (`string`)   The name of the function.
+  Inline content.
+- `repository`
 
-  - **description** (`string`)   A description of the function.
+  A generic repository. The protocol prefix in the source URL
+  identifies the provider (e.g., github://, gcs://).
+source string (optional) The source of the environment.
+For Cloud Storage, this is the Cloud Storage path.
+For GitHub, this is the GitHub path.
+target string (optional) Where the source should appear in the environment.
+content string (optional) The inline content if \`type\` is \`INLINE\`.
+encoding string (optional) Optional encoding for inline content (e.g. \`base64\`).
+environment_id string (optional) Optional. The environment ID for the interaction. If specified, the request will
+update the existing environment instead of creating a new one.
+env object or string (optional) Environment variables to set in the sandbox environment.
 
-  - **parameters** (`object`)   The JSON Schema for the function's parameters.  Supports a subset of JSON Schema. `minLength`, `maxLength`, `minProperties`, `maxProperties`, `uniqueItems`, `contains`, `minContains`, and `maxContains` are ignored and not enforced.
+#### Possible Types
 
-  - **GoogleSearch**: A tool that can be used by the model to search Google.
-  - **type** (`object`) *(Required)*
-    Value: `google_search`
-  - **search_types** (`array (enum (string))`)   The types of search grounding to enable.
-    Possible values:
-    - `web_search`: Setting this field enables web search. Only text results are returned.
-    - `image_search`: Setting this field enables image search. Image bytes are returned.
+object <br />
 
-  - **McpServer**: A MCPServer is a server that can be called by the model to perform actions.
-  - **type** (`object`) *(Required)*
-    Value: `mcp_server`
-  - **url** (`string`)   The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
+string A direct string value.
+id string (optional) The unique identifier for the agent.
+base_agent string (optional) The base agent to extend.
+system_instruction string (optional) System instruction for the agent.
+description string (optional) Agent description for developers to quickly read and understand.
+tools array (AgentTool) (optional) The tools available to the agent.
+A tool that the agent can use.
 
-  - **name** (`string`)   The name of the MCPServer.
+#### Possible Types
 
-  - **headers** (`object`)   Optional: Fields for authentication headers, timeouts, etc., if needed.
+CodeExecution A tool that can be used by the model to execute code.
+type object (required) No description provided.
 
-  - **allowed_tools** (`array (AllowedTools)`)   The allowed tools.
-    - **mode** (`enum (string)`)     The mode of the tool choice.
-      Possible values:
-      - `auto`: Auto tool choice.
-      - `any`: Any tool choice.
-      - `none`: No tool choice.
-      - `validated`: Validated tool choice.
+Always set to `"code_execution"`.
+Function A tool that can be used by the model.
+type object (required) No description provided.
 
-    - **tools** (`array (string)`)     The names of the allowed tools.
+Always set to `"function"`.
+name string (optional) The name of the function.
+description string (optional) A description of the function.
+parameters object (optional) The JSON Schema for the function's parameters.
 
+Supports a subset of JSON Schema. \`minLength\`, \`maxLength\`,
+\`minProperties\`, \`maxProperties\`, \`uniqueItems\`, \`contains\`,
+\`minContains\`, and \`maxContains\` are ignored and not enforced.
+GoogleSearch A tool that can be used by the model to search Google.
+type object (required) No description provided.
 
-  - **UrlContext**: A tool that can be used by the model to fetch URL context.
-  - **type** (`object`) *(Required)*
-    Value: `url_context`
+Always set to `"google_search"`.
+search_types array (enum (string)) (optional) The types of search grounding to enable.
 
+Possible
+values:
 
+- `web_search`
 
+  Setting this field enables web search. Only text results are returned.
+- `image_search`
 
+  Setting this field enables image search. Image bytes are returned.
+McpServer A MCPServer is a server that can be called by the model to perform actions.
+type object (required) No description provided.
+
+Always set to `"mcp_server"`.
+url string (optional) The full URL for the MCPServer endpoint.
+Example: "https://api.example.com/mcp"
+name string (optional) The name of the MCPServer.
+headers object (optional) Optional: Fields for authentication headers, timeouts, etc., if needed.
+allowed_tools array (AllowedTools) (optional) The allowed tools.
+The configuration for allowed tools.
+
+#### Fields
+
+mode enum (string) (optional) The mode of the tool choice.
+
+Possible
+values:
+
+- `auto`
+
+  Auto tool choice.
+- `any`
+
+  Any tool choice.
+- `none`
+
+  No tool choice.
+- `validated`
+
+  Validated tool choice.
+tools array (string) (optional) The names of the allowed tools.
+UrlContext A tool that can be used by the model to fetch URL context.
+type object (required) No description provided.
+
+Always set to `"url_context"`.

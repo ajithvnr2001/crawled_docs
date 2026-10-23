@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/voice-agents/why-voice-agents/
-title: Building Voice AI Agents in India: Why Sarvam Voice Agents | Sarvam API Docs
+title: Why Sarvam Voice Agents: build vs buy for AI calling | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:39:02.149218+00:00
+fetched_at: 2026-10-23T16:38:47.721181+00:00
 ---
 
-# Building Voice AI Agents in India: Why Sarvam Voice Agents | Sarvam API Docs
+# Why Sarvam Voice Agents: build vs buy for AI calling | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/voice-agents/why-voice-agents/
 
@@ -16,6 +16,7 @@ On this page
   * What you get in one platform
   * Build it yourself vs Sarvam Voice Agents
   * What it costs
+  * Use cases
   * When to use the APIs instead
   * Get started
 
@@ -25,13 +26,13 @@ Scroll to top
 
 [Getting Started](https://docs.sarvam.ai/voice-agents/introduction)
 
-# Why Voice Agents
+# Why Sarvam Voice Agents: build vs buy for AI calling
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/voice-agents/why-voice-agents.md "View this page as plain text")|More actions
 
 This page is for Voice Agents.
 
-**If you are building a voice agent for customers in India, Sarvam Voice Agents gives you the whole stack in one platform:** speech recognition, reasoning, and speech synthesis built for Indian languages, plus telephony, testing, outbound campaigns, and analytics. Pricing is per minute, from ₹3.50 on pay as you go down to ₹3 on Business. See [Pricing](https://docs.sarvam.ai/voice-agents/pricing).
+**If you are building a voice agent for customers in India, Sarvam Voice Agents (Samvaad) gives you the whole stack in one platform:** speech recognition, reasoning, and speech synthesis built for Indian languages, plus telephony, testing, outbound campaigns, and analytics. Pricing is per minute, from ₹3.50 on pay as you go down to ₹3 on Business. See [Pricing](https://docs.sarvam.ai/voice-agents/pricing).
 
 ## What you get in one platform
 
@@ -75,6 +76,21 @@ Enterprise (2 lakh minutes a month and above)| Custom, on committed volume
   
 Self-serve plans are prepaid from your credit balance. Enterprise is postpaid and invoiced monthly. For example, 10,000 minutes a month costs ₹35,000 on pay as you go. Telephony is billed separately. See [Pricing](https://docs.sarvam.ai/voice-agents/pricing) for plan subscriptions, telephony rates, rate limits, and a cost estimate by volume.
 
+## Use cases
+
+See how the platform handles common calling workflows on sarvam.ai:
+
+  * [AI voice agent for appointment booking](https://www.sarvam.ai/voice-agents/appointment-booking)
+  * [AI voice agent for cart abandonment](https://www.sarvam.ai/voice-agents/cart-abandonment)
+  * [AI voice agent for lead qualification](https://www.sarvam.ai/voice-agents/lead-qualification)
+  * [AI voice agent for order status calls](https://www.sarvam.ai/voice-agents/order-status)
+  * [AI voice agent for pre-approved loan offers](https://www.sarvam.ai/voice-agents/pre-approved-loan-offers)
+  * [AI voice agents for collections](https://www.sarvam.ai/solutions/collections)
+
+
+
+For a product tour, see the [Sarvam Voice Agents product page](https://www.sarvam.ai/products/voice-agents), and compare plans on the [Voice Agents pricing page](https://www.sarvam.ai/products/voice-agents/pricing).
+
 ## When to use the APIs instead
 
 Use Sarvam’s [speech-to-text](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview), [text-to-speech](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/overview), and [chat](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/overview) APIs directly if you already run your own orchestration (for example [LiveKit](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit) or [Pipecat](https://docs.sarvam.ai/api/integration/build-voice-agent-with-pipecat)) and want full control of every component. For everything else, start with Voice Agents.
@@ -87,7 +103,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/introduction)[OverviewNext](https://docs.sarvam.ai/voice-agents/overview)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/introduction)[Voice Agents overview: AI voice agents for Indian languagesNext](https://docs.sarvam.ai/voice-agents/overview)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 

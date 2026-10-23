@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/migration-job-actions/
 title: Manage migration jobs \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:27.633508+00:00
+fetched_at: 2026-10-23T16:54:13.120976+00:00
 ---
 
 # Manage migration jobs  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

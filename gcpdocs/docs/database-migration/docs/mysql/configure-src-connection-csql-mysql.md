@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/mysql/configure-src-connection-csql-mysql/
 title: Configure network connectivity for Cloud SQL for MySQL sources \u00a0|\u00a0 Database Migration Service for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:05.872163+00:00
+fetched_at: 2026-10-23T16:53:35.501322+00:00
 ---
 
 # Configure network connectivity for Cloud SQL for MySQL sources  |  Database Migration Service for MySQL  |  Google Cloud Documentation

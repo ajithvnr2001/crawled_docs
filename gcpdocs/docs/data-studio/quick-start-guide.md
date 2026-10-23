@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/quick-start-guide/
 title: Quick start guide \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:59.259400+00:00
+fetched_at: 2026-10-23T16:52:35.543518+00:00
 ---
 
 # Quick start guide  |  Data Studio  |  Google Cloud Documentation

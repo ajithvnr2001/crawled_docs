@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/commands/stream-command-output/
 title: Stream command output \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:17.422766+00:00
+fetched_at: 2026-10-23T16:39:57.748343+00:00
 ---
 
 # Stream command output · Cloudflare Sandboxes docs
@@ -18,11 +18,11 @@ fetched_at: 2026-10-08T07:15:17.422766+00:00
 
 # Stream command output
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/commands/stream-command-output/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/commands/stream-command-output/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesStream a commandRead the stream in a browserStop a command after a time limitRelated resources
 
-Show the output of a command in a browser while the command runs. The Durable Object sends standard output and standard error as [server-sent events ↗︎](https://html.spec.whatwg.org/multipage/server-sent-events.html), reports the exit code, and stops the command when the client disconnects.
+Show the output of a command in a browser while the command runs. The Durable Object sends standard output and standard error as [server-sent events ↗︎](https://html.spec.whatwg.org/multipage/server-sent-events.html), reports the exit code, and signals the command to stop when the client disconnects.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ src/index.tsts
          		const container = this.ctx.container;
          
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		if (!container.running) {
@@ -84,7 +84,7 @@ src/index.tsts
          			if (!exited) process.kill();
          		};
          
-         		// Stop the process when the client disconnects.
+         		// Signal the process when the client disconnects.
          		writer.closed.catch(stop);
          
          		// Detect a disconnected client while the process writes nothing.
@@ -100,8 +100,10 @@ src/index.tsts
          				]);
          				await send("exit", { exitCode: await process.exitCode });
          				await writer.close();
-         			} catch {
+         			} catch (error) {
          				stop();
+         				// End the response, so a connected client does not wait forever.
+         				await writer.abort(error).catch(() => {});
          			} finally {
          				clearInterval(heartbeat);
          			}
@@ -121,7 +123,7 @@ src/index.tsts
 
 The method returns the response before the command finishes. `pump()` then writes each chunk as the process produces it. `pump()` reads standard output and standard error at the same time, because a stream that nobody reads can block a process that keeps writing to it. `TextDecoderStream` keeps characters that span two chunks intact.
 
-When the client disconnects, the next write fails and the method calls `kill()`, which sends `SIGTERM` to the command. The keep-alive comment every five seconds makes that write happen while the command is silent.
+When the client disconnects, the next write fails and the method calls `kill()`, which sends `SIGTERM` to the command. A command can ignore `SIGTERM`; to enforce a limit, refer to Stop a command after a time limit. The keep-alive comment every five seconds makes that write happen while the command is silent.
 
   2. Add a route to your Worker that streams a command your application chooses:
 
@@ -233,12 +235,12 @@ The route answers `GET` requests, so a page can read it with `EventSource`:
 
 ## Stop a command after a time limit
 
-A disconnect stops only the process that `exec()` started. Processes that the command starts, such as the commands in an `sh -c` script, keep the output streams open until they exit. To stop a command and every process it starts after a time limit, run it under GNU coreutils `timeout`:
+A disconnect signals only the process that `exec()` started. Processes that the command starts, such as the commands in an `sh -c` script, keep the output streams open until they exit. To stop a command and the processes it starts after a time limit, run it under GNU coreutils `timeout`:
     
     
     const build = ["timeout", "--kill-after=5", "60", "sh", "-c", "npm test"];
 
-The command exits with code `124` when it runs longer than 60 seconds. For more information, refer to [Stop the processes a command starts](https://developers.cloudflare.com/containers/guides/execute-commands/#stop-the-processes-a-command-starts).
+The command exits with code `124` when it runs longer than 60 seconds, or `137` if `timeout` also sends `SIGKILL`. A process that moves to its own process group, for example with `setsid`, keeps running. For more information, refer to [Stop the processes a command starts](https://developers.cloudflare.com/containers/guides/execute-commands/#stop-the-processes-a-command-starts).
 
 ## Related resources
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/
 title: Think \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:30.950693+00:00
+fetched_at: 2026-10-23T16:40:00.538519+00:00
 ---
 
 # Think · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-21T06:51:30.950693+00:00
 
 # Think
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/think/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewQuick start Install Server Client Configuration TracingThink vs AIChatAgent When to use AIChatAgent When to use ThinkChoose a turn API runTurn() Pick a shortcut Add messages without a turnIn this sectionAcknowledgmentsExampleRelated
 
@@ -37,16 +37,16 @@ If this is your first agent, start with the [Getting started tutorial](https://d
 npmyarnpnpmbun
     
     
-    npm i @cloudflare/think @cloudflare/computer @cloudflare/ai-chat agents ai zod workers-ai-provider
+    npm i @cloudflare/think @cloudflare/computer @cloudflare/ai-chat agents ai zod @ai-sdk/provider
     
     
-    yarn add @cloudflare/think @cloudflare/computer @cloudflare/ai-chat agents ai zod workers-ai-provider
+    yarn add @cloudflare/think @cloudflare/computer @cloudflare/ai-chat agents ai zod @ai-sdk/provider
     
     
-    pnpm add @cloudflare/think @cloudflare/computer @cloudflare/ai-chat agents ai zod workers-ai-provider
+    pnpm add @cloudflare/think @cloudflare/computer @cloudflare/ai-chat agents ai zod @ai-sdk/provider
     
     
-    bun add @cloudflare/think @cloudflare/computer @cloudflare/ai-chat agents ai zod workers-ai-provider
+    bun add @cloudflare/think @cloudflare/computer @cloudflare/ai-chat agents ai zod @ai-sdk/provider
 
 Think supports AI SDK v6 and v7. Use `ai@^6` with `@ai-sdk/react@^3`, or use `ai@^7` with `@ai-sdk/react@^4`. Keep the AI SDK packages on matching major versions throughout your project.
 
@@ -54,14 +54,12 @@ Think supports AI SDK v6 and v7. Use `ai@^6` with `@ai-sdk/react@^3`, or use `ai
     
     
     import { Think } from "@cloudflare/think";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import { routeAgentRequest } from "agents";
     
     export class MyAgent extends Think {
     	getModel() {
-    		return createWorkersAI({ binding: this.env.AI })(
-    			"@cf/moonshotai/kimi-k2.6",
-    		);
+    		return createAI({ binding: this.env.AI })("@cf/moonshotai/kimi-k2.6");
     	}
     }
     
@@ -76,12 +74,12 @@ Think supports AI SDK v6 and v7. Use `ai@^6` with `@ai-sdk/react@^3`, or use `ai
     
     
     import { Think } from "@cloudflare/think";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import { routeAgentRequest } from "agents";
     
     export class MyAgent extends Think<Env> {
     	getModel() {
-    		return createWorkersAI({ binding: this.env.AI })(
+    		return createAI({ binding: this.env.AI })(
     			"@cf/moonshotai/kimi-k2.6",
     		);
     	}
@@ -176,7 +174,7 @@ That is it. Think handles the WebSocket chat protocol, message persistence, the 
     {
       "$schema": "./node_modules/wrangler/config-schema.json",
       // Set this to today's date
-      "compatibility_date": "2026-10-21",
+      "compatibility_date": "2026-10-23",
       "compatibility_flags": [
         "nodejs_compat"
       ],
@@ -203,7 +201,7 @@ That is it. Think handles the WebSocket chat protocol, message persistence, the 
     
     
     # Set this to today's date
-    compatibility_date = "2026-10-21"
+    compatibility_date = "2026-10-23"
     compatibility_flags = ["nodejs_compat"]
     
     [ai]
@@ -518,7 +516,7 @@ Explore a multi-session Think assistant with sub-agent routing, shared workspace
 
 
 
-[PreviousOverview](https://developers.cloudflare.com/agents/harnesses/)[NextGetting started](https://developers.cloudflare.com/agents/harnesses/think/getting-started/)
+[PreviousOpenCode](https://developers.cloudflare.com/agents/harnesses/opencode/)[NextGetting started](https://developers.cloudflare.com/agents/harnesses/think/getting-started/)
 
 Was this helpful?
 

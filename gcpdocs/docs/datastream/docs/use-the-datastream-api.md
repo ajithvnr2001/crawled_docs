@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/use-the-datastream-api/
 title: Use the Datastream API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:00.869979+00:00
+fetched_at: 2026-10-23T16:53:52.198742+00:00
 ---
 
 # Use the Datastream API  |  Google Cloud Documentation

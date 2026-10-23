@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/model-context-protocol/protocol/transport/
 title: Transport \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:16.672522+00:00
+fetched_at: 2026-10-23T16:39:58.947137+00:00
 ---
 
 # Transport · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:16.672522+00:00
 
 # Transport
 
-Last updated Jul 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/model-context-protocol/protocol/transport/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/model-context-protocol/protocol/transport/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewImplementing remote MCP transport Servers that need protocol sessionsRPC transport Connect an Agent to an existing McpAgent through RPC Passing props to the MCP server Configuring RPC transport server timeoutChoosing a transport Migrate from McpAgent Testing with MCP clients
 
@@ -459,9 +459,9 @@ Refer to [Migrate to MCP SDK v2](https://developers.cloudflare.com/agents/model-
 
 ### Testing with MCP clients
 
-You can test your MCP server using an MCP client that supports remote connections, or use [`mcp-remote` ↗︎](https://www.npmjs.com/package/mcp-remote), an adapter that lets MCP clients that only support local connections work with remote MCP servers.
+Test your MCP server with a client that supports Streamable HTTP connections.
 
-Follow [this guide](https://developers.cloudflare.com/agents/model-context-protocol/guides/test-remote-mcp-server/) for instructions on how to connect to your remote MCP server to Claude Desktop, Cursor, Windsurf, and other MCP clients.
+Follow [Test a Remote MCP Server](https://developers.cloudflare.com/agents/model-context-protocol/guides/test-remote-mcp-server/) for instructions for Claude Code, Cursor, Windsurf, and other MCP clients.
 
 [PreviousAuthorization](https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/)[NextMCP governance](https://developers.cloudflare.com/agents/model-context-protocol/protocol/governance/)
 

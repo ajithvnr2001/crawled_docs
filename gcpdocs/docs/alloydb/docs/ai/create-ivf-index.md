@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/create-ivf-index/
 title: Create an IVF index \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:34.545170+00:00
+fetched_at: 2026-10-23T16:49:49.957401+00:00
 ---
 
 # Create an IVF index  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

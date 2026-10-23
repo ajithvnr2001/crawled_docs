@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/vpc-peering/
 title: Configure VPC peering \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:00.409245+00:00
+fetched_at: 2026-10-23T16:53:51.545659+00:00
 ---
 
 # Configure VPC peering  |  Datastream  |  Google Cloud Documentation

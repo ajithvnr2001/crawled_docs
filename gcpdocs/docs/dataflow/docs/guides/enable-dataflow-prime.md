@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/enable-dataflow-prime/
 title: Use Dataflow Prime \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:19.532241+00:00
+fetched_at: 2026-10-23T16:53:17.742892+00:00
 ---
 
 # Use Dataflow Prime  |  Google Cloud Documentation

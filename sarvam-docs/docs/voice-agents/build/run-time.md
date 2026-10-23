@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/voice-agents/build/run-time/
-title: Run-time | Sarvam API Docs
+title: Voice agent run-time: how a live AI call works | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:15:22.913407+00:00
+fetched_at: 2026-10-23T16:38:59.320178+00:00
 ---
 
-# Run-time | Sarvam API Docs
+# Voice agent run-time: how a live AI call works | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/voice-agents/build/run-time/
 
@@ -24,7 +24,7 @@ Scroll to top
 
 [Build](https://docs.sarvam.ai/voice-agents/build/overview)[Architecture](https://docs.sarvam.ai/voice-agents/build/concepts/introduction)
 
-# Run-time
+# Voice agent run-time: how a live AI call works
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/voice-agents/build/run-time.md "View this page as plain text")|More actions
 
@@ -93,7 +93,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/build/concepts/introduction)[ModelsNext](https://docs.sarvam.ai/voice-agents/build/models)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/build/concepts/introduction)[Voice agent models: Saaras ASR, Bulbul TTS and LLMNext](https://docs.sarvam.ai/voice-agents/build/models)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 
@@ -133,6 +133,7 @@ YesNo
   * Monitor
 
     * [Overview](https://docs.sarvam.ai/voice-agents/monitor/overview)
+    * [Call recordings](https://docs.sarvam.ai/voice-agents/monitor/call-recordings)
     * [Agent Analytics](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics)
 
     * [Boards](https://docs.sarvam.ai/voice-agents/monitor/boards)
@@ -229,6 +230,7 @@ YesNo
   * [Best practices](https://docs.sarvam.ai/voice-agents/deploy/campaigns/best-practices)
   * [Deploy with Code (API & SDK)](https://docs.sarvam.ai/voice-agents/deploy/deploy-with-code)
   * [Overview](https://docs.sarvam.ai/voice-agents/monitor/overview)
+  * [Call recordings](https://docs.sarvam.ai/voice-agents/monitor/call-recordings)
   * [Agent Analytics](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics)
   * [Overview tab](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/overview)
   * [Connectivity](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/connectivity)
@@ -281,7 +283,9 @@ YesNo
   * [List attempts](https://docs.sarvam.ai/voice-agents/api/analytics/attempts)
   * [List interactions](https://docs.sarvam.ai/voice-agents/api/analytics/interactions)
   * [Get recording](https://docs.sarvam.ai/voice-agents/api/analytics/recordings)
+  * [Get forwarded recording](https://docs.sarvam.ai/voice-agents/api/analytics/forwarded-recordings)
   * [Get transcript](https://docs.sarvam.ai/voice-agents/api/analytics/transcripts)
+  * [Get trace](https://docs.sarvam.ai/voice-agents/api/analytics/traces)
   * [Overview](https://docs.sarvam.ai/voice-agents/api/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/voice-agents/api/boards/sql)
   * [Best practices](https://docs.sarvam.ai/voice-agents/api/boards/best-practices)

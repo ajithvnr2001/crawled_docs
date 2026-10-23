@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/manage-dependencies/
 title: Manage pipeline dependencies in Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:16.073559+00:00
+fetched_at: 2026-10-23T16:53:17.498004+00:00
 ---
 
 # Manage pipeline dependencies in Dataflow  |  Google Cloud Documentation

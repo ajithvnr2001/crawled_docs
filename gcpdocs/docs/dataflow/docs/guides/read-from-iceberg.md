@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/read-from-iceberg/
 title: Read from Apache Iceberg to Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:12.626120+00:00
+fetched_at: 2026-10-23T16:51:59.602697+00:00
 ---
 
 # Read from Apache Iceberg to Dataflow  |  Google Cloud Documentation

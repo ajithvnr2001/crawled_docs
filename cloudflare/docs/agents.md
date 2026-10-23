@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/
 title: Agents \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:06.641456+00:00
+fetched_at: 2026-10-23T16:40:00.836420+00:00
 ---
 
 # Agents · Cloudflare Agents docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-08T07:04:06.641456+00:00
 
 # Build Agents on Cloudflare
 
-Last updated Sep 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview Get started Example agents
 
@@ -40,7 +40,7 @@ Agent harness
 
 Controls planning, tool use, and response flow.
 
-[Project Think](https://developers.cloudflare.com/agents/harnesses/think/)[Build-your-own agent](https://developers.cloudflare.com/agents/runtime/agents-api/)
+[Pi harness](https://developers.cloudflare.com/agents/harnesses/pi/)[Build-your-own agent](https://developers.cloudflare.com/agents/runtime/agents-api/)
 
 Agents SDK runtime
 
@@ -61,7 +61,7 @@ Tools
 Agents on Cloudflare are composed from four parts:
 
   * **Communication channels** define how users and systems reach your agent, such as [chat](https://developers.cloudflare.com/agents/communication-channels/chat/), [voice](https://developers.cloudflare.com/agents/communication-channels/voice/), [email](https://developers.cloudflare.com/agents/communication-channels/email/), [Slack](https://developers.cloudflare.com/agents/communication-channels/slack/), [webhooks](https://developers.cloudflare.com/agents/communication-channels/webhooks/), and other event sources.
-  * **The agent harness** defines the loop: how the agent calls models, selects tools, handles tool results, streams responses, and decides whether to continue. Use [Project Think](https://developers.cloudflare.com/agents/harnesses/think/) for an opinionated harness, or build your own loop directly on the [Agents SDK runtime](https://developers.cloudflare.com/agents/runtime/agents-api/).
+  * **The agent harness** defines the loop: how the agent calls models, selects tools, handles tool results, streams responses, and decides whether to continue. Use the [Pi harness](https://developers.cloudflare.com/agents/harnesses/pi/) to run Pi Durable in a Durable Object, or build your own loop directly on the [Agents SDK runtime](https://developers.cloudflare.com/agents/runtime/agents-api/).
   * **The Agents SDK runtime** provides durable infrastructure: the [`Agent` class](https://developers.cloudflare.com/agents/runtime/lifecycle/agent-class/), [state](https://developers.cloudflare.com/agents/runtime/lifecycle/state/), [sessions](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/), [routing](https://developers.cloudflare.com/agents/runtime/communication/routing/), [WebSockets](https://developers.cloudflare.com/agents/runtime/communication/websockets/), [scheduling](https://developers.cloudflare.com/agents/runtime/execution/schedule-tasks/), [fibers](https://developers.cloudflare.com/agents/runtime/execution/durable-execution/), and [observability](https://developers.cloudflare.com/agents/runtime/operations/observability/).
   * **Tools** give the agent capabilities: [browser automation](https://developers.cloudflare.com/agents/tools/browser/), [sandboxed code execution](https://developers.cloudflare.com/agents/tools/sandbox/), [AI Search](https://developers.cloudflare.com/agents/tools/ai-search/), [MCP tools](https://developers.cloudflare.com/agents/tools/mcp/), and [payments](https://developers.cloudflare.com/agents/tools/payments/). [Code Mode](https://developers.cloudflare.com/agents/tools/codemode/) lets models discover and orchestrate multiple tools by writing code.
 
@@ -69,16 +69,31 @@ Agents on Cloudflare are composed from four parts:
 
 ### Get started
 
-Three commands to a running agent. No API keys required — the starter uses [Workers AI](https://developers.cloudflare.com/workers-ai/) by default.
-    
-    
-    npx create-cloudflare@latest --template cloudflare/agents-starter
-    cd agents-starter && npm install
-    npm run dev
+Build your agent with the [Pi harness](https://developers.cloudflare.com/agents/harnesses/pi/). [Pi Durable ↗︎](https://earendil.com/posts/pi-durable/) runs the agent loop, including the transcript, model calls, tools, and retries, inside a Durable Object. `PiHarness` from the Agents SDK stores Pi's state in the object's SQLite database and resumes the run after an eviction. No API keys are required. The examples use [Workers AI](https://developers.cloudflare.com/workers-ai/) through the `AI` binding.
 
-The starter includes streaming AI chat, server-side and client-side tools, human-in-the-loop approval, and task scheduling — a foundation you can build on or tear apart. You can also swap in [OpenAI, Anthropic, Google Gemini, or any other provider](https://developers.cloudflare.com/agents/runtime/operations/using-ai-models/).
+npmyarnpnpmbun
+    
+    
+    npm i agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord
+    
+    
+    yarn add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord
+    
+    
+    pnpm add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord
+    
+    
+    bun add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord
+
+The [Pi harness guide](https://developers.cloudflare.com/agents/harnesses/pi/) builds a first agent in one file. To start from a complete app with a browser UI, a durable filesystem, and code execution, deploy the Pi harness example:
+
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/agents/tree/main/examples/next/harnesses/pi)
 
 ### Example agents
+
+[Pi agent](https://developers.cloudflare.com/agents/harnesses/pi/)
+
+Build an agent on the Pi harness, with tools, sessions, and recovery after eviction.
 
 [Chat agent](https://developers.cloudflare.com/agents/examples/chat-agent/)
 

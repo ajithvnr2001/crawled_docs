@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/basin-sql/troubleshooting/
 title: Troubleshooting guide \u00b7 Basin SQL docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:28.854895+00:00
+fetched_at: 2026-10-23T16:40:05.978503+00:00
 ---
 
 # Troubleshooting guide · Basin SQL docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-08T07:05:28.854895+00:00
 
 # Troubleshooting guide
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/basin-sql/troubleshooting/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/basin-sql/troubleshooting/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewQuery structure errors Missing required clausesFROM clause issues Join performance issues NOT IN on nullable columns Correlated subquery performanceWHERE clause issues JSON object filteringLIMIT clause issues Invalid limit values Pagination attemptsSchema issues DDL and DML operationsPerformance optimization Query performance issues
+OverviewQuery structure errors Missing required clausesFROM clause issues Join performance issues NOT IN on nullable columns Correlated subquery performanceWHERE clause issues JSON object filteringLIMIT clause issues Invalid limit valuesSchema issues DDL and DML operationsPerformance optimization Query performance issues
 
 This guide covers potential errors and limitations you may encounter when using Basin SQL.
 
@@ -179,33 +179,6 @@ Struct columns are supported and can be filtered using bracket notation. Refer t
     SELECT * FROM my_namespace.events LIMIT 10000
 
 **Solution** : Use LIMIT values between 1 and 10,000.
-
-### Pagination attempts
-
-**Error** : `unsupported feature: OFFSET clause is not supported`
-
-**Problem** : OFFSET is not supported.
-    
-    
-    -- Invalid - Pagination not supported
-    SELECT * FROM my_namespace.events LIMIT 100 OFFSET 200
-    
-    -- Valid - Use cursor-based pagination with ORDER BY and WHERE
-    -- Page 1
-    SELECT * FROM my_namespace.events
-    WHERE timestamp >= '2024-01-01'
-    ORDER BY timestamp
-    LIMIT 100
-    
-    -- Page 2 - Use the last timestamp from the previous page
-    SELECT * FROM my_namespace.events
-    WHERE timestamp > '2024-01-01T10:30:00Z'
-    ORDER BY timestamp
-    LIMIT 100
-
-**Solution** : Implement cursor-based pagination using `ORDER BY` and `WHERE` conditions.
-
-* * *
 
 ## Schema issues
 

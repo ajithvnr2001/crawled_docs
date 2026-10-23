@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/tutorials/satellite-images-gpus/
 title: Processing Landsat satellite images with GPUs \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:48.398354+00:00
+fetched_at: 2026-10-23T16:53:11.152367+00:00
 ---
 
 # Processing Landsat satellite images with GPUs  |  Cloud Dataflow  |  Google Cloud Documentation

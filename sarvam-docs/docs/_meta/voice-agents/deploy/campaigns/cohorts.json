@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/deploy/campaigns/cohorts/",
   "file": "voice-agents/deploy/campaigns/cohorts.md",
-  "title": "Cohorts | Sarvam API Docs",
+  "title": "Campaign cohorts: upload and stream contacts to call | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:25.949941+00:00",
-  "html_len": 161417,
-  "md_len": 20680,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:38:55.693241+00:00"
 }

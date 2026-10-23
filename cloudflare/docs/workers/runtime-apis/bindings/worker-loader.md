@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/runtime-apis/bindings/worker-loader/
 title: Dynamic Workers \u00b7 Cloudflare Dynamic Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T07:11:10.809967+00:00
+fetched_at: 2026-10-23T16:39:54.669223+00:00
 ---
 
 # Dynamic Workers · Cloudflare Dynamic Workers docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-19T07:11:10.809967+00:00
 
 # Dynamic Workers
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/runtime-apis/bindings/worker-loader/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGet startedUse casesFeatures
 

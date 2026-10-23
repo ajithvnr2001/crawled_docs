@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/quickstart/integrate-kubernetes/
 title: Connect from Google Kubernetes Engine (GKE) to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:03:39.720836+00:00
+fetched_at: 2026-10-23T16:50:24.709371+00:00
 ---
 
 # Connect from Google Kubernetes Engine (GKE) to AlloyDB for PostgreSQL  |  Google Cloud Documentation

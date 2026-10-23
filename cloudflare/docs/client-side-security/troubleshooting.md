@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/client-side-security/troubleshooting/
 title: Troubleshooting \u00b7 Client-side security docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:07:58.195014+00:00
+fetched_at: 2026-10-23T16:40:08.005277+00:00
 ---
 
 # Troubleshooting · Client-side security docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:07:58.195014+00:00
 
 # Troubleshooting
 
-Last updated Oct 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/client-side-security/troubleshooting/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/client-side-security/troubleshooting/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCloudflare does not show any client-side resources after activationThe dashboard shows scripts and connections that I do not recognizeI get warnings in my browser's developer tools related to Content Security Policy (CSP)I get rule violation reports for a domain I allowlisted Redirects to other domains Ad-blocking browser extensionsI get scoped alerts for hostnames I do not manage on a SaaS root zoneMy rule is not triggering (CSP header not added) SolutionResponses contain duplicate CSP headers Solution Recommended patterns
 

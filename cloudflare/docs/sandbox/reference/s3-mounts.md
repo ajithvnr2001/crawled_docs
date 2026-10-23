@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/reference/s3-mounts/
 title: S3Mount API \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:20.920412+00:00
+fetched_at: 2026-10-23T16:39:55.364379+00:00
 ---
 
 # S3Mount API · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:20.920412+00:00
 
 # S3Mount API
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/reference/s3-mounts/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/reference/s3-mounts/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRequirementsS3MountMethods mount inspect unmountTypes S3MountRequest Credentials S3MountOperationOptions S3MountInspectionS3GatewayMounted file behaviorErrors SandboxS3MountError SandboxProtocolError Other errorsRelated resources
 
@@ -36,7 +36,7 @@ OverviewRequirementsS3MountMethods mount inspect unmountTypes S3MountRequest Cre
     	constructor(ctx, env) {
     		super(ctx, env);
     		if (!ctx.container) {
-    			throw new Error("The container binding is not configured");
+    			throw new Error("No container is configured");
     		}
     		// ctx.container stays the same object while the Durable Object runs.
     		this.mounts = new S3Mount(ctx.container, ctx.exports.S3Gateway);
@@ -75,7 +75,7 @@ OverviewRequirementsS3MountMethods mount inspect unmountTypes S3MountRequest Cre
     	constructor(ctx: DurableObjectState, env: Env) {
     		super(ctx, env);
     		if (!ctx.container) {
-    			throw new Error("The container binding is not configured");
+    			throw new Error("No container is configured");
     		}
     		// ctx.container stays the same object while the Durable Object runs.
     		this.mounts = new S3Mount(ctx.container, ctx.exports.S3Gateway);
@@ -145,7 +145,7 @@ Mounts the source at `request.mountPath`. The result depends on what the path ho
 
 
 
-Each new mount adds one outbound intercept target to the container. Reusing a mount does not add one. `unmount()` does not remove one. A container accepts up to [64 intercept targets](https://developers.cloudflare.com/containers/api/durable-object-container/#interceptoutboundhttp), including the targets your own code registers. Once the container reaches the limit, a mount with new settings fails.
+Each new mount adds one outbound intercept target to the container. Reusing a mount does not add one. `unmount()` does not remove one. Mounts share the container [intercept limit](https://developers.cloudflare.com/containers/api/durable-object-container/#intercept-limit) with the intercepts your own code registers. Once the container reaches the limit, a mount with new settings fails.
 
 If the Durable Object also calls [`interceptAllOutboundHttp()`](https://developers.cloudflare.com/containers/api/durable-object-container/#interceptalloutboundhttp), call `mount()` before it, right after you start the container. Otherwise the catch-all receives the storage requests from the container, and `mount()` fails with `cannot verify the new FUSE connection`. A container that registered the catch-all first keeps sending storage requests to it. Restart the container to mount.
 

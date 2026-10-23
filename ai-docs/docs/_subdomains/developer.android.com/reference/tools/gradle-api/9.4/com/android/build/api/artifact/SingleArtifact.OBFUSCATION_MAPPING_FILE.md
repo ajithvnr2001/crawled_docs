@@ -1,0 +1,76 @@
+---
+url: https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/SingleArtifact.OBFUSCATION_MAPPING_FILE
+title: SingleArtifact.OBFUSCATION_MAPPING_FILE \u00a0|\u00a0 API reference \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:48:52.878656+00:00
+---
+
+# SingleArtifact.OBFUSCATION_MAPPING_FILE  |  API reference  |  Android Developers
+
+> Source: https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/SingleArtifact.OBFUSCATION_MAPPING_FILE
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Develop ](https://developer.android.com/develop)
+  * [ API reference ](https://developer.android.com/reference)
+
+
+
+Stay organized with collections  Save and categorize content based on your preferences. 
+
+# SingleArtifact.OBFUSCATION_MAPPING_FILE
+
+[View Source](https://cs.android.com/search?q=file:com/android/build/api/artifact/SingleArtifact.kt+class:com.android.build.api.artifact.SingleArtifact.OBFUSCATION_MAPPING_FILE)
+
+Added in 7.0.0
+    
+    
+    object [SingleArtifact.OBFUSCATION_MAPPING_FILE](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/SingleArtifact.OBFUSCATION_MAPPING_FILE) : [SingleArtifact](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/SingleArtifact), [Artifact.Replaceable](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/Artifact.Replaceable), [Artifact.Transformable](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/Artifact.Transformable)
+
+[kotlin.Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)  
+---  
+↳ | [com.android.build.api.artifact.Artifact](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/Artifact)  
+|  ↳ | [com.android.build.api.artifact.Artifact.Single](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/Artifact.Single)  
+|  |  ↳ | [com.android.build.api.artifact.SingleArtifact](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/SingleArtifact)  
+|  |  |  ↳ | [com.android.build.api.artifact.SingleArtifact.OBFUSCATION_MAPPING_FILE](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/SingleArtifact.OBFUSCATION_MAPPING_FILE)  
+  
+* * *
+
+## Summary
+
+### Public functions  
+  
+---  
+`open [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` |  `[getFolderName](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/SingleArtifact.OBFUSCATION_MAPPING_FILE#getFolderName\(\))()`  
+  
+### Inherited functions  
+  
+---  
+From [com.android.build.api.artifact.Artifact](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/Artifact) | `[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` |  `[name](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/Artifact#name\(\))()` Provide a unique name for the artifact type.  
+---|---  
+  
+From [com.android.build.api.artifact.SingleArtifact](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/SingleArtifact) | `open [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` |  `[getFileSystemLocationName](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/SingleArtifact#getFileSystemLocationName\(\))()`  
+---|---  
+  
+### Inherited properties  
+  
+---  
+From [com.android.build.api.artifact.Artifact](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/Artifact) | `[Artifact.Category](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/Artifact.Category)` |  `[category](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/Artifact#category\(\))`  
+---|---  
+`[ArtifactKind](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/ArtifactKind)<[RegularFile](https://docs.gradle.org/current/javadoc/org/gradle/api/file/RegularFile.html)>` |  `[kind](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/Artifact#kind\(\))`  
+  
+## Public functions
+
+### getFolderName
+    
+    
+    open fun [getFolderName](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/artifact/SingleArtifact.OBFUSCATION_MAPPING_FILE#getFolderName\(\))(): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
+
+Returns  
+---  
+`[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` |  The folder name under which the artifact files or folders should be stored.  
+  
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-06-18 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]] 

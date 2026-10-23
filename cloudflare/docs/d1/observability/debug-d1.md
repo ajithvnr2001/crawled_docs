@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/observability/debug-d1/
 title: Debug D1 \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:30.386349+00:00
+fetched_at: 2026-10-23T16:40:07.830218+00:00
 ---
 
 # Debug D1 · Cloudflare D1 docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-21T06:51:30.386349+00:00
 
 # Debug D1
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/d1/observability/debug-d1/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewError listAutomatic retriesView logsReport issuesRelated resources
+OverviewError listAutomatic retriesView logsReport issuesRelated resourcesD1 binding timeout behavior
 
 D1 allows you to capture exceptions and log errors returned when querying a database. To debug D1, you will use the same tools available when [debugging Workers](https://developers.cloudflare.com/workers/observability/).
 
@@ -135,6 +135,27 @@ You should include as much of the following in any bug report:
   * Use [`wrangler dev`](https://developers.cloudflare.com/workers/wrangler/commands/general/#dev) to run your Worker and D1 locally and [debug issues before deploying](https://developers.cloudflare.com/workers/local-development/).
 
 
+
+## D1 binding timeout behavior
+
+D1 binding methods — `run()`, `all()`, `first()`, and `batch()` — do not accept a timeout option or an `AbortSignal`. There is no per-call timeout built into the D1 binding client.
+
+Workers have no wall-time limit on incoming HTTP requests while the client connection is open — see [Workers limits](https://developers.cloudflare.com/workers/platform/limits/). If the D1 database is temporarily unreachable, a D1 binding call blocks until the operation completes, an internal limit is reached, or the Worker is terminated by an external event such as the client disconnecting.
+
+To limit how long your Worker waits on a D1 call, use `Promise.race` with a timer:
+    
+    
+    const timeout = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('D1 call timed out')), 5000)
+    );
+    const result = await Promise.race([
+      db.prepare('SELECT 1').first(),
+      timeout,
+    ]);
+
+Write operations and Promise.race
+
+`Promise.race` bounds how long your Worker waits — it does not cancel the D1 query. A write that loses the race may still commit in the background. Always confirm the outcome of a write before retrying to avoid duplicate writes.
 
 [PreviousEnvironments](https://developers.cloudflare.com/d1/configuration/environments/)[NextMetrics and analytics](https://developers.cloudflare.com/d1/observability/metrics-analytics/)
 

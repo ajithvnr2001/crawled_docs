@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/configure-pluggable-oracle/
 title: Configure a pluggable Oracle database for CDC \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:16.217514+00:00
+fetched_at: 2026-10-23T16:54:09.043784+00:00
 ---
 
 # Configure a pluggable Oracle database for CDC  |  Datastream  |  Google Cloud Documentation

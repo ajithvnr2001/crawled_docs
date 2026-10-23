@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/files/mount-an-r2-bucket/
 title: Mount an R2 bucket \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T06:59:27.680588+00:00
+fetched_at: 2026-10-23T16:39:57.449178+00:00
 ---
 
 # Mount an R2 bucket · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-14T06:59:27.680588+00:00
 
 # Mount an R2 bucket
 
-Last updated Oct 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/files/mount-an-r2-bucket/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesMount a bucket prefixDevelop locallyRelated resources
 
@@ -166,7 +166,7 @@ src/index.tsts
          		const container = ctx.container;
          
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		this.container = container;
@@ -260,7 +260,7 @@ src/index.tsts
          	await this.container.destroy();
          }
 
-If a process still uses the directory, `unmount()` throws `SandboxS3MountError` with code `S3_MOUNT_BUSY`. Stop the process, then call `unmount()` again.
+Call `finish()` only after every job that writes to the mount has ended. `unmount()` denies storage requests before it unmounts, so a process that still writes loses those writes. If a process still uses the directory, `unmount()` throws `SandboxS3MountError` with code `S3_MOUNT_BUSY` and requests stay denied. Stop the process, then call `unmount()` again.
 
   9. Add routes to your Worker that run a job and finish it:
 

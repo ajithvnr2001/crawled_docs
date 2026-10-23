@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/generate-multimodal-embeddings/
 title: Generate multimodal embeddings \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:30.299466+00:00
+fetched_at: 2026-10-23T16:50:21.813657+00:00
 ---
 
 # Generate multimodal embeddings  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

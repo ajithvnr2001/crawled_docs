@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/guides/websocket-connections/
 title: WebSocket connections (Sandbox SDK 0.x) \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:26.137908+00:00
+fetched_at: 2026-10-23T16:39:50.435175+00:00
 ---
 
 # WebSocket connections (Sandbox SDK 0.x) · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:15:26.137908+00:00
 
 # WebSocket connections
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/guides/websocket-connections/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/guides/websocket-connections/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChoose your approachConnect to WebSocket echo serverExpose WebSocket service via preview URLConnect from Worker to get real-time data Local developmentRelated resources
 
@@ -74,7 +74,7 @@ echo-server.tstypescript
 Dockerfiledockerfile
     
     
-    FROM docker.io/cloudflare/sandbox:0.3.3
+    FROM docker.io/cloudflare/sandbox:0.12.14
     
     # Copy echo server into the container
     COPY echo-server.ts /workspace/echo-server.ts
@@ -329,7 +329,7 @@ Expose ports in Dockerfile for `wrangler dev`:
 Dockerfiledockerfile
     
     
-    FROM docker.io/cloudflare/sandbox:0.3.3
+    FROM docker.io/cloudflare/sandbox:0.12.14
     
     COPY echo-server.ts /workspace/echo-server.ts
     COPY startup.sh /container-server/startup.sh

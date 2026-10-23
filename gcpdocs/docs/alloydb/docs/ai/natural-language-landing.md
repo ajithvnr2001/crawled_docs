@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/natural-language-landing/
 title: AlloyDB AI natural language overview \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:37.726925+00:00
+fetched_at: 2026-10-23T16:49:42.052069+00:00
 ---
 
 # AlloyDB AI natural language overview  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

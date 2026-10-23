@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/maintenance-changelog/postgres-15/
 title: AlloyDB for PostgreSQL 15 maintenance changelog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:00:06.489964+00:00
+fetched_at: 2026-10-23T16:49:29.387638+00:00
 ---
 
 # AlloyDB for PostgreSQL 15 maintenance changelog  |  Google Cloud Documentation

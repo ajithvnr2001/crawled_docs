@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/build/models/",
   "file": "voice-agents/build/models.md",
-  "title": "Voice Agent Models: Saaras ASR, Bulbul TTS, and LLMs | Sarvam API Docs",
+  "title": "Voice agent models: Saaras ASR, Bulbul TTS and LLM | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:21.769204+00:00",
-  "html_len": 153586,
-  "md_len": 22352,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:39:00.069961+00:00"
 }

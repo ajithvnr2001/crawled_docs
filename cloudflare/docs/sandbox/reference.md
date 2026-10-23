@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/reference/
 title: @cloudflare/sandbox \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T06:59:26.806477+00:00
+fetched_at: 2026-10-23T16:39:55.257264+00:00
 ---
 
 # @cloudflare/sandbox · Cloudflare Sandboxes docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-14T06:59:26.806477+00:00
 
 # @cloudflare/sandbox
 
-Last updated Oct 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/reference/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstallRequirementsExample configurationClasses
 
@@ -53,7 +53,7 @@ The helper is a statically linked `linux/amd64` binary. It runs in any `linux/am
 
   * The Worker has the [`nodejs_compat`](https://developers.cloudflare.com/workers/runtime-apis/nodejs/) compatibility flag. The package reads Linux error names through `node:os`.
 
-  * The container is running when a method is called.
+  * The container is running when a method runs the helper. A class page lists the methods that do not need it, such as `DirectoryBackup.delete()`.
 
 
 
@@ -81,7 +81,7 @@ The Wrangler configuration sets `nodejs_compat`, builds the `Dockerfile` as the 
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-14",
+    	"compatibility_date": "2026-10-23",
     	"compatibility_flags": ["nodejs_compat"],
     	"containers": [
     		{
@@ -116,7 +116,7 @@ The Wrangler configuration sets `nodejs_compat`, builds the `Dockerfile` as the 
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-14"
+    compatibility_date = "2026-10-23"
     compatibility_flags = [ "nodejs_compat" ]
     
     [[containers]]
@@ -153,7 +153,7 @@ src/index.jsjs
     		const container = ctx.container;
     
     		if (!container) {
-    			throw new Error("The container binding is not configured");
+    			throw new Error("No container is configured");
     		}
     
     		this.container = container;
@@ -199,7 +199,7 @@ src/index.tsts
     		const container = ctx.container;
     
     		if (!container) {
-    			throw new Error("The container binding is not configured");
+    			throw new Error("No container is configured");
     		}
     
     		this.container = container;

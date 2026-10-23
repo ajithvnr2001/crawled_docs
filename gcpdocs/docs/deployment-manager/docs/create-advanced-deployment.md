@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deployment-manager/docs/create-advanced-deployment/
 title: Deploying a network load-balanced logbook app \u00a0|\u00a0 Cloud Deployment Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:05.596262+00:00
+fetched_at: 2026-10-23T16:53:48.118656+00:00
 ---
 
 # Deploying a network load-balanced logbook app  |  Cloud Deployment Manager  |  Google Cloud Documentation

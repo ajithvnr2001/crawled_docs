@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/voice-agents/monitor/call-recordings/
-title: Call recordings | Sarvam API Docs
+title: Voice agent call recordings: dual-channel audio | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T08:44:01.094468+00:00
+fetched_at: 2026-10-23T16:38:49.101792+00:00
 ---
 
-# Call recordings | Sarvam API Docs
+# Voice agent call recordings: dual-channel audio | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/voice-agents/monitor/call-recordings/
 
@@ -24,7 +24,7 @@ Scroll to top
 
 [Monitor](https://docs.sarvam.ai/voice-agents/monitor/overview)
 
-# Call recordings
+# Voice agent call recordings: dual-channel audio
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/voice-agents/monitor/call-recordings.md "View this page as plain text")|More actions
 
@@ -79,7 +79,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/monitor/overview)[Agent AnalyticsNext](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/monitor/overview)[Voice agent analytics dashboardNext](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 
@@ -265,7 +265,9 @@ YesNo
   * [List attempts](https://docs.sarvam.ai/voice-agents/api/analytics/attempts)
   * [List interactions](https://docs.sarvam.ai/voice-agents/api/analytics/interactions)
   * [Get recording](https://docs.sarvam.ai/voice-agents/api/analytics/recordings)
+  * [Get forwarded recording](https://docs.sarvam.ai/voice-agents/api/analytics/forwarded-recordings)
   * [Get transcript](https://docs.sarvam.ai/voice-agents/api/analytics/transcripts)
+  * [Get trace](https://docs.sarvam.ai/voice-agents/api/analytics/traces)
   * [Overview](https://docs.sarvam.ai/voice-agents/api/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/voice-agents/api/boards/sql)
   * [Best practices](https://docs.sarvam.ai/voice-agents/api/boards/best-practices)

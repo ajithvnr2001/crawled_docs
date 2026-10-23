@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/visualize-bigquery-geography-polygons/
 title: Visualize BigQuery GEOGRAPHY polygons with Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:51.487631+00:00
+fetched_at: 2026-10-23T16:52:13.737547+00:00
 ---
 
 # Visualize BigQuery GEOGRAPHY polygons with Data Studio  |  Google Cloud Documentation

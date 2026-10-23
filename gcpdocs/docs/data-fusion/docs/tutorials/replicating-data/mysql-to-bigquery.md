@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/tutorials/replicating-data/mysql-to-bigquery/
 title: Replicating data from MySQL to BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:43.037392+00:00
+fetched_at: 2026-10-23T16:52:40.326319+00:00
 ---
 
 # Replicating data from MySQL to BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/getting-started/
 title: Getting started \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:11.323350+00:00
+fetched_at: 2026-10-23T16:40:00.759326+00:00
 ---
 
 # Getting started · Cloudflare Agents docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:04:11.323350+00:00
 
 # Getting started
 
-Last updated Jun 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/getting-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/getting-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChoose a pathAll getting started pages
 
@@ -29,9 +29,9 @@ Start building agents that can remember context, communicate with users, and act
 
 Build a small stateful counter agent and learn the core Agent, state, and client SDK model.
 
-### [Build a chat agent](https://developers.cloudflare.com/agents/examples/chat-agent/)
+### [Build an AI agent with the Pi harness](https://developers.cloudflare.com/agents/harnesses/pi/)
 
-Build a streaming AI chat agent with Workers AI, server tools, client tools, and approvals.
+Run Pi Durable in a Durable Object, with a model loop, tools, sessions, and recovery after eviction.
 
 ### [Add Agents to an existing project](https://developers.cloudflare.com/agents/getting-started/add-to-existing-project/)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/runtime/communication/http-sse/
 title: HTTP and Server-Sent Events \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:18.052506+00:00
+fetched_at: 2026-10-23T16:40:09.732969+00:00
 ---
 
 # HTTP and Server-Sent Events · Cloudflare Agents docs
@@ -22,7 +22,7 @@ Runtime
 
 # HTTP and Server-Sent Events
 
-Last updated Jun 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/runtime/communication/http-sse/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/runtime/communication/http-sse/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHandling HTTP requestsServer-Sent Events (SSE) Manual SSE SSE message format With AI SDKConnection handlingWebSockets vs SSENext steps
 
@@ -179,16 +179,16 @@ The [AI SDK ↗︎](https://ai-sdk.dev/) provides built-in SSE streaming:
     
     import { Agent } from "agents";
     import { streamText } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
     export class ChatAgent extends Agent {
     	async onRequest(request) {
     		const { prompt } = await request.json();
     
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			prompt: prompt,
     		});
     
@@ -199,7 +199,7 @@ The [AI SDK ↗︎](https://ai-sdk.dev/) provides built-in SSE streaming:
     
     import { Agent } from "agents";
     import { streamText } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
     interface Env {
     	AI: Ai;
@@ -209,10 +209,10 @@ The [AI SDK ↗︎](https://ai-sdk.dev/) provides built-in SSE streaming:
     	async onRequest(request: Request): Promise<Response> {
     		const { prompt } = await request.json<{ prompt: string }>();
     
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			prompt: prompt,
     		});
     

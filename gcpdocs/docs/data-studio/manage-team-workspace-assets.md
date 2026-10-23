@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/manage-team-workspace-assets/
 title: Manage team workspace assets \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:04.967730+00:00
+fetched_at: 2026-10-23T16:51:47.959584+00:00
 ---
 
 # Manage team workspace assets  |  Data Studio  |  Google Cloud Documentation

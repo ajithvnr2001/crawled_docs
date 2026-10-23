@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/concepts/sdk-worker-dependencies/
 title: SDK and Worker Dependencies \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:21.933803+00:00
+fetched_at: 2026-10-23T16:52:29.278452+00:00
 ---
 
 # SDK and Worker Dependencies  |  Cloud Dataflow  |  Google Cloud Documentation

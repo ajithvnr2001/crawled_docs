@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deployment-manager/docs/create-advanced-http-load-balanced-deployment/
 title: Creating an HTTP load-balanced logbook app \u00a0|\u00a0 Cloud Deployment Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:05.322031+00:00
+fetched_at: 2026-10-23T16:53:48.659453+00:00
 ---
 
 # Creating an HTTP load-balanced logbook app  |  Cloud Deployment Manager  |  Google Cloud Documentation

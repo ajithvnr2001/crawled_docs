@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/audit-logging/
 title: Datastream audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:18.919182+00:00
+fetched_at: 2026-10-23T16:54:09.324216+00:00
 ---
 
 # Datastream audit logging  |  Google Cloud Documentation

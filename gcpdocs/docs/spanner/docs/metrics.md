@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/metrics/
 title: Metrics \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:11:10.484384+00:00
+fetched_at: 2026-10-23T16:50:56.545938+00:00
 ---
 
 # Metrics  |  Spanner  |  Google Cloud Documentation
@@ -539,6 +539,11 @@ Storage utilization
 `GAUGE`, `DOUBLE`, `10^2.%`   
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Storage used as a fraction of storage limit. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `storage_class`: Storage type.   
+`lock_stat/total/lock_wait_latencies` BETA ** _(project)_**   
+Lock wait latencies   
+`DELTA`, `DISTRIBUTION`, `s`   
+**[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Distribution of lock wait latency in seconds for lock conflicts recorded for the entire database. Sampled every 60 seconds. After sampling, data is not visible for up to 210 seconds._   
+`database`: Target database.   
 `lock_stat/total/lock_wait_time` GA ** _(project)_**   
 Lock wait time   
 `DELTA`, `DOUBLE`, `s`   
@@ -645,13 +650,13 @@ Buffered ready messages
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Count of ready messages in the queue that are buffered in memory and available for delivery. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
 `database`: Target database.   
 `queue`: Target queue.   
-`queue/lease_expiration_count` BETA ** _(project)_**   
+`queue/lease_expiration_count` GA ** _(project)_**   
 Lease expirations   
 `DELTA`, `INT64`, `1`   
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Count of expired message leases. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
 `database`: Target database.   
 `queue`: Target queue.   
-`queue/message_ack_count` BETA ** _(project)_**   
+`queue/message_ack_count` GA ** _(project)_**   
 Messages acknowledged   
 `DELTA`, `INT64`, `1`   
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Count of messages acknowledged. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
@@ -663,13 +668,13 @@ Message payload sizes
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Distribution of message payload sizes in bytes. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
 `database`: Target database.   
 `queue`: Target queue.   
-`queue/message_send_count` BETA ** _(project)_**   
+`queue/message_send_count` GA ** _(project)_**   
 Messages sent   
 `DELTA`, `INT64`, `1`   
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Count of messages sent. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
 `database`: Target database.   
 `queue`: Target queue.   
-`queue/oldest_unacked_message_age` BETA ** _(project)_**   
+`queue/oldest_unacked_message_age` GA ** _(project)_**   
 Oldest unacked message age   
 `GAUGE`, `INT64`, `s`   
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Age of the oldest unacknowledged message in seconds. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
@@ -783,7 +788,7 @@ Transaction latencies
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Distribution of total seconds takenfrom the first operation of the transaction to commit or abort. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
 `database`: Target database.   
   
-Table generated at 2026-10-14 20:24:33 UTC.
+Table generated at 2026-10-22 02:44:18 UTC.
 
 ## What's next
 
@@ -795,6 +800,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

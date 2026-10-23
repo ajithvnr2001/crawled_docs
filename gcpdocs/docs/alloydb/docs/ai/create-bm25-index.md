@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/create-bm25-index/
 title: Create and manage a BM25 index \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:36.941971+00:00
+fetched_at: 2026-10-23T16:49:55.652896+00:00
 ---
 
 # Create and manage a BM25 index  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

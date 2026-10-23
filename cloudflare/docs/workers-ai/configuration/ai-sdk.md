@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-ai/configuration/ai-sdk/
 title: Vercel AI SDK \u00b7 Cloudflare Workers AI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:56.852480+00:00
+fetched_at: 2026-10-23T16:40:08.549407+00:00
 ---
 
 # Vercel AI SDK · Cloudflare Workers AI docs
@@ -18,136 +18,245 @@ fetched_at: 2026-10-08T07:16:56.852480+00:00
 
 # Vercel AI SDK
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers-ai/configuration/ai-sdk/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers-ai/configuration/ai-sdk/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSetupModelsGenerate TextStream TextGenerate Structured Objects
+OverviewSetupChoose a modelGenerate textStream textGenerate structured outputUse other model typesUse AI GatewayRelated resources
 
-Workers AI can be used with the [Vercel AI SDK ↗︎](https://sdk.vercel.ai/) for JavaScript and TypeScript codebases.
+To use Workers AI with the [AI SDK ↗︎](https://ai-sdk.dev/), use `createAI` from `agents/models/ai-sdk`. This page covers Workers AI models. For AI Gateway catalog models, fallback, gateway options, and the full option reference, refer to [AI SDK](https://developers.cloudflare.com/agents/models/ai-sdk/).
+
+The `workers-ai-provider` package is deprecated. Use `createAI` instead.
 
 ## Setup
 
-Install the [`workers-ai-provider` provider ↗︎](https://sdk.vercel.ai/providers/community-providers/cloudflare-workers-ai):
+Install the Agents SDK and the AI SDK. `createAI` needs `ai@^7` and `@ai-sdk/provider@^4`:
 
 npmyarnpnpmbun
     
     
-    npm i workers-ai-provider
+    npm i agents ai @ai-sdk/provider
     
     
-    yarn add workers-ai-provider
+    yarn add agents ai @ai-sdk/provider
     
     
-    pnpm add workers-ai-provider
+    pnpm add agents ai @ai-sdk/provider
     
     
-    bun add workers-ai-provider
+    bun add agents ai @ai-sdk/provider
 
-Then, add an AI binding in your Workers project Wrangler file:
+Add the `AI` binding to your Wrangler configuration:
+    
+    
+    {
+    	"ai": {
+    		"binding": "AI",
+    	},
+    }
     
     
     [ai]
     binding = "AI"
 
-## Models
+## Choose a model
 
-The AI SDK can be configured to work with [any AI model](https://developers.cloudflare.com/workers-ai/models/).
+Pass the id of any [Workers AI model](https://developers.cloudflare.com/workers-ai/models/). Model ids start with `@cf/` and autocomplete from `@cloudflare/workers-types`:
     
     
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
-    const workersai = createWorkersAI({ binding: env.AI });
+    const ai = createAI({ binding: env.AI });
     
-    // Choose any model: https://developers.cloudflare.com/workers-ai/models/
-    const model = workersai("@cf/meta/llama-3.1-8b-instruct", {});
+    const model = ai("@cf/zai-org/glm-4.7-flash");
 
-## Generate Text
-
-Once you have selected your model, you can generate text from a given prompt.
+## Generate text
     
     
-    import { createWorkersAI } from 'workers-ai-provider';
-    import { generateText } from 'ai';
-    
-    type Env = {
-      AI: Ai;
-    };
+    import { createAI } from "agents/models/ai-sdk";
+    import { generateText } from "ai";
     
     export default {
-      async fetch(_: Request, env: Env) {
-        const workersai = createWorkersAI({ binding: env.AI });
-        const result = await generateText({
-          model: workersai('@cf/meta/llama-2-7b-chat-int8'),
-          prompt: 'Write a 50-word essay about hello world.',
-        });
+    	async fetch(request, env) {
+    		const ai = createAI({ binding: env.AI });
     
-        return new Response(result.text);
-      },
+    		const { text } = await generateText({
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
+    			prompt: "Write a 50-word essay about hello world.",
+    		});
+    
+    		return new Response(text);
+    	},
     };
-
-## Stream Text
-
-For longer responses, consider streaming responses to provide as the generation completes.
     
     
-    import { createWorkersAI } from 'workers-ai-provider';
-    import { streamText } from 'ai';
-    
-    type Env = {
-      AI: Ai;
-    };
+    import { createAI } from "agents/models/ai-sdk";
+    import { generateText } from "ai";
     
     export default {
-      async fetch(_: Request, env: Env) {
-        const workersai = createWorkersAI({ binding: env.AI });
-        const result = streamText({
-          model: workersai('@cf/meta/llama-2-7b-chat-int8'),
-          prompt: 'Write a 50-word essay about hello world.',
-        });
+    	async fetch(request: Request, env: Env) {
+    		const ai = createAI({ binding: env.AI });
     
-        return result.toTextStreamResponse({
-          headers: {
-            // add these headers to ensure that the
-            // response is chunked and streamed
-            'Content-Type': 'text/x-unknown',
-            'content-encoding': 'identity',
-            'transfer-encoding': 'chunked',
-          },
-        });
-      },
+    		const { text } = await generateText({
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
+    			prompt: "Write a 50-word essay about hello world.",
+    		});
+    
+    		return new Response(text);
+    	},
     };
 
-## Generate Structured Objects
+## Stream text
 
-You can provide a Zod schema to generate a structured JSON response.
+For longer responses, stream the output as the model generates it:
     
     
-    import { createWorkersAI } from 'workers-ai-provider';
-    import { generateObject } from 'ai';
-    import { z } from 'zod';
-    
-    type Env = {
-      AI: Ai;
-    };
+    import { createAI } from "agents/models/ai-sdk";
+    import { streamText } from "ai";
     
     export default {
-      async fetch(_: Request, env: Env) {
-        const workersai = createWorkersAI({ binding: env.AI });
-        const result = await generateObject({
-          model: workersai('@cf/meta/llama-3.1-8b-instruct'),
-          prompt: 'Generate a Lasagna recipe',
-          schema: z.object({
-            recipe: z.object({
-              ingredients: z.array(z.string()),
-              description: z.string(),
-            }),
-          }),
-        });
+    	async fetch(request, env) {
+    		const ai = createAI({ binding: env.AI });
     
-        return Response.json(result.object);
-      },
+    		const result = streamText({
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
+    			prompt: "Write a 50-word essay about hello world.",
+    		});
+    
+    		return result.toTextStreamResponse();
+    	},
+    };
+    
+    
+    import { createAI } from "agents/models/ai-sdk";
+    import { streamText } from "ai";
+    
+    export default {
+    	async fetch(request: Request, env: Env) {
+    		const ai = createAI({ binding: env.AI });
+    
+    		const result = streamText({
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
+    			prompt: "Write a 50-word essay about hello world.",
+    		});
+    
+    		return result.toTextStreamResponse();
+    	},
     };
 
-[PreviousOpenAI compatible API endpoints](https://developers.cloudflare.com/workers-ai/configuration/open-ai-compatibility/)[NextHugging Face Chat UI](https://developers.cloudflare.com/workers-ai/configuration/hugging-face-chat-ui/)
+## Generate structured output
+
+Pass a Zod schema to get a typed JSON response:
+    
+    
+    import { createAI } from "agents/models/ai-sdk";
+    import { generateText, Output } from "ai";
+    import { z } from "zod";
+    
+    export default {
+    	async fetch(request, env) {
+    		const ai = createAI({ binding: env.AI });
+    
+    		const { output } = await generateText({
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
+    			prompt: "Generate a lasagna recipe.",
+    			output: Output.object({
+    				schema: z.object({
+    					recipe: z.object({
+    						ingredients: z.array(z.string()),
+    						description: z.string(),
+    					}),
+    				}),
+    			}),
+    		});
+    
+    		return Response.json(output);
+    	},
+    };
+    
+    
+    import { createAI } from "agents/models/ai-sdk";
+    import { generateText, Output } from "ai";
+    import { z } from "zod";
+    
+    export default {
+    	async fetch(request: Request, env: Env) {
+    		const ai = createAI({ binding: env.AI });
+    
+    		const { output } = await generateText({
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
+    			prompt: "Generate a lasagna recipe.",
+    			output: Output.object({
+    				schema: z.object({
+    					recipe: z.object({
+    						ingredients: z.array(z.string()),
+    						description: z.string(),
+    					}),
+    				}),
+    			}),
+    		});
+    
+    		return Response.json(output);
+    	},
+    };
+
+## Use other model types
+
+Embeddings, images, speech, transcription, and reranking come from the same provider:
+    
+    
+    import {
+    	embedMany,
+    	generateImage,
+    	generateSpeech,
+    	rerank,
+    	transcribe,
+    } from "ai";
+    
+    const { embeddings } = await embedMany({
+    	model: ai.embedding("@cf/baai/bge-base-en-v1.5"),
+    	values: ["hello", "world"],
+    });
+    
+    const { image } = await generateImage({
+    	model: ai.image("@cf/black-forest-labs/flux-1-schnell"),
+    	prompt: "A cyberpunk lizard",
+    });
+    
+    const { audio } = await generateSpeech({
+    	model: ai.speech("@cf/deepgram/aura-1"),
+    	text: "Hello from Cloudflare.",
+    });
+    
+    const { text } = await transcribe({
+    	model: ai.transcription("@cf/openai/whisper-large-v3-turbo"),
+    	audio: audio.uint8Array,
+    });
+    
+    const { rerankedDocuments } = await rerank({
+    	model: ai.reranking("@cf/baai/bge-reranker-base"),
+    	documents: ["a cyberpunk lizard", "a rainy Tuesday"],
+    	query: "Which one is cooler?",
+    });
+
+For model-specific settings, refer to [Use other modalities](https://developers.cloudflare.com/agents/models/ai-sdk/#use-other-modalities).
+
+## Use AI Gateway
+
+Requests go through [AI Gateway](https://developers.cloudflare.com/ai-gateway/). The gateway defaults to `default`. To use another gateway, set its `id`:
+    
+    
+    const ai = createAI({ binding: env.AI, id: "my-gateway" });
+
+The same provider also calls models from the [AI Gateway catalog](https://developers.cloudflare.com/ai/models/), such as `anthropic/claude-opus-5.5`. Refer to [AI SDK](https://developers.cloudflare.com/agents/models/ai-sdk/) for catalog models, caching, fallback, and the other gateway options.
+
+## Related resources
+
+  * [AI SDK provider reference](https://developers.cloudflare.com/agents/models/ai-sdk/)
+  * [Workers AI models](https://developers.cloudflare.com/workers-ai/models/)
+  * [AI SDK documentation ↗︎](https://ai-sdk.dev/docs/introduction)
+
+
+
+[PreviousPi AI](https://developers.cloudflare.com/workers-ai/configuration/pi-ai/)[NextHugging Face Chat UI](https://developers.cloudflare.com/workers-ai/configuration/hugging-face-chat-ui/)
 
 Was this helpful?
 

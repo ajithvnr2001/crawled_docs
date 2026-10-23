@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/concepts/sandboxes/
 title: Sandbox lifecycle (Sandbox SDK 0.x) \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:22.849205+00:00
+fetched_at: 2026-10-23T16:39:50.834214+00:00
 ---
 
 # Sandbox lifecycle (Sandbox SDK 0.x) · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:15:22.849205+00:00
 
 # Sandbox lifecycle
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/concepts/sandboxes/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/concepts/sandboxes/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewLifecycle states Creation Active Idle DestructionContainer lifetime and stateNaming strategies Per-user sandboxes Per-session sandboxes Per-task sandboxesRequest routingLifecycle management When to destroy Managing keepAlive containers Handling container restartsVersion compatibilityBest practicesRelated resources
 
@@ -191,14 +191,14 @@ The SDK automatically checks that your npm package version matches the Docker co
 
 
 
-**How to fix** : Update your Dockerfile to match your npm package version. For example, if using `@cloudflare/sandbox@0.7.0`:
+**How to fix** : Update your Dockerfile to match your npm package version. For example, if using `@cloudflare/sandbox@0.12.14`:
     
     
     # Default image (JavaScript/TypeScript)
-    FROM docker.io/cloudflare/sandbox:0.7.0
+    FROM docker.io/cloudflare/sandbox:0.12.14
     
     # Or Python image if you need Python support
-    FROM docker.io/cloudflare/sandbox:0.7.0-python
+    FROM docker.io/cloudflare/sandbox:0.12.14-python
 
 See [Dockerfile reference](https://developers.cloudflare.com/sandbox/sdk/configuration/dockerfile/) for details on image variants and extending the base image.
 

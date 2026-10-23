@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/
 title: Cloud Data Fusion documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:43.583045+00:00
+fetched_at: 2026-10-23T16:52:03.762016+00:00
 ---
 
 # Cloud Data Fusion documentation  |  Google Cloud Documentation

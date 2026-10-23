@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/articles/balancing-strong-and-eventual-consistency-with-google-cloud-datastore/
 title: Balancing Strong and Eventual Consistency with Datastore \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:15.404164+00:00
+fetched_at: 2026-10-23T16:53:30.885332+00:00
 ---
 
 # Balancing Strong and Eventual Consistency with Datastore  |  Firestore in Datastore mode  |  Google Cloud Documentation

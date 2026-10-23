@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/voice-agents/build/genie/
-title: Genie | Sarvam API Docs
+title: Genie: build and deploy voice agents from a chat | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T14:23:31.942677+00:00
+fetched_at: 2026-10-23T16:39:00.853214+00:00
 ---
 
-# Genie | Sarvam API Docs
+# Genie: build and deploy voice agents from a chat | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/voice-agents/build/genie/
 
@@ -28,7 +28,7 @@ Scroll to top
 
 [Build](https://docs.sarvam.ai/voice-agents/build/overview)
 
-# Genie
+# Genie: build and deploy voice agents from a chat
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/voice-agents/build/genie.md "View this page as plain text")|More actions
 
@@ -228,7 +228,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/build/process)[TestsNext](https://docs.sarvam.ai/voice-agents/build/tests)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/build/process)[Test AI voice agents with simulated calls and an AI judgeNext](https://docs.sarvam.ai/voice-agents/build/tests)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 
@@ -414,7 +414,9 @@ YesNo
   * [List attempts](https://docs.sarvam.ai/voice-agents/api/analytics/attempts)
   * [List interactions](https://docs.sarvam.ai/voice-agents/api/analytics/interactions)
   * [Get recording](https://docs.sarvam.ai/voice-agents/api/analytics/recordings)
+  * [Get forwarded recording](https://docs.sarvam.ai/voice-agents/api/analytics/forwarded-recordings)
   * [Get transcript](https://docs.sarvam.ai/voice-agents/api/analytics/transcripts)
+  * [Get trace](https://docs.sarvam.ai/voice-agents/api/analytics/traces)
   * [Overview](https://docs.sarvam.ai/voice-agents/api/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/voice-agents/api/boards/sql)
   * [Best practices](https://docs.sarvam.ai/voice-agents/api/boards/best-practices)

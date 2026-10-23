@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/migrate/api-map/
 title: Sandbox SDK 0.x API map \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:26.272676+00:00
+fetched_at: 2026-10-23T16:39:53.668488+00:00
 ---
 
 # Sandbox SDK 0.x API map · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:15:26.272676+00:00
 
 # Sandbox SDK 0.x API map
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/api-map/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/api-map/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewClass, identity, and lifetimeCommandsProcessesSessionsFilesPorts, preview URLs, and tunnelsTerminalsOutbound network and GitBucket mountsBackupsCode interpreter and subpath packagesImagesErrors and clientsTypes
 
@@ -52,12 +52,12 @@ For the steps, refer to [Replace the Sandbox class](https://developers.cloudflar
 `renewActivityTimeout()` | Native | Any request to the Durable Object | The timeout counts from when the Durable Object becomes inactive.  
 `containerTimeouts`, `setContainerTimeouts()` | Removed | `AbortSignal` |   
 `transport`, `setTransport()`, `SANDBOX_TRANSPORT` | Removed | Not needed | `container.exec()` and `Files` reach the container directly. Remove the setting.  
-`labels`, `setLabels()` | Native | [`container.start({ labels })`](https://developers.cloudflare.com/containers/api/durable-object-container/#start) |   
+`labels`, `setLabels()` | Native | [`container.start({ image, enableInternet, labels })`](https://developers.cloudflare.com/containers/api/durable-object-container/#start) |   
 `configure()` | Removed | Options on each call |   
 `setEnvVars()`, class `envVars` | Native | `container.start({ env })` or `container.exec(argv, { env })` | `exec()` does not inherit `start()` variables, except `PATH`.  
 Class `entrypoint`, `enableInternet` | Native | `container.start({ entrypoint, enableInternet })` | `enableInternet` defaults to `false`. It defaulted to `true` in 0.12.  
 Class `defaultPort`, `requiredPorts` | Native | [`container.getTcpPort(port)`](https://developers.cloudflare.com/containers/api/durable-object-container/#gettcpport) |   
-`start()` | Native | [`container.start({ image })`](https://developers.cloudflare.com/containers/api/durable-object-container/#start) | Does not wait for the container.  
+`start()` | Native | [`container.start({ image, enableInternet })`](https://developers.cloudflare.com/containers/api/durable-object-container/#start) | Does not wait for the container.  
 `startAndWaitForPorts()`, `waitForPort()` | Pattern | Retry `getTcpPort(port).fetch()` | [Preview a web application](https://developers.cloudflare.com/sandbox/previews/) shows a readiness check.  
 `stop()`, `destroy()` | Native | [`container.signal()`](https://developers.cloudflare.com/containers/api/durable-object-container/#signal), [`container.destroy()`](https://developers.cloudflare.com/containers/api/durable-object-container/#destroy) |   
 `getState()` | Native | [`container.running`](https://developers.cloudflare.com/containers/api/durable-object-container/#running), [`container.monitor()`](https://developers.cloudflare.com/containers/api/durable-object-container/#monitor) |   
@@ -75,7 +75,7 @@ For the steps, refer to [Change command calls](https://developers.cloudflare.com
 `exec(command, options)` | Native | [`container.exec(argv, options)`](https://developers.cloudflare.com/containers/api/durable-object-container/#exec) | `output()` returns bytes and `exitCode`. `success` is `exitCode === 0`.  
 `stream`, `onOutput`, `onComplete`, `onError` | Native | Read `stdout` and `stderr`, and await `exitCode` |   
 `execStream()` | Native | The `stdout` stream from `container.exec(argv)` | Set `Content-Type: text/event-stream` on the response. Refer to [Stream output](https://developers.cloudflare.com/sandbox/sdk/migrate/commands/#stream-output).  
-`timeout`, `signal` | Native | Run the command under `timeout`, or pass `signal` from a timer you clear | Exit code `124` means the time passed. Refer to [Replace timeouts](https://developers.cloudflare.com/sandbox/sdk/migrate/commands/#replace-timeouts).  
+`timeout`, `signal` | Native | Run the command under `timeout`, or pass `signal` from a timer you clear | Exit code `124` or `137` means the time passed. Refer to [Replace timeouts](https://developers.cloudflare.com/sandbox/sdk/migrate/commands/#replace-timeouts).  
 `cwd`, `env` | Native | The same options | Pass `cwd: "/workspace"` and `env`, which 0.12 set by default.  
 `encoding` | Removed | Decode bytes yourself |   
 `isExecResult()`, `isProcess()`, `isProcessStatus()` | Removed | Not needed | `exec()` returns an `ExecProcess`. TypeScript types replace the guards.  
@@ -118,11 +118,11 @@ For the steps, refer to [Change file calls](https://developers.cloudflare.com/sa
 
 0.12 | Kind | Replacement | Notes  
 ---|---|---|---  
-`readFile()`, `readFileStream()` | Package | [`files.readFile()`](https://developers.cloudflare.com/sandbox/reference/files/#readfile) | Returns a `Response`. Use `.text()`, `.arrayBuffer()`, or the body.  
+`readFile()`, `readFileStream()` | Package | [`files.readFile()`](https://developers.cloudflare.com/sandbox/reference/files/#readfile) | Returns a `Response`. Use `.text()`, `.arrayBuffer()`, or the body, which holds file bytes, not server-sent events.  
 `writeFile()` | Package | [`files.writeFile()`](https://developers.cloudflare.com/sandbox/reference/files/#writefile) | Create missing parent directories with `mkdir()` first. Pass bytes instead of base64.  
 `mkdir()` | Package | [`files.mkdir()`](https://developers.cloudflare.com/sandbox/reference/files/#mkdir) |   
 `deleteFile()` | Package | [`files.remove()`](https://developers.cloudflare.com/sandbox/reference/files/#remove) | Also removes directories with `recursive: true`.  
-`renameFile()`, `moveFile()` | Package | [`files.rename()`](https://developers.cloudflare.com/sandbox/reference/files/#rename) | Fails with `EXDEV` across filesystems.  
+`renameFile()`, `moveFile()` | Package | [`files.rename()`](https://developers.cloudflare.com/sandbox/reference/files/#rename) | Fails with `EXDEV` across filesystems. Does not move a source into an existing directory, as `mv` did.  
 `listFiles()` | Package | [`files.readDirectory()`](https://developers.cloudflare.com/sandbox/reference/files/#readdirectory) | One level. Includes hidden entries.  
 `listFiles({ recursive: true })` | Pattern | Walk `readDirectory()` | Refer to [List files](https://developers.cloudflare.com/sandbox/sdk/migrate/files/#list-files).  
 `exists()` | Package | [`files.stat()`](https://developers.cloudflare.com/sandbox/reference/files/#stat) | Catch `SandboxFileError` with `ENOENT`.  
@@ -197,7 +197,7 @@ For the steps, refer to [Move backups](https://developers.cloudflare.com/sandbox
 ---|---|---|---  
 `createBackup()`, `restoreBackup()` | Package | [`DirectoryBackup`](https://developers.cloudflare.com/sandbox/reference/directory-backups/) `backup()` and `restore()` | Your Durable Object stores the record. For the whole filesystem, use `container.snapshotContainer()`.  
 `name`, `gitignore` | Package | The `DirectoryBackup` options with the same names | `gitignore` does not need `git` in the image.  
-`excludes` | Package | `exclude` | `.gitignore` syntax. A pattern that starts with `/` matches only at the top, as 0.12 patterns did.  
+`excludes` | Package | `exclude` | `.gitignore` syntax. A pattern that starts with `**/` matches at any depth, as 0.12 patterns did.  
 `ttl` | Pattern | An expiry time stored in the bucket next to the backup | 0.12 refused expired restores and kept the objects.  
 `multipart`, `localBucket`, `compression` | Removed | Not needed | Every backup goes through the R2 binding in parts.  
 `BACKUP_BUCKET` | Native | An R2 binding | Pass its name as the `binding` of `DirectoryBackup`.  
@@ -228,7 +228,7 @@ These APIs came from the code interpreter and the subpath exports of the package
 
 0.12 | Kind | Replacement | Notes  
 ---|---|---|---  
-`cloudflare/sandbox`, `-python`, `-opencode`, and `-musl` images | Removed | Your own `linux/amd64` image | Copy `sandbox-shim` into it if you use `Files` or `S3Mount`. Refer to [Requirements](https://developers.cloudflare.com/sandbox/reference/#requirements).  
+`cloudflare/sandbox`, `-python`, `-opencode`, and `-musl` images | Removed | Your own `linux/amd64` image | Copy `sandbox-shim` into it if you use `Files`, `S3Mount`, or `DirectoryBackup`. Refer to [Requirements](https://developers.cloudflare.com/sandbox/reference/#requirements).  
 `docker:dind-rootless` with `USER root` | Pattern | `docker:dind` with `--ip-forward=false` | Refer to [Run Docker inside the sandbox](https://developers.cloudflare.com/sandbox/sdk/migrate/other-features/#run-docker-inside-the-sandbox).  
   
 ## Errors and clients

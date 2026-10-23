@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/quick-start-migrations-guide/
 title: Use quick-start migrations to migrate to Cloud SQL \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:26.293897+00:00
+fetched_at: 2026-10-23T16:53:45.867080+00:00
 ---
 
 # Use quick-start migrations to migrate to Cloud SQL  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

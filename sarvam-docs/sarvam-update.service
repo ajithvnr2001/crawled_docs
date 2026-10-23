@@ -11,7 +11,7 @@ WorkingDirectory=/data/opencode/sarvam
 ExecStart=/usr/bin/python3 /data/opencode/sarvam/update_incremental.py --concurrency 10
 # ship refreshed corpus + stamps to GitHub (token via root-only env file, never in git)
 EnvironmentFile=/data/opencode/secrets/git.env
-ExecStartPost=/data/opencode/sarvam/vm-ship.sh ajithvnr2001/sarvam-docs --force docs/ README.md guide_code/README.md
+ExecStartPost=/data/opencode/sarvam/vm-ship.sh ajithvnr2001/crawled_docs --force docs/ README.md guide_code/README.md
 TimeoutStartSec=7200
 
 [Install]

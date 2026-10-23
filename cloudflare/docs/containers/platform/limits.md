@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/platform/limits/
 title: Limits and Instance Types \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:41.199349+00:00
+fetched_at: 2026-10-23T16:40:05.748200+00:00
 ---
 
 # Limits and Instance Types · Cloudflare Containers docs
@@ -18,13 +18,13 @@ fetched_at: 2026-10-13T08:48:41.199349+00:00
 
 # Limits and Instance Types
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/containers/platform/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstance Types Custom Instance TypesAccount limitsSnapshot limits
 
 Note
 
-All instance size maximums and account limits on this page are defaults and can be increased. To request higher limits, contact your account team, file a support ticket, or fill out the [limit increase request form ↗︎](https://forms.gle/CscdaEGuw5Hb6H2s7).
+All instance size maximums and account limits on this page are defaults and can be increased. To request higher limits, contact your account team or [Cloudflare Support](https://developers.cloudflare.com/support/contacting-cloudflare-support/).
 
 ## Instance Types
 

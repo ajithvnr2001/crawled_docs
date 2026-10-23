@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/docs/release-notes/
 title: Google Cloud CLI - Release Notes \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:58:10.939907+00:00
+fetched_at: 2026-10-23T16:49:25.275411+00:00
 ---
 
 # Google Cloud CLI - Release Notes  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -22,6 +22,42 @@ Send feedback
 #  Google Cloud CLI - Release Notes Stay organized with collections  Save and categorize content based on your preferences. 
 
 Copyright 2014-2026 Google Inc. All rights reserved.
+
+Subscribe to these release notes at <https://groups.google.com/forum/#!forum/google-cloud-sdk-announce>.
+
+## 590.0.1 (2026-10-22)
+
+### Google Cloud CLI
+
+  * Updated bundled `certifi` to `2026.10.19` and removed distrusted CA root certificates from bundled certificate stores.
+  * Rebuilt bundled Python on Linux and Windows, and in the Alpine-based Docker images, with `grpcio` 1.84.1 and `pip` 26.2.2.
+  * Updated `enterprise-certificate-proxy` component to version `0.3.24`.
+
+
+
+### App Engine
+
+  * Updated Cloud CLI Python component (`app-engine-python`) to `1.9.119` to remove distrusted CA root certificates from bundled certificate stores.
+
+
+
+### BigQuery
+
+  * Updated the bundled `certifi` package to version `2026.10.19` and removed the distrusted `AAA Certificate Services` root certificate from bundled `httplib2`.
+
+
+
+### Cloud SQL
+
+  * Updated 'cloud-sql-proxy' packaged component to use 2.26.3 of the Cloud SQL Proxy.
+
+
+
+### Cloud Storage
+
+  * Updated `gsutil` component to `5.38` to remove distrusted CA root certificates from bundled certificate stores.
+
+
 
 Subscribe to these release notes at <https://groups.google.com/forum/#!forum/google-cloud-sdk-announce>.
 
@@ -46083,6 +46119,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

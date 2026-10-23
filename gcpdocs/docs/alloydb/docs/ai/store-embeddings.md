@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/store-embeddings/
 title: Store vector embeddings \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:34.627801+00:00
+fetched_at: 2026-10-23T16:49:47.452765+00:00
 ---
 
 # Store vector embeddings  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

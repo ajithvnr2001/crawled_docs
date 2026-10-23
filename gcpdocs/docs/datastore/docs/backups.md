@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/backups/
 title: Back up and restore data \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:58.751562+00:00
+fetched_at: 2026-10-23T16:53:28.830467+00:00
 ---
 
 # Back up and restore data  |  Firestore in Datastore mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/wrangler/commands/secrets-store/
 title: Secrets Store \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:29.198406+00:00
+fetched_at: 2026-10-23T16:40:03.832738+00:00
 ---
 
 # Secrets Store · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-10T14:39:29.198406+00:00
 
 # Secrets Store
 
-Last updated Oct 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/wrangler/commands/secrets-store/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overviewsecrets-store secretsecrets-store store
 
@@ -34,7 +34,7 @@ Use the following commands to manage your account secrets.
 
 `--remote` option
 
-In order to interact with Secrets Store in production, you should append `--remote` to your command. Without it, your command will default to [local development mode](https://developers.cloudflare.com/workers/local-development/).
+In order to interact with Secrets Store in production, you should append `--remote` to your command. Without it, your command will default to [local development mode](https://developers.cloudflare.com/workers/local-development/). Local secrets are stored unencrypted in your project's [local data directory](https://developers.cloudflare.com/workers/local-development/local-data/#where-local-data-gets-stored).
 
 ### `secrets-store secret create`
 

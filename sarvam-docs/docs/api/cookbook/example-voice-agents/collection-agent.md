@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent/
-title: Collection Agent using LiveKit | Sarvam API Docs
+title: Hindi collections voice agent with LiveKit | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:29.067515+00:00
+fetched_at: 2026-10-23T16:39:04.830101+00:00
 ---
 
-# Collection Agent using LiveKit | Sarvam API Docs
+# Hindi collections voice agent with LiveKit | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent/
 
@@ -41,7 +41,7 @@ Scroll to top
 
 [Cookbook](https://docs.sarvam.ai/api/cookbook/guides/call-analytics-pipeline)[Example Voice Agents](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
 
-# Collection Agent using LiveKit
+# Hindi collections voice agent with LiveKit
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent.md "View this page as plain text")|More actions
 
@@ -86,7 +86,7 @@ A collection agent that can:
   * Python 3.9 or higher
   * API keys from: 
     * [LiveKit Cloud](https://cloud.livekit.io/) (free account)
-    * [Sarvam AI](https://dashboard.sarvam.ai/) (get API key from dashboard)
+    * [Sarvam AI](https://indus.sarvam.ai/key-management?ref=docs) (get API key from dashboard)
 
 
 
@@ -429,7 +429,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)[Government Scheme Awareness Agent using LiveKitNext](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)[Hindi government scheme voice agent with LiveKitNext](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 

@@ -1,0 +1,7 @@
+{
+  "url": "https://developers.cloudflare.com/changelog/post/2026-08-19-abort-signal-global-scope/",
+  "file": "changelog/post/2026-08-19-abort-signal-global-scope.md",
+  "title": "AbortController and AbortSignal can be created at global scope \u00b7 Changelog",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-23T16:39:47.951010+00:00"
+}

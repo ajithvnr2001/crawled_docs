@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/get-started/build-a-coding-agent-runner/
 title: Build a coding agent runner \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T06:59:27.449060+00:00
+fetched_at: 2026-10-23T16:39:56.576729+00:00
 ---
 
 # Build a coding agent runner · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-14T06:59:27.449060+00:00
 
 # Build a coding agent runner
 
-Last updated Oct 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/get-started/build-a-coding-agent-runner/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create the project2\. Allow only the gateway and GitHub3\. Run Claude Code in the sandbox Start the sandbox Run Claude Code in the background Keep the sandbox running Read the outcome4\. Route requests5\. Deploy6\. Run a taskNext steps
 
@@ -110,7 +110,7 @@ Dockerfiledockerfile
          	&& rm -rf /var/lib/apt/lists/*
          
          # The install script from the Claude Code package puts its native binary in place
-         RUN npm install --global @anthropic-ai/claude-code@2.1.280
+         RUN npm install --global @anthropic-ai/claude-code@2.1.308
          
          COPY --from=docker.io/cloudflare/sandbox:1.0.1 /usr/local/bin/sandbox-shim /usr/local/bin/sandbox-shim
          
@@ -129,7 +129,7 @@ Pin the Claude Code version. Its command-line flags and event format can change 
          	"name": "sandbox-coding-agent",
          	"main": "src/index.ts",
          	// Set this to today's date
-         	"compatibility_date": "2026-10-14",
+         	"compatibility_date": "2026-10-23",
          	"compatibility_flags": ["nodejs_compat"],
          	"observability": {
          		"enabled": true,
@@ -174,7 +174,7 @@ Pin the Claude Code version. Its command-line flags and event format can change 
          name = "sandbox-coding-agent"
          main = "src/index.ts"
          # Set this to today's date
-         compatibility_date = "2026-10-14"
+         compatibility_date = "2026-10-23"
          compatibility_flags = [ "nodejs_compat" ]
          upload_source_maps = true
          
@@ -392,7 +392,7 @@ src/sandbox.jsjs
     		const container = ctx.container;
     
     		if (!container) {
-    			throw new Error("The container binding is not configured");
+    			throw new Error("No container is configured");
     		}
     
     		this.container = container;
@@ -486,7 +486,7 @@ src/sandbox.jsjs
     		await this.startSandbox();
     
     		return this.run(
-    			["/bin/sh", "-c", "git add --intent-to-add . && git diff"],
+    			["/bin/sh", "-c", "git add --intent-to-add . && git diff HEAD"],
     			repositoryDirectory,
     			{},
     		);
@@ -743,7 +743,7 @@ src/sandbox.tsts
     		const container = ctx.container;
     
     		if (!container) {
-    			throw new Error("The container binding is not configured");
+    			throw new Error("No container is configured");
     		}
     
     		this.container = container;
@@ -840,7 +840,7 @@ src/sandbox.tsts
     		await this.startSandbox();
     
     		return this.run(
-    			["/bin/sh", "-c", "git add --intent-to-add . && git diff"],
+    			["/bin/sh", "-c", "git add --intent-to-add . && git diff HEAD"],
     			repositoryDirectory,
     			{},
     		);
@@ -1094,7 +1094,7 @@ While no exit code exists, the Durable Object runs `kill -0` to check whether th
 
 The process ID file also records the boot ID, which changes in every instance. If you restore the workspace from a snapshot, the file comes back, and the new instance reuses the same process IDs. The check ignores a process ID from another instance, so a task that was running when the snapshot was taken is `lost`.
 
-`readDiff()` marks new files with `git add --intent-to-add` so that `git diff` includes them.
+`readDiff()` marks new files with `git add --intent-to-add` so that the diff includes them. `git diff HEAD` compares the files with the checked-out commit, so the diff also includes changes that the agent staged.
 
 ## 4\. Route requests
 

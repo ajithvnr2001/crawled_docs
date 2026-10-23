@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/how-to/talk-to-your-knowledge-base/
 title: Talk to your knowledge base \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:34.360703+00:00
+fetched_at: 2026-10-23T16:40:09.584538+00:00
 ---
 
 # Talk to your knowledge base · Cloudflare AI Search docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:34.360703+00:00
 
 # Talk to your knowledge base
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/how-to/talk-to-your-knowledge-base/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksPrerequisites1\. Create the voice agent2\. Add the AI Search binding3\. Answer from your knowledge base4\. Build the client5\. Run it locally6\. DeployTalk to your knowledge base with multiple peopleNext steps
 
@@ -99,7 +99,7 @@ Add an [AI Search binding](https://developers.cloudflare.com/ai-search/api/searc
     	"main": "src/server.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-10-23",
     	"compatibility_flags": ["nodejs_compat"],
     	"ai": {
     		"binding": "AI",
@@ -133,7 +133,7 @@ Add an [AI Search binding](https://developers.cloudflare.com/ai-search/api/searc
     main = "src/server.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-23"
     compatibility_flags = [ "nodejs_compat" ]
     
     [ai]
@@ -182,7 +182,7 @@ src/server.jsjs
     import { Agent, routeAgentRequest } from "agents";
     import { withVoice, WorkersAIFluxSTT, WorkersAITTS } from "@cloudflare/voice";
     import { generateText, tool, stepCountIs } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import { z } from "zod";
     
     const VoiceAgent = withVoice(Agent);
@@ -196,11 +196,11 @@ src/server.jsjs
     	// the reply, calling AI Search as a retrieval tool when it needs facts from
     	// your knowledge base.
     	async onTurn(transcript, context) {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = await generateText({
     			// Use a Workers AI model that supports function calling.
-    			model: workersai("@cf/zai-org/glm-5.2"),
+    			model: ai("@cf/zai-org/glm-5.2"),
     			system:
     				"You are a helpful voice assistant that answers from a Cloudflare AI Search knowledge base. " +
     				"For questions about the product, call the searchKnowledgeBase tool first and answer using the results. " +
@@ -258,7 +258,7 @@ src/server.tsts
     	type VoiceTurnContext,
     } from "@cloudflare/voice";
     import { generateText, tool, stepCountIs } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import { z } from "zod";
     
     const VoiceAgent = withVoice(Agent);
@@ -272,11 +272,11 @@ src/server.tsts
     	// the reply, calling AI Search as a retrieval tool when it needs facts from
     	// your knowledge base.
     	async onTurn(transcript: string, context: VoiceTurnContext) {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = await generateText({
     			// Use a Workers AI model that supports function calling.
-    			model: workersai("@cf/zai-org/glm-5.2"),
+    			model: ai("@cf/zai-org/glm-5.2"),
     			system:
     				"You are a helpful voice assistant that answers from a Cloudflare AI Search knowledge base. " +
     				"For questions about the product, call the searchKnowledgeBase tool first and answer using the results. " +

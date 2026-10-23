@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/create-ip-filter/
 title: Create a bucket with IP filtering rules \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:09.053244+00:00
+fetched_at: 2026-10-23T16:50:46.464026+00:00
 ---
 
 # Create a bucket with IP filtering rules  |  Cloud Storage  |  Google Cloud Documentation
@@ -21,11 +21,11 @@ Send feedback
 
 #  Create a bucket with IP filtering rules Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to create a bucket with IP filtering rules. By creating a bucket with IP filtering, you can control access to your buckets by examining incoming requests against the IP addresses specified in the bucket IP filtering rules. For details, see [Bucket IP filtering](https://docs.cloud.google.com/storage/docs/ip-filtering-overview).
+You can create a Cloud Storage bucket with IP filtering rules when you want to restrict access to the bucket based on source IP addresses or Virtual Private Cloud (VPC) networks.
 
-**Caution:** It's crucial to set up your IP filtering rules accurately. Incorrectly configured rules can prevent legitimate users from reaching your bucket or even lock you out completely. If you find yourself locked out of your bucket, you can bypass the bucket IP filtering rules to regain access. For details, see [Bypass bucket IP filtering rules](https://docs.cloud.google.com/storage/docs/bypass-ip-filter).
+To add or modify rules on an existing bucket instead, see [Update bucket IP filtering rules](https://docs.cloud.google.com/storage/docs/update-ip-filter). For background information, see [Bucket IP filtering](https://docs.cloud.google.com/storage/docs/ip-filtering-overview).
 
-For information about how to create or update the IP filtering rules on an existing bucket, see [Update bucket IP filtering rules](https://docs.cloud.google.com/storage/docs/update-ip-filter).
+**Note:** Make sure that your IP filtering rules include your own IP address or VPC network so that you retain access to the bucket. If you get locked out of your bucket, you can [bypass bucket IP filtering rules](https://docs.cloud.google.com/storage/docs/bypass-ip-filter).
 
 ## Required roles
 
@@ -44,7 +44,7 @@ You can also get these permissions with [custom roles](https://docs.cloud.google
 
 For instructions on granting roles on buckets, see [Set and manage IAM policies on buckets](https://docs.cloud.google.com/storage/docs/access-control/using-iam-permissions).
 
-## Create bucket with IP filtering rules
+## Create a bucket with IP filtering rules
 
 **Note:** When you use IP filtering with gRPC direct path, you must enable [IPv6 support](https://docs.cloud.google.com/vpc/docs/ipv6-support) on the VPC network.**Caution:** When configuring IP-based access controls for Cloud Storage buckets, evaluate your Google Cloud architecture. Google Cloud services, such as [Managed Service for Apache Airflow](https://docs.cloud.google.com/composer/docs/composer-3/composer-overview), might operate within separate, Google-managed projects that have their own VPC networks. To experience uninterrupted service, you must identify and allowlist the IP ranges from the associated VPC networks in your bucket's filter configuration. Failure to do so might result in the services being blocked from accessing your bucket. For complex Google Cloud architectures, we recommend consulting your account team for assistance in mapping all necessary IP address ranges.
 
@@ -526,6 +526,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

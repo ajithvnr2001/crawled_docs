@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/overview/
 title: Bigtable overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:34:05.524362+00:00
+fetched_at: 2026-10-23T16:47:18.018386+00:00
 ---
 
 # Bigtable overview  |  Google Cloud Documentation
@@ -135,7 +135,7 @@ For more information about column qualifiers, see [Columns](https://docs.cloud.g
 
 Bigtable periodically rewrites your tables to remove deleted entries, to reorganize your data so that reads and writes are more efficient, and to move data as part of tiered storage. This process is known as a _compaction_. There are no configuration settings for compactions— Bigtable compacts your data automatically. **On average, it takes a week for a compaction to complete and execute tasks such as data deletion or moving data to tiered storage.**
 
-Compaction carries out deletions identified by the garbage collection process. For more information, see [Garbage collection](https://docs.cloud.google.com/bigtable/docs/garbage-collection). For more information on compactions in tiered storage, see [How tiered storage works](https://docs.cloud.google.com/bigtable/docs/tiered-storage#how-tiered-storage-works).
+Compaction carries out deletions identified by the garbage collection process. Compaction doesn't initiate data compression; Bigtable compresses data blocks automatically when they are persisted to storage. For more information, see Data compression and [Garbage collection](https://docs.cloud.google.com/bigtable/docs/garbage-collection). For more information on compactions in tiered storage, see [How tiered storage works](https://docs.cloud.google.com/bigtable/docs/tiered-storage#how-tiered-storage-works).
 
 ### Mutations and deletions
 
@@ -145,11 +145,27 @@ Deletions also take up extra storage space, at least in the short term, because 
 
 ### Data compression
 
-Bigtable compresses your data automatically using an intelligent algorithm. You cannot configure compression settings for your table. However, it is useful to know how to store data so that it can be compressed efficiently:
+Bigtable compresses your data automatically using an intelligent algorithm when data is persisted to disk. You can't configure compression settings for your table.
 
-  * **Random data cannot be compressed as efficiently as patterned data.** Patterned data includes text, such as the page you're reading right now.
+**Compression versus compaction**
+
+Data compression is distinct from table compaction:
+
+  * **Compression** happens automatically when data is written and persisted to storage. Compression reduces the physical byte size of data blocks on disk. Storage utilization metrics and billing charges reflect this compressed size rather than uncompressed logical data size.
+
+  * **Compaction** is an asynchronous background maintenance process. Compaction periodically merges storage files and permanently removes deleted and expired data. Compaction doesn't initiate data compression; your data is already stored in compressed form.
+
+
+
+
+It is useful to know how to store data so that it can be compressed efficiently:
+
+  * **Random data can't be compressed as efficiently as patterned data.** Patterned data includes text, such as the page you're reading right now.
+
   * **Compression works best if identical values are near each other,** either in the same row or in adjoining rows. If you arrange your row keys so that rows with identical chunks of data are next to each other, the data can be compressed efficiently.
+
   * **Bigtable compresses values that are up to 1 MiB in size.** If you store values that are larger than 1 MiB, compress them before writing them to Bigtable, so you can save CPU cycles, server memory, and network bandwidth.
+
 
 
 
@@ -231,6 +247,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/configuration/
 title: Configuration \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:30.847173+00:00
+fetched_at: 2026-10-23T16:40:11.378944+00:00
 ---
 
 # Configuration · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-21T06:51:30.847173+00:00
 
 # Configuration
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/think/configuration/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfiguration overridesDynamic configurationSession integrationPackage exportsDependencies
 
@@ -64,7 +64,7 @@ Think's class generics match `Agent<Env, State, Props>`. Persisted runtime confi
     			fast: "@cf/moonshotai/kimi-k2.6",
     			capable: "@cf/meta/llama-4-scout-17b-16e-instruct",
     		};
-    		return createWorkersAI({ binding: this.env.AI })(models[tier]);
+    		return createAI({ binding: this.env.AI })(models[tier]);
     	}
     }
     
@@ -78,7 +78,7 @@ Think's class generics match `Agent<Env, State, Props>`. Persisted runtime confi
     			fast: "@cf/moonshotai/kimi-k2.6",
     			capable: "@cf/meta/llama-4-scout-17b-16e-instruct",
     		};
-    		return createWorkersAI({ binding: this.env.AI })(models[tier]);
+    		return createAI({ binding: this.env.AI })(models[tier]);
     	}
     }
 

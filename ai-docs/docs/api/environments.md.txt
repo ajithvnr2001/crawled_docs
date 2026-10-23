@@ -2,1022 +2,417 @@
 url: https://ai.google.dev/api/environments.md.txt
 title: environments
 method: httpx-raw-text
-fetched_at: 2026-10-23T12:07:26.094913+00:00
+fetched_at: 2026-10-23T16:39:41.695895+00:00
 ---
 
 # environments
 
 > Source: https://ai.google.dev/api/environments.md.txt
 
-<!-- mdformat off(generated) -->
-<!-- disableFinding(G3DOC_JINJA) -->
-<!-- disableFinding(HEADING_FUNCTION) -->
-<!-- disableFinding(LINE_OVER_80) -->
-<!-- disableFinding(SPACES) -->
-
-
-
-# Gemini Environments API
-
-Note: This API is in Beta. Endpoints are under `/v1beta/`.
-
 Environments provide isolated execution contexts for running agent code, tools, and services securely.
+[View as markdown](https://ai.google.dev/static/api/environments.md.txt) [View the OpenAPI Spec](https://ai.google.dev/static/api/interactions.openapi.json)
 
-## Environments
+> [!NOTE]
+> This API is in Beta. Endpoints are under `/v1beta/`.
 
-### CreateEnvironment
+## CreateEnvironment
 
-`POST https://generativelanguage.googleapis.com/v1beta/environments`
+post https://generativelanguage.googleapis.com/v1beta/environments Creates an environment.
+- [Request body](https://ai.google.dev/api/environments#CreateEnvironment.request_body)
+- [Response](https://ai.google.dev/api/environments#CreateEnvironment.response)
 
-Creates an environment.
+### Request body
 
+The request body contains data with the following structure:
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional) Network configuration for the environment.
+Network egress configuration for the environment.
 
-#### Request Body
-- **network** (`EnvironmentNetworkEgressAllowlist or enum (string)`) Network configuration for the environment.
-  Possible values:
-  - `disabled`: All network egress is blocked.
-  - **allowlist** (`array (EgressRule) or enum (string)`)   List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-    Possible values:
-    - `disabled`: All network egress is blocked.
+#### Fields
 
+allowlist array (EgressRule) or enum (string) (optional) List of allowed domains and their configurations. Set to \`"disabled"\`
+to block all network egress.
 
-- **sources** (`array (Source)`) Sources to be mounted into the environment.
-  - **type** (`enum (string)`)
-    Possible values:
-    - `gcs`: A Cloud Storage bucket.
-    - `inline`: Inline content.
-    - `repository`: A generic repository. The protocol prefix in the source URL
-identifies the provider (e.g., github://, gcs://).
+Possible
+values:
 
-  - **source** (`string`)   The source of the environment. For Cloud Storage, this is the Cloud Storage path. For GitHub, this is the GitHub path.
+- `disabled`
 
-  - **target** (`string`)   Where the source should appear in the environment.
+  All network egress is blocked.
+sources array (Source) (optional) Sources to be mounted into the environment.
+A source to be mounted into the environment.
 
-  - **content** (`string`)   The inline content if `type` is `INLINE`.
+#### Fields
 
-  - **encoding** (`string`)   Optional encoding for inline content (e.g. `base64`).
+type enum (string) (optional) No description provided.
 
+Possible
+values:
 
-- **from_environment** (`string`) Optional. The source environment to copy/fork from. Format: `environments/{environment_id}` or `{environment_id}`. When specified, `sources` and `env` must be empty.
+- `gcs`
 
+  A Cloud Storage bucket.
+- `inline`
 
-#### Response
-- **id** (`string`) *(Required)* Required. Output only. The ID of the environment.
+  Inline content.
+- `repository`
 
-- **network** (`EnvironmentNetworkEgressAllowlist or enum (string)`) Network configuration for the environment.
-  Possible values:
-  - `disabled`: All network egress is blocked.
-  - **allowlist** (`array (EgressRule) or enum (string)`)   List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-    Possible values:
-    - `disabled`: All network egress is blocked.
+  A generic repository. The protocol prefix in the source URL
+  identifies the provider (e.g., github://, gcs://).
+source string (optional) The source of the environment.
+For Cloud Storage, this is the Cloud Storage path.
+For GitHub, this is the GitHub path.
+target string (optional) Where the source should appear in the environment.
+content string (optional) The inline content if \`type\` is \`INLINE\`.
+encoding string (optional) Optional encoding for inline content (e.g. \`base64\`).
+from_environment string (optional) Optional. The source environment to copy/fork from.
+Format: \`environments/{environment_id}\` or \`{environment_id}\`.
+When specified, \`sources\` and \`env\` must be empty.
 
+### Response
 
-- **sources** (`array (Source)`) Sources to be mounted into the environment.
-  - **type** (`enum (string)`)
-    Possible values:
-    - `gcs`: A Cloud Storage bucket.
-    - `inline`: Inline content.
-    - `repository`: A generic repository. The protocol prefix in the source URL
-identifies the provider (e.g., github://, gcs://).
+If successful, the response body contains data with the following structure:
+id string (required) Required. Output only. The ID of the environment.
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional) Network configuration for the environment.
+Network egress configuration for the environment.
 
-  - **source** (`string`)   The source of the environment. For Cloud Storage, this is the Cloud Storage path. For GitHub, this is the GitHub path.
+#### Fields
 
-  - **target** (`string`)   Where the source should appear in the environment.
+allowlist array (EgressRule) or enum (string) (optional) List of allowed domains and their configurations. Set to \`"disabled"\`
+to block all network egress.
 
-  - **content** (`string`)   The inline content if `type` is `INLINE`.
+Possible
+values:
 
-  - **encoding** (`string`)   Optional encoding for inline content (e.g. `base64`).
+- `disabled`
 
+  All network egress is blocked.
+sources array (Source) (optional) Sources to be mounted into the environment.
+A source to be mounted into the environment.
 
-- **created** (`string`) Output only. The time at which the environment was created in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
+#### Fields
 
-- **updated** (`string`) Output only. The time at which the environment was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
-
-- **last_accessed** (`string`) Output only. The time at which the environment was last accessed in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
-
-- **status** (`enum (string)`) Output only. The status of the environment container.
-  Possible values:
-  - `active`: Output only. The status of the environment container.
-  - `expired`: Output only. The status of the environment container.
-
-- **file_count** (`string`) Output only. The number of files in the environment, output only.
-
-- **size_bytes** (`string`) Output only. The total size of the environment files in bytes, output only.
-
-
-#### Examples
-**Create**
-
-**REST**
-
-```sh
-curl -X POST https://generativelanguage.googleapis.com/v1beta/environments \
-  -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "sources": [{
-      "type": "inline",
-      "target": "main.py",
-      "content": "print(\"Hello, World!\")"
-    }]
-  }'
-```
-**Python**
-
-```python
-from google import genai
-
-client = genai.Client()
-environment = client.environments.create(
-    sources=[{
-        "type": "inline",
-        "target": "main.py",
-        "content": "print('Hello, World!')",
-    }]
-)
-print(environment.id)
-```
-**JavaScript**
-
-```javascript
-import {GoogleGenAI} from '@google/genai';
-
-const ai = new GoogleGenAI({});
-const environment = await ai.environments.create({
-  sources: [
-    {
-      type: 'inline',
-      target: 'main.py',
-      content: "print('Hello, World!')",
-    },
-  ],
-});
-if (!environment.id) {
-  throw new Error('Environment creation failed: ID is undefined');
-}
-console.log(environment.id);
-```
-**Java**
-
-```java
-import com.google.genai.Client;
-import com.google.genai.gaos.models.environments.CreateEnvironmentRequest;
-import com.google.genai.gaos.models.environments.Environment;
-import com.google.genai.gaos.models.interactions.Source;
-import com.google.genai.gaos.models.interactions.SourceType;
-
-Client client = new Client();
-CreateEnvironmentRequest request =
-    CreateEnvironmentRequest.builder()
-        .sources(
-            List.of(
-                Source.builder()
-                    .type(SourceType.INLINE)
-                    .target("main.py")
-                    .content("print('Hello, World!')")
-                    .build()))
-        .build();
-com.google.genai.gaos.models.environments.Environment environment =
-    client.environments.createEnvironment(request).environment().orElseThrow();
-System.out.println(environment.id().orElse(""));
-```
-**Go**
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "google.golang.org/genai"
-    gaos_environments "google.golang.org/genai/interactions/models/environments"
-    gaos_interactions "google.golang.org/genai/interactions/models/interactions"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    req := operations.CreateEnvironmentRequest{
-        Body: gaos_environments.CreateEnvironmentRequest{
-            Sources: []gaos_interactions.Source{
-                {
-                    Type:    genai.Ptr(gaos_interactions.SourceTypeInline),
-                    Target:  genai.Ptr("main.py"),
-                    Content: genai.Ptr("print('Hello, World!')"),
-                },
-            },
-        },
-    }
-
-    res, err := client.Environments.CreateEnvironment(ctx, req)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    if res.Environment != nil && res.Environment.ID != "" {
-        fmt.Println(res.Environment.ID)
-
-    }
-}
-```
-**Copy**
-
-**REST**
-
-```sh
-curl -X POST https://generativelanguage.googleapis.com/v1beta/environments \
-  -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "from_environment": "environments/env_abc123"
-  }'
-```
-**Python**
-
-```python
-from google import genai
-
-client = genai.Client()
-
-
-environment = client.environments.create(
-    from_environment=source_env.id,
-)
-print(environment.id)
-```
-**JavaScript**
-
-```javascript
-import {GoogleGenAI} from '@google/genai';
-
-const ai = new GoogleGenAI({});
-
-
-const environment = await ai.environments.create({
-  from_environment: sourceEnv.id,
-});
-if (!environment.id) {
-  throw new Error('Environment creation failed: ID is undefined');
-}
-console.log(environment.id);
-```
-**Java**
-
-```java
-import com.google.genai.Client;
-import com.google.genai.gaos.models.environments.CreateEnvironmentRequest;
-import com.google.genai.gaos.models.environments.Environment;
-
-Client client = new Client();
-
-
-CreateEnvironmentRequest request =
-    CreateEnvironmentRequest.builder().fromEnvironment(sourceEnvId).build();
-com.google.genai.gaos.models.environments.Environment environment =
-    client.environments.createEnvironment(request).environment().orElseThrow();
-System.out.println(environment.id().orElse(""));
-```
-**Go**
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "google.golang.org/genai"
-    gaos_environments "google.golang.org/genai/interactions/models/environments"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-
-    res, err := client.Environments.CreateEnvironment(ctx, operations.CreateEnvironmentRequest{
-        Body: gaos_environments.CreateEnvironmentRequest{
-            FromEnvironment: genai.Ptr(sourceEnvID),
-        },
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    if res.Environment != nil && res.Environment.ID != "" {
-        fmt.Println(res.Environment.ID)
-
-    }
-}
-```
----
-
-### ListEnvironments
-
-`GET https://generativelanguage.googleapis.com/v1beta/environments`
-
-Lists environments.
-
-#### Parameters
-- **page_size** (`integer`) Optional. Maximum number of environments to return. If unspecified, defaults to 50. Maximum is 1000.
-
-- **page_token** (`string`) Optional. Pagination token.
-
-
-
-#### Response
-- **environments** (`array (<a href="#Resource:Environment">Environment</a>)`) Environments belonging to the provided project.
-
-- **next_page_token** (`string`) Pagination token.
-
-
-#### Examples
-**List**
-
-**REST**
-
-```sh
-curl -X GET https://generativelanguage.googleapis.com/v1beta/environments \
-  -H "x-goog-api-key: $GEMINI_API_KEY"
-```
-**Python**
-
-```python
-from google import genai
-
-client = genai.Client()
-response = client.environments.list()
-for environment in response.environments or []:
-  print(environment.id)
-```
-**JavaScript**
-
-```javascript
-import {GoogleGenAI} from '@google/genai';
-
-const ai = new GoogleGenAI({});
-const response = await ai.environments.list();
-for (const env of response.environments ?? []) {
-  console.log(env.id);
-}
-```
-**Java**
-
-```java
-import com.google.genai.Client;
-import com.google.genai.gaos.models.environments.Environment;
-import com.google.genai.gaos.models.operations.ListEnvironmentsResponse;
-
-Client client = new Client();
-ListEnvironmentsResponse response = client.environments.listEnvironmentsDirect();
-for (com.google.genai.gaos.models.environments.Environment env :
-    response.listEnvironmentsResponse().flatMap(res -> res.environments()).orElse(List.of())) {
-  System.out.println(env.id().orElse(""));
-}
-```
-**Go**
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "google.golang.org/genai"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    res, err := client.Environments.ListEnvironments(ctx, operations.ListEnvironmentsRequest{})
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    if res.ListEnvironmentsResponse != nil {
-        for _, env := range res.ListEnvironmentsResponse.Environments {
-            if env.ID != "" {
-                fmt.Println(env.ID)
-            }
-        }
-    }
-}
-```
----
-
-### GetEnvironmentFiles
-
-`GET https://generativelanguage.googleapis.com/v1beta/environments/{environment}/files/{path}`
-
-Retrieves file metadata or directory contents from an environment's snapshot. To download file content, use the download URL returned in the response.
-
-#### Parameters
-- **page_size** (`integer`) Optional. Maximum number of entries to return per page (for directory listing).
-
-- **page_token** (`string`) Optional. Pagination token for directory listing.
-
-- **recursive** (`boolean`) Optional. If true and the path is a directory, recursively lists all files.
-
-
-
-#### Response
-- **files** (`array (EnvironmentFile)`) If the requested path is a directory, this contains its contents. If the requested path is a file, this contains a single entry with the file's metadata. If alt=media was specified, this is empty (content is served via `blob`).
-  - **name** (`string`)   Output only. The name of the file or directory (e.g., "main.py" or "src").
-
-  - **path** (`string`)   Output only. The full relative path within the environment (e.g., "workspace/src/main.py").
-
-  - **type** (`enum (string)`)   Output only. The type of the entry.
-    Possible values:
-    - `file`: A regular file.
-    - `directory`: A directory.
-
-  - **size_bytes** (`string`)   Output only. The size of the file/directory in bytes. NOLINT
-
-  - **mime_type** (`string`)   Output only. The MIME type of the file (e.g., "text/python", "image/png"). Empty for directories. NOLINT
-
-  - **created** (`string`)   Output only. The creation time of the file/directory.
-
-  - **modified** (`string`)   Output only. The modification time of the file/directory.
-
-
-- **next_page_token** (`string`) Pagination token for directory listing. NOLINT
-
-
-#### Examples
-**List Files**
-
-**REST**
-
-```sh
-curl -X GET 'https://generativelanguage.googleapis.com/v1beta/environments/env_abc123/files/src' \
-  -H "x-goog-api-key: $GEMINI_API_KEY"
-```
-**Python**
-
-```python
-from google import genai
-
-client = genai.Client()
-
-
-response = client.environments.files.list(
-    environment=created.id,
-    path="src",
-)
-for file in response.files or []:
-  print(file.name, file.type, file.size_bytes)
-```
-**JavaScript**
-
-```javascript
-import {GoogleGenAI} from '@google/genai';
-
-const ai = new GoogleGenAI({});
-
-
-const response = await ai.environments.files.list({
-  environment: created.id,
-  path: 'src',
-});
-for (const file of response.files ?? []) {
-  console.log(file.name, file.type, file.size_bytes);
-}
-```
-**Java**
-
-```java
-import com.google.genai.Client;
-import com.google.genai.gaos.models.environments.EnvironmentFile;
-import com.google.genai.gaos.models.operations.GetEnvironmentFilesRequest;
-import com.google.genai.gaos.models.environments.GetEnvironmentFilesResponse;
-
-Client client = new Client();
-
-
-com.google.genai.gaos.models.operations.GetEnvironmentFilesResponse response =
-    client
-        .environments
-        .files()
-        .list(GetEnvironmentFilesRequest.builder().environment(envId).path("src").build());
-GetEnvironmentFilesResponse filesResponse =
-    response.getEnvironmentFilesResponse().orElseThrow();
-for (EnvironmentFile file : filesResponse.files().orElse(List.of())) {
-  System.out.println(
-      file.name().orElse("")
-          + " "
-          + file.type().map(Object::toString).orElse("")
-          + " "
-          + file.sizeBytes().orElse(""));
-}
-```
-**Go**
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "google.golang.org/genai"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-
-    res, err := client.Environments.Files.List(ctx, operations.GetEnvironmentFilesRequest{
-        Environment: envID,
-        Path:        "src",
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    if res.GetEnvironmentFilesResponse != nil {
-        for _, file := range res.GetEnvironmentFilesResponse.Files {
-            name := ""
-            if file.Name != nil {
-                name = *file.Name
-            }
-            fileType := ""
-            if file.Type != nil {
-                fileType = string(*file.Type)
-            }
-            var size int64
-            if file.SizeBytes != nil {
-                size = *file.SizeBytes
-            }
-            fmt.Println(name, fileType, size)
-        }
-    }
-}
-```
-**Get File**
-
-**REST**
-
-```sh
-curl -X GET 'https://generativelanguage.googleapis.com/v1beta/environments/env_abc123/files/main.py' \
-  -H "x-goog-api-key: $GEMINI_API_KEY"
-```
-**Python**
-
-```python
-from google import genai
-
-client = genai.Client()
-
-
-response = client.environments.files.get(
-    environment=created.id,
-    path="main.py",
-)
-for file in response.files or []:
-  print(file.name, file.size_bytes)
-```
-**JavaScript**
-
-```javascript
-import {GoogleGenAI} from '@google/genai';
-
-const ai = new GoogleGenAI({});
-
-
-const response = await ai.environments.files.list({
-  environment: created.id,
-  path: 'main.py',
-});
-for (const file of response.files ?? []) {
-  console.log(file.name, file.size_bytes);
-}
-```
-**Java**
-
-```java
-import com.google.genai.Client;
-import com.google.genai.gaos.models.environments.EnvironmentFile;
-import com.google.genai.gaos.models.operations.GetEnvironmentFilesRequest;
-import com.google.genai.gaos.models.environments.GetEnvironmentFilesResponse;
-
-Client client = new Client();
-
-
-com.google.genai.gaos.models.operations.GetEnvironmentFilesResponse response =
-    client
-        .environments
-        .files()
-        .list(GetEnvironmentFilesRequest.builder().environment(envId).path("main.py").build());
-GetEnvironmentFilesResponse filesResponse =
-    response.getEnvironmentFilesResponse().orElseThrow();
-for (EnvironmentFile file : filesResponse.files().orElse(List.of())) {
-  System.out.println(file.name().orElse("") + " " + file.sizeBytes().orElse(""));
-}
-```
-**Go**
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "google.golang.org/genai"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-
-    res, err := client.Environments.Files.List(ctx, operations.GetEnvironmentFilesRequest{
-        Environment: envID,
-        Path:        "main.py",
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    if res.GetEnvironmentFilesResponse != nil {
-        for _, file := range res.GetEnvironmentFilesResponse.Files {
-            name := ""
-            if file.Name != nil {
-                name = *file.Name
-            }
-            var size int64
-            if file.SizeBytes != nil {
-                size = *file.SizeBytes
-            }
-            fmt.Println(name, size)
-        }
-    }
-}
-```
-**Download File**
-
-**REST**
-
-```sh
-curl -X GET 'https://generativelanguage.googleapis.com/v1beta/environments/env_abc123/files/src/main.py?alt=media' \
-  -H "x-goog-api-key: $GEMINI_API_KEY" \
-  --output main.py
-```
-**Python**
-
-```python
-from google import genai
-
-client = genai.Client()
-
-
-content = client.environments.files.download(
-    environment=created.id,
-    path="src/main.py",
-)
-print(content.decode("utf-8"))
-```
----
-
-### GetEnvironment
-
-`GET https://generativelanguage.googleapis.com/v1beta/environments/{id}`
-
-Gets an environment.
-
-#### Parameters
-- **id** (`string`) *(Required)* Required. Resource ID segment making up resource `name`. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
-
-
-
-#### Response
-- **id** (`string`) *(Required)* Required. Output only. The ID of the environment.
-
-- **network** (`EnvironmentNetworkEgressAllowlist or enum (string)`) Network configuration for the environment.
-  Possible values:
-  - `disabled`: All network egress is blocked.
-  - **allowlist** (`array (EgressRule) or enum (string)`)   List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-    Possible values:
-    - `disabled`: All network egress is blocked.
-
-
-- **sources** (`array (Source)`) Sources to be mounted into the environment.
-  - **type** (`enum (string)`)
-    Possible values:
-    - `gcs`: A Cloud Storage bucket.
-    - `inline`: Inline content.
-    - `repository`: A generic repository. The protocol prefix in the source URL
-identifies the provider (e.g., github://, gcs://).
-
-  - **source** (`string`)   The source of the environment. For Cloud Storage, this is the Cloud Storage path. For GitHub, this is the GitHub path.
-
-  - **target** (`string`)   Where the source should appear in the environment.
-
-  - **content** (`string`)   The inline content if `type` is `INLINE`.
-
-  - **encoding** (`string`)   Optional encoding for inline content (e.g. `base64`).
-
-
-- **created** (`string`) Output only. The time at which the environment was created in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
-
-- **updated** (`string`) Output only. The time at which the environment was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
-
-- **last_accessed** (`string`) Output only. The time at which the environment was last accessed in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
-
-- **status** (`enum (string)`) Output only. The status of the environment container.
-  Possible values:
-  - `active`: Output only. The status of the environment container.
-  - `expired`: Output only. The status of the environment container.
-
-- **file_count** (`string`) Output only. The number of files in the environment, output only.
-
-- **size_bytes** (`string`) Output only. The total size of the environment files in bytes, output only.
-
-
-#### Examples
-**Get**
-
-**REST**
-
-```sh
-curl -X GET https://generativelanguage.googleapis.com/v1beta/environments/env_abc123 \
-  -H "x-goog-api-key: $GEMINI_API_KEY"
-```
-**Python**
-
-```python
-from google import genai
-
-client = genai.Client()
-
-
-environment = client.environments.get(id=created.id)
-print(environment.id)
-```
-**JavaScript**
-
-```javascript
-import {GoogleGenAI} from '@google/genai';
-
-const ai = new GoogleGenAI({});
-
-
-const environment = await ai.environments.get(created.id);
-console.log(environment.id);
-```
-**Java**
-
-```java
-import com.google.genai.Client;
-import com.google.genai.gaos.models.environments.Environment;
-
-Client client = new Client();
-
-
-com.google.genai.gaos.models.environments.Environment environment =
-    client.environments.getEnvironment(envId).environment().orElseThrow();
-System.out.println(environment.id().orElse(""));
-```
-**Go**
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "google.golang.org/genai"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-
-    res, err := client.Environments.GetEnvironment(ctx, operations.GetEnvironmentRequest{
-        ID: envID,
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    if res.Environment != nil && res.Environment.ID != "" {
-        fmt.Println(res.Environment.ID)
-    }
-}
-```
----
-
-### Start an environment file upload
-
-`PUT https://generativelanguage.googleapis.com/upload/v1beta/environments/{environment}/files/{path}`
-
-Starts a resumable upload session for a file in an environment workspace.
-Upload the file bytes to the URL returned in the `X-Goog-Upload-URL`
+type enum (string) (optional) No description provided.
+
+Possible
+values:
+
+- `gcs`
+
+  A Cloud Storage bucket.
+- `inline`
+
+  Inline content.
+- `repository`
+
+  A generic repository. The protocol prefix in the source URL
+  identifies the provider (e.g., github://, gcs://).
+source string (optional) The source of the environment.
+For Cloud Storage, this is the Cloud Storage path.
+For GitHub, this is the GitHub path.
+target string (optional) Where the source should appear in the environment.
+content string (optional) The inline content if \`type\` is \`INLINE\`.
+encoding string (optional) Optional encoding for inline content (e.g. \`base64\`).
+created string (optional) Output only. The time at which the environment was created in ISO 8601 format
+(YYYY-MM-DDThh:mm:ssZ).
+updated string (optional) Output only. The time at which the environment was last updated in ISO 8601 format
+(YYYY-MM-DDThh:mm:ssZ).
+last_accessed string (optional) Output only. The time at which the environment was last accessed in ISO 8601 format
+(YYYY-MM-DDThh:mm:ssZ).
+status enum (string) (optional) Output only. The status of the environment container.
+
+Possible
+values:
+
+- `active`
+
+  Output only. The status of the environment container.
+- `expired`
+
+  Output only. The status of the environment container.
+file_count string (optional) Output only. The number of files in the environment, output only.
+size_bytes string (optional) Output only. The total size of the environment files in bytes, output only.
+
+### Create
+
+<iframe src="https:///frame/api/environments_995d3588b571eb5f2bdd516433dbd67cda1e209ec6f994cff4baf568861c95a7.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+
+### Copy
+
+<iframe src="https:///frame/api/environments_521a3146378354d256d9c73c789c7fcd73c12f77efc4b9f92caa661a0559ee3b.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+
+## ListEnvironments
+
+get https://generativelanguage.googleapis.com/v1beta/environments Lists environments.
+- [Path / Query parameters](https://ai.google.dev/api/environments#ListEnvironments.PATH_PARAMETERS)
+- [Response](https://ai.google.dev/api/environments#ListEnvironments.response)
+
+### Path / Query Parameters
+
+page_size integer (optional) Optional. Maximum number of environments to return.
+If unspecified, defaults to 50. Maximum is 1000.
+page_token string (optional) Optional. Pagination token.
+
+### Response
+
+If successful, the response body contains data with the following structure:
+environments array ([Environment](https://ai.google.dev/api/environments#Resource:Environment)) (optional) Environments belonging to the provided project.
+next_page_token string (optional) Pagination token.
+
+### List
+
+<iframe src="https:///frame/api/environments_07c670b651eb9100a1324b9752ece11f8945ee069a99aaf05b5c206b8037a173.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+
+## GetEnvironmentFiles
+
+get https://generativelanguage.googleapis.com/v1beta/environments/{environment}/files/{path} Retrieves file metadata or directory contents from an environment's snapshot. To download file content, use the download URL returned in the response.
+- [Path / Query parameters](https://ai.google.dev/api/environments#GetEnvironmentFiles.PATH_PARAMETERS)
+- [Response](https://ai.google.dev/api/environments#GetEnvironmentFiles.response)
+
+### Path / Query Parameters
+
+page_size integer (optional) Optional. Maximum number of entries to return per page (for directory listing).
+page_token string (optional) Optional. Pagination token for directory listing.
+recursive boolean (optional) Optional. If true and the path is a directory, recursively lists all files.
+
+### Response
+
+If successful, the response body contains data with the following structure:
+files array (EnvironmentFile) (optional) If the requested path is a directory, this contains its contents.
+If the requested path is a file, this contains a single entry with the
+file's metadata.
+If alt=media was specified, this is empty (content is served via \`blob\`).
+Metadata for a file or directory within an environment.
+
+#### Fields
+
+name string (optional) Output only. The name of the file or directory (e.g., "main.py" or "src").
+path string (optional) Output only. The full relative path within the environment
+(e.g., "workspace/src/main.py").
+type enum (string) (optional) Output only. The type of the entry.
+
+Possible
+values:
+
+- `file`
+
+  A regular file.
+- `directory`
+
+  A directory.
+size_bytes string (optional) Output only. The size of the file/directory in bytes.
+NOLINT
+mime_type string (optional) Output only. The MIME type of the file (e.g., "text/python", "image/png").
+Empty for directories.
+NOLINT
+created string (optional) Output only. The creation time of the file/directory.
+modified string (optional) Output only. The modification time of the file/directory.
+next_page_token string (optional) Pagination token for directory listing.
+NOLINT
+
+### List Files
+
+<iframe src="https:///frame/api/environments_70b5dc2507d444ebc7c0f98640153644af16b382aaca3baafd1333e5a8ea389e.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+
+### Get File
+
+<iframe src="https:///frame/api/environments_035289463409d161ec17cdbd99fefa3e7c88bf8b06b46abfeb7a94f10c074de1.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+
+### Download File
+
+<iframe src="https:///frame/api/environments_fbaf4f224b8986b12c9ffb4a2d9a110d0fe98aa46236f97a5e5008d39e281942.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+
+## GetEnvironment
+
+get https://generativelanguage.googleapis.com/v1beta/environments/{id} Gets an environment.
+- [Path / Query parameters](https://ai.google.dev/api/environments#GetEnvironment.PATH_PARAMETERS)
+- [Response](https://ai.google.dev/api/environments#GetEnvironment.response)
+
+### Path / Query Parameters
+
+id string (required) Required. Resource ID segment making up resource \`name\`. It identifies the resource
+within its parent collection as described in https://google.aip.dev/122.
+
+### Response
+
+If successful, the response body contains data with the following structure:
+id string (required) Required. Output only. The ID of the environment.
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional) Network configuration for the environment.
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional) List of allowed domains and their configurations. Set to \`"disabled"\`
+to block all network egress.
+
+Possible
+values:
+
+- `disabled`
+
+  All network egress is blocked.
+sources array (Source) (optional) Sources to be mounted into the environment.
+A source to be mounted into the environment.
+
+#### Fields
+
+type enum (string) (optional) No description provided.
+
+Possible
+values:
+
+- `gcs`
+
+  A Cloud Storage bucket.
+- `inline`
+
+  Inline content.
+- `repository`
+
+  A generic repository. The protocol prefix in the source URL
+  identifies the provider (e.g., github://, gcs://).
+source string (optional) The source of the environment.
+For Cloud Storage, this is the Cloud Storage path.
+For GitHub, this is the GitHub path.
+target string (optional) Where the source should appear in the environment.
+content string (optional) The inline content if \`type\` is \`INLINE\`.
+encoding string (optional) Optional encoding for inline content (e.g. \`base64\`).
+created string (optional) Output only. The time at which the environment was created in ISO 8601 format
+(YYYY-MM-DDThh:mm:ssZ).
+updated string (optional) Output only. The time at which the environment was last updated in ISO 8601 format
+(YYYY-MM-DDThh:mm:ssZ).
+last_accessed string (optional) Output only. The time at which the environment was last accessed in ISO 8601 format
+(YYYY-MM-DDThh:mm:ssZ).
+status enum (string) (optional) Output only. The status of the environment container.
+
+Possible
+values:
+
+- `active`
+
+  Output only. The status of the environment container.
+- `expired`
+
+  Output only. The status of the environment container.
+file_count string (optional) Output only. The number of files in the environment, output only.
+size_bytes string (optional) Output only. The total size of the environment files in bytes, output only.
+
+### Get
+
+<iframe src="https:///frame/api/environments_8ded760ca16470340ee6caba4ff7e6b1fafc1c8800cca1fd2a260b7ed3af8a3d.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+
+## Start an environment file upload
+
+put https://generativelanguage.googleapis.com/upload/v1beta/environments/{environment}/files/{path} Starts a resumable upload session for a file in an environment workspace.
+Upload the file bytes to the URL returned in the \`X-Goog-Upload-URL\`
 response header, using the resumable upload protocol.
+- [Path / Query parameters](https://ai.google.dev/api/environments#StartEnvironmentFileUpload.PATH_PARAMETERS)
+- [Response](https://ai.google.dev/api/environments#StartEnvironmentFileUpload.response)
 
+### Path / Query Parameters
 
-#### Parameters
-- **X-Goog-Upload-Command** (`string`) *(Required)* Command that starts the resumable upload session.
-  Default: `start`
-- **X-Goog-Upload-Header-Content-Length** (`integer`) *(Required)* Total number of file bytes that will be uploaded to the session URL.
+X-Goog-Upload-Command string (required) Command that starts the resumable upload session.
 
-- **X-Goog-Upload-Header-Content-Type** (`string`) *(Required)* MIME type of the file that will be uploaded to the session URL.
+*Defaults to: `start`*
+X-Goog-Upload-Header-Content-Length integer (required) Total number of file bytes that will be uploaded to the session URL.
+X-Goog-Upload-Header-Content-Type string (required) MIME type of the file that will be uploaded to the session URL.
+X-Goog-Upload-Protocol string (required) Resumable upload protocol selector.
 
-- **X-Goog-Upload-Protocol** (`string`) *(Required)* Resumable upload protocol selector.
-  Default: `resumable`
-- **extract** (`boolean`) Optional. If true, treats the uploaded file as a tar/tar.gz archive and unpacks it into `path`.
+*Defaults to: `resumable`*
+extract boolean (optional) Optional. If true, treats the uploaded file as a tar/tar.gz archive and unpacks it into \`path\`.
+overwrite boolean (optional) Optional. Whether to overwrite the destination file if it already exists.
 
-- **overwrite** (`boolean`) Optional. Whether to overwrite the destination file if it already exists.
+### Response
 
+If successful, the response is empty.
 
+### Start Upload
 
-#### Response
-Empty response.
+<iframe src="https:///frame/api/environments_9bc1d75f5e7c7b015fc88c198230cce97037ef817ddeb6b839bbb67f3b7146e6.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
 
-#### Examples
-**Start Upload**
+## DeleteEnvironment
 
-**REST**
+delete https://generativelanguage.googleapis.com/v1beta/environments/{id} Deletes an environment.
+- [Path / Query parameters](https://ai.google.dev/api/environments#DeleteEnvironment.PATH_PARAMETERS)
+- [Response](https://ai.google.dev/api/environments#DeleteEnvironment.response)
 
-```sh
-curl -i -X PUT \
-  'https://generativelanguage.googleapis.com/upload/v1beta/environments/env_abc123/files/main.py?overwrite=true' \
-  -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H 'X-Goog-Upload-Protocol: resumable' \
-  -H 'X-Goog-Upload-Command: start' \
-  -H "X-Goog-Upload-Header-Content-Length: $(wc -c < main.py)" \
-  -H 'X-Goog-Upload-Header-Content-Type: text/x-python'
-```
----
+### Path / Query Parameters
 
-### DeleteEnvironment
+id string (required) Required. Resource ID segment making up resource \`name\`. It identifies the resource
+within its parent collection as described in https://google.aip.dev/122.
 
-`DELETE https://generativelanguage.googleapis.com/v1beta/environments/{id}`
+### Response
 
-Deletes an environment.
+If successful, the response is empty.
 
-#### Parameters
-- **id** (`string`) *(Required)* Required. Resource ID segment making up resource `name`. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
+### Delete
 
-
-
-#### Response
-
-#### Examples
-**Delete**
-
-**REST**
-
-```sh
-curl -X DELETE https://generativelanguage.googleapis.com/v1beta/environments/env_abc123 \
-  -H "x-goog-api-key: $GEMINI_API_KEY"
-```
-**Python**
-
-```python
-from google import genai
-
-client = genai.Client()
-
-
-client.environments.delete(id=created.id)
-print("Environment deleted successfully.")
-```
-**JavaScript**
-
-```javascript
-import {GoogleGenAI} from '@google/genai';
-
-const ai = new GoogleGenAI({});
-
-
-await ai.environments.delete(created.id);
-console.log('Environment deleted successfully.');
-```
-**Java**
-
-```java
-import com.google.genai.Client;
-import com.google.genai.gaos.models.environments.Environment;
-
-Client client = new Client();
-
-
-client.environments.deleteEnvironment(envId);
-System.out.println(
-    "com.google.genai.gaos.models.environments.Environment deleted successfully.");
-```
-**Go**
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "google.golang.org/genai"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-
-    _, err = client.Environments.DeleteEnvironment(ctx, operations.DeleteEnvironmentRequest{
-        ID: envID,
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-    fmt.Println("Environment deleted successfully.")
-}
-```
----
-
+<iframe src="https:///frame/api/environments_d426bd5d608f041062f94e16539b5c483c4abba0744a176bce9d5574e89232bb.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
 
 ## Resources
-### Environment { #Resource:Environment }
+
+### Environment
+
 An execution environment for an agent.
 
-**Properties:**
-- **id** (`string`) *(Required)* Required. Output only. The ID of the environment.
+#### Fields
 
-- **network** (`EnvironmentNetworkEgressAllowlist or enum (string)`) Network configuration for the environment.
-  Possible values:
-  - `disabled`: All network egress is blocked.
-  - **allowlist** (`array (EgressRule) or enum (string)`)   List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-    Possible values:
-    - `disabled`: All network egress is blocked.
+id string (required) Required. Output only. The ID of the environment.
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional) Network configuration for the environment.
+Network egress configuration for the environment.
 
+#### Fields
 
-- **sources** (`array (Source)`) Sources to be mounted into the environment.
-  - **type** (`enum (string)`)
-    Possible values:
-    - `gcs`: A Cloud Storage bucket.
-    - `inline`: Inline content.
-    - `repository`: A generic repository. The protocol prefix in the source URL
-identifies the provider (e.g., github://, gcs://).
+allowlist array (EgressRule) or enum (string) (optional) List of allowed domains and their configurations. Set to \`"disabled"\`
+to block all network egress.
 
-  - **source** (`string`)   The source of the environment. For Cloud Storage, this is the Cloud Storage path. For GitHub, this is the GitHub path.
+Possible
+values:
 
-  - **target** (`string`)   Where the source should appear in the environment.
+- `disabled`
 
-  - **content** (`string`)   The inline content if `type` is `INLINE`.
+  All network egress is blocked.
+sources array (Source) (optional) Sources to be mounted into the environment.
+A source to be mounted into the environment.
 
-  - **encoding** (`string`)   Optional encoding for inline content (e.g. `base64`).
+#### Fields
 
+type enum (string) (optional) No description provided.
 
-- **created** (`string`) Output only. The time at which the environment was created in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
+Possible
+values:
 
-- **updated** (`string`) Output only. The time at which the environment was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
+- `gcs`
 
-- **last_accessed** (`string`) Output only. The time at which the environment was last accessed in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
+  A Cloud Storage bucket.
+- `inline`
 
-- **status** (`enum (string)`) Output only. The status of the environment container.
-  Possible values:
-  - `active`: Output only. The status of the environment container.
-  - `expired`: Output only. The status of the environment container.
+  Inline content.
+- `repository`
 
-- **file_count** (`string`) Output only. The number of files in the environment, output only.
+  A generic repository. The protocol prefix in the source URL
+  identifies the provider (e.g., github://, gcs://).
+source string (optional) The source of the environment.
+For Cloud Storage, this is the Cloud Storage path.
+For GitHub, this is the GitHub path.
+target string (optional) Where the source should appear in the environment.
+content string (optional) The inline content if \`type\` is \`INLINE\`.
+encoding string (optional) Optional encoding for inline content (e.g. \`base64\`).
+created string (optional) Output only. The time at which the environment was created in ISO 8601 format
+(YYYY-MM-DDThh:mm:ssZ).
+updated string (optional) Output only. The time at which the environment was last updated in ISO 8601 format
+(YYYY-MM-DDThh:mm:ssZ).
+last_accessed string (optional) Output only. The time at which the environment was last accessed in ISO 8601 format
+(YYYY-MM-DDThh:mm:ssZ).
+status enum (string) (optional) Output only. The status of the environment container.
 
-- **size_bytes** (`string`) Output only. The total size of the environment files in bytes, output only.
+Possible
+values:
 
+- `active`
 
+  Output only. The status of the environment container.
+- `expired`
 
-
+  Output only. The status of the environment container.
+file_count string (optional) Output only. The number of files in the environment, output only.
+size_bytes string (optional) Output only. The total size of the environment files in bytes, output only.

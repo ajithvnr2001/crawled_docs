@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deployment-manager/runtime-configurator/create-and-delete-runtimeconfig-resources/
 title: Creating and Deleting RuntimeConfig Resources \u00a0|\u00a0 Cloud Deployment Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:40:56.956363+00:00
+fetched_at: 2026-10-23T16:54:18.334147+00:00
 ---
 
 # Creating and Deleting RuntimeConfig Resources  |  Cloud Deployment Manager  |  Google Cloud Documentation

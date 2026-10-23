@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/
 title: MCP server portals \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:24.256937+00:00
+fetched_at: 2026-10-23T16:39:58.713840+00:00
 ---
 
 # MCP server portals · Cloudflare One docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-13T08:48:24.256937+00:00
 
 # MCP server portals
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewKey featuresHow it works Transport Client identity header Built-in portal tools Session lifecycle NamingPrerequisitesAdd an MCP server Connect a private MCP server Configure manual OAuth credentials MCP Apps Server status Reauthenticate the MCP server Synchronize the MCP server Upstream OAuth callback URLsCreate a portal Customize login settingsManage tools and prompts Turn off individual tools or prompts Use an allowlist pattern Rename tools and prompts with aliases Tool and prompt namespacing Portal-native toolsManage portals via API List portals Create a portal List MCP servers Create an MCP server View tool-call analytics Force sync an MCP server Delete a portalConfigure via TerraformCode Mode Code Mode policies Upstream servers with Code Mode turned on Configure a Code Mode policy Connect with Code ModeRoute portal traffic through Gateway How Gateway routing works TLS decryption Supported transports Enable Gateway routing Example Gateway policy What happens when a request is blocked LimitationsConnect to a portal Portal homepage Sign out of a portal Connect with a service token Device authenticationOptimize context Minimize tools Search and executeManage portal sessions Return to the server selection page Enable or disable a server inline Reauthenticate a server Authorize new serversView portal logs Log fields Export logs with LogpushKnown limitationsPolicy limitationsTroubleshooting Portal creation fails because of a zone hold After authenticating to the portal, my user receives the error No allowed servers available, check your Zero Trust Policies. The portal URL does not prompt for authentication when it is added to an MCP client. The portal returns a 522 error. An MCP server is stuck in Waiting status. An MCP server shows Stale status. Tool calls fail with an unauthorized error. OAuth authentication fails with a redirect URI error when connecting to an upstream MCP server. Tool calls fail when Gateway routing is turned on. Users cannot connect with mcp-remote or similar tools. The portal homepage shows the wrong name or domain.
+OverviewKey featuresHow it works Transport Client identity header Built-in portal tools Session lifecycle NamingPrerequisitesAdd an MCP server Connect a private MCP server Configure manual OAuth credentials MCP Apps Server status Reauthenticate the MCP server Synchronize the MCP server Upstream OAuth callback URLsCreate a portal Customize login settingsManage tools and prompts Turn off individual tools or prompts Use an allowlist pattern Rename tools and prompts with aliases Tool and prompt namespacing Portal-native toolsManage portals via API List portals Create a portal List MCP servers Create an MCP server View tool-call analytics Force sync an MCP server Delete a portalConfigure via TerraformCode Mode Code Mode policies Upstream servers with Code Mode turned on Configure a Code Mode policy Connect with Code ModeRoute portal traffic through Gateway How Gateway routing works TLS decryption Supported transports Enable Gateway routing Example Gateway policy What happens when a request is blocked LimitationsConnect to a portal Portal homepage Sign out of a portal Connect with a service token Device authenticationOptimize context Minimize tools Search and executeManage portal sessions Return to the server selection page Enable or disable a server inline Reauthenticate a server Authorize new serversView portal logs Log fields Export logs with LogpushKnown limitationsPolicy limitationsTroubleshooting Portal creation fails because of a zone hold After authenticating to the portal, my user receives the error No allowed servers available, check your Zero Trust Policies. The portal URL does not prompt for authentication when it is added to an MCP client. The portal returns a 522 error. An MCP server is stuck in Waiting status. An MCP server shows Stale status. Tool calls fail with an unauthorized error. OAuth authentication fails with a redirect URI error when connecting to an upstream MCP server. Tool calls fail when Gateway routing is turned on. Users cannot connect from an MCP client The portal homepage shows the wrong name or domain.
 
 An MCP server portal centralizes multiple [Model Context Protocol (MCP) servers ↗︎](https://www.cloudflare.com/learning/ai/what-is-model-context-protocol-mcp/) onto a single HTTP endpoint.
 
@@ -873,12 +873,7 @@ MCP client configuration with Code Modejson
     {
     	"mcpServers": {
     		"example-portal": {
-    			"command": "npx",
-    			"args": [
-    				"-y",
-    				"mcp-remote@latest",
-    				"https://<subdomain>.<domain>/mcp?codemode=search_and_execute"
-    			]
+    			"url": "https://<subdomain>.<domain>/mcp?codemode=search_and_execute"
     		}
     	}
     }
@@ -980,7 +975,7 @@ The agent can retry the request, but it will continue to be blocked until the co
 
 ## Connect to a portal
 
-Users can connect to your MCP server running at `https://<subdomain>.<domain>/mcp` using [Workers AI Playground ↗︎](https://playground.ai.cloudflare.com/), [MCP inspector ↗︎](https://github.com/modelcontextprotocol/inspector), or [other MCP clients](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#connect-your-mcp-server-to-claude-and-other-mcp-clients) that support remote MCP servers.
+Users can connect to your MCP server running at `https://<subdomain>.<domain>/mcp` using [Workers AI Playground ↗︎](https://playground.ai.cloudflare.com/), [MCP inspector ↗︎](https://github.com/modelcontextprotocol/inspector), or [other MCP clients](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#connect-from-an-mcp-client) that support remote MCP servers.
 
 To test in Workers AI Playground:
 
@@ -995,23 +990,18 @@ To test in Workers AI Playground:
 
 Workers AI Playground will show a **Connected** status and list the available tools. You can now ask the AI model to complete a task using an available tool. Requests made to an MCP server will appear in your portal logs.
 
-For MCP clients with server configuration files, we recommend using the `npx` command with the `mcp-remote@latest` argument:
+For MCP clients with server configuration files, add the portal as a remote HTTP server. The exact URL field depends on your client. For example:
+
+MCP client configuration for MCP portalsjson
     
     
     {
     	"mcpServers": {
     		"example-mcp-server": {
-    			"command": "npx",
-    			"args": [
-    				"-y",
-    				"mcp-remote@latest",
-    				"https://<subdomain>.<domain>.com/mcp"
-    			]
+    			"url": "https://<subdomain>.<domain>/mcp"
     		}
     	}
     }
-
-We do not recommend using the `serverURL` parameter since it may cause issues with portal session creation and management.
 
 ### Portal homepage
 
@@ -1081,7 +1071,7 @@ For a CLI client, set the headers directly:
       -H "CF-Access-Client-Id: <CLIENT_ID>" \
       -H "CF-Access-Client-Secret: <CLIENT_SECRET>"
 
-For `mcp-remote`, pass the headers with `--header`:
+For clients that support custom headers, configure the service token directly:
 
 MCP client configuration for service token connectionsjson
     
@@ -1089,16 +1079,11 @@ MCP client configuration for service token connectionsjson
     {
     	"mcpServers": {
     		"example-portal": {
-    			"command": "npx",
-    			"args": [
-    				"-y",
-    				"mcp-remote@latest",
-    				"https://<subdomain>.<domain>/mcp",
-    				"--header",
-    				"CF-Access-Client-Id: <CLIENT_ID>",
-    				"--header",
-    				"CF-Access-Client-Secret: <CLIENT_SECRET>"
-    			]
+    			"url": "https://<subdomain>.<domain>/mcp",
+    			"headers": {
+    				"CF-Access-Client-Id": "<CLIENT_ID>",
+    				"CF-Access-Client-Secret": "<CLIENT_SECRET>"
+    			}
     		}
     	}
     }
@@ -1136,12 +1121,7 @@ MCP client configuration with minimize_toolsjson
     {
     	"mcpServers": {
     		"example-portal": {
-    			"command": "npx",
-    			"args": [
-    				"-y",
-    				"mcp-remote@latest",
-    				"https://<subdomain>.<domain>/mcp?optimize_context=minimize_tools"
-    			]
+    			"url": "https://<subdomain>.<domain>/mcp?optimize_context=minimize_tools"
     		}
     	}
     }
@@ -1165,12 +1145,7 @@ MCP client configuration with search_and_executejson
     {
     	"mcpServers": {
     		"example-portal": {
-    			"command": "npx",
-    			"args": [
-    				"-y",
-    				"mcp-remote@latest",
-    				"https://<subdomain>.<domain>/mcp?optimize_context=search_and_execute"
-    			]
+    			"url": "https://<subdomain>.<domain>/mcp?optimize_context=search_and_execute"
     		}
     	}
     }
@@ -1213,16 +1188,7 @@ The portal toggles the server and refreshes the active tool list immediately. Th
 
 When an upstream MCP server token expires, the portal prompts you to reauthenticate from within your MCP client. Open the provided URL in your browser and complete the login to restore the session.
 
-If your MCP client does not display the reauthentication prompt, you can manually clear cached credentials:
-
-Note
-
-This command clears credentials for all MCP servers using `mcp-remote@latest`, not just MCP portals.
-    
-    
-    rm -rf ~/.mcp-auth
-
-After clearing credentials, reconnect to the portal from your MCP client.
+If your MCP client does not display the reauthentication prompt, use its authentication controls to remove the saved portal credentials. Then reconnect to the portal.
 
 ### Authorize new servers
 
@@ -1355,11 +1321,11 @@ Contact the upstream MCP server vendor if you do not control the allowlist.
 
 
 
-### Users cannot connect with `mcp-remote` or similar tools.
+### Users cannot connect from an MCP client
 
-  1. Ensure you are using the latest version of `mcp-remote`. Run `npx -y mcp-remote@latest` to update.
-  2. Use the `command` and `args` format in your MCP client configuration, not the `serverURL` parameter. The `serverURL` parameter may cause issues with portal session creation.
-  3. If authentication fails repeatedly, clear cached credentials by running `rm -rf ~/.mcp-auth` and reconnecting.
+  1. Verify that the client supports Streamable HTTP and OAuth discovery.
+  2. Configure the portal URL as a remote HTTP server.
+  3. If authentication fails repeatedly, use the client authentication controls to remove the saved portal credentials and reconnect.
 
 
 

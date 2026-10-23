@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-center/docs/set-up-database-center/
 title: Set up Database Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:45.499007+00:00
+fetched_at: 2026-10-23T16:53:06.793778+00:00
 ---
 
 # Set up Database Center  |  Google Cloud Documentation

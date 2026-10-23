@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/supported-databases/
 title: Supported source and destination databases \u00a0|\u00a0 Database Migration Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:01.765504+00:00
+fetched_at: 2026-10-23T16:52:59.785388+00:00
 ---
 
 # Supported source and destination databases  |  Database Migration Service  |  Google Cloud Documentation

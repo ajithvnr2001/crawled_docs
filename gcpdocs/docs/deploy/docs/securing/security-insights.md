@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/securing/security-insights/
 title: View security insights in Cloud Deploy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:06.476969+00:00
+fetched_at: 2026-10-23T16:53:49.369915+00:00
 ---
 
 # View security insights in Cloud Deploy  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/tutorials/dataflow-stream-to-bigquery/
 title: Stream from Pub/Sub to BigQuery \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:49.070692+00:00
+fetched_at: 2026-10-23T16:53:38.560933+00:00
 ---
 
 # Stream from Pub/Sub to BigQuery  |  Cloud Dataflow  |  Google Cloud Documentation

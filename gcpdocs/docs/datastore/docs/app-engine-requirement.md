@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/app-engine-requirement/
 title: App Engine Requirement \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:59.365448+00:00
+fetched_at: 2026-10-23T16:53:25.411374+00:00
 ---
 
 # App Engine Requirement  |  Firestore in Datastore mode  |  Google Cloud Documentation

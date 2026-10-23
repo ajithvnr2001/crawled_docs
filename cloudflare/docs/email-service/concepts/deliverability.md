@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/concepts/deliverability/
 title: Email deliverability \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:12.539056+00:00
+fetched_at: 2026-10-23T16:40:07.477489+00:00
 ---
 
 # Email deliverability · Cloudflare Email Service docs
@@ -20,9 +20,9 @@ fetched_at: 2026-10-08T07:11:12.539056+00:00
 
 Understand bounce handling and reputation management for optimal email delivery.
 
-Last updated Sep 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/concepts/deliverability/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/concepts/deliverability/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBounces Hard bounces Soft bouncesReputation management Best practices
+OverviewBounces Hard bounces Soft bouncesReputation management Best practicesSending reputation status Metrics and thresholds Status levels If your account is paused
 
 When you send an email, there is no guarantee it reaches the recipient's inbox. Inbox providers like Gmail, Yahoo, Outlook, and iCloud invest heavily in filtering out unwanted email. If you send poorly targeted emails, have high bounce rates, or trigger spam complaints, these providers may flag your domain as untrustworthy. Once that happens, even your legitimate emails can end up in spam or be blocked outright.
 
@@ -98,6 +98,8 @@ Ensure that your deliverability stays above key metrics to avoid affecting your 
 
 
 
+Cloudflare also checks these metrics for your account. Refer to Sending reputation status for the thresholds and what happens when your account exceeds them.
+
 #### Use separate domains for separate purposes
 
 Each domain builds its own deliverability reputation with inbox providers. Use separate domains or subdomains for different types of email so that one category does not affect the reputation of another. For example:
@@ -109,6 +111,53 @@ Each domain builds its own deliverability reputation with inbox providers. Use s
 
 
 This way, if marketing emails generate higher complaint rates, your transactional email deliverability is not impacted. Each domain can be onboarded separately through [domain configuration](https://developers.cloudflare.com/email-service/configuration/domains/).
+
+## Sending reputation status
+
+Cloudflare checks the sending reputation of each account daily. If your account sends too many messages that bounce, that receiving servers reject as spam, or that recipients report as spam, Cloudflare sends you a warning by email. If the problem continues, Cloudflare can pause Email Sending for your account.
+
+### Metrics and thresholds
+
+Cloudflare measures three metrics for each sending domain, over the last seven days:
+
+Metric | How Cloudflare calculates it | Warning | At Risk  
+---|---|---|---  
+Bounce rate | Messages that bounced because of the recipient (for example, the address or the domain does not exist), divided by all messages sent | 2% or more | 5% or more  
+Spam rejection rate | Messages that the receiving server rejected as spam, divided by all messages sent | 1% or more | 3% or more  
+Complaint rate | Messages that recipients reported as spam, divided by messages delivered | 0.1% or more | 0.2% or more  
+  
+Your account status is the worst status of all your sending domains. One sending domain with poor metrics can change the status of the whole account.
+
+### Status levels
+
+Status | Meaning | Can you send email?  
+---|---|---  
+Healthy | All metrics are below the Warning thresholds. | Yes  
+Warning | At least one metric is at or above its Warning threshold. | Yes  
+At Risk | At least one metric is at or above its At Risk threshold. A seven-day improvement period starts. | Yes  
+Paused | The account stayed At Risk for the full improvement period. After a review, Cloudflare paused Email Sending for the account. | No  
+  
+Each time the status changes, Cloudflare sends an email to the users of the account. The [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/) also shows the current status on the account overview page.
+
+### If your account is paused
+
+While Email Sending is paused:
+
+  * Cloudflare rejects every new message from the account. The [Workers binding](https://developers.cloudflare.com/email-service/api/send-emails/workers-api/) throws the error code `E_ACCOUNT_SUSPENDED`. The [REST API](https://developers.cloudflare.com/email-service/api/send-emails/rest-api/) returns HTTP `403` with error code `10207`.
+  * Cloudflare does not deliver messages that it accepted before the pause and that are still waiting for delivery.
+  * Cloudflare does not keep or queue the rejected messages. Your application must send them again after Cloudflare restores Email Sending.
+  * Your sending domains, DNS records, suppression list, and settings do not change.
+
+
+
+To restore Email Sending:
+
+  1. Review the metrics for each sending domain in the dashboard. Find the metric that is At Risk.
+  2. Find the cause. Common causes are an old or purchased recipient list, a sign-up form that does not validate addresses, and messages that recipients did not expect.
+  3. Fix the cause. Remove invalid and inactive addresses from your list. Send only to recipients who asked for your email, and make it easy to unsubscribe.
+  4. [Contact Cloudflare Support](https://developers.cloudflare.com/support/contacting-cloudflare-support/) and ask Cloudflare to restore Email Sending. Tell Support what caused the problem and what you changed.
+
+
 
 [PreviousEmail lifecycle](https://developers.cloudflare.com/email-service/concepts/email-lifecycle/)[NextEmail authentication](https://developers.cloudflare.com/email-service/concepts/email-authentication/)
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/metrics_gcp_c/
 title: Google Cloud metrics: API prefix is C \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:39:17.578628+00:00
+fetched_at: 2026-10-23T16:51:27.468334+00:00
 ---
 
 # Google Cloud metrics: API prefix is C  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To chart or monitor metric types with values of type `STRING`, you must use Moni
 
 Metrics from [Google Cloud](https://docs.cloud.google.com/docs).
 
-The following list was last generated at 2026-10-14 20:24:33 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
+The following list was last generated at 2026-10-22 02:44:18 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
 
 ### certificatemanager
 
@@ -4524,7 +4524,7 @@ TPU Chip State Count
 `instance/tpu/failure_prediction_score` BETA ** _(project)_**   
 TPU Degradation Score   
 `GAUGE`, `DOUBLE`, `1`   
-**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _This metric indicates the probability of a TPU machine entering an unhealthy state._   
+**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _This metric indicates the probability of a TPU machine entering an unhealthy state. Sampled every 60 seconds. After sampling, data is not visible for up to 540 seconds._   
 `cluster_id`: The obfuscated cluster ID of the cluster hosting the VM.   
 `block_id`: The obfuscated block ID within the cluster hosting the VM.   
 `subblock_id`: The obfuscated sub-block ID hosting the VM.   
@@ -5233,6 +5233,51 @@ Sent packets count
 Used nat ip addresses   
 `GAUGE`, `INT64`, `1`   
 **[gce_service_attachment](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_service_attachment)** |  _IP usage of the monitored service attachment. Sampled every 60 seconds. After sampling, data is not visible for up to 165 seconds._  
+`quota/advanced_rules_per_edge_security_policy/exceeded` GA ** _(project)_**   
+Rules language rules per edge security policy quota exceeded error   
+`DELTA`, `INT64`, `1`   
+**[compute.googleapis.com/SecurityPolicy](https://docs.cloud.google.com/monitoring/api/resources#tag_compute.googleapis.com/SecurityPolicy)** |  _Number of attempts to exceed the limit on quota metric compute.googleapis.com/advanced_rules_per_edge_security_policy. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/advanced_rules_per_edge_security_policy/limit` GA ** _(project)_**   
+Rules language rules per edge security policy quota limit   
+`GAUGE`, `INT64`, `1`   
+**[compute.googleapis.com/SecurityPolicy](https://docs.cloud.google.com/monitoring/api/resources#tag_compute.googleapis.com/SecurityPolicy)** |  _Current limit on quota metric compute.googleapis.com/advanced_rules_per_edge_security_policy. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/advanced_rules_per_edge_security_policy/usage` GA ** _(project)_**   
+Rules language rules per edge security policy quota usage   
+`GAUGE`, `INT64`, `1`   
+**[compute.googleapis.com/SecurityPolicy](https://docs.cloud.google.com/monitoring/api/resources#tag_compute.googleapis.com/SecurityPolicy)** |  _Current usage on quota metric compute.googleapis.com/advanced_rules_per_edge_security_policy. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/advanced_rules_per_regional_security_policy/exceeded` GA ** _(project)_**   
+Rules language rules per regional security policy quota exceeded error   
+`DELTA`, `INT64`, `1`   
+**[compute.googleapis.com/SecurityPolicy](https://docs.cloud.google.com/monitoring/api/resources#tag_compute.googleapis.com/SecurityPolicy)** |  _Number of attempts to exceed the limit on quota metric compute.googleapis.com/advanced_rules_per_regional_security_policy. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/advanced_rules_per_regional_security_policy/limit` GA ** _(project)_**   
+Rules language rules per regional security policy quota limit   
+`GAUGE`, `INT64`, `1`   
+**[compute.googleapis.com/SecurityPolicy](https://docs.cloud.google.com/monitoring/api/resources#tag_compute.googleapis.com/SecurityPolicy)** |  _Current limit on quota metric compute.googleapis.com/advanced_rules_per_regional_security_policy. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/advanced_rules_per_regional_security_policy/usage` GA ** _(project)_**   
+Rules language rules per regional security policy quota usage   
+`GAUGE`, `INT64`, `1`   
+**[compute.googleapis.com/SecurityPolicy](https://docs.cloud.google.com/monitoring/api/resources#tag_compute.googleapis.com/SecurityPolicy)** |  _Current usage on quota metric compute.googleapis.com/advanced_rules_per_regional_security_policy. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/advanced_rules_per_security_policy/exceeded` GA ** _(project)_**   
+Rules language rules per security policy quota exceeded error   
+`DELTA`, `INT64`, `1`   
+**[compute.googleapis.com/SecurityPolicy](https://docs.cloud.google.com/monitoring/api/resources#tag_compute.googleapis.com/SecurityPolicy)** |  _Number of attempts to exceed the limit on quota metric compute.googleapis.com/advanced_rules_per_security_policy. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/advanced_rules_per_security_policy/limit` GA ** _(project)_**   
+Rules language rules per security policy quota limit   
+`GAUGE`, `INT64`, `1`   
+**[compute.googleapis.com/SecurityPolicy](https://docs.cloud.google.com/monitoring/api/resources#tag_compute.googleapis.com/SecurityPolicy)** |  _Current limit on quota metric compute.googleapis.com/advanced_rules_per_security_policy. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/advanced_rules_per_security_policy/usage` GA ** _(project)_**   
+Rules language rules per security policy quota usage   
+`GAUGE`, `INT64`, `1`   
+**[compute.googleapis.com/SecurityPolicy](https://docs.cloud.google.com/monitoring/api/resources#tag_compute.googleapis.com/SecurityPolicy)** |  _Current usage on quota metric compute.googleapis.com/advanced_rules_per_security_policy. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
 `quota/asynchronously_replicating_disk_pairs_per_project_region_pair/exceeded` GA ** _(project)_**   
 Asynchronously replicating disk pairs per project and region pair quota exceeded error   
 `DELTA`, `INT64`, `1`   
@@ -6667,12 +6712,12 @@ Number of pods in GKE Standard cluster. quota usage
 **[container.googleapis.com/Cluster](https://docs.cloud.google.com/monitoring/api/resources#tag_container.googleapis.com/Cluster)** |  _Current usage on quota metric container.googleapis.com/quota/pods_per_cluster_standard. After sampling, data is not visible for up to 150 seconds._   
 `limit_name`: The limit name.   
   
-Generated at 2026-10-14 20:24:33 UTC.
+Generated at 2026-10-22 02:44:18 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

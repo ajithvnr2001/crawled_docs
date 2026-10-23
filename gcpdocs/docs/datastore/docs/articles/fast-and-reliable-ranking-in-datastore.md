@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/articles/fast-and-reliable-ranking-in-datastore/
 title: Fast and Reliable Ranking in Google Datastore \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:16.158578+00:00
+fetched_at: 2026-10-23T16:53:32.085216+00:00
 ---
 
 # Fast and Reliable Ranking in Google Datastore  |  Firestore in Datastore mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/input-box-control/
 title: Input box control \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:08.054510+00:00
+fetched_at: 2026-10-23T16:52:24.346714+00:00
 ---
 
 # Input box control  |  Data Studio  |  Google Cloud Documentation

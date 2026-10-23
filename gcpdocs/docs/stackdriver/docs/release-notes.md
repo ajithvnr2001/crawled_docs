@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/stackdriver/docs/release-notes/
 title: Google Cloud Observability release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:27.650751+00:00
+fetched_at: 2026-10-23T16:46:14.227452+00:00
 ---
 
 # Google Cloud Observability release notes  |  Google Cloud Documentation

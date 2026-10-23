@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/files/save-a-sandbox-automatically/
 title: Save a sandbox automatically \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:18.543145+00:00
+fetched_at: 2026-10-23T16:39:56.930153+00:00
 ---
 
 # Save a sandbox automatically · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:18.543145+00:00
 
 # Save a sandbox automatically
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/files/save-a-sandbox-automatically/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/files/save-a-sandbox-automatically/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesSave a sandbox before it stopsRelated resources
 
@@ -47,7 +47,21 @@ src/index.tsts
 
 The inactivity timeout is longer than the check interval, so the instance keeps running between checks. If the checks stop, the timeout still stops the instance, and the sandbox keeps the files from its last save.
 
-  2. In `MyContainer`, replace `exec()`. It starts a new instance from the stored snapshot when there is one, schedules the first check, and records activity:
+  2. In `MyContainer`, add a constructor. It sets the inactivity timeout again when a restarted Durable Object finds the container running, so the instance does not stop before the next check:
+
+src/index.tsts
+         
+         constructor(ctx: DurableObjectState, env: Env) {
+         	super(ctx, env);
+         	const container = ctx.container;
+         	if (container?.running) {
+         		void ctx.blockConcurrencyWhile(() =>
+         			container.setInactivityTimeout(INACTIVITY_TIMEOUT_MS),
+         		);
+         	}
+         }
+
+Then replace `exec()`. It starts a new instance from the stored snapshot when there is one, schedules the first check, and records activity:
 
 src/index.tsts
          
@@ -56,7 +70,7 @@ src/index.tsts
          async exec(argv: string[]) {
          	const container = this.ctx.container;
          	if (!container) {
-         		throw new Error("The container binding is not configured");
+         		throw new Error("No container is configured");
          	}
          
          	if (!container.running) {
@@ -119,7 +133,15 @@ src/index.tsts
          		Date.now() - savedAt > CHECKPOINT_INTERVAL_MS;
          
          	if (idle || checkpoint) {
-         		await this.save();
+         		try {
+         			await this.save();
+         		} catch (error) {
+         			// Keep the instance and try again at the next check.
+         			console.error("Saving the sandbox failed", error);
+         			await container.setInactivityTimeout(INACTIVITY_TIMEOUT_MS);
+         			await this.ctx.storage.setAlarm(Date.now() + CHECK_INTERVAL_MS);
+         			return;
+         		}
          	}
          
          	const activeDuringSave =
@@ -134,7 +156,7 @@ src/index.tsts
          	await this.ctx.storage.setAlarm(Date.now() + CHECK_INTERVAL_MS);
          }
 
-A save takes a few seconds, and the instance keeps running commands during it. If a request arrives during the save, the alarm does not stop the instance. A later snapshot saves the files written during the save. If a save fails or a deploy interrupts it, the runtime [runs the alarm again](https://developers.cloudflare.com/durable-objects/api/alarms/), and the instance keeps running.
+A save takes a few seconds, and the instance keeps running commands during it. If a request arrives during the save, the alarm does not stop the instance. A later snapshot saves the files written during the save. If a save fails, the handler keeps the instance running and schedules the next check, which tries again. If a deploy interrupts a save, the runtime [runs the alarm again](https://developers.cloudflare.com/durable-objects/api/alarms/).
 
 Checkpoints limit what a sandbox loses when something other than the alarm stops it, such as the inactivity timeout after the checks stop. The sandbox restores the last checkpoint, without the changes made after it.
 

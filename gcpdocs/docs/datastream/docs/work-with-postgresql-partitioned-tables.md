@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/work-with-postgresql-partitioned-tables/
 title: Work with PostgreSQL partitioned tables \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:00.137097+00:00
+fetched_at: 2026-10-23T16:53:49.632277+00:00
 ---
 
 # Work with PostgreSQL partitioned tables  |  Datastream  |  Google Cloud Documentation

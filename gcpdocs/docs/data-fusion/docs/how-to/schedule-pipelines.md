@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/schedule-pipelines/
 title: Schedule pipelines \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:42.638151+00:00
+fetched_at: 2026-10-23T16:51:51.776551+00:00
 ---
 
 # Schedule pipelines  |  Cloud Data Fusion  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/router/comfy-router/price-a-model-call-before-running-it-without-running-it/
 title: Price a model call before running it, without running it. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:10.898708+00:00
+fetched_at: 2026-10-23T16:38:38.716637+00:00
 ---
 
 # Price a model call before running it, without running it. - ComfyUI
@@ -236,7 +236,7 @@ Comfy Router
 
 Copy pageCopy page
 
-Returns what Comfy will charge for running this body on this model, in US dollars, priced from the same rate card the charge is billed against. The body is validated against the model’s input schema first, as a default run (no `strict_mode`, no `reject_unknown_fields`) validates it, so a body that fails the model’s schema is the same `422` here as on the run; nothing is dispatched to a provider and nothing is charged. The answer is not a price lock: it is priced at the rates in force at `pricing_as_of`, and a run is charged at the rates in force when it is rated. While the feature is rolling out the route answers `403` with `error_type: not_enabled`.
+Returns a pre-flight estimate, in US dollars, of what running this body on this model will cost, priced from the same rate card the run is billed against. It is an estimate, not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. The body is validated against the model’s input schema first, as a default run (no `strict_mode`, no `reject_unknown_fields`) validates it, so a body that fails the model’s schema is the same `422` here as on the run; nothing is dispatched to a provider and nothing is charged. The answer is not a price lock: it is priced at the rates in force at `pricing_as_of`, and a run is charged at the rates in force when it is rated. While the feature is rolling out the route answers `403` with `error_type: not_enabled`.
 
 Copy pageCopy page
 
@@ -565,7 +565,7 @@ application/json
 
 The quote. Read `source` before reading any amount: only `exact` carries `amount`, and an `unknown` quote carries a `reason` instead of a figure.
 
-What Comfy will charge for this call, priced before dispatch from the same rate card the charge is billed against, in US dollars. `source` says how much to trust the number: `exact` carries `amount`; `estimated` carries `min_amount` and `max_amount` and no `amount`; `unknown` carries neither and a `reason`. Never read an absent `amount` as free. Not a price lock: see `pricing_as_of`.
+A pre-flight estimate of what this call will cost, in US dollars, priced before dispatch from the same rate card the run is billed against. It is not the final charge: the settled charge in your workspace's usage and billing records is what you pay. `X-Comfy-Credits-Used`, reported after the run, is a rounded post-hoc figure, not a receipt. `source` says how much to trust the number: `exact` carries `amount`; `estimated` carries `min_amount` and `max_amount` and no `amount`; `unknown` carries neither and a `reason`. Never read an absent `amount` as free. Not a price lock: see `pricing_as_of`.
 
 ​
 
@@ -575,7 +575,7 @@ string
 
 required
 
-`exact` | `estimated` | `unknown`; read any other value as `unknown`.
+`exact` | `estimated` | `unknown`; read any other value as `unknown`. `exact` and `estimated` both label an estimate; neither is the final charge. `unknown` carries no figure.
 
 ​
 
@@ -623,7 +623,7 @@ string<date-time>
 
 required
 
-When the rate card this quote was priced from was fetched. The run is charged at the rates in force when it is rated, not at this instant. Whenever no rate card was read (`reason: pricing_unavailable`, `byok`, or a `not_quotable` call that cannot be priced from any card), this is when the quote was answered.
+When the rate card this quote was priced from was fetched. The estimate is not a price lock: the run is charged at the rates in force when it is rated, not at this instant. Whenever no rate card was read (`reason: pricing_unavailable`, `byok`, or a `not_quotable` call that cannot be priced from any card), this is when the quote was answered.
 
 ​
 
@@ -631,7 +631,7 @@ amount
 
 string
 
-Dollars as a decimal string, e.g. "0.04", with up to 8 decimals and no exponent. A chargeable sub-cent price is never rendered as "0". Present only when `source` is `exact`.
+The estimated cost in dollars as a decimal string, e.g. "0.04", with up to 8 decimals and no exponent. A chargeable sub-cent price is never rendered as "0". Present only when `source` is `exact`. Not the final charge: the settled charge in your workspace's usage and billing records is.
 
 ​
 
@@ -639,7 +639,7 @@ min_amount
 
 string
 
-The lower bound in dollars as a decimal string. Present only when `source` is `estimated`.
+The low end of the estimate in dollars as a decimal string. It is an estimate, not a guaranteed floor: a call can be billed less, for example when the provider returns less than the request asked for (such as no images), when the estimate is a typical price learned from past calls, or when the price does not rise steadily with the amount requested. Present only when `source` is `estimated`.
 
 ​
 
@@ -647,7 +647,7 @@ max_amount
 
 string
 
-The upper bound in dollars as a decimal string. Present only when `source` is `estimated`.
+The high end of the estimate in dollars as a decimal string. It is an estimate, not a guaranteed cap: a call can be billed more, for example when the provider returns more than was asked (such as more images than requested), when the estimate is learned from past calls, or when the price does not rise steadily with the amount requested. Present only when `source` is `estimated`.
 
 ​
 
@@ -679,7 +679,7 @@ credits
 
 number<double>
 
-`amount` in Comfy credits using the platform conversion ($1 = 211 credits), rounded to 2 decimals - the figure `X-Comfy-Credits-Used` will carry for an `exact` quote.
+`amount` in Comfy credits using the platform conversion ($1 = 211 credits), rounded to 2 decimals - the figure `X-Comfy-Credits-Used` is expected to carry for an `exact` quote. That header is a rounded post-hoc figure, not a receipt; the settled charge in your workspace's usage and billing records is final.
 
 ​
 
@@ -695,26 +695,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/api-reference/router/comfy-router/price-a-model-call-before-running-it-without-running-it.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/api-reference/router/comfy-router/price-a-model-call-before-running-it-without-running-it)
 
-[Run a partner model synchronously by canonical model ID.Previous](https://docs.comfy.org/api-reference/router/comfy-router/run-a-partner-model-synchronously-by-canonical-model-id)[Read one partner model's input and output schemas as an OpenAPI document.Next](https://docs.comfy.org/api-reference/router/comfy-router/read-one-partner-models-input-and-output-schemas-as-an-openapi-document)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Run a partner model synchronously by canonical model ID.](https://docs.comfy.org/api-reference/router/comfy-router/run-a-partner-model-synchronously-by-canonical-model-id)[Read one partner model's input and output schemas as an OpenAPI document.](https://docs.comfy.org/api-reference/router/comfy-router/read-one-partner-models-input-and-output-schemas-as-an-openapi-document)

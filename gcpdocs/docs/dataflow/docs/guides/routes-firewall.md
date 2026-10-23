@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/routes-firewall/
 title: Configure internet access and firewall rules \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:12.556642+00:00
+fetched_at: 2026-10-23T16:51:59.784237+00:00
 ---
 
 # Configure internet access and firewall rules  |  Cloud Dataflow  |  Google Cloud Documentation

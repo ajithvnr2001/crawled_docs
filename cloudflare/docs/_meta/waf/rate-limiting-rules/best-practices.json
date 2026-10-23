@@ -3,8 +3,5 @@
   "file": "waf/rate-limiting-rules/best-practices.md",
   "title": "Rate limiting best practices \u00b7 Cloudflare Web Application Firewall (WAF) docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:16:45.810571+00:00",
-  "html_len": 201473,
-  "md_len": 30140,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:39:51.594180+00:00"
 }

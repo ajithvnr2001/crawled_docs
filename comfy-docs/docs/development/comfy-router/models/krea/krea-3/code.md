@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/krea/krea-3/code/
 title: Use Krea 3 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T14:35:01.749654+00:00
+fetched_at: 2026-10-23T16:38:43.207743+00:00
 ---
 
 # Use Krea 3 with Comfy Router - ComfyUI
@@ -64,8 +64,7 @@ cURL
         result = client.models.run(
             "krea/krea-3",
             {
-                "image_urls": ["https://example.com/reference.png"],
-                "prompt": "Place the product on a clean studio background",
+                "prompt": "A ceramic coffee mug on a clean studio background",
                 "resolution": "1k",
             },
         )
@@ -79,8 +78,7 @@ cURL
     // Reads COMFY_API_KEY from the environment.
     // The SDK automatically creates an idempotency key and reuses it for automatic retries.
     const { data } = await comfy.models.run("krea/krea-3", {
-      image_urls: ["https://example.com/reference.png"],
-      prompt: "Place the product on a clean studio background",
+      prompt: "A ceramic coffee mug on a clean studio background",
       resolution: "1k",
     });
     
@@ -92,7 +90,7 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY" \
       -H "Idempotency-Key: $(uuidgen)" \
       -H "Content-Type: application/json" \
-      -d "{\"image_urls\": [\"https://example.com/reference.png\"], \"prompt\": \"Place the product on a clean studio background\", \"resolution\": \"1k\"}"
+      -d "{\"prompt\": \"A ceramic coffee mug on a clean studio background\", \"resolution\": \"1k\"}"
     
 
 The same body, sent to `POST https://api.comfy.org/v2/models/krea/krea-3/requests`. Router answers `201` with a `request_id` as soon as the run is admitted, and the result is collected once it is ready, from this process or another one. [Queued delivery](https://docs.comfy.org/development/comfy-router/queue) walks through status, cancellation and collection.
@@ -114,8 +112,7 @@ cURL
             handle = await client.models.submit(
                 "krea/krea-3",
                 {
-                    "image_urls": ["https://example.com/reference.png"],
-                    "prompt": "Place the product on a clean studio background",
+                    "prompt": "A ceramic coffee mug on a clean studio background",
                     "resolution": "1k",
                 },
             )
@@ -140,8 +137,7 @@ cURL
     // Reads COMFY_API_KEY from the environment.
     // Each submit() call mints its own Idempotency-Key and reuses it for automatic retries.
     const handle = await comfy.models.submit("krea/krea-3", {
-      image_urls: ["https://example.com/reference.png"],
-      prompt: "Place the product on a clean studio background",
+      prompt: "A ceramic coffee mug on a clean studio background",
       resolution: "1k",
     });
     console.log("requestId:", handle.requestId); // with the model ID, all another process needs
@@ -163,7 +159,7 @@ cURL
       -H "X-API-Key: $COMFY_API_KEY" \
       -H "Idempotency-Key: $(uuidgen)" \
       -H "Content-Type: application/json" \
-      -d "{\"image_urls\": [\"https://example.com/reference.png\"], \"prompt\": \"Place the product on a clean studio background\", \"resolution\": \"1k\"}"
+      -d "{\"prompt\": \"A ceramic coffee mug on a clean studio background\", \"resolution\": \"1k\"}"
     
     # 2. Poll until status is COMPLETED, waiting the Retry-After seconds each response names.
     REQUEST_ID="<request_id from the 201 body>"
@@ -201,7 +197,7 @@ image_urls
 
 string[]
 
-Input image URLs, up to 8. Use image_url values from POST /proxy/krea/assets. Omit for text-to-image.
+Input image URLs, up to 8. Each must be the image_url returned by uploading the image to POST /proxy/krea/assets (multipart form field `file`); any link that is not an https URL on the host app-uploads.krea.ai, including your own https URLs, is rejected with 400, and an app-uploads.krea.ai link that is not a live upload fails with a 5xx error. Omit for text-to-image.
 
 ​
 
@@ -225,7 +221,7 @@ string
 
 required
 
-Editing instruction. Describe what should change and what should stay the same.
+What to generate. With image_urls, the editing instruction; describe what should change and what should stay the same.
 
 ​
 
@@ -349,10 +345,7 @@ Input
     
     
     {
-      "image_urls": [
-        "https://example.com/reference.png"
-      ],
-      "prompt": "Place the product on a clean studio background",
+      "prompt": "A ceramic coffee mug on a clean studio background",
       "resolution": "1k"
     }
     
@@ -403,26 +396,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/krea/krea-3/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/krea/krea-3/code)
 
-[Use Krea 2 with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/krea/krea-2/code)[Use LTX 2.5 Fast with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-2-5-fast/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Krea 2](https://docs.comfy.org/development/comfy-router/models/krea/krea-2/code)[LTX 2.5 Fast](https://docs.comfy.org/development/comfy-router/models/ltx/ltx-2-5-fast/code)

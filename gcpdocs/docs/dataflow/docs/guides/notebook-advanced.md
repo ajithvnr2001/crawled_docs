@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/notebook-advanced/
 title: Use Apache Beam notebook advanced features \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:15.139074+00:00
+fetched_at: 2026-10-23T16:53:14.320701+00:00
 ---
 
 # Use Apache Beam notebook advanced features  |  Cloud Dataflow  |  Google Cloud Documentation

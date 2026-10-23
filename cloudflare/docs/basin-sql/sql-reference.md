@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/basin-sql/sql-reference/
 title: SQL reference \u00b7 Basin SQL docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:28.344067+00:00
+fetched_at: 2026-10-23T16:40:06.788485+00:00
 ---
 
 # SQL reference · Basin SQL docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-08T07:05:28.344067+00:00
 
 # SQL reference
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/basin-sql/sql-reference/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/basin-sql/sql-reference/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewQuery syntaxSchema discovery commands SHOW DATABASES SHOW NAMESPACES SHOW TABLES DESCRIBESELECT clause Syntax Column specification Examples DISTINCTCommon table expressions (CTEs) Syntax Chained CTEs CTE joined with another table Two CTEs joined togetherFROM clause SyntaxJOIN clause Supported join types Syntax Multi-way joins Self-joins Join conditions Best practices for joinsSubqueries Subqueries in FROM (derived tables) IN / NOT IN subqueries EXISTS / NOT EXISTS subqueries Scalar subqueriesWHERE clause Syntax Conditions ExamplesGROUP BY clause Syntax Examples GROUPING SETS, ROLLUP, and CUBEHAVING clause Syntax ExamplesORDER BY clause Syntax ExamplesLIMIT clause Syntax ExamplesWindow functions Syntax Supported functions Examples QUALIFYSet operations Syntax Supported operations Examples RequirementsEXPLAIN EXPLAIN FORMAT JSONExpressions Literals Arithmetic operators String concatenation CASE expressions Type casting EXTRACTData type referenceOperator precedenceComplete query examples Basic query Filtered query with sorting Aggregation with HAVING Conditional categorization
+OverviewQuery syntaxSchema discovery commands SHOW DATABASES SHOW NAMESPACES SHOW TABLES DESCRIBESELECT clause Syntax Column specification Examples DISTINCTCommon table expressions (CTEs) Syntax Chained CTEs CTE joined with another table Two CTEs joined togetherFROM clause SyntaxJOIN clause Supported join types Syntax Multi-way joins Self-joins Join conditions Best practices for joinsSubqueries Subqueries in FROM (derived tables) IN / NOT IN subqueries EXISTS / NOT EXISTS subqueries Scalar subqueriesWHERE clause Syntax Conditions ExamplesGROUP BY clause Syntax Examples GROUPING SETS, ROLLUP, and CUBEHAVING clause Syntax ExamplesORDER BY clause Syntax ExamplesLIMIT clause Syntax ExamplesOFFSET clause Syntax ExampleWindow functions Syntax Supported functions Examples QUALIFYSet operations Syntax Supported operations Examples RequirementsEXPLAIN EXPLAIN FORMAT JSONExpressions Literals Arithmetic operators String concatenation CASE expressions Type casting EXTRACTData type referenceOperator precedenceComplete query examples Basic query Filtered query with sorting Aggregation with HAVING Conditional categorization
 
 Basin SQL is Cloudflare's serverless, distributed, analytics query engine for querying [Apache Iceberg ↗︎](https://iceberg.apache.org/) tables stored in [Basin Catalog](https://developers.cloudflare.com/basin-catalog/). This page documents the supported SQL syntax.
 
@@ -36,7 +36,7 @@ Basin SQL is Cloudflare's serverless, distributed, analytics query engine for qu
     [HAVING conditions]
     [QUALIFY window_condition]
     [ORDER BY expression [ASC | DESC]]
-    [LIMIT number]
+    [LIMIT number [OFFSET number]]
 
 Two or more queries can be combined with set operations (`UNION`, `UNION ALL`, `INTERSECT`, `EXCEPT`).
 
@@ -614,6 +614,27 @@ These extensions compute multiple groupings, including subtotals and grand total
     
     
     SELECT * FROM my_namespace.sales_data LIMIT 100
+
+* * *
+
+## OFFSET clause
+
+`OFFSET` skips a specified number of rows before returning results. Use it with `LIMIT` to retrieve a page of results. Order by a unique column to keep the row order consistent across pages.
+
+### Syntax
+    
+    
+    LIMIT number OFFSET number
+
+### Example
+
+This query skips the first 100 rows and returns the next 100 rows:
+    
+    
+    SELECT sale_id, total_amount
+    FROM my_namespace.sales_data
+    ORDER BY sale_id
+    LIMIT 100 OFFSET 100
 
 * * *
 

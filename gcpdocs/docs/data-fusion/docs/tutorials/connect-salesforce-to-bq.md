@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/tutorials/connect-salesforce-to-bq/
 title: Use Salesforce batch source plugin to analyze leads data in BigQuery \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:43.954147+00:00
+fetched_at: 2026-10-23T16:53:08.958185+00:00
 ---
 
 # Use Salesforce batch source plugin to analyze leads data in BigQuery  |  Cloud Data Fusion  |  Google Cloud Documentation

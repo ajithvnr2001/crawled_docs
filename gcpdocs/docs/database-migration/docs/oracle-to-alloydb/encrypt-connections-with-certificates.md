@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/encrypt-connections-with-certificates/
 title: Use SSL/TLS certificates to encrypt network connections \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:29.863379+00:00
+fetched_at: 2026-10-23T16:52:03.994277+00:00
 ---
 
 # Use SSL/TLS certificates to encrypt network connections  |  Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL  |  Google Cloud Documentation

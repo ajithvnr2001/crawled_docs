@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/basin-sql/reference/limitations-best-practices/
 title: Limitations and best practices \u00b7 Basin SQL docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:28.404744+00:00
+fetched_at: 2026-10-23T16:40:06.271905+00:00
 ---
 
 # Limitations and best practices · Basin SQL docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:28.404744+00:00
 
 # Limitations and best practices
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/basin-sql/reference/limitations-best-practices/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/basin-sql/reference/limitations-best-practices/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewQuick referenceUnsupported SQL featuresUnsupported expression patternsRuntime constraintsCommon error codesBest practices
 
@@ -50,7 +50,7 @@ Window functions (`OVER`) | Yes | Inline `OVER (...)` only — named `WINDOW` cl
 `func(DISTINCT ...)` | Yes | `COUNT`, `SUM`, `AVG`, and other aggregates  
 Set operations (`UNION`, `UNION ALL`, `INTERSECT`, `EXCEPT`) | Yes |   
 `GROUPING SETS` / `ROLLUP` / `CUBE` | Yes |   
-`OFFSET` | No |   
+`OFFSET` | Yes | Skip rows when used with `LIMIT`  
 `INSERT` / `UPDATE` / `DELETE` | No | Read-only  
 `CREATE` / `DROP` / `ALTER` | No | Read-only  
   
@@ -62,7 +62,6 @@ For the full SQL syntax, refer to the [SQL reference](https://developers.cloudfl
 
 Feature | Error  
 ---|---  
-`OFFSET` | `unsupported feature: OFFSET clause is not supported`  
 Named `WINDOW` clause | `unsupported feature: WINDOW clause is not supported`  
 `INSERT` / `UPDATE` / `DELETE` | `only read-only queries are allowed`  
 `CREATE` / `DROP` / `ALTER` | `only read-only queries are allowed`  

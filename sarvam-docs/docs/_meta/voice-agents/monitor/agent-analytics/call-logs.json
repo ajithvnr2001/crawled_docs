@@ -1,7 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/call-logs/",
   "file": "voice-agents/monitor/agent-analytics/call-logs.md",
-  "title": "Call Logs | Sarvam API Docs",
+  "title": "Voice agent call logs: find, filter and export calls | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T14:23:19.333386+00:00"
+  "fetched_at": "2026-10-23T16:38:51.414975+00:00"
 }

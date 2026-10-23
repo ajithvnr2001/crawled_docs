@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/create-manage-saved-queries/
 title: Create and manage saved queries \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:03:39.883839+00:00
+fetched_at: 2026-10-23T16:49:33.071471+00:00
 ---
 
 # Create and manage saved queries  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

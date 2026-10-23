@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/monitor/call-recordings/",
   "file": "voice-agents/monitor/call-recordings.md",
-  "title": "Call recordings | Sarvam API Docs",
+  "title": "Voice agent call recordings: dual-channel audio | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T08:44:01.099912+00:00",
-  "html_len": 149568,
-  "md_len": 19242,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:38:49.102171+00:00"
 }

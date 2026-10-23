@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/deploy/telephony/smartflo/",
   "file": "voice-agents/deploy/telephony/smartflo.md",
-  "title": "Smartflo | Sarvam API Docs",
+  "title": "Connect Tata Tele Smartflo to an AI voice agent | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:29.760936+00:00",
-  "html_len": 169487,
-  "md_len": 22932,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:38:52.413053+00:00"
 }

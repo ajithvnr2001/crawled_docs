@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/job-notifications-using-eventarc/
 title: Use Eventarc to manage Dataflow jobs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:17.443873+00:00
+fetched_at: 2026-10-23T16:53:47.880088+00:00
 ---
 
 # Use Eventarc to manage Dataflow jobs  |  Google Cloud Documentation

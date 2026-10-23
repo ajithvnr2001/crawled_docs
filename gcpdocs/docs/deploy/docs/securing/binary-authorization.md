@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/securing/binary-authorization/
 title: Secure deployments using Binary Authorization \u00a0|\u00a0 Cloud Deploy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:07.007985+00:00
+fetched_at: 2026-10-23T16:53:17.582745+00:00
 ---
 
 # Secure deployments using Binary Authorization  |  Cloud Deploy  |  Google Cloud Documentation

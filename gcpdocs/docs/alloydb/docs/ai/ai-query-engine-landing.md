@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/ai-query-engine-landing/
 title: AI functions overview \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:31.042839+00:00
+fetched_at: 2026-10-23T16:49:27.989158+00:00
 ---
 
 # AI functions overview  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

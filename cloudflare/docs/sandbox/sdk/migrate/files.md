@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/migrate/files/
 title: Change file calls \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:27.370768+00:00
+fetched_at: 2026-10-23T16:39:52.005090+00:00
 ---
 
 # Change file calls · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:15:27.370768+00:00
 
 # Change file calls
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/files/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/files/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you startChange each file callWrite into a new directoryRead binary filesList filesHandle errorsReplace file watchingCheck the file callsRelated resources
 
@@ -53,7 +53,7 @@ These calls keep their meaning, under a new name or with a different result:
 0.12 | 1.0  
 ---|---  
 `readFile(path)`, then `.content` of a text file | `await (await this.files.readFile(path)).text()`  
-`readFileStream(path)` | `(await this.files.readFile(path)).body`  
+`readFileStream(path)`, then `streamFile()` or `collectFile()` | `(await this.files.readFile(path)).body`, which carries the bytes of the file. 0.12 returned server-sent events, which those helpers decoded.  
 `exists(path)` | `this.files.stat(path)`, catching `SandboxFileError` with code `ENOENT`  
 `mkdir(path, { recursive })` | `this.files.mkdir(path, { recursive })`  
 `deleteFile(path)` | `this.files.remove(path)`  
@@ -165,7 +165,22 @@ src/index.tsts
 Two calls behave differently from 0.12:
 
   * `deleteFile()` refused a directory. `remove()` removes one with `recursive: true`, and rejects with `EISDIR` without it.
-  * `renameFile()` and `moveFile()` ran `mv`, which copies across filesystems. `rename()` rejects with `EXDEV`, so copy with `container.exec(["cp", "-a", source, destination])`, then call `remove()`.
+
+  * `renameFile()` and `moveFile()` ran `mv`. When the destination was an existing directory, `mv` moved the source into it. `rename()` follows Linux `rename` rules instead: it replaces the destination, and rejects with `ENOTEMPTY` when the destination is a directory that holds files. Pass the full new path, such as `/workspace/archive/report.txt`.
+
+  * `mv` also copied across filesystems. `rename()` rejects with `EXDEV`, so copy the source, check the result, and then remove the source:
+
+src/index.tsts
+        
+        const copy = await this.container.exec(["cp", "-a", "--", source, destination]);
+        const { exitCode, stderr } = await copy.output();
+        
+        if (exitCode !== 0) {
+        	throw new Error(new TextDecoder().decode(stderr));
+        }
+        
+        await this.files.remove(source, { recursive: true });
+
 
 
 

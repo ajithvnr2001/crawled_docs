@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/update-ip-filter/
 title: Create or update IP filtering rules on an existing bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:32.900701+00:00
+fetched_at: 2026-10-23T16:50:45.770745+00:00
 ---
 
 # Create or update IP filtering rules on an existing bucket  |  Cloud Storage  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Create or update IP filtering rules on an existing bucket Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to create or update the [bucket IP filtering](https://docs.cloud.google.com/storage/docs/ip-filtering-overview) rules on an existing bucket.
+You can create or update IP filtering rules on an existing Cloud Storage bucket when you want to control access to your data by allowing requests only from specified CIDR blocks or Virtual Private Cloud (VPC) networks. Adding these rules helps strengthen network security for your workloads.
+
+For background information, see [Bucket IP filtering](https://docs.cloud.google.com/storage/docs/ip-filtering-overview).
 
 ## Required roles
 
@@ -85,7 +87,7 @@ To allow access from VPC networks, do the following:
      2. In the **New VPC network** section, specify the following information: 
         * In the **Project ID** field, enter your project ID.
         * In the **Network name** field, enter your network name.
-        * In the **Allowed IP range(s)** field, enter one or more IPv4 or IPv6 CIDR ranges, for example, `192.0.2.0/24`, 2001:db8::/32`. If you specify invalid entries, an error message indicates which entries need correction.
+        * In the **Allowed IP range(s)** field, enter one or more IPv4 or IPv6 CIDR ranges, for example, `192.0.2.0/24`, `2001:db8::/32`. If you specify invalid entries, an error message indicates which entries need correction.
      3. Click **Done**.
 
 
@@ -354,6 +356,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

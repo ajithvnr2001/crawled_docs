@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/commands/run-background-processes/
 title: Run background processes \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:18.025322+00:00
+fetched_at: 2026-10-23T16:39:53.851801+00:00
 ---
 
 # Run background processes · Cloudflare Sandboxes docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:15:18.025322+00:00
 
 # Run background processes
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/commands/run-background-processes/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/commands/run-background-processes/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewPrerequisitesRun a process in the backgroundWait for a log lineRelated resources
+OverviewPrerequisitesRun a process in the backgroundRelated resources
 
 Start a process that keeps running after the request ends, such as a build, a test suite, or an agent task. The process object that `exec()` returns belongs to the request that started it, so later requests manage the process through files in the sandbox. The process writes its process ID, output, and exit code to those files.
 
@@ -121,7 +121,7 @@ src/index.tsts
          	};
          }
 
-`setsid` starts the command in a new process group. Stopping the group also stops the processes the command starts, such as the `node` process behind `npm run dev`. The script writes the exit code to a temporary file and then renames it, so a reader never sees a partial file. Do not start the command with `&` instead: a shell starts background jobs with `SIGINT` ignored.
+`setsid` starts the command in a new process group. Stopping the group also stops the processes the command starts, such as the `node` process behind `npm run dev`, unless a process moves to its own group. The script writes the exit code to a temporary file and then renames it, so a reader never sees a partial file. Do not start the command with `&` instead: a shell starts background jobs with `SIGINT` ignored.
 
 Each process keeps its files in its own directory under `/var/lib/processes` on the instance disk. The logs grow until the process ends. When the disk fills, writes from the process fail, so delete old process directories, or send output that you want to keep to a [mounted bucket](https://developers.cloudflare.com/sandbox/files/mount-an-r2-bucket/).
 
@@ -152,7 +152,7 @@ src/index.tsts
          		const container = this.ctx.container;
          
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		if (!container.running) {
@@ -178,6 +178,13 @@ src/index.tsts
          			stdout: "ignore",
          			stderr: "ignore",
          		});
+         
+         		// exec() returns before the process records its ID. Wait for it, so
+         		// a request that follows the output right away finds it running.
+         		for (let i = 0; i < 50; i++) {
+         			if ((await this.status(id))?.state !== "starting") break;
+         			await scheduler.wait(100);
+         		}
          
          		await this.ctx.storage.put(`process:${id}`, argv);
          		await this.ctx.storage.setAlarm(Date.now() + 60_000);
@@ -228,7 +235,7 @@ src/index.tsts
 
 The process ID file also records the boot ID, which changes in every instance. A [snapshot](https://developers.cloudflare.com/sandbox/files/save-and-restore-a-workspace/) restores the file, and a new instance reuses the same process IDs, so a restored process ID can belong to an unrelated process. `current()` ignores a process ID from another instance, so a process that was running when the snapshot was taken is `lost`.
 
-  4. Add methods that return the output of a process so far, and follow it while the process runs:
+  4. Add a method that returns the output of a process so far:
 
 src/index.tsts
          
@@ -243,80 +250,9 @@ src/index.tsts
          		const path = `${ROOT}/${id}/${stream}.log`;
          		return (await run(this.ctx.container!, ["cat", path])).stdout;
          	}
-         
-         	async follow(id: string, stream: "stdout" | "stderr"): Promise<Response | undefined> {
-         		const status = await this.status(id);
-         
-         		if (!status) {
-         			return undefined;
-         		}
-         
-         		const path = `${ROOT}/${id}/${stream}.log`;
-         		const argv =
-         			status.state === "running"
-         				? ["tail", "-n", "+1", "-F", "--pid", `${status.pid}`, path]
-         				: ["cat", path];
-         		const process = await this.ctx.container!.exec(argv, { stderr: "ignore" });
-         		const { readable, writable } = new TransformStream<Uint8Array, Uint8Array>();
-         		const writer = writable.getWriter();
-         		const encoder = new TextEncoder();
-         
-         		const send = (event: string, data: unknown) =>
-         			writer.write(
-         				encoder.encode(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`),
-         			);
-         
-         		let exited = false;
-         		const markExited = () => {
-         			exited = true;
-         		};
-         		process.exitCode.then(markExited, markExited);
-         
-         		// Signaling a process that has exited records an internal error.
-         		const stop = () => {
-         			if (!exited) process.kill();
-         		};
-         
-         		// Stop following when the client disconnects.
-         		writer.closed.catch(stop);
-         
-         		// Detect a disconnected client while the log is quiet.
-         		const heartbeat = setInterval(() => {
-         			writer.write(encoder.encode(": keep-alive\n\n")).catch(() => {});
-         		}, 5_000);
-         
-         		const pump = async () => {
-         			try {
-         				for await (const text of process.stdout!.pipeThrough(
-         					new TextDecoderStream(),
-         				)) {
-         					await send(stream, text);
-         				}
-         				const ended = await this.status(id);
-         				const exitCode = ended?.state === "exited" ? ended.exitCode : null;
-         				await send("exit", { exitCode });
-         				await writer.close();
-         			} catch {
-         				stop();
-         			} finally {
-         				clearInterval(heartbeat);
-         			}
-         		};
-         
-         		void pump();
-         
-         		return new Response(readable, {
-         			headers: {
-         				"Content-Type": "text/event-stream",
-         				"Cache-Control": "no-cache",
-         			},
-         		});
-         	}
          }
 
-`follow()` sends the output so far, then new output until the process exits and `tail --pid` stops. Each event is named after the stream, and holds a JSON-encoded chunk of output, which can be part of a line or several lines. When the output ends, `follow()` sends an `exit` event with the exit code, or `null` when the process recorded none. A page can read the stream with `EventSource`, as in [Stream command output](https://developers.cloudflare.com/sandbox/commands/stream-command-output/#read-the-stream-in-a-browser).
-
-`follow()` notices a disconnected client only when a write fails. The keep-alive comment every five seconds makes that write happen while the log is quiet, so `follow()` stops `tail`. Without the comment, `tail` keeps running until the process exits.
+To stream the output while the process runs, or to wait until it prints a line, refer to [Follow a background process](https://developers.cloudflare.com/sandbox/commands/follow-a-background-process/).
 
   5. Add a method that stops a process:
 
@@ -409,12 +345,6 @@ src/index.jsjs
          		if (logs) {
          			const stream =
          				url.searchParams.get("stream") === "stderr" ? "stderr" : "stdout";
-         
-         			if (url.searchParams.has("follow")) {
-         				const response = await sandbox.follow(id, stream);
-         				return response ?? new Response("Not found", { status: 404 });
-         			}
-         
          			const output = await sandbox.logs(id, stream);
          			return output === undefined
          				? new Response("Not found", { status: 404 })
@@ -465,12 +395,6 @@ src/index.tsts
          		if (logs) {
          			const stream =
          				url.searchParams.get("stream") === "stderr" ? "stderr" : "stdout";
-         
-         			if (url.searchParams.has("follow")) {
-         				const response = await sandbox.follow(id, stream);
-         				return response ?? new Response("Not found", { status: 404 });
-         			}
-         
          			const output = await sandbox.logs(id, stream);
          			return output === undefined
          				? new Response("Not found", { status: 404 })
@@ -517,145 +441,44 @@ The first request responds with `201`, and a second `POST` with the same ID resp
          
          { "state": "running", "pid": 354 }
 
-  10. Read the output so far, then follow it:
+  10. Read the output so far:
          
          curl https://<YOUR_WORKER>.<YOUR_SUBDOMAIN>.workers.dev/processes/ticker/logs
-         curl "https://<YOUR_WORKER>.<YOUR_SUBDOMAIN>.workers.dev/processes/ticker/logs?follow" --no-buffer
 
-The first request prints the lines so far and ends. The second prints them as events, then a new event each second:
+The request prints the lines so far and ends:
          
-         event: stdout
-         data: "ready\ntick 1\ntick 2\ntick 3\ntick 4\n"
-         
-         event: stdout
-         data: "tick 5\n"
-         
-         event: stdout
-         data: "tick 6\n"
+         ready
+         tick 1
+         tick 2
+         tick 3
 
 Add `stream=stderr` to the query to read standard error.
 
-  11. In another terminal, stop the process, then check it again:
+  11. Stop the process, then check it again:
          
          curl https://<YOUR_WORKER>.<YOUR_SUBDOMAIN>.workers.dev/processes/ticker --request DELETE
          curl https://<YOUR_WORKER>.<YOUR_SUBDOMAIN>.workers.dev/processes/ticker
 
-The `DELETE` request responds with `202`. The followed output ends with an `exit` event:
-         
-         event: exit
-         data: {"exitCode":143}
-
-The status shows the same exit code:
+The `DELETE` request responds with `202`. The status shows the exit code:
          
          { "state": "exited", "exitCode": 143 }
 
 
 
 
-## Wait for a log line
-
-A development server prints a line, such as `ready`, when it accepts requests. To wait for that line before you use the server, check the log files until a line matches or the process exits:
-
-  1. Add a script that checks the logs of a process:
-
-src/index.jsjs
-         
-         // Prints the first matching line and exits with 0, or exits with 3 when
-         // the process ends without printing one.
-         const WAIT = `dir=$1; pattern=$2
-         while :; do
-           exited=false; [ -e "$dir/exit-code" ] && exited=true
-           line=$(grep -h -m 1 -E -e "$pattern" "$dir/stdout.log" "$dir/stderr.log" 2>/dev/null | head -n 1)
-           [ -n "$line" ] && { printf '%s\\n' "$line"; exit 0; }
-           $exited && exit 3
-           sleep 0.2
-         done`;
-
-src/index.tsts
-         
-         // Prints the first matching line and exits with 0, or exits with 3 when
-         // the process ends without printing one.
-         const WAIT = `dir=$1; pattern=$2
-         while :; do
-           exited=false; [ -e "$dir/exit-code" ] && exited=true
-           line=$(grep -h -m 1 -E -e "$pattern" "$dir/stdout.log" "$dir/stderr.log" 2>/dev/null | head -n 1)
-           [ -n "$line" ] && { printf '%s\\n' "$line"; exit 0; }
-           $exited && exit 3
-           sleep 0.2
-         done`;
-
-Do not pipe `tail -F` into `grep -m 1` instead: `tail` keeps running after `grep` exits, until the next line arrives.
-
-  2. Add a method that runs the script with a time limit:
-
-src/index.tsts
-         
-         export class MyContainer extends DurableObject<Env> {
-         	// ...
-         
-         	async waitForLog(id: string, pattern: string, timeoutMs: number) {
-         		const container = this.ctx.container;
-         
-         		if (!container?.running) {
-         			return undefined;
-         		}
-         
-         		const result = await run(container, [
-         			"timeout",
-         			"--kill-after=5",
-         			`${timeoutMs / 1000}`,
-         			"sh",
-         			"-c",
-         			WAIT,
-         			"sh",
-         			`${ROOT}/${id}`,
-         			pattern,
-         		]);
-         
-         		if (result.exitCode === 0) {
-         			return { state: "matched", line: result.stdout.trimEnd() };
-         		}
-         
-         		if (result.exitCode === 3) {
-         			return { state: "exited" };
-         		}
-         
-         		// 124 when the time limit passes, or 137 if timeout also sends SIGKILL.
-         		if (result.exitCode === 124 || result.exitCode === 137) {
-         			return { state: "timed-out" };
-         		}
-         
-         		throw new Error(`The log check failed with exit code ${result.exitCode}`);
-         	}
-         }
-
-`timeout` stops the script when the time limit passes. If the script is still running five seconds later, `--kill-after=5` stops it with `SIGKILL`.
-
-  3. Call it after `startProcess()`, for example with the pattern `^ready`:
-
-src/index.tsts
-         
-         const ready = await sandbox.waitForLog(id, "^ready", 30_000);
-         
-         { "state": "matched", "line": "ready" }
-
-The pattern is an extended regular expression. The state is `exited` when the process ends without printing a matching line, and `timed-out` when the time limit passes first.
-
-
-
-
 ## Related resources
 
+  * [Follow a background process](https://developers.cloudflare.com/sandbox/commands/follow-a-background-process/): stream the output of a process while it runs, or wait until it prints a line.
   * [Stream command output](https://developers.cloudflare.com/sandbox/commands/stream-command-output/): commands that finish while the request is open.
   * [Run a server in the background](https://developers.cloudflare.com/sandbox/commands/run-a-server-in-the-background/): processes that run until the container stops.
   * [Preview a web application](https://developers.cloudflare.com/sandbox/previews/): a web server as the main process.
-  * [Process workspace example ↗︎](https://github.com/cloudflare/sandbox-sdk/tree/main/examples/process-workspace): a deployable Worker with these scripts, plus routes that list processes and wait for one to exit.
+  * [Process workspace example ↗︎](https://github.com/cloudflare/sandbox-sdk/tree/main/examples/process-workspace): a deployable Worker that runs processes with the same approach, plus routes that list processes and wait for one to exit. Its scripts do not record the boot ID.
   * [Sandbox lifetime](https://developers.cloudflare.com/sandbox/concepts/lifetime/)
   * [Durable Object alarms](https://developers.cloudflare.com/durable-objects/api/alarms/)
 
 
 
-[PreviousStream command output](https://developers.cloudflare.com/sandbox/commands/stream-command-output/)[NextRun a server in the background](https://developers.cloudflare.com/sandbox/commands/run-a-server-in-the-background/)
+[PreviousStream command output](https://developers.cloudflare.com/sandbox/commands/stream-command-output/)[NextFollow a background process](https://developers.cloudflare.com/sandbox/commands/follow-a-background-process/)
 
 Was this helpful?
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/call-logs/
-title: Call Logs | Sarvam API Docs
+title: Voice agent call logs: find, filter and export calls | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T14:23:19.333067+00:00
+fetched_at: 2026-10-23T16:38:51.414634+00:00
 ---
 
-# Call Logs | Sarvam API Docs
+# Voice agent call logs: find, filter and export calls | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/call-logs/
 
@@ -25,7 +25,7 @@ Scroll to top
 
 [Monitor](https://docs.sarvam.ai/voice-agents/monitor/overview)[Agent Analytics](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics)
 
-# Call Logs
+# Voice agent call logs: find, filter and export calls
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/call-logs.md "View this page as plain text")|More actions
 
@@ -145,7 +145,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/group-by)[Log AnalyserNext](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/log-analyser)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/group-by)[Debug a voice agent call turn by turn with Log AnalyserNext](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/log-analyser)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 
@@ -339,7 +339,9 @@ YesNo
   * [List attempts](https://docs.sarvam.ai/voice-agents/api/analytics/attempts)
   * [List interactions](https://docs.sarvam.ai/voice-agents/api/analytics/interactions)
   * [Get recording](https://docs.sarvam.ai/voice-agents/api/analytics/recordings)
+  * [Get forwarded recording](https://docs.sarvam.ai/voice-agents/api/analytics/forwarded-recordings)
   * [Get transcript](https://docs.sarvam.ai/voice-agents/api/analytics/transcripts)
+  * [Get trace](https://docs.sarvam.ai/voice-agents/api/analytics/traces)
   * [Overview](https://docs.sarvam.ai/voice-agents/api/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/voice-agents/api/boards/sql)
   * [Best practices](https://docs.sarvam.ai/voice-agents/api/boards/best-practices)

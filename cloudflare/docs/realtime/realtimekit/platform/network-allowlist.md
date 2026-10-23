@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/realtimekit/platform/network-allowlist/
 title: Network allowlist \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:57:44.510368+00:00
+fetched_at: 2026-10-23T16:40:06.409127+00:00
 ---
 
 # Network allowlist · Cloudflare Realtime docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-20T06:57:44.510368+00:00
 
 # Network allowlist
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/realtime/realtimekit/platform/network-allowlist/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAllow service domainsAllow media trafficUse a wildcard domainVerify connectivity
 
@@ -49,6 +49,8 @@ Domain | Purpose
 `rtk-uploads.realtime.cloudflare.com` | Serves notification sounds and other Web UI Kit assets  
   
 Applications that use only RealtimeKit Core do not require the Web UI Kit asset domains.
+
+If your application uses the [Whiteboard plugin](https://developers.cloudflare.com/realtime/realtimekit/custom-plugins/whiteboard/), also allow `whiteboard-v2.plugins.realtime.cloudflare.com`, which serves the whiteboard and syncs its boards.
 
 ## Allow media traffic
 

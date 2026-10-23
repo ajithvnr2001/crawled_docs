@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/commands/run-python-code/
 title: Run Python code \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:17.561125+00:00
+fetched_at: 2026-10-23T16:39:58.276701+00:00
 ---
 
 # Run Python code · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:17.561125+00:00
 
 # Run Python code
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/commands/run-python-code/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/commands/run-python-code/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesRun Python codeReturn a chartRun another languageRelated resources
 
@@ -119,7 +119,7 @@ src/index.tsts
          		const container = this.ctx.container;
          
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		if (!container.running) {
@@ -134,8 +134,7 @@ src/index.tsts
          		// Each run is a new Python process, so variables do not carry over
          		const process = await container.exec(
          			[
-         				// GNU coreutils `timeout` stops code that runs longer than 60 seconds,
-         				// together with every process the code starts
+         				// GNU coreutils `timeout` stops code that runs longer than 60 seconds
          				"timeout", "--kill-after=5", "60",
          				// `python3 -` reads the code from standard input
          				"python3", "-",
@@ -153,7 +152,7 @@ src/index.tsts
          			stdout: decoder.decode(output.stdout),
          			// A Python exception prints its traceback here
          			stderr: decoder.decode(output.stderr),
-         			// `124` if the code timed out, `1` if it raised an exception
+         			// `124` or `137` if the code timed out, `1` if it raised an exception
          			exitCode: output.exitCode,
          		};
          	}

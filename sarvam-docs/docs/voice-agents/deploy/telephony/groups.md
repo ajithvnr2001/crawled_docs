@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/voice-agents/deploy/telephony/groups/
-title: Groups | Sarvam API Docs
+title: Phone number groups for AI calling campaigns | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:15:28.500221+00:00
+fetched_at: 2026-10-23T16:38:53.477324+00:00
 ---
 
-# Groups | Sarvam API Docs
+# Phone number groups for AI calling campaigns | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/voice-agents/deploy/telephony/groups/
 
@@ -26,7 +26,7 @@ Scroll to top
 
 [Deploy](https://docs.sarvam.ai/voice-agents/deploy/overview)[Phone Numbers](https://docs.sarvam.ai/voice-agents/deploy/telephony)
 
-# Groups
+# Phone number groups for AI calling campaigns
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/voice-agents/deploy/telephony/groups.md "View this page as plain text")|More actions
 
@@ -131,7 +131,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/deploy/telephony/manage-numbers)[InboundsNext](https://docs.sarvam.ai/voice-agents/deploy/inbounds)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/deploy/telephony/manage-numbers)[Answer inbound calls with an AI voice agentNext](https://docs.sarvam.ai/voice-agents/deploy/inbounds)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 
@@ -172,6 +172,7 @@ YesNo
   * Monitor
 
     * [Overview](https://docs.sarvam.ai/voice-agents/monitor/overview)
+    * [Call recordings](https://docs.sarvam.ai/voice-agents/monitor/call-recordings)
     * [Agent Analytics](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics)
 
     * [Boards](https://docs.sarvam.ai/voice-agents/monitor/boards)
@@ -268,6 +269,7 @@ YesNo
   * [Best practices](https://docs.sarvam.ai/voice-agents/deploy/campaigns/best-practices)
   * [Deploy with Code (API & SDK)](https://docs.sarvam.ai/voice-agents/deploy/deploy-with-code)
   * [Overview](https://docs.sarvam.ai/voice-agents/monitor/overview)
+  * [Call recordings](https://docs.sarvam.ai/voice-agents/monitor/call-recordings)
   * [Agent Analytics](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics)
   * [Overview tab](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/overview)
   * [Connectivity](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/connectivity)
@@ -320,7 +322,9 @@ YesNo
   * [List attempts](https://docs.sarvam.ai/voice-agents/api/analytics/attempts)
   * [List interactions](https://docs.sarvam.ai/voice-agents/api/analytics/interactions)
   * [Get recording](https://docs.sarvam.ai/voice-agents/api/analytics/recordings)
+  * [Get forwarded recording](https://docs.sarvam.ai/voice-agents/api/analytics/forwarded-recordings)
   * [Get transcript](https://docs.sarvam.ai/voice-agents/api/analytics/transcripts)
+  * [Get trace](https://docs.sarvam.ai/voice-agents/api/analytics/traces)
   * [Overview](https://docs.sarvam.ai/voice-agents/api/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/voice-agents/api/boards/sql)
   * [Best practices](https://docs.sarvam.ai/voice-agents/api/boards/best-practices)

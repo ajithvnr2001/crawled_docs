@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/columnar-engine/manage-content-manually/
 title: Manage column store content manually \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:00:15.849740+00:00
+fetched_at: 2026-10-23T16:49:25.859425+00:00
 ---
 
 # Manage column store content manually  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Manage column store content manually Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to manually manage the content of the columnar engine to accelerate query performance. It explains how to add and remove tables, materialized views, and vector indexes.
+You can manually add tables, materialized views, columns, and vector indexes to the column store to control which data the columnar engine accelerates. Use manual management when you need granular control over the column store's contents rather than relying on auto-columnarization to manage columns automatically.
 
 ## Manage tables, materialized views, and vector indexes
 

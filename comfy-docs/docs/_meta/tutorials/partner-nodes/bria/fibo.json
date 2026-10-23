@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/tutorials/partner-nodes/bria/fibo/",
   "file": "tutorials/partner-nodes/bria/fibo.md",
-  "title": "Bria FIBO in ComfyUI: JSON-Prompt Image Editing and Outpainting - ComfyUI",
+  "title": "Bria FIBO 2.0 in ComfyUI: Text to Image and Image Edit - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:51:26.557373+00:00",
-  "html_len": 519466,
-  "md_len": 6756,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:38:42.517905+00:00"
 }

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/securing/cmek/
 title: Use customer-managed encryption keys \u00a0|\u00a0 Cloud Deploy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:06.580025+00:00
+fetched_at: 2026-10-23T16:53:14.577512+00:00
 ---
 
 # Use customer-managed encryption keys  |  Cloud Deploy  |  Google Cloud Documentation

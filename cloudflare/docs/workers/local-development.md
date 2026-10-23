@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/local-development/
 title: Local development \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T07:11:10.955224+00:00
+fetched_at: 2026-10-23T16:40:02.962624+00:00
 ---
 
 # Local development · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-19T07:11:10.955224+00:00
 
 # Local development
 
-Last updated Oct 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/local-development/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSecurity considerationsCore concepts Worker execution vs BindingsStart a local development server Defaults Bindings during local developmentRemote bindings Example configuration Integration with environments Recommended remote bindings Unsupported remote bindings Important Considerations Connect to Access-protected Workers APIwrangler dev --remote (Legacy) When to use Remote development Considerations Limitations
 
@@ -121,7 +121,7 @@ During local development, your Worker code interacts with these bindings using t
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-19",
+    	"compatibility_date": "2026-10-23",
     
     	"r2_buckets": [
     		{
@@ -135,7 +135,7 @@ During local development, your Worker code interacts with these bindings using t
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-19"
+    compatibility_date = "2026-10-23"
     
     [[r2_buckets]]
     bucket_name = "screenshots-bucket"
@@ -154,7 +154,7 @@ Remote Bindings work well together with [Workers Environments](https://developer
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-19",
+    	"compatibility_date": "2026-10-23",
     
     	"env": {
     		"production": {
@@ -180,7 +180,7 @@ Remote Bindings work well together with [Workers Environments](https://developer
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-19"
+    compatibility_date = "2026-10-23"
     
     [[env.production.r2_buckets]]
     bucket_name = "screenshots-bucket"
@@ -617,6 +617,7 @@ When using remote development, all bindings automatically connect to their remot
 ### Limitations
 
   * When you run a remote development session using the `--remote` flag, a limit of 50 [routes](https://developers.cloudflare.com/workers/configuration/routing/routes/) per zone is enforced. Learn more in[ Workers platform limits](https://developers.cloudflare.com/workers/platform/limits/#routes-and-domains-when-using-wrangler-dev---remote).
+  * [Python Workers](https://developers.cloudflare.com/workers/languages/python/) do not support the `--remote` flag. Use remote bindings instead.
 
 
 

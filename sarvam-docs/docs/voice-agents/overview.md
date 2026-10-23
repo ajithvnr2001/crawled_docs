@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/voice-agents/overview/
-title: Sarvam Voice Agents Overview: Languages, Channels, Use Cases | Sarvam API Docs
+title: Voice Agents overview: AI voice agents for Indian languages | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:15:32.894021+00:00
+fetched_at: 2026-10-23T16:38:48.430632+00:00
 ---
 
-# Sarvam Voice Agents Overview: Languages, Channels, Use Cases | Sarvam API Docs
+# Voice Agents overview: AI voice agents for Indian languages | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/voice-agents/overview/
 
@@ -29,17 +29,21 @@ Scroll to top
 
 [Getting Started](https://docs.sarvam.ai/voice-agents/introduction)
 
-# Overview
+# Voice Agents overview: AI voice agents for Indian languages
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/voice-agents/overview.md "View this page as plain text")|More actions
 
 This page is for Voice Agents.
 
+Sarvam Voice Agents (Samvaad) is a voice AI agent platform for Indian languages: build, test and deploy AI calling agents on your own phone numbers, from ₹3 a minute.
+
+For a product tour, see the [Sarvam Voice Agents product page](https://www.sarvam.ai/products/voice-agents). For plans and a cost estimate, see [Voice Agents pricing on sarvam.ai](https://www.sarvam.ai/products/voice-agents/pricing).
+
 ## Where to find Voice Agents
 
 Voice Agents lives in the Sarvam platform. Log in with your Sarvam account and open **Voice Agents** from the left menu to start building:
 
-[Open Voice AgentsLog in at indus.sarvam.ai/samvaad to create, deploy, and manage your agents.](https://indus.sarvam.ai/samvaad)
+[Open Voice AgentsLog in at indus.sarvam.ai/samvaad to create, deploy, and manage your agents.](https://indus.sarvam.ai/samvaad?ref=docs)
 
 ![The Sarvam platform home screen. The left navigation lists Model APIs, Voice Agents, Content Studio, and Doc Agents; the main area shows product cards and a credits balance.](https://docs.sarvam.ai/_fern-img/3124f05358412ac8e5259ebb2904cf6ef18c1a6dffa1928330a5b8b3219e0ea4.webp)
 
@@ -113,6 +117,17 @@ Common agents teams run on Voice Agents:
 
 The last three are enabled by the 60-minute max call length (raised from 25 in August 2026, see the [Changelog](https://docs.sarvam.ai/changelog)).
 
+Worked use cases on sarvam.ai:
+
+  * [AI voice agent for appointment booking](https://www.sarvam.ai/voice-agents/appointment-booking)
+  * [AI voice agent for cart abandonment](https://www.sarvam.ai/voice-agents/cart-abandonment)
+  * [AI voice agent for lead qualification](https://www.sarvam.ai/voice-agents/lead-qualification)
+  * [AI voice agent for order status calls](https://www.sarvam.ai/voice-agents/order-status)
+  * [AI voice agent for pre-approved loan offers](https://www.sarvam.ai/voice-agents/pre-approved-loan-offers)
+  * [AI voice agents for collections](https://www.sarvam.ai/solutions/collections)
+
+
+
 Many teams use Voice Agents as an alternative to traditional CRM-driven outreach: they engage users directly through conversation, drive strong outcomes, and capture rich feedback from the conversational data itself.
 
 Agents can call your systems, CRM, core banking, payments, and others, through [tools](https://docs.sarvam.ai/voice-agents/build/tools), so they can act, not just answer.
@@ -138,7 +153,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/why-voice-agents)[QuickstartNext](https://docs.sarvam.ai/voice-agents/quickstart)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/why-voice-agents)[Voice Agents quickstart: build your first AI calling agentNext](https://docs.sarvam.ai/voice-agents/quickstart)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 
@@ -174,6 +189,7 @@ YesNo
   * Monitor
 
     * [Overview](https://docs.sarvam.ai/voice-agents/monitor/overview)
+    * [Call recordings](https://docs.sarvam.ai/voice-agents/monitor/call-recordings)
     * [Agent Analytics](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics)
 
     * [Boards](https://docs.sarvam.ai/voice-agents/monitor/boards)
@@ -270,6 +286,7 @@ YesNo
   * [Best practices](https://docs.sarvam.ai/voice-agents/deploy/campaigns/best-practices)
   * [Deploy with Code (API & SDK)](https://docs.sarvam.ai/voice-agents/deploy/deploy-with-code)
   * [Overview](https://docs.sarvam.ai/voice-agents/monitor/overview)
+  * [Call recordings](https://docs.sarvam.ai/voice-agents/monitor/call-recordings)
   * [Agent Analytics](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics)
   * [Overview tab](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/overview)
   * [Connectivity](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/connectivity)
@@ -322,7 +339,9 @@ YesNo
   * [List attempts](https://docs.sarvam.ai/voice-agents/api/analytics/attempts)
   * [List interactions](https://docs.sarvam.ai/voice-agents/api/analytics/interactions)
   * [Get recording](https://docs.sarvam.ai/voice-agents/api/analytics/recordings)
+  * [Get forwarded recording](https://docs.sarvam.ai/voice-agents/api/analytics/forwarded-recordings)
   * [Get transcript](https://docs.sarvam.ai/voice-agents/api/analytics/transcripts)
+  * [Get trace](https://docs.sarvam.ai/voice-agents/api/analytics/traces)
   * [Overview](https://docs.sarvam.ai/voice-agents/api/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/voice-agents/api/boards/sql)
   * [Best practices](https://docs.sarvam.ai/voice-agents/api/boards/best-practices)

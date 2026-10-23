@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/use-case/dataproc-in-different-project/
 title: Use case: Access control for a Managed Service for Apache Spark cluster in another project \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:42.996667+00:00
+fetched_at: 2026-10-23T16:53:07.465856+00:00
 ---
 
 # Use case: Access control for a Managed Service for Apache Spark cluster in another project  |  Cloud Data Fusion  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/developer-connect/docs/connect-gitlab/
 title: Connect to GitLab \u00a0|\u00a0 Developer Connect \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:40:53.898679+00:00
+fetched_at: 2026-10-23T16:54:19.842850+00:00
 ---
 
 # Connect to GitLab  |  Developer Connect  |  Google Cloud Documentation

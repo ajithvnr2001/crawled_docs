@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/deploy/telephony/rent-from-sarvam/",
   "file": "voice-agents/deploy/telephony/rent-from-sarvam.md",
-  "title": "Rent Phone Numbers for Voice Agents from Sarvam | Sarvam API Docs",
+  "title": "Rent a phone number for your AI calling agent | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:29.434871+00:00",
-  "html_len": 173013,
-  "md_len": 23072,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:38:52.508044+00:00"
 }

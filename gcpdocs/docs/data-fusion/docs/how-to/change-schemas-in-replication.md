@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/change-schemas-in-replication/
 title: Change schemas in a SQL Server replication job \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:43.509446+00:00
+fetched_at: 2026-10-23T16:51:54.343172+00:00
 ---
 
 # Change schemas in a SQL Server replication job  |  Cloud Data Fusion  |  Google Cloud Documentation

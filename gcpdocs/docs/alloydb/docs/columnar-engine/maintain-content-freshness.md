@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/columnar-engine/maintain-content-freshness/
 title: Maintain freshness of in-memory column store data \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:00:07.210184+00:00
+fetched_at: 2026-10-23T16:49:28.108259+00:00
 ---
 
 # Maintain freshness of in-memory column store data  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,13 +21,13 @@ Send feedback
 
 #  Maintain freshness of in-memory column store data Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to maintain the freshness of data in the columnar engine's column store in AlloyDB for PostgreSQL.
+As rows change, the columnar engine marks the affected column store data in AlloyDB for PostgreSQL as invalid, and query acceleration gradually drops. To keep queries fast, you can tune the automatic refresh threshold or manually refresh tables and vector indexes.
 
-As table rows are added, deleted, or updated, the columnar engine doesn't immediately update data in the column store. Instead, it marks affected content in the column store as invalid, and queries are planned and executed using both column-oriented data from the column store and row-oriented data from the row cache and database storage.
+The columnar engine doesn't immediately update the column store when table rows are added, deleted, or updated. Instead, queries are planned and executed using both column-oriented data from the column store and row-oriented data from the row cache and database storage.
 
 Over time, as more and more data blocks become invalid, query performance improvements provided by the columnar engine are reduced to the point where the columnar data needs to be refreshed to regain query performance improvements. When this _refresh threshold_ is reached, the columnar engine uses a background job to refresh the invalid data in the column store. By default, the columnar engine uses a refresh threshold of 25, indicating that given content in the column store gets marked for refresh when 25% of its content has become invalid. You can change this refresh threshold to adjust the overhead of the automatic refresh and potentially gain better ongoing query performance for your application workload.
 
-Additionally, you can manually refresh tables and HNSW and ScaNN vector indexes that are loaded in the columnar engine at any time. Usually, you perform a manual refresh when you want changes to a table to be reflected in the column store as soon as possible after making the changes.
+Perform a manual refresh of tables and HNSW and ScaNN vector indexes when you want changes to a table to be reflected in the column store as soon as possible after making the changes.
 
 ## Check invalid data percentage
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/audit-logging-information/
 title: Database Migration Service audit logging information \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:30.027567+00:00
+fetched_at: 2026-10-23T16:53:28.912666+00:00
 ---
 
 # Database Migration Service audit logging information  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

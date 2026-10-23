@@ -9,7 +9,7 @@
 set -uo pipefail
 cd /data/opencode/gcpdocs
 : "${GH_TOKEN:?GH_TOKEN missing — unit EnvironmentFile}"
-URL="https://ajithvnr2001:${GH_TOKEN}@github.com/ajithvnr2001/google-cloud-docs.git"
+URL="https://ajithvnr2001:${GH_TOKEN}@github.com/ajithvnr2001/crawled_docs.git"
 
 # prevent timer / manual / drain-end runs from overlapping
 exec 9>/data/opencode/gcpdocs/.git_ship.lock

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/json-objects/
 title: Programmable Flow Protection API - JSON objects \u00b7 Cloudflare DDoS Protection docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:44.975036+00:00
+fetched_at: 2026-10-23T16:40:05.847376+00:00
 ---
 
 # Programmable Flow Protection API - JSON objects · Cloudflare DDoS Protection docs
@@ -22,7 +22,7 @@ Advanced DDoS systemsAPI configuration
 
 # JSON objects
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/json-objects/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/json-objects/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewProgramRule Scope Mode Expression
 
@@ -35,6 +35,7 @@ This page contains examples of the JSON objects used in the Programmable Flow Pr
       "id": "31c70c65-9f81-4669-94ed-1e1e041e7b06",
       "name": "rate-limiter",
       "status": "success",
+      "version": 1,
       "created_on": "2024-01-01T13:06:04.721954+01:00",
       "modified_on": "2024-01-01T13:06:04.721954+01:00"
     }
@@ -44,6 +45,7 @@ Field | Description
 `id` | Unique identifier for the program.  
 `name` | Name of the program, derived from the uploaded filename.  
 `status` | Compilation and verification status. One of `success` or `failed`. Programs with `failed` status are automatically deleted after 30 days of inactivity.  
+`version` | Current program version. A new program starts at `1`, and each update increments the version.  
 `created_on` | Timestamp when the program was created.  
 `modified_on` | Timestamp when the program was last modified.  
   
@@ -53,6 +55,7 @@ Field | Description
     {
       "id": "20b99eb6-8b48-48dd-a5b9-a995a0843b57",
       "program_id": "31c70c65-9f81-4669-94ed-1e1e041e7b06",
+      "program_version": 1,
       "scope": "region",
       "name": "WEUR",
       "mode": "enabled",
@@ -65,6 +68,7 @@ Field | Description
 ---|---  
 `id` | Unique identifier for the rule.  
 `program_id` | The ID of the program this rule executes.  
+`program_version` | The program version this rule executes. On rule creation, this defaults to the program's current version.  
 `scope` | The scope of the rule. Must be one of `global`, `region`, or `datacenter`.  
 `name` | For `global` scope, use `global`. For `region` or `datacenter` scope, provide the region code or datacenter code.  
 `mode` | The rule mode. Must be one of `enabled`, `disabled`, or `monitoring`.  

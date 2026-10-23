@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/files/
 title: Work with files in a sandbox \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:18.315936+00:00
+fetched_at: 2026-10-23T16:39:57.795448+00:00
 ---
 
 # Work with files in a sandbox · Cloudflare Sandboxes docs
@@ -17,21 +17,21 @@ fetched_at: 2026-10-08T07:15:18.315936+00:00
 
 # Work with files in a sandbox
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/files/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/files/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPersistenceCombine approachesRelated resources
 
 The `Files` class from `@cloudflare/sandbox` moves files between your Worker and a running sandbox, and provides common file system operations. For more information, refer to [Move files in and out of a sandbox](https://developers.cloudflare.com/sandbox/files/manage-files/).
 
-Each sandbox name maps to a Durable Object, which starts a Linux instance when needed. Stopping the instance deletes the files on its disk. For more information, refer to [Sandbox lifetime](https://developers.cloudflare.com/sandbox/concepts/lifetime/#files-and-processes-end-with-the-instance).
+Each sandbox name maps to a Durable Object, which starts a Linux instance when needed. Stopping the instance deletes the files on its disk. For more information, refer to [Sandbox lifetime](https://developers.cloudflare.com/sandbox/concepts/lifetime/#snapshots-carry-files-to-the-next-instance).
 
 ## Persistence
 
-You can keep files from a sandbox in several ways, from a snapshot of the whole disk to one directory kept in R2:
+You can keep files from a sandbox in several ways, from a snapshot of the root filesystem to one directory kept in R2:
 
 Goal | Guide | Trade-off  
 ---|---|---  
-Continue an agent workspace in a later session | [Save and restore a sandbox with snapshots](https://developers.cloudflare.com/sandbox/files/save-and-restore-a-workspace/) | Saves the whole disk for 30 days after the last save or restore  
+Continue an agent workspace in a later session | [Save and restore a sandbox with snapshots](https://developers.cloudflare.com/sandbox/files/save-and-restore-a-workspace/) | Saves the root filesystem, but not mounted directories  
 Keep a workspace without explicit save calls | [Save a sandbox automatically](https://developers.cloudflare.com/sandbox/files/save-a-sandbox-automatically/) | Same as snapshots, plus an alarm in your Durable Object  
 Keep a project across images, or beyond 30 days | [Back up a directory to R2](https://developers.cloudflare.com/sandbox/files/back-up-a-directory-to-r2/) | Saves one directory, and your Durable Object stores each backup record  
 Share job inputs and outputs with other systems | [Mount an R2 bucket](https://developers.cloudflare.com/sandbox/files/mount-an-r2-bucket/) | Renames, locks, and permissions do not work as they do on a local disk  

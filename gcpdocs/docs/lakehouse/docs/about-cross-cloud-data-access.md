@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access/
 title: About cross-cloud data access \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:33:56.558253+00:00
+fetched_at: 2026-10-23T16:46:05.551037+00:00
 ---
 
 # About cross-cloud data access  |  Lakehouse  |  Google Cloud Documentation
@@ -29,16 +29,11 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
 
 **Note:** For support during the preview, email [biglake-help@google.com](mailto:biglake-help@google.com).
 
-The cross-cloud data access feature lets you query data stored in other cloud providers directly from Google Cloud without migrating files or building complex ETL pipelines with Cross-Cloud Interconnect.
+The cross-cloud data access feature lets you query data stored in other cloud providers directly from Google Cloud without migrating files or building complex ETL pipelines. Queries can route over the public internet or use Cross-Cloud Interconnect for private network transport.
 
-As part of _borderless Lakehouse_ , this capability lets you perform unified analytics and apply AI across your distributed datasets using BigQuery, standalone Apache Spark environments, or [Managed Service for Apache Spark](https://docs.cloud.google.com/dataproc/docs).
+As part of _borderless Lakehouse_ , this capability unifies analytics and AI workloads across your distributed datasets through BigQuery, standalone Apache Spark environments, or [Managed Service for Apache Spark](https://docs.cloud.google.com/dataproc/docs).
 
-In addition to analytical queries, you can use your remote data for AI-driven insights and governance:
-
-  * [**Conversational Analytics**](https://docs.cloud.google.com/lakehouse/docs/conversational-analytics): Build specialized agents grounded in your exact data sources, including cross-cloud tables, to analyze data across clouds from a single conversation.
-  * [**Knowledge Catalog**](https://docs.cloud.google.com/dataplex/docs/catalog-overview#supported-sources): Use Knowledge Catalog features for data profiling and insights with remote data sources.
-
-
+In addition to running analytical queries, you can build [conversational analytics](https://docs.cloud.google.com/lakehouse/docs/conversational-analytics) agents grounded in your distributed tables—including cross-cloud sources—to analyze data across clouds from a single conversation. You can also use [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview#supported-sources) for data profiling and insights across remote platforms.
 
 ## Use cases
 
@@ -208,6 +203,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

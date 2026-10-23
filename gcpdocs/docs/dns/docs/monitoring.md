@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/monitoring/
 title: Use logging and monitoring \u00a0|\u00a0 Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:07:29.575294+00:00
+fetched_at: 2026-10-23T16:50:44.735611+00:00
 ---
 
 # Use logging and monitoring  |  Cloud DNS  |  Google Cloud Documentation
@@ -230,6 +230,7 @@ Field | Field type | Description | Used in metrics
 `alias_query_response_code` | String | The response code returned from the query to resolve the ALIAS record's canonical name | Yes  
 `authAnswer` | Boolean / DNS | Authoritative answer, [IANA DNS Parameters: DNS Header Flags](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-12) | No  
 `destinationIP` | String / Target | Target IP address, only applicable for forwarding cases | No  
+`dnsArmorResult.threatChecked` | Boolean | Whether the query was forwarded to [DNS Armor](https://docs.cloud.google.com/dns/docs/threat-detection) for threat inspection | No  
 `egressError` | String | Egress proxy error, the actual error reported by the egress proxy as received from the on-premises DNS server This field can be used to differentiate an actual SERVFAIL returned by the on-premises DNS versus a network error encountered by the egress proxy | No  
 `egressPath` | String | If `none` or omitted, the query used the default standard Cloud DNS path, or `OUTBOUND_ENDPOINT` if the query was forwarded with an Outbound Endpoint | No  
 `healthyIps` | String | Set of IP addresses in the ResourceRecordSet that are known to be `HEALTHY` to Cloud DNS at the time of the query | No  
@@ -355,6 +356,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

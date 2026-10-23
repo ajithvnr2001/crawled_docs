@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/examples/browser-agent/
 title: Browser agent \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T07:11:11.235253+00:00
+fetched_at: 2026-10-23T16:40:10.829749+00:00
 ---
 
 # Browser agent · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-19T07:11:11.235253+00:00
 
 # Browser agent
 
-Last updated Oct 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/examples/browser-agent/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhen to use browser toolsInstallQuick start 1\. Configure bindings 2\. Create browser tools 3\. Use with streamTextUse with an AgentTanStack AIExecution modelCDP helper API cdp.send(method, params?, options?) cdp.attachToTarget(targetId, options?) cdp.getDebugLog(limit?) cdp.clearDebugLog()Configuration createBrowserTools(options) Raw accessLocal developmentSecurity considerationsCurrent limitationsUsing Puppeteer directlyUsing Browserbase
 
@@ -108,12 +108,12 @@ Pass browser tools alongside your other tools. The `model` can be any AI SDK pro
     
     
     import { streamText } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
-    const workersai = createWorkersAI({ binding: env.AI });
+    const ai = createAI({ binding: env.AI });
     
     const result = streamText({
-    	model: workersai("@cf/zai-org/glm-4.7-flash"),
+    	model: ai("@cf/zai-org/glm-4.7-flash"),
     	system: "You are a helpful assistant that can inspect web pages.",
     	messages,
     	tools: {
@@ -124,12 +124,12 @@ Pass browser tools alongside your other tools. The `model` can be any AI SDK pro
     
     
     import { streamText } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
-    const workersai = createWorkersAI({ binding: env.AI });
+    const ai = createAI({ binding: env.AI });
     
     const result = streamText({
-    	model: workersai("@cf/zai-org/glm-4.7-flash"),
+    	model: ai("@cf/zai-org/glm-4.7-flash"),
     	system: "You are a helpful assistant that can inspect web pages.",
     	messages,
     	tools: {
@@ -175,19 +175,19 @@ The typical pattern is to create browser tools inside an [`AIChatAgent`](https:/
     
     import { AIChatAgent } from "@cloudflare/ai-chat";
     import { createBrowserTools } from "agents/browser/ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import { streamText, convertToModelMessages, stepCountIs } from "ai";
     
     export class MyAgent extends AIChatAgent {
     	async onChatMessage() {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     		const browserTools = createBrowserTools({
     			browser: this.env.BROWSER,
     			loader: this.env.LOADER,
     		});
     
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			system: "You can browse the web and inspect pages.",
     			messages: await convertToModelMessages(this.messages),
     			tools: {
@@ -203,19 +203,19 @@ The typical pattern is to create browser tools inside an [`AIChatAgent`](https:/
     
     import { AIChatAgent } from "@cloudflare/ai-chat";
     import { createBrowserTools } from "agents/browser/ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import { streamText, convertToModelMessages, stepCountIs } from "ai";
     
     export class MyAgent extends AIChatAgent<Env> {
     	async onChatMessage() {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     		const browserTools = createBrowserTools({
     			browser: this.env.BROWSER,
     			loader: this.env.LOADER,
     		});
     
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			system: "You can browse the web and inspect pages.",
     			messages: await convertToModelMessages(this.messages),
     			tools: {

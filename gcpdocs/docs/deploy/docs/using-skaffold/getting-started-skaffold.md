@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/using-skaffold/getting-started-skaffold/
 title: Get Started with Skaffold in Cloud Deploy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:06.545999+00:00
+fetched_at: 2026-10-23T16:53:18.943111+00:00
 ---
 
 # Get Started with Skaffold in Cloud Deploy  |  Google Cloud Documentation

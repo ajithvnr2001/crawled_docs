@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/notifications/monitors/
 title: Monitors \u00b7 Cloudflare Notifications docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:30.217367+00:00
+fetched_at: 2026-10-23T16:40:06.847122+00:00
 ---
 
 # Monitors · Cloudflare Notifications docs
@@ -17,11 +17,13 @@ fetched_at: 2026-10-21T06:51:30.217367+00:00
 
 # Monitors
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/notifications/monitors/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate a monitorMonitor detailsMonitor query Custom SQLDetection methods Threshold Anomaly detection Service-level objectiveEvaluation and notification frequencyQuery preview
 
 Monitors evaluate a [SQL API](https://developers.cloudflare.com/analytics/sql-api/) query on a schedule. Cloudflare sends a notification when the query result meets your detection criteria. You can create monitors from the Cloudflare dashboard under **Alerts** > **Monitors**.
+
+![Monitor creation showing the detection method choice: Threshold, Anomaly detection, or SLO.](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1200,height=567,format=webp/_astro/monitors-detection-choice.DEk3poNv.png)
 
 The datasets available to monitors depend on your plan and permissions. The dashboard only lists datasets available to the selected account or zone. For more information about dataset scopes and sampling, refer to [SQL API datasets](https://developers.cloudflare.com/analytics/sql-api/datasets/).
 
@@ -116,6 +118,8 @@ Evaluation window | Sets the data window for each evaluation. You can select a p
 Comparison operator | Compares the result with the threshold. Supported operators are `<`, `>`, `<=`, `>=`, `==`, and `!=`.  
 Threshold | Sets the numeric value used by the comparison.  
   
+![Threshold monitor query builder with dataset selection, metric, filters, and query preview.](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1361,height=806,format=webp/_astro/monitors-threshold.B-_Bh9Ns.png)
+
 ### Anomaly detection
 
 Anomaly detection calculates the number of standard deviations between the current result and its historical baseline. It supports these options:
@@ -131,6 +135,8 @@ Minimum event count | Optionally suppresses alerts for low-volume evaluation win
   
 New anomaly detection monitors require at least 30 minutes of historical data before they can trigger.
 
+![Anomaly detection monitor showing baseline bounds and sensitivity configuration.](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1356,height=802,format=webp/_astro/monitors-anomaly.BdIYyzO-.png)
+
 ### Service-level objective
 
 An SLO monitor calculates the successful-event percentage from bad and total event counts. Both queries must return a numeric column named `value`. It supports these options:
@@ -145,6 +151,8 @@ SLO target | Triggers when `(1 - bad events / total events) × 100` is below thi
 Minimum event count | Optionally suppresses alerts for low-volume evaluation windows.  
   
 Use equivalent filters in both queries. The bad events query should represent a subset of the total events query.
+
+![SLO monitor showing bad events query, total events query, and SLO target percentage.](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1364,height=798,format=webp/_astro/monitors-slo.BQUtHPwg.png)
 
 ## Evaluation and notification frequency
 

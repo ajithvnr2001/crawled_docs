@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/percentile/
 title: PERCENTILE \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:01.088701+00:00
+fetched_at: 2026-10-23T16:53:04.252298+00:00
 ---
 
 # PERCENTILE  |  Data Studio  |  Google Cloud Documentation

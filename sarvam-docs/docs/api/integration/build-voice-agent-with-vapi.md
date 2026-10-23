@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/api/integration/build-voice-agent-with-vapi/
-title: Build Your First Voice Agent using Vapi | Sarvam API Docs
+title: Build a Vapi voice agent with Sarvam models | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:41.050188+00:00
+fetched_at: 2026-10-23T16:39:04.225754+00:00
 ---
 
-# Build Your First Voice Agent using Vapi | Sarvam API Docs
+# Build a Vapi voice agent with Sarvam models | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/api/integration/build-voice-agent-with-vapi/
 
@@ -44,7 +44,7 @@ Scroll to top
 
 [Integration](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit)
 
-# Build Your First Voice Agent using Vapi
+# Build a Vapi voice agent with Sarvam models
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/api/integration/build-voice-agent-with-vapi.md "View this page as plain text")|More actions
 
@@ -98,7 +98,7 @@ A Vapi voice agent that can:
 
   * Node.js 18 or higher
   * API keys from: 
-    * [Sarvam AI](https://dashboard.sarvam.ai/) (get API key from dashboard)
+    * [Sarvam AI](https://indus.sarvam.ai/key-management?ref=docs) (get API key from dashboard)
     * [Vapi](https://dashboard.vapi.ai/), for which you need **both** keys from the API Keys page: 
       * **Private key** : for creating the assistant via API
       * **Public key** : for starting test calls from the browser

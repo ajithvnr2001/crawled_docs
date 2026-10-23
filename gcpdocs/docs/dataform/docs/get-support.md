@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/get-support/
 title: Get support \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:44.114713+00:00
+fetched_at: 2026-10-23T16:53:18.477782+00:00
 ---
 
 # Get support  |  Dataform  |  Google Cloud Documentation

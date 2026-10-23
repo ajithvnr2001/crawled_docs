@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-delete-entity/
 title: Delete task \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:13.149324+00:00
+fetched_at: 2026-10-23T16:53:54.456997+00:00
 ---
 
 # Delete task  |  Firestore in Datastore mode  |  Google Cloud Documentation

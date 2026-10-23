@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-get-or-create-family/
 title: Get or create a column family \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:56:53.916152+00:00
+fetched_at: 2026-10-23T16:49:02.116517+00:00
 ---
 
 # Get or create a column family  |  Bigtable  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/release-notes/
 title: Datastream release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:07.326049+00:00
+fetched_at: 2026-10-23T16:54:04.867967+00:00
 ---
 
 # Datastream release notes  |  Google Cloud Documentation

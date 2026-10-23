@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/how-to-add-more-than-10-andor-filters-to-a-chart/
 title: How to add more than 10 AND/OR filters to a chart \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:09.257174+00:00
+fetched_at: 2026-10-23T16:52:45.002404+00:00
 ---
 
 # How to add more than 10 AND/OR filters to a chart  |  Data Studio  |  Google Cloud Documentation

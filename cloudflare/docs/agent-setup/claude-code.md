@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agent-setup/claude-code/
 title: Claude Code + Cloudflare \u00b7 Agent setup docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:10.975895+00:00
+fetched_at: 2026-10-23T16:39:59.633955+00:00
 ---
 
 # Claude Code + Cloudflare · Agent setup docs
@@ -48,7 +48,7 @@ In Claude Code, run these two slash commands. This installs Cloudflare Skills an
 
 For example:
          
-         Add real-time collaboration to my app using Durable Objects with WebSocket hibernation.
+         Build an image upload and transformation service using R2 and Cloudflare Images.
 
 
 
@@ -71,6 +71,7 @@ Skills are instructions the agent loads on demand. The [cloudflare/skills](https
   * cloudflare-oneDesign, configure, troubleshoot, or review Cloudflare One Zero Trust and SASE deployments. Use cloudflare-one-migrations for migration planning from other vendors.
   * cloudflare-one-migrationsAssess and plan migrations from existing VPN, SWG, or SASE platforms to Cloudflare One, including policy mapping, parity gaps, and rollout.
   * durable-objectsBuild, debug, or review Cloudflare Durable Objects code for persistent state and coordination.
+  * gateway-workersBuild, debug, or review Cloudflare Workers invoked by the Forward action in Gateway HTTP policies, including the GatewayMiddleware entrypoint, Gateway types, context, and continuation.
   * k2Build and troubleshoot Cloudflare K2 or K2 Streams durable logs. Use for stream setup, producing from Workers or HTTP, configuring retention and inputs, and consuming through subscriptions.
   * nextjs-on-cloudflareBuild, migrate, and deploy Next.js apps on Cloudflare Workers with vinext. Use when starting a Next.js project on Cloudflare, moving an existing app to Workers, choosing between vinext and OpenNext, or setting up vinext for Workers. For setup, migration, or deployment, install vinext's upstream skills with `npx skills add cloudflare/vinext` if missing, then read and follow the applicable skill and docs.
   * sandbox-migrate-to-nextMigrate Cloudflare Sandbox apps from stable @cloudflare/sandbox to @cloudflare/sandbox@next (SDK 1.0 preview). Use sandbox-next for apps already on the preview.
@@ -131,19 +132,19 @@ For a full overview of how these docs are structured for agents, refer to the [D
 ## Example prompts
     
     
-    Set up WAF rules to block SQL injection and XSS attacks on my application.
+    Deploy a globally distributed REST API on Workers with automatic scaling and zero cold starts.
     
     
-    Build an image upload and transformation service using R2 and Cloudflare Images.
+    Use Workers for Platforms to let my customers deploy their own code in isolated environments.
     
     
-    Set up a Waiting Room to handle flash sale traffic spikes without dropping requests.
+    Create a Logpush job to stream Workers analytics to my data warehouse.
     
     
     Optimize my Worker to serve WebP images with responsive resizing using Cloudflare Images.
     
     
-    Deploy a full-stack React app to Cloudflare Pages with a Workers API backend and D1 database.
+    Add a cron trigger to my Worker that processes a job queue every hour.
 
 ## Tips
 
@@ -184,7 +185,7 @@ Code Mode is how the Cloudflare API MCP server fits all 2,500+ API endpoints int
 
 MCP server connection fails or times out
 
-Run `claude mcp list` to verify the server is registered. Try removing and re-adding: `claude mcp remove cloudflare` then re-add it. Ensure you have `npx` and `mcp-remote` available.
+Run `claude mcp list` to verify the server is registered. If you installed the Cloudflare plugin, run `/reload-plugins` to reload its MCP configuration.
 
 Claude cannot authenticate with Cloudflare
 

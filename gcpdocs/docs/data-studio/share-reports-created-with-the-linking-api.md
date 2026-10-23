@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/share-reports-created-with-the-linking-api/
 title: Share reports created with the Data Studio Linking API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:37.583654+00:00
+fetched_at: 2026-10-23T16:52:50.244292+00:00
 ---
 
 # Share reports created with the Data Studio Linking API  |  Google Cloud Documentation

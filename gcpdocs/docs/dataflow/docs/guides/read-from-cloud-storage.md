@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/read-from-cloud-storage/
 title: Read from Cloud Storage to Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:13.329476+00:00
+fetched_at: 2026-10-23T16:52:53.831090+00:00
 ---
 
 # Read from Cloud Storage to Dataflow  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/create-source-connection-profile/
 title: Create a source connection profile \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:40.976367+00:00
+fetched_at: 2026-10-23T16:52:44.825453+00:00
 ---
 
 # Create a source connection profile  |  Database Migration Service for SQL Server  |  Google Cloud Documentation

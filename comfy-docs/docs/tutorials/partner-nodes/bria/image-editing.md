@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/bria/image-editing/
 title: Bria Eraser, Expand Image, and GenFill in ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:26.922587+00:00
+fetched_at: 2026-10-23T16:38:43.046403+00:00
 ---
 
 # Bria Eraser, Expand Image, and GenFill in ComfyUI - ComfyUI
@@ -203,7 +203,7 @@ Masks trigger generative replacement, not pixel retouching: the masked area mean
 
 Prompt-driven editing (no mask)
 
-The nodes below edit an image from a text instruction alone: no Painter canvas, no mask. Each node outputs the edited image plus a `structured_prompt` string that describes the edit, which you can feed into Bria FIBO Image Edit for follow-up edits. All of them cost 12.07 credits per run.
+The nodes below edit an image from a text instruction alone: no Painter canvas, no mask. Each node outputs the edited image plus a `structured_prompt` string that describes the edit, which you can feed into Bria FIBO 2.0 Image Edit for follow-up edits. All of them cost 12.07 credits per run.
 
 ### 
 
@@ -286,26 +286,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/bria/image-editing.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/bria/image-editing)
 
-[Bria FIBO in ComfyUI: JSON-Prompt Image Editing and OutpaintingPrevious](https://docs.comfy.org/tutorials/partner-nodes/bria/fibo)[ByteDance Seedream 5.0 Pro - Professional AI Image GenerationNext](https://docs.comfy.org/tutorials/partner-nodes/bytedance/seedream-5-pro)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Beeble Switchx](https://docs.comfy.org/tutorials/partner-nodes/beeble/beeble-switchx)[Background Removal](https://docs.comfy.org/tutorials/partner-nodes/bria/background-removal)

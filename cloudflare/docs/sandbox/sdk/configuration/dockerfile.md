@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/configuration/dockerfile/
 title: Dockerfile reference (Sandbox SDK 0.x) \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:23.788540+00:00
+fetched_at: 2026-10-23T16:39:50.900314+00:00
 ---
 
 # Dockerfile reference (Sandbox SDK 0.x) · Cloudflare Sandboxes docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-08T07:15:23.788540+00:00
 
 # Dockerfile reference
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/configuration/dockerfile/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/configuration/dockerfile/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBase images Default image Python image OpenCode imageCreating a custom imageUsing arbitrary base imagesCustom startup scriptsRelated resources
+OverviewBase images Default image Python image OpenCode image musl imageCreating a custom imageUsing arbitrary base imagesCustom startup scriptsRelated resources
 
 Note
 
@@ -34,27 +34,31 @@ Customize the sandbox container image with your own packages, tools, and configu
 
 ## Base images
 
-The Sandbox SDK provides multiple Ubuntu-based image variants. Choose the one that fits your use case:
+The Sandbox SDK provides multiple image variants. All except `-musl` are based on Ubuntu. Choose the one that fits your use case:
 
 Image | Tag suffix | Use case  
 ---|---|---  
 Default | (none) | Lean image for JavaScript/TypeScript workloads  
 Python | `-python` | Data science, ML, Python code execution  
 OpenCode | `-opencode` | AI coding agents with OpenCode CLI  
+musl | `-musl` | Minimal Alpine image with Git, curl, and bash  
       
     
     # Default - lean, no Python
-    FROM docker.io/cloudflare/sandbox:0.7.0
+    FROM docker.io/cloudflare/sandbox:0.12.14
     
     # Python - includes Python 3.11 + data science packages
-    FROM docker.io/cloudflare/sandbox:0.7.0-python
+    FROM docker.io/cloudflare/sandbox:0.12.14-python
     
     # OpenCode - includes OpenCode CLI for AI coding
-    FROM docker.io/cloudflare/sandbox:0.7.0-opencode
+    FROM docker.io/cloudflare/sandbox:0.12.14-opencode
+    
+    # musl - minimal Alpine image, no Node.js, Bun, or Python
+    FROM docker.io/cloudflare/sandbox:0.12.14-musl
 
 Version synchronization required
 
-Always match the Docker image version to your npm package version. If you're using `@cloudflare/sandbox@0.7.0`, use `docker.io/cloudflare/sandbox:0.7.0` (or variant) as your base image.
+Always match the Docker image version to your npm package version. If you are using `@cloudflare/sandbox@0.12.14`, use `docker.io/cloudflare/sandbox:0.12.14` (or variant) as your base image.
 
 **Why this matters** : The SDK automatically checks version compatibility on startup. Mismatched versions can cause features to break or behave unexpectedly. If versions don't match, you'll see warnings in your logs.
 
@@ -65,7 +69,7 @@ See [Version compatibility](https://developers.cloudflare.com/sandbox/sdk/concep
 The default image is optimized for JavaScript and TypeScript workloads:
 
   * Ubuntu 22.04 LTS base
-  * Node.js 20 LTS with npm
+  * Node.js 22 LTS with npm
   * Bun 1.x (JavaScript/TypeScript runtime)
   * System utilities: curl, wget, git, jq, zip, unzip, file, procps, ca-certificates
 
@@ -88,6 +92,18 @@ The `-opencode` variant includes everything in the default image plus:
 
 
 
+### musl image
+
+The `-musl` variant is a minimal image:
+
+  * Alpine Linux 3.21 base
+  * Git, curl, and bash
+  * No Node.js, Bun, or Python
+
+
+
+Its sandbox binary is built for musl, so it also runs in other Alpine-based images. [Docker in Docker](https://developers.cloudflare.com/sandbox/sdk/guides/docker-in-docker/) copies it into `docker:dind`.
+
 ## Creating a custom image
 
 Create a `Dockerfile` in your project root:
@@ -95,7 +111,7 @@ Create a `Dockerfile` in your project root:
 Dockerfiledockerfile
     
     
-    FROM docker.io/cloudflare/sandbox:0.7.0-python
+    FROM docker.io/cloudflare/sandbox:0.12.14-python
     
     # Install additional Python packages
     RUN pip install --no-cache-dir \
@@ -138,7 +154,7 @@ Dockerfiledockerfile
     FROM your-custom-image:tag
     
     # Copy the sandbox binary from the official image
-    COPY --from=docker.io/cloudflare/sandbox:0.7.0 /container-server/sandbox /sandbox
+    COPY --from=docker.io/cloudflare/sandbox:0.12.14 /container-server/sandbox /sandbox
     
     ENTRYPOINT ["/sandbox"]
 
@@ -147,9 +163,9 @@ The `/sandbox` binary starts the HTTP API server that enables SDK communication.
 Dockerfiledockerfile
     
     
-    FROM node:20-slim
+    FROM node:22-slim
     
-    COPY --from=docker.io/cloudflare/sandbox:0.7.0 /container-server/sandbox /sandbox
+    COPY --from=docker.io/cloudflare/sandbox:0.12.14 /container-server/sandbox /sandbox
     
     # Copy your application
     COPY . /app
@@ -167,7 +183,7 @@ For more complex startup sequences, create a custom startup script:
 Dockerfiledockerfile
     
     
-    FROM docker.io/cloudflare/sandbox:0.7.0-python
+    FROM docker.io/cloudflare/sandbox:0.12.14-python
     
     COPY my-app.js /workspace/my-app.js
     COPY startup.sh /workspace/startup.sh

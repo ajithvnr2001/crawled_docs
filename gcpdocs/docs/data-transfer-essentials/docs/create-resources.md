@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-transfer-essentials/docs/create-resources/
 title: Create Data Transfer Essentials resources \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:50.016028+00:00
+fetched_at: 2026-10-23T16:53:03.454231+00:00
 ---
 
 # Create Data Transfer Essentials resources  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/configure-salesforce-org/
 title: Configure a Salesforce organization for CDC \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:15.536045+00:00
+fetched_at: 2026-10-23T16:54:08.521266+00:00
 ---
 
 # Configure a Salesforce organization for CDC  |  Datastream  |  Google Cloud Documentation

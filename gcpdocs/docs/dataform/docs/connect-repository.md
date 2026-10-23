@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/connect-repository/
 title: Connect to a third-party Git repository \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:45.980949+00:00
+fetched_at: 2026-10-23T16:53:40.821399+00:00
 ---
 
 # Connect to a third-party Git repository  |  Dataform  |  Google Cloud Documentation

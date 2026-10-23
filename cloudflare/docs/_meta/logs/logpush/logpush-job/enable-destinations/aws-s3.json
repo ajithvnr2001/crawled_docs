@@ -3,8 +3,5 @@
   "file": "logs/logpush/logpush-job/enable-destinations/aws-s3.md",
   "title": "Enable Logpush to Amazon S3 \u00b7 Cloudflare Logs docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:12:14.955015+00:00",
-  "html_len": 132311,
-  "md_len": 6383,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:40:02.535497+00:00"
 }

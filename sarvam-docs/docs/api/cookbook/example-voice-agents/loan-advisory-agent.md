@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/api/cookbook/example-voice-agents/loan-advisory-agent/
-title: Loan Advisory Agent using Pipecat | Sarvam API Docs
+title: Hindi loan advisory voice agent with Pipecat | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:30.151148+00:00
+fetched_at: 2026-10-23T16:39:04.651577+00:00
 ---
 
-# Loan Advisory Agent using Pipecat | Sarvam API Docs
+# Hindi loan advisory voice agent with Pipecat | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/api/cookbook/example-voice-agents/loan-advisory-agent/
 
@@ -44,7 +44,7 @@ Scroll to top
 
 [Cookbook](https://docs.sarvam.ai/api/cookbook/guides/call-analytics-pipeline)[Example Voice Agents](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
 
-# Loan Advisory Agent using Pipecat
+# Hindi loan advisory voice agent with Pipecat
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/api/cookbook/example-voice-agents/loan-advisory-agent.md "View this page as plain text")|More actions
 
@@ -88,7 +88,7 @@ A loan advisory agent that can:
 
   * Python 3.9 or higher
   * API keys from: 
-    * [Sarvam AI](https://dashboard.sarvam.ai/) (get API key from dashboard)
+    * [Sarvam AI](https://indus.sarvam.ai/key-management?ref=docs) (get API key from dashboard)
 
 
 

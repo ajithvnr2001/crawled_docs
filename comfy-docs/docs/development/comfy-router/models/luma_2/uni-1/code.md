@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/luma_2/uni-1/code/
 title: Use Uni 1 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:19.386197+00:00
+fetched_at: 2026-10-23T16:38:40.000259+00:00
 ---
 
 # Use Uni 1 with Comfy Router - ComfyUI
@@ -319,7 +319,7 @@ video
 
 object
 
-Video output settings for ray-3.2. Only the fields that affect validation and billing are modelled here; additional fields (edit controls, end_frame, loop, source_position) are forwarded to Luma untouched.
+Video output settings for ray-3.2. Only the fields that affect validation and billing are modelled here; additional fields (edit controls, source_position) are forwarded to Luma untouched.
 
 ​
 
@@ -328,6 +328,46 @@ video.duration
 string
 
 Clip duration for ray-3.2 video / video_edit. Defaults to 5s. HDR generation (type video) is restricted to 5s.Possible values: `5s`, `10s`
+
+​
+
+video.end_frame
+
+object
+
+Reference to an image or video. Used for style/content guidance, guided generation, video-edit/video-reframe sources, and guide keyframes. Provide exactly one of generation_id, url, or data.
+
+​
+
+video.end_frame.data
+
+string
+
+Base64-encoded image or video data
+
+​
+
+video.end_frame.generation_id
+
+string
+
+UUID of a prior completed generation to reuse as the source. Used by ray-3.2 video_edit / video_reframe.
+
+​
+
+video.end_frame.media_type
+
+string
+
+MIME type. Required with data (and with url for video sources, e.g. video/mp4 on video_edit / video_reframe).
+
+​
+
+video.end_frame.url
+
+string
+
+Publicly accessible image or video URL
 
 ​
 
@@ -347,11 +387,19 @@ Render in HDR. Requires 720p/1080p. Rejected for video_reframe.
 
 ​
 
+video.keyframe_indexes
+
+integer[]
+
+Output-frame positions for `keyframes`, same length; 0–120 for 5s, 0–240 for 10s. Forwarded untouched.
+
+​
+
 video.keyframes
 
 object[]
 
-Guide-frame images. A single keyframe makes a type “video” request a single-keyframe extend, which always bills as one 5s block.
+Guide-frame images (1–64), mutually exclusive with start_frame/end_frame. Billed at the requested duration; a keyframes request is never a single-keyframe extend.
 
 ​
 
@@ -606,26 +654,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/models/luma_2/uni-1/code.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/models/luma_2/uni-1/code)
 
-[Use Uni 1 Max with Comfy RouterPrevious](https://docs.comfy.org/development/comfy-router/models/luma_2/uni-1-max/code)[Use Animations with Comfy RouterNext](https://docs.comfy.org/development/comfy-router/models/meshy/animations/code)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Uni 1 Max](https://docs.comfy.org/development/comfy-router/models/luma_2/uni-1-max/code)[Animations](https://docs.comfy.org/development/comfy-router/models/meshy/animations/code)

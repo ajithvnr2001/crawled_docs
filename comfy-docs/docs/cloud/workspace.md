@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/cloud/workspace/
 title: Comfy Cloud workspaces: teams and members - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T14:35:05.796617+00:00
+fetched_at: 2026-10-23T16:38:42.655156+00:00
 ---
 
 # Comfy Cloud workspaces: teams and members - ComfyUI
@@ -159,7 +159,7 @@ Role| Can do
 **Owner**|  Invite and remove members, change roles, rename or delete the workspace, and manage the workspace plan and credits.  
 **Member**|  Run workflows in the workspace and view the member list. Cannot invite members, see pending invitations, change workspace settings, or manage billing.  
   
-Owners can change a member’s role from the Members section, which is how you promote a member to owner or demote an owner back to member. A workspace always keeps at least one owner, so the last remaining owner cannot be demoted or removed. Some messages in Comfy Cloud call the owner the workspace admin; they are the same role. Members can open **Workspace settings** and see the workspace’s plan and member list, but they cannot change anything there. When an owner removes a member, that person loses access to the workspace’s files and workflows, the seat is freed, and any workspace API keys they created stop working. Members cannot remove themselves; they leave the workspace instead.
+Owners can change a member’s role from the Members section, which is how you promote a member to owner or demote an owner back to member. A workspace always keeps at least one owner, so the last remaining owner cannot be demoted or removed. Some messages in Comfy Cloud call the owner the workspace admin; they are the same role. Members can open **Workspace settings** and see the workspace’s plan and member list, but they cannot change anything there. When an owner removes a member, that person loses access to the workspace’s files and workflows, the seat is freed, and any workspace API keys they created stop working. Members cannot remove themselves; they leave the workspace instead. Leaving is unavailable to the workspace creator, to a sole owner, and to members whose membership is managed by an organization.
 
 ## 
 
@@ -177,7 +177,7 @@ The menu in the Members section lets owners:
 
   * **Edit workspace details** : rename the workspace
   * **Delete Workspace** : available once the workspace has no active subscription. See Delete a team workspace.
-  * **Leave Workspace** : leave a team workspace. You cannot leave a workspace if you are its only owner.
+  * **Leave Workspace** : leave a team workspace. The item is disabled when you created the workspace, when you are its only owner (make another member an owner first), or when your organization manages your membership.
 
 ![The workspace menu: Edit workspace details, Delete Workspace, Leave Workspace](https://mintcdn.com/dripart/_STmcLe16Xze8EdG/images/cloud/workspace/workspace-menu.png?fit=max&auto=format&n=_STmcLe16Xze8EdG&q=85&s=44fa6637c08fc269c1fdaff7652f9862) Members see this menu too, but only the **Leave Workspace** item.
 
@@ -291,26 +291,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/cloud/workspace.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/cloud/workspace)
 
-[Plan & CreditsPrevious](https://docs.comfy.org/interface/credits)[Share workflowsNext](https://docs.comfy.org/cloud/share-workflow)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Credits](https://docs.comfy.org/interface/credits)[Share workflows](https://docs.comfy.org/cloud/share-workflow)

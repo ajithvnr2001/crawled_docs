@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/configure-amazon-aurora-mysql/
 title: Configure an Amazon Aurora MySQL database for CDC \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:18.016240+00:00
+fetched_at: 2026-10-23T16:54:09.958374+00:00
 ---
 
 # Configure an Amazon Aurora MySQL database for CDC  |  Datastream  |  Google Cloud Documentation

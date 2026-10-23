@@ -1,0 +1,10 @@
+{
+  "url": "https://developers.cloudflare.com/waf/tools/lists/",
+  "file": "waf/tools/lists.md",
+  "title": "Lists \u00b7 Cloudflare Web Application Firewall (WAF) docs",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-08T07:16:47.825928+00:00",
+  "html_len": 151796,
+  "md_len": 8059,
+  "depth": 0
+}

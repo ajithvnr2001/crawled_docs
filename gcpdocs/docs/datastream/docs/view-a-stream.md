@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/view-a-stream/
 title: View a stream \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:00.775659+00:00
+fetched_at: 2026-10-23T16:53:29.379963+00:00
 ---
 
 # View a stream  |  Datastream  |  Google Cloud Documentation

@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit/
-title: Build Your First Voice Agent using LiveKit | Sarvam API Docs
+title: Build a LiveKit voice agent with Sarvam | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:38.836582+00:00
+fetched_at: 2026-10-23T16:39:03.824886+00:00
 ---
 
-# Build Your First Voice Agent using LiveKit | Sarvam API Docs
+# Build a LiveKit voice agent with Sarvam | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit/
 
@@ -49,7 +49,7 @@ Scroll to top
 
 [Integration](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit)
 
-# Build Your First Voice Agent using LiveKit
+# Build a LiveKit voice agent with Sarvam
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit.md "View this page as plain text")|More actions
 
@@ -98,7 +98,7 @@ A voice agent that can:
   * Python 3.9 or higher
   * API keys from: 
     * [LiveKit Cloud](https://cloud.livekit.io/) (free account)
-    * [Sarvam AI](https://dashboard.sarvam.ai/) (get API key from dashboard)
+    * [Sarvam AI](https://indus.sarvam.ai/key-management?ref=docs) (get API key from dashboard)
 
 
 
@@ -483,7 +483,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/faq)[Build Your First Voice Agent using PipecatNext](https://docs.sarvam.ai/api/integration/build-voice-agent-with-pipecat)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/faq)[Build a Pipecat voice agent with SarvamNext](https://docs.sarvam.ai/api/integration/build-voice-agent-with-pipecat)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 

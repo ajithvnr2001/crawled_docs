@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/v2/assets/existence-check-for-a-blob-by-blake3-hash/
 title: Existence check for a blob by blake3 hash - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:40:26.548209+00:00
+fetched_at: 2026-10-23T16:38:36.664289+00:00
 ---
 
 # Existence check for a blob by blake3 hash - ComfyUI
@@ -253,7 +253,7 @@ assets
 
 Copy pageCopy page
 
-`200` if the calling account can mint from this blob, `404` otherwise. Same account-scoping as `from-hash`; lets a client decide between the dedup fast-path and a full upload before sending bytes. A refusal answers its status with no body, so a `403`’s code is not readable here.
+`200` if the calling account can mint from this blob, `404` otherwise. Same account-scoping as `from-hash`; lets a client decide between the dedup fast-path and a full upload before sending bytes. Use the `hash` an upload returned: for an image whose location metadata was removed before storage, the client’s digest of the file it sent names no stored blob. A refusal answers its status with no body, so a `403`’s code is not readable here.
 
 Copy pageCopy page
 
@@ -559,26 +559,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/api-reference/v2/assets/existence-check-for-a-blob-by-blake3-hash.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/api-reference/v2/assets/existence-check-for-a-blob-by-blake3-hash)
 
-[Mint an asset over existing bytes (dedup fast-path)Previous](https://docs.comfy.org/api-reference/v2/assets/mint-an-asset-over-existing-bytes-dedup-fast-path)[Asset metadataNext](https://docs.comfy.org/api-reference/v2/assets/asset-metadata)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Mint an asset over existing bytes (dedup fast-path)](https://docs.comfy.org/api-reference/v2/assets/mint-an-asset-over-existing-bytes-dedup-fast-path)[Asset metadata](https://docs.comfy.org/api-reference/v2/assets/asset-metadata)

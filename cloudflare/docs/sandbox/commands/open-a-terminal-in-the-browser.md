@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/commands/open-a-terminal-in-the-browser/
 title: Open a terminal in the browser \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:17.018615+00:00
+fetched_at: 2026-10-23T16:39:54.401514+00:00
 ---
 
 # Open a terminal in the browser · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:17.018615+00:00
 
 # Open a terminal in the browser
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/commands/open-a-terminal-in-the-browser/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/commands/open-a-terminal-in-the-browser/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesOpen a terminalRun another command in the terminalEnd a session from your WorkerRelated resources
 
@@ -117,7 +117,7 @@ src/index.tsts
          	}
          }
 
-The container keeps running for 5 minutes after the last terminal closes, so a reload finds the same tmux session.
+The 5-minute timeout gives a reloaded page or a dropped connection time to attach to the same tmux session.
 
 Then add a `fetch()` handler that attaches a WebSocket to a tmux session:
 
@@ -130,7 +130,7 @@ src/index.tsts
          		const container = this.ctx.container;
          
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		if (request.headers.get("Upgrade") !== "websocket") {
@@ -229,8 +229,6 @@ The handler accepts the WebSocket with `accept()` instead of the [Hibernation We
 
 The shell runs as `root`. The [`user` option of `exec()`](https://developers.cloudflare.com/containers/api/durable-object-container/#exec), such as `user: "1000:1000"`, changes the Linux user of the shell. It does not limit what the shell can read or change. For more information, refer to [Sandbox security](https://developers.cloudflare.com/sandbox/concepts/security/#everything-in-one-sandbox-is-shared).
 
-The `close` listener skips a client that has already exited. For more information, refer to [Process lifetime](https://developers.cloudflare.com/containers/api/durable-object-container/#process-lifetime).
-
   4. Create a terminal page:
          
          <!doctype html>
@@ -256,46 +254,26 @@ The `close` listener skips a client that has already exited. For more informatio
          			terminal.open(document.getElementById("terminal"));
          			fitAddon.fit();
          
-         			const session = new URLSearchParams(location.search).get("session") || "main";
-         			const encoder = new TextEncoder();
-         			let socket;
-         			let attempts = 0;
+         			const url = new URL("terminal", location.href);
+         			url.protocol = location.protocol === "https:" ? "wss:" : "ws:";
+         			url.searchParams.set("session", new URLSearchParams(location.search).get("session") || "main");
+         			url.searchParams.set("cols", terminal.cols);
+         			url.searchParams.set("rows", terminal.rows);
          
+         			const socket = new WebSocket(url);
+         			socket.binaryType = "arraybuffer";
+         			const encoder = new TextEncoder();
          			const send = (data) => {
          				if (socket.readyState === WebSocket.OPEN) socket.send(data);
          			};
          
-         			const connect = () => {
-         				const url = new URL("terminal", location.href);
-         				url.protocol = location.protocol === "https:" ? "wss:" : "ws:";
-         				url.searchParams.set("session", session);
-         				url.searchParams.set("cols", terminal.cols);
-         				url.searchParams.set("rows", terminal.rows);
-         
-         				socket = new WebSocket(url);
-         				socket.binaryType = "arraybuffer";
-         
-         				socket.addEventListener("open", () => {
-         					attempts = 0;
-         					// tmux redraws the whole screen when a client attaches.
-         					terminal.reset();
-         				});
-         				socket.addEventListener("message", (event) => {
-         					terminal.write(new Uint8Array(event.data));
-         				});
-         				socket.addEventListener("close", (event) => {
-         					terminal.writeln("");
-         					// Code 1000 means the session ended or the client detached.
-         					if (event.code === 1000 || attempts >= 10) {
-         						terminal.writeln("[" + (event.reason || "Disconnected") + "]");
-         						return;
-         					}
-         					const delay = Math.min(1000 * 2 ** attempts++, 30000);
-         					terminal.writeln("[Reconnecting in " + delay / 1000 + " s]");
-         					setTimeout(connect, delay);
-         				});
-         			};
-         			connect();
+         			socket.addEventListener("message", (event) => {
+         				terminal.write(new Uint8Array(event.data));
+         			});
+         			socket.addEventListener("close", (event) => {
+         				terminal.writeln("");
+         				terminal.writeln("[" + (event.reason || "Disconnected") + "]");
+         			});
          
          			terminal.onData((data) => send(encoder.encode(data)));
          			terminal.onResize(({ cols, rows }) => send(JSON.stringify({ cols, rows })));
@@ -304,7 +282,7 @@ The `close` listener skips a client that has already exited. For more informatio
          	</body>
          </html>
 
-The page sends keystrokes as binary messages and window sizes as JSON text messages. When the connection drops, it reconnects after 1 second, doubling the delay up to 30 seconds, and gives up after 10 attempts. It does not reconnect after code `1000`, which means the session ended or the client detached.
+The page sends keystrokes as binary messages and window sizes as JSON text messages. When the connection closes, the page prints the reason, and a reload connects again. For a page that reconnects by itself, refer to the [terminal workspace example ↗︎](https://github.com/cloudflare/sandbox-sdk/tree/main/examples/terminal-workspace).
 
 The page loads xterm.js from a CDN. In production, install `@xterm/xterm` and `@xterm/addon-fit` from npm and serve them with [static assets](https://developers.cloudflare.com/workers/static-assets/).
 
@@ -394,7 +372,7 @@ The terminal attaches to the same shell, and the count has kept going while the 
 
 
 
-Run `exit` in the shell to end the session. The page shows `[Terminal closed with code 0]` and does not reconnect. To leave the session running, detach with `CTRL + B` then `D`, and reload the page to attach again.
+Run `exit` in the shell to end the session. The page shows `[Terminal closed with code 0]`. To leave the session running, detach with `CTRL + B` then `D`, and reload the page to attach again.
 
 ## Run another command in the terminal
 
@@ -416,7 +394,7 @@ A coding agent also calls its model over the network, which `enableInternet: fal
 
 ## End a session from your Worker
 
-To end a session and every process in it without a browser, run `tmux kill-session` in your Durable Object:
+To end a session without a browser, run `tmux kill-session` in your Durable Object:
 
 src/index.tsts
     

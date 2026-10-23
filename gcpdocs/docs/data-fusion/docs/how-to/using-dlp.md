@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/using-dlp/
 title: Use Sensitive Data Protection with Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:41.877647+00:00
+fetched_at: 2026-10-23T16:51:47.049666+00:00
 ---
 
 # Use Sensitive Data Protection with Cloud Data Fusion  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/image-streaming/
 title: Use Image streaming to pull container images \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:25.290493+00:00
+fetched_at: 2026-10-23T16:51:20.857827+00:00
 ---
 
 # Use Image streaming to pull container images  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

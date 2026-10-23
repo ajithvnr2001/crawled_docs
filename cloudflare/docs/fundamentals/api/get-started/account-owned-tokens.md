@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/api/get-started/account-owned-tokens/
 title: Account API tokens \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:20.275314+00:00
+fetched_at: 2026-10-23T16:39:51.302911+00:00
 ---
 
 # Account API tokens · Cloudflare Fundamentals docs
@@ -22,7 +22,7 @@ Cloudflare's API
 
 # Account API tokens
 
-Last updated Sep 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/api/get-started/account-owned-tokens/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/api/get-started/account-owned-tokens/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate an account owned tokenCompatibility matrix
 
@@ -83,6 +83,7 @@ Distributed Web | ✅
 DNS | ✅  
 Durable Objects | ✅  
 Email Relay | ✅  
+Email Service | ✅  
 Secure Web Gateway | ✅  
 Healthchecks | ✅  
 Hyperdrive | ✅  

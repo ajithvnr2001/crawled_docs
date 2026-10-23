@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/right-fitting/
 title: Right fitting \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:12.733139+00:00
+fetched_at: 2026-10-23T16:51:57.659447+00:00
 ---
 
 # Right fitting  |  Cloud Dataflow  |  Google Cloud Documentation

@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/deploy/campaigns/dnd/",
   "file": "voice-agents/deploy/campaigns/dnd.md",
-  "title": "Do Not Disturb (DND) | Sarvam API Docs",
+  "title": "Do Not Disturb list for outbound AI calling campaigns | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:26.416408+00:00",
-  "html_len": 137907,
-  "md_len": 18163,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:38:55.770843+00:00"
 }

@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/voice-agents/pricing/
-title: Voice Agents Pricing in India: Per-Minute Rates in INR | Sarvam API Docs
+title: Voice Agents pricing: per-minute rates in INR | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:39:02.235639+00:00
+fetched_at: 2026-10-23T16:38:48.903388+00:00
 ---
 
-# Voice Agents Pricing in India: Per-Minute Rates in INR | Sarvam API Docs
+# Voice Agents pricing: per-minute rates in INR | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/voice-agents/pricing/
 
@@ -27,15 +27,15 @@ Scroll to top
 
 [Settings](https://docs.sarvam.ai/voice-agents/settings/api-key)
 
-# Pricing
+# Voice Agents pricing: per-minute rates in INR
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/voice-agents/pricing.md "View this page as plain text")|More actions
 
 This page is for Voice Agents.
 
-Sarvam Voice Agents is billed per minute of conversation. The rate is end to end: it covers the platform that runs your agent and the speech recognition, language, and voice models behind it. There is no separate model or token charge.
+Sarvam Voice Agents (Samvaad) is billed per minute of conversation. The rate is end to end: it covers the platform that runs your agent and the speech recognition, language, and voice models behind it. There is no separate model or token charge.
 
-Prices are in Indian rupees (₹) and exclude GST.
+Prices are in Indian rupees (₹) and exclude GST. To compare plans and estimate your monthly bill with a slider, see [Voice Agents pricing on sarvam.ai](https://www.sarvam.ai/products/voice-agents/pricing). For what the platform includes, see the [Sarvam Voice Agents product page](https://www.sarvam.ai/products/voice-agents).
 
 ## Plans
 
@@ -52,7 +52,7 @@ Enterprise| Custom| Committed volume| 2 lakh minutes a month and above
 
 
 
-Choose or change a plan in the [Sarvam platform](https://indus.sarvam.ai/samvaad/pricing).
+Choose or change a plan in the [Sarvam platform](https://indus.sarvam.ai/samvaad/pricing?ref=docs).
 
 ## What counts as a minute
 

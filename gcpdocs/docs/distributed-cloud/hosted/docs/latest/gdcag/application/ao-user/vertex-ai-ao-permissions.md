@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-ao-permissions/
 title: Prepare IAM permissions \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:30:18.354387+00:00
+fetched_at: 2026-10-23T16:49:27.927873+00:00
 ---
 
 # Prepare IAM permissions  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -65,12 +65,10 @@ Speech-to-Text | AI Speech Chirp Developer | `ai-speech-chirp-developer` | Acces
 AI Speech Developer | `ai-speech-developer` | Access the Speech-to-Text service to recognize speech and transcribe audio.  
 Text Embedding | AI Text Embedding Developer | `ai-text-embedding-developer` | Access the Text Embedding model to convert English natural language into numerical vectors.  
 AI Text Embedding Multilingual Developer | `ai-text-embedding-multilingual-developer` | Access the Text Embedding Multilingual model to convert multilingual natural language into numerical vectors.  
-Gemini | AI Gemini Flash Developer | `ai-gemini-flash-developer` | Access the Gemini Flash service in the project namespace using the AICS inference gateway. Apply as a zonal RoleBinding on the management API server.  
-AI Large Gemini Developer | `ai-large-gemini-developer` | Access the Large Gemini service in the project namespace using the AICS inference gateway. Apply as a zonal RoleBinding on the management API server.  
-AI Multimodal Embedding Developer | `ai-multimodal-embedding-developer` | Access the Multimodal Embedding model (gemini-embedding-2) to generate numerical embeddings. Apply as a zonal RoleBinding on the management API server.  
+Gemini | AI Large Gemini Developer | `ai-large-gemini-developer` | Access the Large Gemini service in the project namespace using the AICS inference gateway. Apply as a zonal RoleBinding on the management API server.  
 Vertex AI Search | Discovery Engine Admin | `vaisearch-admin` | Get full access to all Discovery Engine resources.  
 Discovery Engine Developer | `vaisearch-developer` | Get read and write access to all Discovery Engine resources.  
-Discovery Engine Reader | `vaisearch-reader` | Get read access to all Discovery Engine resources.  
+Discovery Engine Viewer | `vaisearch-viewer` | Get read access to all Discovery Engine resources.  
 Vertex AI Translation | AI Translation Developer | `ai-translation-developer` | Access the Vertex AI Translation service to translate text.  
 Vertex AI Workbench | GDC Restricted Service Policy Admin | `gdchrestrictedservice-policy-admin` | Get full access to the `GDCHRestrictedService` policy type to control access to Vertex AI Workbench.  
 Workbench Notebooks Admin | `workbench-notebooks-admin` | Get read and write access to all notebook resources within a project namespace.  
@@ -81,6 +79,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-21 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-21 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

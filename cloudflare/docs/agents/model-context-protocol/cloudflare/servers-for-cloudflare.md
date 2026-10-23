@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/
 title: Cloudflare's own MCP servers \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:40.072661+00:00
+fetched_at: 2026-10-23T16:40:03.919503+00:00
 ---
 
 # Cloudflare's own MCP servers · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-13T08:48:40.072661+00:00
 
 # Cloudflare's own MCP servers
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCloudflare API MCP server Connect to the Cloudflare API MCP server Install via agent and IDE pluginsProduct-specific MCP servers
 
@@ -30,7 +30,7 @@ Cloudflare runs a catalog of managed remote MCP servers which you can connect to
 
 These MCP servers allow your MCP client to read configurations from your account, process information, make suggestions based on data, and even make those suggested changes for you. All of these actions can happen across Cloudflare's many services including application development, security and performance.
 
-Use the Streamable HTTP endpoint at `/mcp` for new connections. The servers support the new MCP 2026-07-28 Specification and stateless requests from 2025 Streamable HTTP clients. Historical `/sse` URLs remain available as aliases for the same Streamable HTTP handler, but they do not serve the deprecated HTTP+SSE transport. Clients configured to force SSE transport must switch to Streamable HTTP or automatic transport detection.
+Connect to each server's Streamable HTTP endpoint at `/mcp`. The servers support the MCP 2026-07-28 specification and stateless requests from 2025 Streamable HTTP clients.
 
 ## Cloudflare API MCP server
 

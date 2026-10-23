@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/plan-pipelines/
 title: Plan your Dataflow pipeline \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:13.998002+00:00
+fetched_at: 2026-10-23T16:52:51.545188+00:00
 ---
 
 # Plan your Dataflow pipeline  |  Google Cloud Documentation

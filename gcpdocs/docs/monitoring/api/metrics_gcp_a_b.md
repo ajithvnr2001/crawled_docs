@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/metrics_gcp_a_b/
 title: Google Cloud metrics: A or B \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:39:15.705748+00:00
+fetched_at: 2026-10-23T16:51:20.571137+00:00
 ---
 
 # Google Cloud metrics: A or B  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To chart or monitor metric types with values of type `STRING`, you must use Moni
 
 Metrics from [Google Cloud](https://docs.cloud.google.com/docs).
 
-The following list was last generated at 2026-10-14 20:24:33 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
+The following list was last generated at 2026-10-22 02:44:18 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
 
 ### actions
 
@@ -3228,7 +3228,7 @@ Storage usage per cluster. quota usage
   
 ### apigateway
 
-Metrics from [API Gateway](https://docs.cloud.google.com/api-gateway/docs). Launch stages of these metrics: BETA
+Metrics from [API Gateway](https://docs.cloud.google.com/api-gateway/docs). Launch stages of these metrics: GA
 
 The "metric type" strings in this table must be prefixed with `apigateway.googleapis.com/`. That prefix has been omitted from the entries in the table. When querying a label, use the `metric.labels.` prefix; for example, `metric.labels.LABEL="VALUE"`. 
 
@@ -3238,7 +3238,7 @@ Display name
 Kind, Type, Unit  
 Monitored resources | _Description_  
 Labels  
-`proxy/request_count` BETA ** _(project)_**   
+`proxy/request_count` GA ** _(project)_**   
 Request Count   
 `DELTA`, `INT64`, `1`   
 **[apigateway.googleapis.com/Gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_apigateway.googleapis.com/Gateway)** |  _Number of requests served by API gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
@@ -4497,7 +4497,7 @@ Scheduled size
   
 ### backupdr
 
-Metrics from [Backup and DR Service](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-dr). Launch stages of these metrics: GA
+Metrics from [Backup and DR Service](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-dr). Launch stages of these metrics: ALPHA GA
 
 The "metric type" strings in this table must be prefixed with `backupdr.googleapis.com/`. That prefix has been omitted from the entries in the table. When querying a label, use the `metric.labels.` prefix; for example, `metric.labels.LABEL="VALUE"`. 
 
@@ -5025,6 +5025,36 @@ Compute VM instance backups per vault per US multi region. quota limit
 Compute VM instance backups per vault per US multi region. quota usage   
 `GAUGE`, `INT64`, `1`   
 **[backupdr.googleapis.com/BackupVault](https://docs.cloud.google.com/monitoring/api/resources#tag_backupdr.googleapis.com/BackupVault)** |  _Current usage on quota metric backupdr.googleapis.com/gce_backups_per_vault_per_us_multiregion. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/netapp_active_datasources_per_vault/exceeded` ALPHA ** _(project)_**   
+Active Vaulted NetApp datasources per vault quota exceeded error   
+`DELTA`, `INT64`, `1`   
+**[backupdr.googleapis.com/BackupVault](https://docs.cloud.google.com/monitoring/api/resources#tag_backupdr.googleapis.com/BackupVault)** |  _Number of attempts to exceed the limit on quota metric backupdr.googleapis.com/netapp_active_datasources_per_vault. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/netapp_active_datasources_per_vault/limit` ALPHA ** _(project)_**   
+Active Vaulted NetApp datasources per vault quota limit   
+`GAUGE`, `INT64`, `1`   
+**[backupdr.googleapis.com/BackupVault](https://docs.cloud.google.com/monitoring/api/resources#tag_backupdr.googleapis.com/BackupVault)** |  _Current limit on quota metric backupdr.googleapis.com/netapp_active_datasources_per_vault. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/netapp_active_datasources_per_vault/usage` ALPHA ** _(project)_**   
+Active Vaulted NetApp datasources per vault quota usage   
+`GAUGE`, `INT64`, `1`   
+**[backupdr.googleapis.com/BackupVault](https://docs.cloud.google.com/monitoring/api/resources#tag_backupdr.googleapis.com/BackupVault)** |  _Current usage on quota metric backupdr.googleapis.com/netapp_active_datasources_per_vault. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/netapp_backups_per_vault/exceeded` ALPHA ** _(project)_**   
+NetApp Volume backups per vault quota exceeded error   
+`DELTA`, `INT64`, `1`   
+**[backupdr.googleapis.com/BackupVault](https://docs.cloud.google.com/monitoring/api/resources#tag_backupdr.googleapis.com/BackupVault)** |  _Number of attempts to exceed the limit on quota metric backupdr.googleapis.com/netapp_backups_per_vault. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/netapp_backups_per_vault/limit` ALPHA ** _(project)_**   
+NetApp Volume backups per vault quota limit   
+`GAUGE`, `INT64`, `1`   
+**[backupdr.googleapis.com/BackupVault](https://docs.cloud.google.com/monitoring/api/resources#tag_backupdr.googleapis.com/BackupVault)** |  _Current limit on quota metric backupdr.googleapis.com/netapp_backups_per_vault. Sampled every 60 seconds. After sampling, data is not visible for up to 150 seconds._   
+`limit_name`: The limit name.   
+`quota/netapp_backups_per_vault/usage` ALPHA ** _(project)_**   
+NetApp Volume backups per vault quota usage   
+`GAUGE`, `INT64`, `1`   
+**[backupdr.googleapis.com/BackupVault](https://docs.cloud.google.com/monitoring/api/resources#tag_backupdr.googleapis.com/BackupVault)** |  _Current usage on quota metric backupdr.googleapis.com/netapp_backups_per_vault. After sampling, data is not visible for up to 150 seconds._   
 `limit_name`: The limit name.   
 `storage/stored_bytes` GA ** _(project)_**   
 Backup vault storage consumption   
@@ -5887,12 +5917,12 @@ Validator Count
 `GAUGE`, `INT64`, `1`   
 **[blockchainnodeengine.googleapis.com/BlockchainNode](https://docs.cloud.google.com/monitoring/api/resources#tag_blockchainnodeengine.googleapis.com/BlockchainNode)** |  _Total count of validators that are specifically monitored by this beacon node. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._  
   
-Generated at 2026-10-14 20:24:33 UTC.
+Generated at 2026-10-22 02:44:18 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

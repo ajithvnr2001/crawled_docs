@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/v2/assets/upload-an-asset-single-call-multipart/
 title: Upload an asset (single-call multipart) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:40:26.493608+00:00
+fetched_at: 2026-10-23T16:38:37.362716+00:00
 ---
 
 # Upload an asset (single-call multipart) - ComfyUI
@@ -381,11 +381,11 @@ Copy pageCopy page
 
 Single-call `multipart/form-data` upload. The platform streams the bytes through its trusted byte-path, dedups by the server-computed hash, and mints the asset record.
 
-The blake3 hash is always computed server-side from the received bytes — a client-declared `expected_hash` is verified, never trusted. The uploaded asset is referenceable immediately; any content scanning runs in the background and does not block the response.
+The blake3 hash is always computed server-side from the received bytes — a client-declared `expected_hash` is verified, never trusted. If location metadata (GPS, XMP, IPTC) is removed from an image before it is stored, the asset’s `hash` is the hash of the stored bytes and can differ from `expected_hash`. On Comfy Cloud, an upload whose bytes open as a JPEG, PNG, WebP or classic TIFF (including TIFF-based camera RAW such as DNG, NEF, ARW and CR2, but not BigTIFF) and that is over 50 MiB is refused with 422 `validation_error`, whatever its `content_type` and whether or not it carries location metadata. A request that declares a `Content-Length` over Comfy Cloud’s 200 MB (200,000,000-byte) body limit is refused before that check with a plain 413 that does not use the `ErrorEnvelope` shape. A body sent without a declared length is cut off when it passes that limit, and no 413 is sent: a cut-off while the fields before `file` are read fails with 422 `invalid_body`, and a cut-off inside the file usually fails with 500 `upstream_error`. Nothing after the `file` field is read, so a body that only passes the limit there is uploaded normally. Deployment-scoped surfaces neither strip location metadata nor apply the 50 MiB image cap; they limit the request body to 110 MB (110,000,000 bytes). A request that declares a `Content-Length` over that limit is refused with the same plain 413; a body sent without a declared length is cut off when it passes the limit, and the upload then fails with an error response that is not guaranteed to be a 413. The uploaded asset is referenceable immediately; any content scanning runs in the background and does not block the response.
 
-~100 MB single-request expectation for v1; chunked/resumable large uploads are a deliberate open question.
+An upload is a single request. v1 expects files of up to ~100 MB; the hard cap is the body limit of the surface it is sent to (above). Chunked/resumable large uploads are a deliberate open question.
 
-On Comfy Cloud an upload fails with 422 `upload_timed_out` when no request bytes arrive for 30 seconds, or when the whole request takes longer than 10 minutes, however steadily bytes keep arriving.
+On Comfy Cloud an upload fails with 422 `upload_timed_out` when no request bytes arrive for 30 seconds, or when the whole request takes longer than 10 minutes, however steadily bytes keep arriving. On Comfy Cloud an upload can also be refused with 503 `upload_busy` and `Retry-After` when the server is busy with other uploads: nothing was stored, so the same upload can be sent again after `Retry-After`. On a Developer Platform deployment the same 422 `upload_timed_out` applies when no request bytes arrive for 30 seconds, or when the whole request takes longer than 20 minutes.
 
 Copy pageCopy page
 
@@ -841,7 +841,7 @@ expected_hash
 
 string
 
-Optional client-computed blake3 (`blake3:<hex>`). Verified against the server-computed hash; mismatch is rejected with 409 `hash_mismatch` and no asset is minted.
+Optional client-computed blake3 (`blake3:<hex>`) of the bytes sent. Verified against the server-computed blake3 of the received bytes, not of the stored bytes; mismatch is rejected with 409 `hash_mismatch`. On serverless deployments no asset is minted and no existing asset's retention is changed; elsewhere the upload is stored before the check, so the 409 returns no asset and a retry with the corrected expectation dedups onto it.
 
 Example:
 
@@ -853,7 +853,7 @@ tags
 
 string[]
 
-Category tags (e.g. `input`).
+Category tags (e.g. `input`). A create carries at most 64 tags, each a non-empty UTF-8 string of at most 256 bytes (surrounding whitespace included) with no NUL byte. A deployment adds `input` to every asset and counts it, so it takes at most 63 of the caller's own; the `model_type:` tags derived for a model asset are not counted. A tag set breaking a limit is refused with 422. Cloud's hosted API also caps this encoded JSON field at 8 KiB, so a long tag set can be refused (422 `invalid_body`) below these limits. Invalid UTF-8 or a lone surrogate escape (e.g. `\ud800`) inside a JSON-encoded tag is not refused: JSON decoding replaces it with U+FFFD (3 bytes each), and the 256-byte limit applies to the replaced value.
 
 ​
 
@@ -1003,7 +1003,6 @@ Example:
     
     
     { "client": "acme" }
-    
 
 Was this page helpful?
 
@@ -1011,26 +1010,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/api-reference/v2/assets/upload-an-asset-single-call-multipart.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/api-reference/v2/assets/upload-an-asset-single-call-multipart)
 
-[Design NotesPrevious](https://docs.comfy.org/development/api-development/sdks-design)[Mint an asset over existing bytes (dedup fast-path)Next](https://docs.comfy.org/api-reference/v2/assets/mint-an-asset-over-existing-bytes-dedup-fast-path)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Design Notes](https://docs.comfy.org/development/api-development/sdks-design)[Mint an asset over existing bytes (dedup fast-path)](https://docs.comfy.org/api-reference/v2/assets/mint-an-asset-over-existing-bytes-dedup-fast-path)

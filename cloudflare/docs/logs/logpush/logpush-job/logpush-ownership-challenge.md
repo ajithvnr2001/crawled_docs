@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/logs/logpush/logpush-job/logpush-ownership-challenge/
 title: Logpush ownership challenge \u00b7 Cloudflare Logs docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:16.248035+00:00
+fetched_at: 2026-10-23T16:40:02.345168+00:00
 ---
 
 # Logpush ownership challenge · Cloudflare Logs docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:12:16.248035+00:00
 
 # Ownership challenge FAQ
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/logs/logpush/logpush-job/logpush-ownership-challenge/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/logs/logpush/logpush-job/logpush-ownership-challenge/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksWhat the challenge protects againstChallenge token structureSecurity considerations Can a compromised token be exploited? Best practicesWhich destinations require an ownership challenge?Related resources
 
@@ -33,7 +33,7 @@ The ownership challenge is a one-time verification that proves you have read acc
 When you create a Logpush job to a storage destination, Cloudflare requires you to prove ownership of that destination:
 
   1. You request an ownership challenge for your `destination_conf`.
-  2. Cloudflare writes a JWT to an `ownership-challenge.txt` file in your bucket.
+  2. Cloudflare writes an encrypted JWT to an `ownership-challenge-<RANDOM>.txt` file in your bucket.
   3. You read the token from your bucket and submit it with your job creation request.
   4. Cloudflare validates the token and creates the job.
 
@@ -59,12 +59,11 @@ You may find the ownership challenge cumbersome because it is unusual and diffic
 
 ## Challenge token structure
 
-The ownership challenge is a JSON Web Token (JWT) containing claims that bind it to a specific context. The token includes:
+The ownership challenge is an encrypted JSON Web Token (JWT) containing claims that bind it to a specific context. The token includes:
 
   * **Object type** \- Whether the job is zone-scoped, account-scoped, or tenant-scoped
   * **Object ID** \- The specific zone or account identifier
-  * **Destination configuration** \- The full destination configuration string
-  * **Destination fingerprint** \- A hash of the bucket name and paths/prefixes
+  * **Destination fingerprint** \- A hash of the bucket name and path, plus the endpoint for S3-compatible destinations
   * **Expiration** \- The token expires after 7 days
 
 
@@ -87,8 +86,8 @@ Your bucket's IAM/access controls and Cloudflare account security are the primar
 
 ### Best practices
 
-  * **Delete the challenge file after job creation** \- Once your Logpush job is created, you can safely delete the `ownership-challenge.txt` file from your bucket.
-  * **Restrict bucket permissions** \- Grant write access only to Cloudflare's service accounts. For AWS S3, grant `PutObject` permission to `arn:aws:iam::391854517948:user/cloudflare-logpush`. For GCS, grant `Storage Object Admin` to `logpush@cloudflare-data.iam.gserviceaccount.com`.
+  * **Delete the challenge file after job creation** \- Once your Logpush job is created, you can safely delete the `ownership-challenge-<RANDOM>.txt` file from your bucket.
+  * **Restrict bucket permissions** \- Grant write access only to Cloudflare's service accounts. For AWS S3, grant `PutObject` permission to `arn:aws:iam::391854517948:user/cloudflare-logpush`, or [use an IAM role in your AWS account](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/aws-s3/#use-an-iam-role-in-your-aws-account). For GCS, grant `Storage Object Admin` to `logpush@cloudflare-data.iam.gserviceaccount.com`.
   * **Monitor your Logpush jobs** \- Use the [Logpush health dashboards](https://developers.cloudflare.com/logs/logpush/logpush-health/) to monitor job status and detect anomalies.
 
 

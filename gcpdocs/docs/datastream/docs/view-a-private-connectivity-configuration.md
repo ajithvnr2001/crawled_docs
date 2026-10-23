@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/view-a-private-connectivity-configuration/
 title: View a private connectivity configuration \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:00.917482+00:00
+fetched_at: 2026-10-23T16:54:17.079103+00:00
 ---
 
 # View a private connectivity configuration  |  Datastream  |  Google Cloud Documentation

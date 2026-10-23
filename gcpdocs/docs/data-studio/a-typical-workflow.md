@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/a-typical-workflow/
 title: A typical Data Studio workflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:41.680911+00:00
+fetched_at: 2026-10-23T16:53:25.286746+00:00
 ---
 
 # A typical Data Studio workflow  |  Google Cloud Documentation

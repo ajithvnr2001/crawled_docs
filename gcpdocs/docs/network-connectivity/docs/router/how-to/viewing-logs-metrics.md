@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/router/how-to/viewing-logs-metrics/
 title: View logs and metrics \u00a0|\u00a0 Cloud Router \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:37:32.734757+00:00
+fetched_at: 2026-10-23T16:50:45.017433+00:00
 ---
 
 # View logs and metrics  |  Cloud Router  |  Google Cloud Documentation
@@ -345,7 +345,7 @@ Received packets count
 `nat/rule/nat_allocation_failed` GA ** _(project)_**   
 NAT allocation failed per rule   
 `GAUGE`, `BOOL`, ``   
-**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Indicates if there is a failure in allocating NAT IPs to any VM in the NAT gateway for a specific NAT rule._   
+**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Indicates if there is a failure in allocating NAT IPs to any VM in the NAT gateway for a specific NAT rule. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
 `nat_rule_priority`: The priority number of the NAT rule associated with the error.   
 `nat/sent_bytes_count` GA ** _(project)_**   
 Sent bytes count   
@@ -366,7 +366,7 @@ Sent routes count
 `GAUGE`, `INT64`, `1`   
 **[gce_router](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_router)** |  _Current number of routes sent by router. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._  
   
-Table generated at 2026-10-14 20:24:33 UTC.
+Table generated at 2026-10-22 02:44:18 UTC.
 
 ## What's next
 
@@ -378,6 +378,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

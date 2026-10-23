@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/performance/
 title: Understand performance \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:54:19.650565+00:00
+fetched_at: 2026-10-23T16:48:52.493264+00:00
 ---
 
 # Understand performance  |  Bigtable  |  Google Cloud Documentation
@@ -74,6 +74,8 @@ For more information on monitoring, see [Monitoring](https://docs.cloud.google.c
 ### Storage utilization
 
 Storage is another consideration in capacity planning. The storage capacity of a cluster is determined by the storage type and the number of nodes in the cluster. When the amount of data stored in a cluster increases, Bigtable optimizes storage by distributing data across all nodes in the cluster.
+
+When estimating storage requirements and cluster node counts for capacity planning, base your calculations on your expected compressed data size rather than uncompressed source data. Bigtable compresses data automatically when writing to storage. Depending on your schema design and the pattern of your data, compression can substantially reduce the physical storage footprint on disk. For guidelines on data compressibility, see [Data compression](https://docs.cloud.google.com/bigtable/docs/overview#compression).
 
 You can determine the storage usage per node by dividing the cluster's [storage utilization (bytes)](https://docs.cloud.google.com/bigtable/docs/monitoring-instance#disk) by the number of nodes in the cluster. For example, consider a cluster that has three HDD nodes and 9 TB of data. Each node stores about 3 TB, which is 18.75% of the HDD storage per node limit of 16 TB.
 
@@ -279,6 +281,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

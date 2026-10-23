@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/mcp/",
   "file": "voice-agents/mcp.md",
-  "title": "Voice Agents MCP Server for Claude, Cursor, and VS Code | Sarvam API Docs",
+  "title": "Build voice agents from Claude or Cursor with the MCP server | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:30.520094+00:00",
-  "html_len": 199817,
-  "md_len": 29471,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:38:51.527458+00:00"
 }

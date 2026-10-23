@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/samples/dataflow-v1beta3-generated-Jobs-AggregatedListJobs-sync/
 title: List the jobs of a project across all regions (Ruby) \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:38.086725+00:00
+fetched_at: 2026-10-23T16:53:10.387217+00:00
 ---
 
 # List the jobs of a project across all regions (Ruby)  |  Cloud Dataflow  |  Google Cloud Documentation

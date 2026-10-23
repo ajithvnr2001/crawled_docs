@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/recommender-enable-automated-backups/
 title: Enable backup plans \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:00:11.737042+00:00
+fetched_at: 2026-10-23T16:50:22.486947+00:00
 ---
 
 # Enable backup plans  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

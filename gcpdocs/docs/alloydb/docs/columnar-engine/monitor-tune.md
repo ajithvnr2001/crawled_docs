@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/columnar-engine/monitor-tune/
 title: Monitor the columnar engine \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:00:10.100724+00:00
+fetched_at: 2026-10-23T16:49:25.999917+00:00
 ---
 
 # Monitor the columnar engine  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Monitor the columnar engine Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to monitor utilization of the columnar engine.
+Monitoring the columnar engine helps you confirm that queries use the column store and decide whether to change its content or memory size. You can check query plans using the `EXPLAIN` statement, and view the column store's tables, columns, and indexes, plus execution statistics and memory usage. To modify columnar engine settings, see [Tune the columnar engine](https://docs.cloud.google.com/alloydb/docs/columnar-engine/tune-columnar-engine).
 
 ## Verify usage of the columnar engine using `EXPLAIN`
 

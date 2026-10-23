@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/commands/run-tests-from-a-git-repository/
 title: Run tests from a Git repository \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:17.664187+00:00
+fetched_at: 2026-10-23T16:39:58.813346+00:00
 ---
 
 # Run tests from a Git repository · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:17.664187+00:00
 
 # Run tests from a Git repository
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/commands/run-tests-from-a-git-repository/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/commands/run-tests-from-a-git-repository/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesRun the test suiteRelated resources
 
@@ -84,7 +84,7 @@ src/index.tsts
          		const container = this.ctx.container;
          
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		container.start({
@@ -95,7 +95,7 @@ src/index.tsts
          
          		const decoder = new TextDecoder();
          		const run = async (step: string, argv: string[], cwd?: string) => {
-         			// `timeout` stops the command and every process it started.
+         			// Limit each step to 10 minutes.
          			const process = await container.exec(
          				["timeout", "--kill-after=5", "600", ...argv],
          				{ cwd },
@@ -146,7 +146,7 @@ src/index.tsts
 
 `--` stops `git` from reading a repository value that starts with `-` as an option.
 
-A step that runs longer than 10 minutes returns exit code `124`. `timeout` stops the step [together with every process the step started](https://developers.cloudflare.com/containers/guides/execute-commands/#stop-the-processes-a-command-starts). The `finally` block stops the instance after the run.
+A step that runs longer than 10 minutes returns exit code `124`, or `137` if `timeout` also sends `SIGKILL`. `timeout` stops the step together with the processes it starts that stay in its process group. For more information, refer to [Stop the processes a command starts](https://developers.cloudflare.com/containers/guides/execute-commands/#stop-the-processes-a-command-starts). The `finally` block stops the instance after the run.
 
 `output()` holds the whole output of a step in the memory of the Durable Object. For test suites that print a lot, [stream the output](https://developers.cloudflare.com/sandbox/commands/stream-command-output/) instead.
 

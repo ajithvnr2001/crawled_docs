@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/parquet-df-lakehouse-integration/
 title: Import Parquet files from storage to borderless Lakehouse using Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:14.146728+00:00
+fetched_at: 2026-10-23T16:53:17.120031+00:00
 ---
 
 # Import Parquet files from storage to borderless Lakehouse using Dataflow  |  Google Cloud Documentation

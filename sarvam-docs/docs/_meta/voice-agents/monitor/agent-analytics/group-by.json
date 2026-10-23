@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/group-by/",
   "file": "voice-agents/monitor/agent-analytics/group-by.md",
-  "title": "Group by | Sarvam API Docs",
+  "title": "Break down voice agent metrics by campaign or agent | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:31.450590+00:00",
-  "html_len": 163312,
-  "md_len": 21782,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:38:50.439896+00:00"
 }

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-center/docs/best-practices-managing-database-fleet-health/
 title: Best practices for managing database fleet health \u00a0|\u00a0 Database Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:47.664630+00:00
+fetched_at: 2026-10-23T16:52:42.857287+00:00
 ---
 
 # Best practices for managing database fleet health  |  Database Center  |  Google Cloud Documentation

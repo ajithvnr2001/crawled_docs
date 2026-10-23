@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/support/troubleshooting/general-troubleshooting/gathering-information-for-troubleshooting-sites/
 title: Gathering information for troubleshooting sites \u00b7 Cloudflare Support docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:09.627154+00:00
+fetched_at: 2026-10-23T16:39:53.996704+00:00
 ---
 
 # Gathering information for troubleshooting sites · Cloudflare Support docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-15T14:53:09.627154+00:00
 
 # Gathering information for troubleshooting sites
 
-Last updated Oct 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/support/troubleshooting/general-troubleshooting/gathering-information-for-troubleshooting-sites/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAbout this guideQuick reference: Choose the right toolBrowser-based troubleshooting Generate a HAR file Export Console Log Capture a NetLog dumpCommand-line troubleshooting Identify the Cloudflare data center serving your request Troubleshoot requests with curl Temporarily pause CloudflareNetwork troubleshooting Perform a traceroute Add the CF-RAY header to your logs Perform a MTR Run Packet CapturesRelated resources
 
@@ -506,6 +506,22 @@ If a request fails with a connection timeout and returns no **CF-RAY** header, t
     '"$http_referer" "$http_user_agent" '
     '$http_cf_ray';
 
+#### Correlate a Ray ID with a packet capture
+
+A packet capture records the connection at the packet level. The Ray ID identifies one request within that connection. Provide both so that Support can match the frames in your capture to the request that was slow or failed.
+
+  1. Start the packet capture before you reproduce the issue. Leave it running.
+  2. Reproduce the request that is slow or failing. Record its Ray ID from the `cf-ray` response header. On a Cloudflare error page, the Ray ID also appears at the bottom. If you log the CF-RAY header at your origin, you can take it from your logs instead.
+  3. Record the time of the request in UTC. Read it from the same host that runs the capture, so that both share a clock.
+  4. Stop the capture and save the file.
+  5. Attach the capture to your support ticket with the Ray ID and the UTC time.
+
+
+
+Note
+
+Ray IDs are not guaranteed to be unique. Two different requests can share one. Always send the UTC time window with the Ray ID so that Support can tell the requests apart. For more information, refer to [Cloudflare Ray ID](https://developers.cloudflare.com/fundamentals/reference/cloudflare-ray-id/).
+
 ### Perform a MTR
 
 When to use
@@ -570,6 +586,10 @@ Cloudflare suggests [Wireshark ↗︎](https://www.wireshark.org/download.html) 
   7. Save as a `.pcap` file and attach it to your support ticket.
 
 
+
+Note
+
+To match a capture to a specific request rather than to the connection as a whole, also record the request's Ray ID and the UTC time. Refer to Correlate a Ray ID with a packet capture.
 
 * * *
 

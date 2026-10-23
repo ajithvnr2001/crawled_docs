@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/deploy/telephony/exotel/",
   "file": "voice-agents/deploy/telephony/exotel.md",
-  "title": "Exotel | Sarvam API Docs",
+  "title": "Connect Exotel to an AI voice agent | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:28.994872+00:00",
-  "html_len": 172072,
-  "md_len": 23612,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:38:53.359097+00:00"
 }

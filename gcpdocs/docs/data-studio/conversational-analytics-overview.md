@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/conversational-analytics-overview/
 title: Conversational Analytics in Data Studio overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:30.299749+00:00
+fetched_at: 2026-10-23T16:51:48.826374+00:00
 ---
 
 # Conversational Analytics in Data Studio overview  |  Google Cloud Documentation

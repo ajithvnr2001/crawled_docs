@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/goals/",
   "file": "voice-agents/monitor/agent-analytics/goals.md",
-  "title": "Goals | Sarvam API Docs",
+  "title": "Voice agent goal tracking and achievement rate | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:31.276868+00:00",
-  "html_len": 161843,
-  "md_len": 21599,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:38:50.530140+00:00"
 }

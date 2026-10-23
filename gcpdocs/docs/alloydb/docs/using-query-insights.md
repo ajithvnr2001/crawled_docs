@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/using-query-insights/
 title: Improve query performance using query insights \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:03:31.938826+00:00
+fetched_at: 2026-10-23T16:50:22.196567+00:00
 ---
 
 # Improve query performance using query insights  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

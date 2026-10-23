@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/estimated-cost/
 title: Dataflow estimated cost \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:19.290724+00:00
+fetched_at: 2026-10-23T16:52:57.908273+00:00
 ---
 
 # Dataflow estimated cost  |  Google Cloud Documentation

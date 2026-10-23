@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/resource-tagging/reference/limits/
 title: Limits and validation \u00b7 Cloudflare Resource Tagging docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:45.056619+00:00
+fetched_at: 2026-10-23T16:39:51.033569+00:00
 ---
 
 # Limits and validation · Cloudflare Resource Tagging docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:14:45.056619+00:00
 
 # Limits and validation
 
-Last updated Apr 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/resource-tagging/reference/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/resource-tagging/reference/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAPI limitsCase sensitivityTag key validation Allowed Not allowed ExamplesPagination
 
@@ -26,7 +26,7 @@ OverviewAPI limitsCase sensitivityTag key validation Allowed Not allowed Example
 
 Limit | Value | Error code  
 ---|---|---  
-Maximum tags per account | 10,000 (beta) | N/A  
+Maximum tags per account | 100,000 | N/A  
 Maximum tag key length | 256 characters | `1011`  
 Maximum tag value length | 1,024 characters | `1012`  
 Maximum tag filters per query | 20 | `1010`  

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/account/account-security/audit-logs/
 title: Audit Logs - version 2 \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T06:59:24.445475+00:00
+fetched_at: 2026-10-23T16:39:59.757810+00:00
 ---
 
 # Audit Logs - version 2 · Cloudflare Fundamentals docs
@@ -22,9 +22,9 @@ Accounts
 
 # Audit Logs - version 2
 
-Last updated Oct 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/account/account-security/audit-logs/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewKey featuresRetentionCustomer Metadata BoundaryAccess Audit Logs API Dashboard LogpushResource History What Resource History gives you Use Resource History in the dashboard Use Resource History via the APIAudit Log structure Initiation type Activity ScopeExample how to query Audit LogsCommon terms and definitions Actor Action Account Resource Audit Log ID
+OverviewKey featuresRetentionAccess Audit Logs API Dashboard LogpushResource History What Resource History gives you Use Resource History in the dashboard Use Resource History via the APIAudit Log structure Initiation type Activity ScopeExample how to query Audit LogsCommon terms and definitions Actor Action Account Resource Audit Log ID
 
 Cloudflare Audit Logs are account-based. All user-initiated actions are recorded automatically across both the Cloudflare API and dashboard. System-initiated logs are also captured to reflect actions taken automatically by Cloudflare systems, such as configuration updates, background processes, or internal policy enforcement.
 
@@ -64,12 +64,6 @@ Audit Logs (version 2) provide a unified and standardized system for tracking an
 Note
 
 Approximately 30 days of logs from the Beta period (back to ~February 8, 2026) are available at GA. These Beta logs will expire on ~April 9, 2026. Logs generated after GA will be retained for the full 18 months. Older logs remain available in Audit Logs v1.
-
-## Customer Metadata Boundary
-
-Audit Logs v2 supports [Customer Metadata Boundary (CMB)](https://developers.cloudflare.com/data-localization/metadata-boundary/). The account-level CMB preference automatically applies to Audit Logs v2. For example, if you select `eu`, Audit Logs v2 uses the EU metadata boundary. You do not need to configure Audit Logs separately.
-
-To configure CMB in the Cloudflare dashboard or via the `/accounts/{account_id}/logs/control/cmb/config` API, refer to [Get started with Customer Metadata Boundary](https://developers.cloudflare.com/data-localization/metadata-boundary/get-started/). CMB is part of the Data Localization Suite. Contact your account team if CMB is not enabled for your account.
 
 ## Access Audit Logs
 

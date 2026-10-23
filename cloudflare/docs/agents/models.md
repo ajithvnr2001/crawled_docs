@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/models/
 title: Models \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:16.533020+00:00
+fetched_at: 2026-10-23T16:40:10.051339+00:00
 ---
 
 # Models · Cloudflare Agents docs
@@ -17,18 +17,18 @@ fetched_at: 2026-10-08T07:04:16.533020+00:00
 
 # Models
 
-Last updated Oct 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/models/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/models/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewHow a model is chosenWhat every model getsConfigure the bindingChoose a provider
+OverviewHow a model is chosenWhat every model getsConnect to CloudflareChoose a provider
 
-The Agents SDK includes model providers for [Workers AI](https://developers.cloudflare.com/workers-ai/) and [AI Gateway](https://developers.cloudflare.com/ai-gateway/). Each provider is one `createAI` factory over the Worker's `AI` binding. There are two, one per framework:
+The Agents SDK includes model providers for [Workers AI](https://developers.cloudflare.com/workers-ai/) and [AI Gateway](https://developers.cloudflare.com/ai-gateway/). Each provider is one `createAI` factory over the Worker's `AI` binding, or an account id and API token. There are two, one per framework:
 
 Import | Framework | Use it with  
 ---|---|---  
 `agents/models/ai-sdk` | [AI SDK ↗︎](https://ai-sdk.dev/) v7 | `generateText`, `streamText`, Think, and any AI SDK consumer  
 `agents/models/pi-ai` | [Pi AI ↗︎](https://github.com/earendil-works/pi/tree/main/packages/ai) | The [Pi harness](https://developers.cloudflare.com/agents/harnesses/pi/), and Pi AI's `stream`  
   
-Both take the same options, route through the same gateway, and handle Workers AI the same way.
+Both take the same options, route through the same gateway, and handle Workers AI the same way. The [OpenCode harness](https://developers.cloudflare.com/agents/harnesses/opencode/) has a third, `agents/models/opencode`, built on the AI SDK provider.
 
 Beta
 
@@ -36,27 +36,38 @@ The model providers are in beta. Their APIs may change in a minor release.
 
 ## How a model is chosen
 
-The providers keep one model catalog up to date: Workers AI. Every other vendor's models come from that vendor's own package, and the provider routes them through AI Gateway.
+Name a model with a string, or pass a model object built by the vendor's own package:
+    
+    
+    ai("@cf/zai-org/glm-4.7-flash"); // Workers AI
+    ai("anthropic/claude-opus-5.5"); // AI Gateway catalog
+    ai("dynamic/support"); // AI Gateway dynamic route
+    ai(anthropic("claude-opus-5-5")); // the vendor's own model object
 
-  * **A Workers AI model** is a `@cf/` id, such as `ai("@cf/zai-org/glm-4.7-flash")`. It runs through `env.AI.run()`. A compatibility layer turns each model's response into the standard OpenAI chat completions shape.
-  * **A third-party model** is a model object built by the vendor's provider, such as `ai(anthropic("claude-opus-4-8"))`. The vendor's code builds the request and parses the response. The provider swaps the transport, so the request goes through AI Gateway with `env.AI.gateway(id).run()`.
+  * **A Workers AI model** is a `@cf/` id. It runs through `env.AI.run()`. A compatibility layer turns each model's response into the standard OpenAI chat completions shape.
+  * **An AI Gateway catalog model** is an `<author>/<model>` id from the [model catalog](https://developers.cloudflare.com/ai/models/), such as `anthropic/claude-opus-5.5` or `openai/gpt-5.5`. It also runs through `env.AI.run()`, which sends it to AI Gateway. The gateway picks a provider and bills the call. Use the catalog's spelling, not the vendor's: `anthropic/claude-opus-5.5`, not `claude-opus-5-5`.
+  * **A[dynamic route](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/)** is `dynamic/<route>`. The route you configured on the gateway picks the model.
+  * **A model object** comes from the vendor's provider package, such as `anthropic("claude-opus-5-5")`. The vendor's code builds the request and parses the response. The provider sends that request unchanged through the binding to AI Gateway's [provider-native endpoint](https://developers.cloudflare.com/ai-gateway/usage/providers/) for that vendor.
 
 
 
-The provider does not keep third-party model ids, wire formats, or thinking settings. When a vendor ships a new model, update the vendor's package.
+The providers do not use the deprecated [Universal Endpoint](https://developers.cloudflare.com/ai-gateway/usage/universal/).
 
 ## What every model gets
 
-  * **No API tokens in your Worker.** Requests go through the `AI` binding. AI Gateway holds third-party credentials, through [Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/) or a key you [store on the gateway](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/).
-  * **Gateway options.** Caching, logging, metadata, timeouts, and retries are options on the provider, the model, or the call. The `default` gateway is created the first time you use it.
-  * **Fallback.** List models to try in order if the first fails before it produces output. Mix Workers AI and third-party models freely.
-  * **Gateway metadata on every result.** Each response carries the gateway log id, cache status, and the model that actually answered.
+  * **No vendor keys.** AI Gateway holds third-party credentials, through [Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/) or a key you [store on the gateway](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/). Unified Billing requires [authentication](https://developers.cloudflare.com/ai-gateway/configuration/authentication/) on the gateway.
+  * **Gateway options.** Caching, logging, metadata, timeouts, retries, and BYOK key aliases are options on the provider, the model, or the call. The `default` gateway is created the first time you use it.
+  * **Fallback.** List models to try in order if the first fails before it produces output. Mix Workers AI ids, catalog ids, dynamic routes, and model objects.
+  * **Stream resume.** Through the binding, a stream from a catalog model or a dynamic route resumes after a dropped connection. You do not need to configure anything.
+  * **Gateway metadata on every result.** Each response carries the gateway log id, cache status, run id, and the model that actually answered.
 
 
 
-## Configure the binding
+`createAI` from `agents/models/ai-sdk` replaces `workers-ai-provider` and `ai-gateway-provider`. For AI Search, use `ai-search-provider`.
 
-Both providers need the `AI` binding:
+## Connect to Cloudflare
+
+Inside a Worker, pass the `AI` binding, `createAI({ binding: env.AI })`, and add it to your Wrangler configuration:
     
     
     {
@@ -68,6 +79,15 @@ Both providers need the `AI` binding:
     
     [ai]
     binding = "AI"
+
+To use a gateway in another account, or to call from outside a Worker, pass an account id and API token instead. [Create the token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) with **Workers AI Read** and **AI Gateway Run** :
+    
+    
+    const ai = createAI({
+    	accountId: "<ACCOUNT_ID>",
+    	apiToken: env.CLOUDFLARE_API_TOKEN,
+    	gateway: "my-gateway",
+    });
 
 ## Choose a provider
 

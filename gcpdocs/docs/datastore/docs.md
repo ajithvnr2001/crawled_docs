@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/
 title: Firestore in Datastore mode documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:16.461113+00:00
+fetched_at: 2026-10-23T16:54:04.356366+00:00
 ---
 
 # Firestore in Datastore mode documentation  |  Google Cloud Documentation

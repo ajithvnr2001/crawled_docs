@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/secrets-store/manage-secrets/
 title: Manage account secrets \u00b7 Cloudflare Secrets Store docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:29.275961+00:00
+fetched_at: 2026-10-23T16:40:03.224272+00:00
 ---
 
 # Manage account secrets · Cloudflare Secrets Store docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:15:29.275961+00:00
 
 # Manage account secrets
 
-Last updated Sep 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/secrets-store/manage-secrets/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/secrets-store/manage-secrets/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewLimitsResources
 
@@ -32,6 +32,10 @@ Customers who create a secrets store in the open beta can have up to 100 secrets
 Production secrets
 
 If you use [Wrangler](https://developers.cloudflare.com/secrets-store/manage-secrets/how-to/#manage-via-wrangler), there is a difference between production secrets and secrets that are only created locally (without the `--remote` flag). The limit of 100 secrets per account only considers production secrets.
+
+Local secrets are not encrypted
+
+Secrets that you create locally (without the `--remote` flag) are stored unencrypted in your project's [local data directory](https://developers.cloudflare.com/workers/local-development/local-data/#where-local-data-gets-stored), which is `.wrangler/state` by default. Use test values for local development, and do not commit the local data directory to version control.
 
 ## Resources
 

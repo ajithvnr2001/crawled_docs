@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/add-slides-gemini/
 title: Add Data Studio content to your Google Slides presentation using Gemini assistance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:50.409873+00:00
+fetched_at: 2026-10-23T16:51:42.833127+00:00
 ---
 
 # Add Data Studio content to your Google Slides presentation using Gemini assistance  |  Google Cloud Documentation

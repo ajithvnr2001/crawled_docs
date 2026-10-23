@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided-templates/
 title: Google-provided templates \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:26.611553+00:00
+fetched_at: 2026-10-23T16:53:32.871690+00:00
 ---
 
 # Google-provided templates  |  Cloud Dataflow  |  Google Cloud Documentation

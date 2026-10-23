@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/langchain/
 title: Build LLM-powered applications using LangChain \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:38.284800+00:00
+fetched_at: 2026-10-23T16:50:12.310725+00:00
 ---
 
 # Build LLM-powered applications using LangChain  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

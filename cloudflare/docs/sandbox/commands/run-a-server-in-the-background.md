@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/commands/run-a-server-in-the-background/
 title: Run a server in the background \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:17.145759+00:00
+fetched_at: 2026-10-23T16:39:54.262888+00:00
 ---
 
 # Run a server in the background · Cloudflare Sandboxes docs
@@ -18,11 +18,11 @@ fetched_at: 2026-10-08T07:15:17.145759+00:00
 
 # Run a server in the background
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/commands/run-a-server-in-the-background/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/commands/run-a-server-in-the-background/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesRun a serverRelated resources
 
-Start a server that runs until the container stops, such as a development server, a tunnel, or a code kernel. The server has no exit code to wait for. Your Durable Object starts it on first use, waits until it answers, and starts it again in each new container.
+Start a server that runs until the container stops, such as a development server, a tunnel, or a code kernel. Unlike a job, nothing waits for the server to exit. Your Durable Object starts it on first use, waits until it answers, and starts it again in each new container.
 
 For a process that runs until it finishes, such as a build or an agent task, refer to [Run background processes](https://developers.cloudflare.com/sandbox/commands/run-background-processes/). If the sandbox runs one server and keeps no files that you need, you can make the server the main process instead, as in [Preview a web application](https://developers.cloudflare.com/sandbox/previews/). When the main process exits, the instance stops, and its files end with it.
 
@@ -63,13 +63,15 @@ src/index.jsjs
          kill -0 "$pid" 2>/dev/null && exit 1
          tail -n 20 "$1/log"`;
          
-         // Stops the process group. Once the server exits, within 10 seconds,
-         // removes its process ID.
+         // Stops the process group, with SIGKILL if the server still runs after
+         // 10 seconds. Once the server exits, removes its process ID.
          const STOP = `${CURRENT}
          current "$1" || exit 0
          kill -s TERM -- "-$pid" 2>/dev/null
-         timeout 10 sh -c 'while kill -0 "$0" 2>/dev/null; do sleep 0.1; done' "$pid" &&
-         	rm -f "$1/pid"`;
+         timeout 10 sh -c 'while kill -0 "$0" 2>/dev/null; do sleep 0.1; done' "$pid" ||
+         	kill -s KILL -- "-$pid" 2>/dev/null
+         while kill -0 "$pid" 2>/dev/null; do sleep 0.1; done
+         rm -f "$1/pid"`;
          
          async function startServer(container, dir, argv, options = {}) {
          	// Ignoring the output lets the server outlive this request.
@@ -116,7 +118,11 @@ src/index.jsjs
          
          async function stopServer(container, dir) {
          	const stop = await container.exec(["sh", "-c", STOP, "sh", dir]);
-         	await stop.exitCode;
+         	const exitCode = await stop.exitCode;
+         
+         	if (exitCode !== 0) {
+         		throw new Error(`Stopping the server failed with exit code ${exitCode}`);
+         	}
          }
 
 src/index.tsts
@@ -146,13 +152,15 @@ src/index.tsts
          kill -0 "$pid" 2>/dev/null && exit 1
          tail -n 20 "$1/log"`;
          
-         // Stops the process group. Once the server exits, within 10 seconds,
-         // removes its process ID.
+         // Stops the process group, with SIGKILL if the server still runs after
+         // 10 seconds. Once the server exits, removes its process ID.
          const STOP = `${CURRENT}
          current "$1" || exit 0
          kill -s TERM -- "-$pid" 2>/dev/null
-         timeout 10 sh -c 'while kill -0 "$0" 2>/dev/null; do sleep 0.1; done' "$pid" &&
-         	rm -f "$1/pid"`;
+         timeout 10 sh -c 'while kill -0 "$0" 2>/dev/null; do sleep 0.1; done' "$pid" ||
+         	kill -s KILL -- "-$pid" 2>/dev/null
+         while kill -0 "$pid" 2>/dev/null; do sleep 0.1; done
+         rm -f "$1/pid"`;
          
          type ServerOptions = { cwd?: string; env?: Record<string, string> };
          
@@ -214,16 +222,20 @@ src/index.tsts
          
          async function stopServer(container: Container, dir: string): Promise<void> {
          	const stop = await container.exec(["sh", "-c", STOP, "sh", dir]);
-         	await stop.exitCode;
+         	const exitCode = await stop.exitCode;
+         
+         	if (exitCode !== 0) {
+         		throw new Error(`Stopping the server failed with exit code ${exitCode}`);
+         	}
          }
 
-`SERVE` starts nothing when the server in the directory already runs. Every request can call `startServer()`, and a new container, which has no server, gets one. This also covers a Durable Object that restarts while its container keeps running.
+`SERVE` starts nothing when the server in the directory already runs, and a new container, which has no server, gets one. This also covers a Durable Object that restarts while its container keeps running.
 
 The process ID file also records the boot ID, which changes in every instance. A [snapshot](https://developers.cloudflare.com/sandbox/files/save-and-restore-a-workspace/) restores the file, and a new instance reuses the same process IDs, so a restored process ID can belong to an unrelated process. `current()` ignores a process ID from another instance.
 
 `setsid` starts the server in a new process group, so `STOP` also stops the processes that the server starts. The shell that runs `SERVE` stays in the container until the server exits. Do not start the server with `&` instead: a shell starts background jobs with `SIGINT` ignored.
 
-`STOP` removes the process ID once the server exits, so a server started in the same directory right after it never reads as exited. A server that ignores `SIGTERM` keeps running, and `STOP` exits with `124` after 10 seconds.
+`STOP` removes the process ID once the server exits, so a server started in the same directory right after it never reads as exited. A server that ignores `SIGTERM` receives `SIGKILL` after 10 seconds.
 
 `waitForServer()` treats any HTTP response as ready. If the server exits first, it throws with the end of the log. The log grows until the server stops, so keep the output of a busy server small, or send it to a [mounted bucket](https://developers.cloudflare.com/sandbox/files/mount-an-r2-bucket/).
 
@@ -260,11 +272,14 @@ src/index.tsts
          export class MyContainer extends DurableObject<Env> {
          	// ...
          
+         	// The server start that requests in progress share
+         	private starting?: Promise<Fetcher>;
+         
          	async fetchServer(request: Request): Promise<Response> {
          		const container = this.ctx.container;
          
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		if (!container.running) {
@@ -276,8 +291,12 @@ src/index.tsts
          			await container.setInactivityTimeout(INACTIVITY_TIMEOUT_MS);
          		}
          
-         		await startServer(container, WEB, WEB_SERVER);
-         		const server = await waitForServer(container, WEB, WEB_PORT, 30_000);
+         		this.starting ??= startServer(container, WEB, WEB_SERVER)
+         			.then(() => waitForServer(container, WEB, WEB_PORT, 30_000))
+         			.finally(() => {
+         				this.starting = undefined;
+         			});
+         		const server = await this.starting;
          		return server.fetch(request);
          	}
          
@@ -290,7 +309,7 @@ src/index.tsts
          	}
          }
 
-`fetchServer()` runs `SERVE` on every request. To skip it once the server answers, keep a flag in memory, and clear it when you start a new container.
+Requests that arrive together share one start. `startServer()` returns before the server records its process ID, so a second `SERVE` in that window would start a second server. The second server fails on the port, overwrites the process ID file, and leaves `STOP` unable to stop the first one. After the server answers, each request runs `SERVE` again, which starts nothing while the server runs and restarts it if it exited.
 
 A running server does not keep the container running. Requests that reach the server through your Durable Object keep it running, as other requests do. When the inactivity timeout ends, the container stops, and the server stops with it. For more information, refer to [Sandbox lifetime](https://developers.cloudflare.com/sandbox/concepts/lifetime/#activity-keeps-an-instance-running).
 
@@ -379,7 +398,7 @@ The `DELETE` request responds with `202`. The next request starts the server aga
 
 
 
-[PreviousRun background processes](https://developers.cloudflare.com/sandbox/commands/run-background-processes/)[NextOpen a terminal](https://developers.cloudflare.com/sandbox/commands/open-a-terminal-in-the-browser/)
+[PreviousFollow a background process](https://developers.cloudflare.com/sandbox/commands/follow-a-background-process/)[NextOpen a terminal](https://developers.cloudflare.com/sandbox/commands/open-a-terminal-in-the-browser/)
 
 Was this helpful?
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-filters-limit-row-sample/
 title: Read using a row sample filter \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:20:39.867442+00:00
+fetched_at: 2026-10-23T16:49:07.472475+00:00
 ---
 
 # Read using a row sample filter  |  Bigtable  |  Google Cloud Documentation

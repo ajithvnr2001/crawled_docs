@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/recommender-set-password-policy/
 title: Improve instance security by setting password policies \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:00:09.008978+00:00
+fetched_at: 2026-10-23T16:50:24.944633+00:00
 ---
 
 # Improve instance security by setting password policies  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

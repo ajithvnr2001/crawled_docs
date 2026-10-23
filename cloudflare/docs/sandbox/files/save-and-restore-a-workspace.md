@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/files/save-and-restore-a-workspace/
 title: Save and restore a sandbox with snapshots \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:19.200213+00:00
+fetched_at: 2026-10-23T16:39:57.254984+00:00
 ---
 
 # Save and restore a sandbox with snapshots · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:19.200213+00:00
 
 # Save and restore a sandbox with snapshots
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/files/save-and-restore-a-workspace/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/files/save-and-restore-a-workspace/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesSave and restore a sandboxCopy a sandboxStart a sandbox overRelated resources
 
@@ -65,7 +65,7 @@ src/index.tsts
          		const container = this.ctx.container;
          
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		if (!container.running) {
@@ -87,23 +87,36 @@ src/index.tsts
 
 If the stored snapshot cannot be restored, the request fails with an error such as `Snapshot "<SNAPSHOT_ID>" was not found.` Later requests fail the same way until the stored ID changes. The method does not fall back to the image, because the sandbox would then start with an empty workspace.
 
-  2. Add a method that saves the filesystem and stops the instance:
+  2. Add a method that runs one operation at a time, and a method that saves the filesystem and stops the instance:
 
 src/index.tsts
          
          export class MyContainer extends DurableObject<Env> {
          	// ...
          
+         	private queue: Promise<unknown> = Promise.resolve();
+         
+         	// Runs each operation after the previous one finishes.
+         	private exclusive<T>(operation: () => Promise<T>): Promise<T> {
+         		const result = this.queue.then(operation);
+         		this.queue = result.catch(() => {});
+         		return result;
+         	}
+         
          	async save() {
-         		const container = await this.startSandbox();
-         		const snapshot = await container.snapshotContainer({ name: "workspace" });
+         		return this.exclusive(async () => {
+         			const container = await this.startSandbox();
+         			const snapshot = await container.snapshotContainer({ name: "workspace" });
          
-         		await this.ctx.storage.put("snapshotId", snapshot.id);
-         		await container.destroy();
+         			await this.ctx.storage.put("snapshotId", snapshot.id);
+         			await container.destroy();
          
-         		return { snapshotId: snapshot.id, size: snapshot.size };
+         			return { snapshotId: snapshot.id, size: snapshot.size };
+         		});
          	}
          }
+
+A command that writes a file while the snapshot runs can succeed and then disappear when `destroy()` stops the instance. `exclusive()` makes every operation that touches the disk wait for the save, and the save wait for them. Run each such method through it.
 
 A snapshot saves the writable root filesystem. It does not include mounted directories, memory, or running processes. Finish writing files before you save. For more information about what a restored instance starts with, refer to [Sandbox lifetime](https://developers.cloudflare.com/sandbox/concepts/lifetime/#snapshots-carry-files-to-the-next-instance).
 
@@ -115,14 +128,16 @@ src/index.tsts
          	// ...
          
          	async note(line?: string) {
-         		const container = await this.startSandbox();
-         		const script = line
-         			? 'mkdir -p /workspace && printf "%s\n" "$1" >> /workspace/notes.txt && cat /workspace/notes.txt'
-         			: "cat /workspace/notes.txt";
-         		const process = await container.exec(["sh", "-c", script, "sh", line ?? ""]);
-         		const output = await process.output();
+         		return this.exclusive(async () => {
+         			const container = await this.startSandbox();
+         			const script = line
+         				? 'mkdir -p /workspace && printf "%s\n" "$1" >> /workspace/notes.txt && cat /workspace/notes.txt'
+         				: "cat /workspace/notes.txt";
+         			const process = await container.exec(["sh", "-c", script, "sh", line ?? ""]);
+         			const output = await process.output();
          
-         		return new TextDecoder().decode(output.stdout);
+         			return new TextDecoder().decode(output.stdout);
+         		});
          	}
          }
 
@@ -234,13 +249,15 @@ src/index.tsts
          	}
          
          	async useSnapshot(snapshotId: string) {
-         		// Replacing a running instance would discard files it has not saved.
-         		if (this.ctx.container?.running) {
-         			return false;
-         		}
+         		return this.exclusive(async () => {
+         			// Replacing a running instance would discard files it has not saved.
+         			if (this.ctx.container?.running) {
+         				return false;
+         			}
          
-         		await this.ctx.storage.put("snapshotId", snapshotId);
-         		return true;
+         			await this.ctx.storage.put("snapshotId", snapshotId);
+         			return true;
+         		});
          	}
          }
 
@@ -284,11 +301,13 @@ src/index.tsts
     	// ...
     
     	async reset() {
-    		if (this.ctx.container?.running) {
-    			await this.ctx.container.destroy();
-    		}
+    		return this.exclusive(async () => {
+    			if (this.ctx.container?.running) {
+    				await this.ctx.container.destroy();
+    			}
     
-    		await this.ctx.storage.delete("snapshotId");
+    			await this.ctx.storage.delete("snapshotId");
+    		});
     	}
     }
 

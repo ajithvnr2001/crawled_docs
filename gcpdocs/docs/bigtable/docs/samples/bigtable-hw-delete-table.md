@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-hw-delete-table/
 title: Delete a table \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:57:25.176584+00:00
+fetched_at: 2026-10-23T16:48:58.603790+00:00
 ---
 
 # Delete a table  |  Bigtable  |  Google Cloud Documentation

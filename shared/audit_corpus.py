@@ -109,6 +109,11 @@ def main() -> int:
             rows += 1
             f = r.get("file")
             u = r.get("url")
+            if skip_sidecars and f and is_sidecar(f):
+                # Sidecar rows (e.g. _meta/, _llms/, _d/, _subdomains/) may be
+                # deliberately gitignored and absent from a CI checkout; they
+                # are never a content-integrity hard error.
+                continue
             if f and not (root / f).exists():
                 missing_index.append(f)
             if f and f in seen_file:

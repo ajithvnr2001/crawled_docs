@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/columnar-engine/manage-content-recommendations/
 title: Manage column store content using auto-columnarization \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:00:07.581899+00:00
+fetched_at: 2026-10-23T16:49:25.429907+00:00
 ---
 
 # Manage column store content using auto-columnarization  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Manage column store content using auto-columnarization Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to manage the content of the columnar engine's column store using auto-columnarization.
+Auto-columnarization lets the columnar engine pick and populate the columns that give your workload the biggest performance gain within the current column store memory size. New instances have it on by default, and it runs every hour.
 
 By using auto-columnarization, the columnar engine automatically columnarizes the data in the column store and improves the overall performance of your hybrid transactional and analytical processing (HTAP) and online analytical processing (OLAP) workloads.
 

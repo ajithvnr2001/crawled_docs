@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/getting-started/
 title: Getting started \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:30.733490+00:00
+fetched_at: 2026-10-23T16:40:11.249743+00:00
 ---
 
 # Getting started · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-21T06:51:30.733490+00:00
 
 # Getting started
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/think/getting-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create a project2\. Configure wrangler3\. Define the agent4\. Connect a React client5\. Run it6\. Add persistent memory7\. Add custom tools8\. Add lifecycle hooksNext steps
 
@@ -56,7 +56,7 @@ By the end of this tutorial you will have a Think agent that:
 Install dependencies:
     
     
-    npm install @cloudflare/think @cloudflare/computer @cloudflare/ai-chat agents ai zod workers-ai-provider react react-dom
+    npm install @cloudflare/think @cloudflare/computer @cloudflare/ai-chat agents ai zod @ai-sdk/provider react react-dom
     npm install -D wrangler @cloudflare/vite-plugin @cloudflare/workers-types @vitejs/plugin-react @tailwindcss/vite tailwindcss typescript vite
 
 ## 2\. Configure wrangler
@@ -138,14 +138,12 @@ Create `src/server.ts`:
     
     
     import { Think } from "@cloudflare/think";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import { routeAgentRequest } from "agents";
     
     export class MyAgent extends Think {
     	getModel() {
-    		return createWorkersAI({ binding: this.env.AI })(
-    			"@cf/moonshotai/kimi-k2.6",
-    		);
+    		return createAI({ binding: this.env.AI })("@cf/moonshotai/kimi-k2.6");
     	}
     
     	getSystemPrompt() {
@@ -164,12 +162,12 @@ Create `src/server.ts`:
     
     
     import { Think } from "@cloudflare/think";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import { routeAgentRequest } from "agents";
     
     export class MyAgent extends Think<Env> {
     	getModel() {
-    		return createWorkersAI({ binding: this.env.AI })(
+    		return createAI({ binding: this.env.AI })(
     			"@cf/moonshotai/kimi-k2.6",
     		);
     	}
@@ -323,9 +321,7 @@ Override `configureSession` to give the model writable memory that survives rest
     
     export class MyAgent extends Think {
     	getModel() {
-    		return createWorkersAI({ binding: this.env.AI })(
-    			"@cf/moonshotai/kimi-k2.6",
-    		);
+    		return createAI({ binding: this.env.AI })("@cf/moonshotai/kimi-k2.6");
     	}
     
     	configureSession(session) {
@@ -347,7 +343,7 @@ Override `configureSession` to give the model writable memory that survives rest
     
     export class MyAgent extends Think<Env> {
     	getModel(): LanguageModel {
-    		return createWorkersAI({ binding: this.env.AI })(
+    		return createAI({ binding: this.env.AI })(
     			"@cf/moonshotai/kimi-k2.6",
     		);
     	}

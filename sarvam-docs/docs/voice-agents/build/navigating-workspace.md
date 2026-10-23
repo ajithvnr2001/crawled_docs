@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/voice-agents/build/navigating-workspace/
-title: Navigating the build interface | Sarvam API Docs
+title: Navigate the voice agent builder canvas | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T14:23:32.296070+00:00
+fetched_at: 2026-10-23T16:39:00.206808+00:00
 ---
 
-# Navigating the build interface | Sarvam API Docs
+# Navigate the voice agent builder canvas | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/voice-agents/build/navigating-workspace/
 
@@ -30,7 +30,7 @@ Scroll to top
 
 [Build](https://docs.sarvam.ai/voice-agents/build/overview)
 
-# Navigating the build interface
+# Navigate the voice agent builder canvas
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/voice-agents/build/navigating-workspace.md "View this page as plain text")|More actions
 
@@ -188,7 +188,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/build/concepts/harness)[AgentNext](https://docs.sarvam.ai/voice-agents/build/agent/overview)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/build/concepts/harness)[Anatomy of an AI voice agent: instruction, tools, voiceNext](https://docs.sarvam.ai/voice-agents/build/agent/overview)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 
@@ -374,7 +374,9 @@ YesNo
   * [List attempts](https://docs.sarvam.ai/voice-agents/api/analytics/attempts)
   * [List interactions](https://docs.sarvam.ai/voice-agents/api/analytics/interactions)
   * [Get recording](https://docs.sarvam.ai/voice-agents/api/analytics/recordings)
+  * [Get forwarded recording](https://docs.sarvam.ai/voice-agents/api/analytics/forwarded-recordings)
   * [Get transcript](https://docs.sarvam.ai/voice-agents/api/analytics/transcripts)
+  * [Get trace](https://docs.sarvam.ai/voice-agents/api/analytics/traces)
   * [Overview](https://docs.sarvam.ai/voice-agents/api/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/voice-agents/api/boards/sql)
   * [Best practices](https://docs.sarvam.ai/voice-agents/api/boards/best-practices)

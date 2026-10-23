@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/deploy/overview/",
   "file": "voice-agents/deploy/overview.md",
-  "title": "Deploy Voice Agents: Phone, Campaigns, Web Widget, and SDKs | Sarvam API Docs",
+  "title": "Deploy an AI voice agent: phone, campaigns, web and SDKs | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:27.106516+00:00",
-  "html_len": 151892,
-  "md_len": 20149,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:38:54.840153+00:00"
 }

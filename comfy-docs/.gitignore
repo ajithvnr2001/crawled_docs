@@ -3,6 +3,7 @@ crawl_state.json
 __pycache__/
 *.pyc
 .venv/
-tools/
+# anchored: only the corpus-root tools/ (not nested .../tools/ content paths)
+/tools/
 .env
 .api_keys.env

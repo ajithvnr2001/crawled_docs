@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agent-memory/get-started/
 title: Get started \u00b7 Cloudflare Agent Memory docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:36.387411+00:00
+fetched_at: 2026-10-23T16:40:12.296737+00:00
 ---
 
 # Get started · Cloudflare Agent Memory docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-13T08:48:36.387411+00:00
 
 # Get started
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agent-memory/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesHow agent memory works1\. Create a project2\. Create a namespace3\. Configure bindings4\. Add memory recall as a tool5\. Extract memories from conversation6\. (Optional) Store explicit memories when needed7\. Test the appNext steps
 
@@ -82,16 +82,16 @@ Install the dependencies used by this guide:
 npmyarnpnpmbun
     
     
-    npm i agents ai workers-ai-provider
+    npm i agents ai @ai-sdk/provider
     
     
-    yarn add agents ai workers-ai-provider
+    yarn add agents ai @ai-sdk/provider
     
     
-    pnpm add agents ai workers-ai-provider
+    pnpm add agents ai @ai-sdk/provider
     
     
-    bun add agents ai workers-ai-provider
+    bun add agents ai @ai-sdk/provider
 
 ## 2\. Create a namespace
 
@@ -121,7 +121,7 @@ Add an `agent_memory` binding to your Wrangler configuration. If you use the Age
       "main": "src/server.ts",
       "upload_source_maps": true,
       // Set this to today's date
-      "compatibility_date": "2026-10-13",
+      "compatibility_date": "2026-10-23",
       "compatibility_flags": [
         "nodejs_compat"
       ],
@@ -157,7 +157,7 @@ Add an `agent_memory` binding to your Wrangler configuration. If you use the Age
     main = "src/server.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-23"
     compatibility_flags = ["nodejs_compat"]
     
     [ai]
@@ -321,7 +321,7 @@ src/server.jsjs
     import { Agent, getAgentByName, routeAgentRequest } from "agents";
     import { convertToModelMessages, generateText, stepCountIs } from "ai";
     
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
 
 src/server.tsts
     
@@ -329,7 +329,7 @@ src/server.tsts
     import { Agent, getAgentByName, routeAgentRequest } from "agents";
     import { convertToModelMessages, generateText, stepCountIs } from "ai";
     import type { UIMessage } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
 
 Add the ingestion delay near the top of the file, below the imports:
 
@@ -363,9 +363,9 @@ src/server.jsjs
     
     		await this.scheduleIngest();
     
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     		const result = await generateText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			system: await this.session.freezeSystemPrompt(),
     			messages: await convertToModelMessages(await this.session.getHistory()),
     			tools: await this.session.tools(),
@@ -460,9 +460,9 @@ src/server.tsts
     
     		await this.scheduleIngest();
     
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     		const result = await generateText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			system: await this.session.freezeSystemPrompt(),
     			messages: await convertToModelMessages(
     				(await this.session.getHistory()) as UIMessage[],

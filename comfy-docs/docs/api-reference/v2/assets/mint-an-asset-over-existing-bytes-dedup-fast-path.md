@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/v2/assets/mint-an-asset-over-existing-bytes-dedup-fast-path/
 title: Mint an asset over existing bytes (dedup fast-path) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:40:26.227966+00:00
+fetched_at: 2026-10-23T16:38:37.230380+00:00
 ---
 
 # Mint an asset over existing bytes (dedup fast-path) - ComfyUI
@@ -396,6 +396,8 @@ Copy pageCopy page
 Zero-byte fast-path: mints a new asset UUID over a blob the platform already has, identified by its blake3 hash.
 
 Trust boundary: resolves only against blobs the platform itself ingested and hashed, and only those the calling account is authorized to use — the client hash is a lookup key, never an authority to register new content. A miss and “exists but not yours” are deliberately indistinguishable (`404` `blob_not_found`).
+
+The lookup key is the `hash` an upload returned, which is the hash of the stored bytes. When location metadata was removed from an image before it was stored, that differs from the client’s digest of the file it sent, and the client’s digest finds nothing.
 
 Copy pageCopy page
 
@@ -845,6 +847,8 @@ tags
 
 string[]
 
+A create carries at most 64 tags, each a non-empty UTF-8 string of at most 256 bytes (surrounding whitespace included) with no NUL byte. A deployment adds `input` to every asset and counts it, so it takes at most 63 of the caller's own; the `model_type:` tags derived for a model asset are not counted. A tag set breaking a limit is refused with 422. Invalid UTF-8 or a lone surrogate escape (e.g. `\ud800`) inside a JSON-encoded tag is not refused: JSON decoding replaces it with U+FFFD (3 bytes each), and the 256-byte limit applies to the replaced value.
+
 ​
 
 expires_in
@@ -1001,26 +1005,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/api-reference/v2/assets/mint-an-asset-over-existing-bytes-dedup-fast-path.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/api-reference/v2/assets/mint-an-asset-over-existing-bytes-dedup-fast-path)
 
-[Upload an asset (single-call multipart)Previous](https://docs.comfy.org/api-reference/v2/assets/upload-an-asset-single-call-multipart)[Existence check for a blob by blake3 hashNext](https://docs.comfy.org/api-reference/v2/assets/existence-check-for-a-blob-by-blake3-hash)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Upload an asset (single-call multipart)](https://docs.comfy.org/api-reference/v2/assets/upload-an-asset-single-call-multipart)[Existence check for a blob by blake3 hash](https://docs.comfy.org/api-reference/v2/assets/existence-check-for-a-blob-by-blake3-hash)

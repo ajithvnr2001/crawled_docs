@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/artifacts/get-started/workers/
 title: Get started - Workers \u00b7 Cloudflare Artifacts docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:34.065424+00:00
+fetched_at: 2026-10-23T16:40:01.293526+00:00
 ---
 
 # Get started - Workers · Cloudflare Artifacts docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:34.065424+00:00
 
 # Workers
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/artifacts/get-started/workers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up with your coding agentPrerequisites1\. Create a Worker project2\. Add the Artifacts binding3\. Write your Worker4\. Invoke your Worker to create a repo5\. Push your first commit with git6\. Pull the repo with a regular Git client7\. Deploy your WorkerNext steps
 
@@ -52,7 +52,7 @@ For supported Node.js versions, refer to the [Wrangler system requirements](http
 You also need:
 
   * Wrangler installed. If you use local Wrangler commands in this guide, authenticate Wrangler first. For local OAuth authentication or CI setup, refer to [`wrangler login`](https://developers.cloudflare.com/workers/wrangler/commands/general/#login) and [Running Wrangler in CI/CD](https://developers.cloudflare.com/workers/ci-cd/).
-  * Access to Artifacts in your Cloudflare account.
+  * Access to Artifacts on the [Workers Paid plan](https://developers.cloudflare.com/artifacts/platform/pricing/).
   * A namespace name, for example `default`.
   * A local `git` client.
   * `jq`, if you want to extract response fields automatically.
@@ -97,7 +97,7 @@ Open your Wrangler config file and add the Artifacts binding:
       "main": "src/index.ts",
       "upload_source_maps": true,
       // Set this to today's date
-      "compatibility_date": "2026-10-13",
+      "compatibility_date": "2026-10-23",
       "artifacts": [
         {
           "binding": "ARTIFACTS",
@@ -111,7 +111,7 @@ Open your Wrangler config file and add the Artifacts binding:
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-23"
     
     [[artifacts]]
     binding = "ARTIFACTS"

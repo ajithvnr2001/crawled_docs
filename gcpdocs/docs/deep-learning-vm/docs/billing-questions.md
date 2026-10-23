@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deep-learning-vm/docs/billing-questions/
 title: Billing questions \u00a0|\u00a0 Deep Learning VM Images \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:40:51.393169+00:00
+fetched_at: 2026-10-23T16:52:21.046760+00:00
 ---
 
 # Billing questions  |  Deep Learning VM Images  |  Google Cloud Documentation

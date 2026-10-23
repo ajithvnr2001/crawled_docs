@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/deployment-strategies/canary/custom/
 title: Custom Canary Deployments \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:07.069323+00:00
+fetched_at: 2026-10-23T16:53:38.787924+00:00
 ---
 
 # Custom Canary Deployments  |  Google Cloud Documentation

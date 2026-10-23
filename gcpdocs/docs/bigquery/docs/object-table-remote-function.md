@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/object-table-remote-function/
 title: Analyze object tables by using remote functions \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:54:19.312547+00:00
+fetched_at: 2026-10-23T16:46:35.458175+00:00
 ---
 
 # Analyze object tables by using remote functions  |  BigQuery  |  Google Cloud Documentation
@@ -21,19 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Analyze object tables by using remote functions
 
-This document describes how to analyze unstructured data in [object tables](https://docs.cloud.google.com/bigquery/docs/object-table-introduction) by using [remote functions](https://docs.cloud.google.com/bigquery/docs/remote-functions).
+You can analyze [object tables](https://docs.cloud.google.com/bigquery/docs/object-table-introduction) with [remote functions](https://docs.cloud.google.com/bigquery/docs/remote-functions) to extract insights from unstructured data using external tools and libraries. Integrating your queries with Cloud Run or Cloud Run functions lets you apply Google's pre-trained AI models, open-source libraries, or your own custom models directly to your BigQuery data.
 
-## Overview
-
-You can analyze the unstructured data represented by an object table by using a remote function. A remote function lets you call a function running on Cloud Run functions or Cloud Run, which you can program to access resources such as:
-
-  * Google's pre-trained AI models, including Cloud Vision API and Document AI.
-  * Open source libraries such as [Apache Tika](https://tika.apache.org/).
-  * Your own custom models.
-
-
-
-To analyze object table data by using a remote function, you must generate and pass in [signed URLs](https://docs.cloud.google.com/bigquery/docs/object-table-introduction#signed_urls) for the objects in the object table when you call the remote function. These signed URLs are what grant the remote function access to the objects.
+To analyze object table data by using a remote function, you must generate and pass in [signed URLs](https://docs.cloud.google.com/bigquery/docs/object-table-introduction#signed_urls) for the objects in the object table when you call the remote function. These signed URLs grant the remote function access to the objects.
 
 ## Required permissions
 
@@ -182,6 +172,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

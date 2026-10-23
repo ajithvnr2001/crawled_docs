@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deep-learning-vm/docs/creating-images/
 title: Create a new image from an existing Deep Learning VM instance \u00a0|\u00a0 Deep Learning VM Images \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:40:50.989511+00:00
+fetched_at: 2026-10-23T16:52:19.357440+00:00
 ---
 
 # Create a new image from an existing Deep Learning VM instance  |  Deep Learning VM Images  |  Google Cloud Documentation

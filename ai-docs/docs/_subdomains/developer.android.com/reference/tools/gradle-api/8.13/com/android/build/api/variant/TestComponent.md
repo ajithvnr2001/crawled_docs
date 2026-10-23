@@ -1,0 +1,133 @@
+---
+url: https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/TestComponent/
+title: TestComponent \u00a0|\u00a0 API reference \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T21:40:55.511366+00:00
+---
+
+# TestComponent  |  API reference  |  Android Developers
+
+> Source: https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/TestComponent/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Develop ](https://developer.android.com/develop)
+  * [ API reference ](https://developer.android.com/reference)
+
+
+
+Stay organized with collections  Save and categorize content based on your preferences. 
+
+# TestComponent
+
+[View Source](https://cs.android.com/search?q=file:com/android/build/api/variant/TestComponent.kt+class:com.android.build.api.variant.TestComponent)
+
+Added in 7.0.0
+    
+    
+    interface [TestComponent](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/TestComponent) : [Component](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component)
+
+Known direct subclasses 
+
+[DeviceTest](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/DeviceTest), [HostTest](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/HostTest), [UnitTest](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/UnitTest)
+
+`[DeviceTest](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/DeviceTest)` |  Model for Device Test components that contains build-time properties  
+---|---  
+`[HostTest](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/HostTest)` |  Model for Host Test components that contains build-time properties.  
+`[UnitTest](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/UnitTest)` |  `[Component](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component)` for unit tests  
+  
+Known indirect subclasses 
+
+[AndroidTest](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/AndroidTest), [UnitTest](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/component/UnitTest)
+
+`[AndroidTest](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/AndroidTest)` |  Model for Android Test components that contains build-time properties  
+---|---  
+`[UnitTest](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/component/UnitTest)` |  **This interface is deprecated.** Use the com.android.build.api.variant package  
+  
+* * *
+
+Model for test components that contains build-time properties.
+
+These components are attached to a main component (`[Variant](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Variant)`), and accessed via them.
+    
+    
+    androidComponents {  
+      onVariants(selector().all()) { variant: ApplicationVariant ->  
+        variant.androidTest?.apply {  
+          ....  
+        }  
+        variant.unitTest?.apply {  
+          ....  
+        }  
+      }  
+    }
+
+Not all subtype of `[Variant](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Variant)` will have access to all sub-types of `[TestComponent](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/TestComponent)`, this is handled via `[HasUnitTest](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/HasUnitTest)`, and `[HasDeviceTests](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/HasDeviceTests)`.
+
+The test components are also part of `[Variant.nestedComponents](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Variant#nestedComponents\(\))`
+
+## Summary
+
+### Public properties  
+  
+---  
+`[MapProperty](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/MapProperty.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)>` |  `[manifestPlaceholders](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/TestComponent#manifestPlaceholders\(\))` `[MapProperty](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/MapProperty.html)` of the test component's manifest placeholders.  
+  
+### Inherited functions  
+  
+---  
+From [com.android.build.api.variant.Component](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component) | `[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` |  `@[Incubating](https://docs.gradle.org/current/javadoc/org/gradle/api/Incubating.html)  
+[computeTaskName](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component#computeTaskName\(kotlin.String,kotlin.String\))(action: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html), subject: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html))` Utility method to create unique task name for component.  
+---|---  
+`[Configuration](https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/Configuration.html)` |  `@[Incubating](https://docs.gradle.org/current/javadoc/org/gradle/api/Incubating.html)  
+[getResolvableConfiguration](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component#getResolvableConfiguration\(kotlin.String\))(sourceSetConfigurationsAffix: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html))` Access to the component's resolvable configuration corresponding to the source set configurations added via `[AndroidComponentsExtension.addSourceSetConfigurations](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/AndroidComponentsExtension#addSourceSetConfigurations\(kotlin.String\))`.  
+`[Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)` |  `~~[setAsmFramesComputationMode](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component#setAsmFramesComputationMode\(com.android.build.api.instrumentation.FramesComputationMode\))~~(mode: [FramesComputationMode](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/instrumentation/FramesComputationMode))` **This function is deprecated.** Will be removed in v9.0, use the instrumentation block.  
+`[Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)` |  `<ParamT : [InstrumentationParameters](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/instrumentation/InstrumentationParameters)> ~~[transformClassesWith](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component#transformClassesWith\(java.lang.Class,com.android.build.api.instrumentation.InstrumentationScope,kotlin.Function1\))~~(  
+classVisitorFactoryImplClass: [Class](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Class.html)<[AsmClassVisitorFactory](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/instrumentation/AsmClassVisitorFactory)<ParamT>>,  
+scope: [InstrumentationScope](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/instrumentation/InstrumentationScope),  
+instrumentationParamsConfig: (ParamT) -> [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)  
+)` **This function is deprecated.** Will be removed in v9.0, use the instrumentation block.  
+  
+### Inherited properties  
+  
+---  
+From [com.android.build.api.variant.Component](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component) | `[Configuration](https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/Configuration.html)` |  `[annotationProcessorConfiguration](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component#annotationProcessorConfiguration\(\))` Access to the variant's annotation processor `[Configuration](https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/Configuration.html)`; for example, the debugAnnotationProcessor `[Configuration](https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/Configuration.html)` for the debug variant.  
+---|---  
+`[Artifacts](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/artifact/Artifacts)` |  `[artifacts](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component#artifacts\(\))` Access to the variant's buildable artifacts for build customization.  
+`[FileCollection](https://docs.gradle.org/current/javadoc/org/gradle/api/file/FileCollection.html)` |  `[compileClasspath](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component#compileClasspath\(\))` Access to the variant's compile classpath.  
+`[Configuration](https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/Configuration.html)` |  `[compileConfiguration](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component#compileConfiguration\(\))` Access to the variant's compile `[Configuration](https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/Configuration.html)`; for example, the debugCompileClasspath `[Configuration](https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/Configuration.html)` for the debug variant.  
+`[Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)` |  `[debuggable](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component#debuggable\(\))` Whether the produced artifacts will be debuggable  
+`[Instrumentation](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Instrumentation)` |  `[instrumentation](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component#instrumentation\(\))` Access to the variant's instrumentation options.  
+`[JavaCompilation](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/JavaCompilation)` |  `[javaCompilation](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component#javaCompilation\(\))` Access to the variant's java compilation options.  
+`[LifecycleTasks](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/LifecycleTasks)` |  `[lifecycleTasks](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component#lifecycleTasks\(\))` Provides access to the `[LifecycleTasks](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/LifecycleTasks)` created for this component.  
+`[Provider](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Provider.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)>` |  `[namespace](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component#namespace\(\))` The namespace of the generated R and BuildConfig classes.  
+`[Configuration](https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/Configuration.html)` |  `[runtimeConfiguration](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component#runtimeConfiguration\(\))` Access to the variant's runtime `[Configuration](https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/Configuration.html)`; for example, the debugRuntimeClasspath `[Configuration](https://docs.gradle.org/current/javadoc/org/gradle/api/artifacts/Configuration.html)` for the debug variant.  
+`[Sources](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Sources)` |  `[sources](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/Component#sources\(\))` Access to variant's source files.  
+  
+From [com.android.build.api.variant.ComponentIdentity](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/ComponentIdentity) | `[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)?` |  `[buildType](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/ComponentIdentity#buildType\(\))` Build type name.  
+---|---  
+`[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)?` |  `[flavorName](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/ComponentIdentity#flavorName\(\))` The multi-flavor name of the variant.  
+`[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` |  `[name](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/ComponentIdentity#name\(\))` Component's name.  
+`[List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)<[Pair](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)>>` |  `[productFlavors](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/ComponentIdentity#productFlavors\(\))` List of flavor names.  
+  
+## Public properties
+
+### manifestPlaceholders
+
+Added in 7.4.0
+    
+    
+    val [manifestPlaceholders](https://developer.android.com/reference/tools/gradle-api/8.13/com/android/build/api/variant/TestComponent#manifestPlaceholders\(\)): [MapProperty](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/MapProperty.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)>
+
+`[MapProperty](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/MapProperty.html)` of the test component's manifest placeholders.
+
+Placeholders are organized with a key and a value. The value is a `[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)` that will be used as is in the merged manifest.
+
+Returns  
+---  
+`[MapProperty](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/MapProperty.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html), [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)>` |  the `[MapProperty](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/MapProperty.html)` with keys as `[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`  
+  
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2025-07-21 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-07-21 UTC."],[],[]] 

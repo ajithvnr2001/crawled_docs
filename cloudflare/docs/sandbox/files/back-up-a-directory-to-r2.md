@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/files/back-up-a-directory-to-r2/
 title: Back up a directory to R2 \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T06:59:27.883294+00:00
+fetched_at: 2026-10-23T16:39:57.101265+00:00
 ---
 
 # Back up a directory to R2 · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-14T06:59:27.883294+00:00
 
 # Back up a directory to R2
 
-Last updated Oct 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/files/back-up-a-directory-to-r2/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesBack up and restore a directoryLeave out filesDelete a backupRelated resources
 
@@ -140,7 +140,7 @@ src/index.jsjs
          		const container = ctx.container;
          
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		this.container = container;
@@ -191,7 +191,7 @@ src/index.tsts
          		const container = ctx.container;
          
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		this.container = container;

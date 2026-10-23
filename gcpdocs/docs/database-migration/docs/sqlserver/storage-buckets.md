@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/storage-buckets/
 title: Store backup files in a Cloud Storage bucket \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:45.629634+00:00
+fetched_at: 2026-10-23T16:54:13.427123+00:00
 ---
 
 # Store backup files in a Cloud Storage bucket  |  Database Migration Service for SQL Server  |  Google Cloud Documentation

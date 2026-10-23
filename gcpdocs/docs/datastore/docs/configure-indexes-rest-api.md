@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/configure-indexes-rest-api/
 title: Configuring indexes with the REST API \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:58.552012+00:00
+fetched_at: 2026-10-23T16:53:03.765641+00:00
 ---
 
 # Configuring indexes with the REST API  |  Firestore in Datastore mode  |  Google Cloud Documentation

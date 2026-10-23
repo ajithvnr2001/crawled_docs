@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/filter-by-multiple-email-addresses-per-row/
 title: Filter by multiple email addresses per row \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:20.016635+00:00
+fetched_at: 2026-10-23T16:52:32.992031+00:00
 ---
 
 # Filter by multiple email addresses per row  |  Data Studio  |  Google Cloud Documentation

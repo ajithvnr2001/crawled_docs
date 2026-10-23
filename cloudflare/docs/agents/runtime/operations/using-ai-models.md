@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/runtime/operations/using-ai-models/
 title: Using AI Models \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:22.878841+00:00
+fetched_at: 2026-10-23T16:40:09.454445+00:00
 ---
 
 # Using AI Models · Cloudflare Agents docs
@@ -22,7 +22,7 @@ Runtime
 
 # Using AI Models
 
-Last updated Jun 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/runtime/operations/using-ai-models/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/runtime/operations/using-ai-models/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCalling AI Models Streaming over WebSocketsWorkers AI Model routingAI SDKOpenAI-compatible endpoints
 
@@ -45,7 +45,7 @@ src/index.jsjs
     
     import { Agent } from "agents";
     import { streamText } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
     export class MyAgent extends Agent {
     	async onConnect(connection, ctx) {
@@ -59,9 +59,9 @@ src/index.jsjs
     
     	async queryReasoningModel(connection, userPrompt) {
     		try {
-    			const workersai = createWorkersAI({ binding: this.env.AI });
+    			const ai = createAI({ binding: this.env.AI });
     			const result = streamText({
-    				model: workersai("@cf/zai-org/glm-4.7-flash"),
+    				model: ai("@cf/zai-org/glm-4.7-flash"),
     				prompt: userPrompt,
     			});
     
@@ -83,7 +83,7 @@ src/index.tsts
     
     import { Agent } from "agents";
     import { streamText } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
     interface Env {
     	AI: Ai;
@@ -101,9 +101,9 @@ src/index.tsts
     
     	async queryReasoningModel(connection: Connection, userPrompt: string) {
     		try {
-    			const workersai = createWorkersAI({ binding: this.env.AI });
+    			const ai = createAI({ binding: this.env.AI });
     			const result = streamText({
-    				model: workersai("@cf/zai-org/glm-4.7-flash"),
+    				model: ai("@cf/zai-org/glm-4.7-flash"),
     				prompt: userPrompt,
     			});
     
@@ -262,34 +262,34 @@ Visit the [AI Gateway documentation](https://developers.cloudflare.com/ai-gatewa
 
 ## AI SDK
 
-The [AI SDK ↗︎](https://ai-sdk.dev/docs/introduction) provides a unified API for text generation, tool calling, structured responses, and more. It works with any provider that has an AI SDK adapter, including Workers AI via [`workers-ai-provider` ↗︎](https://www.npmjs.com/package/workers-ai-provider).
+The [AI SDK ↗︎](https://ai-sdk.dev/docs/introduction) provides a unified API for text generation, tool calling, structured responses, and more. It works with any provider that has an AI SDK adapter, including Workers AI and AI Gateway through [`createAI`](https://developers.cloudflare.com/agents/models/ai-sdk/) from `agents/models/ai-sdk`.
 
 npmyarnpnpmbun
     
     
-    npm i ai workers-ai-provider
+    npm i agents ai @ai-sdk/provider
     
     
-    yarn add ai workers-ai-provider
+    yarn add agents ai @ai-sdk/provider
     
     
-    pnpm add ai workers-ai-provider
+    pnpm add agents ai @ai-sdk/provider
     
     
-    bun add ai workers-ai-provider
+    bun add agents ai @ai-sdk/provider
 
 src/index.jsjs
     
     
     import { Agent } from "agents";
     import { generateText } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
     export class MyAgent extends Agent {
     	async onRequest(request) {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     		const { text } = await generateText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			prompt: "Build me an AI agent on Cloudflare Workers",
     		});
     
@@ -302,7 +302,7 @@ src/index.tsts
     
     import { Agent } from "agents";
     import { generateText } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
     interface Env {
     	AI: Ai;
@@ -310,9 +310,9 @@ src/index.tsts
     
     export class MyAgent extends Agent<Env> {
     	async onRequest(request: Request): Promise<Response> {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     		const { text } = await generateText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			prompt: "Build me an AI agent on Cloudflare Workers",
     		});
     

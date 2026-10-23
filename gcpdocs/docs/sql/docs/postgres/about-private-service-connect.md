@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/about-private-service-connect/
 title: Overview of Private Service Connect in Cloud SQL \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:18:44.678141+00:00
+fetched_at: 2026-10-23T16:49:02.269730+00:00
 ---
 
 # Overview of Private Service Connect in Cloud SQL  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -157,13 +157,19 @@ If you configure outbound connectivity on the [disaster recovery (DR) replica](h
 When using a Private Service Connect interface with a network attachment to create outbound connections to your network from your Cloud SQL instance, note the following limitations:
 
   * Enabling or disabling Private Service Connect outbound connectivity requires downtime. You can expect this operation to take about 8 minutes to complete with an approximate downtime of 3 minutes.
-  * If you're using a hostname or DNS for your outbound connection, then the DNS name must be publicly resolvable and resolved to an RFC-1918 IP range.
+
+  * The IP address of the destination server must be within an [RFC 1918](https://docs.cloud.google.com/vpc/docs/subnets#valid-ranges) IP range. Public IP addresses and non-RFC 1918 private IP ranges, such as the RFC 6598 `100.64.0.0/10` range, aren't supported. If you're using a hostname or DNS for your outbound connection, then the DNS name must be publicly resolvable and resolve to an RFC 1918 IP range.
+
   * IPv6 addresses aren't supported.
-  * Public IP addresses aren't supported.
+
   * If the outbound connectivity IP address conflicts with the `eth0` IP or the Private Service Connect forwarding rule, then the IP address might not connect correctly. For more information, see [Private Service Connect overview](https://docs.cloud.google.com/sql/docs/postgres/about-private-service-connect#psc-endpoint).
+
   * You can't enable Private Service Connect outbound connectivity when you create the Cloud SQL instance. To enable outbound connectivity, you must edit your instance settings after creation.
+
   * If your instance is configured for [both private service access and Private Service Connect](https://docs.cloud.google.com/sql/docs/postgres/configure-private-services-access-and-private-service-connect), then you can't enable Private Service Connect outbound connectivity for your instance. 
-  * Private Service Connect outbound connectivity cannot be enabled on [read pool](https://docs.cloud.google.com/sql/docs/postgres/about-read-pools) instances.
+
+  * Private Service Connect outbound connectivity can't be enabled on [read pool](https://docs.cloud.google.com/sql/docs/postgres/about-read-pools) instances. 
+
 
 
 
@@ -180,6 +186,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

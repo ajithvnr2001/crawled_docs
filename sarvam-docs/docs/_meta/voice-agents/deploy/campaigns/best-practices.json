@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/deploy/campaigns/best-practices/",
   "file": "voice-agents/deploy/campaigns/best-practices.md",
-  "title": "Best practices | Sarvam API Docs",
+  "title": "Best practices for outbound AI calling campaigns | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:25.375179+00:00",
-  "html_len": 139556,
-  "md_len": 18959,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:38:56.665902+00:00"
 }

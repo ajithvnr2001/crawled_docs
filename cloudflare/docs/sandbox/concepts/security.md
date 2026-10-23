@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/concepts/security/
 title: Sandbox security \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:17.806800+00:00
+fetched_at: 2026-10-23T16:39:57.597495+00:00
 ---
 
 # Sandbox security · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:17.806800+00:00
 
 # Sandbox security
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/concepts/security/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/concepts/security/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEverything in one sandbox is sharedCode can read what you put in its sandboxThe sandbox name decides what a request reachesEvery opening is also a way outOutput carries the same riskRelated resources
 
@@ -84,13 +84,13 @@ A Container starts with `enableInternet: false` by default, so it cannot reach t
 
 Each destination you allow gives the code a way to send out what it can read. If you turn on Internet access so that `npm install` can download packages, a dependency can also send the token to any server. An outbound handler in your Worker can allow the package registry and block every other destination.
 
-Keep Internet access off when you use an outbound handler. Handlers see HTTP on port `80` and HTTPS on port `443`. With Internet access on, connections to other ports go out directly. To route requests through your Worker, refer to [`interceptOutboundHttps()`](https://developers.cloudflare.com/containers/api/durable-object-container/#interceptoutboundhttps) for Containers and [Egress control](https://developers.cloudflare.com/dynamic-workers/usage/egress-control/) for Dynamic Workers.
+Keep Internet access off when you use an outbound handler. A handler receives only the connections that its intercept covers. With Internet access on, every other connection goes out directly. To route requests through your Worker, refer to [`interceptOutboundHttps()`](https://developers.cloudflare.com/containers/api/durable-object-container/#interceptoutboundhttps) for Containers and [Egress control](https://developers.cloudflare.com/dynamic-workers/usage/egress-control/) for Dynamic Workers.
 
 ## Output carries the same risk
 
 Results, files, and HTTP responses from a sandbox come from the code you do not trust. They need the same checks as user input before your application stores them, acts on them, or shows them to someone else.
 
-A web preview carries more risk, because it runs in the visitor's browser. When your Worker forwards a page from a sandbox, the page runs under the hostname that served it. On your application hostname, the page can use your application cookies and call its APIs. Serve previews on a separate hostname to keep the page away from both. For an example, refer to [Serve previews on their own hostnames](https://developers.cloudflare.com/sandbox/previews/serve-previews-on-their-own-hostnames/).
+A web preview carries more risk, because it runs in the visitor's browser. When your Worker forwards a page from a sandbox, the page runs under the hostname that served it. On your application hostname, the page can use your application cookies and call its APIs. Serve previews on a separate domain that your application does not use, so that its cookies never reach the page. For an example, refer to [Serve previews on their own hostnames](https://developers.cloudflare.com/sandbox/previews/serve-previews-on-their-own-hostnames/).
 
 ## Related resources
 

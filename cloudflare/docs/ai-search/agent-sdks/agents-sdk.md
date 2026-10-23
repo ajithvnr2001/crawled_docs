@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/agent-sdks/agents-sdk/
 title: Agents SDK \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:34.495206+00:00
+fetched_at: 2026-10-23T16:40:09.239427+00:00
 ---
 
 # Agents SDK · Cloudflare AI Search docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:34.495206+00:00
 
 # Agents SDK
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/agent-sdks/agents-sdk/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create a Worker project2\. Install the Agents SDK packages3\. Bind your Worker to AI Search4\. Write the agent How the tools work5\. Test it locally6\. DeployNext steps
 
@@ -74,21 +74,21 @@ Go to your application directory:
 
 ## 2\. Install the Agents SDK packages
 
-Install the Agents SDK, the AI SDK, and the Workers AI provider:
+Install the Agents SDK and the AI SDK. The example calls Workers AI with [`createAI`](https://developers.cloudflare.com/agents/models/ai-sdk/) from `agents/models/ai-sdk`:
 
 npmyarnpnpmbun
     
     
-    npm i agents @cloudflare/ai-chat ai workers-ai-provider zod
+    npm i agents @cloudflare/ai-chat ai @ai-sdk/provider zod
     
     
-    yarn add agents @cloudflare/ai-chat ai workers-ai-provider zod
+    yarn add agents @cloudflare/ai-chat ai @ai-sdk/provider zod
     
     
-    pnpm add agents @cloudflare/ai-chat ai workers-ai-provider zod
+    pnpm add agents @cloudflare/ai-chat ai @ai-sdk/provider zod
     
     
-    bun add agents @cloudflare/ai-chat ai workers-ai-provider zod
+    bun add agents @cloudflare/ai-chat ai @ai-sdk/provider zod
 
 ## 3\. Bind your Worker to AI Search
 
@@ -101,7 +101,7 @@ Replace your [Wrangler configuration file](https://developers.cloudflare.com/wor
       "main": "src/server.ts",
       "upload_source_maps": true,
       // Set this to today's date
-      "compatibility_date": "2026-10-13",
+      "compatibility_date": "2026-10-23",
       "compatibility_flags": [
         "nodejs_compat"
       ],
@@ -138,7 +138,7 @@ Replace your [Wrangler configuration file](https://developers.cloudflare.com/wor
     main = "src/server.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-23"
     compatibility_flags = ["nodejs_compat"]
     
     [ai]
@@ -168,7 +168,7 @@ src/server.jsjs
     
     import { AIChatAgent } from "@cloudflare/ai-chat";
     import { routeAgentRequest } from "agents";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import { streamText, convertToModelMessages, tool, stepCountIs } from "ai";
     import { z } from "zod";
     
@@ -217,10 +217,10 @@ src/server.jsjs
     		// The agent exposes AI Search's search() as a tool instead of using AI
     		// Search's own chat model, so this model must support function calling to
     		// decide when to search and drive the tool calls.
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-5.2"),
+    			model: ai("@cf/zai-org/glm-5.2"),
     			system:
     				"You are a support assistant. Use search_knowledge_base to find " +
     				"relevant content before answering, and cite what you use.",
@@ -283,7 +283,7 @@ src/server.tsts
     
     import { AIChatAgent } from "@cloudflare/ai-chat";
     import { routeAgentRequest } from "agents";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import { streamText, convertToModelMessages, tool, stepCountIs } from "ai";
     import { z } from "zod";
     
@@ -332,10 +332,10 @@ src/server.tsts
     		// The agent exposes AI Search's search() as a tool instead of using AI
     		// Search's own chat model, so this model must support function calling to
     		// decide when to search and drive the tool calls.
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-5.2"),
+    			model: ai("@cf/zai-org/glm-5.2"),
     			system:
     				"You are a support assistant. Use search_knowledge_base to find " +
     				"relevant content before answering, and cite what you use.",

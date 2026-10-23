@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/parameterized-secure-views-overview/
 title: Parameterized secure views overview \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:03:41.609169+00:00
+fetched_at: 2026-10-23T16:50:19.074038+00:00
 ---
 
 # Parameterized secure views overview  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

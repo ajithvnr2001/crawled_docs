@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/resources/shared-responsibility/
 title: Dataflow shared responsibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:44.948251+00:00
+fetched_at: 2026-10-23T16:54:01.338598+00:00
 ---
 
 # Dataflow shared responsibility  |  Google Cloud Documentation

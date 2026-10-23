@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/reference/files/
 title: Files API \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:20.684823+00:00
+fetched_at: 2026-10-23T16:39:55.723463+00:00
 ---
 
 # Files API · Cloudflare Sandboxes docs
@@ -18,13 +18,13 @@ fetched_at: 2026-10-08T07:15:20.684823+00:00
 
 # Files API
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/reference/files/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/reference/files/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRequirementsFilesPathsOptionsMethods readFile writeFile stat lstat readDirectory mkdir rename removeTypes FileContent SandboxFileStat SandboxDirectoryEntry SandboxFileTypeErrors SandboxFileError SandboxProtocolError Other errorsRelated resources
 
 `Files` reads and changes files and directories in a running container. It does not start or stop the container.
 
-Each method runs the `sandbox-shim` helper binary in the container through [`exec()`](https://developers.cloudflare.com/containers/api/durable-object-container/#exec) and waits for it to finish. Paths follow Linux rules, and `Files` does not restrict which paths a caller can open.
+Each method runs the `sandbox-shim` helper binary in the container through [`exec()`](https://developers.cloudflare.com/containers/api/durable-object-container/#exec). Every method except `readFile()` waits for the helper to finish; `readFile()` returns once the file is open and streams its contents. Paths follow Linux rules, and `Files` does not restrict which paths a caller can open.
     
     
     import { Files } from "@cloudflare/sandbox";
@@ -36,7 +36,7 @@ Each method runs the `sandbox-shim` helper binary in the container through [`exe
     	constructor(ctx, env) {
     		super(ctx, env);
     		if (!ctx.container) {
-    			throw new Error("The container binding is not configured");
+    			throw new Error("No container is configured");
     		}
     		// ctx.container stays the same object while the Durable Object runs.
     		this.files = new Files(ctx.container);
@@ -60,7 +60,7 @@ Each method runs the `sandbox-shim` helper binary in the container through [`exe
     	constructor(ctx: DurableObjectState, env: Env) {
     		super(ctx, env);
     		if (!ctx.container) {
-    			throw new Error("The container binding is not configured");
+    			throw new Error("No container is configured");
     		}
     		// ctx.container stays the same object while the Durable Object runs.
     		this.files = new Files(ctx.container);

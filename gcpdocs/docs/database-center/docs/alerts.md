@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-center/docs/alerts/
 title: Monitor your database fleet with alerting policies \u00a0|\u00a0 Database Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:48.189052+00:00
+fetched_at: 2026-10-23T16:53:08.458871+00:00
 ---
 
 # Monitor your database fleet with alerting policies  |  Database Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/billing-questions/
 title: Billing questions \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:46.576782+00:00
+fetched_at: 2026-10-23T16:53:13.002571+00:00
 ---
 
 # Billing questions  |  Dataform  |  Google Cloud Documentation

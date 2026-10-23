@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/pricing/
 title: Partner Node Pricing - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:36.833009+00:00
+fetched_at: 2026-10-23T16:38:34.042974+00:00
 ---
 
 # Partner Node Pricing - ComfyUI
@@ -20,6 +20,10 @@ Partner Node pricing in credits for every provider, including Anthropic, OpenAI,
 Copy pageCopy page
 
 The following table lists the pricing of the current Partner Nodes. All prices are in credits.
+
+## Comfy Router pricing
+
+Comfy Router prices are different from Partner Node prices. See the Comfy Router pricing page for the full list.
 
 ## 
 
@@ -131,6 +135,21 @@ Flux 3 Video Continuation| 1080p| 159.92
 
 ​
 
+Video: FLUX 3 Max
+
+Total credits = **(credits / sec) ×`duration`** (`duration` is 5–20 seconds). `reasoning_level` and `generate_audio` do not change the price. Launch promo rates apply until **November 7, 2026 (00:00 UTC)** ; standard rates apply after that.
+
+Node| resolution| Promo credits / sec| Standard credits / sec  
+---|---|---|---  
+FLUX 3 Max Text to Video| 720p| 12.82| 51.29  
+FLUX 3 Max Text to Video| 1080p| 21.88| 87.50  
+FLUX 3 Max Image to Video| 720p| 12.82| 51.29  
+FLUX 3 Max Image to Video| 1080p| 21.88| 87.50  
+  
+### 
+
+​
+
 Video: Flux Video Edit
 
 Total credits = **(credits / sec) ×`duration`**. Source clips of 0.7 to 15 seconds are edited from a text instruction.
@@ -170,7 +189,8 @@ Bria Generative Fill| 9.05 / run
 Bria Eraser| 6.03 / run  
 Bria Expand Image| 6.03 / run  
 Bria Increase Resolution| 6.03 / run  
-Bria FIBO Image Edit| 8.44 / run  
+Bria FIBO 2.0 Image Edit| 12.07 / run  
+Bria FIBO 2.0 Image Generate| 12.07 / run  
 Bria Remove Image Background| 3.8 / run  
 Bria Erase by Text| 12.07 / run  
 Bria Add Object| 12.07 / run  
@@ -597,6 +617,20 @@ HeyGen Video 1.0 Image to Video| 2K| 13.58 / sec
   
 Avatar video bills per second at the rate of the selected avatar look’s type (Digital Twin, Photo Avatar, or Studio Avatar). **Auto** picks the engine per look, so its rate spans the full range above; a custom avatar ID is billed by its own type. HeyGen Video 1.0 clips run from 5 to 15 seconds and bill at the rate of the selected resolution. Reference to Video uses the no-reference rate until a reference image or video is connected, and each reference video adds 5 seconds to the billed duration. **2K** output requires the `16:9` or `9:16` aspect ratio; `auto` works at 2K only when no reference media is connected.
 
+## 
+
+​
+
+Higgsfield
+
+Total credits = **(credits / sec) × video duration**. The source video must be at least 4 seconds; only the first 30 seconds are used.
+
+Node| model| resolution| Credits / sec  
+---|---|---|---  
+Higgsfield Genjutsu Motion Transfer| genjutsu-v1.0| 480p| 95.95  
+Higgsfield Genjutsu Motion Transfer| genjutsu-v1.0| 720p| 205.48  
+Higgsfield Genjutsu Motion Transfer| genjutsu-v1.0| 1080p| 492.42  
+  
 ## 
 
 ​
@@ -1322,9 +1356,9 @@ Quiver
 
 Image
 
-**arrow-1.1** models charge a fixed amount per run:
+The retired **arrow-1.1** models charged a fixed amount per run:
 
-**Deprecated** : Quiver retires the Arrow 1-series models on **October 16, 2026**. **Text to SVG** and **Image to SVG** stop working with `arrow-1.1`, `arrow-1.1-max`, and `arrow-preview` after that date; use the Arrow 2 models instead.
+**Deprecated** : Quiver retired the Arrow 1-series models on **October 16, 2026** , and the Text to SVG and Image to SVG nodes no longer list `arrow-1.1`, `arrow-1.1-max`, or `arrow-preview`. Use the Arrow 2 models instead. The pricing below is retained for reference only.
 
 model| Node| Credits / run  
 ---|---|---  
@@ -1958,26 +1992,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/pricing.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/pricing)
 
-[Partner NodesPrevious](https://docs.comfy.org/tutorials/partner-nodes/overview)[Concurrency LimitsNext](https://docs.comfy.org/tutorials/partner-nodes/concurrency-limits)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Overview](https://docs.comfy.org/tutorials/partner-nodes/overview)[Concurrency Limits](https://docs.comfy.org/tutorials/partner-nodes/concurrency-limits)

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/managed-io-kafka/
 title: Dataflow managed I/O for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:15.447169+00:00
+fetched_at: 2026-10-23T16:52:35.267424+00:00
 ---
 
 # Dataflow managed I/O for Apache Kafka  |  Google Cloud Documentation

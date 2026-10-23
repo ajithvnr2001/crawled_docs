@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/logs/logpush/
 title: Logpush \u00b7 Cloudflare Logs docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:10.081737+00:00
+fetched_at: 2026-10-23T16:40:05.088077+00:00
 ---
 
 # Logpush · Cloudflare Logs docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-08T07:12:10.081737+00:00
 
 # Logpush
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/logs/logpush/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/logs/logpush/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewEstimating log volume Quick sizing for HTTP Requests Daily storage by traffic volumeLimitsAvailability
+OverviewEstimating log volume Quick sizing for HTTP RequestsLimitsAvailability
 
 Logpush delivers logs in batches as quickly as possible, with no minimum batch size, potentially delivering files more than once per minute. This capability enables Cloudflare to provide information almost in real time, in smaller file sizes.
 
@@ -35,28 +35,24 @@ Cloudflare Logpush supports pushing logs to storage services, SIEMs, and log man
 
 ## Estimating log volume
 
-Before setting up a Logpush job, you can estimate the total volume of data that will be pushed to your destination. The volume depends on your traffic, selected fields, and compression.
+Before setting up a Logpush job, you can estimate the total volume of data that will be pushed to your destination. The volume depends on your traffic, the dataset, and the fields you select.
+
+Logpush usage is measured in uncompressed bytes delivered, so estimate with uncompressed record sizes. For rates and included usage, refer to [Pricing](https://developers.cloudflare.com/logs/logpush/pricing/).
 
 ### Quick sizing for HTTP Requests
 
-A quick sizing estimate for an [HTTP Requests](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/zone/http_requests/) dataset:
+An [HTTP Requests](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/zone/http_requests/) record is about 1.5–3 kB uncompressed, depending on the fields selected. Each request produces one record, including Worker subrequests.
 
-  * ~100–250 bytes per request (compressed, depending on fields selected)
-  * 1M requests/day → ~100–250 MB/day
-  * 30M requests/month → ~3–7.5 GB/month
-
-
-
-### Daily storage by traffic volume
-
-  * 100k req/day → ~25–50 MB/day
-  * 1M req/day → ~250–500 MB/day
-  * 10M req/day → ~2.5–5 GB/day
-  * 100M req/day → ~25–50 GB/day
+  * 100k requests/day → ~150–300 MB/day
+  * 1M requests/day → ~1.5–3 GB/day, or ~45–90 GB/month
+  * 10M requests/day → ~15–30 GB/day
+  * 100M requests/day → ~150–300 GB/day
 
 
 
-These ranges reflect field selection, compression, and whether you include extra fields or [custom fields](https://developers.cloudflare.com/logs/logpush/logpush-job/custom-fields/). Other datasets (Firewall, Workers, Load Balancing) add volume separately.
+Files arrive at your destination gzip-compressed, so they use roughly a tenth of the storage that the uncompressed volume suggests.
+
+Extra fields and [custom fields](https://developers.cloudflare.com/logs/logpush/logpush-job/custom-fields/) increase record size. Other datasets (Firewall, Workers, Load Balancing) add volume separately. For average record sizes by dataset, refer to [Log Explorer pricing](https://developers.cloudflare.com/observability/logs/log-explorer/pricing/#record-size-by-dataset).
 
 For precise estimates, you can [sample your logs via Logpull](https://developers.cloudflare.com/logs/logpull/additional-details/#estimating-daily-data-volume) using a 1-hour sample.
 

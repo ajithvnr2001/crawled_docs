@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/api/send-emails/workers-api/
 title: Email Sending Workers API \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:31.168924+00:00
+fetched_at: 2026-10-23T16:40:06.960676+00:00
 ---
 
 # Email Sending Workers API · Cloudflare Email Service docs
@@ -22,7 +22,7 @@ API
 
 # Email Sending Workers API
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/api/send-emails/workers-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEmail bindingsend() method Interface Basic usage AttachmentsError handlingError codesLegacy EmailMessage APINext steps
 
@@ -201,6 +201,7 @@ Error code | Description | Common causes
 `E_SENDER_NOT_VERIFIED` | Sender domain not verified | Attempting to send from unverified domain  
 `E_RECIPIENT_NOT_ALLOWED` | Recipient not in allowed list | Recipient address not in `allowed_destination_addresses`  
 `E_RECIPIENT_SUPPRESSED` | Suppressed recipient while dropping is off | At least one recipient is suppressed and **Drop suppressed recipients** is off  
+`E_ACCOUNT_SUSPENDED` | Email Sending is paused for the account | Account paused because of poor sending reputation  
 `E_SENDER_DOMAIN_NOT_AVAILABLE` | Domain not available for sending | Domain not onboarded to Email Service  
 `E_CONTENT_TOO_LARGE` | Email content exceeds size limit | Total message size exceeds the maximum  
 `E_DELIVERY_FAILED` | Could not deliver the email | SMTP delivery failure, recipient server rejection  

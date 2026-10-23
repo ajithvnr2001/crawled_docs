@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/migrate/move-side-by-side/
 title: Move sandboxes side by side \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T06:59:26.484783+00:00
+fetched_at: 2026-10-23T16:39:52.894514+00:00
 ---
 
 # Move sandboxes side by side · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-14T06:59:26.484783+00:00
 
 # Move sandboxes side by side
 
-Last updated Oct 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/move-side-by-side/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you startAdd the 1.0 classCheck the moveDelete the 0.12 classRelated resources
 
@@ -201,8 +201,16 @@ src/index.tsts
          
          		if (await stub0x.isRunning()) {
          			const legacy = getSandbox(this.env.Sandbox, name);
+         			// Stop the background processes, so no file changes during the copy.
+         			await legacy.killAllProcesses();
+         
          			const path = "/tmp/workspace.tar.gz";
-         			await legacy.exec(`tar -czf ${path} -C /workspace .`);
+         			const packed = await legacy.exec(`tar -czf ${path} -C /workspace .`);
+         
+         			if (!packed.success) {
+         				throw new Error(packed.stderr);
+         			}
+         
          			const archive = await legacy.readFile(path, {
          				encoding: "base64",
          			});
@@ -219,9 +227,9 @@ src/index.tsts
          				throw new Error(stderr);
          			}
          
-         			await this.ctx.storage.put("moved", true);
          			// destroy() would delete named tunnels and DNS records.
          			await legacy.stop();
+         			await this.ctx.storage.put("moved", true);
          			return;
          		}
          
@@ -229,9 +237,11 @@ src/index.tsts
          	}
          }
 
-`ensureRunning()` and `container` are the helpers from your 1.0 class that start the container and return `this.ctx.container`. The method copies the 0.12 storage first, so preview URLs, named tunnels, and outbound rules move even when the 0.12 container has stopped. If the copy fails, the method throws before it stores `moved` or stops the 0.12 container, and the next request runs the copy again.
+`ensureRunning()` and `container` are the helpers from your 1.0 class that start the container and return `this.ctx.container`. The method copies the 0.12 storage first, so preview URLs, named tunnels, and outbound rules move even when the 0.12 container has stopped. If the copy or `stop()` fails, the method throws before it stores `moved`, and the next request runs the move again.
 
-0.12 `stop()` keeps the storage of the 0.12 class, and the tunnels and DNS records in your account. 0.12 `destroy()` deletes the preview tokens, the tunnel entries, and each named tunnel with its DNS record. Processes end with the 0.12 container, so start the ones your application needs in the 1.0 container, as [Move background processes](https://developers.cloudflare.com/sandbox/sdk/migrate/background-processes/#start-processes-again-after-the-switch) describes. To start the same commands, read them from `legacy.listProcesses()` before `stop()`.
+The copy holds the files as they are when `tar` runs. `killAllProcesses()` stops the processes that 0.12 `startProcess()` started. A command that another request runs through 0.12 can still write files, so send no other requests to the 0.12 class for the sandbox while it moves. Requests that go through `sandboxFor()` in the next step wait for the move.
+
+0.12 `stop()` keeps the storage of the 0.12 class, and the tunnels and DNS records in your account. 0.12 `destroy()` deletes the preview tokens, the tunnel entries, and each named tunnel with its DNS record. Processes end with the 0.12 container, so start the ones your application needs in the 1.0 container, as [Move background processes](https://developers.cloudflare.com/sandbox/sdk/migrate/background-processes/#start-processes-again-after-the-switch) describes. To start the same commands, read them from `legacy.listProcesses()` before `killAllProcesses()`.
 
   6. Send every request through the move. Add this function to your Worker, and replace each `getSandbox(env.Sandbox, name)` call with `await sandboxFor(env, name)`:
 
@@ -244,6 +254,8 @@ src/index.tsts
          }
 
 New sandboxes start on the 1.0 class, because no 0.12 container runs for their names.
+
+Pass the name that 0.12 used. If your Worker passed `normalizeId: true` to `getSandbox()`, lowercase the name before you call `sandboxFor()`, so that both classes use the 0.12 Durable Object of the sandbox.
 
   7. Generate types, and deploy:
 

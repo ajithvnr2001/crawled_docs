@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deep-learning-containers/docs/getting-started-local/
 title: Get started with a local deep learning container \u00a0|\u00a0 Deep Learning Containers \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:40:51.752113+00:00
+fetched_at: 2026-10-23T16:52:20.834463+00:00
 ---
 
 # Get started with a local deep learning container  |  Deep Learning Containers  |  Google Cloud Documentation

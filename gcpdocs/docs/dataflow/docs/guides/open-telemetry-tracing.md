@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/open-telemetry-tracing/
 title: Use OpenTelemetry distributed tracing in Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:15.035248+00:00
+fetched_at: 2026-10-23T16:52:35.950414+00:00
 ---
 
 # Use OpenTelemetry distributed tracing in Dataflow  |  Google Cloud Documentation

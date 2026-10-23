@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/report-and-page-layout/
 title: Report and page layout \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:40.993885+00:00
+fetched_at: 2026-10-23T16:53:07.044359+00:00
 ---
 
 # Report and page layout  |  Data Studio  |  Google Cloud Documentation

@@ -1,0 +1,786 @@
+---
+url: https://developers.cloudflare.com/agents/tools/browser/
+title: Browser \u00b7 Cloudflare Agents docs
+method: scrapling+scrapegraph
+fetched_at: 2026-10-23T16:40:00.136383+00:00
+---
+
+# Browser · Cloudflare Agents docs
+
+> Source: https://developers.cloudflare.com/agents/tools/browser/
+
+  1. [Home](https://developers.cloudflare.com/)
+  2. /[Agents](https://developers.cloudflare.com/agents/)
+  3. /Tools
+  4. /Browser
+
+
+
+# Browser
+
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/tools/browser/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+
+OverviewReturn to the same browser Use it with Pi Durable Tabs, logins, and interruptions Use another harnessLive View and human takeover Hand off to a person Close the browserRecordingCDP APIRead pages without a browserLegacy browser tools Basic pattern Configuration Session lifecycle Host-side helpers Approval and human handoff Legacy CDP methods Session recording Kitesurf Quick Action tools Browser agent exampleRelated resources
+
+Give your agent a browser it can return to on later turns. [Browser Run](https://developers.cloudflare.com/browser-run/) keeps the remote browser open, so your agent can continue from the same page with its tabs, cookies, and login session intact while the browser session remains alive.
+
+Use browser tools to interact with websites, inspect pages rendered with JavaScript, or capture screenshots.
+
+## Return to the same browser
+
+A research assistant can open a dashboard, inspect a report, and return to that page on a later turn. The `Browser` class keeps the remote browser session open between tool calls, including its tabs, cookies, and logins. The `browserTool` adapters let your harness use that browser through the [Chrome DevTools Protocol (CDP)](https://developers.cloudflare.com/browser-run/cdp/).
+
+The browser runs outside your agent's Durable Object. The object saves its session identifier and reconnects after hibernation, as long as the browser session is still alive. By default, an idle browser stays alive for up to 10 minutes. This does not save a browser permanently: expiry or a crash loses its tabs, cookies, and login state.
+
+### Use it with Pi Durable
+
+Start with a [Pi Durable agent](https://developers.cloudflare.com/agents/harnesses/pi/). Install the browser runtime alongside the Pi packages:
+
+npmyarnpnpmbun
+    
+    
+    npm i agents @cloudflare/codemode @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord
+    
+    
+    yarn add agents @cloudflare/codemode @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord
+    
+    
+    pnpm add agents @cloudflare/codemode @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord
+    
+    
+    bun add agents @cloudflare/codemode @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord
+
+This example installs a `Browser` and `PiHarness` on a plain Durable Object. Pi chooses when to call the browser tool. [Lifecycle](https://developers.cloudflare.com/agents/runtime/lifecycle/) starts both components and provides their storage.
+
+src/index.jsjs
+    
+    
+    import { DurableObject } from "cloudflare:workers";
+    import { createModels } from "@earendil-works/pi-ai/models";
+    import { createRegistry, Harness } from "@earendil-works/pi-durable";
+    import { Browser, browserRun } from "agents/browser";
+    import { browserTool } from "agents/browser/pi";
+    import { PiHarness } from "agents/harness/pi";
+    import { Lifecycle } from "agents/lifecycle";
+    import { createAI } from "agents/models/pi-ai";
+    
+    export { CodemodeRuntime } from "agents/browser";
+    
+    export class BrowserAssistant extends DurableObject {
+    	ai = createAI({ binding: this.env.AI });
+    	browser = new Browser({ provider: browserRun(this.env.BROWSER) });
+    	registry = createRegistry();
+    
+    	harness = new PiHarness({
+    		harness: ({ storage, context, onWake }) => {
+    			const models = createModels();
+    			models.setProvider(this.ai.provider);
+    			this.registry.install({
+    				name: "browser",
+    				tools: [
+    					browserTool({
+    						ctx: this.ctx,
+    						browser: this.browser,
+    						loader: this.env.LOADER,
+    					}),
+    				],
+    			});
+    			return Harness.open(
+    				storage,
+    				{ models, registry: this.registry, onWake },
+    				context,
+    			);
+    		},
+    		defaults: { model: this.ai("@cf/zai-org/glm-5.3-flash") },
+    	});
+    
+    	lifecycle = Lifecycle.install(this).use(this.browser).use(this.harness);
+    
+    	async ask(prompt) {
+    		const { text } = await this.harness.prompt(prompt);
+    		return text;
+    	}
+    }
+    
+    export default {
+    	async fetch(request, env) {
+    		const assistant = env.BrowserAssistant.getByName("demo");
+    		const text = await assistant.ask(await request.text());
+    		return Response.json({ text });
+    	},
+    };
+
+src/index.tsts
+    
+    
+    import { DurableObject } from "cloudflare:workers";
+    import { createModels } from "@earendil-works/pi-ai/models";
+    import { createRegistry, Harness } from "@earendil-works/pi-durable";
+    import { Browser, browserRun } from "agents/browser";
+    import { browserTool } from "agents/browser/pi";
+    import { PiHarness } from "agents/harness/pi";
+    import { Lifecycle } from "agents/lifecycle";
+    import { createAI } from "agents/models/pi-ai";
+    
+    export { CodemodeRuntime } from "agents/browser";
+    
+    export class BrowserAssistant extends DurableObject<Env> {
+    	ai = createAI({ binding: this.env.AI });
+    	browser = new Browser({ provider: browserRun(this.env.BROWSER) });
+    	registry = createRegistry();
+    
+    	harness = new PiHarness({
+    		harness: ({ storage, context, onWake }) => {
+    			const models = createModels();
+    			models.setProvider(this.ai.provider);
+    			this.registry.install({
+    				name: "browser",
+    				tools: [
+    					browserTool({
+    						ctx: this.ctx,
+    						browser: this.browser,
+    						loader: this.env.LOADER,
+    					}),
+    				],
+    			});
+    			return Harness.open(
+    				storage,
+    				{ models, registry: this.registry, onWake },
+    				context,
+    			);
+    		},
+    		defaults: { model: this.ai("@cf/zai-org/glm-5.3-flash") },
+    	});
+    
+    	lifecycle = Lifecycle.install(this).use(this.browser).use(this.harness);
+    
+    	async ask(prompt: string) {
+    		const { text } = await this.harness.prompt(prompt);
+    		return text;
+    	}
+    }
+    
+    export default {
+    	async fetch(request: Request, env: Env) {
+    		const assistant = env.BrowserAssistant.getByName("demo");
+    		const text = await assistant.ask(await request.text());
+    		return Response.json({ text });
+    	},
+    } satisfies ExportedHandler<Env>;
+
+The example uses one named assistant for demonstration. In an application, choose an object name for each authenticated user or workspace.
+
+Configure the model, browser, Worker Loader, and Durable Object bindings:
+    
+    
+    {
+    	"name": "persistent-browser-agent",
+    	"main": "src/index.ts",
+    	// Set this to today's date
+    	"compatibility_date": "2026-10-23",
+    	"compatibility_flags": ["nodejs_compat"],
+    	"ai": { "binding": "AI" },
+    	"browser": { "binding": "BROWSER" },
+    	"worker_loaders": [{ "binding": "LOADER" }],
+    	"durable_objects": {
+    		"bindings": [{ "name": "BrowserAssistant", "class_name": "BrowserAssistant" }],
+    	},
+    	"migrations": [{ "tag": "v1", "new_sqlite_classes": ["BrowserAssistant"] }],
+    }
+    
+    
+    name = "persistent-browser-agent"
+    main = "src/index.ts"
+    # Set this to today's date
+    compatibility_date = "2026-10-23"
+    compatibility_flags = [ "nodejs_compat" ]
+    
+    [ai]
+    binding = "AI"
+    
+    [browser]
+    binding = "BROWSER"
+    
+    [[worker_loaders]]
+    binding = "LOADER"
+    
+    [[durable_objects.bindings]]
+    name = "BrowserAssistant"
+    class_name = "BrowserAssistant"
+    
+    [[migrations]]
+    tag = "v1"
+    new_sqlite_classes = [ "BrowserAssistant" ]
+
+Generate the `Env` type with [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/general/#types). The `LOADER` binding runs model-written browser code in a sandbox. The `CodemodeRuntime` export makes that runtime available to the Worker.
+
+To try persistence, send two prompts to the same assistant within the browser's idle timeout:
+    
+    
+    curl http://localhost:8787 --data 'Open https://example.com and tell me the page title.'
+    curl http://localhost:8787 --data 'Take a screenshot of the page you already opened without navigating again.'
+
+The second turn can use the existing tab. Pi stores a returned screenshot as an image in the tool result. An image-capable model can see it, and a UI can display it from the transcript. This example's HTTP response only returns the final text; refer to [Pi event streaming](https://developers.cloudflare.com/agents/harnesses/pi/#stream-events-to-clients) to build a UI.
+
+### Tabs, logins, and interruptions
+
+Each Pi conversation gets its own active tab by default. Sessions, forks, and subagents can work on different pages, but cookies and logins remain shared within the `Browser`. A tab scope is not a separate browser profile. Use separate browsers when users need separate login sessions.
+
+Within a conversation, browser calls run sequentially. The model can use `sessionId: "active"` in its CDP commands to return to its active tab. To share a tab deliberately, pass the same `scope` string to the Pi tools.
+
+If a browser expires, closes, or crashes, the next use creates a replacement. A returning scope receives `restarted: true` in the result, indicating that its previous browser state is gone. The tool runs against the new browser; it does not restore the old session.
+
+Pi does not automatically replay a browser call interrupted by eviction: repeating it could submit a form or click a button twice. The model receives an interrupted result and can decide how to continue. Stopping a conversation does not cancel a browser call already running. The call finishes or reaches `timeoutMs`, which defaults to 60 seconds.
+
+Set `keepAliveMs`, `recording`, and hostname `guardrails` on `browserRun(binding, options)`. From your application, call `browser.liveView()` to let a person inspect or control the same browser, and `browser.close()` to close it. The persistent browser currently supports Browser Run's Chromium engine.
+
+### Use another harness
+
+The same `Browser` instance works with the AI SDK and TanStack AI adapters. Pass `ctx` when using a plain Durable Object, as in the Pi example.
+
+Harness | Import | Usage  
+---|---|---  
+Pi Durable | `browserTool` from `agents/browser/pi` | Install in a Pi registry extension's `tools` array.  
+AI SDK | `browserTool` from `agents/browser/ai-sdk` | Add to the `tools` object passed to `generateText` or `streamText`.  
+TanStack AI | `browserTool` from `agents/browser/tanstack-ai` | Add to the `tools` array passed to `chat`.  
+  
+For example, create an AI SDK tool inside your Durable Object:
+    
+    
+    import { browserTool } from "agents/browser/ai-sdk";
+    
+    const tools = {
+    	browser: browserTool({
+    		ctx: this.ctx,
+    		browser: this.browser,
+    		loader: this.env.LOADER,
+    		scope: conversationId,
+    	}),
+    };
+    // Pass tools to generateText() or streamText().
+    
+    
+    import { browserTool } from "agents/browser/ai-sdk";
+    
+    const tools = {
+    	browser: browserTool({
+    		ctx: this.ctx,
+    		browser: this.browser,
+    		loader: this.env.LOADER,
+    		scope: conversationId,
+    	}),
+    };
+    // Pass tools to generateText() or streamText().
+
+Unlike Pi, the AI SDK and TanStack AI adapters share one active tab when `scope` is omitted. Pass your conversation identifier to give each conversation its own active tab. The AI SDK adapter exposes screenshots to your UI and sends the model a text summary. TanStack AI omits screenshots and directs the model to read page content instead.
+
+For a custom harness, use `Browser.connect({ scope })` from your tool implementation. It returns a CDP connection, the active tab identifier, and a `restarted` flag. Use `setActiveTarget()` to remember a tab and `cdp.disconnect()` to release the connection without closing the browser.
+
+## Live View and human takeover
+
+[Live View](https://developers.cloudflare.com/browser-run/features/live-view/) lets a person watch or control a running browser in real time. Use it when a step needs a human, such as a login, multi-factor authentication (MFA), a CAPTCHA, or sensitive input.
+
+### Hand off to a person
+
+Call `browser.liveView()` from your application to get links into the same browser the model uses. It lists every open tab in the `Browser`, across all scopes. It does not start a browser: it returns `undefined` when no browser is open, or when the browser has closed or expired.
+
+For example, add a method to the Durable Object that returns the browser's web pages and their Live View links. Call it from your Worker after you authenticate the user:
+    
+    
+    export class BrowserAssistant extends DurableObject {
+    	// Browser, harness, and lifecycle as in the Pi Durable example.
+    
+    	async getLiveView() {
+    		const view = await this.browser.liveView({ mode: "tab" });
+    		if (!view) {
+    			return [];
+    		}
+    
+    		return view.targets
+    			.filter((tab) => tab.pageUrl?.startsWith("http"))
+    			.map((tab) => ({
+    				title: tab.title,
+    				pageUrl: tab.pageUrl,
+    				liveViewUrl: tab.url,
+    			}));
+    	}
+    }
+    
+    
+    export class BrowserAssistant extends DurableObject<Env> {
+    	// Browser, harness, and lifecycle as in the Pi Durable example.
+    
+    	async getLiveView() {
+    		const view = await this.browser.liveView({ mode: "tab" });
+    		if (!view) {
+    			return [];
+    		}
+    
+    		return view.targets
+    			.filter((tab) => tab.pageUrl?.startsWith("http"))
+    			.map((tab) => ({
+    				title: tab.title,
+    				pageUrl: tab.pageUrl,
+    				liveViewUrl: tab.url,
+    			}));
+    	}
+    }
+
+`browser.liveView()` returns an object with the following fields:
+
+Field | Description  
+---|---  
+`sessionId` | The Browser Run session ID.  
+`targets` | One entry per open tab, with its `targetId`, its Live View `url`, and the tab's current `pageUrl`, `title`, and `type`.  
+`expiresInMs` | How long the Live View URLs remain valid for starting a connection, about five minutes.  
+  
+Pass `mode: "tab"` for an interactive page view, or `mode: "devtools"` for the full DevTools inspector. Omit `mode` to use the default view from Browser Run.
+
+`browserTool` does not pause a run while a person acts. Hand off between turns instead:
+
+  1. The model reaches a step it cannot complete, such as a login page, and asks the user for help.
+  2. Your application calls `browser.liveView()` and shows the link to the user.
+  3. The user completes the step in Live View.
+  4. On the next turn, the model continues in the same browser, with the new cookies and login in place.
+
+
+
+If the person closes the model's active tab, the model's next result says that the tab was closed.
+
+Caution
+
+Live View URLs are bearer credentials. Anyone with a link can control the browser, including the sites it is logged in to. Show the links only to trusted, authenticated users. Do not give them to the model, and do not store them. Call `browser.liveView()` again to create fresh links.
+
+### Close the browser
+
+Call `browser.close()` to end the browser. It deletes the Browser Run session and returns `false` if no browser was open. The next use of the `Browser` starts a new browser, and each scope that worked in the old browser receives `restarted: true`.
+    
+    
+    await this.browser.close();
+    
+    
+    await this.browser.close();
+
+## Recording
+
+[Session recording](https://developers.cloudflare.com/browser-run/features/session-recording/) captures a Browser Run session as structured rrweb events: DOM changes, input, and navigation, not video. Use recordings to audit or debug what an agent did in its browser.
+
+To turn on recording, set `recording: true` in the provider options:
+    
+    
+    export class BrowserAssistant extends DurableObject {
+    	browser = new Browser({
+    		provider: browserRun(this.env.BROWSER, { recording: true }),
+    	});
+    }
+    
+    
+    export class BrowserAssistant extends DurableObject<Env> {
+    	browser = new Browser({
+    		provider: browserRun(this.env.BROWSER, { recording: true }),
+    	});
+    }
+
+The option applies to every browser the `Browser` creates, including replacements after a restart. Each Browser Run session has its own recording. A recording is finalized when its session closes, after `browser.close()` or when the browser is idle for longer than `keepAliveMs`.
+
+Note the Browser Run session ID while the browser is open, then fetch the recording after the browser closes:
+    
+    
+    import { getBrowserRecording } from "agents/browser";
+    
+    // While the browser is open. resolve() starts a browser if none is open.
+    const { sessionId } = await this.browser.resolve();
+    
+    // After the browser closes:
+    const recording = await getBrowserRecording({
+    	accountId: this.env.CF_ACCOUNT_ID,
+    	apiToken: this.env.CF_API_TOKEN,
+    	sessionId,
+    });
+    // recording.events holds one rrweb event array per tab, keyed by target ID.
+    
+    
+    import { getBrowserRecording } from "agents/browser";
+    
+    // While the browser is open. resolve() starts a browser if none is open.
+    const { sessionId } = await this.browser.resolve();
+    
+    // After the browser closes:
+    const recording = await getBrowserRecording({
+    	accountId: this.env.CF_ACCOUNT_ID,
+    	apiToken: this.env.CF_API_TOKEN,
+    	sessionId,
+    });
+    // recording.events holds one rrweb event array per tab, keyed by target ID.
+
+`getBrowserRecording()` uses the Browser Run REST API, so it needs your account ID and an API token with access to Browser Run. The Workers binding cannot read recordings. Recordings are retained for 30 days and capped at two hours per session.
+
+Caution
+
+A persistent browser's recording spans every turn and every scope that shares the `Browser`, until that browser closes. If several users share one `Browser`, one recording can include all of their activity. rrweb masks input fields by default, but treat every recording as sensitive.
+
+## CDP API
+
+Model code runs in a sandbox with a `cdp` object. Methods with arguments take a single object:
+
+Method | Description  
+---|---  
+`cdp.send({ method, params?, sessionId?, timeoutMs? })` | Send a CDP command and return its result.  
+`cdp.attachToTarget({ targetId, timeoutMs? })` | Attach to a tab and return `{ sessionId }`, a handle for page-scoped `send` calls.  
+`cdp.spec()` | Return the searchable, normalized CDP protocol description from the live browser.  
+`cdp.getDebugLog({ limit? })` | Return recent CDP traffic, including sends, receives, and warnings, for this run.  
+`cdp.clearDebugLog()` | Clear the debug log.  
+  
+The `cdp` object also follows these rules:
+
+  * `sessionId: "active"` addresses the scope's active tab. `Browser.*` and `Target.*` commands take no `sessionId`.
+  * `cdp.attachToTarget()` makes the tab active. Its handle keeps working in later runs.
+  * The model cannot send `Browser.close` or `Browser.crash`, because your application owns the browser. To close a tab, the model sends `Target.closeTarget`.
+  * A single `cdp.send` result over 1 MB fails the run. To capture a long page, take a viewport screenshot or use JPEG.
+
+
+
+## Read pages without a browser
+
+To read a page or document at a known URL, use the [`web_fetch` tool](https://developers.cloudflare.com/agents/tools/web-fetch/) instead of a browser. It does not start a browser, so each read is a single HTTP request. It also converts PDFs and Office documents to Markdown and splits long pages into parts the model can read in turn.
+
+Use `browserTool` when the page needs a browser:
+
+  * The page renders its content with JavaScript.
+  * The page needs a login, or the model must click, type, or move through several pages.
+  * The agent must return to the same page, tabs, or session on a later turn.
+  * You need a screenshot of the page.
+
+
+
+## Legacy browser tools
+
+`createBrowserTools` and `createBrowserRuntime` from `agents/browser/ai` are still supported, but they are legacy. The same applies to `createBrowserTools` from `agents/browser/tanstack-ai` and to the [Think browser tools](https://developers.cloudflare.com/agents/harnesses/think/tools/) in `@cloudflare/think/tools/browser`, which are built on them. New code should use `Browser` with `browserTool`.
+
+You might still use the legacy tools for the following:
+
+  * **Your own browser.** Connect to a CDP endpoint you manage with `cdpUrl`. `Browser` supports only Browser Run's Chromium engine.
+  * **Kitesurf.** A [Kitesurf](https://developers.cloudflare.com/browser-run/kitesurf/) browser lives only as long as its CDP WebSocket, so it cannot be a persistent browser.
+  * **Approval or human handoff within a run.** The [durable Code Mode runtime](https://developers.cloudflare.com/agents/tools/codemode/how-it-works/) can pause a run for approval and resume it with the browser session intact. `browserTool` does not pause runs.
+
+
+
+You do not need the legacy tools to get a fresh browser for each run. With `browserTool`, call `browser.close()` after a turn, or set a short `keepAliveMs`, so the next run starts a new browser. To read a page without a browser, use the [`web_fetch` tool](https://developers.cloudflare.com/agents/tools/web-fetch/).
+
+### Basic pattern
+
+Create browser tools with the Browser Run and Worker Loader bindings, then pass those tools to your model call. The model writes code against the CDP API in the `browser_execute` tool.
+    
+    
+    import { AIChatAgent } from "@cloudflare/ai-chat";
+    import { createBrowserTools } from "agents/browser/ai";
+    import { streamText, convertToModelMessages, stepCountIs } from "ai";
+    import { createAI } from "agents/models/ai-sdk";
+    
+    export class BrowserAgent extends AIChatAgent {
+    	async onChatMessage() {
+    		const ai = createAI({ binding: this.env.AI });
+    		const browserTools = createBrowserTools({
+    			ctx: this.ctx,
+    			browser: this.env.BROWSER,
+    			loader: this.env.LOADER,
+    		});
+    
+    		const result = streamText({
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
+    			system: "You can inspect web pages with browser tools.",
+    			messages: await convertToModelMessages(this.messages),
+    			tools: browserTools,
+    			stopWhen: stepCountIs(10),
+    		});
+    
+    		return result.toUIMessageStreamResponse();
+    	}
+    }
+    
+    
+    import { AIChatAgent } from "@cloudflare/ai-chat";
+    import { createBrowserTools } from "agents/browser/ai";
+    import { streamText, convertToModelMessages, stepCountIs } from "ai";
+    import { createAI } from "agents/models/ai-sdk";
+    
+    export class BrowserAgent extends AIChatAgent<Env> {
+    	async onChatMessage() {
+    		const ai = createAI({ binding: this.env.AI });
+    		const browserTools = createBrowserTools({
+    			ctx: this.ctx,
+    			browser: this.env.BROWSER,
+    			loader: this.env.LOADER,
+    		});
+    
+    		const result = streamText({
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
+    			system: "You can inspect web pages with browser tools.",
+    			messages: await convertToModelMessages(this.messages),
+    			tools: browserTools,
+    			stopWhen: stepCountIs(10),
+    		});
+    
+    		return result.toUIMessageStreamResponse();
+    	}
+    }
+
+Browser tools must be created from inside a Durable Object, such as an Agent. The durable runtime facet and the session store live on its `ctx`. The helper exposes one durable CDP tool plus stateless Quick Action tools when a `browser` binding is present:
+
+Tool | Description  
+---|---  
+`browser_execute` | Run sandboxed code against a live browser over CDP — screenshots, DOM reads, JavaScript evaluation, and more.  
+`browser_markdown` | Read a page or raw HTML as Markdown.  
+`browser_extract` | Extract structured data from a page with AI.  
+`browser_links` | List links on a page.  
+`browser_scrape` | Scrape specific elements by CSS selector.  
+  
+The TanStack AI `createBrowserTools` returns only `browser_execute`. To discover protocol surface, the model calls `cdp.spec()` or the runtime's built-in [`codemode.search()` and `codemode.describe()`](https://developers.cloudflare.com/agents/tools/codemode/api-reference/#sandbox-codemode-api).
+
+### Configuration
+
+The legacy tools use the same `BROWSER` and `LOADER` bindings and the same `CodemodeRuntime` export as `browserTool`. Refer to Use it with Pi Durable for the Wrangler configuration. The `@cloudflare/codemode/vite` plugin adds the `CodemodeRuntime` export automatically.
+
+`createBrowserTools` and `createBrowserRuntime` accept the following options:
+
+Option | Default | Description  
+---|---|---  
+`browser` | — | Browser Run binding.  
+`cdpHeaders` | — | Headers for CDP URL discovery, such as Cloudflare Access headers.  
+`cdpUrl` | — | A custom CDP endpoint. Takes priority over `browser` when both are set.  
+`ctx` | The current Agent's state | The Durable Object that hosts the runtime facet and session store.  
+`loader` | Required | Worker Loader binding for sandboxed execution.  
+`name` | `"browser"` | Runtime name, the durable identity of executions.  
+`quickActions` | On with a `browser` binding | Quick Action tools to include. Pass `false` or `{ actions, maxChars, options }`.  
+`session` | `{ mode: "one-shot" }` | Session lifecycle mode, recording, and engine.  
+`store` | Durable Object storage | Durable store for Browser Run session IDs.  
+`timeout` | `30000` | Execution timeout in milliseconds, also used as the per-command CDP timeout.  
+  
+Provide either `browser` or `cdpUrl`. When only `cdpUrl` is set, the Quick Action tools are skipped.
+
+### Session lifecycle
+
+By default, each execution gets a fresh browser session, torn down when the run ends (`one-shot`). Pass a `session` option for two more modes:
+    
+    
+    createBrowserTools({
+    	ctx: this.ctx,
+    	browser: this.env.BROWSER,
+    	loader: this.env.LOADER,
+    	session: { mode: "dynamic" }, // or { mode: "reuse", key: "main" }
+    });
+    
+    
+    createBrowserTools({
+    	ctx: this.ctx,
+    	browser: this.env.BROWSER,
+    	loader: this.env.LOADER,
+    	session: { mode: "dynamic" }, // or { mode: "reuse", key: "main" }
+    });
+
+  * **`one-shot`** (default) — fresh session per execution; deterministic cleanup when the execution reaches a terminal status.
+  * **`reuse`** — a named shared session that persists across executions until explicitly closed or swept.
+  * **`dynamic`** — starts one-shot; the model can promote the session with `cdp.startSession()` (for example, after logging in to a page) so later executions continue in the same browser.
+
+
+
+Sessions are tracked durably in the Durable Object's storage, so they survive hibernation and approval pauses. A run that pauses for human approval resumes with its browser session, tabs, and cookies intact. If Browser Run expires the session while a pause waits, the resume surfaces a clear error and the model starts over.
+
+### Host-side helpers
+
+For host-side wiring, use `createBrowserRuntime`, which returns `{ runtime, connector, tools }`:
+    
+    
+    import { createBrowserRuntime } from "agents/browser/ai";
+    
+    const { runtime, connector, tools } = createBrowserRuntime({
+    	ctx: this.ctx,
+    	browser: this.env.BROWSER,
+    	loader: this.env.LOADER,
+    	session: { mode: "dynamic" },
+    });
+    
+    await connector.sessionInfo(); // Shared session ID and open tabs
+    await connector.liveView(); // Live View URLs for the shared session's tabs
+    await connector.closeSession(); // Close the shared session
+    await connector.sweep(); // Reclaim expired or stale sessions
+    await runtime.expirePaused(); // Reject stale pauses that were never approved
+    
+    
+    import { createBrowserRuntime } from "agents/browser/ai";
+    
+    const { runtime, connector, tools } = createBrowserRuntime({
+    	ctx: this.ctx,
+    	browser: this.env.BROWSER,
+    	loader: this.env.LOADER,
+    	session: { mode: "dynamic" },
+    });
+    
+    await connector.sessionInfo(); // Shared session ID and open tabs
+    await connector.liveView(); // Live View URLs for the shared session's tabs
+    await connector.closeSession(); // Close the shared session
+    await connector.sweep(); // Reclaim expired or stale sessions
+    await runtime.expirePaused(); // Reject stale pauses that were never approved
+
+Call `connector.sweep()` from a scheduled task. `connector.liveView()` returns the shared session's tabs and Live View URLs, with each tab's current `pageUrl`, so an agent UI can label tabs and skip blank or internal pages.
+
+### Approval and human handoff
+
+With `createBrowserRuntime`, the Code Mode runtime can pause a run with the browser session intact. A handoff follows this pattern:
+
+  1. The model calls `cdp.getLiveViewUrl()` to get a link to the current tab.
+  2. The agent surfaces the link to the user.
+  3. The model makes an approval-gated call, so the run pauses durably.
+  4. After approval, the run resumes against the same session.
+
+
+    
+    
+    async () => {
+    	const { targetId } = await cdp.send({
+    		method: "Target.createTarget",
+    		params: { url: "https://example.com/login" },
+    	});
+    
+    	const { url } = await cdp.getLiveViewUrl({ targetId, mode: "tab" });
+    	return { needsHumanLogin: url };
+    };
+    
+    
+    async () => {
+    	const { targetId } = await cdp.send({
+    		method: "Target.createTarget",
+    		params: { url: "https://example.com/login" },
+    	});
+    
+    	const { url } = await cdp.getLiveViewUrl({ targetId, mode: "tab" });
+    	return { needsHumanLogin: url };
+    };
+
+Pass `mode: "tab"` for an interactive page view, or `mode: "devtools"` for the full DevTools inspector. The URL is valid for about five minutes. Call `cdp.getLiveViewUrl()` again to create a fresh URL.
+
+Every `cdp.*` call is recorded in the runtime's durable log. If a run pauses for approval or the sandbox aborts, resuming replays the log and continues. Connector calls must therefore be sequential and deterministic. Model code must not use `Promise.all` for CDP calls, and the tool instructions enforce this. The `sessionId` from `cdp.attachToTarget()` is a stable handle that stays valid across pause and resume.
+
+### Legacy CDP methods
+
+In addition to the shared CDP API, `browser_execute` provides these methods:
+
+Method | Availability | Description  
+---|---|---  
+`cdp.getLiveViewUrl({ targetId?, mode? })` | Chromium sessions | Create a Live View URL for a tab.  
+`cdp.startSession()` | `reuse`, `dynamic` | Promote or ensure the shared session and return its info.  
+`cdp.sessionInfo()` | `reuse`, `dynamic` | Return the shared session info, or `null`.  
+`cdp.closeSession()` | `reuse`, `dynamic` | Close the shared session.  
+`cdp.resetSession()` | `reuse`, `dynamic` | Close and replace the shared session.  
+  
+### Session recording
+
+To record legacy sessions, set `recording: true` in the `session` option:
+    
+    
+    import { createBrowserRuntime } from "agents/browser/ai";
+    
+    const { connector } = createBrowserRuntime({
+    	ctx: this.ctx,
+    	browser: this.env.BROWSER,
+    	loader: this.env.LOADER,
+    	session: { mode: "reuse", key: "main", recording: true },
+    });
+    
+    
+    import { createBrowserRuntime } from "agents/browser/ai";
+    
+    const { connector } = createBrowserRuntime({
+    	ctx: this.ctx,
+    	browser: this.env.BROWSER,
+    	loader: this.env.LOADER,
+    	session: { mode: "reuse", key: "main", recording: true },
+    });
+
+A recording is finalized after the session closes. Capture the session ID with `connector.sessionInfo()` while the session is alive, then fetch the recording with `getBrowserRecording()`, as described in Recording. A recording on a shared `reuse` or `dynamic` session spans the full session lifetime, including every user that shares the session `key`.
+
+### Kitesurf
+
+To use Kitesurf with `browser_execute`, select it in the session options:
+    
+    
+    const tools = createBrowserTools({
+    	ctx: this.ctx,
+    	browser: this.env.BROWSER,
+    	loader: this.env.LOADER,
+    	session: { browser: "kitesurf" },
+    });
+    
+    
+    const tools = createBrowserTools({
+    	ctx: this.ctx,
+    	browser: this.env.BROWSER,
+    	loader: this.env.LOADER,
+    	session: { browser: "kitesurf" },
+    });
+
+A Kitesurf browser is scoped to its CDP WebSocket, so it supports only one-shot execution. Session reuse, pause and resume, Live View, recording, `keepAliveMs`, protocol discovery with `cdp.spec()`, and Kitesurf-backed Quick Actions are not available.
+
+### Quick Action tools
+
+`createQuickActionTools` from `agents/browser/ai` gives the model tools for [Browser Run Quick Actions](https://developers.cloudflare.com/browser-run/quick-actions/). Each call is a one-shot request: Browser Run loads the page in a new browser, returns the result, and closes the browser. Quick Actions need only the `browser` binding, so they do not need a Durable Object, Worker Loader, or sandbox. To read a page, prefer the [`web_fetch` tool](https://developers.cloudflare.com/agents/tools/web-fetch/).
+
+Quick Actions do not share a browser or a login with `browserTool`. A site the model logged in to with `browserTool` is not logged in for a Quick Action. To read a protected page, pass credentials such as `cookies` or `authenticate` through `options`.
+    
+    
+    import { createQuickActionTools } from "agents/browser/ai";
+    
+    const tools = createQuickActionTools({ browser: this.env.BROWSER });
+    // browser_markdown, browser_extract, browser_links, browser_scrape
+    
+    
+    import { createQuickActionTools } from "agents/browser/ai";
+    
+    const tools = createQuickActionTools({ browser: this.env.BROWSER });
+    // browser_markdown, browser_extract, browser_links, browser_scrape
+
+Pass `actions` to choose the tools, `maxChars` to bound results, and `options` for request settings:
+    
+    
+    const tools = createQuickActionTools({
+    	browser: this.env.BROWSER,
+    	maxChars: 20_000,
+    	options: { gotoOptions: { waitUntil: "networkidle0" } },
+    });
+    
+    
+    const tools = createQuickActionTools({
+    	browser: this.env.BROWSER,
+    	maxChars: 20_000,
+    	options: { gotoOptions: { waitUntil: "networkidle0" } },
+    });
+
+Every Quick Action result is bounded to `maxChars`, which defaults to 50,000 characters, to protect the model context window while preserving the result shape. Host-supplied request options, such as `cookies`, `authenticate`, `gotoOptions`, and `viewport`, are passed once through `options` and are not exposed to the model.
+
+Quick Actions require a Worker `compatibility_date` of `2026-03-24` or later and `remote: true` on the browser binding for local `wrangler dev`.
+
+### Browser agent example
+
+The browser agent example uses the legacy tools. It covers Browser Run setup, tool definitions, and screenshot capture.
+
+### [Browser agent](https://developers.cloudflare.com/agents/examples/browser-agent/)
+
+Build an agent that can browse the web, inspect pages, capture screenshots, and debug frontend issues.
+
+## Related resources
+
+### [Browser Run](https://developers.cloudflare.com/browser-run/)
+
+Run browser automation on Cloudflare.
+
+### [Chrome DevTools Protocol](https://developers.cloudflare.com/browser-run/cdp/)
+
+Use CDP commands, events, and types with Browser Run.
+
+[PreviousMCP](https://developers.cloudflare.com/agents/tools/mcp/)[NextWeb fetch](https://developers.cloudflare.com/agents/tools/web-fetch/)
+
+Was this helpful?
+
+YesNo
+
+[Edit page](https://github.com/cloudflare/cloudflare-docs/edit/production/src/content/docs/agents/tools/browser.mdx)[Report issue](https://github.com/cloudflare/cloudflare-docs/issues/new/choose)

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/manage/run-code-when-a-sandbox-stops/
 title: Run code when a sandbox stops \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:19.743090+00:00
+fetched_at: 2026-10-23T16:39:56.096103+00:00
 ---
 
 # Run code when a sandbox stops · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:19.743090+00:00
 
 # Run code when a sandbox stops
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/manage/run-code-when-a-sandbox-stops/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/manage/run-code-when-a-sandbox-stops/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesRecord each stopReasons in the recordRelated resources
 
@@ -49,7 +49,7 @@ src/index.tsts
          	stoppedAt?: number;
          }
 
-Keep the inactivity timeout longer than the check interval, so the container keeps running between alarms. While `monitor()` waits, the inactivity timeout does not start, so the alarm enforces the idle limit. If the alarms stop, the timeout still stops the container after the Durable Object leaves memory. For more information, refer to [Sandbox lifetime](https://developers.cloudflare.com/sandbox/concepts/lifetime/#activity-keeps-an-instance-running).
+Keep the inactivity timeout longer than the check interval, so the container keeps running between alarms. While `monitor()` waits, the inactivity timeout does not start, so the alarm enforces the idle limit. If the alarms stop, the timeout still stops the container after the Durable Object leaves memory. For more information, refer to [Sandbox lifetime](https://developers.cloudflare.com/sandbox/concepts/lifetime/#what-stops-an-instance).
 
   2. In `MyContainer`, add a constructor, a method that watches the container, and a method that records the stop:
 
@@ -136,7 +136,7 @@ src/index.tsts
          	async exec(argv: string[]) {
          		const container = this.ctx.container;
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		await this.reconcile();

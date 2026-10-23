@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/wrangler-mask-data/
 title: Mask data \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:38.371506+00:00
+fetched_at: 2026-10-23T16:52:12.199113+00:00
 ---
 
 # Mask data  |  Cloud Data Fusion  |  Google Cloud Documentation

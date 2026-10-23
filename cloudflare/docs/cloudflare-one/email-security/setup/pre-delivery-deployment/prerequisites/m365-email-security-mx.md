@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/email-security/setup/pre-delivery-deployment/prerequisites/m365-email-security-mx/
 title: Microsoft 365 as MX Record \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:43.410618+00:00
+fetched_at: 2026-10-23T16:39:52.681117+00:00
 ---
 
 # Microsoft 365 as MX Record · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:43.410618+00:00
 
 # Microsoft 365 as MX Record
 
-Last updated Apr 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/email-security/setup/pre-delivery-deployment/prerequisites/m365-email-security-mx/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/email-security/setup/pre-delivery-deployment/prerequisites/m365-email-security-mx/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Add Email security IP addresses to Allow List2\. Configure Enhanced Filtering Create an inbound connector Enable enhanced filtering3\. Configure anti-spam policies4\. Create transport rules5\. Set up MX/Inline6\. (Recommended) Secure Microsoft 365 from MX records bypass
 
@@ -152,7 +152,7 @@ To create the transport rules that will send emails with certain [dispositions](
 
   4. Set the following rule conditions:
 
-     * **Name** : _Email Security Deliver to Junk Email folder_.
+     * **Name** : `Email security Deliver to Junk Email folder`.
      * **Apply this rule if** : _The message headers_ > _includes any of these words_. 
        * **Enter text** : `X-CFEmailSecurity-Disposition` > **Save**.
        * **Enter words** : `BULK` > **Add** > **Save**.
@@ -171,7 +171,7 @@ To create the transport rules that will send emails with certain [dispositions](
 
   10. Set the following rule conditions:
 
-     * **Name** : `Email security Deliver to Junk Email folder`.
+     * **Name** : `Email security Admin Managed Host Quarantine`.
      * **Apply this rule if** : _The message headers_ > _includes any of these words_. 
        * **Enter text** : `X-CFEmailSecurity-Disposition` > **Save**.
        * **Enter words** : `MALICIOUS`, `UCE`, `SPOOF` > **Add** > **Save**.

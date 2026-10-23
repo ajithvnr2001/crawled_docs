@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/tools/
 title: Using the gcloud Tool to Test Applications and Manage Indexes \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:07.456086+00:00
+fetched_at: 2026-10-23T16:53:31.425782+00:00
 ---
 
 # Using the gcloud Tool to Test Applications and Manage Indexes  |  Firestore in Datastore mode  |  Google Cloud Documentation

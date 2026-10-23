@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-center/docs/filter-resources-export-fleet-inventory-information/
 title: Filter resources and export fleet inventory information \u00a0|\u00a0 Database Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:47.634237+00:00
+fetched_at: 2026-10-23T16:53:06.677131+00:00
 ---
 
 # Filter resources and export fleet inventory information  |  Database Center  |  Google Cloud Documentation

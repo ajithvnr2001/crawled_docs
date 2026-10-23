@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/api/boards/best-practices/",
   "file": "voice-agents/api/boards/best-practices.md",
-  "title": "Best practices | Sarvam API Docs",
+  "title": "Boards API best practices: endpoints and rate limits | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:04.037849+00:00",
-  "html_len": 199855,
-  "md_len": 26076,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:39:03.216038+00:00"
 }

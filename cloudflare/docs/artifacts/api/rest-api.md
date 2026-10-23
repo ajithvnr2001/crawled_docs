@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/artifacts/api/rest-api/
 title: REST API \u00b7 Artifacts \u00b7 Cloudflare Artifacts docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:20.199812+00:00
+fetched_at: 2026-10-23T16:40:01.648207+00:00
 ---
 
 # REST API · Artifacts · Cloudflare Artifacts docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:05:20.199812+00:00
 
 # REST API
 
-Last updated Aug 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/artifacts/api/rest-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/artifacts/api/rest-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBase URL and authenticationShared typesNamespaces Create a namespace List namespaces Get a namespaceRepos Create a repo List repos Get a repo Delete a repo Fork a repo Import a public HTTPS remoteRepo content Read commit history Read a commit Read a tree Read a blob Read a file Read a raw fileTokens List tokens for a repo Create a token Revoke a tokenErrorsNext steps
+OverviewBase URL and authenticationShared typesNamespaces Create a namespace List namespaces Get a namespace Delete a namespaceRepos Create a repo List repos Get a repo Delete a repo Fork a repo Import a public HTTPS remoteRepo content Read commit history Read a commit Read a tree Read a blob Read a file Read a raw fileTokens List tokens for a repo Create a token Revoke a tokenErrorsNext steps
 
 Use the Artifacts REST API to manage repos, remotes, forks, imports, and tokens from external systems.
 
@@ -202,6 +202,24 @@ Route: `GET /artifacts/namespaces/:namespace`
     curl "$ARTIFACTS_ACCOUNT_BASE_URL/namespaces/$ARTIFACTS_NAMESPACE" \
       --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
 
+### Delete a namespace
+
+Route: `DELETE /artifacts/namespaces/:namespace`
+
+The namespace must be empty before you delete it.
+    
+    
+    curl --request DELETE "$ARTIFACTS_ACCOUNT_BASE_URL/namespaces/$ARTIFACTS_NAMESPACE" \
+      --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+
+The API returns the following response status codes:
+
+Status | Description  
+---|---  
+`204` | Namespace deleted.  
+`404` | Namespace is missing or already deleted.  
+`409` | Namespace contains repositories, or activation or deletion is in progress.  
+  
 ## Repos
 
 ### Create a repo

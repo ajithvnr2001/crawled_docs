@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/deployment-strategies/canary/gke/gateway-api/
 title: Canary Deployments to GKE and GKE attached clusters using Gateway API networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:06.878993+00:00
+fetched_at: 2026-10-23T16:53:12.105463+00:00
 ---
 
 # Canary Deployments to GKE and GKE attached clusters using Gateway API networking  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/create-pipeline-java/
 title: Create a Dataflow pipeline using Java \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:27.341774+00:00
+fetched_at: 2026-10-23T16:53:35.234330+00:00
 ---
 
 # Create a Dataflow pipeline using Java  |  Google Cloud Documentation

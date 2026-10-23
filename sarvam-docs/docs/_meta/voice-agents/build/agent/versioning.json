@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/build/agent/versioning/",
   "file": "voice-agents/build/agent/versioning.md",
-  "title": "Agent versioning | Sarvam API Docs",
+  "title": "Voice agent versioning: test, deploy and roll back | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:20.833024+00:00",
-  "html_len": 143992,
-  "md_len": 18374,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:39:01.045718+00:00"
 }

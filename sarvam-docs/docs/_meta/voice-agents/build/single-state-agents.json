@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/build/single-state-agents/",
   "file": "voice-agents/build/single-state-agents.md",
-  "title": "Prompt Practices | Sarvam API Docs",
+  "title": "Voice agent prompt practices for single-state agents | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:22.477576+00:00",
-  "html_len": 143245,
-  "md_len": 18901,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:38:59.408681+00:00"
 }

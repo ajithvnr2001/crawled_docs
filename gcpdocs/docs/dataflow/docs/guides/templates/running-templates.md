@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/running-templates/
 title: Running classic templates \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:26.137653+00:00
+fetched_at: 2026-10-23T16:53:34.480775+00:00
 ---
 
 # Running classic templates  |  Cloud Dataflow  |  Google Cloud Documentation

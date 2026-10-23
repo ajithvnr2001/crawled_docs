@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/email-security/setup/pre-delivery-deployment/prerequisites/m365-email-security-mx/use-cases/five-junk-admin-quarantine/
 title: Deliver emails to the junk email folder - Microsoft 365 \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:43.054081+00:00
+fetched_at: 2026-10-23T16:39:51.904753+00:00
 ---
 
 # Deliver emails to the junk email folder - Microsoft 365 · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:43.054081+00:00
 
 # 5 - Junk email folder and administrative quarantine
 
-Last updated Apr 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/email-security/setup/pre-delivery-deployment/prerequisites/m365-email-security-mx/use-cases/five-junk-admin-quarantine/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/email-security/setup/pre-delivery-deployment/prerequisites/m365-email-security-mx/use-cases/five-junk-admin-quarantine/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfigure anti-spam policiesCreate transport rules
 
@@ -75,7 +75,7 @@ To create the transport rules that will send emails with certain [disposition](h
 
   4. Set the following rule conditions:
 
-     * **Name** : _Email security Deliver to Junk Email folder`_.
+     * **Name** : _`Email security Deliver to Junk Email folder`_.
      * **Apply this rule if** : _The message headers_ > _includes any of these words_. 
        * **Enter text** : `X-CFEmailSecurity-Disposition` > **Save**.
        * **Enter words** : `BULK` > **Add** > **Save**.
@@ -88,7 +88,7 @@ To create the transport rules that will send emails with certain [disposition](h
 
   7. Review your settings and select **Finish** > **Done**.
 
-  8. Select the rule Email security Deliver to Junk Email folder` you have just created, and **Enable**.
+  8. Select the rule `Email security Deliver to Junk Email folder` you have just created, and **Enable**.
 
   9. Select **Add a Rule** > **Create a new rule**.
 

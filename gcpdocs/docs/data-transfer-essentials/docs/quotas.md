@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-transfer-essentials/docs/quotas/
 title: Quotas and system limits \u00a0|\u00a0 Data Transfer Essentials \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:48.482986+00:00
+fetched_at: 2026-10-23T16:51:59.019184+00:00
 ---
 
 # Quotas and system limits  |  Data Transfer Essentials  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/client-side-traces/
 title: Monitor performance with client-side traces \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:58.299930+00:00
+fetched_at: 2026-10-23T16:53:29.678277+00:00
 ---
 
 # Monitor performance with client-side traces  |  Firestore in Datastore mode  |  Google Cloud Documentation

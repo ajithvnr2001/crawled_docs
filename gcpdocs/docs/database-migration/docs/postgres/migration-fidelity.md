@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/migration-fidelity/
 title: Migration fidelity \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:27.360326+00:00
+fetched_at: 2026-10-23T16:53:43.992331+00:00
 ---
 
 # Migration fidelity  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

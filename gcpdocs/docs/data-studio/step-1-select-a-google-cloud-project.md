@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/step-1-select-a-google-cloud-project/
 title: Step 1: Select a Google Cloud project \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:36.198916+00:00
+fetched_at: 2026-10-23T16:52:52.032566+00:00
 ---
 
 # Step 1: Select a Google Cloud project  |  Data Studio  |  Google Cloud Documentation

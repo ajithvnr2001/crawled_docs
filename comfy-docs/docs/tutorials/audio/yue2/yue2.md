@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/audio/yue2/yue2/
 title: ComfyUI YuE2 Music Generation Guide - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T14:35:05.436754+00:00
+fetched_at: 2026-10-23T16:38:43.777296+00:00
 ---
 
 # ComfyUI YuE2 Music Generation Guide - ComfyUI
@@ -37,7 +37,7 @@ Generate complete songs with vocals in ComfyUI using the open-source YuE2 model:
 
 Copy pageCopy page
 
-YuE2 is an open-source music generation model from Multimodal Art Projection (m-a-p) that turns a style prompt and lyrics into a complete song with vocals and instrumental accompaniment. A 3B-parameter model, it generates full song structures with sections such as intro, verse, chorus, bridge, and outro, and supports multiple singing languages including English, Chinese, and Japanese. What sets YuE2 apart from most text-to-music systems is its editable composition step. Before generating audio, YuE2 can first write a symbolic music plan in ABC notation: a melody, optionally with chords, that you can inspect and edit. The final song is then rendered from that plan. This makes results easier to steer than one-shot audio generation, and it also powers the cover workflow below, where a reference song is transcribed into the same notation and re-sung with new style and lyrics. YuE2 is supported natively in ComfyUI. Update to the latest version of [ComfyUI](https://github.com/comfyanonymous/ComfyUI) before starting. ComfyUI v0.35.0 or later is required, and v0.35.1 or later is recommended on AMD GPUs.
+YuE2 is an open-source music generation model from Multimodal Art Projection (m-a-p) that turns a style prompt and lyrics into a complete song with vocals and instrumental accompaniment. A 3B-parameter model, it generates full song structures with sections such as intro, verse, chorus, bridge, and outro, and supports multiple singing languages including English, Chinese, and Japanese. What sets YuE2 apart from most text-to-music systems is its editable composition step. Before generating audio, YuE2 can first write a symbolic music plan in ABC notation: a melody, optionally with chords, that you can inspect and edit. The final song is then rendered from that plan. This makes results easier to steer than one-shot audio generation, and it also powers the cover workflow below, where a reference song is transcribed into the same notation and re-sung with new style and lyrics. YuE2 is supported natively in ComfyUI. Update to the latest version of [ComfyUI](https://github.com/comfyanonymous/ComfyUI) before starting. ComfyUI v0.36.0 or later is required.
 
   * Local users
 
@@ -277,26 +277,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/audio/yue2/yue2.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/audio/yue2/yue2)
 
-[ComfyUI SCAIL-2 Character Replacement Workflow TutorialPrevious](https://docs.comfy.org/tutorials/video/zai/scail2)[MiniMax Music 3 in ComfyUI: AI Music GenerationNext](https://docs.comfy.org/tutorials/audio/minimax/minimax-music-3)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[SCAIL-2](https://docs.comfy.org/tutorials/video/zai/scail2)[MiniMax Music 3](https://docs.comfy.org/tutorials/audio/minimax/minimax-music-3)

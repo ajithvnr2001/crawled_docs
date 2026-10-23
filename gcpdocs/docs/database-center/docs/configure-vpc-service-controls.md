@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-center/docs/configure-vpc-service-controls/
 title: Configure VPC Service Controls \u00a0|\u00a0 Database Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:47.152805+00:00
+fetched_at: 2026-10-23T16:52:40.979332+00:00
 ---
 
 # Configure VPC Service Controls  |  Database Center  |  Google Cloud Documentation

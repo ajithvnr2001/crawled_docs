@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/how-to-use-the-mobile-app/
 title: How to use the Looker mobile app to access Data Studio content \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:09.331738+00:00
+fetched_at: 2026-10-23T16:52:23.424188+00:00
 ---
 
 # How to use the Looker mobile app to access Data Studio content  |  Google Cloud Documentation

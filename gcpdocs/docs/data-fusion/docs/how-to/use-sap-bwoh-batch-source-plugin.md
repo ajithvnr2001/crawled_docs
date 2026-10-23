@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/use-sap-bwoh-batch-source-plugin/
 title: SAP BW Open Hub batch source \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:42.067576+00:00
+fetched_at: 2026-10-23T16:52:08.113331+00:00
 ---
 
 # SAP BW Open Hub batch source  |  Cloud Data Fusion  |  Google Cloud Documentation

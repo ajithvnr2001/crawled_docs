@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/iceberg-df-lakehouse-integration/
 title: Import data from external Iceberg catalogs to borderless Lakehouse using Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:18.682746+00:00
+fetched_at: 2026-10-23T16:53:19.882210+00:00
 ---
 
 # Import data from external Iceberg catalogs to borderless Lakehouse using Dataflow  |  Google Cloud Documentation

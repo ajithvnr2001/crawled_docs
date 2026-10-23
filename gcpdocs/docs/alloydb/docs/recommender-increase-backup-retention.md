@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/recommender-increase-backup-retention/
 title: Prevent data loss for your instance by increasing backup retention \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:00:15.774894+00:00
+fetched_at: 2026-10-23T16:50:06.400976+00:00
 ---
 
 # Prevent data loss for your instance by increasing backup retention  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

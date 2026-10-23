@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/migrate-data-from-langchain-vector-stores-to-alloydb/
 title: Migrate data from a vector database to AlloyDB \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:32.731644+00:00
+fetched_at: 2026-10-23T16:50:28.464351+00:00
 ---
 
 # Migrate data from a vector database to AlloyDB  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

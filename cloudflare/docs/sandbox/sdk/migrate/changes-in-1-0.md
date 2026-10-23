@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/migrate/changes-in-1-0/
 title: Changes in Sandbox SDK 1.0 \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:26.626357+00:00
+fetched_at: 2026-10-23T16:39:53.144837+00:00
 ---
 
 # Changes in Sandbox SDK 1.0 · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:15:26.626357+00:00
 
 # Changes in Sandbox SDK 1.0
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/changes-in-1-0/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/changes-in-1-0/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhere each 0.x feature goesDecisions your code makesRelated resources
 
@@ -52,11 +52,11 @@ A container has no Internet access unless `start()` passes `enableInternet: true
 
 `exec()` takes an array of arguments and starts that process without a shell. Text passed as an argument cannot start a second command. A shell runs only when you start one, such as `["sh", "-c", "npm ci && npm test"]`. Each call also sets its own `cwd` and `env`. No session carries them from one call to the next.
 
-Your class decides how long a sandbox runs by setting the inactivity timeout after `start()`, and again in the constructor when a restarted Durable Object finds the container running. A deploy does not replace running containers. A new image applies only to containers that start after the deploy. The same holds for code that your class runs when it starts a container, such as the outbound handlers it registers. For more information, refer to [Sandbox lifetime](https://developers.cloudflare.com/sandbox/concepts/lifetime/).
+Your class decides how long a sandbox runs by setting the inactivity timeout after `start()`, and again in the constructor when a restarted Durable Object finds the container running. A deploy does not replace running containers. A new image applies only to containers that start after the deploy. The same holds for code that your class runs only when it starts a container, such as the calls that register outbound handlers. A handler that is already registered runs the code of the new version, with the props it was registered with. For more information, refer to [Sandbox lifetime](https://developers.cloudflare.com/sandbox/concepts/lifetime/).
 
-Your image provides every tool that your commands use. The 0.x image includes Python, Git, `curl`, `wget`, `jq`, `unzip`, and `ps`. `cloudflare/debian-trixie` and `node:24-trixie-slim`, which these pages use, include none of them. `Files` and `S3Mount` also need the `sandbox-shim` helper in the image. For the `COPY` line, refer to [`@cloudflare/sandbox` requirements](https://developers.cloudflare.com/sandbox/reference/#requirements).
+Your image provides every tool that your commands use. The 0.x image includes Python, Git, `curl`, `wget`, `jq`, `unzip`, and `ps`. `cloudflare/debian-trixie` and `node:24-trixie-slim`, which these pages use, include none of them. `Files`, `S3Mount`, and `DirectoryBackup` also need the `sandbox-shim` helper in the image. For the `COPY` line, refer to [`@cloudflare/sandbox` requirements](https://developers.cloudflare.com/sandbox/reference/#requirements).
 
-The package writes nothing to Durable Object storage. A preview token, a process record, or a snapshot ID exists only if your class stores it. The keys that 0.x wrote stay in storage, and 1.0 code ignores them.
+The package writes nothing to Durable Object storage. A preview token, a process record, or a snapshot ID exists only if your class stores it. The keys that 0.x wrote stay in storage. The package ignores them, and your class can read them, as the pages that move preview URLs, tunnels, and outbound rules do.
 
 The package also retries nothing and sets no time limits. To stop a command that runs too long, run it under GNU coreutils `timeout`, as [Replace timeouts](https://developers.cloudflare.com/sandbox/sdk/migrate/commands/#replace-timeouts) describes.
 

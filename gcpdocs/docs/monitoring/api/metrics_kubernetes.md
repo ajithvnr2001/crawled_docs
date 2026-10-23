@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/metrics_kubernetes/
 title: GKE system metrics \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:39:08.137324+00:00
+fetched_at: 2026-10-23T16:51:10.709870+00:00
 ---
 
 # GKE system metrics  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -50,7 +50,7 @@ To chart or monitor metric types with values of type `STRING`, you must use Moni
 
 Metrics from [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
-The following list was last generated at 2026-10-14 20:24:33 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
+The following list was last generated at 2026-10-22 02:44:18 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
 
 ### kubernetes
 
@@ -120,16 +120,16 @@ TPU Accelerator Slice State
 `autoscaler/cluster_node_provisioning_attempts_count_per_ccc` BETA ** _(project)_**   
 Node Provisioning Attempts by CCC   
 `DELTA`, `INT64`, `1`   
-**[k8s_entity](https://docs.cloud.google.com/monitoring/api/resources#tag_k8s_entity)** |  _The total number of node provisioning attempts initiated by Cluster Autoscaler, broken down by custom Compute Class (CCC). Sampled every 60 seconds._  
+**[k8s_entity](https://docs.cloud.google.com/monitoring/api/resources#tag_k8s_entity)** |  _The total number of node provisioning attempts initiated by Cluster Autoscaler, broken down by custom Compute Class (CCC). Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._  
 `autoscaler/cluster_node_provisioning_failed_attempts_count_per_ccc` BETA ** _(project)_**   
 Node Provisioning Failures by CCC   
 `DELTA`, `INT64`, `1`   
-**[k8s_entity](https://docs.cloud.google.com/monitoring/api/resources#tag_k8s_entity)** |  _The total number of failed node provisioning attempts by Cluster Autoscaler, broken down by Custom Compute Class and reason. Sampled every 60 seconds._   
+**[k8s_entity](https://docs.cloud.google.com/monitoring/api/resources#tag_k8s_entity)** |  _The total number of failed node provisioning attempts by Cluster Autoscaler, broken down by Custom Compute Class and reason. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
 `reason`: The reason why the node provisioning attempt failed.   
 `autoscaler/cluster_pending_pods_per_ccc` BETA ** _(project)_**   
 Pending Pods for Scale-Up by CCC   
 `GAUGE`, `INT64`, `1`   
-**[k8s_entity](https://docs.cloud.google.com/monitoring/api/resources#tag_k8s_entity)** |  _The number of pods currently in the Pending state that Cluster Autoscaler is considering for scale-up, broken down by the custom Compute Class (CCC), the reason the pod is pending, and whether it is a system pod. Sampled every 60 seconds._   
+**[k8s_entity](https://docs.cloud.google.com/monitoring/api/resources#tag_k8s_entity)** |  _The number of pods currently in the Pending state that Cluster Autoscaler is considering for scale-up, broken down by the custom Compute Class (CCC), the reason the pod is pending, and whether it is a system pod. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
 `reason`: The reason category why the pod is pending.   
 `type`: Indicates if the pod is a system pod or user pod.   
 `autoscaler/container/cpu/per_replica_recommended_request_cores` GA ** _(project)_**   
@@ -397,7 +397,7 @@ Device to Host transfer sizes
 `tpu_topology`: Topology of the TPU accelerator.   
 `container/multislice/network/grpc_tcp_delivery_rates` BETA ** _(project)_**   
 GRPC TCP Delivery Rates   
-`DELTA`, `DISTRIBUTION`, `Mbps`   
+`DELTA`, `DISTRIBUTION`, `Mb/s`   
 **[k8s_container](https://docs.cloud.google.com/monitoring/api/resources#tag_k8s_container)** |  _Distribution of gRPC TCP delivery rates for multislice traffic. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
 `make`: Make of the accelerator.   
 `model`: Model of the accelerator.   
@@ -1002,12 +1002,12 @@ Nginx up
 `GAUGE`, `INT64`, `1`   
 **[k8s_container](https://docs.cloud.google.com/monitoring/api/resources#tag_k8s_container)** |  _Status of the last metric scrape. Indicates if the server is up or not. Sampled every 60 seconds._  
   
-Generated at 2026-10-14 20:24:33 UTC.
+Generated at 2026-10-22 02:44:18 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

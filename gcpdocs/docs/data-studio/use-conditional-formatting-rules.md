@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/use-conditional-formatting-rules/
 title: Use conditional formatting rules in Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:52.681151+00:00
+fetched_at: 2026-10-23T16:51:54.839426+00:00
 ---
 
 # Use conditional formatting rules in Data Studio  |  Google Cloud Documentation

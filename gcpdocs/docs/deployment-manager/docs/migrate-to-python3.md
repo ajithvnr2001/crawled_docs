@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deployment-manager/docs/migrate-to-python3/
 title: Migrate your templates to Python 3 \u00a0|\u00a0 Cloud Deployment Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:03.810177+00:00
+fetched_at: 2026-10-23T16:53:17.308194+00:00
 ---
 
 # Migrate your templates to Python 3  |  Cloud Deployment Manager  |  Google Cloud Documentation

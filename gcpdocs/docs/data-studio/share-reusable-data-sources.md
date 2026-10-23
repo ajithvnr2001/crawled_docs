@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/share-reusable-data-sources/
 title: Share reusable data sources \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:37.281038+00:00
+fetched_at: 2026-10-23T16:53:21.571399+00:00
 ---
 
 # Share reusable data sources  |  Data Studio  |  Google Cloud Documentation

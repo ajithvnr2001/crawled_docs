@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-transfer-essentials/docs/manage-resources/
 title: Manage Data Transfer Essentials resources \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:49.307295+00:00
+fetched_at: 2026-10-23T16:52:39.708493+00:00
 ---
 
 # Manage Data Transfer Essentials resources  |  Google Cloud Documentation

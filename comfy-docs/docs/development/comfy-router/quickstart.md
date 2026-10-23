@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/quickstart/
 title: Comfy Router quickstart - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:53.216236+00:00
+fetched_at: 2026-10-23T16:38:39.719546+00:00
 ---
 
 # Comfy Router quickstart - ComfyUI
@@ -18,8 +18,6 @@ fetched_at: 2026-10-17T10:50:53.216236+00:00
 
 
 
-Comfy Router
-
 # Comfy Router quickstart
 
 Copy pageCopy page
@@ -28,9 +26,7 @@ Generate images and videos using the latest frontier media models in minutes.
 
 Copy pageCopy page
 
-Comfy Router gives you one API for hosted image and video models at `https://api.comfy.org`. Create an API key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router), then call any model with the official [Python and TypeScript SDKs](https://docs.comfy.org/development/api-development/sdks) or over plain HTTP. Billing is pay per use: each request draws credits from your workspace balance, with no subscription.
-
-**Using Higgsfield?** Save your own Higgsfield key and those generations bill to your Higgsfield account instead of your Comfy credits — same endpoint, same request body. See [Higgsfield with your own key](https://docs.comfy.org/development/comfy-router/higgsfield-byok).
+Comfy Router gives you one API for hosted image and video models at `https://api.comfy.org`. Create an API key in [your Comfy workspace](https://platform.comfy.org/profile/api-keys?onboarding=router), then call any model with the official [Python and TypeScript SDKs](https://docs.comfy.org/development/api-development/sdks) or over plain HTTP. Billing is pay per use: by default each request draws credits from your workspace balance, with no subscription. See [Router pricing](https://docs.comfy.org/development/comfy-router/pricing) for rates and other billing options.
 
 **Tracking spend with LiteLLM?** Router reports a synchronous run’s USD cost in the header LiteLLM reads, so you don’t maintain a price table. See [Using Comfy Router with LiteLLM](https://docs.comfy.org/development/comfy-router/litellm).
 
@@ -226,26 +222,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfy-router/quickstart.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfy-router/quickstart)
 
-[Get workspace usage over timePrevious](https://docs.comfy.org/api-reference/cloud/billing/get-workspace-usage-over-time)[Comfy Router API overviewNext](https://docs.comfy.org/development/comfy-router/api)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Overview](https://docs.comfy.org/development/comfy-router/api)

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/coding-agents/cursor/
 title: Run Cursor Cloud Agents in a sandbox \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:16.367785+00:00
+fetched_at: 2026-10-23T16:39:58.058102+00:00
 ---
 
 # Run Cursor Cloud Agents in a sandbox · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:16.367785+00:00
 
 # Run Cursor Cloud Agents in a sandbox
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/coding-agents/cursor/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/coding-agents/cursor/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites Configure a Cursor team poolDeploy the templateRun a repository-bound agentRun an any-repository agentConfigure repository snapshotsHow the template worksSecurityMonitor the deploymentTroubleshootingRelated resources
 
@@ -193,10 +193,11 @@ To stream controller and container logs, run:
     
     npx wrangler tail
 
-To list container instances, run:
+To list container instances, find the ID of the container application, then list its instances:
     
     
     npx wrangler containers list
+    npx wrangler containers instances <APPLICATION_ID>
 
 To test one scheduled controller run during local development, start `wrangler` with scheduled-event testing:
     

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/connect-to-pubsub-streaming-source/
 title: Read from a Pub/Sub streaming source \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:15.419942+00:00
+fetched_at: 2026-10-23T16:52:20.971010+00:00
 ---
 
 # Read from a Pub/Sub streaming source  |  Cloud Data Fusion  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/set-up-a-google-cloud-service-account/
 title: Set up a Google Cloud service account for Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:38.767850+00:00
+fetched_at: 2026-10-23T16:53:22.621215+00:00
 ---
 
 # Set up a Google Cloud service account for Data Studio  |  Google Cloud Documentation

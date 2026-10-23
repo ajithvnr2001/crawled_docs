@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/cloud-bigtable-for-cassandra-users/
 title: Bigtable for Cassandra users \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:10:53.272816+00:00
+fetched_at: 2026-10-23T16:48:19.738142+00:00
 ---
 
 # Bigtable for Cassandra users  |  Google Cloud Documentation
@@ -301,7 +301,7 @@ Limiting filters are the most commonly used—for example, the [column family re
 
 ## Physical data storage
 
-Bigtable and Cassandra both store data in SSTables, which are regularly merged during a compaction phase. SSTable data compression offers similar benefits for reducing storage size. However, compression is applied automatically in Bigtable and is a configuration option in Cassandra.
+Bigtable and Cassandra both store data in SSTables, which are regularly merged during a compaction phase. Both databases also apply data compression to reduce storage size on disk. In Bigtable, compression is applied automatically to data blocks when they are persisted to disk, while compaction is the background maintenance process that merges SSTables and removes overwritten or deleted cells. In Cassandra, compression is a user-configurable table option.
 
 When comparing the two databases, you should understand how each database physically stores data differently in the following aspects:
 
@@ -446,6 +446,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

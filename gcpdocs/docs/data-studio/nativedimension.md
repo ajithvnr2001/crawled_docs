@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/nativedimension/
 title: Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:02.350546+00:00
+fetched_at: 2026-10-23T16:51:48.402502+00:00
 ---
 
 # Data Studio  |  Google Cloud Documentation

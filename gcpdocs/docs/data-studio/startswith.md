@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/startswith/
 title: STARTS_WITH \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:36.256656+00:00
+fetched_at: 2026-10-23T16:53:24.592866+00:00
 ---
 
 # STARTS_WITH  |  Data Studio  |  Google Cloud Documentation

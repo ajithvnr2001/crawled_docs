@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/coding-agents/openai-agents-api/
 title: Run Codex with the OpenAI Agents API in a sandbox \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:26.560742+00:00
+fetched_at: 2026-10-23T16:39:58.365721+00:00
 ---
 
 # Run Codex with the OpenAI Agents API in a sandbox · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-10T14:39:26.560742+00:00
 
 # Run Codex with the OpenAI Agents API in a sandbox
 
-Last updated Oct 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/coding-agents/openai-agents-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksPrerequisitesDeploy the templateBuild an application on the Agents APIClean upSession lifecycleKeep the workspace between turnsAdd tools to the containerSecurity considerationsRelated resources
 
@@ -121,17 +121,11 @@ The Worker is ready when the response contains `"configured": true` and `"webhoo
 
     
     
-    curl "https://api.openai.com/v1/agents/sessions" \
-    	--request POST \
-    	--header "OpenAI-Beta: agents=v1" \
-    	--header "Authorization: Bearer $OPENAI_API_KEY" \
-    	--json '{
-    		"agent_id": "$OPENAI_AGENT_ID",
-    		"environment": {
-    				"type": "self_hosted",
-    				"workspace_directory": "/workspace"
-    		}
-    	}'
+    curl https://api.openai.com/v1/agents/sessions \
+      --request POST \
+      --header "OpenAI-Beta: agents=v1" \
+      --header "Authorization: Bearer $OPENAI_API_KEY" \
+      --json '{"agent_id": "'"$OPENAI_AGENT_ID"'", "environment": {"type": "self_hosted", "workspace_directory": "/workspace"}}'
 
 Copy the `id` field from the response and save it as the session ID:
     
@@ -147,7 +141,7 @@ Open the session event stream in one terminal:
       --header "Authorization: Bearer $OPENAI_API_KEY" \
       --header "Accept: text/event-stream"
 
-While the stream is open, submit a task from another terminal:
+While the stream is open, submit a task from another terminal. Export `OPENAI_API_KEY` and `SESSION_ID` in that terminal first:
     
     
     curl "https://api.openai.com/v1/agents/sessions/$SESSION_ID/events" \

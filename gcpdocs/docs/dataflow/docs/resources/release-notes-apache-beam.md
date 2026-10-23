@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/resources/release-notes-apache-beam/
 title: Release notes: Apache Beam SDKs \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:44.984790+00:00
+fetched_at: 2026-10-23T16:54:10.604560+00:00
 ---
 
 # Release notes: Apache Beam SDKs  |  Cloud Dataflow  |  Google Cloud Documentation

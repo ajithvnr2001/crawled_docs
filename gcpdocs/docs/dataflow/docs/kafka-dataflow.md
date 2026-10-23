@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/kafka-dataflow/
 title: Write data from Kafka to BigQuery by using Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:18.407392+00:00
+fetched_at: 2026-10-23T16:51:38.189016+00:00
 ---
 
 # Write data from Kafka to BigQuery by using Dataflow  |  Google Cloud Documentation

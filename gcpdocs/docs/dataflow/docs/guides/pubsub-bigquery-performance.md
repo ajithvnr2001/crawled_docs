@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-performance/
 title: Performance characteristics of Pub/Sub to BigQuery pipelines \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:13.619536+00:00
+fetched_at: 2026-10-23T16:53:11.924532+00:00
 ---
 
 # Performance characteristics of Pub/Sub to BigQuery pipelines  |  Cloud Dataflow  |  Google Cloud Documentation

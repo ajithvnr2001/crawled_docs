@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/communication-channels/voice/
 title: Voice \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:07.841702+00:00
+fetched_at: 2026-10-23T16:40:11.977825+00:00
 ---
 
 # Voice · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:07.841702+00:00
 
 # Voice
 
-Last updated Sep 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/communication-channels/voice/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/communication-channels/voice/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOverviewQuick start Install Server Client (React) Wrangler configurationHow it worksServer API: withVoice Providers onTurn(transcript, context) Lifecycle hooks Pipeline hooks Convenience methods Configuration optionsServer API: withVoiceInput onTranscript(text, connection) HooksClient API: React hooks useVoiceAgent useVoiceInputClient API: VoiceClient Events Advanced optionsProviders Built-in (Workers AI) Third-party providersTelephony Server-side adapters (Twilio and Plivo) Browser WebRTC bridge (Telnyx) PCM output for telephony Complete examplesText messagesCustom messagesSingle-speaker enforcementPipeline metricsConversation history
 
@@ -278,17 +278,17 @@ Return a `string`, `AsyncIterable<string>`, or `ReadableStream` for streaming re
     
     
     import { streamText } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
     export class MyAgent extends VoiceAgent {
     	transcriber = new WorkersAIFluxSTT(this.env.AI);
     	tts = new WorkersAITTS(this.env.AI);
     
     	async onTurn(transcript, context) {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/moonshotai/kimi-k2.6"),
+    			model: ai("@cf/moonshotai/kimi-k2.6"),
     			system: "You are a helpful voice assistant. Keep responses concise.",
     			messages: [
     				...context.messages.map((m) => ({
@@ -306,17 +306,17 @@ Return a `string`, `AsyncIterable<string>`, or `ReadableStream` for streaming re
     
     
     import { streamText } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
     export class MyAgent extends VoiceAgent<Env> {
     	transcriber = new WorkersAIFluxSTT(this.env.AI);
     	tts = new WorkersAITTS(this.env.AI);
     
     	async onTurn(transcript: string, context: VoiceTurnContext) {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/moonshotai/kimi-k2.6"),
+    			model: ai("@cf/moonshotai/kimi-k2.6"),
     			system: "You are a helpful voice assistant. Keep responses concise.",
     			messages: [
     				...context.messages.map((m) => ({

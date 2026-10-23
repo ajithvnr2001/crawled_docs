@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/concepts/
 title: Choose a sandbox environment \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:17.470339+00:00
+fetched_at: 2026-10-23T16:39:57.651251+00:00
 ---
 
 # Choose a sandbox environment · Cloudflare Sandboxes docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:15:17.470339+00:00
 
 # Choose a sandbox environment
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/concepts/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/concepts/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat the code can useUse a Container when the code expects LinuxUse a Dynamic Worker when the code calls known methodsHow each environment isolates codeWhat you maintainUse both in one application
 
@@ -27,7 +27,7 @@ A sandbox runs code that you did not write and do not trust, such as code that a
 
 Code in a Container can use everything in its Linux image: runtimes, packages, files, and the processes it starts.
 
-Code in a Dynamic Worker can use only the modules, methods, and values that your Worker passes to it. It does not inherit the bindings, credentials, or data of your Worker. Set `globalOutbound` to `null` to block its direct access to the Internet.
+Code in a Dynamic Worker can use the Workers runtime APIs, plus the modules, methods, and values that your Worker passes to it. It does not inherit the bindings, credentials, or data of your Worker. It can reach the Internet unless you set `globalOutbound` to `null`.
 
 Your Worker keeps credentials and policy. It starts a Container, which runs a command in your Linux image and can use runtimes, packages, files, and processes. It also passes methods and values to a Dynamic Worker, which runs generated code and does not inherit your bindings, data, or credentials.
 

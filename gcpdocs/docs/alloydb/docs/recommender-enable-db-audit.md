@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/recommender-enable-db-audit/
 title: Improve instance security by enabling database auditing \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:00:09.474760+00:00
+fetched_at: 2026-10-23T16:49:50.672207+00:00
 ---
 
 # Improve instance security by enabling database auditing  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

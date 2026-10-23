@@ -1,0 +1,150 @@
+---
+url: https://developer.android.com/tools/sdkmanager/
+title: sdkmanager \u00a0|\u00a0 Android Studio \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:45:41.480130+00:00
+---
+
+# sdkmanager  |  Android Studio  |  Android Developers
+
+> Source: https://developer.android.com/tools/sdkmanager/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Develop ](https://developer.android.com/develop)
+  * [ Android Studio ](https://developer.android.com/studio)
+  * [ SDK tools guides ](https://developer.android.com/tools)
+
+
+
+#  sdkmanager Stay organized with collections  Save and categorize content based on your preferences. 
+
+The `sdkmanager` is a command-line tool that lets you view, install, update, and uninstall packages for the Android SDK. If you're using Android Studio, then you don't need to use this tool, and you can instead [manage your SDK packages from the IDE](https://developer.android.com/studio/intro/update#sdk-manager).
+
+##  Android CLI 
+
+[Download the Android CLI](https://developer.android.com/tools/agents)
+
+###  Use Android CLI to manage packages for the Android SDK 
+
+The `sdkmanager` tool is deprecated. Instead, use the Android CLI [`android sdk`](https://developer.android.com/tools/agents/android-cli/commands/sdk) command.
+    
+    
+    android sdk [install|list|update|remove]
+
+The `sdkmanager` tool is provided in the [Android SDK Command-Line Tools](https://developer.android.com/studio/command-line#tools-sdk) package. To use the SDK Manager to install a version of the command-line tools, follow these steps:
+
+  1. Download the latest [command line tools package](https://developer.android.com/studio#command-line-tools-only) from the [Android Studio](https://developer.android.com/studio) page and extract the package.
+  2. Move the unzipped `cmdline-tools` directory into a new directory of your choice, such as android_sdk. This new directory is your Android SDK directory.
+  3. In the unzipped `cmdline-tools` directory, create a sub-directory called `latest`.
+  4. Move the original `cmdline-tools` directory contents, including the `lib` directory, `bin` directory, `NOTICE.txt` file, and `source.properties` file, into the newly created `latest` directory. You can now use the command-line tools from this location.
+  5. (Optional) To install a previous version of the command-line tools, run the following command:
+         
+         android_sdk/cmdline-tools/latest/bin/sdkmanager --install "cmdline-tools;version"
+         
+
+Substitute `version` with the version you want to install, for example `5.0`. **Note:** For local usage, you can use the `latest` packages. For scripts, choose a specific version instead to ensure stability. 
+
+
+
+## Usage
+
+You can use the `sdkmanager` to list installed and available packages, install packages, and update packages. For more information, see the following sections.
+
+### List installed and available packages
+
+To list installed and available packages, use the following syntax:
+    
+    
+    sdkmanager --list [options] \
+               [--channel=channel_id] // Channels: 0 (stable), 1 (beta), 2 (dev), or 3 (canary)
+    
+
+Use the `channel` option to include a package from a channel up to and including `channel_id`. For example, specify the canary channel to list packages from all channels.
+
+**Note:** To list only stable packages, use `--channel=0` or remove the `--channel` option entirely.
+
+### Install packages
+
+To install packages, use the following syntax:
+    
+    
+    sdkmanager packages [options]
+    
+
+The packages argument is an SDK-style path, as shown with the `--list` command, wrapped in quotes. For example, `"build-tools;36.0.0"` or `"platforms;android-36"`.
+
+You can pass multiple package paths, separated with a space, but they must each be wrapped in their own set of quotes. For example, here's how to install the latest platform tools and the SDK tools for API level 36:
+    
+    
+    sdkmanager "platform-tools" "platforms;android-36"
+    
+
+Alternatively, you can pass a text file that specifies all packages:
+    
+    
+    sdkmanager --package_file=package_file [options]
+    
+
+The package_file argument is the location of a text file in which each line is an SDK-style path of a package to install (without quotes).
+
+To uninstall, add the `--uninstall` flag:
+    
+    
+    sdkmanager --uninstall packages [options]
+    sdkmanager --uninstall --package_file=package_file [options]
+    
+
+To install CMake or the NDK, use the following syntax:
+    
+    
+    sdkmanager --install
+               ["ndk;major.minor.build[suffix]" | "cmake;major.minor.micro.build"]
+               [--channel=channel_id] // NDK channels: 0 (stable), 1 (beta), or 3 (canary)
+
+For example, use the following command to install the specified NDK version regardless of which channel it is currently on:
+    
+    
+    sdkmanager --install "ndk;21.3.6528147" --channel=3 // Install the NDK from the canary channel (or below)
+    sdkmanager --install "cmake;10.24988404" // Install a specific version of CMake
+
+### Update all installed packages
+
+To update all installed packages, use the following syntax:
+    
+    
+    sdkmanager --update [options]
+    
+
+### Accept licenses
+
+You must accept the necessary license for each package you have installed. This step occurs during the installation flow when you install packages from within Android Studio.
+
+If you don't have Android Studio installed, or it's for a CI server or other headless Linux device without a GUI installed, do the following from the command line:
+    
+    
+    sdkmanager --licenses
+
+This prompts you to accept any licenses that haven't already been accepted.
+
+## Options
+
+The following table lists the available options for the commands listed in the preceding section:
+
+Option  | Description   
+---|---  
+`--sdk_root=**path**` | Use the specified SDK path instead of the SDK containing this tool.   
+`--channel=**channel_id**` | Include packages in channels up to and including channel_id. Available channels are:  `0` (Stable), `1` (Beta), `2` (Dev), and `3` (Canary).   
+`--include_obsolete` | Include obsolete packages in the package listing or package updates. For use with `--list` and `--update` only.   
+`--no_https` | Force all connections to use HTTP rather than HTTPS.   
+`--newer` | With `--list`, show only new or updatable packages.   
+`--verbose` | Verbose output mode. Errors, warnings and informational messages are printed.   
+`--proxy={http | socks}` | Connect via a proxy of the given type: either `http` for high level protocols such as HTTP or FTP, or `socks` for a SOCKS (V4 or V5) proxy.   
+`--proxy_host={**IP_address** | **DNS_address**}` | IP or DNS address of the proxy to use.   
+`--proxy_port=**port_number**` | Proxy port number to connect to.   
+**Note:** If you want to install packages for an operating system different from the current machine, set the [`REPO_OS_OVERRIDE`](https://developer.android.com/studio/command-line/variables#repo_os_override) environment variable to either `"windows"`, `"macosx"`, or `"linux"`.
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-10-01 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-01 UTC."],[],[]] 

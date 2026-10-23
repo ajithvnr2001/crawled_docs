@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/use-case/salesforce-soql-queries/
 title: Use case: SOQL queries for the Salesforce source \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:42.664686+00:00
+fetched_at: 2026-10-23T16:52:40.851913+00:00
 ---
 
 # Use case: SOQL queries for the Salesforce source  |  Cloud Data Fusion  |  Google Cloud Documentation

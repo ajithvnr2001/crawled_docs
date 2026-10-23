@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/use-secret-manager/
 title: Use Secret Manager to store sensitive data \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:01.330971+00:00
+fetched_at: 2026-10-23T16:53:25.667342+00:00
 ---
 
 # Use Secret Manager to store sensitive data  |  Datastream  |  Google Cloud Documentation

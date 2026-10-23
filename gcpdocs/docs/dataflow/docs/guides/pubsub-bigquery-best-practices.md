@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/
 title: Pub/Sub to BigQuery best practices \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:13.526382+00:00
+fetched_at: 2026-10-23T16:52:34.011352+00:00
 ---
 
 # Pub/Sub to BigQuery best practices  |  Cloud Dataflow  |  Google Cloud Documentation

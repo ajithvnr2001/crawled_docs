@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/activate/
 title: Access your database \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:59.683430+00:00
+fetched_at: 2026-10-23T16:53:00.885835+00:00
 ---
 
 # Access your database  |  Firestore in Datastore mode  |  Google Cloud Documentation

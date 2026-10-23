@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/stream-states-and-actions/
 title: Stream lifecycle \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:01.569117+00:00
+fetched_at: 2026-10-23T16:54:15.947254+00:00
 ---
 
 # Stream lifecycle  |  Datastream  |  Google Cloud Documentation

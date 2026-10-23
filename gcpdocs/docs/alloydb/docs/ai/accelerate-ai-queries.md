@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/accelerate-ai-queries/
 title: Accelerate performance for queries with AI functions \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:30.923835+00:00
+fetched_at: 2026-10-23T16:50:16.667424+00:00
 ---
 
 # Accelerate performance for queries with AI functions  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

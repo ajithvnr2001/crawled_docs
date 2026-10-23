@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/api/send-emails/rest-api/
 title: REST API \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:31.399025+00:00
+fetched_at: 2026-10-23T16:40:07.540877+00:00
 ---
 
 # REST API · Cloudflare Email Service docs
@@ -22,7 +22,7 @@ API
 
 # REST API
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/api/send-emails/rest-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAuthenticationRequest exampleAttachmentsCustom headersResponseError responsesRelated resources
 
@@ -156,6 +156,7 @@ HTTP status | Code | Message | Description
 403 | 10102 | `email.sending.error.authentication.forbidden` | Token lacks permission to send  
 403 | 10105 | `email.sending.error.authentication.not_entitled` | Account not entitled to use Email Sending  
 403 | 10203 | `email.sending.error.email.sending_disabled` | Sending disabled for this zone or account  
+403 | 10207 | `email.sending.error.email.account_suspended` | Email Sending is paused for the account  
 404 | 10000 | `email.sending.error.not_found` | Resource not found  
 429 | 10004 | `email.sending.error.throttled` | Rate limit exceeded  
 500 | 10002 | `email.sending.error.internal_server` | Internal server error  

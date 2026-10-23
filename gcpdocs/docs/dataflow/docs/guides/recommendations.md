@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/recommendations/
 title: Dataflow recommendations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:12.234811+00:00
+fetched_at: 2026-10-23T16:53:33.310846+00:00
 ---
 
 # Dataflow recommendations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/use-cmek/
 title: Use customer-managed encryption keys (CMEK) \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:01.953337+00:00
+fetched_at: 2026-10-23T16:53:51.286008+00:00
 ---
 
 # Use customer-managed encryption keys (CMEK)  |  Datastream  |  Google Cloud Documentation

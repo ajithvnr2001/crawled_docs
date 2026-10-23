@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/voice-agents/api/boards/sql/
-title: Writing board SQL | Sarvam API Docs
+title: Write board SQL for voice agent call analytics | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:15:07.420979+00:00
+fetched_at: 2026-10-23T16:39:02.767896+00:00
 ---
 
-# Writing board SQL | Sarvam API Docs
+# Write board SQL for voice agent call analytics | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/voice-agents/api/boards/sql/
 
@@ -27,7 +27,7 @@ Scroll to top
 
 [API Reference](https://docs.sarvam.ai/voice-agents/api/introduction)[Boards](https://docs.sarvam.ai/voice-agents/api/boards/overview)
 
-# Writing board SQL
+# Write board SQL for voice agent call analytics
 
 The dialect, the tables you can reach, filter tokens, and what each rejection means.
 
@@ -232,7 +232,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/api/boards/overview)[Best practicesChoosing the right endpoint, keeping queries fast, and building an integration that stays inside its budget.Next](https://docs.sarvam.ai/voice-agents/api/boards/best-practices)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/api/boards/overview)[Boards API best practices: endpoints and rate limitsChoosing the right endpoint, keeping queries fast, and building an integration that stays inside its budget.Next](https://docs.sarvam.ai/voice-agents/api/boards/best-practices)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 
@@ -268,6 +268,7 @@ YesNo
   * Monitor
 
     * [Overview](https://docs.sarvam.ai/voice-agents/monitor/overview)
+    * [Call recordings](https://docs.sarvam.ai/voice-agents/monitor/call-recordings)
     * [Agent Analytics](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics)
 
     * [Boards](https://docs.sarvam.ai/voice-agents/monitor/boards)
@@ -381,6 +382,7 @@ YesNo
   * [Best practices](https://docs.sarvam.ai/voice-agents/deploy/campaigns/best-practices)
   * [Deploy with Code (API & SDK)](https://docs.sarvam.ai/voice-agents/deploy/deploy-with-code)
   * [Overview](https://docs.sarvam.ai/voice-agents/monitor/overview)
+  * [Call recordings](https://docs.sarvam.ai/voice-agents/monitor/call-recordings)
   * [Agent Analytics](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics)
   * [Overview tab](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/overview)
   * [Connectivity](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/connectivity)
@@ -433,7 +435,9 @@ YesNo
   * [List attempts](https://docs.sarvam.ai/voice-agents/api/analytics/attempts)
   * [List interactions](https://docs.sarvam.ai/voice-agents/api/analytics/interactions)
   * [Get recording](https://docs.sarvam.ai/voice-agents/api/analytics/recordings)
+  * [Get forwarded recording](https://docs.sarvam.ai/voice-agents/api/analytics/forwarded-recordings)
   * [Get transcript](https://docs.sarvam.ai/voice-agents/api/analytics/transcripts)
+  * [Get trace](https://docs.sarvam.ai/voice-agents/api/analytics/traces)
   * [Overview](https://docs.sarvam.ai/voice-agents/api/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/voice-agents/api/boards/sql)
   * [Best practices](https://docs.sarvam.ai/voice-agents/api/boards/best-practices)

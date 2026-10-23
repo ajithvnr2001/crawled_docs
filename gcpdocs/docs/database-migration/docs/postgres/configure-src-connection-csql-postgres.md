@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/configure-src-connection-csql-postgres/
 title: Configure network connectivity for Cloud SQL for PostgreSQL sources \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:29.113525+00:00
+fetched_at: 2026-10-23T16:53:46.592387+00:00
 ---
 
 # Configure network connectivity for Cloud SQL for PostgreSQL sources  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

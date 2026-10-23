@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/narymin/
 title: NARY_MIN \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:02.820810+00:00
+fetched_at: 2026-10-23T16:51:45.749034+00:00
 ---
 
 # NARY_MIN  |  Data Studio  |  Google Cloud Documentation

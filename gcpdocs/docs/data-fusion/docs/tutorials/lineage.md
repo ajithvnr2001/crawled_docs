@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/tutorials/lineage/
 title: Explore data lineage using metadata \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:43.887534+00:00
+fetched_at: 2026-10-23T16:52:40.486418+00:00
 ---
 
 # Explore data lineage using metadata  |  Cloud Data Fusion  |  Google Cloud Documentation

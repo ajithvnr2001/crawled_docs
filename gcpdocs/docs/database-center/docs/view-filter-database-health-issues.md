@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-center/docs/view-filter-database-health-issues/
 title: View and filter database health issues \u00a0|\u00a0 Database Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:44.723163+00:00
+fetched_at: 2026-10-23T16:52:41.601428+00:00
 ---
 
 # View and filter database health issues  |  Database Center  |  Google Cloud Documentation

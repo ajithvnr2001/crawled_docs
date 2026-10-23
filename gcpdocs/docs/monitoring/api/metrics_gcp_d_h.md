@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/metrics_gcp_d_h/
 title: Google Cloud metrics: API prefix is D through H \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:39:19.651123+00:00
+fetched_at: 2026-10-23T16:51:24.170906+00:00
 ---
 
 # Google Cloud metrics: API prefix is D through H  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To chart or monitor metric types with values of type `STRING`, you must use Moni
 
 Metrics from [Google Cloud](https://docs.cloud.google.com/docs).
 
-The following list was last generated at 2026-10-14 20:24:33 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
+The following list was last generated at 2026-10-22 02:44:18 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
 
 ### databasecenter
 
@@ -6792,7 +6792,7 @@ Verification Attempts
   
 ### geminidataanalytics
 
-Metrics from [Gemini Data Analytics](https://docs.cloud.google.com/gemini/data-agents/reference/rest). Launch stages of these metrics: BETA
+Metrics from [Gemini Data Analytics](https://docs.cloud.google.com/gemini/data-agents/reference/rest). Launch stages of these metrics: BETA GA
 
 The "metric type" strings in this table must be prefixed with `geminidataanalytics.googleapis.com/`. That prefix has been omitted from the entries in the table. When querying a label, use the `metric.labels.` prefix; for example, `metric.labels.LABEL="VALUE"`. 
 
@@ -6802,61 +6802,61 @@ Display name
 Kind, Type, Unit  
 Monitored resources | _Description_  
 Labels  
-`agent/created_count` BETA ** _(project)_**   
+`agent/created_count` GA ** _(project)_**   
 Agent Created Count   
 `DELTA`, `INT64`, `1`   
 **[geminidataanalytics.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_geminidataanalytics.googleapis.com/Location)** |  _The total number of data agents created._   
 `status`: The type of error if the final status contains ERROR. Or "OK" if there is no error.   
-`chat/conversation/created_count` BETA ** _(project)_**   
+`chat/conversation/created_count` GA ** _(project)_**   
 Conversation Created Count   
 `DELTA`, `INT64`, `1`   
 **[geminidataanalytics.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_geminidataanalytics.googleapis.com/Location)** |  _The total number of conversations created, across all agents._   
 `status`: The type of error if the final status contains ERROR. Or "OK" if there is no error.   
-`chat/input_token_count` BETA ** _(project)_**   
+`chat/input_token_count` GA ** _(project)_**   
 Input Token Count   
 `DELTA`, `INT64`, `{token}`   
 **[geminidataanalytics.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_geminidataanalytics.googleapis.com/Location)** |  _The total number of input tokens used, across all conversations / agents._   
 `agent_type`: The type of agent (e.g. DEA, CAA_LOOKER, CAA_BQ).   
 `model_name`: The name of the model invoked.   
 `status`: The type of error if the final status of LLM call contains ERROR. Or the stop reason if there is no error.   
-`chat/model/invocation_count` BETA ** _(project)_**   
+`chat/model/invocation_count` GA ** _(project)_**   
 Model Invocation Count   
 `DELTA`, `INT64`, `1`   
 **[geminidataanalytics.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_geminidataanalytics.googleapis.com/Location)** |  _The total number of model invocations, across all conversations / agents._   
 `model_name`: The name of the model invoked.   
 `status`: The type of error if the final status of LLM call contains ERROR. Or the stop reason if there is no error.   
-`chat/model_latencies` BETA ** _(project)_**   
+`chat/model_latencies` GA ** _(project)_**   
 Chat Model Latencies   
 `DELTA`, `DISTRIBUTION`, `ms`   
 **[geminidataanalytics.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_geminidataanalytics.googleapis.com/Location)** |  _A distribution of the time taken for model invocations._   
 `agent_type`: The type of agent (e.g. DEA, CAA_LOOKER, CAA_BQ).   
 `model_name`: The name of the model invoked.   
 `status`: The type of error if the final status of LLM call contains ERROR. Or the stop reason if there is no error.   
-`chat/output_token_count` BETA ** _(project)_**   
+`chat/output_token_count` GA ** _(project)_**   
 Output Token Count   
 `DELTA`, `INT64`, `{token}`   
 **[geminidataanalytics.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_geminidataanalytics.googleapis.com/Location)** |  _The total number of output tokens used, across all conversations / agents._   
 `agent_type`: The type of agent (e.g. DEA, CAA_LOOKER, CAA_BQ).   
 `model_name`: The name of the model invoked.   
 `status`: The type of error if the final status of LLM call contains ERROR. Or the stop reason if there is no error.   
-`chat/tool/invocation_count` BETA ** _(project)_**   
+`chat/tool/invocation_count` GA ** _(project)_**   
 Tool Invocation Count   
 `DELTA`, `INT64`, `1`   
 **[geminidataanalytics.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_geminidataanalytics.googleapis.com/Location)** |  _The total number of tool invocations, across all conversations / agents._   
 `tool_name`: The name of the tool invoked.   
 `status`: The type of error if the final status contains ERROR. Or the stop reason if there is no error.   
-`chat/tool_latencies` BETA ** _(project)_**   
+`chat/tool_latencies` GA ** _(project)_**   
 Chat Tool Latencies   
 `DELTA`, `DISTRIBUTION`, `ms`   
 **[geminidataanalytics.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_geminidataanalytics.googleapis.com/Location)** |  _A distribution of the time taken for tool invocations._   
 `tool_name`: The name of the tool invoked.   
 `status`: The type of error if the final status contains ERROR. Or "OK" if there is no error.   
-`chat/turn_count` BETA ** _(project)_**   
+`chat/turn_count` GA ** _(project)_**   
 Turn Count   
 `DELTA`, `INT64`, `1`   
 **[geminidataanalytics.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_geminidataanalytics.googleapis.com/Location)** |  _The total number of turns processed, across all conversations / agents._   
 `status`: The type of error if the final status contains ERROR. Or "OK" if there is no error.   
-`chat/turn_latencies` BETA ** _(project)_**   
+`chat/turn_latencies` GA ** _(project)_**   
 Turn Latencies   
 `DELTA`, `DISTRIBUTION`, `ms`   
 **[geminidataanalytics.googleapis.com/Location](https://docs.cloud.google.com/monitoring/api/resources#tag_geminidataanalytics.googleapis.com/Location)** |  _A distribution of the time taken to complete a turn._   
@@ -8210,12 +8210,12 @@ Failed jobs in queue
 `reason`: Reason why the job is in a failed state.   
 `user`: User who scheduled the job.   
   
-Generated at 2026-10-14 20:24:33 UTC.
+Generated at 2026-10-22 02:44:18 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

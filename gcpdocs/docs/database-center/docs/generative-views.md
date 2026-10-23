@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-center/docs/generative-views/
 title: Generate dashboard views using Gemini \u00a0|\u00a0 Database Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:46.470532+00:00
+fetched_at: 2026-10-23T16:52:20.750389+00:00
 ---
 
 # Generate dashboard views using Gemini  |  Database Center  |  Google Cloud Documentation

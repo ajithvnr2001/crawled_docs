@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/cuds/
 title: Committed use discounts \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:19.379830+00:00
+fetched_at: 2026-10-23T16:51:44.600793+00:00
 ---
 
 # Committed use discounts  |  Cloud Dataflow  |  Google Cloud Documentation

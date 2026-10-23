@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/entity-options/
 title: Entity options \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:54.991919+00:00
+fetched_at: 2026-10-23T16:54:16.235951+00:00
 ---
 
 # Entity options  |  Dialogflow CX  |  Google Cloud Documentation

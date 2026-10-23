@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/video/overview/
 title: Video Models - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:39.973472+00:00
+fetched_at: 2026-10-23T16:38:34.964544+00:00
 ---
 
 # Video Models - ComfyUI
@@ -32,7 +32,7 @@ Choose the right video model for your use case: text-to-video, image-to-video, v
 
 Copy pageCopy page
 
-ComfyUI Partner Nodes give you access to hosted video models from providers such as Black Forest Labs, ByteDance, Google, Kling, Luma, Runway, and Topaz, so you can generate video without a local GPU. This page helps you pick the right model for text-to-video, image-to-video, video enhancement, or motion control.
+ComfyUI Partner Nodes give you access to hosted video models from providers such as Black Forest Labs, ByteDance, Google, Kling, Luma, Runway, Topaz, and VEED, so you can generate video without a local GPU. This page helps you pick the right model for text-to-video, image-to-video, video enhancement, or motion control.
 
 ## 
 
@@ -132,6 +132,10 @@ Quality restoration tools from Topaz
 
 Upscaling and enhancement from Topaz
 
+## VEED Video Nodes
+
+Talking photos, lip sync, and background removal from VEED
+
 ## Wan 3.0
 
 Open-model video generation with good motion quality
@@ -229,6 +233,7 @@ Moonvalley| [Moonvalley](https://docs.comfy.org/tutorials/partner-nodes/moonvall
 Pruna| [P-Video-2](https://docs.comfy.org/tutorials/partner-nodes/pruna/p-video-2)  
 Runway| [Video Generation](https://docs.comfy.org/tutorials/partner-nodes/runway/video-generation)  
 Topaz| [Video Enhance Starlight Precise 2.5](https://docs.comfy.org/tutorials/partner-nodes/topaz/video-enhance-starlight-precise-2-5), [Video Enhance Astra](https://docs.comfy.org/tutorials/partner-nodes/topaz/video-enhance-astra), [Astra 2](https://docs.comfy.org/tutorials/partner-nodes/topaz/astra-2)  
+VEED| [Video Nodes](https://docs.comfy.org/tutorials/partner-nodes/veed/veed-video)  
 Wan| [Wan 3.0](https://docs.comfy.org/tutorials/partner-nodes/wan/wan3-0), [Wan 2.7](https://docs.comfy.org/tutorials/partner-nodes/wan/wan2-7)  
   
 See [Pricing](https://docs.comfy.org/tutorials/partner-nodes/pricing) for per-model rates, and [Concurrency Limits](https://docs.comfy.org/tutorials/partner-nodes/concurrency-limits) for usage caps.
@@ -239,26 +244,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/video/overview.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/video/overview)
 
-[Topaz Image Enhance Bloom 2 - AI creative image upscalingPrevious](https://docs.comfy.org/tutorials/partner-nodes/topaz/image-enhance-bloom-2)[FLUX 3 Video - AI video generation with native audioNext](https://docs.comfy.org/tutorials/partner-nodes/black-forest-labs/flux-3-video)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Image Enhance Bloom 2](https://docs.comfy.org/tutorials/partner-nodes/topaz/image-enhance-bloom-2)[Flux 3 Max](https://docs.comfy.org/tutorials/partner-nodes/black-forest-labs/flux-3-max)

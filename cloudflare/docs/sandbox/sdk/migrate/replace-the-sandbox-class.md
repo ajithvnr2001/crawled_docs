@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/migrate/replace-the-sandbox-class/
 title: Replace the Sandbox class \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T06:59:26.260594+00:00
+fetched_at: 2026-10-23T16:39:50.240505+00:00
 ---
 
 # Replace the Sandbox class · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-14T06:59:26.260594+00:00
 
 # Replace the Sandbox class
 
-Last updated Oct 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/replace-the-sandbox-class/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you startReplace the classCheck the classNext steps
 
@@ -30,7 +30,7 @@ Replace the 0.12 `Sandbox` class with a Durable Object class that you write. In 
 
 ## Before you start
 
-Your application runs `@cloudflare/sandbox` 0.12.10. This page replaces the `Sandbox` class, whether you export it from the package or extend it. It also replaces `getSandbox()` and its options, class fields such as `sleepAfter` and `envVars`, and the hooks `onStart()`, `onStop()`, `onError()`, and `onActivityExpired()`.
+Your application runs `@cloudflare/sandbox` 0.12.14. This page replaces the `Sandbox` class, whether you export it from the package or extend it. It also replaces `getSandbox()` and its options, class fields such as `sleepAfter` and `envVars`, and the hooks `onStart()`, `onStop()`, `onError()`, and `onActivityExpired()`.
 
 The page ends with the Worker running under `wrangler dev`. You cannot undo the deploy that switches your sandboxes to 1.0. Before you deploy, follow [Plan the move to Sandbox SDK 1.0](https://developers.cloudflare.com/sandbox/sdk/migrate/plan-the-move/).
 
@@ -66,7 +66,7 @@ Dockerfiledockerfile
          WORKDIR /workspace
          CMD ["sleep", "infinity"]
 
-The 0.12 image included Python, Node.js, and Git. Keep the ones your commands use. `Files` and `S3Mount` need `sandbox-shim`. Match its tag to the `@cloudflare/sandbox` version that you installed. Remove `EXPOSE` lines, which 1.0 does not use. Commands that `exec()` runs do not see `ENV` lines, so pass those values in the `env` option instead.
+The 0.12 image included Python, Node.js, and Git. Keep the ones your commands use. `Files`, `S3Mount`, and `DirectoryBackup` need `sandbox-shim`. Match its tag to the `@cloudflare/sandbox` version that you installed. Remove `EXPOSE` lines, which 1.0 does not use. Commands that `exec()` runs do not see `ENV` lines, so pass those values in the `env` option instead.
 
   3. Change the `containers` entry for your class in the Wrangler configuration. Keep your class name and its binding, so each name reaches the Durable Object and storage it reached in 0.12. Replace `my-worker-mysandbox-v2` with a name that your account does not use yet:
          
@@ -160,9 +160,7 @@ src/index.ts (1.0)ts
          		const container = this.ctx.container;
          
          		if (!container) {
-         			throw new Error(
-         				"The container binding is not configured",
-         			);
+         			throw new Error("No container is configured");
          		}
          
          		return container;
@@ -253,7 +251,7 @@ src/index.tsts
     	}
     }
 
-`monitor()` resolves when the main process exits with code `0` or `destroy()` stops the container without a reason. It rejects when the process fails or `destroy()` passes a reason. The call ends when the Durable Object restarts, so it misses a stop that happens before the next request. While the call waits, the inactivity timeout does not start, so a watched container keeps running past the timeout. For more information, refer to [Sandbox lifetime](https://developers.cloudflare.com/sandbox/concepts/lifetime/#activity-keeps-an-instance-running). For a record of every stop, refer to [Run code when a sandbox stops](https://developers.cloudflare.com/sandbox/manage/run-code-when-a-sandbox-stops/).
+`monitor()` resolves when the main process exits with code `0` or `destroy()` stops the container without a reason. It rejects when the process fails or `destroy()` passes a reason. The call ends when the Durable Object leaves memory, so it misses a stop that happens before the next request. While the call keeps the Durable Object in memory, the inactivity timeout does not start, and the container keeps running past the timeout. For more information, refer to [Sandbox lifetime](https://developers.cloudflare.com/sandbox/concepts/lifetime/#what-stops-an-instance). For a record of every stop, refer to [Run code when a sandbox stops](https://developers.cloudflare.com/sandbox/manage/run-code-when-a-sandbox-stops/).
 
   9. Move the calls your Worker makes into methods on the class. In 0.12, the Worker calls package methods on the stub that `getSandbox()` returns:
 

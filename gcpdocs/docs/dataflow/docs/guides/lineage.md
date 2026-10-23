@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/lineage/
 title: Use data lineage in Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:16.478145+00:00
+fetched_at: 2026-10-23T16:52:53.201763+00:00
 ---
 
 # Use data lineage in Dataflow  |  Google Cloud Documentation

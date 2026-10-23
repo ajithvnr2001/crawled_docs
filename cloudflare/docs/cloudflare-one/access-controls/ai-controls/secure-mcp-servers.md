@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/secure-mcp-servers/
 title: Secure MCP servers \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:10.611204+00:00
+fetched_at: 2026-10-23T16:39:59.315427+00:00
 ---
 
 # Secure MCP servers · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:10.611204+00:00
 
 # Secure MCP servers
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/secure-mcp-servers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/secure-mcp-servers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCustomer-managed third-party MCP serverSaaS-managed third-party MCP server Prerequisites 1\. Deploy an example MCP server 2\. Create an Access for SaaS app 3\. Configure your MCP server 4\. Test the connectionNext steps
 
@@ -308,7 +308,7 @@ Store the output of this command in a Workers secret:
 
 ### 4\. Test the connection
 
-You can now connect to your MCP server at `https://mcp-server-cf-access.<YOUR_SUBDOMAIN>.workers.dev/mcp` using [Workers AI Playground ↗︎](https://playground.ai.cloudflare.com/), [MCP inspector ↗︎](https://github.com/modelcontextprotocol/inspector), or [other MCP clients](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#connect-your-mcp-server-to-claude-and-other-mcp-clients) that support remote MCP servers.
+You can now connect to your MCP server at `https://mcp-server-cf-access.<YOUR_SUBDOMAIN>.workers.dev/mcp` using [Workers AI Playground ↗︎](https://playground.ai.cloudflare.com/), [MCP inspector ↗︎](https://github.com/modelcontextprotocol/inspector), or [other MCP clients](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#connect-from-an-mcp-client) that support remote MCP servers.
 
 To test in Workers AI Playground:
 

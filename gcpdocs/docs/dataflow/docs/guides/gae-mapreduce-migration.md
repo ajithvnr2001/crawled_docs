@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/gae-mapreduce-migration/
 title: Migrate from App Engine MapReduce to Apache Beam and Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:18.976309+00:00
+fetched_at: 2026-10-23T16:51:27.814852+00:00
 ---
 
 # Migrate from App Engine MapReduce to Apache Beam and Dataflow  |  Google Cloud Documentation

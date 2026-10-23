@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/
 title: Configure Programmable Flow Protection via API \u00b7 Cloudflare DDoS Protection docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:44.660492+00:00
+fetched_at: 2026-10-23T16:40:05.906282+00:00
 ---
 
 # Configure Programmable Flow Protection via API · Cloudflare DDoS Protection docs
@@ -22,9 +22,9 @@ Advanced DDoS systems
 
 # Programmable Flow Protection
 
-Last updated Jun 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewEndpoints Program operations Rule operations Debug operationsPagination
+OverviewEndpointsProgram versions Program operations Rule operations Debug operationsPagination
 
 Use the [Cloudflare API](https://developers.cloudflare.com/api/) to configure Programmable Flow Protection.
 
@@ -40,6 +40,14 @@ To obtain the complete endpoint, append the Programmable Flow Protection API end
 The `{account_id}` argument is the [account ID](https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/) (a hexadecimal string). You can find this value in the Cloudflare dashboard.
 
 The tables in the following sections summarize the available operations.
+
+## Program versions
+
+Each uploaded program starts at version `1`. Updating a program with a `PATCH` request creates a new version under the same program ID. Program responses include the current version in the `version` field.
+
+Each rule is pinned to a specific program version, which appears in the rule's `program_version` field. Creating a rule without `program_version` pins it to the program's current version. Updating a program does not update existing rules that reference it.
+
+To move an existing rule to another successful version of its program, send a `PATCH` request to the rule endpoint with the target `program_version`. For an example, refer to [Update a rule](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/examples/#update-a-rule).
 
 ### Program operations
 

@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/generate-content/caching/
 title: Context caching
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:43:25.497510+00:00
+fetched_at: 2026-10-23T16:39:43.710352+00:00
 ---
 
 # Context caching

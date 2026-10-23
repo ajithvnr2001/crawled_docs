@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/notifications/notification-available/
 title: Platform Notifications \u00b7 Cloudflare Notifications docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:31.001382+00:00
+fetched_at: 2026-10-23T16:40:07.322298+00:00
 ---
 
 # Platform Notifications · Cloudflare Notifications docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-21T06:51:31.001382+00:00
 
 # Platform Notifications
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/notifications/notification-available/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate a platform notificationAvailable notification types
 
@@ -33,7 +33,7 @@ To define your own alerting conditions using SQL API queries, refer to [Monitors
   4. Follow the wizard steps to configure the notification, name it, and add delivery destinations.
   5. Select **Create**.
 
-
+![Platform Notification creation wizard showing notification types organized by product category.](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1028,height=796,format=webp/_astro/create-platform-notification.rFEXsW03.png)
 
 ## Available notification types
 

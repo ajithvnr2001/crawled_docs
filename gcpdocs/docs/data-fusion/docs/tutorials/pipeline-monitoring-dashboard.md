@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/tutorials/pipeline-monitoring-dashboard/
 title: Create a pipeline monitoring dashboard using Cloud Monitoring \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:43.295801+00:00
+fetched_at: 2026-10-23T16:52:45.145653+00:00
 ---
 
 # Create a pipeline monitoring dashboard using Cloud Monitoring  |  Cloud Data Fusion  |  Google Cloud Documentation

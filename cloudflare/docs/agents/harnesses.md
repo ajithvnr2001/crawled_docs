@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/
 title: Harnesses \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:41.073467+00:00
+fetched_at: 2026-10-23T16:40:00.978973+00:00
 ---
 
 # Harnesses · Cloudflare Agents docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-13T08:48:41.073467+00:00
 
 # Harnesses
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow harnesses fitChoose an approachCurrent harnessesWhat a harness usually ownsRelated resources
 
@@ -25,7 +25,7 @@ A harness is the loop that makes an agent behave like an agent instead of a sing
 
 It is responsible for the turn-by-turn work around the model: building the prompt, loading memory, selecting tools, handling tool results, streaming responses, persisting messages, and deciding whether the agent should continue or stop.
 
-You can build this loop yourself on top of the [Agents SDK runtime](https://developers.cloudflare.com/agents/runtime/agents-api/), use an opinionated harness like [Project Think](https://developers.cloudflare.com/agents/harnesses/think/), or run an external harness such as [Pi](https://developers.cloudflare.com/agents/harnesses/pi/) or [OpenCode](https://developers.cloudflare.com/agents/harnesses/opencode/) in a Durable Object.
+To build a new agent, start with the [Pi harness](https://developers.cloudflare.com/agents/harnesses/pi/), which runs Pi Durable in a Durable Object. You can also run [OpenCode](https://developers.cloudflare.com/agents/harnesses/opencode/), or build the loop yourself on top of the [Agents SDK runtime](https://developers.cloudflare.com/agents/runtime/agents-api/).
 
 ## How harnesses fit
 
@@ -40,23 +40,17 @@ The runtime answers “where does this agent live and how does it stay durable?�
 
 ## Choose an approach
 
+Use Pi when you want [Pi Durable ↗︎](https://earendil.com/posts/pi-durable/) to own the agent loop, transcript, and recovery. This is the recommended starting point for a new agent. `PiHarness` runs Pi in a Durable Object and wakes it after eviction. You choose the transport.
+
 Use a build-your-own harness when you need full control over the model call, message format, tool loop, or UI protocol. This is the right approach when you want to compose low-level APIs directly from the Agents SDK.
-
-Use Project Think when you want an opinionated chat-agent harness with defaults for memory, workspace tools, streaming, lifecycle hooks, sub-agent RPC, and durable chat recovery.
-
-Use Pi (beta) when you want [Pi Durable ↗︎](https://earendil.com/posts/pi-durable/) to own the agent loop, transcript, and recovery. `PiHarness` runs it inside an `Agent` or a plain Durable Object and wakes it after eviction. You choose the transport.
 
 Use OpenCode (experimental) when you want OpenCode 2.0's sessions, tools, and plugin system. `OpenCodeHarness` runs [OpenCode's Workerd SDK ↗︎](https://opencode.ai/v2/docs/build/sdk/cloudflare/) inside a plain Durable Object.
 
 ## Current harnesses
 
-### [Project Think](https://developers.cloudflare.com/agents/harnesses/think/)
+### [Pi](https://developers.cloudflare.com/agents/harnesses/pi/)
 
-An opinionated chat agent harness with built-in tools, persistent memory, lifecycle hooks, streaming, and sub-agent RPC.
-
-### [Pi (beta)](https://developers.cloudflare.com/agents/harnesses/pi/)
-
-Run Pi Durable sessions inside an Agent or Durable Object, with storage in SQLite and recovery after eviction.
+Run Pi Durable sessions in a Durable Object, with storage in SQLite and recovery after eviction.
 
 ### [OpenCode (experimental)](https://developers.cloudflare.com/agents/harnesses/opencode/)
 
@@ -89,7 +83,7 @@ Store conversation context and memory across turns.
 
 Recover long-running agent work after Durable Object eviction.
 
-[PreviousPi AI](https://developers.cloudflare.com/agents/models/pi-ai/)[NextOverview](https://developers.cloudflare.com/agents/harnesses/think/)
+[PreviousPi AI](https://developers.cloudflare.com/agents/models/pi-ai/)[NextOverview](https://developers.cloudflare.com/agents/harnesses/pi/)
 
 Was this helpful?
 

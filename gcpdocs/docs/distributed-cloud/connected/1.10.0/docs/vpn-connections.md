@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/connected/1.10.0/docs/vpn-connections/
 title: Create and manage VPN connections \u00a0|\u00a0 Google Distributed Cloud connected, version 1.10.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:40:29.710685+00:00
+fetched_at: 2026-10-23T16:53:53.744514+00:00
 ---
 
 # Create and manage VPN connections  |  Google Distributed Cloud connected, version 1.10.0  |  Google Cloud Documentation

@@ -1,0 +1,212 @@
+---
+url: https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/Cmake/
+title: Cmake \u00a0|\u00a0 API reference \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T20:10:00.282652+00:00
+---
+
+# Cmake  |  API reference  |  Android Developers
+
+> Source: https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/Cmake/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Develop ](https://developer.android.com/develop)
+  * [ API reference ](https://developer.android.com/reference)
+
+
+
+Stay organized with collections  Save and categorize content based on your preferences. 
+
+# Cmake
+
+[View Source](https://cs.android.com/search?q=file:com/android/build/api/dsl/Cmake.kt+class:com.android.build.api.dsl.Cmake)
+
+Added in 4.2.0
+    
+    
+    interface [Cmake](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/Cmake)
+
+* * *
+
+DSL object for per-module CMake configurations, such as the path to your `CMakeLists.txt` build script and external native build output directory.
+
+To include CMake projects in your Gradle build, you need to use Android Studio 2.2 and higher with Android plugin for Gradle 2.2.0 and higher. To learn more about Android Studio's support for external native builds, read [Add C and C++ Code to Your Project](https://developer.android.com/studio/projects/add-native-code.html)
+
+If you want to instead build your native libraries using ndk-build, see `[NdkBuild](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/NdkBuild)`
+
+## Summary
+
+### Public functions  
+  
+---  
+`[Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)` |  `[buildStagingDirectory](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/Cmake#buildStagingDirectory\(kotlin.Any\))(buildStagingDirectory: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?)` Specifies the path to your external native build output directory.  
+`[Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)` |  `[path](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/Cmake#path\(kotlin.Any\))(path: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?)` Specifies the relative path to your `CMakeLists.txt` build script.  
+  
+### Public properties  
+  
+---  
+`[File](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/File.html)?` |  `[buildStagingDirectory](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/Cmake#buildStagingDirectory\(\))` Specifies the path to your external native build output directory.  
+`[File](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/File.html)?` |  `[path](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/Cmake#path\(\))` Specifies the relative path to your `CMakeLists.txt` build script.  
+`[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)?` |  `[version](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/Cmake#version\(\))` The version of CMake that the Android plugin should use when building your CMake project.  
+  
+## Public functions
+
+### buildStagingDirectory
+
+Added in 4.2.0
+    
+    
+    fun [buildStagingDirectory](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/Cmake#buildStagingDirectory\(kotlin.Any\))(buildStagingDirectory: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?): [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+
+Specifies the path to your external native build output directory.
+
+This directory also includes other build system files that should persist when performing clean builds, such as [Ninja build files](https://ninja-build.org/). If you do not specify a value for this property, the Android plugin uses the `<project_dir>/<module>/.cxx/` directory by default.
+
+If you specify a path that does not exist, the Android plugin creates it for you. Relative paths are relative to the `build.gradle` file, as shown below:
+    
+    
+    android {  
+        ...  
+        externalNativeBuild {  
+            cmake {  
+                ...  
+                // Tells Gradle to put outputs from external native  
+                // builds in the path specified below.  
+                buildStagingDirectory "./outputs/cmake"  
+            }  
+        }  
+    }
+
+If you specify a path that's a subdirectory of your project's temporary `build/` directory, you get a build error. That's because files in this directory do not persist through clean builds. So, you should either keep using the default `<project_dir>/<module>/.cxx/` directory or specify a path outside the temporary build directory.
+
+since 3.0.0
+
+### path
+
+Added in 4.2.0
+    
+    
+    fun [path](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/Cmake#path\(kotlin.Any\))(path: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?): [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)
+
+Specifies the relative path to your `CMakeLists.txt` build script.
+
+For example, if your CMake build script is in the same folder as your module-level `build.gradle` file, you simply pass the following:
+    
+    
+    android {  
+        ...  
+        externalNativeBuild {  
+            cmake {  
+                ...  
+                // Tells Gradle to find the root CMake build script in the same  
+                // directory as the module's build.gradle file. Gradle requires this  
+                // build script to add your CMake project as a build dependency and  
+                // pull your native sources into your Android project.  
+                path "CMakeLists.txt"  
+            }  
+        }  
+    }
+
+since 2.2.0
+
+## Public properties
+
+### buildStagingDirectory
+
+Added in 4.2.0
+    
+    
+    var [buildStagingDirectory](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/Cmake#buildStagingDirectory\(\)): [File](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/File.html)?
+
+Specifies the path to your external native build output directory.
+
+This directory also includes other build system files that should persist when performing clean builds, such as [Ninja build files](https://ninja-build.org/). If you do not specify a value for this property, the Android plugin uses the `<project_dir>/<module>/.cxx/` directory by default.
+
+If you specify a path that does not exist, the Android plugin creates it for you. Relative paths are relative to the `build.gradle` file, as shown below:
+    
+    
+    android {  
+        ...  
+        externalNativeBuild {  
+            cmake {  
+                ...  
+                // Tells Gradle to put outputs from external native  
+                // builds in the path specified below.  
+                buildStagingDirectory "./outputs/cmake"  
+            }  
+        }  
+    }
+
+If you specify a path that's a subdirectory of your project's temporary `build/` directory, you get a build error. That's because files in this directory do not persist through clean builds. So, you should either keep using the default `<project_dir>/<module>/.cxx/` directory or specify a path outside the temporary build directory.
+
+since 3.0.0
+
+### path
+
+Added in 4.2.0
+    
+    
+    var [path](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/Cmake#path\(\)): [File](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/File.html)?
+
+Specifies the relative path to your `CMakeLists.txt` build script.
+
+For example, if your CMake build script is in the same folder as your module-level `build.gradle` file, you simply pass the following:
+    
+    
+    android {  
+        ...  
+        externalNativeBuild {  
+            cmake {  
+                ...  
+                // Tells Gradle to find the root CMake build script in the same  
+                // directory as the module's build.gradle file. Gradle requires this  
+                // build script to add your CMake project as a build dependency and  
+                // pull your native sources into your Android project.  
+                path "CMakeLists.txt"  
+            }  
+        }  
+    }
+
+since 2.2.0
+
+### version
+
+Added in 4.2.0
+    
+    
+    var [version](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/Cmake#version\(\)): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)?
+
+The version of CMake that the Android plugin should use when building your CMake project.
+
+When you specify a version of CMake, as shown below, the plugin searches for the appropriate CMake binary within your PATH environmental variable. So, make sure you add the path to the target CMake binary to your PATH environmental variable.
+    
+    
+    android {  
+        ...  
+        externalNativeBuild {  
+            cmake {  
+                ...  
+                // Specifies the version of CMake the Android plugin should use. You need to  
+                // include the path to the CMake binary of this version to your PATH  
+                // environmental variable.  
+                version "3.7.1"  
+            }  
+        }  
+    }
+
+If you do not configure this property, the plugin uses the version of CMake available from the [SDK manager](https://developer.android.com/studio/intro/update.html#sdk-manager). (Android Studio prompts you to download this version of CMake if you haven't already done so).
+
+Alternatively, you can specify a version of CMake in your project's `local.properties` file, as shown below:
+    
+    
+    // The path may be either absolute or relative to the local.properties file  
+    // you are editing.  
+    cmake.dir="<path-to-cmake>"
+
+since 3.0.0
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-08-17 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-17 UTC."],[],[]] 

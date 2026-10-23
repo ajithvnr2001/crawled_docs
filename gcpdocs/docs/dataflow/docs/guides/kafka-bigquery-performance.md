@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/kafka-bigquery-performance/
 title: Performance characteristics of Kafka to BigQuery pipelines \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:16.893799+00:00
+fetched_at: 2026-10-23T16:53:46.487950+00:00
 ---
 
 # Performance characteristics of Kafka to BigQuery pipelines  |  Cloud Dataflow  |  Google Cloud Documentation

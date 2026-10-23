@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/deploy/telephony/",
   "file": "voice-agents/deploy/telephony.md",
-  "title": "Phone Numbers | Sarvam API Docs",
+  "title": "Phone numbers for AI calling agents: connect or rent | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:28.367378+00:00",
-  "html_len": 161083,
-  "md_len": 20819,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:38:53.914714+00:00"
 }

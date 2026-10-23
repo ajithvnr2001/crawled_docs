@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/debugging-tools/
 title: Debugging and other tools \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:28.312753+00:00
+fetched_at: 2026-10-23T16:53:59.541927+00:00
 ---
 
 # Debugging and other tools  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/csql-sql-server-src-guide/
 title: Migrate from a Cloud SQL for SQL Server instance \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:40.823468+00:00
+fetched_at: 2026-10-23T16:52:44.428559+00:00
 ---
 
 # Migrate from a Cloud SQL for SQL Server instance  |  Database Migration Service for SQL Server  |  Google Cloud Documentation

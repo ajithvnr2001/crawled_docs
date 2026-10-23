@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/model-context-protocol/guides/test-remote-mcp-server/
 title: Test a Remote MCP Server \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:15.984965+00:00
+fetched_at: 2026-10-23T16:39:59.372034+00:00
 ---
 
 # Test a Remote MCP Server · Cloudflare Agents docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-08T07:04:15.984965+00:00
 
 # Test a Remote MCP Server
 
-Last updated Jun 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/model-context-protocol/guides/test-remote-mcp-server/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/model-context-protocol/guides/test-remote-mcp-server/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewThe Model Context Protocol (MCP) inspectorConnect your remote MCP server to Cloudflare Workers AI PlaygroundConnect your remote MCP server to Claude Desktop via a local proxyConnect your remote MCP server to CursorConnect your remote MCP server to Windsurf
+OverviewThe Model Context Protocol (MCP) inspectorConnect your remote MCP server to Cloudflare Workers AI PlaygroundConnect your remote MCP server to Claude CodeConnect your remote MCP server to CursorConnect your remote MCP server to Windsurf
 
 Remote, authorized connections are an evolving part of the [Model Context Protocol (MCP) specification ↗︎](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization). Not all MCP clients support remote connections yet.
 
@@ -63,30 +63,14 @@ You should see the **List tools** button, which will list the tools that your MC
 
 Visit the [Workers AI Playground ↗︎](https://playground.ai.cloudflare.com/), enter your MCP server URL, and click "Connect". Once authenticated (if required), you should see your tools listed and they will be available to the AI model in the chat.
 
-## Connect your remote MCP server to Claude Desktop via a local proxy
+## Connect your remote MCP server to Claude Code
 
-You can use the [`mcp-remote` local proxy ↗︎](https://www.npmjs.com/package/mcp-remote) to connect Claude Desktop to your remote MCP server. This lets you test what an interaction with your remote MCP server will be like with a real-world MCP client.
-
-  1. Open Claude Desktop and navigate to Settings -> Developer -> Edit Config. This opens the configuration file that controls which MCP servers Claude can access.
-  2. Replace the content with a configuration like this:
-
-
+Add the remote server directly to Claude Code using Streamable HTTP:
     
     
-    {
-    	"mcpServers": {
-    		"my-server": {
-    			"command": "npx",
-    			"args": ["mcp-remote", "http://my-mcp-server.my-account.workers.dev/mcp"]
-    		}
-    	}
-    }
+    claude mcp add --transport http my-server https://my-mcp-server.my-account.workers.dev/mcp
 
-  3. Save the file and restart Claude Desktop (command/ctrl + R). When Claude restarts, a browser window will open showing your OAuth login page. Complete the authorization flow to grant Claude access to your MCP server.
-
-
-
-Once authenticated, you'll be able to see your tools by clicking the tools icon in the bottom right corner of Claude's interface.
+Run `claude mcp list` to verify the connection. If the server requires authentication, complete the authorization flow in your browser.
 
 ## Connect your remote MCP server to Cursor
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/add-tables-to-replication-job/
 title: Add tables to a replication job \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:57.401342+00:00
+fetched_at: 2026-10-23T16:51:38.584721+00:00
 ---
 
 # Add tables to a replication job  |  Cloud Data Fusion  |  Google Cloud Documentation

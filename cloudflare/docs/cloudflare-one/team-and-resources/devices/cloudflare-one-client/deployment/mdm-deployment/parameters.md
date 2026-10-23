@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/parameters/
 title: Parameters \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:57:48.092812+00:00
+fetched_at: 2026-10-23T16:40:05.678818+00:00
 ---
 
 # Parameters · Cloudflare One docs
@@ -22,9 +22,9 @@ Team and resources[Devices](https://developers.cloudflare.com/cloudflare-one/tea
 
 # Parameters
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/parameters/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewRequired for full Cloudflare Zero Trust features organizationRequired for DNS-only policy enforcement gateway_unique_idOrganization parameters allow_managed_deployments allow_updates auth_client_id auth_client_secret auto_connect display_name enable_netbt enable_pmtud enable_post_quantum environment external_emergency_signal_fingerprint external_emergency_signal_interval external_emergency_signal_url hardware_backed_registration local_emergency_signal_enabled onboarding override_api_endpoint override_doh_endpoint override_warp_endpoint service_mode support_url switch_locked unique_client_id use_in_app_webview warp_tunnel_protocolTop-level parameters configs multi_user organization_configs pre_loginPer-app VPN parameters (Android) app_identifier is_browser
+OverviewRequired for full Cloudflare Zero Trust features organizationRequired for DNS-only policy enforcement gateway_unique_idOrganization parameters allow_managed_deployments allow_updates auth_client_id auth_client_secret auto_connect display_name enable_netbt enable_pmtud enable_post_quantum environment external_emergency_signal_fingerprint external_emergency_signal_interval external_emergency_signal_url hardware_backed_registration local_emergency_signal_enabled managed_network_probe_count managed_network_probe_interval_secs mdm_file_debounce_secs mdm_file_unavailable_debounce_secs onboarding override_api_endpoint override_doh_endpoint override_warp_endpoint service_mode support_url switch_locked unique_client_id use_in_app_webview warp_tunnel_protocolTop-level parameters configs multi_user organization_configs pre_loginPer-app VPN parameters (Android) app_identifier is_browser
 
 Each Cloudflare One Client (formerly WARP) supports the following set of parameters as part of their deployment, regardless of the deployment mechanism.
 
@@ -386,6 +386,117 @@ Enables [Local Emergency Disconnect](https://developers.cloudflare.com/cloudflar
   * `true` — The client monitors the local signal file for emergency disconnect.
 
 
+
+### `managed_network_probe_count`
+
+Feature availability
+
+[Client modes](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/modes/) | [Zero Trust plans ↗︎](https://www.cloudflare.com/teams-pricing/)  
+---|---  
+All modes | All plans  
+  
+System | Availability | Minimum client version  
+---|---|---  
+Windows | ✅ | 2026.9.1555.1  
+macOS | ✅ | 2026.9.1555.1  
+Linux | ✅ | 2026.9.1555.1  
+iOS | ❌ | —  
+Android | ❌ | —  
+ChromeOS | ❌ | —  
+  
+Sets how many extra times the Cloudflare One Client checks for [managed networks](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/managed-networks/) after a check finds none. The client checks for managed networks when the device registers and when the network changes. A temporary connection failure during that check can apply the wrong [device profile](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/device-profiles/) until the next network change. Extra probes let the client correct the device profile without a network change. Each probe checks every managed network.
+
+To set the wait between probes, use `managed_network_probe_interval_secs`.
+
+**Value Type:** `integer`
+
+**Value:**
+
+  * `0` — Turns off extra probes. The client only checks for managed networks on registration and network changes, as in versions before 2026.9.1555.1.
+  * `1` — (default) Runs one extra probe.
+  * `2` to `10` — Runs up to this number of extra probes. The client treats values above `10` as `10`.
+  * `-1` — Probes until the client finds a managed network.
+
+
+
+### `managed_network_probe_interval_secs`
+
+Feature availability
+
+[Client modes](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/modes/) | [Zero Trust plans ↗︎](https://www.cloudflare.com/teams-pricing/)  
+---|---  
+All modes | All plans  
+  
+System | Availability | Minimum client version  
+---|---|---  
+Windows | ✅ | 2026.9.1555.1  
+macOS | ✅ | 2026.9.1555.1  
+Linux | ✅ | 2026.9.1555.1  
+iOS | ❌ | —  
+Android | ❌ | —  
+ChromeOS | ❌ | —  
+  
+How long the Cloudflare One Client waits after a [managed network](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/managed-networks/) check finds no managed network before it probes again. A network change that does not start a new check restarts a pending wait.
+
+To set the number of probes, use `managed_network_probe_count`.
+
+**Value Type:** `integer`
+
+**Value:** Wait time in seconds (minimum `30`, maximum `300`, default `30`)
+
+The client replaces values outside this range with the nearest limit.
+
+### `mdm_file_debounce_secs`
+
+Feature availability
+
+[Client modes](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/modes/) | [Zero Trust plans ↗︎](https://www.cloudflare.com/teams-pricing/)  
+---|---  
+All modes | All plans  
+  
+System | Availability | Minimum client version  
+---|---|---  
+Windows | ✅ | 2026.9.1555.1  
+macOS | ✅ | 2026.9.1555.1  
+Linux | ✅ | 2026.9.1555.1  
+iOS | ❌ | —  
+Android | ❌ | —  
+ChromeOS | ❌ | —  
+  
+How long the Cloudflare One Client waits after the MDM file (`mdm.xml` or `com.cloudflare.warp.plist`) changes before it applies the new configuration. Each new change restarts the wait, so the client applies several quick changes together.
+
+**Value Type:** `integer`
+
+**Value:** Wait time in seconds (minimum `1`, maximum `60`, default `10`)
+
+The client replaces values outside this range with the nearest limit.
+
+### `mdm_file_unavailable_debounce_secs`
+
+Feature availability
+
+[Client modes](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/modes/) | [Zero Trust plans ↗︎](https://www.cloudflare.com/teams-pricing/)  
+---|---  
+All modes | All plans  
+  
+System | Availability | Minimum client version  
+---|---|---  
+Windows | ✅ | 2026.9.1555.1  
+macOS | ✅ | 2026.9.1555.1  
+Linux | ✅ | 2026.9.1555.1  
+iOS | ❌ | —  
+Android | ❌ | —  
+ChromeOS | ❌ | —  
+  
+How long the Cloudflare One Client keeps the last applied MDM configuration after the MDM file goes missing or becomes unreadable. The wait starts at the first file change that leaves the file unavailable. If the file is still unavailable when the wait ends, the client removes the MDM configuration, including any managed registration.
+
+Some MDM tools replace the file by deleting it and creating it again. A wait longer than that gap keeps the client from removing the registration.
+
+**Value Type:** `integer`
+
+**Value:** Wait time in seconds (minimum `0`, maximum `300`)
+
+The client replaces values outside this range with the nearest limit. If you do not set this parameter, the client waits 20 seconds on macOS. On Windows and Linux, the client removes the MDM configuration as soon as it fails to read the file.
 
 ### `onboarding`
 

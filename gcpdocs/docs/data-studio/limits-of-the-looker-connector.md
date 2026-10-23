@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/limits-of-the-looker-connector/
 title: Overview of Looker connector requirements, limits, and feature support \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:07.546225+00:00
+fetched_at: 2026-10-23T16:52:46.903587+00:00
 ---
 
 # Overview of Looker connector requirements, limits, and feature support  |  Data Studio  |  Google Cloud Documentation

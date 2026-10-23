@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/perform-vector-search/
 title: Perform a vector search \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:33.920351+00:00
+fetched_at: 2026-10-23T16:49:35.640509+00:00
 ---
 
 # Perform a vector search  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

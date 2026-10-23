@@ -2,793 +2,876 @@
 url: https://ai.google.dev/api/voices.md.txt
 title: voices
 method: httpx-raw-text
-fetched_at: 2026-10-23T12:07:26.110668+00:00
+fetched_at: 2026-10-23T16:39:41.343438+00:00
 ---
 
 # voices
 
 > Source: https://ai.google.dev/api/voices.md.txt
 
-<!-- mdformat off(generated) -->
-<!-- disableFinding(G3DOC_JINJA) -->
-<!-- disableFinding(HEADING_FUNCTION) -->
-<!-- disableFinding(LINE_OVER_80) -->
-<!-- disableFinding(SPACES) -->
-
-
-
-# Gemini Voices API
-
-Note: This API is in Beta. Endpoints are under `/v1beta/`.
-
 The Voices API allows you to create custom voices from natural language prompts (Voice Design) or from reference audio and speaker consent recordings (Voice Replication), as well as list, retrieve, and manage custom and prebuilt voices for Text-to-Speech (TTS) synthesis.
+[View as markdown](https://ai.google.dev/static/api/voices.md.txt) [View the OpenAPI Spec](https://ai.google.dev/static/api/interactions.openapi.json)
+
+> [!NOTE]
+> This API is in Beta. Endpoints are under `/v1beta/`.
+
+## CreateVoice
+
+post https://generativelanguage.googleapis.com/v1beta/voices Creates a custom voice from a natural-language prompt
+(\`VOICE_TYPE_PROMPTED\`) or from reference and consent audio recordings
+(\`VOICE_TYPE_REPLICATED\`).
+- [Request body](https://ai.google.dev/api/voices#CreateVoice.request_body)
+- [Response](https://ai.google.dev/api/voices#CreateVoice.response)
+
+### Request body
+
+The request body contains data with the following structure:
+voice [Voice](https://ai.google.dev/api/voices#Resource:Voice) (required) Required. The voice to create.
+\`voice.model\` is optional; if omitted, the service selects the default
+voice creation model. Output-only fields on \`Voice\` (\`id\`, \`key\`,
+\`expire_time\`, \`usage\`) are ignored if set.
+store boolean (optional) Optional. Whether the created voice is persisted and managed by Google.
+
+\* When \`true\`, Google stores the voice and returns \`Voice.id\` (for example,
+\`voice_abc123def456\`), which can be managed via \`GetVoice\`, \`ListVoices\`,
+and \`DeleteVoice\` and referenced by ID in synthesis requests. Stored
+voices expire after 1 year of inactivity; using a stored voice in speech
+synthesis or as a \`base_voice\` in \`CreateVoice\` extends its
+\`expire_time\`. Projects are subject to a maximum active stored voice
+quota; exceeding the quota returns \`RESOURCE_EXHAUSTED\`.
+\* When \`false\` (default), the voice is not stored by Google and \`Voice.key\`
+(for example, \`voicekey_...\`) is returned for client-side storage and
+synthesis. Optional discovery metadata fields on \`voice\` are not
+persisted or returned when \`store\` is \`false\`.
+\* Required to be \`true\` when \`voice.type\` is \`"prompted"\`
+(otherwise fails with \`INVALID_ARGUMENT\`).
+
+### Response
+
+If successful, the response body contains data with the following structure:
+type VoiceType (required) Required. The type of the voice. In \`CreateVoice\`, must be \`"replicated"\`
+or \`"prompted"\`. In \`ListVoices\` responses, may also be \`"prebuilt"\`.
+<br />
+
+#### Possible values
+
+- `replicated`
+
+  A custom voice replicated from a reference audio sample and speaker consent
+  recording.
+- `prompted`
+
+  A custom voice generated from a natural-language text prompt (optionally
+  editing or remixing a \`base_voice\`).
+- `prebuilt`
+
+  A built-in system voice from Google's voice catalog (e.g., \`Puck\`,
+  \`Charon\`). Returned in responses; cannot be specified as the type in
+  \`CreateVoice\`.
+id string (optional) Output only. The unique identifier of the voice.
+
+\* For Google-managed custom voices (\`store = true\`), this is a generated ID
+with prefix \`voice_\` (for example, \`voice_abc123def456\`). Pass
+\`voices/{id}\` as the \`name\` in \`GetVoice\` and \`DeleteVoice\`, and pass
+\`{id}\` directly to \`SpeechConfig.voice_config.voice\` (or
+\`SpeechConfig.voice\`) during speech synthesis.
+\* For prebuilt catalog voices (\`"prebuilt"\` returned by \`ListVoices\`), this
+is the speaker name (for example, \`Puck\` or \`Charon\`).
+\* Unset when \`CreateVoice\` is called with \`store = false\`.
+model string (optional) Optional. The model used to design or replicate the voice.
+If omitted in \`CreateVoice\`, defaults to the latest supported voice design
+model. Returned in \`CreateVoice\`, \`GetVoice\`, and \`ListVoices\` responses
+for custom voices (\`"prompted"\` and \`"replicated"\`); unset for \`"prebuilt"\`
+voices. Created voices can be synthesized across any supported TTS
+synthesis model.
+key string (optional) Output only. The client-managed voice replication key (with prefix
+\`voicekey_\`). Returned only by \`CreateVoice\` when \`type\` is \`"replicated"\`
+and \`store\` is \`false\`. Pass this key to \`SpeechConfig.voice_config.voice\`
+(or \`SpeechConfig.voice\`) during speech synthesis.
+expire_time string (optional) Output only. The timestamp at which a custom stored voice (\`store = true\`)
+or replicated voice key (\`store = false\`) expires. For custom stored voices
+(\`store = true\`), this expiration time is extended when the voice is used
+for speech synthesis or as a \`base_voice\` in \`CreateVoice\`. Unset for
+prebuilt catalog voices (\`"prebuilt"\`), which do not expire.
+display_name string (optional) Optional. User-provided display name for a stored voice (\`store = true\`),
+or the catalog name for a prebuilt voice.
+prompted PromptedVoice (optional) Parameters for prompted voice generation.
+Required in \`CreateVoice\` when \`type\` is \`"prompted"\`. Returned in
+\`CreateVoice\`, \`GetVoice\`, and \`ListVoices\` responses for prompted voices.
+Parameters for prompted voice generation.
+Required in \`CreateVoice\` when \`type\` is \`"prompted"\`. Returned in
+\`CreateVoice\`, \`GetVoice\`, and \`ListVoices\` responses for prompted voices.
+
+#### Fields
+
+input string (required) Required. The natural-language prompt describing the desired voice, e.g.
+"A deep, booming male voice of a massive evil ogre in his middle years."
+base_voice string (optional) Optional. The name or ID of an existing base voice to edit or remix.
+Use the voice name for prebuilt voices (e.g., \`Puck\`) or the voice ID for
+previously created voices (e.g., \`voice_abc123\`). This can be any
+prompted or replicated voice that the user has access to.
+When present, \`input\` describes relative alterations to make to the base
+voice.
+language_code string (optional) Optional. Primary BCP-47 language tag (e.g. "en-US", "fr-FR").
+region_code string (optional) Optional. ISO 3166-1 alpha-2 or UN M.49 geographic region code (e.g. "US",
+"GB", "001").
+accent string (optional) Optional. Regional accent descriptor (e.g. "American", "British").
+persona string (optional) Optional. Intended persona or character archetype (e.g. "Warm, Friendly",
+"Narrator").
+context string (optional) Optional. Optimal usage context or domain (e.g. "Conversational",
+"Audiobook", "News").
+gender string (optional) Optional. Perceived voice gender presentation (e.g. "female", "male",
+"neutral").
+pitch Pitch (optional) Optional. Voice pitch classification.
+<br />
 
-## Voices
+#### Possible values
 
-### CreateVoice
+- `low`
 
-`POST https://generativelanguage.googleapis.com/v1beta/voices`
+  Lower pitch voice.
+- `medium`
 
-Creates a custom voice from a natural-language prompt
-(`VOICE_TYPE_PROMPTED`) or from reference and consent audio recordings
-(`VOICE_TYPE_REPLICATED`).
+  Medium pitch voice.
+- `high`
 
+  Higher pitch voice.
+description string (optional) Optional. Descriptive summary of vocal timbre, personality, and tone.
+usage Usage (optional) Output only. Token usage statistics for the voice creation request.
+Populated only in the response of \`CreateVoice\` when \`type\` is
+\`"prompted"\`; unset for \`"replicated"\` and in \`GetVoice\` and \`ListVoices\`
+responses.
+Statistics on the interaction request's token usage.
 
-#### Request Body
-- **voice** (`<a href="#Resource:Voice">Voice</a>`) *(Required)* Required. The voice to create. `voice.model` is optional; if omitted, the service selects the default voice creation model. Output-only fields on `Voice` (`id`, `key`, `expire_time`, `usage`) are ignored if set.
+#### Fields
 
-- **store** (`boolean`) Optional. Whether the created voice is persisted and managed by Google.  * When `true`, Google stores the voice and returns `Voice.id` (for example,   `voice_abc123def456`), which can be managed via `GetVoice`, `ListVoices`,   and `DeleteVoice` and referenced by ID in synthesis requests. Stored   voices expire after 1 year of inactivity; using a stored voice in speech   synthesis or as a `base_voice` in `CreateVoice` extends its   `expire_time`. Projects are subject to a maximum active stored voice   quota; exceeding the quota returns `RESOURCE_EXHAUSTED`. * When `false` (default), the voice is not stored by Google and `Voice.key`   (for example, `voicekey_...`) is returned for client-side storage and   synthesis. Optional discovery metadata fields on `voice` are not   persisted or returned when `store` is `false`. * Required to be `true` when `voice.type` is `"prompted"`   (otherwise fails with `INVALID_ARGUMENT`).
+total_input_tokens integer (optional) Number of tokens in the prompt (context).
+input_tokens_by_modality array (ModalityTokens) (optional) A breakdown of input token usage by modality.
+The token count for a single response modality.
 
+#### Fields
 
-#### Response
-- **type** (`VoiceType`) *(Required)* Required. The type of the voice. In `CreateVoice`, must be `"replicated"` or `"prompted"`. In `ListVoices` responses, may also be `"prebuilt"`.
-  Possible values:
-  - `replicated`: A custom voice replicated from a reference audio sample and speaker consent
-recording.
-  - `prompted`: A custom voice generated from a natural-language text prompt (optionally
-editing or remixing a `base_voice`).
-  - `prebuilt`: A built-in system voice from Google's voice catalog (e.g., `Puck`,
-`Charon`). Returned in responses; cannot be specified as the type in
-`CreateVoice`.
+modality ResponseModality (optional) The modality associated with the token count.
+<br />
 
-- **id** (`string`) Output only. The unique identifier of the voice.  * For Google-managed custom voices (`store = true`), this is a generated ID   with prefix `voice_` (for example, `voice_abc123def456`). Pass   `voices/{id}` as the `name` in `GetVoice` and `DeleteVoice`, and pass   `{id}` directly to `SpeechConfig.voice_config.voice` (or   `SpeechConfig.voice`) during speech synthesis. * For prebuilt catalog voices (`"prebuilt"` returned by `ListVoices`), this   is the speaker name (for example, `Puck` or `Charon`). * Unset when `CreateVoice` is called with `store = false`.
+#### Possible values
 
-- **model** (`string`) Optional. The model used to design or replicate the voice. If omitted in `CreateVoice`, defaults to the latest supported voice design model. Returned in `CreateVoice`, `GetVoice`, and `ListVoices` responses for custom voices (`"prompted"` and `"replicated"`); unset for `"prebuilt"` voices. Created voices can be synthesized across any supported TTS synthesis model.
+- `text`
 
-- **key** (`string`) Output only. The client-managed voice replication key (with prefix `voicekey_`). Returned only by `CreateVoice` when `type` is `"replicated"` and `store` is `false`. Pass this key to `SpeechConfig.voice_config.voice` (or `SpeechConfig.voice`) during speech synthesis.
+  Indicates the model should return text.
+- `image`
 
-- **expire_time** (`string`) Output only. The timestamp at which a custom stored voice (`store = true`) or replicated voice key (`store = false`) expires. For custom stored voices (`store = true`), this expiration time is extended when the voice is used for speech synthesis or as a `base_voice` in `CreateVoice`. Unset for prebuilt catalog voices (`"prebuilt"`), which do not expire.
+  Indicates the model should return images.
+- `audio`
 
-- **display_name** (`string`) Optional. User-provided display name for a stored voice (`store = true`), or the catalog name for a prebuilt voice.
+  Indicates the model should return audio.
+- `video`
 
-- **prompted** (`PromptedVoice`) Parameters for prompted voice generation. Required in `CreateVoice` when `type` is `"prompted"`. Returned in `CreateVoice`, `GetVoice`, and `ListVoices` responses for prompted voices.
-  - **input** (`string`) *(Required)*   Required. The natural-language prompt describing the desired voice, e.g. "A deep, booming male voice of a massive evil ogre in his middle years."
+  Indicates the model should return video.
+- `document`
 
-  - **base_voice** (`string`)   Optional. The name or ID of an existing base voice to edit or remix. Use the voice name for prebuilt voices (e.g., `Puck`) or the voice ID for previously created voices (e.g., `voice_abc123`). This can be any prompted or replicated voice that the user has access to. When present, `input` describes relative alterations to make to the base voice.
+  Indicates the model should return documents.
+tokens integer (optional) Number of tokens for the modality.
+total_cached_tokens integer (optional) Number of tokens in the cached part of the prompt (the cached content).
+cached_tokens_by_modality array (ModalityTokens) (optional) A breakdown of cached token usage by modality.
+The token count for a single response modality.
 
+#### Fields
 
-- **language_code** (`string`) Optional. Primary BCP-47 language tag (e.g. "en-US", "fr-FR").
+modality ResponseModality (optional) The modality associated with the token count.
+<br />
 
-- **region_code** (`string`) Optional. ISO 3166-1 alpha-2 or UN M.49 geographic region code (e.g. "US", "GB", "001").
+#### Possible values
 
-- **accent** (`string`) Optional. Regional accent descriptor (e.g. "American", "British").
+- `text`
 
-- **persona** (`string`) Optional. Intended persona or character archetype (e.g. "Warm, Friendly", "Narrator").
+  Indicates the model should return text.
+- `image`
 
-- **context** (`string`) Optional. Optimal usage context or domain (e.g. "Conversational", "Audiobook", "News").
+  Indicates the model should return images.
+- `audio`
 
-- **gender** (`string`) Optional. Perceived voice gender presentation (e.g. "female", "male", "neutral").
+  Indicates the model should return audio.
+- `video`
 
-- **pitch** (`Pitch`) Optional. Voice pitch classification.
-  Possible values:
-  - `low`: Lower pitch voice.
-  - `medium`: Medium pitch voice.
-  - `high`: Higher pitch voice.
+  Indicates the model should return video.
+- `document`
 
-- **description** (`string`) Optional. Descriptive summary of vocal timbre, personality, and tone.
+  Indicates the model should return documents.
+tokens integer (optional) Number of tokens for the modality.
+total_output_tokens integer (optional) Total number of tokens across all the generated responses.
+output_tokens_by_modality array (ModalityTokens) (optional) A breakdown of output token usage by modality.
+The token count for a single response modality.
 
-- **usage** (`Usage`) Output only. Token usage statistics for the voice creation request. Populated only in the response of `CreateVoice` when `type` is `"prompted"`; unset for `"replicated"` and in `GetVoice` and `ListVoices` responses.
-  - **total_input_tokens** (`integer`)   Number of tokens in the prompt (context).
+#### Fields
 
-  - **input_tokens_by_modality** (`array (ModalityTokens)`)   A breakdown of input token usage by modality.
-    - **modality** (`ResponseModality`)     The modality associated with the token count.
-      Possible values:
-      - `text`: Indicates the model should return text.
-      - `image`: Indicates the model should return images.
-      - `audio`: Indicates the model should return audio.
-      - `video`: Indicates the model should return video.
-      - `document`: Indicates the model should return documents.
+modality ResponseModality (optional) The modality associated with the token count.
+<br />
 
-    - **tokens** (`integer`)     Number of tokens for the modality.
+#### Possible values
 
+- `text`
 
-  - **total_cached_tokens** (`integer`)   Number of tokens in the cached part of the prompt (the cached content).
+  Indicates the model should return text.
+- `image`
 
-  - **cached_tokens_by_modality** (`array (ModalityTokens)`)   A breakdown of cached token usage by modality.
-    - **modality** (`ResponseModality`)     The modality associated with the token count.
-      Possible values:
-      - `text`: Indicates the model should return text.
-      - `image`: Indicates the model should return images.
-      - `audio`: Indicates the model should return audio.
-      - `video`: Indicates the model should return video.
-      - `document`: Indicates the model should return documents.
+  Indicates the model should return images.
+- `audio`
 
-    - **tokens** (`integer`)     Number of tokens for the modality.
+  Indicates the model should return audio.
+- `video`
 
+  Indicates the model should return video.
+- `document`
 
-  - **total_output_tokens** (`integer`)   Total number of tokens across all the generated responses.
+  Indicates the model should return documents.
+tokens integer (optional) Number of tokens for the modality.
+total_tool_use_tokens integer (optional) Number of tokens present in tool-use prompt(s).
+tool_use_tokens_by_modality array (ModalityTokens) (optional) A breakdown of tool-use token usage by modality.
+The token count for a single response modality.
 
-  - **output_tokens_by_modality** (`array (ModalityTokens)`)   A breakdown of output token usage by modality.
-    - **modality** (`ResponseModality`)     The modality associated with the token count.
-      Possible values:
-      - `text`: Indicates the model should return text.
-      - `image`: Indicates the model should return images.
-      - `audio`: Indicates the model should return audio.
-      - `video`: Indicates the model should return video.
-      - `document`: Indicates the model should return documents.
-
-    - **tokens** (`integer`)     Number of tokens for the modality.
-
-
-  - **total_tool_use_tokens** (`integer`)   Number of tokens present in tool-use prompt(s).
-
-  - **tool_use_tokens_by_modality** (`array (ModalityTokens)`)   A breakdown of tool-use token usage by modality.
-    - **modality** (`ResponseModality`)     The modality associated with the token count.
-      Possible values:
-      - `text`: Indicates the model should return text.
-      - `image`: Indicates the model should return images.
-      - `audio`: Indicates the model should return audio.
-      - `video`: Indicates the model should return video.
-      - `document`: Indicates the model should return documents.
-
-    - **tokens** (`integer`)     Number of tokens for the modality.
-
-
-  - **total_thought_tokens** (`integer`)   Number of tokens of thoughts for thinking models.
-
-  - **total_tokens** (`integer`)   Total token count for the interaction request (prompt + responses + other internal tokens).
-
-  - **grounding_tool_count** (`array (GroundingToolCount)`)   Grounding tool count.
-    - **type** (`enum (string)`)     The grounding tool type associated with the count.
-      Possible values:
-      - `google_search`: Grounding with Google Web Search and Image Search, & Web Grounding
-for Enterprise.
-      - `google_maps`: Grounding with Google Maps.
-
-    - **count** (`integer`)     The number of grounding tool counts.
-
-
-
-- **sample_audio** (`AudioData`) Output only. Sample audio (synthesizer prompt audio) generated for a prompted voice. Populated only in `CreateVoice` and `GetVoice` responses when `type` is `"prompted"`; unset in `ListVoices` responses and for `"replicated"` or `"prebuilt"` voices.
-  - **mime_type** (`string`) *(Required)*   Required. The IANA MIME type of the audio data (for example, `audio/wav` or `audio/mpeg`).
-
-  - **data** (`string`) *(Required)*   Required. The raw audio bytes.
-
-
-
-#### Examples
-**Create**
-
-**REST**
-
-```sh
-curl -X POST https://generativelanguage.googleapis.com/v1beta/voices \
-  -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "store": true,
-    "voice": {
-      "type": "prompted",
-      "display_name": "Warm Narrator",
-      "language_code": "en-US",
-      "prompted": {
-        "input": "A warm, friendly narrator voice with a calm pace."
-      }
-    }
-  }'
-```
-**Python**
-
-```python
-from google import genai
-
-client = genai.Client()
-voice = client.voices.create(
-    store=True,
-    voice={
-        "type": "prompted",
-        "display_name": "Warm Narrator",
-        "language_code": "en-US",
-        "prompted": {
-            "input": "A warm, friendly narrator voice with a calm pace.",
-        },
-    },
-)
-print(voice.id)
-```
-**JavaScript**
-
-```javascript
-import {GoogleGenAI} from '@google/genai';
-
-const ai = new GoogleGenAI({});
-const voice = await ai.voices.create({
-  store: true,
-  voice: {
-    type: 'prompted',
-    display_name: 'Warm Narrator',
-    language_code: 'en-US',
-    prompted: {
-      input: 'A warm, friendly narrator voice with a calm pace.',
-    },
-  },
-});
-console.log(voice.id);
-```
-**Go**
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "google.golang.org/genai"
-    gaos_voices "google.golang.org/genai/interactions/models/voices"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    req := operations.CreateVoiceRequest{
-        Body: gaos_voices.CreateVoiceRequest{
-            Store: genai.Ptr(true),
-            Voice: gaos_voices.VoiceInput{
-                Type:         gaos_voices.VoiceTypePrompted,
-                DisplayName:  genai.Ptr("Warm Narrator"),
-                LanguageCode: genai.Ptr("en-US"),
-                Prompted: &gaos_voices.PromptedVoice{
-                    Input: "A warm, friendly narrator voice with a calm pace.",
-                },
-            },
-        },
-    }
-
-    res, err := client.Voices.Create(ctx, req)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    if res.Voice != nil && res.Voice.ID != nil {
-        fmt.Println(*res.Voice.ID)
-    }
-}
-```
----
-
-### ListVoices
-
-`GET https://generativelanguage.googleapis.com/v1beta/voices`
-
-Lists custom stored voices owned by the caller (ordered newest first)
+#### Fields
+
+modality ResponseModality (optional) The modality associated with the token count.
+<br />
+
+#### Possible values
+
+- `text`
+
+  Indicates the model should return text.
+- `image`
+
+  Indicates the model should return images.
+- `audio`
+
+  Indicates the model should return audio.
+- `video`
+
+  Indicates the model should return video.
+- `document`
+
+  Indicates the model should return documents.
+tokens integer (optional) Number of tokens for the modality.
+total_thought_tokens integer (optional) Number of tokens of thoughts for thinking models.
+total_tokens integer (optional) Total token count for the interaction request (prompt + responses + other
+internal tokens).
+grounding_tool_count array (GroundingToolCount) (optional) Grounding tool count.
+The number of grounding tool counts.
+
+#### Fields
+
+type enum (string) (optional) The grounding tool type associated with the count.
+
+Possible
+values:
+
+- `google_search`
+
+  Grounding with Google Web Search and Image Search, \& Web Grounding
+  for Enterprise.
+- `google_maps`
+
+  Grounding with Google Maps.
+count integer (optional) The number of grounding tool counts.
+sample_audio AudioData (optional) Output only. Sample audio (synthesizer prompt audio) generated for a
+prompted voice.
+Populated only in \`CreateVoice\` and \`GetVoice\` responses when \`type\` is
+\`"prompted"\`; unset in \`ListVoices\` responses and for \`"replicated"\` or
+\`"prebuilt"\` voices.
+Audio payload used for voice creation.
+
+#### Fields
+
+mime_type string (required) Required. The IANA MIME type of the audio data (for example, \`audio/wav\` or
+\`audio/mpeg\`).
+data string (required) Required. The raw audio bytes.
+
+### Create
+
+<iframe src="https:///frame/api/voices_f1301356c9b400b31a883e8003b09e0ff3103d5cb19a7ba861ace16fb9404947.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+
+## ListVoices
+
+get https://generativelanguage.googleapis.com/v1beta/voices Lists custom stored voices owned by the caller (ordered newest first)
 followed by prebuilt system voices from Google's voice catalog.
+- [Path / Query parameters](https://ai.google.dev/api/voices#ListVoices.PATH_PARAMETERS)
+- [Response](https://ai.google.dev/api/voices#ListVoices.response)
+
+### Path / Query Parameters
+
+accent array (string) (optional) Optional. Filter by accent description (e.g. "American", "British").
+Case-insensitive exact match. If multiple values are specified, matches
+voices with any of the specified accents (OR).
+context array (string) (optional) Optional. Filter by intended context or domain (e.g. "News, Commercial").
+Case-insensitive exact match. If multiple values are specified, matches
+voices with any of the specified contexts (OR).
+gender array (string) (optional) Optional. Filter by gender presentation (e.g. "female", "male", "neutral").
+Case-insensitive exact match. If multiple values are specified, matches
+voices with any of the specified genders (OR).
+language_code array (string) (optional) Optional. Filter by BCP-47 language code (e.g. "en-US").
+Case-insensitive exact match. If multiple values are specified, matches
+voices with any of the specified language codes (OR).
+page_size integer (optional) Optional. The maximum number of voices to return per page. The service may
+return fewer than this value. If unspecified, at most 50 voices are
+returned. The maximum value is 1000; values above 1000 are coerced to
+1000.
+page_token string (optional) Optional. A page token received from a previous \`ListVoices\` call. Provide
+this to retrieve the subsequent page.
+
+When paginating, all filter query parameters (\`language_code\`,
+\`region_code\`, \`accent\`, \`persona\`, \`context\`, \`gender\`, \`pitch\`, \`type\`,
+and \`search\`) must match the call that returned this token; otherwise the
+request fails with \`INVALID_ARGUMENT\`. \`page_size\` may change between
+pages.
+persona array (string) (optional) Optional. Filter by vocal persona (e.g. "Warm, Friendly").
+Case-insensitive exact match. If multiple values are specified, matches
+voices with any of the specified personas (OR).
+pitch array (string) (optional) Optional. Filter by vocal pitch. Accepts \`"low"\`, \`"medium"\`, \`"high"\`
+(case-insensitive). If multiple values are specified, matches voices with
+any of the specified pitches (OR).
+region_code array (string) (optional) Optional. Filter by ISO 3166-1 alpha-2 or UN M.49 region code (e.g. "US",
+"001").
+Case-insensitive exact match. If multiple values are specified, matches
+voices with any of the specified region codes (OR).
+search string (optional) Optional. Free-text substring search query matched case-insensitively
+against both \`display_name\` and \`description\`. Maximum 2048 bytes.
+type array (string) (optional) Optional. Filter by voice type. Accepts \`"prebuilt"\`, \`"replicated"\`,
+\`"prompted"\` (case-insensitive). If multiple values are specified, matches
+voices with any of the specified types (OR).
+
+### Response
+
+If successful, the response body contains data with the following structure:
+voices array ([Voice](https://ai.google.dev/api/voices#Resource:Voice)) (optional) The voices from the specified collection.
+next_page_token string (optional) A token that can be sent as \`page_token\` to retrieve the next page.
+If empty, there are no subsequent pages.
+
+### List
+
+<iframe src="https:///frame/api/voices_8bff9c011834053ffc5d7fcc804a577f305a3c5e729cdbfd4eca1e4fca6bd2d2.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
+
+## GetVoice
+
+get https://generativelanguage.googleapis.com/v1beta/voices/{voicesId} Gets a custom stored voice (\`store = true\`) by resource name.
+Prebuilt catalog voices (\`VOICE_TYPE_PREBUILT\`) cannot be retrieved via
+\`GetVoice\`; use \`ListVoices\` instead.
+- [Path / Query parameters](https://ai.google.dev/api/voices#GetVoice.PATH_PARAMETERS)
+- [Response](https://ai.google.dev/api/voices#GetVoice.response)
+
+### Path / Query Parameters
+
+voicesId string (required) Required. The resource name of the custom stored voice to retrieve
+(for example, \`voices/voice_abc123def456\`).
+
+### Response
+
+If successful, the response body contains data with the following structure:
+type VoiceType (required) Required. The type of the voice. In \`CreateVoice\`, must be \`"replicated"\`
+or \`"prompted"\`. In \`ListVoices\` responses, may also be \`"prebuilt"\`.
+<br />
+
+#### Possible values
+
+- `replicated`
+
+  A custom voice replicated from a reference audio sample and speaker consent
+  recording.
+- `prompted`
+
+  A custom voice generated from a natural-language text prompt (optionally
+  editing or remixing a \`base_voice\`).
+- `prebuilt`
+
+  A built-in system voice from Google's voice catalog (e.g., \`Puck\`,
+  \`Charon\`). Returned in responses; cannot be specified as the type in
+  \`CreateVoice\`.
+id string (optional) Output only. The unique identifier of the voice.
+
+\* For Google-managed custom voices (\`store = true\`), this is a generated ID
+with prefix \`voice_\` (for example, \`voice_abc123def456\`). Pass
+\`voices/{id}\` as the \`name\` in \`GetVoice\` and \`DeleteVoice\`, and pass
+\`{id}\` directly to \`SpeechConfig.voice_config.voice\` (or
+\`SpeechConfig.voice\`) during speech synthesis.
+\* For prebuilt catalog voices (\`"prebuilt"\` returned by \`ListVoices\`), this
+is the speaker name (for example, \`Puck\` or \`Charon\`).
+\* Unset when \`CreateVoice\` is called with \`store = false\`.
+model string (optional) Optional. The model used to design or replicate the voice.
+If omitted in \`CreateVoice\`, defaults to the latest supported voice design
+model. Returned in \`CreateVoice\`, \`GetVoice\`, and \`ListVoices\` responses
+for custom voices (\`"prompted"\` and \`"replicated"\`); unset for \`"prebuilt"\`
+voices. Created voices can be synthesized across any supported TTS
+synthesis model.
+key string (optional) Output only. The client-managed voice replication key (with prefix
+\`voicekey_\`). Returned only by \`CreateVoice\` when \`type\` is \`"replicated"\`
+and \`store\` is \`false\`. Pass this key to \`SpeechConfig.voice_config.voice\`
+(or \`SpeechConfig.voice\`) during speech synthesis.
+expire_time string (optional) Output only. The timestamp at which a custom stored voice (\`store = true\`)
+or replicated voice key (\`store = false\`) expires. For custom stored voices
+(\`store = true\`), this expiration time is extended when the voice is used
+for speech synthesis or as a \`base_voice\` in \`CreateVoice\`. Unset for
+prebuilt catalog voices (\`"prebuilt"\`), which do not expire.
+display_name string (optional) Optional. User-provided display name for a stored voice (\`store = true\`),
+or the catalog name for a prebuilt voice.
+prompted PromptedVoice (optional) Parameters for prompted voice generation.
+Required in \`CreateVoice\` when \`type\` is \`"prompted"\`. Returned in
+\`CreateVoice\`, \`GetVoice\`, and \`ListVoices\` responses for prompted voices.
+Parameters for prompted voice generation.
+Required in \`CreateVoice\` when \`type\` is \`"prompted"\`. Returned in
+\`CreateVoice\`, \`GetVoice\`, and \`ListVoices\` responses for prompted voices.
+
+#### Fields
+
+input string (required) Required. The natural-language prompt describing the desired voice, e.g.
+"A deep, booming male voice of a massive evil ogre in his middle years."
+base_voice string (optional) Optional. The name or ID of an existing base voice to edit or remix.
+Use the voice name for prebuilt voices (e.g., \`Puck\`) or the voice ID for
+previously created voices (e.g., \`voice_abc123\`). This can be any
+prompted or replicated voice that the user has access to.
+When present, \`input\` describes relative alterations to make to the base
+voice.
+language_code string (optional) Optional. Primary BCP-47 language tag (e.g. "en-US", "fr-FR").
+region_code string (optional) Optional. ISO 3166-1 alpha-2 or UN M.49 geographic region code (e.g. "US",
+"GB", "001").
+accent string (optional) Optional. Regional accent descriptor (e.g. "American", "British").
+persona string (optional) Optional. Intended persona or character archetype (e.g. "Warm, Friendly",
+"Narrator").
+context string (optional) Optional. Optimal usage context or domain (e.g. "Conversational",
+"Audiobook", "News").
+gender string (optional) Optional. Perceived voice gender presentation (e.g. "female", "male",
+"neutral").
+pitch Pitch (optional) Optional. Voice pitch classification.
+<br />
+
+#### Possible values
+
+- `low`
+
+  Lower pitch voice.
+- `medium`
+
+  Medium pitch voice.
+- `high`
+
+  Higher pitch voice.
+description string (optional) Optional. Descriptive summary of vocal timbre, personality, and tone.
+usage Usage (optional) Output only. Token usage statistics for the voice creation request.
+Populated only in the response of \`CreateVoice\` when \`type\` is
+\`"prompted"\`; unset for \`"replicated"\` and in \`GetVoice\` and \`ListVoices\`
+responses.
+Statistics on the interaction request's token usage.
 
-#### Parameters
-- **accent** (`array (string)`) Optional. Filter by accent description (e.g. "American", "British"). Case-insensitive exact match. If multiple values are specified, matches voices with any of the specified accents (OR).
+#### Fields
 
-- **context** (`array (string)`) Optional. Filter by intended context or domain (e.g. "News, Commercial"). Case-insensitive exact match. If multiple values are specified, matches voices with any of the specified contexts (OR).
+total_input_tokens integer (optional) Number of tokens in the prompt (context).
+input_tokens_by_modality array (ModalityTokens) (optional) A breakdown of input token usage by modality.
+The token count for a single response modality.
 
-- **gender** (`array (string)`) Optional. Filter by gender presentation (e.g. "female", "male", "neutral"). Case-insensitive exact match. If multiple values are specified, matches voices with any of the specified genders (OR).
+#### Fields
 
-- **language_code** (`array (string)`) Optional. Filter by BCP-47 language code (e.g. "en-US"). Case-insensitive exact match. If multiple values are specified, matches voices with any of the specified language codes (OR).
+modality ResponseModality (optional) The modality associated with the token count.
+<br />
 
-- **page_size** (`integer`) Optional. The maximum number of voices to return per page. The service may return fewer than this value. If unspecified, at most 50 voices are returned. The maximum value is 1000; values above 1000 are coerced to 1000.
+#### Possible values
 
-- **page_token** (`string`) Optional. A page token received from a previous `ListVoices` call. Provide this to retrieve the subsequent page.  When paginating, all filter query parameters (`language_code`, `region_code`, `accent`, `persona`, `context`, `gender`, `pitch`, `type`, and `search`) must match the call that returned this token; otherwise the request fails with `INVALID_ARGUMENT`. `page_size` may change between pages.
+- `text`
 
-- **persona** (`array (string)`) Optional. Filter by vocal persona (e.g. "Warm, Friendly"). Case-insensitive exact match. If multiple values are specified, matches voices with any of the specified personas (OR).
+  Indicates the model should return text.
+- `image`
 
-- **pitch** (`array (string)`) Optional. Filter by vocal pitch. Accepts `"low"`, `"medium"`, `"high"` (case-insensitive). If multiple values are specified, matches voices with any of the specified pitches (OR).
+  Indicates the model should return images.
+- `audio`
 
-- **region_code** (`array (string)`) Optional. Filter by ISO 3166-1 alpha-2 or UN M.49 region code (e.g. "US", "001"). Case-insensitive exact match. If multiple values are specified, matches voices with any of the specified region codes (OR).
+  Indicates the model should return audio.
+- `video`
 
-- **search** (`string`) Optional. Free-text substring search query matched case-insensitively against both `display_name` and `description`. Maximum 2048 bytes.
+  Indicates the model should return video.
+- `document`
 
-- **type** (`array (string)`) Optional. Filter by voice type. Accepts `"prebuilt"`, `"replicated"`, `"prompted"` (case-insensitive). If multiple values are specified, matches voices with any of the specified types (OR).
+  Indicates the model should return documents.
+tokens integer (optional) Number of tokens for the modality.
+total_cached_tokens integer (optional) Number of tokens in the cached part of the prompt (the cached content).
+cached_tokens_by_modality array (ModalityTokens) (optional) A breakdown of cached token usage by modality.
+The token count for a single response modality.
 
+#### Fields
 
+modality ResponseModality (optional) The modality associated with the token count.
+<br />
 
-#### Response
-- **voices** (`array (<a href="#Resource:Voice">Voice</a>)`) The voices from the specified collection.
+#### Possible values
 
-- **next_page_token** (`string`) A token that can be sent as `page_token` to retrieve the next page. If empty, there are no subsequent pages.
+- `text`
 
+  Indicates the model should return text.
+- `image`
 
-#### Examples
-**List**
+  Indicates the model should return images.
+- `audio`
 
-**REST**
+  Indicates the model should return audio.
+- `video`
 
-```sh
-curl -X GET https://generativelanguage.googleapis.com/v1beta/voices \
-  -H "x-goog-api-key: $GEMINI_API_KEY"
-```
-**Python**
+  Indicates the model should return video.
+- `document`
 
-```python
-from google import genai
+  Indicates the model should return documents.
+tokens integer (optional) Number of tokens for the modality.
+total_output_tokens integer (optional) Total number of tokens across all the generated responses.
+output_tokens_by_modality array (ModalityTokens) (optional) A breakdown of output token usage by modality.
+The token count for a single response modality.
 
-client = genai.Client()
-response = client.voices.list()
-for voice in response.voices or []:
-  print(voice.id, voice.display_name)
-```
-**JavaScript**
+#### Fields
 
-```javascript
-import {GoogleGenAI} from '@google/genai';
+modality ResponseModality (optional) The modality associated with the token count.
+<br />
 
-const ai = new GoogleGenAI({});
-const response = await ai.voices.list();
-for (const voice of response.voices ?? []) {
-  console.log(voice.id, voice.display_name);
-}
-```
-**Go**
+#### Possible values
 
-```go
-package main
+- `text`
 
-import (
-    "context"
-    "fmt"
-    "log"
-    "google.golang.org/genai"
-    "google.golang.org/genai/interactions/models/operations"
-)
+  Indicates the model should return text.
+- `image`
 
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
+  Indicates the model should return images.
+- `audio`
 
-    res, err := client.Voices.List(ctx, operations.ListVoicesRequest{})
-    if err != nil {
-        log.Fatal(err)
-    }
+  Indicates the model should return audio.
+- `video`
 
-    if res.ListVoicesResponse != nil {
-        for _, voice := range res.ListVoicesResponse.Voices {
-            if voice.ID != nil && voice.DisplayName != nil {
-                fmt.Println(*voice.ID, *voice.DisplayName)
-            }
-        }
-    }
-}
-```
----
+  Indicates the model should return video.
+- `document`
 
-### GetVoice
+  Indicates the model should return documents.
+tokens integer (optional) Number of tokens for the modality.
+total_tool_use_tokens integer (optional) Number of tokens present in tool-use prompt(s).
+tool_use_tokens_by_modality array (ModalityTokens) (optional) A breakdown of tool-use token usage by modality.
+The token count for a single response modality.
 
-`GET https://generativelanguage.googleapis.com/v1beta/voices/{voicesId}`
+#### Fields
 
-Gets a custom stored voice (`store = true`) by resource name.
-Prebuilt catalog voices (`VOICE_TYPE_PREBUILT`) cannot be retrieved via
-`GetVoice`; use `ListVoices` instead.
+modality ResponseModality (optional) The modality associated with the token count.
+<br />
 
-#### Parameters
-- **voicesId** (`string`) *(Required)* Required. The resource name of the custom stored voice to retrieve (for example, `voices/voice_abc123def456`).
+#### Possible values
 
+- `text`
 
+  Indicates the model should return text.
+- `image`
 
-#### Response
-- **type** (`VoiceType`) *(Required)* Required. The type of the voice. In `CreateVoice`, must be `"replicated"` or `"prompted"`. In `ListVoices` responses, may also be `"prebuilt"`.
-  Possible values:
-  - `replicated`: A custom voice replicated from a reference audio sample and speaker consent
-recording.
-  - `prompted`: A custom voice generated from a natural-language text prompt (optionally
-editing or remixing a `base_voice`).
-  - `prebuilt`: A built-in system voice from Google's voice catalog (e.g., `Puck`,
-`Charon`). Returned in responses; cannot be specified as the type in
-`CreateVoice`.
+  Indicates the model should return images.
+- `audio`
 
-- **id** (`string`) Output only. The unique identifier of the voice.  * For Google-managed custom voices (`store = true`), this is a generated ID   with prefix `voice_` (for example, `voice_abc123def456`). Pass   `voices/{id}` as the `name` in `GetVoice` and `DeleteVoice`, and pass   `{id}` directly to `SpeechConfig.voice_config.voice` (or   `SpeechConfig.voice`) during speech synthesis. * For prebuilt catalog voices (`"prebuilt"` returned by `ListVoices`), this   is the speaker name (for example, `Puck` or `Charon`). * Unset when `CreateVoice` is called with `store = false`.
+  Indicates the model should return audio.
+- `video`
 
-- **model** (`string`) Optional. The model used to design or replicate the voice. If omitted in `CreateVoice`, defaults to the latest supported voice design model. Returned in `CreateVoice`, `GetVoice`, and `ListVoices` responses for custom voices (`"prompted"` and `"replicated"`); unset for `"prebuilt"` voices. Created voices can be synthesized across any supported TTS synthesis model.
+  Indicates the model should return video.
+- `document`
 
-- **key** (`string`) Output only. The client-managed voice replication key (with prefix `voicekey_`). Returned only by `CreateVoice` when `type` is `"replicated"` and `store` is `false`. Pass this key to `SpeechConfig.voice_config.voice` (or `SpeechConfig.voice`) during speech synthesis.
+  Indicates the model should return documents.
+tokens integer (optional) Number of tokens for the modality.
+total_thought_tokens integer (optional) Number of tokens of thoughts for thinking models.
+total_tokens integer (optional) Total token count for the interaction request (prompt + responses + other
+internal tokens).
+grounding_tool_count array (GroundingToolCount) (optional) Grounding tool count.
+The number of grounding tool counts.
 
-- **expire_time** (`string`) Output only. The timestamp at which a custom stored voice (`store = true`) or replicated voice key (`store = false`) expires. For custom stored voices (`store = true`), this expiration time is extended when the voice is used for speech synthesis or as a `base_voice` in `CreateVoice`. Unset for prebuilt catalog voices (`"prebuilt"`), which do not expire.
+#### Fields
 
-- **display_name** (`string`) Optional. User-provided display name for a stored voice (`store = true`), or the catalog name for a prebuilt voice.
+type enum (string) (optional) The grounding tool type associated with the count.
 
-- **prompted** (`PromptedVoice`) Parameters for prompted voice generation. Required in `CreateVoice` when `type` is `"prompted"`. Returned in `CreateVoice`, `GetVoice`, and `ListVoices` responses for prompted voices.
-  - **input** (`string`) *(Required)*   Required. The natural-language prompt describing the desired voice, e.g. "A deep, booming male voice of a massive evil ogre in his middle years."
+Possible
+values:
 
-  - **base_voice** (`string`)   Optional. The name or ID of an existing base voice to edit or remix. Use the voice name for prebuilt voices (e.g., `Puck`) or the voice ID for previously created voices (e.g., `voice_abc123`). This can be any prompted or replicated voice that the user has access to. When present, `input` describes relative alterations to make to the base voice.
+- `google_search`
 
+  Grounding with Google Web Search and Image Search, \& Web Grounding
+  for Enterprise.
+- `google_maps`
 
-- **language_code** (`string`) Optional. Primary BCP-47 language tag (e.g. "en-US", "fr-FR").
+  Grounding with Google Maps.
+count integer (optional) The number of grounding tool counts.
+sample_audio AudioData (optional) Output only. Sample audio (synthesizer prompt audio) generated for a
+prompted voice.
+Populated only in \`CreateVoice\` and \`GetVoice\` responses when \`type\` is
+\`"prompted"\`; unset in \`ListVoices\` responses and for \`"replicated"\` or
+\`"prebuilt"\` voices.
+Audio payload used for voice creation.
 
-- **region_code** (`string`) Optional. ISO 3166-1 alpha-2 or UN M.49 geographic region code (e.g. "US", "GB", "001").
+#### Fields
 
-- **accent** (`string`) Optional. Regional accent descriptor (e.g. "American", "British").
+mime_type string (required) Required. The IANA MIME type of the audio data (for example, \`audio/wav\` or
+\`audio/mpeg\`).
+data string (required) Required. The raw audio bytes.
 
-- **persona** (`string`) Optional. Intended persona or character archetype (e.g. "Warm, Friendly", "Narrator").
+### Get
 
-- **context** (`string`) Optional. Optimal usage context or domain (e.g. "Conversational", "Audiobook", "News").
+<iframe src="https:///frame/api/voices_91f9d81bdf44190c7a2ccb311c9c9419a04b0c2cd169902e446d3d5f2f5260b8.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
 
-- **gender** (`string`) Optional. Perceived voice gender presentation (e.g. "female", "male", "neutral").
+## DeleteVoice
 
-- **pitch** (`Pitch`) Optional. Voice pitch classification.
-  Possible values:
-  - `low`: Lower pitch voice.
-  - `medium`: Medium pitch voice.
-  - `high`: Higher pitch voice.
+delete https://generativelanguage.googleapis.com/v1beta/voices/{voicesId} Deletes a custom stored voice (\`store = true\`) by resource name.
+Prebuilt catalog voices (\`VOICE_TYPE_PREBUILT\`) cannot be deleted.
+- [Path / Query parameters](https://ai.google.dev/api/voices#DeleteVoice.PATH_PARAMETERS)
+- [Response](https://ai.google.dev/api/voices#DeleteVoice.response)
 
-- **description** (`string`) Optional. Descriptive summary of vocal timbre, personality, and tone.
+### Path / Query Parameters
 
-- **usage** (`Usage`) Output only. Token usage statistics for the voice creation request. Populated only in the response of `CreateVoice` when `type` is `"prompted"`; unset for `"replicated"` and in `GetVoice` and `ListVoices` responses.
-  - **total_input_tokens** (`integer`)   Number of tokens in the prompt (context).
+voicesId string (required) Required. The resource name of the custom stored voice to delete
+(for example, \`voices/voice_abc123def456\`).
 
-  - **input_tokens_by_modality** (`array (ModalityTokens)`)   A breakdown of input token usage by modality.
-    - **modality** (`ResponseModality`)     The modality associated with the token count.
-      Possible values:
-      - `text`: Indicates the model should return text.
-      - `image`: Indicates the model should return images.
-      - `audio`: Indicates the model should return audio.
-      - `video`: Indicates the model should return video.
-      - `document`: Indicates the model should return documents.
+### Response
 
-    - **tokens** (`integer`)     Number of tokens for the modality.
+If successful, the response is empty.
 
+### Delete
 
-  - **total_cached_tokens** (`integer`)   Number of tokens in the cached part of the prompt (the cached content).
-
-  - **cached_tokens_by_modality** (`array (ModalityTokens)`)   A breakdown of cached token usage by modality.
-    - **modality** (`ResponseModality`)     The modality associated with the token count.
-      Possible values:
-      - `text`: Indicates the model should return text.
-      - `image`: Indicates the model should return images.
-      - `audio`: Indicates the model should return audio.
-      - `video`: Indicates the model should return video.
-      - `document`: Indicates the model should return documents.
-
-    - **tokens** (`integer`)     Number of tokens for the modality.
-
-
-  - **total_output_tokens** (`integer`)   Total number of tokens across all the generated responses.
-
-  - **output_tokens_by_modality** (`array (ModalityTokens)`)   A breakdown of output token usage by modality.
-    - **modality** (`ResponseModality`)     The modality associated with the token count.
-      Possible values:
-      - `text`: Indicates the model should return text.
-      - `image`: Indicates the model should return images.
-      - `audio`: Indicates the model should return audio.
-      - `video`: Indicates the model should return video.
-      - `document`: Indicates the model should return documents.
-
-    - **tokens** (`integer`)     Number of tokens for the modality.
-
-
-  - **total_tool_use_tokens** (`integer`)   Number of tokens present in tool-use prompt(s).
-
-  - **tool_use_tokens_by_modality** (`array (ModalityTokens)`)   A breakdown of tool-use token usage by modality.
-    - **modality** (`ResponseModality`)     The modality associated with the token count.
-      Possible values:
-      - `text`: Indicates the model should return text.
-      - `image`: Indicates the model should return images.
-      - `audio`: Indicates the model should return audio.
-      - `video`: Indicates the model should return video.
-      - `document`: Indicates the model should return documents.
-
-    - **tokens** (`integer`)     Number of tokens for the modality.
-
-
-  - **total_thought_tokens** (`integer`)   Number of tokens of thoughts for thinking models.
-
-  - **total_tokens** (`integer`)   Total token count for the interaction request (prompt + responses + other internal tokens).
-
-  - **grounding_tool_count** (`array (GroundingToolCount)`)   Grounding tool count.
-    - **type** (`enum (string)`)     The grounding tool type associated with the count.
-      Possible values:
-      - `google_search`: Grounding with Google Web Search and Image Search, & Web Grounding
-for Enterprise.
-      - `google_maps`: Grounding with Google Maps.
-
-    - **count** (`integer`)     The number of grounding tool counts.
-
-
-
-- **sample_audio** (`AudioData`) Output only. Sample audio (synthesizer prompt audio) generated for a prompted voice. Populated only in `CreateVoice` and `GetVoice` responses when `type` is `"prompted"`; unset in `ListVoices` responses and for `"replicated"` or `"prebuilt"` voices.
-  - **mime_type** (`string`) *(Required)*   Required. The IANA MIME type of the audio data (for example, `audio/wav` or `audio/mpeg`).
-
-  - **data** (`string`) *(Required)*   Required. The raw audio bytes.
-
-
-
-#### Examples
-**Get**
-
-**REST**
-
-```sh
-curl -X GET https://generativelanguage.googleapis.com/v1beta/voices/voice_abc123 \
-  -H "x-goog-api-key: $GEMINI_API_KEY"
-```
-**Python**
-
-```python
-from google import genai
-
-client = genai.Client()
-voice = client.voices.get(id="voice_abc123")
-print(voice.id, voice.display_name)
-```
-**JavaScript**
-
-```javascript
-import {GoogleGenAI} from '@google/genai';
-
-const ai = new GoogleGenAI({});
-const voice = await ai.voices.get('voice_abc123');
-console.log(voice.id, voice.display_name);
-```
-**Go**
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "google.golang.org/genai"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    res, err := client.Voices.Get(ctx, operations.GetVoiceRequest{
-        ID: "voice_abc123",
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    if res.Voice != nil && res.Voice.ID != nil && res.Voice.DisplayName != nil {
-        fmt.Println(*res.Voice.ID, *res.Voice.DisplayName)
-    }
-}
-```
----
-
-### DeleteVoice
-
-`DELETE https://generativelanguage.googleapis.com/v1beta/voices/{voicesId}`
-
-Deletes a custom stored voice (`store = true`) by resource name.
-Prebuilt catalog voices (`VOICE_TYPE_PREBUILT`) cannot be deleted.
-
-#### Parameters
-- **voicesId** (`string`) *(Required)* Required. The resource name of the custom stored voice to delete (for example, `voices/voice_abc123def456`).
-
-
-
-#### Response
-
-#### Examples
-**Delete**
-
-**REST**
-
-```sh
-curl -X DELETE https://generativelanguage.googleapis.com/v1beta/voices/voice_abc123 \
-  -H "x-goog-api-key: $GEMINI_API_KEY"
-```
-**Python**
-
-```python
-from google import genai
-
-client = genai.Client()
-client.voices.delete(id="voice_abc123")
-```
-**JavaScript**
-
-```javascript
-import {GoogleGenAI} from '@google/genai';
-
-const ai = new GoogleGenAI({});
-await ai.voices.delete('voice_abc123');
-```
-**Go**
-
-```go
-package main
-
-import (
-    "context"
-    "log"
-    "google.golang.org/genai"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    _, err = client.Voices.Delete(ctx, operations.DeleteVoiceRequest{
-        ID: "voice_abc123",
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-}
-```
----
-
+<iframe src="https:///frame/api/voices_cf87805d6ed9bc86c2e4950115df0b90685534f12c3437c0f0fc096ba756982c.frame" class="framebox inherit-locale " allow="clipboard-write https://" allowfullscreen is-upgraded></iframe>
 
 ## Resources
-### Voice { #Resource:Voice }
+
+### Voice
+
 A voice resource representing either a custom voice (created via
-`CreateVoice`) or a prebuilt system voice (returned by `ListVoices`).
+\`CreateVoice\`) or a prebuilt system voice (returned by \`ListVoices\`).
 
-**Properties:**
-- **type** (`VoiceType`) *(Required)* Required. The type of the voice. In `CreateVoice`, must be `"replicated"` or `"prompted"`. In `ListVoices` responses, may also be `"prebuilt"`.
-  Possible values:
-  - `replicated`: A custom voice replicated from a reference audio sample and speaker consent
-recording.
-  - `prompted`: A custom voice generated from a natural-language text prompt (optionally
-editing or remixing a `base_voice`).
-  - `prebuilt`: A built-in system voice from Google's voice catalog (e.g., `Puck`,
-`Charon`). Returned in responses; cannot be specified as the type in
-`CreateVoice`.
+#### Fields
 
-- **id** (`string`) Output only. The unique identifier of the voice.  * For Google-managed custom voices (`store = true`), this is a generated ID   with prefix `voice_` (for example, `voice_abc123def456`). Pass   `voices/{id}` as the `name` in `GetVoice` and `DeleteVoice`, and pass   `{id}` directly to `SpeechConfig.voice_config.voice` (or   `SpeechConfig.voice`) during speech synthesis. * For prebuilt catalog voices (`"prebuilt"` returned by `ListVoices`), this   is the speaker name (for example, `Puck` or `Charon`). * Unset when `CreateVoice` is called with `store = false`.
+type VoiceType (required) Required. The type of the voice. In \`CreateVoice\`, must be \`"replicated"\`
+or \`"prompted"\`. In \`ListVoices\` responses, may also be \`"prebuilt"\`.
+<br />
 
-- **model** (`string`) Optional. The model used to design or replicate the voice. If omitted in `CreateVoice`, defaults to the latest supported voice design model. Returned in `CreateVoice`, `GetVoice`, and `ListVoices` responses for custom voices (`"prompted"` and `"replicated"`); unset for `"prebuilt"` voices. Created voices can be synthesized across any supported TTS synthesis model.
+#### Possible values
 
-- **key** (`string`) Output only. The client-managed voice replication key (with prefix `voicekey_`). Returned only by `CreateVoice` when `type` is `"replicated"` and `store` is `false`. Pass this key to `SpeechConfig.voice_config.voice` (or `SpeechConfig.voice`) during speech synthesis.
+- `replicated`
 
-- **replicated** (`ReplicatedVoice`) Input only. Parameters for replicated voice generation. Required on input when `type` is `"replicated"`. Not returned in responses.
-  - **source_audio** (`AudioData`) *(Required)*   Required. The reference audio sample of the speaker's voice to replicate. Must be an unmodified recording of an adult human voice.
-    - **mime_type** (`string`) *(Required)*     Required. The IANA MIME type of the audio data (for example, `audio/wav` or `audio/mpeg`).
+  A custom voice replicated from a reference audio sample and speaker consent
+  recording.
+- `prompted`
 
-    - **data** (`string`) *(Required)*     Required. The raw audio bytes.
+  A custom voice generated from a natural-language text prompt (optionally
+  editing or remixing a \`base_voice\`).
+- `prebuilt`
 
+  A built-in system voice from Google's voice catalog (e.g., \`Puck\`,
+  \`Charon\`). Returned in responses; cannot be specified as the type in
+  \`CreateVoice\`.
+id string (optional) Output only. The unique identifier of the voice.
 
-  - **consent_audio** (`AudioData`) *(Required)*   Required. Audio recording of the same speaker reading the required consent phrase, confirming authorization to replicate the voice.
-    - **mime_type** (`string`) *(Required)*     Required. The IANA MIME type of the audio data (for example, `audio/wav` or `audio/mpeg`).
+\* For Google-managed custom voices (\`store = true\`), this is a generated ID
+with prefix \`voice_\` (for example, \`voice_abc123def456\`). Pass
+\`voices/{id}\` as the \`name\` in \`GetVoice\` and \`DeleteVoice\`, and pass
+\`{id}\` directly to \`SpeechConfig.voice_config.voice\` (or
+\`SpeechConfig.voice\`) during speech synthesis.
+\* For prebuilt catalog voices (\`"prebuilt"\` returned by \`ListVoices\`), this
+is the speaker name (for example, \`Puck\` or \`Charon\`).
+\* Unset when \`CreateVoice\` is called with \`store = false\`.
+model string (optional) Optional. The model used to design or replicate the voice.
+If omitted in \`CreateVoice\`, defaults to the latest supported voice design
+model. Returned in \`CreateVoice\`, \`GetVoice\`, and \`ListVoices\` responses
+for custom voices (\`"prompted"\` and \`"replicated"\`); unset for \`"prebuilt"\`
+voices. Created voices can be synthesized across any supported TTS
+synthesis model.
+key string (optional) Output only. The client-managed voice replication key (with prefix
+\`voicekey_\`). Returned only by \`CreateVoice\` when \`type\` is \`"replicated"\`
+and \`store\` is \`false\`. Pass this key to \`SpeechConfig.voice_config.voice\`
+(or \`SpeechConfig.voice\`) during speech synthesis.
+expire_time string (optional) Output only. The timestamp at which a custom stored voice (\`store = true\`)
+or replicated voice key (\`store = false\`) expires. For custom stored voices
+(\`store = true\`), this expiration time is extended when the voice is used
+for speech synthesis or as a \`base_voice\` in \`CreateVoice\`. Unset for
+prebuilt catalog voices (\`"prebuilt"\`), which do not expire.
+display_name string (optional) Optional. User-provided display name for a stored voice (\`store = true\`),
+or the catalog name for a prebuilt voice.
+prompted PromptedVoice (optional) Parameters for prompted voice generation.
+Required in \`CreateVoice\` when \`type\` is \`"prompted"\`. Returned in
+\`CreateVoice\`, \`GetVoice\`, and \`ListVoices\` responses for prompted voices.
+Parameters for prompted voice generation.
+Required in \`CreateVoice\` when \`type\` is \`"prompted"\`. Returned in
+\`CreateVoice\`, \`GetVoice\`, and \`ListVoices\` responses for prompted voices.
 
-    - **data** (`string`) *(Required)*     Required. The raw audio bytes.
+#### Fields
 
+input string (required) Required. The natural-language prompt describing the desired voice, e.g.
+"A deep, booming male voice of a massive evil ogre in his middle years."
+base_voice string (optional) Optional. The name or ID of an existing base voice to edit or remix.
+Use the voice name for prebuilt voices (e.g., \`Puck\`) or the voice ID for
+previously created voices (e.g., \`voice_abc123\`). This can be any
+prompted or replicated voice that the user has access to.
+When present, \`input\` describes relative alterations to make to the base
+voice.
+language_code string (optional) Optional. Primary BCP-47 language tag (e.g. "en-US", "fr-FR").
+region_code string (optional) Optional. ISO 3166-1 alpha-2 or UN M.49 geographic region code (e.g. "US",
+"GB", "001").
+accent string (optional) Optional. Regional accent descriptor (e.g. "American", "British").
+persona string (optional) Optional. Intended persona or character archetype (e.g. "Warm, Friendly",
+"Narrator").
+context string (optional) Optional. Optimal usage context or domain (e.g. "Conversational",
+"Audiobook", "News").
+gender string (optional) Optional. Perceived voice gender presentation (e.g. "female", "male",
+"neutral").
+pitch Pitch (optional) Optional. Voice pitch classification.
+<br />
 
+#### Possible values
 
-- **expire_time** (`string`) Output only. The timestamp at which a custom stored voice (`store = true`) or replicated voice key (`store = false`) expires. For custom stored voices (`store = true`), this expiration time is extended when the voice is used for speech synthesis or as a `base_voice` in `CreateVoice`. Unset for prebuilt catalog voices (`"prebuilt"`), which do not expire.
+- `low`
 
-- **display_name** (`string`) Optional. User-provided display name for a stored voice (`store = true`), or the catalog name for a prebuilt voice.
+  Lower pitch voice.
+- `medium`
 
-- **prompted** (`PromptedVoice`) Parameters for prompted voice generation. Required in `CreateVoice` when `type` is `"prompted"`. Returned in `CreateVoice`, `GetVoice`, and `ListVoices` responses for prompted voices.
-  - **input** (`string`) *(Required)*   Required. The natural-language prompt describing the desired voice, e.g. "A deep, booming male voice of a massive evil ogre in his middle years."
+  Medium pitch voice.
+- `high`
 
-  - **base_voice** (`string`)   Optional. The name or ID of an existing base voice to edit or remix. Use the voice name for prebuilt voices (e.g., `Puck`) or the voice ID for previously created voices (e.g., `voice_abc123`). This can be any prompted or replicated voice that the user has access to. When present, `input` describes relative alterations to make to the base voice.
+  Higher pitch voice.
+description string (optional) Optional. Descriptive summary of vocal timbre, personality, and tone.
+usage Usage (optional) Output only. Token usage statistics for the voice creation request.
+Populated only in the response of \`CreateVoice\` when \`type\` is
+\`"prompted"\`; unset for \`"replicated"\` and in \`GetVoice\` and \`ListVoices\`
+responses.
+Statistics on the interaction request's token usage.
 
+#### Fields
 
-- **language_code** (`string`) Optional. Primary BCP-47 language tag (e.g. "en-US", "fr-FR").
+total_input_tokens integer (optional) Number of tokens in the prompt (context).
+input_tokens_by_modality array (ModalityTokens) (optional) A breakdown of input token usage by modality.
+The token count for a single response modality.
 
-- **region_code** (`string`) Optional. ISO 3166-1 alpha-2 or UN M.49 geographic region code (e.g. "US", "GB", "001").
+#### Fields
 
-- **accent** (`string`) Optional. Regional accent descriptor (e.g. "American", "British").
+modality ResponseModality (optional) The modality associated with the token count.
+<br />
 
-- **persona** (`string`) Optional. Intended persona or character archetype (e.g. "Warm, Friendly", "Narrator").
+#### Possible values
 
-- **context** (`string`) Optional. Optimal usage context or domain (e.g. "Conversational", "Audiobook", "News").
+- `text`
 
-- **gender** (`string`) Optional. Perceived voice gender presentation (e.g. "female", "male", "neutral").
+  Indicates the model should return text.
+- `image`
 
-- **pitch** (`Pitch`) Optional. Voice pitch classification.
-  Possible values:
-  - `low`: Lower pitch voice.
-  - `medium`: Medium pitch voice.
-  - `high`: Higher pitch voice.
+  Indicates the model should return images.
+- `audio`
 
-- **description** (`string`) Optional. Descriptive summary of vocal timbre, personality, and tone.
+  Indicates the model should return audio.
+- `video`
 
-- **usage** (`Usage`) Output only. Token usage statistics for the voice creation request. Populated only in the response of `CreateVoice` when `type` is `"prompted"`; unset for `"replicated"` and in `GetVoice` and `ListVoices` responses.
-  - **total_input_tokens** (`integer`)   Number of tokens in the prompt (context).
+  Indicates the model should return video.
+- `document`
 
-  - **input_tokens_by_modality** (`array (ModalityTokens)`)   A breakdown of input token usage by modality.
-    - **modality** (`ResponseModality`)     The modality associated with the token count.
-      Possible values:
-      - `text`: Indicates the model should return text.
-      - `image`: Indicates the model should return images.
-      - `audio`: Indicates the model should return audio.
-      - `video`: Indicates the model should return video.
-      - `document`: Indicates the model should return documents.
+  Indicates the model should return documents.
+tokens integer (optional) Number of tokens for the modality.
+total_cached_tokens integer (optional) Number of tokens in the cached part of the prompt (the cached content).
+cached_tokens_by_modality array (ModalityTokens) (optional) A breakdown of cached token usage by modality.
+The token count for a single response modality.
 
-    - **tokens** (`integer`)     Number of tokens for the modality.
+#### Fields
 
+modality ResponseModality (optional) The modality associated with the token count.
+<br />
 
-  - **total_cached_tokens** (`integer`)   Number of tokens in the cached part of the prompt (the cached content).
+#### Possible values
 
-  - **cached_tokens_by_modality** (`array (ModalityTokens)`)   A breakdown of cached token usage by modality.
-    - **modality** (`ResponseModality`)     The modality associated with the token count.
-      Possible values:
-      - `text`: Indicates the model should return text.
-      - `image`: Indicates the model should return images.
-      - `audio`: Indicates the model should return audio.
-      - `video`: Indicates the model should return video.
-      - `document`: Indicates the model should return documents.
+- `text`
 
-    - **tokens** (`integer`)     Number of tokens for the modality.
+  Indicates the model should return text.
+- `image`
 
+  Indicates the model should return images.
+- `audio`
 
-  - **total_output_tokens** (`integer`)   Total number of tokens across all the generated responses.
+  Indicates the model should return audio.
+- `video`
 
-  - **output_tokens_by_modality** (`array (ModalityTokens)`)   A breakdown of output token usage by modality.
-    - **modality** (`ResponseModality`)     The modality associated with the token count.
-      Possible values:
-      - `text`: Indicates the model should return text.
-      - `image`: Indicates the model should return images.
-      - `audio`: Indicates the model should return audio.
-      - `video`: Indicates the model should return video.
-      - `document`: Indicates the model should return documents.
+  Indicates the model should return video.
+- `document`
 
-    - **tokens** (`integer`)     Number of tokens for the modality.
+  Indicates the model should return documents.
+tokens integer (optional) Number of tokens for the modality.
+total_output_tokens integer (optional) Total number of tokens across all the generated responses.
+output_tokens_by_modality array (ModalityTokens) (optional) A breakdown of output token usage by modality.
+The token count for a single response modality.
 
+#### Fields
 
-  - **total_tool_use_tokens** (`integer`)   Number of tokens present in tool-use prompt(s).
+modality ResponseModality (optional) The modality associated with the token count.
+<br />
 
-  - **tool_use_tokens_by_modality** (`array (ModalityTokens)`)   A breakdown of tool-use token usage by modality.
-    - **modality** (`ResponseModality`)     The modality associated with the token count.
-      Possible values:
-      - `text`: Indicates the model should return text.
-      - `image`: Indicates the model should return images.
-      - `audio`: Indicates the model should return audio.
-      - `video`: Indicates the model should return video.
-      - `document`: Indicates the model should return documents.
+#### Possible values
 
-    - **tokens** (`integer`)     Number of tokens for the modality.
+- `text`
 
+  Indicates the model should return text.
+- `image`
 
-  - **total_thought_tokens** (`integer`)   Number of tokens of thoughts for thinking models.
+  Indicates the model should return images.
+- `audio`
 
-  - **total_tokens** (`integer`)   Total token count for the interaction request (prompt + responses + other internal tokens).
+  Indicates the model should return audio.
+- `video`
 
-  - **grounding_tool_count** (`array (GroundingToolCount)`)   Grounding tool count.
-    - **type** (`enum (string)`)     The grounding tool type associated with the count.
-      Possible values:
-      - `google_search`: Grounding with Google Web Search and Image Search, & Web Grounding
-for Enterprise.
-      - `google_maps`: Grounding with Google Maps.
+  Indicates the model should return video.
+- `document`
 
-    - **count** (`integer`)     The number of grounding tool counts.
+  Indicates the model should return documents.
+tokens integer (optional) Number of tokens for the modality.
+total_tool_use_tokens integer (optional) Number of tokens present in tool-use prompt(s).
+tool_use_tokens_by_modality array (ModalityTokens) (optional) A breakdown of tool-use token usage by modality.
+The token count for a single response modality.
 
+#### Fields
 
+modality ResponseModality (optional) The modality associated with the token count.
+<br />
 
-- **sample_audio** (`AudioData`) Output only. Sample audio (synthesizer prompt audio) generated for a prompted voice. Populated only in `CreateVoice` and `GetVoice` responses when `type` is `"prompted"`; unset in `ListVoices` responses and for `"replicated"` or `"prebuilt"` voices.
-  - **mime_type** (`string`) *(Required)*   Required. The IANA MIME type of the audio data (for example, `audio/wav` or `audio/mpeg`).
+#### Possible values
 
-  - **data** (`string`) *(Required)*   Required. The raw audio bytes.
+- `text`
 
+  Indicates the model should return text.
+- `image`
 
+  Indicates the model should return images.
+- `audio`
 
+  Indicates the model should return audio.
+- `video`
 
+  Indicates the model should return video.
+- `document`
 
+  Indicates the model should return documents.
+tokens integer (optional) Number of tokens for the modality.
+total_thought_tokens integer (optional) Number of tokens of thoughts for thinking models.
+total_tokens integer (optional) Total token count for the interaction request (prompt + responses + other
+internal tokens).
+grounding_tool_count array (GroundingToolCount) (optional) Grounding tool count.
+The number of grounding tool counts.
+
+#### Fields
+
+type enum (string) (optional) The grounding tool type associated with the count.
+
+Possible
+values:
+
+- `google_search`
+
+  Grounding with Google Web Search and Image Search, \& Web Grounding
+  for Enterprise.
+- `google_maps`
+
+  Grounding with Google Maps.
+count integer (optional) The number of grounding tool counts.
+sample_audio AudioData (optional) Output only. Sample audio (synthesizer prompt audio) generated for a
+prompted voice.
+Populated only in \`CreateVoice\` and \`GetVoice\` responses when \`type\` is
+\`"prompted"\`; unset in \`ListVoices\` responses and for \`"replicated"\` or
+\`"prebuilt"\` voices.
+Audio payload used for voice creation.
+
+#### Fields
+
+mime_type string (required) Required. The IANA MIME type of the audio data (for example, \`audio/wav\` or
+\`audio/mpeg\`).
+data string (required) Required. The raw audio bytes.

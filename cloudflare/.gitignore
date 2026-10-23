@@ -5,7 +5,8 @@ __pycache__/
 *.pyc
 .venv/
 # large optional source clones (reinstall per README)
-tools/
+# anchored: only the corpus-root tools/ (not nested .../tools/ content paths)
+/tools/
 # secrets / local
 .env
 .api_keys.env

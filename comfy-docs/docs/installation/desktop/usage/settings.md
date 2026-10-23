@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/desktop/usage/settings/
 title: Comfy Desktop Settings - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:58.714770+00:00
+fetched_at: 2026-10-23T16:38:43.962786+00:00
 ---
 
 # Comfy Desktop Settings - ComfyUI
@@ -35,7 +35,7 @@ Global settings, proxy/mirror configuration, and data locations
 
 Copy pageCopy page
 
-Click the ☰ menu (1) in the top-left corner and select **Desktop Settings** (2) to open the global settings panel. ![Desktop Settings panel open on Preferences, including Opt-in to beta features](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/comfy_desktop_settings_00_menu.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=ce79710629308873469d181d40e95e94) The settings panel is organized into five tabs. Click a tab in the sidebar to switch views.
+Click the ☰ menu (1) in the top-left corner and select **Desktop Settings** (2) to open the global settings panel. ![Comfy Desktop dashboard with the ☰ menu open and Desktop Settings in the menu](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_00_menu.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=c159ee0f220f359169a739852ff90fea) The settings panel is organized into five tabs. Click a tab in the sidebar to switch views.
 
 ## 
 
@@ -43,9 +43,9 @@ Click the ☰ menu (1) in the top-left corner and select **Desktop Settings** (2
 
 Preferences
 
-![Preferences: language, app behavior, telemetry, and Opt-in to beta features](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/comfy_desktop_settings_01_preferences.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=d26ec3f3f24b60f8269004090d402716) The Preferences tab opens with a **Language** picker, then groups the rest of its controls into three sections.
+![Preferences: language, app behavior, telemetry, and Opt-in to beta features](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_01_preferences.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=2f708f5b4699204effebaac74780fd58) The Preferences tab opens with a **Language** picker, then groups the rest of its controls into three sections.
 
-  * **Language** : Choose the display language. **English** and **中文** are available.
+  * **Language** : Choose the display language. **English** and **简体中文** are available.
 
 
 
@@ -89,10 +89,10 @@ Community
 
 Updates
 
-![Updates tab: installed version, Check for updates, Automatically install Desktop updates](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/comfy_desktop_settings_02_updates.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=d7b780adfd08e8275b3a9f56e487869c)
+![Updates tab: installed version, Check for updates, Automatically install Desktop updates](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_02_updates.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=715b9ed65225064b76935e2415dcc593)
 
-  * **Status** : Shows whether Comfy Desktop is up to date, the installed version, and the last check time.
-  * **Check for updates** : Manually check for a new version. Button changes to **Download** then **Install** when an update is available.
+  * **Status** : Shows whether Comfy Desktop is up to date and which version is installed. Once a check has run, it also shows when Comfy Desktop last checked.
+  * **Check for updates** : Manually check for a new version. When an update is available the button changes to **Download** , then to **Restart & Update** once the download finishes.
   * **Automatically install Desktop updates** : Auto-download and install updates in the background.
 
 
@@ -103,11 +103,11 @@ Updates
 
 Storage
 
-The Storage tab is where you configure where Comfy Desktop finds and stores files. The key concept is **sharing** : instead of each instance having its own isolated models, inputs, and outputs, you set up shared directories accessible to all instances. ![Storage tab: Shared Models, Shared Input, and Shared Output paths](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/comfy_desktop_settings_03_storage.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=63ea57dc4995d29907eca09be715703d)
+The Storage tab is where you configure where Comfy Desktop finds and stores files. The key concept is **sharing** : instead of each instance having its own isolated models, inputs, and outputs, you set up shared directories accessible to all instances. ![Storage tab: Shared Models, Shared Input, and Shared Output paths](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_03_storage.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=0d907789b20aecac354099423ff37814)
 
-  * **Shared Models** : Each directory listed here is scanned for models by every instance. New models download to the directory marked with the **DOWNLOADS** badge. ![Directory ⋯ menu with Use for Model Downloads](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/comfy_desktop_settings_03-2_storage.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=7e1e33f18b3b1f50142486e71e0680b7)
-    * Click the folder icon to open a directory in your file manager.
-    * Click the **…** menu (1) on a directory, then select **Use for Model Downloads** (2) to make that directory the download target.
+  * **Shared Models** : Each directory listed here is scanned for models by every instance. New models download to the directory marked with the **DOWNLOADS** badge. ![Directory ⋯ menu with Use for Model Downloads](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_03-2_storage.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=dde71f37e5c437ac15dfa865b5d68f05)
+    * Click the directory path to open it in your file manager.
+    * The **⋯** menu (1) appears on every shared directory except the one that already receives downloads. Select **Use for Model Downloads** (2) to make that directory the download target, or **Remove** to drop it from the list. Removing a directory keeps its files.
     * Click **\+ Add Shared Directory** to add more model directories.
   * **Shared Input** : A shared path where all instances look for input files (images, videos, etc.).
   * **Shared Output** : A shared path where all instances save generated outputs. Customizing this lets you keep all results in one place.
@@ -121,12 +121,12 @@ Per-instance overrides (include shared dirs, split input/output, extra model fol
 
 Advanced
 
-![Advanced tab: default install location, mirrors, and hardware acceleration](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/comfy_desktop_settings_04_advanced.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=4fe36d942b9521b109f99449dd326886)
+![Advanced tab: default install location, mirrors, and hardware acceleration](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_04_advanced.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=5ecf350b2a261d990cfe555a03a952ba)
 
   * **Default Install Location** : Where new standalone instances are created. Click the folder icon to change it.
-  * **Use hardware acceleration** : Use the GPU to render Comfy Desktop. Restart Comfy Desktop for changes to take effect.
   * **PyPI Mirror URL** : Custom pip mirror (e.g. `https://mirrors.aliyun.com/pypi/simple/`).
-  * **Use Chinese Mirrors (Git & PyPI)**: Use Chinese mirror servers for Git and PyPI. Helpful in mainland China.
+  * **Use Chinese Mirrors (Git & PyPI)**: Use Chinese mirror servers for Git and PyPI. Helpful in mainland China. When the app language is Chinese, this switch sits under **App Behavior** on the Preferences tab instead.
+  * **Use hardware acceleration** : Use the GPU to render Comfy Desktop. Restart Comfy Desktop for changes to take effect.
   * **Cache Directory** : Where Comfy Desktop stores temporary and cached data. Click the folder icon to change it.
 
 
@@ -194,11 +194,12 @@ Keyboard Shortcuts
 
 Shortcut| Action  
 ---|---  
-`Ctrl+R` / `Cmd+R`| Reload the current ComfyUI instance  
-`Ctrl+W` / `Cmd+W`| Close the current window  
+`Ctrl+R` / `Cmd+R`| Reload the current ComfyUI view  
+`Ctrl`/`Cmd` \+ `+` / `-` / `0`| Zoom the ComfyUI view in, out, or back to 100%  
 `Escape`| Close a dialog or popup  
-`Ctrl+,` / `Cmd+,`| Open Comfy Desktop Settings  
   
+Comfy Desktop does not bind `Ctrl+W` / `Cmd+W`, so a stray keystroke cannot close a window with a running instance. Close a window from the ☰ menu’s **Close Window** instead.
+
 ## 
 
 ​
@@ -218,26 +219,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/desktop/usage/settings.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/desktop/usage/settings)
 
-[Managing InstallationsPrevious](https://docs.comfy.org/installation/desktop/usage/manage)[Performance Tests and BenchmarksNext](https://docs.comfy.org/installation/desktop/usage/performance-tests)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Manage](https://docs.comfy.org/installation/desktop/usage/manage)[Performance Tests](https://docs.comfy.org/installation/desktop/usage/performance-tests)

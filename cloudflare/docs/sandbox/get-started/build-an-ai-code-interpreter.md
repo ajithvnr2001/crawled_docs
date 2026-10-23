@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/get-started/build-an-ai-code-interpreter/
 title: Build an AI code interpreter \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:19.319923+00:00
+fetched_at: 2026-10-23T16:40:08.759053+00:00
 ---
 
 # Build an AI code interpreter · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:19.319923+00:00
 
 # Build an AI code interpreter
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/get-started/build-an-ai-code-interpreter/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/get-started/build-an-ai-code-interpreter/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create the project2\. Run code in a sandbox3\. Let the model run code4\. Test locally5\. DeployNext steps
 
@@ -54,7 +54,9 @@ You will learn how to:
 
 Node.js version manager
 
-Use a Node version manager like [Volta ↗︎](https://volta.sh/) or [nvm ↗︎](https://github.com/nvm-sh/nvm) to avoid permission issues and change Node.js versions. [Wrangler](https://developers.cloudflare.com/workers/wrangler/install-and-update/), discussed later in this guide, requires a Node version of `16.17.0` or later.
+Use [Vite+ (`vp env`) ↗︎](https://viteplus.dev/guide/env) to install and manage Node.js versions.
+
+For supported Node.js versions, refer to the [Wrangler system requirements](https://developers.cloudflare.com/workers/wrangler/install-and-update/#install-wrangler).
 
 ## 1\. Create the project
 
@@ -72,17 +74,17 @@ npmyarnpnpm
          
          cd sandbox-code-interpreter
 
-  3. Install the [AI SDK ↗︎](https://ai-sdk.dev/), the [Workers AI provider](https://developers.cloudflare.com/workers-ai/configuration/ai-sdk/), and [Zod ↗︎](https://zod.dev/):
+  3. Install the [Agents SDK](https://developers.cloudflare.com/agents/), the [AI SDK ↗︎](https://ai-sdk.dev/), and [Zod ↗︎](https://zod.dev/). The Worker calls Workers AI with [`createAI`](https://developers.cloudflare.com/agents/models/ai-sdk/) from `agents/models/ai-sdk`:
 
 npmyarnpnpmbun
          
-         npm i ai workers-ai-provider zod
+         npm i agents ai @ai-sdk/provider zod
          
-         yarn add ai workers-ai-provider zod
+         yarn add agents ai @ai-sdk/provider zod
          
-         pnpm add ai workers-ai-provider zod
+         pnpm add agents ai @ai-sdk/provider zod
          
-         bun add ai workers-ai-provider zod
+         bun add agents ai @ai-sdk/provider zod
 
   4. Replace `wrangler.jsonc` to add a Workers AI binding and a Worker Loader binding:
          
@@ -91,7 +93,7 @@ npmyarnpnpmbun
          	"name": "sandbox-code-interpreter",
          	"main": "src/index.ts",
          	// Set this to today's date
-         	"compatibility_date": "2026-10-08",
+         	"compatibility_date": "2026-10-23",
          	"observability": {
          		"enabled": true,
          	},
@@ -110,7 +112,7 @@ npmyarnpnpmbun
          name = "sandbox-code-interpreter"
          main = "src/index.ts"
          # Set this to today's date
-         compatibility_date = "2026-10-08"
+         compatibility_date = "2026-10-23"
          upload_source_maps = true
          
          [observability]
@@ -148,7 +150,7 @@ src/sandbox.jsjs
     
     export async function runJavaScript(env, code) {
     	const sandbox = env.LOADER.load({
-    		compatibilityDate: "2026-10-08",
+    		compatibilityDate: "2026-10-23",
     		mainModule: "code.js",
     		modules: {
     			"code.js": `
@@ -208,7 +210,7 @@ src/sandbox.tsts
     
     export async function runJavaScript(env: Env, code: string): Promise<Output> {
     	const sandbox = env.LOADER.load({
-    		compatibilityDate: "2026-10-08",
+    		compatibilityDate: "2026-10-23",
     		mainModule: "code.js",
     		modules: {
     			"code.js": `
@@ -273,7 +275,7 @@ src/index.jsjs
     
     
     import { generateText, isStepCount, tool } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import { z } from "zod";
     import { runJavaScript } from "./sandbox";
     
@@ -302,12 +304,12 @@ src/index.jsjs
     			);
     		}
     
-    		const workersai = createWorkersAI({ binding: env.AI });
+    		const ai = createAI({ binding: env.AI });
     		const runs = [];
     
     		try {
     			const result = await generateText({
-    				model: workersai(model),
+    				model: ai(model),
     				instructions,
     				prompt: body.data.question,
     				tools: {
@@ -351,7 +353,7 @@ src/index.tsts
     
     
     import { generateText, isStepCount, tool } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import { z } from "zod";
     import { runJavaScript, type Output } from "./sandbox";
     
@@ -382,12 +384,12 @@ src/index.tsts
     			);
     		}
     
-    		const workersai = createWorkersAI({ binding: env.AI });
+    		const ai = createAI({ binding: env.AI });
     		const runs: Run[] = [];
     
     		try {
     			const result = await generateText({
-    				model: workersai(model),
+    				model: ai(model),
     				instructions,
     				prompt: body.data.question,
     				tools: {

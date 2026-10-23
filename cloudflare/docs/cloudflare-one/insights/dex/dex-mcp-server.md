@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/insights/dex/dex-mcp-server/
 title: DEX MCP server \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:48.486309+00:00
+fetched_at: 2026-10-23T16:39:59.122793+00:00
 ---
 
 # DEX MCP server · Cloudflare One docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-08T07:08:48.486309+00:00
 
 # DEX MCP server
 
-Last updated Apr 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/insights/dex/dex-mcp-server/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/insights/dex/dex-mcp-server/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewCloudflare AI PlaygroundAI Assistant Claude Gemini CLI ChatGPT
+OverviewCloudflare AI PlaygroundAI Assistant Claude Code Gemini CLI ChatGPT
 
 The MCP server [(Model Context Protocol) ↗︎](https://cloudflare.com/learning/ai/what-is-model-context-protocol-mcp/) for Digital Experience Monitoring (DEX) is an AI tool that allows customers to ask a question like, "Show me the connectivity and performance metrics for the device used by carly‌@acme.com", and receive an answer that contains data from the DEX API.
 
@@ -61,39 +61,21 @@ You can get a more flexible and robust experience by configuring the DEX MCP ser
 
 If you have any issues during the configuration process, you can ask your AI assistant for help with configuring an MCP server via URL.
 
-### Claude
+### Claude Code
 
-You need a Claude Pro account (or higher subscription) to configure an MCP server.
+You need a Claude Pro account or higher subscription to configure an MCP server.
 
-  1. Download the [Claude desktop client ↗︎](https://claude.ai/download).
+  1. Install [Claude Code ↗︎](https://docs.anthropic.com/en/docs/claude-code/setup).
 
-  2. Open the Claude desktop client, and log in or set up an account.
-
-  3. Expand the left sidebar menu, and select **Claude Code**.
-
-  4. Under **Desktop app** , select **Developer** to show the **Local MCP servers** page.
-
-  5. Select **Edit Config** and open the `claude_desktop_config.json` file in a text editor of your choice.
-
-  6. Copy the JSON configuration for the DEX MCP server and paste it into `claude_desktop_config.json`. Save the file.
+  2. Add the DEX MCP server:
          
-         {
-         	"globalShortcut": "",
-         	"mcpServers": {
-         		"cloudflare-dex-analysis": {
-         			"command": "npx",
-         			"args": ["mcp-remote", "https://dex.mcp.cloudflare.com/mcp"]
-         		}
-         	}
-         }
+         claude mcp add --transport http cloudflare-dex-analysis https://dex.mcp.cloudflare.com/mcp
 
-  7. Fully close Claude by using the task manager to stop any background processes related to Claude.
+  3. Run `claude mcp list` to verify the connection.
 
-  8. Open Claude, and your DEX MCP server configuration should appear on the **Local MCP servers** page.
+  4. Authenticate your Cloudflare account and authorize the DEX MCP server.
 
-  9. Authenticate your Cloudflare account and allow the DEX MCP server.
-
-  10. You can start asking Claude questions about DEX. As a simple test, you can ask "Are you connected to the DEX MCP server".
+  5. Ask Claude "Are you connected to the DEX MCP server?" to test the connection.
 
 
 
@@ -114,13 +96,11 @@ File path for the `settings.json` file
   3. Copy the JSON configuration for the DEX MCP server and paste it into **settings.json**. Save the file.
          
          {
-         	"globalShortcut": "",
-         	"mcpServers": {
-         		"cloudflare-dex-analysis": {
-         			"command": "npx",
-         			"args": ["mcp-remote", "https://dex.mcp.cloudflare.com/mcp"]
-         		}
-         	}
+           "mcpServers": {
+             "cloudflare-dex-analysis": {
+               "httpUrl": "https://dex.mcp.cloudflare.com/mcp"
+             }
+           }
          }
 
   4. Run Gemini in your CLI of choice.

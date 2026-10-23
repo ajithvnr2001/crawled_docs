@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deployment-manager/docs/step-by-step-guide/learn-helper-scripts/
 title: Exploring helper scripts \u00a0|\u00a0 Cloud Deployment Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:40:57.639009+00:00
+fetched_at: 2026-10-23T16:54:18.755043+00:00
 ---
 
 # Exploring helper scripts  |  Cloud Deployment Manager  |  Google Cloud Documentation

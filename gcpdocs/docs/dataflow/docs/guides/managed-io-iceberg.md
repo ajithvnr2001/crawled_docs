@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/managed-io-iceberg/
 title: Dataflow managed I/O for Apache Iceberg \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:15.511453+00:00
+fetched_at: 2026-10-23T16:52:32.894991+00:00
 ---
 
 # Dataflow managed I/O for Apache Iceberg  |  Google Cloud Documentation

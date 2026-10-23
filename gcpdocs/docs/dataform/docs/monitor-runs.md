@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/monitor-runs/
 title: Monitor runs \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:43.549442+00:00
+fetched_at: 2026-10-23T16:52:03.899737+00:00
 ---
 
 # Monitor runs  |  Dataform  |  Google Cloud Documentation

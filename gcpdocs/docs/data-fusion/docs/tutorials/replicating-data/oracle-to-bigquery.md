@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/tutorials/replicating-data/oracle-to-bigquery/
 title: Replicating data from Oracle database to BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:43.109138+00:00
+fetched_at: 2026-10-23T16:52:42.762337+00:00
 ---
 
 # Replicating data from Oracle database to BigQuery  |  Google Cloud Documentation

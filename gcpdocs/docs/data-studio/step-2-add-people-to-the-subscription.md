@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/step-2-add-people-to-the-subscription/
 title: Step 2: Add people to the subscription \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:36.053871+00:00
+fetched_at: 2026-10-23T16:52:22.824008+00:00
 ---
 
 # Step 2: Add people to the subscription  |  Data Studio  |  Google Cloud Documentation

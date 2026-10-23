@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/get-started/
 title: Run a Linux command \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:18.620476+00:00
+fetched_at: 2026-10-23T16:39:56.668403+00:00
 ---
 
 # Run a Linux command · Cloudflare Sandboxes docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:15:18.620476+00:00
 
 # Run a Linux command
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesRun a command in LinuxNext steps
 
@@ -32,7 +32,9 @@ You will POST `uname -a` to a Worker and read stdout that contains `Linux`.
 
 Node.js version manager
 
-Use a Node version manager like [Volta ↗︎](https://volta.sh/) or [nvm ↗︎](https://github.com/nvm-sh/nvm) to avoid permission issues and change Node.js versions. [Wrangler](https://developers.cloudflare.com/workers/wrangler/install-and-update/), discussed later in this guide, requires a Node version of `16.17.0` or later.
+Use [Vite+ (`vp env`) ↗︎](https://viteplus.dev/guide/env) to install and manage Node.js versions.
+
+For supported Node.js versions, refer to the [Wrangler system requirements](https://developers.cloudflare.com/workers/wrangler/install-and-update/#install-wrangler).
 
 ## Run a command in Linux
 
@@ -57,7 +59,7 @@ npmyarnpnpm
          	"name": "sandbox-linux",
          	"main": "src/index.ts",
          	// Set this to today's date
-         	"compatibility_date": "2026-10-08",
+         	"compatibility_date": "2026-10-23",
          	"observability": {
          		"enabled": true,
          	},
@@ -88,7 +90,7 @@ npmyarnpnpm
          name = "sandbox-linux"
          main = "src/index.ts"
          # Set this to today's date
-         compatibility_date = "2026-10-08"
+         compatibility_date = "2026-10-23"
          upload_source_maps = true
          
          [observability]
@@ -116,7 +118,7 @@ src/index.jsjs
          	async exec(argv) {
          		const container = this.ctx.container;
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		if (!container.running) {
@@ -155,7 +157,7 @@ src/index.tsts
          	async exec(argv: string[]) {
          		const container = this.ctx.container;
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		if (!container.running) {
@@ -215,7 +217,7 @@ npmyarnpnpm
 
 
 
-The JSON body includes `"exitCode":0`. `stdout` contains `Linux`. The Worker started a Linux VM and ran the command you sent.
+The JSON body includes `"exitCode":0`. `stdout` contains `Linux`. The Worker started a Linux container and ran the command you sent. When you deploy, each instance runs in its own virtual machine instead of in Docker.
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/voice-agents/api/analytics/overview/
-title: Analytics API overview | Sarvam API Docs
+title: Voice agent Analytics API: attempts, calls and recordings | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:39:15.887425+00:00
+fetched_at: 2026-10-23T16:39:03.368721+00:00
 ---
 
-# Analytics API overview | Sarvam API Docs
+# Voice agent Analytics API: attempts, calls and recordings | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/voice-agents/api/analytics/overview/
 
@@ -30,7 +30,7 @@ Scroll to top
 
 [API Reference](https://docs.sarvam.ai/voice-agents/api/introduction)[Analytics](https://docs.sarvam.ai/voice-agents/api/analytics/overview)
 
-# Analytics API overview
+# Voice agent Analytics API: attempts, calls and recordings
 
 Pull call attempts, conversations, transcripts, recordings, and traces for your agents over REST.
 

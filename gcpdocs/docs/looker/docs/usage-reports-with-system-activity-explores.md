@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/usage-reports-with-system-activity-explores/
 title: Monitoring Looker usage with System Activity Explores \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:50.621611+00:00
+fetched_at: 2026-10-23T16:49:27.094547+00:00
 ---
 
 # Monitoring Looker usage with System Activity Explores  |  Google Cloud Documentation
@@ -83,6 +83,21 @@ See the Using the System Activity Explores section on this page for some example
 ## Using the System Activity Explores
 
 Following are some examples of how you can use some of the Explores in System Activity, along with the answers to some common questions. You can access the example Explores in this section by replacing `<instance_name.looker.com>` in the example URLs with the address of your Looker instance.
+
+### Historical activity views versus current-state metadata views
+
+When you analyze System Activity data, it is important to distinguish between views that log historical activity and views that reflect current-state metadata. System Activity Explores frequently join event logs (such as query runs or user events) with metadata tables that represent the current configuration of an object (such as roles, schedules, Looks, or dashboards). This distinction can result in unexpected results or null values in the following scenarios:
+
+  * **Role changes** : The **Role** view reflects current role assignments. If a user's role changes, querying past events in the **History** Explore joined with the **Role** view displays the user's current role alongside their historical queries rather than the role that was assigned when the query was run.
+
+  * **Edited schedule recipients** : The **Scheduled Plan** and **Scheduled Plan Destination** views display the current configuration and recipients of a schedule. To view the historical recipients or execution status of a past run, use the **Scheduled Job** and **Scheduled Job Stage** views, or view the [**Schedule History**](https://docs.cloud.google.com/looker/docs/admin-panel-alerts-and-schedules-schedule-history) page in the **Admin** menu.
+
+  * **Deleted objects** : Metadata views (such as **Model Set** , **Role** , **Dashboard** , and **Look**) only store currently existing objects (and are synced as full-table copies in [Elite System Activity](https://docs.cloud.google.com/looker/docs/elite-system-activity)). If an object is deleted, historical event records in the **History** or **Event** Explores still exist, but joined fields from the deleted object's view appear as `NULL` or blank.
+
+  * **Content inventory versus query execution** : The **Look** and **Dashboard** Explores list all saved content on the instance, whereas the **History** Explore includes only the content that has been executed within the data retention window. Saved Looks or dashboards that haven't been queried recently appear in the **Look** and **Dashboard** Explores, but not in the **History** Explore.
+
+
+
 
 ### API Usage
 
@@ -471,6 +486,8 @@ You can use the **Event Attribute** Explore to show a list of updates to MCP too
 The **History** Explore provides a record of individual queries. It can be useful for troubleshooting, as it provides details about all the queries run on your instance in the past 90 days.
 
 **Note:** Because LookML dashboards (such as the default System Activity dashboards) are defined in code within a LookML project rather than being stored entirely in Looker's internal database, their title metadata is not stored in the database. As a result, LookML dashboards show a blank or null value in the **Title** field in the **Dashboard** view. To identify the queried LookML dashboard, use the **Lookml Link ID** field in the **Dashboard** view, which displays the model and dashboard ID.
+
+Additionally, for information about how joins between historical queries and current-state metadata tables affect query results (including why deleted objects display null or blank values), see Historical activity views versus current-state metadata views.
 
 Following are some common questions about using the **History** Explore:
 
@@ -1215,22 +1232,35 @@ In addition to the **Recent Access** panel in the [**Support Access** page](http
 
 A login event and a query history event represent distinct actions on your Looker instance, as described by the following:
 
-  * Login record: A user login is recorded in the **User** Explore (such as in the **Last Attempted UI Login Time** field) when the user successfully authenticates. For signed embeds, this authentication occurs when the user accesses the signed embed URL.
-  * History record: A query history record (such as in the **Most Recent Query Date** field in the **User** Explore or entries in the **History** Explore) is generated only when a database query successfully executes.
+  * **Login record** : A user login is recorded in the **User** Explore (such as in the **Last Attempted UI Login Time** field) when the user successfully authenticates. For signed embeds, this authentication occurs when the user accesses the signed embed URL.
+
+  * **History record** : A query history record (such as in the **Most Recent Query Date** field in the **User** Explore or entries in the **History** Explore) is generated only when a database query successfully executes.
 
 
 
-Because these records represent different actions, an embed user can log in and establish a valid session (recording a login time) without generating any query history. Common scenarios where a login is recorded but no query history is generated include the following:
 
-  * The dashboard is not set to run on load: If the embedded dashboard has the [**Run on Load**](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#run_on_load) setting disabled, queries don't trigger automatically when the dashboard opens.
-  * The content does not require database queries: If the embedded dashboard consists only of text or Markdown tiles, no queries are sent to the database.
-  * Permission errors: The user may lack the required permission to run the queries for the tiles on the dashboard, resulting in execution failures.
-  * Custom SDK logic: Custom Embed SDK logic may delay or prevent the dashboard load.
-  * Client-side barriers: Client-side browser extensions (such as ad blockers) or network connection issues might block the execution of the iframe or the query requests.
+Because these records represent different actions, discrepancies can occur in either direction:
 
+  * **Login recorded without query history** : An embed user can log in and establish a valid session (recording a login time) without generating any query history. Common scenarios where a login is recorded but no query history is generated include the following:
 
+    * **The dashboard isn't set to run on load** : If the embedded dashboard has the [**Run on Load**](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#run_on_load) setting disabled, queries don't trigger automatically when the dashboard opens.
+
+    * **The content does not require database queries** : If the embedded dashboard consists only of text or Markdown tiles, no queries are sent to the database.
+
+    * **Permission errors** : The user may lack the required permission to run the queries for the tiles on the dashboard, resulting in execution failures.
+
+    * **Custom SDK logic** : Custom Embed SDK logic may delay or prevent the dashboard load.
+
+    * **Client-side barriers** : Client-side browser extensions (such as ad blockers) or network connection issues might block the execution of the iframe or the query requests.
 
 If you expect queries to execute automatically upon user login, ensure that the **Run on Load** setting is enabled for the affected dashboards. Otherwise, users must manually refresh the dashboard or interact with filters to trigger query execution.
+
+  * **Query history recorded without a new login timestamp** : A user can generate recent queries in the **History** Explore while their last UI login timestamp (the **Last UI Login** field in the **User Facts** view, or `user_facts.last_ui_login_at`) displays an older date.
+
+The **Last UI Login** field only updates when a user authenticates to start a new UI session. Because [persistent UI sessions](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-sessions#persistent_sessions) can remain active for up to 30 days, users who access Looker with an existing active session will record new queries in the **History** Explore without generating a new login event.
+
+
+
 
 ## Guided analyses in System Activity Labs feature
 
@@ -1411,6 +1441,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

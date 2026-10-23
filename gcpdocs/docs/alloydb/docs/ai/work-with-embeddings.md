@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/work-with-embeddings/
 title: Generate text embeddings \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:34.714739+00:00
+fetched_at: 2026-10-23T16:49:36.577729+00:00
 ---
 
 # Generate text embeddings  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-center/docs/assessments/
 title: Create an assessment of a recommendation \u00a0|\u00a0 Database Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:48.046898+00:00
+fetched_at: 2026-10-23T16:51:59.439207+00:00
 ---
 
 # Create an assessment of a recommendation  |  Database Center  |  Google Cloud Documentation

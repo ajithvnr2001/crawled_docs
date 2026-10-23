@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/ip-filtering-overview/
 title: Bucket IP filtering \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:34:53.144695+00:00
+fetched_at: 2026-10-23T16:50:46.069185+00:00
 ---
 
 # Bucket IP filtering  |  Cloud Storage  |  Google Cloud Documentation
@@ -21,23 +21,15 @@ Send feedback
 
 #  Bucket IP filtering Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page provides an overview of bucket IP filtering including its benefits, how it works, supported locations, and limitations to consider.
-
-## Overview
-
-Cloud Storage offers bucket IP filtering to manage access to your data stored in buckets.
-
-Bucket IP filtering is a network security mechanism that restricts access to a bucket based on the source IP address of the request and secures your data from unauthorized access.
-
-The bucket IP filtering feature for Cloud Storage enables fine-grained access control based on IPv4 or IPv6 address ranges or the Google Cloud Virtual Private Cloud. You can configure a list of IP ranges at the bucket level and all incoming requests to the bucket are restricted to the configured IP ranges and VPCs. This feature provides a way to secure sensitive data in Cloud Storage buckets and prevent unauthorized access from specific IP addresses or VPCs.
+Bucket IP filtering lets you restrict access to your Cloud Storage buckets based on client IPv4 or IPv6 address ranges and Virtual Private Cloud (VPC) networks. This network-level control works alongside Identity and Access Management (IAM) permissions to help secure sensitive data and prevent unauthorized access from unapproved networks.
 
 ## Benefits
 
 Bucket IP filtering for Cloud Storage offers the following benefits:
 
-  * **Fine-grained access control** : Restrict access to your Cloud Storage buckets based on the specific IP address (IPv4 or IPv6) or Google Cloud Virtual Private Cloud of the requester. Bucket IP filtering acts as a strong network-level security layer, preventing unauthorized access from unknown or untrusted sources.
+  * **Fine-grained access control** : Restrict access to your Cloud Storage buckets based on the specific IP address (IPv4 or IPv6) or VPC network of the requester. Bucket IP filtering acts as a strong network-level security layer, preventing unauthorized access from unknown or untrusted sources.
 
-  * **Enhanced security** : By limiting access to authorized IP addresses or VPCs, you can reduce the risk of unauthorized access, data breaches, and malicious activity.
+  * **Enhanced security** : By limiting access to authorized IP addresses or VPC networks, you can reduce the risk of unauthorized access, data breaches, and malicious activity.
 
   * **Flexible configuration** : You can configure and manage lists of IP ranges at the bucket level, tailoring the access control to your specific requirements.
 
@@ -50,9 +42,9 @@ Bucket IP filtering helps you control access to your buckets by defining rules t
 
 When you configure IP filtering, you define rules based on the following settings:
 
-  * **Public internet access** : You can define rules to manage requests originating from the public internet (outside any configured Virtual Private Cloud). These rules specify allowed IPv4 or IPv6 addresses using CIDR ranges, authorizing inbound traffic from those sources.
+  * **Public internet access** : You can define rules to manage requests originating from the public internet (outside any configured VPC network). These rules specify allowed IPv4 or IPv6 addresses using CIDR ranges, authorizing inbound traffic from those sources.
 
-  * **Virtual private cloud (VPC) access** : For granular control over access from specific VPC networks, you can define rules for each network. These rules include allowed IP ranges, enabling precise management of access from your virtual network infrastructure.
+  * **VPC access** : For granular control over access from specific VPC networks, you can define rules for each network. These rules include allowed IP ranges, enabling precise management of access from your virtual network infrastructure.
 
   * **Service agent access** : Google Cloud service agents retain access to buckets, even with an active IP filtering configuration. You can set up a configuration that allows Google Cloud services such as BigLake, Storage Insights, Vertex AI, and BigQuery to bypass the IP filter validation when accessing your buckets.
 
@@ -80,7 +72,7 @@ Bucket IP filtering has the following limitations:
       * [Export table data](https://docs.cloud.google.com/bigquery/docs/exporting-data) from BigQuery to Cloud Storage.
       * [Export query results](https://docs.cloud.google.com/bigquery/docs/writing-results#downloading-saving-results-console) from BigQuery to Cloud Storage.
       * Query from an [external Cloud Storage table](https://docs.cloud.google.com/bigquery/docs/external-data-cloud-storage#query_external_tables) with BigQuery.
-    * If your [App Engine applications access data in Cloud Storage](https://docs.cloud.google.com/appengine/docs/standard/using-cloud-storage), we recommend [using App Engine through a Virtual Private Cloud](https://docs.cloud.google.com/appengine/docs/legacy/standard/python/connecting-vpc).
+    * If your [App Engine applications access data in Cloud Storage](https://docs.cloud.google.com/appengine/docs/standard/using-cloud-storage), we recommend [using App Engine through a VPC network](https://docs.cloud.google.com/appengine/docs/legacy/standard/python/connecting-vpc).
     * IP filtering doesn't support Cloud Shell.
 
 
@@ -105,6 +97,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-center/docs/use-database-center-mcp/
 title: Use the Database Center remote MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:46.293733+00:00
+fetched_at: 2026-10-23T16:52:20.476985+00:00
 ---
 
 # Use the Database Center remote MCP server  |  Google Cloud Documentation

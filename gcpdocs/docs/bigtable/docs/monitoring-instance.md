@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/monitoring-instance/
 title: Monitoring \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:35:00.330940+00:00
+fetched_at: 2026-10-23T16:47:49.302421+00:00
 ---
 
 # Monitoring  |  Bigtable  |  Google Cloud Documentation
@@ -76,9 +76,9 @@ Bigtable reports the following metrics for disk usage:
 
 Metric | Description  
 ---|---  
-**Storage utilization (bytes)** |  The amount of data stored in the cluster. Change stream usage is not included for this metric.  This value affects your [costs](https://docs.cloud.google.com/bigtable/pricing#storage). Also, as described below, you might need to add nodes to each cluster as the amount of data increases.   
+**Storage utilization (bytes)** |  The amount of data stored in the cluster. Change stream usage is not included for this metric.  This metric reflects the physical compressed size of your data stored on disk. It doesn't reflect uncompressed logical data size. To view the uncompressed size of your table data, see [Logical data in bytes](https://docs.cloud.google.com/bigtable/docs/table-stats#logical-data-bytes-table).  This value affects your [costs](https://docs.cloud.google.com/bigtable/pricing#storage). Also, as described below, you might need to add nodes to each cluster as the amount of data increases.   
 **Storage utilization (% max)** |  The percentage of the cluster's storage capacity that is being used. The capacity is based on the number of nodes in your cluster. Change stream usage is not included for this metric.  In general, do not use more than 70% of the hard limit on total storage, so you have room to add more data. If you do not plan to add significant amounts of data to your instance, you can use up to 100% of the hard limit.  **Important** : If any cluster in an instance exceeds the hard limit on the amount of storage per node, writes to all clusters in that instance will fail until you [add nodes to each cluster that is over the limit](https://docs.cloud.google.com/bigtable/docs/modifying-instance#nodes). Also, if you try to remove nodes from a cluster, and the change would cause the cluster to exceed the hard limit on storage, Bigtable will deny the request. If you are using more than the recommended percentage of the storage limit, add nodes to the cluster. You can also delete existing data, but [deleted data takes up _more_ space, not less, until a compaction occurs](https://docs.cloud.google.com/bigtable/docs/overview#mutations-deletions).  For details about how this value is calculated, see [Storage utilization per node](https://docs.cloud.google.com/bigtable/quotas#storage-per-node).   
-**Change stream storage utilization (bytes)** |  The amount of storage consumed by change stream records for tables in the instance. This storage does not count toward the total storage utilization. You are charged for change stream storage, but it is not included in the calculation of storage utilization (% max).   
+**Change stream storage utilization (bytes)** |  The amount of storage consumed by change stream records for tables in the instance. This storage does not count toward the total storage utilization. You are charged for change stream storage, but it is not included in the calculation of storage utilization (% max).  This metric reflects the physical compressed size of your data on disk, rather than its uncompressed logical size.   
 **Disk load** |  For HDD clusters, the percentage your cluster is using of the maximum possible bandwidth for HDD reads. For SSD clusters with [tiered storage](https://docs.cloud.google.com/bigtable/docs/tiered-storage) enabled, the percentage your cluster is using of the maximum possible throughput for the [infrequent access tier](https://docs.cloud.google.com/bigtable/docs/tiered-storage#infrequent-access-storage).  If this value is frequently at 100%, you might experience increased latency. Add nodes to the cluster to reduce the disk load percentage.   
   
 ### In-memory tier usage
@@ -103,7 +103,7 @@ Metric | Description
   
 ### Compaction and replicated instances
 
-Storage metrics reflect the data size on disk as of the last compaction. Because compaction happens on a rolling basis over the course of a week, storage usage metrics for a cluster might sometimes temporarily be different from metrics for other clusters in the instance. Observable impacts of this include the following:
+Storage metrics reflect the compressed data size on disk. Because compaction happens independently on a rolling basis across clusters over the course of a week, storage usage metrics for a cluster might sometimes temporarily differ from other clusters in the instance. Newly written data is compressed and reflected in storage metrics within approximately two hours, but space reclamation from deletions and garbage collection requires compaction to complete. Observable impacts of this include the following:
 
   * A new cluster that has recently been added to an instance might temporarily show 0 bytes of storage even though all data has successfully been replicated to the new cluster.
 
@@ -164,7 +164,7 @@ Metric | Description
 **Recommended number of nodes for CPU target** | The number of nodes that Bigtable recommends for the cluster based on the CPU utilization target that you set. This metric is visible only when autoscaling is enabled for the cluster. If this number is higher than the maximum node count target, consider raising your CPU utilization target or increasing the maximum number of nodes for the cluster. If this number is lower than the minimum number of nodes, the cluster might be overprovisioned for your usage, and you should consider lowering the minimum.   
 **Recommended number of nodes for storage target** | The number of nodes that Bigtable recommends for the cluster based on the built-in storage utilization target. This metric is visible only when autoscaling is enabled for the cluster. If this number is higher than the maximum node count target, consider increasing the maximum number of nodes for the cluster.  
 **CPU utilization** |  The average CPU utilization across all nodes in the cluster. Includes change stream activity if a change stream is enabled for a table in the instance. In app profile charts, <system> indicates system background activities such as replication and compaction. System background activities are not client-driven.  
-**Storage utilization** |  The amount of data stored in the cluster. Change stream usage is not included for this metric.  This metric reflects the fact that Bigtable compresses your data when it is stored.   
+**Storage utilization** |  The amount of data stored in the cluster. Change stream usage is not included for this metric.  This metric reflects the physical compressed size of your data on disk, rather than its uncompressed logical size.   
 **In-memory tier metrics** | Enterprise Plus only. Includes charts for hit ratio, read latency, and request unit (RU) usage for the cluster.  
   
 To view a cluster's overview page, do the following:
@@ -194,7 +194,7 @@ The table overview page displays charts showing the following metrics for the ta
 
 Metric | Description  
 ---|---  
-**Storage utilization (bytes)** | The percentage of the cluster's storage capacity that is being used by the table. The capacity is based on the number of nodes in the cluster. Tables with [tiered storage](https://docs.cloud.google.com/bigtable/docs/tiered-storage) ([Preview](https://cloud.google.com/products#product-launch-stages)) enabled additionally show the breakdown of SSD and infrequent access storage utilization over time.  For details about how this value is calculated, see [Storage utilization per node](https://docs.cloud.google.com/bigtable/quotas#storage-per-node).   
+**Storage utilization (bytes)** |  The amount of cluster storage capacity in bytes used by the table. This metric reflects the physical compressed size of your data on disk, rather than its uncompressed logical size.  Tables with [tiered storage](https://docs.cloud.google.com/bigtable/docs/tiered-storage) ([Preview](https://cloud.google.com/products#product-launch-stages)) enabled additionally show the breakdown of SSD and infrequent access storage utilization over time.  For details about how this value is calculated, see [Storage utilization per node](https://docs.cloud.google.com/bigtable/quotas#storage-per-node).   
 **CPU utilization** |  The average CPU utilization across all nodes in the cluster. Includes change stream activity if a change stream is enabled for a table in the instance. In app profile charts, <system> indicates system background activities such as replication and compaction. System background activities are not client-driven.  
 **Read latency** | The time for a read request to return a response. Measurement of read latency begins when Bigtable receives the request and ends when the last byte of data is sent to the client. For requests for large amounts of data, read latency can be affected by the client's ability to consume the response.   
 **Write latency** | The time for a write request to return a response.  
@@ -308,7 +308,7 @@ App profiles  |  The number of requests that were automatically rerouted from on
 Tables  
 App profiles  |  The number of SQL requests that were automatically rerouted from one cluster to another due to a failover scenario, such as a brief outage or delay. Automatic rerouting can occur if an app profile uses multi-cluster routing. This chart does not include manually rerouted requests.  
 **Storage utilization (bytes)** |  Instances  
-Tables  |  The amount of data stored in the cluster. Change stream usage is not included for this metric.  This metric reflects the fact that Bigtable compresses your data when it is stored.   
+Tables  |  The amount of data stored in the cluster. Change stream usage is not included for this metric.  This metric reflects the physical compressed size of your data on disk, rather than its uncompressed logical size.   
 **Storage utilization (% max)** | Instances |  The percentage of the cluster's storage capacity that is being used. The capacity is based on the number of nodes in your cluster. Change stream usage is not included for this metric.  For details about how this value is calculated, see [Storage utilization per node](https://docs.cloud.google.com/bigtable/quotas#storage-per-node).   
 **Disk load** | Instances |  For HDD clusters, the percentage your cluster is using of the maximum possible bandwidth for HDD reads. For SSD clusters with [tiered storage](https://docs.cloud.google.com/bigtable/docs/tiered-storage) enabled, the percentage your cluster is using of the maximum possible throughput for the [infrequent access tier](https://docs.cloud.google.com/bigtable/docs/tiered-storage#infrequent-access-storage).   
 **In-memory tier storage capacity** | Instances  
@@ -556,6 +556,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/realtimekit/custom-plugins/
 title: Custom Plugins \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:57:47.186391+00:00
+fetched_at: 2026-10-23T16:40:07.428117+00:00
 ---
 
 # Custom Plugins · Cloudflare Realtime docs
@@ -18,11 +18,13 @@ fetched_at: 2026-10-20T06:57:47.186391+00:00
 
 # Custom Plugins
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/realtime/realtimekit/custom-plugins/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGuides
 
 Plugins are interactive real-time applications that run inside a meeting, such as a shared whiteboard or a document viewer. RealtimeKit lets you build your own plugins and render them alongside the meeting UI.
+
+Cloudflare also hosts ready-made plugins that you can add without building or deploying anything. To add a collaborative whiteboard to your meetings, refer to [Add the Whiteboard plugin](https://developers.cloudflare.com/realtime/realtimekit/custom-plugins/whiteboard/).
 
 A custom plugin is a DOM element that you register with the Core SDK. When a participant activates it, RealtimeKit makes it active for everyone in the session and renders it through the UI Kit.
 
@@ -31,6 +33,7 @@ To learn how plugins are registered and controlled through the SDK, refer to [Pl
 ## Guides
 
   * [Build your own plugins](https://developers.cloudflare.com/realtime/realtimekit/custom-plugins/build-your-own-plugins/)
+  * [Add the Whiteboard plugin](https://developers.cloudflare.com/realtime/realtimekit/custom-plugins/whiteboard/)
 
 
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/build-etl-pipeline-alloydb-dataflow/
 title: Build realtime vector embedding pipeline for AlloyDB with Dataflow \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:35.789686+00:00
+fetched_at: 2026-10-23T16:50:26.565719+00:00
 ---
 
 # Build realtime vector embedding pipeline for AlloyDB with Dataflow  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/build-agents-with-adk/
 title: Connect Agent Development Kit agents to Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:10:22.049681+00:00
+fetched_at: 2026-10-23T16:50:45.239592+00:00
 ---
 
 # Connect Agent Development Kit agents to Cloud Storage  |  Google Cloud Documentation
@@ -21,11 +21,9 @@ Send feedback
 
 #  Connect Agent Development Kit agents to Cloud Storage Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can connect your [Agent Development Kit (ADK)](https://adk.dev/) agents to Cloud Storage. This connection enables your agents to use built-in ADK toolsets.
+You can connect [Agent Development Kit (ADK)](https://adk.dev/) agents to Cloud Storage to give agentic workloads access to stored data and built-in ADK toolsets. This integration lets you persist state, memory, and checkpoints for long-running tasks, and share intermediary files across multi-agent workflows.
 
-As an AI developer, you can integrate ADK with Cloud Storage to connect your agents to your stored data. This integration helps you scale your agentic workloads. You can use Cloud Storage to persist state, memory, and checkpoints for long-running tasks. You can also use Cloud Storage to share intermediary files across a multi-agent workflow.
-
-This document describes the benefits of integrating Cloud Storage with ADK. It covers common use cases and the capabilities of the available toolsets. For step-by-step setup instructions and code examples, see the [ADK integration guide](https://adk.dev/integrations/gcs/).
+For setup instructions and code examples, see the [ADK integration guide](https://adk.dev/integrations/gcs/).
 
 ## Benefits of Cloud Storage integration with ADK
 
@@ -145,6 +143,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

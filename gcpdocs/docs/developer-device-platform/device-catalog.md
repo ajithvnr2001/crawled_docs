@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/developer-device-platform/device-catalog/
 title: Developer Device Platform Device Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:26:46.971559+00:00
+fetched_at: 2026-10-23T16:52:15.463003+00:00
 ---
 
 # Developer Device Platform Device Catalog  |  Google Cloud Documentation

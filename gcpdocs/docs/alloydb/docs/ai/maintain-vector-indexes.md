@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/maintain-vector-indexes/
 title: Maintain vector indexes \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:36.021823+00:00
+fetched_at: 2026-10-23T16:50:24.010424+00:00
 ---
 
 # Maintain vector indexes  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

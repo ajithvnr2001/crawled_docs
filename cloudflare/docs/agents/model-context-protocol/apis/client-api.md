@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/
 title: McpClient \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:14.436070+00:00
+fetched_at: 2026-10-23T16:40:10.507950+00:00
 ---
 
 # McpClient · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:14.436070+00:00
 
 # McpClient
 
-Last updated Jul 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOverviewQuick startAdding MCP servers Stable server IDs Transport options Custom headers URL security Return valueOAuth authentication How it works Handling OAuth in your agent OAuth callback Protecting instance names in OAuth callbacks Custom OAuth callback handlingUsing MCP capabilities Get available tools Resources and prompts ElicitationManaging servers List all servers Get server status Remove a serverClient-side integrationAPI reference addMcpServer() removeMcpServer() getMcpServers() configureOAuthCallback() configureElicitationHandlers()Custom OAuth provider Custom storage backendAdvanced: MCPClientManager Step-by-step connection Event subscription Lifecycle methodsError handlingNext steps
 
@@ -470,13 +470,13 @@ To use MCP tools with the AI SDK, use `this.mcp.getAITools()` which converts MCP
     
     
     import { generateText } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
     export class MyAgent extends Agent {
     	async onRequest(request) {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     		const response = await generateText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			prompt: "What's the weather in San Francisco?",
     			tools: this.mcp.getAITools(),
     		});
@@ -487,13 +487,13 @@ To use MCP tools with the AI SDK, use `this.mcp.getAITools()` which converts MCP
     
     
     import { generateText } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
     export class MyAgent extends Agent<Env> {
     	async onRequest(request: Request) {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     		const response = await generateText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			prompt: "What's the weather in San Francisco?",
     			tools: this.mcp.getAITools(),
     		});

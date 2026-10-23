@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/roles-and-permissions/
 title: Roles and permissions \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:39.657444+00:00
+fetched_at: 2026-10-23T16:52:52.886381+00:00
 ---
 
 # Roles and permissions  |  Data Studio  |  Google Cloud Documentation

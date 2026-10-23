@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/data-localization/metadata-boundary/logpush-datasets/
 title: Logpush datasets \u00b7 Cloudflare Data Localization Suite docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T06:28:14.095801+00:00
+fetched_at: 2026-10-23T16:40:00.710837+00:00
 ---
 
 # Logpush datasets · Cloudflare Data Localization Suite docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-17T06:28:14.095801+00:00
 
 # Logpush datasets
 
-Last updated Oct 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/data-localization/metadata-boundary/logpush-datasets/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 [Logpush](https://developers.cloudflare.com/logs/logpush/) is a service that automatically streams your Cloudflare log data to a storage destination you control (such as a cloud storage bucket or SIEM).
 
@@ -38,8 +38,7 @@ Dataset name | Level | Respects CMB | Available with US CMB region | Available w
 ---|---|---|---|---  
 Access Requests | Account | ✅ | ✅ | ✅  
 AI Gateway Events | Account | ✅ | ✅ | ✅  
-Audit Logs v1 | Account | ✘ | ✅ | ✘  
-Audit Logs v2 | Account | ✅ | ✅ | ✅  
+Audit Logs | Account | ✘ | ✅ | ✘  
 Browser Isolation User Actions | Account | ✅ | ✅ | ✅  
 CASB Findings | Account | ✘ | ✅ | ✘  
 Client-side security (formerly Page Shield) | Zone | ✅ | ✅ | ✅  

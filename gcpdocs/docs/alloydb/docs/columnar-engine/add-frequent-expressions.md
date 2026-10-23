@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/columnar-engine/add-frequent-expressions/
 title: Optimize queries with virtual columns for expressions \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:00:00.623045+00:00
+fetched_at: 2026-10-23T16:49:25.618210+00:00
 ---
 
 # Optimize queries with virtual columns for expressions  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -25,9 +25,7 @@ Send feedback
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This page describes how to use virtual columns for expressions in columnar engine to accelerate queries.
-
-**Note:** This feature is supported for PostgreSQL version 16 and higher.
+Virtual columns for expressions speed up columnar engine queries that repeatedly evaluate the same expressions, such as filters on JSON attributes. This feature is available for PostgreSQL 16 and later.
 
 The columnar engine can materialize and cache the results of frequently used expressions. By pre-computing and storing these results, AlloyDB avoids repeated parsing and evaluation of the same expressions across multiple queries. This process improves query performance and reduces CPU consumption, especially for analytical workloads on large datasets.
 

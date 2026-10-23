@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/tutorial-create-calculated-fields/
 title: Tutorial: Create calculated fields in Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:54.396318+00:00
+fetched_at: 2026-10-23T16:52:16.879917+00:00
 ---
 
 # Tutorial: Create calculated fields in Data Studio  |  Google Cloud Documentation

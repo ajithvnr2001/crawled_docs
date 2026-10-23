@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/turnstile/get-started/server-side-validation/
 title: Validate the token \u00b7 Cloudflare Turnstile docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:07.700847+00:00
+fetched_at: 2026-10-23T16:40:03.657100+00:00
 ---
 
 # Validate the token · Cloudflare Turnstile docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:16:07.700847+00:00
 
 # Validate the token
 
-Last updated Sep 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewProcessSiteverify API overview Request formatBasic validation examplesAdvanced validation techniquesAPI response format Response fields Error codes referenceImplementationTestingBest practices Security Performance Error handling
 
@@ -177,18 +177,21 @@ To ensure a successful validation, the visitor must initiate the request and sub
             $data['remoteip'] = $remoteip;
         }
     
-        $options = [
-            'http' => [
-                'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-                'method' => 'POST',
-                'content' => http_build_query($data)
-            ]
-        ];
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => http_build_query($data),
+            CURLOPT_HTTPHEADER => ['Content-Type: application/x-www-form-urlencoded'],
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CONNECTTIMEOUT => 5,
+            CURLOPT_TIMEOUT => 10,
+        ]);
     
-        $context = stream_context_create($options);
-        $response = file_get_contents($url, false, $context);
+        $response = curl_exec($ch);
+        $error = curl_error($ch);
+        curl_close($ch);
     
-        if ($response === FALSE) {
+        if ($response === false || $error !== '') {
             return ['success' => false, 'error-codes' => ['internal-error']];
         }
     

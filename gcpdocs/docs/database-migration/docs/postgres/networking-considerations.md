@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/networking-considerations/
 title: Plan your networking configuration \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:26.751282+00:00
+fetched_at: 2026-10-23T16:53:25.055263+00:00
 ---
 
 # Plan your networking configuration  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

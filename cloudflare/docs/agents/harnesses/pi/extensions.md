@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/pi/extensions/
 title: Extensions \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:12.078669+00:00
+fetched_at: 2026-10-23T16:40:00.656242+00:00
 ---
 
 # Extensions · Cloudflare Agents docs
@@ -22,15 +22,11 @@ fetched_at: 2026-10-08T07:04:12.078669+00:00
 
 # Extensions
 
-Last updated Oct 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/pi/extensions/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/pi/extensions/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstall an extensionWrite a toolMark tools replay-safeWrite a prompt sectionAdd skillsUse more of Pi Durable
 
 Both tools and system prompt sections are provided to the Pi `Harness` via extensions. An extension is Pi Durable's own: a plain object with a `name`, `tools`, and `sections`, installed on the registry you pass to `Harness.open()`. [`PiHarness`](https://developers.cloudflare.com/agents/harnesses/pi/) does not wrap them, so every Pi Durable extension feature works.
-
-Beta
-
-`PiHarness` is in beta and will likely change as [Pi Durable ↗︎](https://earendil.com/posts/pi-durable/) matures.
 
 ## Install an extension
 
@@ -39,11 +35,12 @@ Create the registry with `createRegistry()` and install extensions in the `harne
 src/index.jsjs
     
     
-    import { Agent } from "agents";
+    import { DurableObject } from "cloudflare:workers";
     import { Type } from "@earendil-works/pi-ai";
     import { createModels } from "@earendil-works/pi-ai/models";
     import { createRegistry, Harness } from "@earendil-works/pi-durable";
     import { PiHarness } from "agents/harness/pi";
+    import { Lifecycle } from "agents/lifecycle";
     import { createAI } from "agents/models/pi-ai";
     
     const WordCount = Type.Object({ text: Type.String() });
@@ -56,16 +53,16 @@ src/index.jsjs
     	// `text` is typed from `parameters`, which Pi validates first.
     	async execute({ text }) {
     		const words = text.split(/\s+/).filter(Boolean).length;
-    		return { content: [{ type: "text", text: String(words) }] };
+    		return { output: [{ type: "text", text: String(words) }] };
     	},
     };
     
-    export class Editor extends Agent {
+    export class Editor extends DurableObject {
     	ai = createAI({ binding: this.env.AI });
     	registry = createRegistry();
     
     	harness = new PiHarness({
-    		harness: ({ storage, context }) => {
+    		harness: ({ storage, context, onWake }) => {
     			this.registry.install({
     				name: "editor",
     				sections: [
@@ -77,23 +74,20 @@ src/index.jsjs
     			models.setProvider(this.ai.provider);
     			return Harness.open(
     				storage,
-    				{ models, registry: this.registry },
+    				{ models, registry: this.registry, onWake },
     				context,
     			);
     		},
-    		defaults: { model: this.ai("@cf/moonshotai/kimi-k2.7-code") },
+    		defaults: { model: this.ai("@cf/zai-org/glm-5.3-flash") },
     	});
     
-    	constructor(ctx, env) {
-    		super(ctx, env);
-    		this.lifecycle.use(this.harness);
-    	}
+    	lifecycle = Lifecycle.install(this).use(this.harness);
     }
 
 src/index.tsts
     
     
-    import { Agent } from "agents";
+    import { DurableObject } from "cloudflare:workers";
     import { Type } from "@earendil-works/pi-ai";
     import { createModels } from "@earendil-works/pi-ai/models";
     import {
@@ -102,6 +96,7 @@ src/index.tsts
     	type ToolRegistration,
     } from "@earendil-works/pi-durable";
     import { PiHarness } from "agents/harness/pi";
+    import { Lifecycle } from "agents/lifecycle";
     import { createAI } from "agents/models/pi-ai";
     
     const WordCount = Type.Object({ text: Type.String() });
@@ -114,16 +109,16 @@ src/index.tsts
     	// `text` is typed from `parameters`, which Pi validates first.
     	async execute({ text }) {
     		const words = text.split(/\s+/).filter(Boolean).length;
-    		return { content: [{ type: "text", text: String(words) }] };
+    		return { output: [{ type: "text", text: String(words) }] };
     	},
     };
     
-    export class Editor extends Agent<Env> {
+    export class Editor extends DurableObject<Env> {
     	ai = createAI({ binding: this.env.AI });
     	registry = createRegistry();
     
     	harness = new PiHarness({
-    		harness: ({ storage, context }) => {
+    		harness: ({ storage, context, onWake }) => {
     			this.registry.install({
     				name: "editor",
     				sections: [
@@ -135,20 +130,19 @@ src/index.tsts
     			models.setProvider(this.ai.provider);
     			return Harness.open(
     				storage,
-    				{ models, registry: this.registry },
+    				{ models, registry: this.registry, onWake },
     				context,
     			);
     		},
-    		defaults: { model: this.ai("@cf/moonshotai/kimi-k2.7-code") },
+    		defaults: { model: this.ai("@cf/zai-org/glm-5.3-flash") },
     	});
     
-    	constructor(ctx: DurableObjectState, env: Env) {
-    		super(ctx, env);
-    		this.lifecycle.use(this.harness);
-    	}
+    	lifecycle = Lifecycle.install(this).use(this.harness);
     }
 
-The factory runs once per isolate, inside the object's startup, so each extension is installed once. `registry.install()` replaces an installed extension with the same name.
+The factory runs inside the object's startup, and again if the harness reopens Pi after a storage error. `registry.install()` replaces an installed extension with the same name, so installing extensions in the factory is safe to repeat.
+
+Create the registry per object, as a class field, not at module scope. Pi keeps every `Harness` subscribed to its registry until the `Harness` closes, and an evicted object never closes it.
 
 ## Write a tool
 
@@ -172,7 +166,7 @@ A tool is a Pi Durable `ToolRegistration`:
     	async execute({ url }, api, context) {
     		api.output(`fetching ${url}\n`);
     		const response = await fetch(url, { signal: context.abortSignal });
-    		return { content: [{ type: "text", text: await response.text() }] };
+    		return { output: [{ type: "text", text: await response.text() }] };
     	},
     };
 
@@ -221,9 +215,9 @@ A section's `render` runs before each model request. It receives the conversatio
     });
     
     harness = new PiHarness({
-    	harness: async ({ storage, context }) => {
+    	harness: async ({ storage, context, onWake }) => {
     		this.registry.install(await skills([handbook]));
-    		// ...models, then Harness.open()
+    		// ...models, then Harness.open() with onWake
     	},
     });
 
@@ -243,7 +237,7 @@ Because the registry is Pi's own, everything else Pi Durable extensions can do a
 
 For each, refer to the [Pi Durable README ↗︎](https://github.com/earendil-works/pi/tree/main/packages/durable).
 
-[PreviousOverview](https://developers.cloudflare.com/agents/harnesses/pi/)[NextAgents API](https://developers.cloudflare.com/agents/runtime/agents-api/)
+[PreviousOverview](https://developers.cloudflare.com/agents/harnesses/pi/)[NextOpenCode](https://developers.cloudflare.com/agents/harnesses/opencode/)
 
 Was this helpful?
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/voice-agents/deploy/deploy-with-code/
-title: Deploy with Code (API & SDK) | Sarvam API Docs
+title: Deploy a voice agent with code: API, WebSocket and SDKs | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:15:26.855918+00:00
+fetched_at: 2026-10-23T16:38:56.521181+00:00
 ---
 
-# Deploy with Code (API & SDK) | Sarvam API Docs
+# Deploy a voice agent with code: API, WebSocket and SDKs | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/voice-agents/deploy/deploy-with-code/
 
@@ -25,7 +25,7 @@ Scroll to top
 
 [Deploy](https://docs.sarvam.ai/voice-agents/deploy/overview)
 
-# Deploy with Code (API & SDK)
+# Deploy a voice agent with code: API, WebSocket and SDKs
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/voice-agents/deploy/deploy-with-code.md "View this page as plain text")|More actions
 
@@ -33,7 +33,7 @@ This page is for Voice Agents.
 
 Integrate Voice Agents programmatically with APIs and SDKs. For platform speech APIs, see the [API Reference](https://docs.sarvam.ai/api-reference/introduction).
 
-[Open Deploy with CodeFind the API recipes, WebSocket details, and embed snippet for your agent.](https://indus.sarvam.ai/samvaad/deploy/with-code)
+[Open Deploy with CodeFind the API recipes, WebSocket details, and embed snippet for your agent.](https://indus.sarvam.ai/samvaad/deploy/with-code?ref=docs)
 
 ## What will be covered
 
@@ -86,7 +86,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/deploy/campaigns/best-practices)[OverviewNext](https://docs.sarvam.ai/voice-agents/monitor/overview)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/deploy/campaigns/best-practices)[Monitor AI voice agents: analytics, call logs and boardsNext](https://docs.sarvam.ai/voice-agents/monitor/overview)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 
@@ -122,6 +122,7 @@ YesNo
   * Monitor
 
     * [Overview](https://docs.sarvam.ai/voice-agents/monitor/overview)
+    * [Call recordings](https://docs.sarvam.ai/voice-agents/monitor/call-recordings)
     * [Agent Analytics](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics)
 
     * [Boards](https://docs.sarvam.ai/voice-agents/monitor/boards)
@@ -218,6 +219,7 @@ YesNo
   * [Best practices](https://docs.sarvam.ai/voice-agents/deploy/campaigns/best-practices)
   * [Deploy with Code (API & SDK)](https://docs.sarvam.ai/voice-agents/deploy/deploy-with-code)
   * [Overview](https://docs.sarvam.ai/voice-agents/monitor/overview)
+  * [Call recordings](https://docs.sarvam.ai/voice-agents/monitor/call-recordings)
   * [Agent Analytics](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics)
   * [Overview tab](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/overview)
   * [Connectivity](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/connectivity)
@@ -270,7 +272,9 @@ YesNo
   * [List attempts](https://docs.sarvam.ai/voice-agents/api/analytics/attempts)
   * [List interactions](https://docs.sarvam.ai/voice-agents/api/analytics/interactions)
   * [Get recording](https://docs.sarvam.ai/voice-agents/api/analytics/recordings)
+  * [Get forwarded recording](https://docs.sarvam.ai/voice-agents/api/analytics/forwarded-recordings)
   * [Get transcript](https://docs.sarvam.ai/voice-agents/api/analytics/transcripts)
+  * [Get trace](https://docs.sarvam.ai/voice-agents/api/analytics/traces)
   * [Overview](https://docs.sarvam.ai/voice-agents/api/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/voice-agents/api/boards/sql)
   * [Best practices](https://docs.sarvam.ai/voice-agents/api/boards/best-practices)

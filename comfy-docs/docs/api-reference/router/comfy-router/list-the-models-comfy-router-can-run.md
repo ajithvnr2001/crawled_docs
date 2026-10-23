@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/router/comfy-router/list-the-models-comfy-router-can-run/
 title: List the models Comfy Router can run. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:10.398774+00:00
+fetched_at: 2026-10-23T16:38:38.968991+00:00
 ---
 
 # List the models Comfy Router can run. - ComfyUI
@@ -131,7 +131,8 @@ cURL
           "model": "flux-2-pro",
           "billing": {
             "charges_on_policy_rejection": "unknown"
-          }
+          },
+          "schema_etag": "\"9f2c1e0b7a4d3c6e8f5a2b1d0c9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e\""
         }
       ],
       "has_more": true,
@@ -315,7 +316,8 @@ cURL
           "model": "flux-2-pro",
           "billing": {
             "charges_on_policy_rejection": "unknown"
-          }
+          },
+          "schema_etag": "\"9f2c1e0b7a4d3c6e8f5a2b1d0c9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e\""
         }
       ],
       "has_more": true,
@@ -370,6 +372,16 @@ header
 required
 
 Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' prefixed API key is also accepted in this header: the prefix classifies the value as an API key and it is validated exactly as if it had been sent in X-API-Key.
+
+#### Headers
+
+​
+
+If-None-Match
+
+string
+
+The `ETag` a caller holds from an earlier `200`. When it matches the current page (RFC 9110 weak comparison; `*` matches any current page) the answer is a bodyless `304` carrying the same `ETag`, otherwise the full page.
 
 #### Query Parameters
 
@@ -471,26 +483,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/api-reference/router/comfy-router/list-the-models-comfy-router-can-run.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/api-reference/router/comfy-router/list-the-models-comfy-router-can-run)
 
-[Comfy Router capabilities and limitsPrevious](https://docs.comfy.org/development/comfy-router/limitations)[Read one partner model's catalog entry by canonical model ID.Next](https://docs.comfy.org/api-reference/router/comfy-router/read-one-partner-models-catalog-entry-by-canonical-model-id)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Capabilities and limits](https://docs.comfy.org/development/comfy-router/limitations)[Read one partner model's catalog entry by canonical model ID.](https://docs.comfy.org/api-reference/router/comfy-router/read-one-partner-models-catalog-entry-by-canonical-model-id)

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/table-stats/
 title: Table stats \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:34:51.842646+00:00
+fetched_at: 2026-10-23T16:48:24.637099+00:00
 ---
 
 # Table stats  |  Bigtable  |  Google Cloud Documentation
@@ -87,7 +87,22 @@ If you find that this number is higher than you expect, examine your garbage col
 
 ### Logical data in bytes (table)
 
-This value represents the approximate number of bytes that would be needed to read your entire table. This table stat gives you an idea of how many bytes are stored in the table. Knowing the logical data in bytes can help you understand the impact of compression on the table. For example, if the table size reported in Cloud Monitoring is the same as or larger than logical data in bytes for the table, then you might be storing your data in a format that isn't easily compressed.
+This value represents the approximate number of uncompressed bytes that would be needed to read your entire table. This table stat gives you an idea of the raw volume of data stored in the table.
+
+#### Compare logical size with storage utilization
+
+Bigtable automatically compresses data when writing it to disk. As a result, the table size reported as **Storage utilization (bytes)** in Cloud Monitoring and on the cluster overview page reflects physical compressed storage on disk, rather than uncompressed logical data size. Billing for storage is also based on this physical compressed size.
+
+Knowing both values helps you evaluate your effective compression ratio:
+
+  * **Compression savings** : dividing your logical data in bytes by your storage utilization in bytes gives an estimate of your compression ratio. For example, if your table has 10 TB of logical data and consumes 2.5 TB of storage utilization on disk, your compression ratio is approximately 4:1.
+
+  * **Uncompressed or pre-compressed data** : if storage utilization in Cloud Monitoring is equal to or larger than your logical data in bytes, your data might be stored in a format that doesn't compress easily (such as data that was encrypted or compressed before writing to Bigtable), or your table might contain cell values larger than 1 MiB, which Bigtable doesn't compress automatically. For more information about how Bigtable compresses data, see [Data compression](https://docs.cloud.google.com/bigtable/docs/overview#compression).
+
+  * **Overwritten or deleted data awaiting compaction** : new mutations are compressed as soon as they're written to disk, not during [compaction](https://docs.cloud.google.com/bigtable/docs/overview#compactions). However, when you overwrite or delete data, the older cell versions and deletion markers (tombstones) remain on disk—and count toward storage utilization—until the next compaction permanently removes them. In addition, table stats reflect the table as of the most recent compaction, whereas storage utilization in Cloud Monitoring updates continuously as new data is written.
+
+
+
 
 ## Column family stats field details
 
@@ -125,7 +140,7 @@ The count of cells in the column family is 3 + 1 + 10 + 7 + 6 = 27. That value d
 
 ### Logical data in bytes (column family)
 
-The logical data in bytes reflects the space that the column family occupies. This value is approximately the number of bytes that you need to read all the data in the column family at the time the table stats were returned.
+The logical data in bytes reflects the uncompressed space that the column family occupies. This value is approximately the number of uncompressed bytes needed to read all data in the column family at the time the table stats were returned. Like table-level logical bytes, this value doesn't reflect the storage savings from data compression on disk.
 
 ## Example using the gcloud CLI
 
@@ -170,6 +185,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

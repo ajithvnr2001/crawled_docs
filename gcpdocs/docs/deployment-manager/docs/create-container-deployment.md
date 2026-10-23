@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deployment-manager/docs/create-container-deployment/
 title: Creating a Container-Optimized Deployment \u00a0|\u00a0 Cloud Deployment Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:04.568588+00:00
+fetched_at: 2026-10-23T16:53:50.343478+00:00
 ---
 
 # Creating a Container-Optimized Deployment  |  Cloud Deployment Manager  |  Google Cloud Documentation

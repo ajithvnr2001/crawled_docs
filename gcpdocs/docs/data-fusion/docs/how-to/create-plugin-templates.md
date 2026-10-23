@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/create-plugin-templates/
 title: Create plugin templates \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:14.055449+00:00
+fetched_at: 2026-10-23T16:52:57.761932+00:00
 ---
 
 # Create plugin templates  |  Cloud Data Fusion  |  Google Cloud Documentation

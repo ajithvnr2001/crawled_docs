@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/migrate/other-features/
 title: Move other 0.x features \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T06:59:27.075521+00:00
+fetched_at: 2026-10-23T16:39:55.010148+00:00
 ---
 
 # Move other 0.x features · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-14T06:59:27.075521+00:00
 
 # Move other 0.x features
 
-Last updated Oct 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/other-features/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you startRun Docker inside the sandboxReach Workers bindings from the containerStart an OpenCode serverGive OpenAI agents a shell and an editorReplace the bridgeRemove WarmPoolRelated resources
 
@@ -57,7 +57,7 @@ Dockerfiledockerfile
          
          ENTRYPOINT ["sh", "-c", "dockerd-entrypoint.sh dockerd --iptables=false --ip6tables=false --ip-forward=false > /var/log/dockerd.log 2>&1 & exec sleep infinity"]
 
-The Docker daemon runs as `root`, with iptables and IP forwarding turned off. It logs to `/var/log`, because the `docker:dind` entrypoint mounts an empty `/tmp`. `sleep infinity` keeps the container running. Keep the `COPY` line only if your class uses `Files` or `S3Mount`. `sandbox-shim` is statically linked, so it runs on the Alpine-based `docker:dind` image.
+The Docker daemon runs as `root`, with iptables and IP forwarding turned off. It logs to `/var/log`, because the `docker:dind` entrypoint mounts an empty `/tmp`. `sleep infinity` keeps the container running. Keep the `COPY` line only if your class uses `Files`, `S3Mount`, or `DirectoryBackup`. `sandbox-shim` is statically linked, so it runs on the Alpine-based `docker:dind` image.
 
   2. Keep `enableInternet: true` in `start()`, so that Docker can pull images. 0.12 allowed Internet access by default.
 
@@ -220,7 +220,7 @@ In 0.12, `createOpencode()` started `opencode serve` in the sandbox, and returne
 
 Dockerfiledockerfile
          
-         RUN npm install --global --ignore-scripts opencode-linux-x64-baseline@1.18.32 \
+         RUN npm install --global --ignore-scripts opencode-linux-x64-baseline@1.19.4 \
          	&& ln -s /usr/local/lib/node_modules/opencode-linux-x64-baseline/bin/opencode /usr/local/bin/opencode
 
 The 0.12 `opencode` image included OpenCode. Start the container with the `standard-1` instance type or larger, as `startContainer()` does. On `lite`, the server did not answer requests within 30 seconds.
@@ -229,13 +229,13 @@ The 0.12 `opencode` image included OpenCode. Start the container with the `stand
 
 npmyarnpnpmbun
          
-         npm i @opencode-ai/sdk@1.18.32
+         npm i @opencode-ai/sdk@1.19.4
          
-         yarn add @opencode-ai/sdk@1.18.32
+         yarn add @opencode-ai/sdk@1.19.4
          
-         pnpm add @opencode-ai/sdk@1.18.32
+         pnpm add @opencode-ai/sdk@1.19.4
          
-         bun add @opencode-ai/sdk@1.18.32
+         bun add @opencode-ai/sdk@1.19.4
 
   3. Replace `createOpencode()` with a method that starts the server once for each container. It uses the scripts and functions from step 1 of [Run a server in the background](https://developers.cloudflare.com/sandbox/commands/run-a-server-in-the-background/#run-a-server):
 
@@ -400,7 +400,7 @@ src/index.tsts
          				{ cwd: "/workspace", env: ENV },
          			);
          			const result = await process.output();
-         			const timedOut = result.exitCode === 124;
+         			const timedOut = result.exitCode === 124 || result.exitCode === 137;
          
          			output.push({
          				stdout: decoder.decode(result.stdout),
@@ -423,7 +423,7 @@ src/index.tsts
          	}
          }
 
-`timeout` [stops the command and every process it started](https://developers.cloudflare.com/containers/guides/execute-commands/#stop-the-processes-a-command-starts), and the command exits with code `124`. 0.12 set no time limit when the action had no `timeoutMs`, and this class sets 60 seconds.
+`timeout` [stops the command and the processes it started](https://developers.cloudflare.com/containers/guides/execute-commands/#stop-the-processes-a-command-starts) that stay in its process group. The command exits with code `124`, or `137` if `timeout` also sends `SIGKILL`. 0.12 set no time limit when the action had no `timeoutMs`, and this class sets 60 seconds.
 
   2. Add an `Editor` that applies the patches from the agent with `Files`:
 
@@ -572,7 +572,7 @@ Clients written for the bridge API, such as `CloudflareSandboxClient` in the Ope
 
 ## Remove WarmPool
 
-Start each sandbox when a request needs it, and remove `WarmPool`. The pool kept 0.x sandboxes started ahead of time, because a 0.x start took seconds. On 1.0, a sandbox on a prepared image runs its first command in under 600 ms at the median.
+Start each sandbox when a request needs it, and remove `WarmPool`. The pool kept 0.x sandboxes started ahead of time, because a 0.x start took seconds. With the Durable Object scheduling policy, the median time from creating a sandbox to running a command in it was 648 milliseconds in an independent benchmark, so a pool saves little time.
 
   1. Remove the `WarmPool` export from the main module of your Worker, and its binding from `durable_objects` in the Wrangler configuration.
 

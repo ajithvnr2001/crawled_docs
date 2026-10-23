@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/migrate/background-processes/
 title: Move background processes \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:26.581082+00:00
+fetched_at: 2026-10-23T16:39:53.270386+00:00
 ---
 
 # Move background processes · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:15:26.581082+00:00
 
 # Move background processes
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/background-processes/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/background-processes/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you startAdd the process methodsStart processesCheck and list processesRead logsWait for output or exitStop processesReplace callbacksStart processes again after the switchCheck the processesRelated resources
 
@@ -36,7 +36,7 @@ This page replaces `startProcess()`, the `Process` methods, `listProcesses()`, `
 
 ## Add the process methods
 
-  1. Add the scripts and methods from [Run background processes](https://developers.cloudflare.com/sandbox/commands/run-background-processes/) to your class, including the alarm handler and `waitForLog()` from [Wait for a log line](https://developers.cloudflare.com/sandbox/commands/run-background-processes/#wait-for-a-log-line).
+  1. Add the scripts and methods from [Run background processes](https://developers.cloudflare.com/sandbox/commands/run-background-processes/) to your class, including the alarm handler, and `follow()` and `waitForLog()` from [Follow a background process](https://developers.cloudflare.com/sandbox/commands/follow-a-background-process/).
 
 A Durable Object has one alarm. If your class already has an `alarm()` handler, such as the one from [Move every sandbox in one deploy](https://developers.cloudflare.com/sandbox/sdk/migrate/plan-the-move/#move-every-sandbox-in-one-deploy), merge the process checks into it rather than adding a second.
 
@@ -68,6 +68,13 @@ src/index.tsts
          			stderr: "ignore",
          		});
          
+         		// exec() returns before the process records its ID. Wait for it, so
+         		// a request that follows the output right away finds it running.
+         		for (let i = 0; i < 50; i++) {
+         			if ((await this.status(id))?.state !== "starting") break;
+         			await scheduler.wait(100);
+         		}
+         
          		await this.ctx.storage.put(`process:${id}`, argv);
          		await this.ctx.storage.setAlarm(Date.now() + 60_000);
          		return true;
@@ -76,7 +83,7 @@ src/index.tsts
 
 0.12 ran each process in `/workspace`, with the variables from `envVars`. `exec()` starts in `/`, even when the image sets `WORKDIR`. It does not inherit the variables that `start()` sets, except `PATH`.
 
-  3. In `status()`, replace `10 * 60 * 1000` with `INACTIVITY_TIMEOUT_MS`, so that each check keeps your inactivity timeout.
+  3. Remove `INACTIVITY_TIMEOUT_MS` from the scripts that you added in step 1. Your class file already defines it, so the constructor and the alarm handler keep the inactivity timeout of your class.
 
 
 
@@ -109,7 +116,7 @@ Each process needs an ID. Where 0.12 generated one, such as `proc_1790379992394_
 
 `python3 -m http.server`, which 0.12 ran as a preview server, exits on startup in a 1.0 container. For the cause and a replacement, refer to [The hostname is longer than a DNS label](https://developers.cloudflare.com/containers/guides/local-dev/#the-hostname-is-longer-than-a-dns-label).
 
-Remove the `timeout` option, which did not stop a background process in 0.12. To limit how long a process runs, start it with the `timeout` command, such as `["timeout", "300", "npm", "test"]`. The command exits with code `124` when the time passes.
+Remove the `timeout` option, which did not stop a background process in 0.12. To limit how long a process runs, start it with the `timeout` command, such as `["timeout", "300", "npm", "test"]`. The command exits with code `124` when the time passes, or `137` with `--kill-after` when the process ignores `SIGTERM`.
 
 For the `sessionId` option, refer to [Replace sessions](https://developers.cloudflare.com/sandbox/sdk/migrate/commands/#replace-sessions).
 

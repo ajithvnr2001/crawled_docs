@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/autoscaling/
 title: Autoscaling \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:10:53.334375+00:00
+fetched_at: 2026-10-23T16:48:34.401201+00:00
 ---
 
 # Autoscaling  |  Bigtable  |  Google Cloud Documentation
@@ -110,7 +110,7 @@ In general, if you observe unacceptably high latency, you should lower the CPU u
 
 If your application is latency-sensitive, keep storage utilization lower than 60%. If your application is not latency-sensitive, you can choose a storage utilization target of 70% or more. For more information, see [Plan your Bigtable capacity](https://docs.cloud.google.com/bigtable/docs/performance#planning-your-capacity).
 
-For autoscaling, storage utilization is expressed as the number of bytes of storage per node rather than as a percentage. The storage utilization target is specified per node but is applied to the entire cluster. The capacity limits for nodes are 5 TB per node for SSD storage and 16 TB per node for HDD storage.
+For autoscaling, storage utilization is expressed as the number of bytes of compressed storage per node on disk rather than as a percentage. The storage utilization target is specified per node but is applied to the entire cluster. The capacity limits for nodes are 5 TB per node for SSD storage and 16 TB per node for HDD storage.
 
 The following table shows target amounts for typical storage utilization target percentages. The Google Cloud console accepts the value in TB per node, and the gcloud CLI, API, and Cloud Bigtable client libraries accept an integer value in GiB per node.
 
@@ -271,6 +271,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/reference/directory-backups/
 title: DirectoryBackup API \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:20.586153+00:00
+fetched_at: 2026-10-23T16:39:55.156165+00:00
 ---
 
 # DirectoryBackup API · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:20.586153+00:00
 
 # DirectoryBackup API
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/reference/directory-backups/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/reference/directory-backups/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRequirementsDirectoryBackupMethods backup restore delete interceptTypes DirectoryBackupRecord DirectoryBackupStorage DirectoryBackupOptions DirectoryRestoreOptions DirectoryBackupDeleteOptionsWhat a backup containsOperations in one container CancellationDirectoryBackupGatewayLimitsLocal developmentErrors SandboxBackupError SandboxFileError SandboxProtocolError Other errorsRelated resources
 
@@ -36,7 +36,7 @@ OverviewRequirementsDirectoryBackupMethods backup restore delete interceptTypes 
     	constructor(ctx, env) {
     		super(ctx, env);
     		if (!ctx.container) {
-    			throw new Error("The container binding is not configured");
+    			throw new Error("No container is configured");
     		}
     		// ctx.container stays the same object while the Durable Object runs.
     		this.#backups = new DirectoryBackup(
@@ -79,7 +79,7 @@ OverviewRequirementsDirectoryBackupMethods backup restore delete interceptTypes 
     	constructor(ctx: DurableObjectState, env: Env) {
     		super(ctx, env);
     		if (!ctx.container) {
-    			throw new Error("The container binding is not configured");
+    			throw new Error("No container is configured");
     		}
     		// ctx.container stays the same object while the Durable Object runs.
     		this.#backups = new DirectoryBackup(
@@ -237,7 +237,7 @@ The record that `backup()` returns. It is a plain object that you can store in D
 
 
 
-A record works only with the same `storage.binding` and `storage.prefix` that created it. A record that does not match this shape throws `TypeError`.
+`restore()` and `delete()` use the object at `<prefix><id>.tar.zst` in the bucket and prefix that the `DirectoryBackup` instance was created with, so pass a record to an instance whose storage holds that object. `restore()` checks the size and SHA-256 of the object against the record. A record that does not match this shape throws `TypeError`.
 
 ### `DirectoryBackupStorage`
 

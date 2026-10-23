@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/columnar-engine/tune-columnar-engine/
 title: Tune the columnar engine for AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:00:08.406061+00:00
+fetched_at: 2026-10-23T16:49:25.722610+00:00
 ---
 
 # Tune the columnar engine for AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Tune the columnar engine for AlloyDB for PostgreSQL Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to tune the columnar engine for an AlloyDB instance. This document assumes that you are familiar with PostgreSQL.
+You can tune the AlloyDB columnar engine to speed up background column population and refresh jobs in the column store and to control when auto-columnarization runs. The settings cover maintenance CPU and workers, the auto-columnarization schedule, and the column population heap size.
 
 ## Adjust the CPU resources for maintenance tasks
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/overview/programmable-flow-protection/
 title: Cloudflare Programmable Flow Protection (Beta) \u00b7 Cloudflare DDoS Protection docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:46.330389+00:00
+fetched_at: 2026-10-23T16:40:05.437854+00:00
 ---
 
 # Cloudflare Programmable Flow Protection (Beta) · Cloudflare DDoS Protection docs
@@ -22,7 +22,7 @@ Advanced DDoS systems
 
 # Programmable Flow Protection (Beta)
 
-Last updated Jun 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/overview/programmable-flow-protection/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/overview/programmable-flow-protection/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksGet started Write a basic program Write a complex program: challenge-based response Write a complex program: rate limitingState Source IP state table Flow state table Cache behaviorBPF helper functions and structures Helper functions StructuresProgram endpoints Upload a program Update a program View all programs Delete a programRules List all rules Create a rule Update a rule Delete a ruleDebug Packet CAPture (PCAP)Safe program and rule deployment best practicesNetwork Analytics
 
@@ -678,7 +678,7 @@ This program demonstrates several key concepts:
 
 Each program has access to its own local state. State is local to each server and is not shared between datacenters.
 
-State is tied to a specific program. If you modify a rule's mode (disabled, monitoring, or enabled), the content of the state tables persists. However, if you modify a rule's program or the contents of the program itself, the state tables are cleared.
+State is tied to a specific program version. If you modify a rule's mode (disabled, monitoring, or enabled), the content of the state tables persists. However, if you move a rule to another program or program version, the state tables are cleared.
 
 There are two state tables available to your program.
 
@@ -1392,9 +1392,13 @@ During the development process, you may find it useful to update the same progra
 
 To update the program, select the three dots next to your program. Then, select **Overwrite**. This will prompt you to choose a file to upload as your `C` source code.
 
+Each update creates a new program version. The response's `version` field identifies the current version.
+
+Rules remain pinned to their existing `program_version` when you update a program. To use the updated program, update each rule with the new `program_version` through the API.
+
 Note
 
-It is possible to update and overwrite a program that is currently in use by one or more rules. When doing so, you will be warned that the program is currently active and will be overwritten. However, if an active program is being updated with a program that either does not compile or can not be verified, the update will fail and the old program will continue to be in use.
+It is possible to update a program that is currently in use by one or more rules. When doing so, you will be warned that the program is currently active. Existing rules continue to use their pinned program version. If the updated program does not compile or cannot be verified, existing rules continue to use the previous successful version.
 
 ### View all programs
 

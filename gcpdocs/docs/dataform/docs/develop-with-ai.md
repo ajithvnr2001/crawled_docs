@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/develop-with-ai/
 title: Create actions with Gemini assistance \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:44.674668+00:00
+fetched_at: 2026-10-23T16:52:04.445378+00:00
 ---
 
 # Create actions with Gemini assistance  |  Dataform  |  Google Cloud Documentation

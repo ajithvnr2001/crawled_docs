@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/examples/
 title: Common API calls \u00b7 Cloudflare DDoS Protection docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:44.784844+00:00
+fetched_at: 2026-10-23T16:40:06.080227+00:00
 ---
 
 # Common API calls · Cloudflare DDoS Protection docs
@@ -22,7 +22,7 @@ Advanced DDoS systemsAPI configuration
 
 # Common API calls
 
-Last updated Jun 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/examples/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ddos-protection/advanced-ddos-systems/api/programmable-flow-protection/examples/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewList all programsUpload a programUpdate a programDelete a programList all rulesCreate a ruleCreate a rule with regional scopeUpdate a ruleDelete a ruleDebug a program with PCAP
 
@@ -47,6 +47,7 @@ Responsejson
           "id": "<PROGRAM_ID>",
           "name": "rate-limiter",
           "status": "success",
+          "version": 1,
           "created_on": "<TIMESTAMP>",
           "modified_on": "<TIMESTAMP>"
         }
@@ -79,6 +80,7 @@ Responsejson
         "id": "<PROGRAM_ID>",
         "name": "my-rate-limiter",
         "status": "success",
+        "version": 1,
         "created_on": "<TIMESTAMP>",
         "modified_on": "<TIMESTAMP>"
       },
@@ -106,7 +108,7 @@ Example error responsejson
 
 ## Update a program
 
-This example updates an existing program with new source code. You can update a program even if it is currently in use by one or more rules. If the new program fails compilation or verification, the update fails and the existing program remains active.
+This example updates an existing program with new source code. Each update creates a new version under the same program ID. Rules using the program remain pinned to their existing `program_version`. If the new program fails compilation or verification, the update fails and the existing version remains active.
 
 Requestbash
     
@@ -125,6 +127,7 @@ Responsejson
         "id": "<PROGRAM_ID>",
         "name": "program",
         "status": "success",
+        "version": 2,
         "created_on": "<TIMESTAMP>",
         "modified_on": "<TIMESTAMP>"
       },
@@ -172,6 +175,7 @@ Responsejson
         {
           "id": "<RULE_ID>",
           "program_id": "<PROGRAM_ID>",
+          "program_version": 1,
           "scope": "global",
           "name": "global",
           "mode": "enabled",
@@ -209,6 +213,7 @@ Responsejson
       "result": {
         "id": "<RULE_ID>",
         "program_id": "<PROGRAM_ID>",
+        "program_version": 1,
         "scope": "global",
         "name": "global",
         "mode": "monitoring",
@@ -248,6 +253,7 @@ Responsejson
       "result": {
         "id": "<RULE_ID>",
         "program_id": "<PROGRAM_ID>",
+        "program_version": 1,
         "scope": "region",
         "name": "WEUR",
         "mode": "enabled",
@@ -264,7 +270,7 @@ Refer to [JSON objects](https://developers.cloudflare.com/ddos-protection/advanc
 
 ## Update a rule
 
-This example updates an existing rule. You can update the mode, scope, and expression, but not the program. To change the program, delete the rule and create a new one.
+This example updates an existing rule's mode and pins it to version `2` of its program. If you omit `program_version`, the rule remains pinned to its existing version.
 
 Requestbash
     
@@ -274,7 +280,8 @@ Requestbash
     --header "Authorization: Bearer <API_TOKEN>" \
     --header "Content-Type: application/json" \
     --data '{
-      "mode": "enabled"
+      "mode": "enabled",
+      "program_version": 2
     }'
 
 Responsejson
@@ -284,6 +291,7 @@ Responsejson
       "result": {
         "id": "<RULE_ID>",
         "program_id": "<PROGRAM_ID>",
+        "program_version": 2,
         "scope": "global",
         "name": "global",
         "mode": "enabled",

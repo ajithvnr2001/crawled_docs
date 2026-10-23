@@ -1,0 +1,137 @@
+---
+url: https://developers.cloudflare.com/agents/tools/payments/x402/charge-for-http-content/
+title: Charge for HTTP content \u00b7 Cloudflare Agents docs
+method: scrapling+scrapegraph
+fetched_at: 2026-10-08T07:04:24.889411+00:00
+---
+
+# Charge for HTTP content · Cloudflare Agents docs
+
+> Source: https://developers.cloudflare.com/agents/tools/payments/x402/charge-for-http-content/
+
+  1. [Home](https://developers.cloudflare.com/)
+  2. /[Agents](https://developers.cloudflare.com/agents/)
+  3. /…
+
+Tools[Agentic Payments](https://developers.cloudflare.com/agents/tools/payments/)
+
+  4. /[x402](https://developers.cloudflare.com/agents/tools/payments/x402/)
+  5. /Charge for HTTP content
+
+
+
+# Charge for HTTP content
+
+Last updated Jun 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/tools/payments/x402/charge-for-http-content/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+
+OverviewPrerequisitesConfigurationSelective gating with Bot ManagementDeployCustom Worker endpointsRelated
+
+The x402-proxy template is a Cloudflare Worker that sits in front of any HTTP backend. When a request hits a protected route, the proxy returns a 402 response with payment instructions. After the client pays, the proxy verifies the payment and forwards the request to your origin.
+
+Deploy the x402-proxy template to your Cloudflare account:
+
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/x402-proxy-template)
+
+## Prerequisites
+
+  * A [Cloudflare account ↗︎](https://dash.cloudflare.com/sign-up)
+  * An HTTP backend to gate
+  * A wallet address to receive payments
+
+
+
+## Configuration
+
+Define protected routes in `wrangler.jsonc`:
+    
+    
+    {
+    	"vars": {
+    		"PAY_TO": "0xYourWalletAddress",
+    		"NETWORK": "base-sepolia",
+    		"PROTECTED_PATTERNS": [
+    			{
+    				"pattern": "/api/premium/*",
+    				"price": "$0.10",
+    				"description": "Premium API access"
+    			}
+    		]
+    	}
+    }
+
+Note
+
+`base-sepolia` is a test network. Change to `base` for production.
+
+## Selective gating with Bot Management
+
+With [Bot Management](https://developers.cloudflare.com/bots/), the proxy can charge crawlers while keeping the site free for humans:
+    
+    
+    {
+    	"pattern": "/content/*",
+    	"price": "$0.10",
+    	"description": "Content access",
+    	"bot_score_threshold": 30,
+    	"except_detection_ids": [117479730]
+    }
+
+Requests with a bot score at or below `bot_score_threshold` are directed to the paywall. Use `except_detection_ids` to allowlist specific crawlers by [detection ID](https://developers.cloudflare.com/ai-crawl-control/reference/bots/).
+
+## Deploy
+
+Clone the template, edit `wrangler.jsonc`, and deploy:
+    
+    
+    git clone https://github.com/cloudflare/templates
+    cd templates/x402-proxy-template
+    npm install
+    npx wrangler deploy
+
+For full configuration options and Bot Management examples, refer to the [template README ↗︎](https://github.com/cloudflare/templates/tree/main/x402-proxy-template).
+
+## Custom Worker endpoints
+
+For more control, add x402 middleware directly to your Worker using Hono:
+    
+    
+    import { Hono } from "hono";
+    import { paymentMiddleware } from "x402-hono";
+    
+    const app = new Hono<{ Bindings: Env }>();
+    
+    app.use(
+    	paymentMiddleware(
+    		"0xYourWalletAddress" as `0x${string}`,
+    		{
+    			"/premium": {
+    				price: "$0.10",
+    				network: "base-sepolia",
+    				config: { description: "Premium content" },
+    			},
+    		},
+    		{ url: "https://x402.org/facilitator" },
+    	),
+    );
+    
+    app.get("/premium", (c) => c.json({ message: "Thanks for paying!" }));
+    
+    export default app;
+
+Refer to the [x402 Workers example ↗︎](https://github.com/cloudflare/agents/tree/main/examples/x402) for a complete implementation.
+
+## Related
+
+  * [Pay Per Crawl](https://developers.cloudflare.com/ai-crawl-control/features/pay-per-crawl/) — Native Cloudflare monetization without custom code
+  * [Charge for MCP tools](https://developers.cloudflare.com/agents/tools/payments/x402/charge-for-mcp-tools/) — Charge per tool call instead of per request
+  * [x402.org ↗︎](https://x402.org) — Protocol specification
+
+
+
+[PreviousOverview](https://developers.cloudflare.com/agents/tools/payments/x402/)[NextCharge for MCP tools](https://developers.cloudflare.com/agents/tools/payments/x402/charge-for-mcp-tools/)
+
+Was this helpful?
+
+YesNo
+
+[Edit page](https://github.com/cloudflare/cloudflare-docs/edit/production/src/content/docs/agents/tools/payments/x402/charge-for-http-content.mdx)[Report issue](https://github.com/cloudflare/cloudflare-docs/issues/new/choose)

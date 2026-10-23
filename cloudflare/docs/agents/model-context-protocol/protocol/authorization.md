@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/
 title: Authorization \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:16.061113+00:00
+fetched_at: 2026-10-23T16:39:54.574365+00:00
 ---
 
 # Authorization · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:16.061113+00:00
 
 # Authorization
 
-Last updated Jul 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAuthorization options (1) Cloudflare Access OAuth provider (2) Third-party OAuth Provider (3) Bring your own OAuth Provider (4) Your MCP Server handles authorization and authentication itselfUsing authentication context in tools With McpAgent during migration With stateless createMcpHandlerPermission-based tool accessNext steps
 
@@ -140,7 +140,11 @@ Get started with a remote MCP server that uses WorkOS's AuthKit to authenticate 
 
 #### Descope
 
-Get started with a remote MCP server that uses [Descope ↗︎](https://www.descope.com/) Inbound Apps to authenticate and authorize users (for example, email, social login, SSO) to interact with their data through AI agents. Leverage Descope custom scopes to define and manage permissions for more fine-grained control.
+Get started with a remote MCP server that uses [Descope ↗︎](https://www.descope.com/)'s Agentic Identity Hub to authenticate and authorize users (for example, email, social login, SSO) to interact with their data through AI agents. Define scopes on the MCP Server resource in Descope to manage fine-grained, per-tool permissions.
+
+Caution
+
+If you enable Dynamic Client Registration on a Descope MCP Server resource, also configure an approval step. Without one, any client can self-register and immediately request permissions with no human review.
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/ai/tree/main/demos/remote-mcp-server-descope-auth)
 

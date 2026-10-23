@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/manage-application-data-security-parameterized-secure-views/
 title: Manage application data security using AlloyDB parameterized secure views \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:03:39.981324+00:00
+fetched_at: 2026-10-23T16:50:29.801266+00:00
 ---
 
 # Manage application data security using AlloyDB parameterized secure views  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

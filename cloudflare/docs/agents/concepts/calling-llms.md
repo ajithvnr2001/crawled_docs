@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/concepts/calling-llms/
 title: Calling LLMs \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:09.471998+00:00
+fetched_at: 2026-10-23T16:40:11.498793+00:00
 ---
 
 # Calling LLMs · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:09.471998+00:00
 
 # Calling LLMs
 
-Last updated Jun 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/concepts/calling-llms/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/concepts/calling-llms/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewState as contextSurviving disconnectionsAutonomous model callsMulti-model pipelinesCaching and cost controlNext steps
 
@@ -81,15 +81,15 @@ An Agent keeps running after the client disconnects. When the response arrives, 
     
     import { Agent } from "agents";
     import { streamText } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
     export class MyAgent extends Agent {
     	async onMessage(connection, message) {
     		const { prompt } = JSON.parse(message);
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			prompt,
     		});
     
@@ -105,15 +105,15 @@ An Agent keeps running after the client disconnects. When the response arrives, 
     
     import { Agent } from "agents";
     import { streamText } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
     export class MyAgent extends Agent<Env> {
     	async onMessage(connection: Connection, message: WSMessage) {
     		const { prompt } = JSON.parse(message as string);
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			prompt,
     		});
     
@@ -145,9 +145,9 @@ Agents do not need a user request to call a model. You can schedule model calls 
     			SELECT title, body FROM articles
     			WHERE created_at > datetime('now', '-1 day')`;
     
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     		const { text } = await generateText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			prompt: `Summarize these articles:\n${articles.map((a) => a.title + ": " + a.body).join("\n\n")}`,
     		});
     
@@ -171,9 +171,9 @@ Agents do not need a user request to call a model. You can schedule model calls 
     			SELECT title, body FROM articles
     			WHERE created_at > datetime('now', '-1 day')`;
     
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     		const { text } = await generateText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			prompt: `Summarize these articles:\n${articles.map((a) => a.title + ": " + a.body).join("\n\n")}`,
     		});
     
@@ -191,25 +191,25 @@ Because an Agent maintains state across calls, you can chain multiple models in 
     
     import { Agent } from "agents";
     import { generateText, embed } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
     export class TriageAgent extends Agent {
     	async triage(ticket) {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const { text: category } = await generateText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			prompt: `Classify this support ticket into one of: billing, technical, account. Ticket: ${ticket}`,
     		});
     
     		const { embedding } = await embed({
-    			model: workersai("@cf/baai/bge-base-en-v1.5"),
+    			model: ai.embedding("@cf/baai/bge-base-en-v1.5"),
     			value: ticket,
     		});
     		const similar = await this.env.VECTOR_DB.query(embedding, { topK: 5 });
     
     		const { text: response } = await generateText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			prompt: `Draft a response for this ${category} ticket. Similar resolved tickets: ${JSON.stringify(similar)}. Ticket: ${ticket}`,
     		});
     
@@ -223,25 +223,25 @@ Because an Agent maintains state across calls, you can chain multiple models in 
     
     import { Agent } from "agents";
     import { generateText, embed } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
     export class TriageAgent extends Agent<Env> {
     	async triage(ticket: string) {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const { text: category } = await generateText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			prompt: `Classify this support ticket into one of: billing, technical, account. Ticket: ${ticket}`,
     		});
     
     		const { embedding } = await embed({
-    			model: workersai("@cf/baai/bge-base-en-v1.5"),
+    			model: ai.embedding("@cf/baai/bge-base-en-v1.5"),
     			value: ticket,
     		});
     		const similar = await this.env.VECTOR_DB.query(embedding, { topK: 5 });
     
     		const { text: response } = await generateText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			prompt: `Draft a response for this ${category} ticket. Similar resolved tickets: ${JSON.stringify(similar)}. Ticket: ${ticket}`,
     		});
     
@@ -270,9 +270,9 @@ Persistent storage means you can cache model responses and avoid redundant calls
     			return cached[0].response;
     		}
     
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     		const { text } = await generateText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			prompt,
     		});
     
@@ -295,9 +295,9 @@ Persistent storage means you can cache model responses and avoid redundant calls
     			return cached[0].response;
     		}
     
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     		const { text } = await generateText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			prompt,
     		});
     

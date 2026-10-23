@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/add-intervals-to-charts/
 title: Add intervals to charts \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:48.718217+00:00
+fetched_at: 2026-10-23T16:52:16.677402+00:00
 ---
 
 # Add intervals to charts  |  Data Studio  |  Google Cloud Documentation

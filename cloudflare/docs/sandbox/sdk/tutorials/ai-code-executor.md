@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/tutorials/ai-code-executor/
 title: Build an AI code executor (Sandbox SDK 0.x) \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:28.874947+00:00
+fetched_at: 2026-10-23T16:40:08.371131+00:00
 ---
 
 # Build an AI code executor (Sandbox SDK 0.x) · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:15:28.874947+00:00
 
 # Build an AI code executor
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/tutorials/ai-code-executor/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/tutorials/ai-code-executor/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat you'll buildPrerequisites1\. Create your project2\. Install dependencies3\. Build your code executor4\. Set up local environment variables5\. Test locally6\. Deploy7\. Test your deploymentWhat you builtNext stepsRelated resources
 
@@ -47,7 +47,9 @@ An API that accepts questions like "What's the 100th Fibonacci number?", uses Cl
 
 Node.js version manager
 
-Use a Node version manager like [Volta ↗︎](https://volta.sh/) or [nvm ↗︎](https://github.com/nvm-sh/nvm) to avoid permission issues and change Node.js versions. [Wrangler](https://developers.cloudflare.com/workers/wrangler/install-and-update/), discussed later in this guide, requires a Node version of `16.17.0` or later.
+Use [Vite+ (`vp env`) ↗︎](https://viteplus.dev/guide/env) to install and manage Node.js versions.
+
+For supported Node.js versions, refer to the [Wrangler system requirements](https://developers.cloudflare.com/workers/wrangler/install-and-update/#install-wrangler).
 
 You'll also need:
 
@@ -289,7 +291,7 @@ You created an AI code execution system that:
 
   * [Anthropic Claude documentation ↗︎](https://docs.anthropic.com/)
   * [Workers AI](https://developers.cloudflare.com/workers-ai/) \- Use Cloudflare's built-in models
-  * [workers-ai-provider package ↗︎](https://github.com/cloudflare/ai/tree/main/packages/workers-ai-provider) \- Official Workers AI integration
+  * [AI SDK provider](https://developers.cloudflare.com/agents/models/ai-sdk/) \- Call Workers AI and AI Gateway models from the AI SDK
 
 
 

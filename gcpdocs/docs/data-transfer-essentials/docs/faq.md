@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-transfer-essentials/docs/faq/
 title: Frequently asked questions \u00a0|\u00a0 Data Transfer Essentials \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:49.232004+00:00
+fetched_at: 2026-10-23T16:52:40.738127+00:00
 ---
 
 # Frequently asked questions  |  Data Transfer Essentials  |  Google Cloud Documentation

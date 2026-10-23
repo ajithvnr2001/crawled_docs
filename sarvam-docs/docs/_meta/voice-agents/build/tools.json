@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/build/tools/",
   "file": "voice-agents/build/tools.md",
-  "title": "Tools | Sarvam API Docs",
+  "title": "Voice agent tools: let your AI agent take actions | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:23.519172+00:00",
-  "html_len": 156137,
-  "md_len": 19408,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:38:58.185667+00:00"
 }

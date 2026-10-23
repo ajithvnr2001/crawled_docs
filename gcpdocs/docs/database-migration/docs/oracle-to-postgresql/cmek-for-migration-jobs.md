@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/cmek-for-migration-jobs/
 title: Use customer-managed encryption keys (CMEK) for continuous migrations \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:06.934592+00:00
+fetched_at: 2026-10-23T16:54:17.513420+00:00
 ---
 
 # Use customer-managed encryption keys (CMEK) for continuous migrations  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

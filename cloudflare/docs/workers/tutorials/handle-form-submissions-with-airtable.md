@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/tutorials/handle-form-submissions-with-airtable/
 title: Handle form submissions with Airtable \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:26.371528+00:00
+fetched_at: 2026-10-23T16:40:02.216027+00:00
 ---
 
 # Handle form submissions with Airtable · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:26.371528+00:00
 
 # Handle form submissions with Airtable
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/tutorials/handle-form-submissions-with-airtable/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you start1\. Create a form2\. Create a Worker project3\. Configure an Airtable base4\. Submit data to AirtableConclusionRelated resources
 
@@ -181,7 +181,7 @@ In your Worker project's `index.js` file, replace the default code with a Worker
     	async fetch(request, env) {
     		const url = new URL(request.url);
     		if (url.pathname === "/submit") {
-    			await submitHandler(request, env);
+    			return submitHandler(request, env);
     		}
     		return new Response("Not found", { status: 404 });
     	},
@@ -194,6 +194,7 @@ The `submitHandler` has two functions. First, it will parse the form data coming
     	if (request.method !== "POST") {
     		return new Response("Method Not Allowed", {
     			status: 405,
+    			headers: { Allow: "POST" },
     		});
     	}
     	const body = await request.formData();
@@ -215,6 +216,7 @@ The `submitHandler` has two functions. First, it will parse the form data coming
     		},
     	};
     	await createAirtableRecord(env, reqBody);
+    	return new Response("Thanks for your submission", { status: 200 });
     }
     
     // Existing code
@@ -226,7 +228,7 @@ The body of a [Request ↗︎](https://developer.mozilla.org/en-US/docs/Web/API/
 
 To avoid errors, create a clone of the Request object with `request.clone()` for each subsequent attempt to access a Request's body. Keep in mind that Workers have a [memory limit of 128 MB per Worker](https://developers.cloudflare.com/workers/platform/limits/#memory) and loading particularly large files into a Worker's memory multiple times may reach this limit. To ensure memory usage does not reach this limit, consider using [Streams](https://developers.cloudflare.com/workers/runtime-apis/streams/).
 
-While the majority of this function is concerned with parsing the request body (the data being sent as part of the request), there are two important things to note. First, if the HTTP method sent to this function is not `POST`, you will return a new response with the status code of [`405 Method Not Allowed` ↗︎](https://httpstatuses.com/405).
+While the majority of this function is concerned with parsing the request body (the data being sent as part of the request), there are two important things to note. First, if the HTTP method sent to this function is not `POST`, you will return a new response with the status code of [`405 Method Not Allowed` ↗︎](https://httpstatuses.net/405/) and an `Allow: POST` header listing the method this route accepts.
 
 The variable `reqBody` represents a collection of fields, which are key-value pairs for each column in your Airtable table. By formatting `reqBody` as an object with a collection of fields, you are creating a new record in your table with a value for each field.
 
@@ -267,7 +269,7 @@ Add a `vars` table at the end of your Wrangler file:
     	"main": "src/index.js",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-10-23",
     	"vars": {
     		"AIRTABLE_BASE_ID": "exampleBaseId",
     		"AIRTABLE_TABLE_NAME": "Form Submissions"
@@ -280,7 +282,7 @@ Add a `vars` table at the end of your Wrangler file:
     main = "src/index.js"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-23"
     
     [vars]
     AIRTABLE_BASE_ID = "exampleBaseId"

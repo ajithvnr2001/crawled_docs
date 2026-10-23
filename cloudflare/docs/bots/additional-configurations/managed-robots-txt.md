@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt/
 title: robots.txt setting \u00b7 Cloudflare bot solutions docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:27.933121+00:00
+fetched_at: 2026-10-23T16:40:05.032166+00:00
 ---
 
 # robots.txt setting · Cloudflare bot solutions docs
@@ -18,13 +18,19 @@ fetched_at: 2026-10-10T14:39:27.933121+00:00
 
 # robots.txt setting
 
-Last updated Oct 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCompatibility with existing robots.txt files Existing robots.txt file No robots.txt fileImplementationContent Signals PolicyContent use signalAvailability
 
 AI companies use crawlers to collect website content for training language models, generating search answers, and other purposes. A `robots.txt` file at the root of your domain tells these crawlers which content they should or should not access. Bot Preference Sync generates managed `robots.txt` directives from your Search, Agent, and Training policies when at least one policy is set to **Block** , **Block on pages with ads** , or, for Training, **Disallow**.
 
 `robots.txt` compliance is voluntary. The file expresses your preferences, but it does not prevent crawlers from accessing your content at a technical level. Some crawler operators may disregard your `robots.txt` directives (instructions like `Disallow: /`) and crawl your content regardless.
+
+When does the managed content appear?
+
+Cloudflare prepends managed directives and the Content Signals Policy to your `robots.txt` only when **Enable Bot Preference Sync** is turned on and at least one of your Search, Agent, or Training policies is set to **Block** , **Block on pages with ads** , or, for Training, **Disallow**. With every policy set to allow, there is nothing to prepend and your `robots.txt` is served unchanged.
+
+After you save your AI bot policies, the managed content appears within a few seconds. Reload your `robots.txt` to verify — no cache purge is required.
 
 Note
 

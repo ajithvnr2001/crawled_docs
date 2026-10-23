@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/migrate/terminals/
 title: Move browser terminals \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:28.100844+00:00
+fetched_at: 2026-10-23T16:39:52.291667+00:00
 ---
 
 # Move browser terminals · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:15:28.100844+00:00
 
 # Move browser terminals
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/terminals/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/terminals/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you startAttach terminals to tmuxForward the WebSocketReplace SandboxAddonWhat changes at the terminalTerminals open at the switchCheck the terminalRelated resources
 
@@ -158,7 +158,9 @@ In 1.0, the Worker forwards the request to the Durable Object, and the `session`
 src/index.ts (1.0)ts
     
     
-    return env.MY_SANDBOX.getByName(id.toLowerCase()).fetch(request);
+    return env.MY_SANDBOX.getByName(id).fetch(request);
+
+Pass the name that 0.12 used. 0.12 kept the case of the name unless you passed `normalizeId: true`. In that case, call `id.toLowerCase()`, as [Replace the Sandbox class](https://developers.cloudflare.com/sandbox/sdk/migrate/replace-the-sandbox-class/) shows.
 
 Replace `proxyTerminal(stub, sessionId, request)` with the same `fetch()` call, and put the session in the `session` query parameter. The handler reads the size from the `cols` and `rows` query parameters, and uses 80 by 24 without them. A request without a WebSocket upgrade gets HTTP `426`, where 0.12 threw an error.
 
@@ -170,7 +172,7 @@ src/index.ts (1.0)ts
     const headers = new Headers(request.headers);
     headers.delete("X-Sandbox-Port");
     
-    const sandbox = env.MY_SANDBOX.getByName(id.toLowerCase());
+    const sandbox = env.MY_SANDBOX.getByName(id);
     return sandbox.fetch(new Request(request, { headers }));
 
 ## Replace SandboxAddon

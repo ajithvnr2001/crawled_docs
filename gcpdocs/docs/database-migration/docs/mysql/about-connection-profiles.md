@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/mysql/about-connection-profiles/
 title: About source connection profiles \u00a0|\u00a0 Database Migration Service for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:07.003211+00:00
+fetched_at: 2026-10-23T16:53:32.452947+00:00
 ---
 
 # About source connection profiles  |  Database Migration Service for MySQL  |  Google Cloud Documentation

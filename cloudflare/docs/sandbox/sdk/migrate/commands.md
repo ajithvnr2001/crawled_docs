@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/migrate/commands/
 title: Change command calls \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:27.600096+00:00
+fetched_at: 2026-10-23T16:39:52.763007+00:00
 ---
 
 # Change command calls · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:15:27.600096+00:00
 
 # Change command calls
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/commands/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/commands/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you startRun commandsStream outputReplace sessionsReplace timeoutsCheck the commandsRelated resources
 
@@ -134,11 +134,11 @@ src/index.ts (1.0)ts
 
 In 0.12, a `cd` or `export` in one `exec()` call carried into the next call, including in the default session. In 1.0, it lasts until its command exits. Run steps that depend on each other in one command, such as `["bash", "-c", "cd app && npm ci && npm test"]`.
 
-`ExecutionSession` methods map like the top-level methods. Remove `deleteSession()`, which has nothing to delete. To keep the work of two sessions apart, as the `isolation` option did, give each one its own sandbox name.
+`ExecutionSession` methods map like the top-level methods. Remove `deleteSession()`, which has nothing to delete. 0.12 accepted an `isolation` option and ignored it, so sessions in one sandbox always shared processes and files. To keep the work of two sessions apart, give each one its own sandbox name.
 
 ## Replace timeouts
 
-Start the command with GNU coreutils `timeout`, which [stops the command and every process it started](https://developers.cloudflare.com/containers/guides/execute-commands/#stop-the-processes-a-command-starts):
+Start the command with GNU coreutils `timeout`, which [stops the command and the processes it started](https://developers.cloudflare.com/containers/guides/execute-commands/#stop-the-processes-a-command-starts) that stay in its process group:
 
 src/index.ts (0.12)ts
     
@@ -153,8 +153,8 @@ src/index.ts (1.0)ts
     	{ cwd: "/workspace", env: ENV },
     );
     const result = await process.output();
-    // Exit code 124 means the command ran longer than 60 seconds
-    const timedOut = result.exitCode === 124;
+    // 124 or 137 means the command ran longer than 60 seconds
+    const timedOut = result.exitCode === 124 || result.exitCode === 137;
 
 0.12 threw `CommandError` with the message `Command timeout after 60000ms`, and the command kept running. In 1.0, a command that times out stops, so it cannot change files after the error.
 

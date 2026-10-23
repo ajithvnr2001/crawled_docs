@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/files/manage-files/
 title: Move files in and out of a sandbox \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T06:59:27.779923+00:00
+fetched_at: 2026-10-23T16:39:56.832869+00:00
 ---
 
 # Move files in and out of a sandbox · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-14T06:59:27.779923+00:00
 
 # Move files in and out of a sandbox
 
-Last updated Oct 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/files/manage-files/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesRun a command on an uploaded fileList, rename, and remove filesAccept paths from callersRelated resources
 
@@ -110,7 +110,7 @@ src/index.jsjs
          		const container = ctx.container;
          
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		this.container = container;
@@ -153,7 +153,7 @@ src/index.tsts
          		const container = ctx.container;
          
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		this.container = container;

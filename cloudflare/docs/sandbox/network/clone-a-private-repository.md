@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/network/clone-a-private-repository/
 title: Clone a private repository \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:20.162675+00:00
+fetched_at: 2026-10-23T16:39:55.863222+00:00
 ---
 
 # Clone a private repository · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:20.162675+00:00
 
 # Clone a private repository
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/network/clone-a-private-repository/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/network/clone-a-private-repository/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesClone the repositoryRelated resources
 
@@ -171,7 +171,7 @@ src/index.tsts
          		const container = this.ctx.container;
          
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		await container.interceptOutboundHttps(
@@ -185,6 +185,8 @@ src/index.tsts
          				// The container can reach only the hostnames you intercept
          				enableInternet: false,
          			});
+         			// Keep the clone for later requests
+         			await container.setInactivityTimeout(10 * 60 * 1000);
          		}
          
          		const process = await container.exec(
@@ -218,10 +220,12 @@ src/index.tsts
 src/index.tsts
          
          if (url.pathname === "/clone" && request.method === "POST") {
-         	const sandbox = env.MY_CONTAINER.getByName("sandbox");
+         	const sandbox = env.MY_CONTAINER.getByName("repo");
          	const { exitCode, stderr } = await sandbox.clone();
          	return new Response(stderr, { status: exitCode === 0 ? 200 : 500 });
          }
+
+The route uses a sandbox name of its own. An instance that is already running keeps the image and Internet access it started with, so it would have no Git.
 
 When Git fails, the route responds with `500` and the error from Git. While the sandbox keeps running, a second request fails this way, because `/workspace` already holds the clone.
 
@@ -243,7 +247,7 @@ npmyarnpnpm
          
          Cloning into '/workspace'...
 
-The repository is in `/workspace`, and `git remote get-url origin` prints the URL without a token. A `git push` from the sandbox fails with `403`.
+The repository is in `/workspace`, and `git remote get-url origin` prints the URL without a token. A `git push` from the sandbox fails with `403`. The clone lasts until the instance stops. For more information, refer to [Sandbox lifetime](https://developers.cloudflare.com/sandbox/concepts/lifetime/#what-stops-an-instance).
 
 
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/krea/krea-3/
 title: Krea 3 in ComfyUI: Text to Image and Image Editing - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T14:35:06.918787+00:00
+fetched_at: 2026-10-23T16:38:34.847192+00:00
 ---
 
 # Krea 3 in ComfyUI: Text to Image and Image Editing - ComfyUI
@@ -40,7 +40,7 @@ What Krea 3 is good at
   * **Instruction-driven edits** : write the change in plain language (“replace the green car with an orange one”) and Krea 3 returns the whole image, keeping what you did not ask to change
   * **Text to image from the same node** : leave the image inputs empty and the node generates from the prompt alone
   * **Up to 8 reference images** : connect them in the order you want to address them, then mention them in the prompt as `@Image1`, `@Image2`, and so on
-  * **Two thinking modes** : `fast` is the default and the recommended setting, while `high` plans complex edits in more detail and takes longer
+  * **Three thinking modes** : `fast` is the default and the recommended setting, `high` plans complex edits in more detail and takes longer, and `ultra` generates several candidates and returns the best one
   * **Precise edits** : turn on `precise_edit` to keep everything outside the edited area unchanged
   * **Resolution control** : 1K or 2K output, with `auto` aspect ratio following the first reference image
 
@@ -125,7 +125,7 @@ Download JSON or search “Krea 3” in Template Library
   4. Adjust `aspect_ratio` and `resolution` for the output canvas
   5. Click **Queue** and compare the input with the result
 
-**More reference images** The node accepts up to 8 images. Add them in the order you want to refer to them, then mention each one in the prompt as `@Image1`, `@Image2`, and so on.
+**More reference images** The node accepts up to 8 images. Add them in the order you want to refer to them, then mention each one in the prompt as `@Image1`, `@Image2`, and so on. For a hard edit, set `thinking_mode` to `ultra`. It generates several candidates and returns the best one, always outputs 2K, needs at least one reference image, and cannot be combined with `precise_edit`.
 
 ## 
 
@@ -139,7 +139,7 @@ The **Krea 3 Image** node (`Krea3ImageNode`) exposes the following settings:
   * `prompt`: the instruction or the scene description. Refer to references as `@Image1`, `@Image2`, and so on
   * `aspect_ratio`: `auto`, or one of `1:1`, `4:5`, `3:4`, `2:3`, `9:16`, `5:4`, `4:3`, `3:2`, `16:9`, `21:9`. `auto` follows the first reference image, or the prompt when no image is connected
   * `resolution`: `1K` or `2K` output
-  * `thinking_mode`: `fast` is recommended, `high` plans complex edits in more detail and takes longer
+  * `thinking_mode`: `fast` is recommended, `high` plans complex edits in more detail and takes longer, `ultra` generates several candidates and returns the best one. `ultra` needs at least one reference image, always outputs 2K, and cannot be combined with `precise_edit`
   * `precise_edit`: keeps everything outside the edited area unchanged. It needs at least one reference image
   * `seed`: seed for the request. Krea rewrites the prompt before generating, so the same seed does not reproduce the same image
 
@@ -164,26 +164,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/krea/krea-3.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/krea/krea-3)
 
-[Ideogram 4.0 in ComfyUI: Text-to-Image with JSON PromptsPrevious](https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-v4)[Krea 2 in ComfyUI: Text-to-Image with Style ReferencesNext](https://docs.comfy.org/tutorials/partner-nodes/krea/krea-2-t2i)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Ideogram V4](https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-v4)[Krea2 T2I](https://docs.comfy.org/tutorials/partner-nodes/krea/krea-2-t2i)

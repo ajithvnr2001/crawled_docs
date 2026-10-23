@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/tpu/tpu-support/
 title: Dataflow support for TPUs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:49.362473+00:00
+fetched_at: 2026-10-23T16:53:42.243391+00:00
 ---
 
 # Dataflow support for TPUs  |  Google Cloud Documentation

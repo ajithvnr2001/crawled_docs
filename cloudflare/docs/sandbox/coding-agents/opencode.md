@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/coding-agents/opencode/
 title: Run OpenCode in a sandbox \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T06:59:28.055718+00:00
+fetched_at: 2026-10-23T16:40:04.355501+00:00
 ---
 
 # Run OpenCode in a sandbox · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-14T06:59:28.055718+00:00
 
 # Run OpenCode in a sandbox
 
-Last updated Oct 13, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/coding-agents/opencode/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesSwitch the Worker to OpenCodeRun a taskRelated resources
 
@@ -43,7 +43,7 @@ Dockerfiledockerfile
          	&& apt-get install -y --no-install-recommends bash ca-certificates git ripgrep \
          	&& rm -rf /var/lib/apt/lists/*
          
-         RUN npm install --global --ignore-scripts opencode-linux-x64-baseline@1.18.32 \
+         RUN npm install --global --ignore-scripts opencode-linux-x64-baseline@1.19.4 \
          	&& ln -s /usr/local/lib/node_modules/opencode-linux-x64-baseline/bin/opencode /usr/local/bin/opencode
          
          COPY --from=docker.io/cloudflare/sandbox:1.0.1 /usr/local/bin/sandbox-shim /usr/local/bin/sandbox-shim

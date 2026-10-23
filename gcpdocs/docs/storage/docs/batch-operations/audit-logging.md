@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/batch-operations/audit-logging/
 title: Storage batch operations audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T00:47:36.102542+00:00
+fetched_at: 2026-10-23T16:49:19.305516+00:00
 ---
 
 # Storage batch operations audit logging  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Storage batch operations audit logging Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes audit logging for Storage Batch Operations. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+**Note:** For centralized log analysis and real-time monitoring of individual object transformations, we recommend using [Cloud Logging for storage batch operations](https://docs.cloud.google.com/storage/docs/batch-operations/configure-logs).
+
+This document lists the audited methods for Storage Batch Operations. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -33,11 +35,19 @@ This document describes audit logging for Storage Batch Operations. Google Cloud
 
 ## Service name
 
-Storage Batch Operations audit logs use the service name `storagebatchoperations.googleapis.com`. Filter for this service: 
-    
-    
-        protoPayload.serviceName="storagebatchoperations.googleapis.com"
-      
+To view the Storage Batch Operations audit logs, do the following:
+
+  1. In the Google Cloud console, go to the Logs Explorer page:
+
+[Go to Logs Explorer](https://console.cloud.google.com/logs/query)
+
+  2. Copy and paste the following query into the **Query** field of the Logs Explorer, and then click **Run query**.
+         
+         protoPayload.serviceName="storagebatchoperations.googleapis.com"
+           
+
+
+
 
 ## Methods by permission type
 
@@ -216,6 +226,8 @@ The following methods don't produce audit logs:
 
   * `google.cloud.location.Locations.GetLocation`
   * `google.cloud.location.Locations.ListLocations`
+  * `google.cloud.storagebatchoperations.v1.StorageBatchOperations.GetBucketOperation`
+  * `google.cloud.storagebatchoperations.v1.StorageBatchOperations.ListBucketOperations`
   * `google.longrunning.Operations.WaitOperation`
 
 
@@ -224,6 +236,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-10-14 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-10-14 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

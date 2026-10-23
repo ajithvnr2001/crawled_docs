@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/looker-explore-data-on-a-report/
 title: Understand Looker Explore data on a Data Studio report \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:06.102959+00:00
+fetched_at: 2026-10-23T16:52:06.439919+00:00
 ---
 
 # Understand Looker Explore data on a Data Studio report  |  Google Cloud Documentation

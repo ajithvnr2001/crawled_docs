@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-glossary/
 title: Create and use a glossary \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:36:43.132807+00:00
+fetched_at: 2026-10-23T16:47:05.152704+00:00
 ---
 
 # Create and use a glossary  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -323,6 +323,59 @@ Replace `TOKEN` with [the authentication token](https://docs.cloud.google.com/di
 
 Replace `TOKEN` with [the authentication token](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-auth) you obtained.
 
+### Python
+
+  1. [Install the latest version of the Vertex AI Translation client library](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-install-libraries).
+
+  2. [Set the required environment variables on a Python script](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-set-up-translation#set-env-var).
+
+  3. Add the following code to the Python script you created:
+         
+         import time
+         import google.auth
+         import google.auth.transport.requests
+         import requests
+         
+         def create_glossary(project_id="PROJECT_ID", input_uri="s3://BUCKET_NAME/GLOSSARY_FILENAME",
+                             source_lang_code="SOURCE_LANGUAGE", target_lang_code="TARGET_LANGUAGE"):
+             # Client 3.8.0 has no s3_source field, so call REST (token audience without :443).
+             creds, _ = google.auth.default()
+             creds = creds.with_gdch_audience("https://ENDPOINT")
+             creds.refresh(google.auth.transport.requests.Request())
+             session = requests.Session()
+             session.verify = "CERT_NAME"
+             session.headers["Authorization"] = f"Bearer {creds.token}"
+             body = {"language_pair": {"source_language_code": source_lang_code,
+                                       "target_language_code": target_lang_code},
+                     "input_config": {"s3_source": {"input_uri": input_uri}}}
+             r = session.post(f"https://ENDPOINT/v3/projects/{project_id}/glossaries", json=body)
+             r.raise_for_status()
+             op = r.json()
+             while not op.get("done"):
+                 time.sleep(2)
+                 op = session.get(f"https://ENDPOINT/v3/{op['name']}").json()
+             return op  # The service assigns the glossary ID: op["metadata"]["name"]
+         
+
+Replace the following:
+
+     * `SOURCE_LANGUAGE`: the language code of the source language of the glossary. See the list of [supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-translation-langs) and their respective language codes.
+     * `TARGET_LANGUAGE`: the language code of the target language of the glossary. See the list of [supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-translation-langs) and their respective language codes.
+     * `CERT_NAME`: the name of the Certificate Authority (CA) certificate file, such as `org-1-trust-bundle-ca.cert`. For more information, see [Generate the trust bundle CA certificate file in a development environment](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-set-up-project#generate-trust-bunde-ca-cert-file).
+  4. Save the Python script.
+
+  5. Run the Python script:
+         
+         python SCRIPT_NAME
+         
+
+Replace `SCRIPT_NAME` with the name you gave to your Python script, such as `glossary.py`.
+
+
+
+
+For more information on the `projects.glossaries.create` method, see the [Vertex AI Translation REST API reference](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/vertex-ai/translation/rest/v3/projects.glossaries/create).
+
 You must receive a JSON response similar to the following:
     
     
@@ -456,21 +509,35 @@ In the response:
 
   3. Add the following code to the Python script you created:
          
-         from google.cloud import translate_v3 as translate
+         import time
+         import google.auth
+         import google.auth.transport.requests
+         import requests
          
-         def create_glossary(
-             project_id=PROJECT_ID,
-             input_uri= "s3://BUCKET_NAME/GLOSSARY_FILENAME",
-             timeout=180,
-         ):
-         
-             client = translate.TranslationServiceClient()
-         
-             # Supported language codes
-             source_lang_code = "LANGUAGE_CODE_1"
-             target_lang_code = "LANGUAGE_CODE_2", "LANGUAGE_CODE_3", ...
+         def create_glossary(project_id="PROJECT_ID", input_uri="s3://BUCKET_NAME/GLOSSARY_FILENAME",
+                             lang_1="LANGUAGE_CODE_1", lang_2="LANGUAGE_CODE_2"):
+             # Client 3.8.0 has no s3_source field, so call REST (token audience without :443).
+             creds, _ = google.auth.default()
+             creds = creds.with_gdch_audience("https://ENDPOINT")
+             creds.refresh(google.auth.transport.requests.Request())
+             session = requests.Session()
+             session.verify = "CERT_NAME"
+             session.headers["Authorization"] = f"Bearer {creds.token}"
+             body = {"language_codes_set": {"language_codes": [lang_1, lang_2]},
+                     "input_config": {"s3_source": {"input_uri": input_uri}}}
+             r = session.post(f"https://ENDPOINT/v3/projects/{project_id}/glossaries", json=body)
+             r.raise_for_status()
+             op = r.json()
+             while not op.get("done"):
+                 time.sleep(2)
+                 op = session.get(f"https://ENDPOINT/v3/{op['name']}").json()
+             return op  # The service assigns the glossary ID: op["metadata"]["name"]
          
 
+Replace the following:
+
+     * `LANGUAGE_CODE_1` and `LANGUAGE_CODE_2`: the language codes of the languages in the glossary. See the list of [supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-translation-langs) and their respective language codes.
+     * `CERT_NAME`: the name of the Certificate Authority (CA) certificate file, such as `org-1-trust-bundle-ca.cert`. For more information, see [Generate the trust bundle CA certificate file in a development environment](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-set-up-project#generate-trust-bunde-ca-cert-file).
   4. Save the Python script.
 
   5. Run the Python script:
@@ -478,12 +545,12 @@ In the response:
          python SCRIPT_NAME
          
 
-
-
-
 Replace `SCRIPT_NAME` with the name you gave to your Python script, such as `glossary.py`.
 
-For more information on the `create_glossary` method, see the [Python client library](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/vertex-ai/translation/Python/google.cloud.translate_v3.services.translation_service.TranslationServiceClient#google_cloud_translate_v3_services_translation_service_TranslationServiceClient_create_glossary).
+
+
+
+For more information on the `projects.glossaries.create` method, see the [Vertex AI Translation REST API reference](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/vertex-ai/translation/rest/v3/projects.glossaries/create).
 
 Depending on the size of the glossary file, creating a glossary typically takes less than 10 minutes to complete. You can [retrieve the status of this operation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/quickstart-translation#get-op) to know when it is finished.
 
@@ -507,18 +574,19 @@ Replace `TOKEN` with [the authentication token](https://docs.cloud.google.com/di
     
     
     from google.cloud import translate_v3 as translate
+    from google.api_core.client_options import ClientOptions
     
-    def get_glossary(project_id="PROJECT_ID", glossary_id="GLOSSARY_ID"):
-        """Get a particular glossary based on the glossary ID."""
+    def get_glossary(creds, name="projects/PROJECT_ID/glossaries/GLOSSARY_ID"):
+        """Get a glossary by its full name. The service assigns the glossary ID."""
+        client = translate.TranslationServiceClient(
+            credentials=creds, client_options=ClientOptions(api_endpoint="ENDPOINT:443"))
+        response = client.get_glossary(name=name)
+        print(f"Glossary name: {response.name}")
     
-    client = translate.TranslationServiceClient()
-    
-    name = client.glossary_path(project_id, glossary_id)
-    
-    response = client.get_glossary(name=name)
-    print(u"Glossary name: {}".format(response.name))
-    print(u"Input URI: {}".format(response.input_config.s3_source.input_uri))
-    
+
+Pass Distributed Cloud credentials (`creds`) configured with audience `https://ENDPOINT:443`, as shown in [Translate text](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/quickstart-translation#translate-text).
+
+For more information on the `get_glossary` method, see the [Python client library](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/vertex-ai/translation/Python/google.cloud.translate_v3.services.translation_service.TranslationServiceClient#google_cloud_translate_v3_services_translation_service_TranslationServiceClient_get_glossary).
 
 ## List glossaries
 
@@ -552,6 +620,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

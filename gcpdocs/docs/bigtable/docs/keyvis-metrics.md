@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/keyvis-metrics/
 title: Key Visualizer metrics \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:33:46.234803+00:00
+fetched_at: 2026-10-23T16:48:52.733788+00:00
 ---
 
 # Key Visualizer metrics  |  Bigtable  |  Google Cloud Documentation
@@ -47,9 +47,9 @@ This index reflects all of the values that were observed during a 15-minute inte
 
 This index reflects all of the values that were observed during a 15-minute interval. A value of 100 or greater generally indicates poor performance for a key range. Poor performance can occur when you access a single row or a small range of rows very frequently, or when a row contains more than 256 MB of data. 
 
-  * **Large rows** : The amount of data stored in rows that each contain more than 256 MB of data, or in key ranges with an average of more than 200 MB per row.
+  * **Large rows** : The amount of data stored in rows that each contain more than 256 MB of data, or in key ranges with an average of more than 200 MB per row. Like the **Data stored** metric, this metric reflects compressed data stored on disk.
 
-Storing more than 256 MB of data per row can cause performance issues and read errors, and is not recommended.
+We recommend that you don't store more than 256 MB of data per row, because doing so can cause performance issues and read errors.
 
 
 
@@ -87,7 +87,7 @@ For these metrics, when you move your cursor over the heatmap, Key Visualizer do
 
 ## Size
 
-  * **Data stored:** The amount of data stored per row. This metric reflects the fact that Bigtable compresses your data when it is stored. 
+  * **Data stored:** The amount of data stored per row. This metric reflects the physical compressed size of your data on disk, rather than its uncompressed logical size. 
   * **Rows:** The approximate number of rows in each key bucket.
 
 The **Rows** heatmap typically appears mostly yellow. Horizontal stripes increasing in brightness from left to right, going from a darker color to a lighter color, indicate the addition of rows. Stripes that decrease in brightness from left to right indicate the deletion of rows.
@@ -111,6 +111,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/configure-compilation/
 title: Configure compilations \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:46.067559+00:00
+fetched_at: 2026-10-23T16:52:09.461960+00:00
 ---
 
 # Configure compilations  |  Dataform  |  Google Cloud Documentation

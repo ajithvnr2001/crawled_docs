@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/median/
 title: MEDIAN \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:44:04.248504+00:00
+fetched_at: 2026-10-23T16:51:46.753387+00:00
 ---
 
 # MEDIAN  |  Data Studio  |  Google Cloud Documentation

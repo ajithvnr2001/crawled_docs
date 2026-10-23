@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/tutorials/redacting-confidential-data/
 title: Redact confidential data \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:44.029730+00:00
+fetched_at: 2026-10-23T16:53:07.273750+00:00
 ---
 
 # Redact confidential data  |  Cloud Data Fusion  |  Google Cloud Documentation

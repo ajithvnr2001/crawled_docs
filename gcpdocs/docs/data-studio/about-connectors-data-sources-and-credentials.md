@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/about-connectors-data-sources-and-credentials/
 title: About connectors, data sources, and credentials \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:42.495952+00:00
+fetched_at: 2026-10-23T16:53:25.565769+00:00
 ---
 
 # About connectors, data sources, and credentials  |  Data Studio  |  Google Cloud Documentation

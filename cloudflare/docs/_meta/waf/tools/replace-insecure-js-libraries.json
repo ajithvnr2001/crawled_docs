@@ -1,0 +1,10 @@
+{
+  "url": "https://developers.cloudflare.com/waf/tools/replace-insecure-js-libraries/",
+  "file": "waf/tools/replace-insecure-js-libraries.md",
+  "title": "Replace insecure JavaScript libraries \u00b7 Cloudflare Web Application Firewall (WAF) docs",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-08T07:16:48.640817+00:00",
+  "html_len": 146377,
+  "md_len": 4108,
+  "depth": 0
+}

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/use-alloydb-mcp/
 title: Use the AlloyDB remote MCP server \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:30.051793+00:00
+fetched_at: 2026-10-23T16:49:31.224581+00:00
 ---
 
 # Use the AlloyDB remote MCP server  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

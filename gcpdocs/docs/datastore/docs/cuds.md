@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/cuds/
 title: Committed use discounts \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:57.494793+00:00
+fetched_at: 2026-10-23T16:53:02.274529+00:00
 ---
 
 # Committed use discounts  |  Firestore in Datastore mode  |  Google Cloud Documentation

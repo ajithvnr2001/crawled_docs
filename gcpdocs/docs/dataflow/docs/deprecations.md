@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/deprecations/
 title: Dataflow deprecations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:23.218925+00:00
+fetched_at: 2026-10-23T16:54:05.294110+00:00
 ---
 
 # Dataflow deprecations  |  Google Cloud Documentation

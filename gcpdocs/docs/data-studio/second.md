@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/second/
 title: Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:38.869945+00:00
+fetched_at: 2026-10-23T16:52:24.098304+00:00
 ---
 
 # Data Studio  |  Google Cloud Documentation

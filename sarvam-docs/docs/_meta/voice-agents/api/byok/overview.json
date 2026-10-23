@@ -1,10 +1,7 @@
 {
   "url": "https://docs.sarvam.ai/voice-agents/api/byok/overview/",
   "file": "voice-agents/api/byok/overview.md",
-  "title": "BYOK overview | Sarvam API Docs",
+  "title": "Bring your own key (BYOK) for voice agent data | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:15:10.092516+00:00",
-  "html_len": 142365,
-  "md_len": 18399,
-  "depth": 0
+  "fetched_at": "2026-10-23T16:39:02.621373+00:00"
 }

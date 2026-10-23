@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/speech-to-text/realtime/
 title: Realtime Speech to Text - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:51:59.448185+00:00
+fetched_at: 2026-10-23T16:37:28.818722+00:00
 ---
 
 # Realtime Speech to Text - Fish Audio
@@ -45,6 +45,8 @@ Copy pageCopy page
 
 Stream live audio over a WebSocket and get the transcript turn by turn while people speak. `transcribe-stream-1` does more than transcribe: it decides when the user has finished their turn, usually tells the user talking to your app apart from background sound, and notices when a “mm-hm” is only an acknowledgement. This helps your voice agent decide when to answer, when to keep talking and when to stop. Connect to `wss://api.fish.audio/v1/asr/realtime`, send audio as you capture it, and read the events the server sends back.
 
+`transcribe-stream-1` is in preview.
+
 ## API reference
 
 Every message, field, error and limit.
@@ -83,7 +85,7 @@ To transcribe a recording you already have, use [`POST /v1/asr`](https://docs.fi
 
 | Realtime (`/v1/asr/realtime`)| File (`POST /v1/asr`)  
 ---|---|---  
-Model| `transcribe-stream-1`| `transcribe-1-pro`  
+Model| `transcribe-stream-1` (Preview)| `transcribe-1-pro`  
 Input| Live 16-bit PCM over a WebSocket| A complete audio file (WAV, MP3, Opus, and more)  
 Output| Events per turn: drafts, turn signals and the final transcript| One transcript, with optional timestamps and speaker turns  
 Turn detection| Yes| No  
@@ -159,7 +161,7 @@ Audio is divided into turns. A turn opens when voice activity begins (`speech_st
       speech_start → draft … → committed (user_turn: false, turn_kind: "other")
     
 
-  * `draft`: the turn’s text so far. Drafts come in every kind of turn, so a draft does not mean the user is talking.
+  * `draft`: the turn’s text so far. Drafts come in every kind of turn, so a draft does not mean the user is talking. A draft’s [`settled_text`](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime#settled-text) is the beginning of its text that the server is confident will not change, so live captions can show it as stable.
   * `user_turn_taken`: the server judged that the user is taking their turn.
   * `user_backchannel`: while your agent is speaking (see Backchannel detection), the user only acknowledged; keep talking. If the user goes on to take the turn, `user_turn_taken` follows, and the turn that holds the acknowledgement is the user’s. That can be a new turn, with its own `speech_start`.
   * `eager_end_of_turn`: the turn has probably ended; its text equals the final transcript unless `turn_resumed` follows. Only the user’s turns get it, and not every one does.

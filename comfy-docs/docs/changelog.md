@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/changelog/
 title: Changelog - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:33.936184+00:00
+fetched_at: 2026-10-23T16:38:41.611705+00:00
 ---
 
 # Changelog - ComfyUI
@@ -11,6 +11,11 @@ fetched_at: 2026-10-17T10:49:33.936184+00:00
 
 ## On this page
 
+  * v0.42.4
+  * v0.42.3
+  * v0.42.2
+  * v0.42.1
+  * v0.42.0
   * v0.41.1
   * v0.41.0
   * v0.40.0
@@ -158,6 +163,107 @@ Copy pageCopy page
 ComfyUI changelog: the latest features, improvements, and bug fixes in each release, updated as new versions ship.
 
 Copy pageCopy page
+
+​
+
+v0.42.4
+
+October 22, 2026
+
+**Partner Node Updates**
+
+  * [**VEED Fabric 1.0**](https://github.com/Comfy-Org/ComfyUI/pull/17242): Turn a still photo and a speech track into a talking, lip-synced video
+  * [**VEED Lipsync 2.0**](https://github.com/Comfy-Org/ComfyUI/pull/17242): Re-sync a speaker’s mouth in footage you already shot to a new speech track
+  * [**VEED Remove Video Background and Clean Audio**](https://github.com/Comfy-Org/ComfyUI/pull/17242): Cut a subject out of a video with an alpha matte, and clean the speech in an audio or video soundtrack
+  * [**Mirelo SFX 2.0**](https://github.com/Comfy-Org/ComfyUI/pull/17265): Sound effects from a text prompt, or timed to the action in a video
+  * [**Krea 3 Image ultra thinking mode**](https://github.com/Comfy-Org/ComfyUI/pull/17260): A slower, higher-quality mode that generates several candidates and returns the best one
+
+**Bug Fixes**
+
+  * [**HeyGen Voice 1.0 price badge**](https://github.com/Comfy-Org/ComfyUI/pull/17257): The node now shows the current price
+
+**Improvements**
+
+  * [**Templates v0.11.94**](https://github.com/Comfy-Org/ComfyUI/pull/17268)
+
+
+
+​
+
+v0.42.3
+
+October 21, 2026
+
+**Partner Node Updates**
+
+  * [**Bria FIBO 2.0**](https://github.com/Comfy-Org/ComfyUI/pull/17229): FIBO 2.0 text-to-image and Edit Turbo image editing nodes
+  * [**HeyGen Voice 1.0**](https://github.com/Comfy-Org/ComfyUI/pull/17043): Instant voice cloning and text to speech
+
+**Improvements**
+
+  * [**MiniMax-H3 PDD head LoRAs**](https://github.com/Comfy-Org/ComfyUI/pull/17239): Single-head LoRAs now apply to the PDD head banks
+  * [**Templates v0.11.93**](https://github.com/Comfy-Org/ComfyUI/pull/17238)
+
+
+
+​
+
+v0.42.2
+
+October 20, 2026
+
+**New Open-Source Model Support**
+
+  * [**MOSS-Image Color and Depth Control**](https://github.com/Comfy-Org/ComfyUI/pull/17206): Compose with a flat color map and a depth map, with the depth map generated in a subgraph
+
+**Partner Node Updates**
+
+  * [**Clarity AI Crystal Video Upscaler**](https://github.com/Comfy-Org/ComfyUI/pull/17192): Upscale video with the Crystal AI node
+  * [**FLUX 3 Max**](https://github.com/Comfy-Org/ComfyUI/pull/17202) and **FLUX 3 Video** 2K/4K resolutions ([#17200](https://github.com/Comfy-Org/ComfyUI/pull/17200))
+  * [**Partner node sign-in tokens**](https://github.com/Comfy-Org/ComfyUI/pull/16943): Renewed the partner-node session tokens
+
+**Workflow Templates**
+
+  * [**Templates v0.11.92**](https://github.com/Comfy-Org/ComfyUI/pull/17234)
+
+
+
+​
+
+v0.42.1
+
+October 19, 2026
+
+**Bug Fixes**
+
+  * [**Graph cleanup**](https://github.com/Comfy-Org/ComfyUI/pull/17178): Synchronize model-prefetch graph cleanups so repeated runs release memory reliably
+
+
+
+​
+
+v0.42.0
+
+October 18, 2026
+
+**New Open-Source Model Support**
+
+  * [**MOSS-Image**](https://github.com/Comfy-Org/ComfyUI/pull/17095): Native support for text to image and layout-guided generation, with strong bilingual text rendering
+  * [**MOSS-Image layout prompts**](https://github.com/Comfy-Org/ComfyUI/pull/17099): Fused situ attention for MOSS-Image, plus layout prompts driven by bounding boxes
+
+**Partner Node Updates**
+
+  * [**Quiver Arrow 1.x retired**](https://github.com/Comfy-Org/ComfyUI/pull/17102): Removed the retired Arrow 1.x models from the Quiver nodes
+
+**Improvements**
+
+  * [**Qwen 3.x performance**](https://github.com/Comfy-Org/ComfyUI/pull/17007): Faster text generation for the Qwen 3.x family
+  * [**Qwen3.5 embeddings**](https://github.com/Comfy-Org/ComfyUI/pull/17159): Load embedding models on Qwen3.5
+  * [**PDD baked-in checkpoints**](https://github.com/Comfy-Org/ComfyUI/pull/17157): Support models that ship PDD baked into the weights
+  * [**3D remeshing**](https://github.com/Comfy-Org/ComfyUI/pull/16805) with a solid-mode crash fix ([#17140](https://github.com/Comfy-Org/ComfyUI/pull/17140))
+  * [**Frontend 1.55.18**](https://github.com/Comfy-Org/ComfyUI/pull/16859), ARM Linux execution ([#17139](https://github.com/Comfy-Org/ComfyUI/pull/17139)), webcam node fix ([#17144](https://github.com/Comfy-Org/ComfyUI/pull/17144)), text-generation cleanup fix ([#17169](https://github.com/Comfy-Org/ComfyUI/pull/17169))
+
+
 
 ​
 
@@ -3972,26 +4078,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/changelog/index.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/changelog)
 
-[OpenRouter LLM in ComfyUI: Many Models in One NodePrevious](https://docs.comfy.org/tutorials/partner-nodes/openrouter/llm)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[First Generation](https://docs.comfy.org/get_started/first_generation)

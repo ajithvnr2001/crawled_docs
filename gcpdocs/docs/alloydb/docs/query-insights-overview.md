@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/query-insights-overview/
 title: About query insights \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:00:10.902716+00:00
+fetched_at: 2026-10-23T16:50:05.055574+00:00
 ---
 
 # About query insights  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

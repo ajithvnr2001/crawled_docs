@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/migrate/plan-the-move/
 title: Plan the move to Sandbox SDK 1.0 \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:28.011118+00:00
+fetched_at: 2026-10-23T16:39:50.099126+00:00
 ---
 
 # Plan the move to Sandbox SDK 1.0 · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:15:28.011118+00:00
 
 # Plan the move to Sandbox SDK 1.0
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/plan-the-move/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/plan-the-move/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you startChoose a pathWhat the switch does to live sandboxesMove every sandbox in one deployCheck the moveClean upRelated resources
 
@@ -30,7 +30,7 @@ This page compares the two ways to move sandboxes from Sandbox SDK 0.12 to 1.0, 
 
 ## Before you start
 
-  * Your application runs `@cloudflare/sandbox` 0.12.10.
+  * Your application runs `@cloudflare/sandbox` 0.12.14.
   * Your 1.0 class is written. For the class, refer to [Replace the Sandbox class](https://developers.cloudflare.com/sandbox/sdk/migrate/replace-the-sandbox-class/).
   * You have a staging copy of the Worker with its own Wrangler configuration file. Set a different Worker `name` and a different `name` for each container in that file, because the `--name` option of `wrangler deploy` does not rename container applications.
 
@@ -64,7 +64,7 @@ Running commands | End shortly after. A command that returns its result when it 
 WebSockets | Stop delivering data. Clients receive no close frame.  
 Pending alarms | Call your 1.0 `alarm()` handler once for each sandbox that was active.  
 `schedule()` callbacks | Never run.  
-0.12 storage keys | Stay in Durable Object storage, unused.  
+0.12 storage keys | Stay in Durable Object storage. The pages that move preview URLs, tunnels, and outbound rules read `portTokens`, `tunnels`, `tunnels:meta`, and `OUTBOUND_CONFIGURATION`.  
   
 ## Move every sandbox in one deploy
 
@@ -93,7 +93,7 @@ If your class has no `alarm()` handler, each pending alarm fails once with an in
 
   3. Prepare clients for sockets that go silent. Open terminals and preview WebSockets stop receiving data at the switch, and the browser does not see them close. Have your client reconnect when a socket receives nothing for a set time, or tell users to reload after the deploy.
 
-  4. Save the files that users need. No 1.0 sandbox can read the files in a 0.12 container. Before you deploy, save the files with 0.12 `createBackup()`. After the switch, restore them as [Move backups](https://developers.cloudflare.com/sandbox/sdk/migrate/backups/#convert-backups-that-012-created) describes.
+  4. Save the files that users need. Once a 0.12 container stops, its files are gone, and the short time after the deploy when 1.0 code still reaches it is no way to copy them. Before you deploy, save the files with 0.12 `createBackup()`. After the switch, restore them as [Move backups](https://developers.cloudflare.com/sandbox/sdk/migrate/backups/#convert-backups-that-012-created) describes.
 
   5. Rehearse on the staging Worker first. With sandboxes running there and a client connected, upload and deploy the 1.0 version to the staging Worker as steps 6 and 7 describe. Check that requests from your application work after the switch.
 
@@ -130,7 +130,7 @@ npmyarnpnpm
 
 ## Check the move
 
-Send requests from your application to a sandbox, such as a command and a file read. Each Durable Object starts a 1.0 container on its first request. List the container applications in your account:
+Send requests from your application to a sandbox, such as a command and a file read. Each Durable Object starts a 1.0 container on its first request once `running` is `false`. For a short time after the deploy, a request can still reach the 0.12 container, where a command runs in the 0.12 image. Wait a few minutes after the deploy before you check. List the container applications in your account:
 
 npmyarnpnpm
     
@@ -162,7 +162,7 @@ npmyarnpnpm
 
 The old application runs its containers, and bills for them, until you delete it. Deleting it stops the containers that 0.12 started and deletes their files. Durable Objects and their storage stay.
 
-The keys that 0.12 wrote stay in the storage of each Durable Object and do nothing. If you delete them, name each key in a `delete()` call. Do not call `deleteAll()`, which also deletes your own keys and any 0.12 backup handles that you still need to convert.
+The keys that 0.12 wrote stay in the storage of each Durable Object. Keep `portTokens`, `tunnels`, `tunnels:meta`, and `OUTBOUND_CONFIGURATION` while your class reads them, as the pages that move preview URLs, tunnels, and outbound rules do. If you delete other keys, name each key in a `delete()` call. Do not call `deleteAll()`, which also deletes your own keys and any 0.12 backup handles that you still need to convert.
 
 ## Related resources
 

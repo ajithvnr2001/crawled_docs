@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/api/integration/build-voice-agent-with-pipecat/
-title: Build Your First Voice Agent using Pipecat | Sarvam API Docs
+title: Build a Pipecat voice agent with Sarvam | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:39.348139+00:00
+fetched_at: 2026-10-23T16:39:03.641738+00:00
 ---
 
-# Build Your First Voice Agent using Pipecat | Sarvam API Docs
+# Build a Pipecat voice agent with Sarvam | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/api/integration/build-voice-agent-with-pipecat/
 
@@ -45,7 +45,7 @@ Scroll to top
 
 [Integration](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit)
 
-# Build Your First Voice Agent using Pipecat
+# Build a Pipecat voice agent with Sarvam
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/api/integration/build-voice-agent-with-pipecat.md "View this page as plain text")|More actions
 
@@ -92,7 +92,7 @@ A voice agent that can:
 
   * Python 3.9 or higher
   * API keys from: 
-    * [Sarvam AI](https://dashboard.sarvam.ai/) (get API key from dashboard)
+    * [Sarvam AI](https://indus.sarvam.ai/key-management?ref=docs) (get API key from dashboard)
 
 
 

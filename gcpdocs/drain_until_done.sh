@@ -10,7 +10,7 @@
 set -uo pipefail
 cd /data/opencode/gcpdocs
 : "${GH_TOKEN:?GH_TOKEN missing — unit EnvironmentFile}"
-REPO="ajithvnr2001/google-cloud-docs"
+REPO="ajithvnr2001/crawled_docs"
 TAG="docs-backlog-drain-2026-10-20"
 CAP=4000
 THRESHOLD=2000

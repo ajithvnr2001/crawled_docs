@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/google-workspace/
 title: Google Workspace \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:03.881122+00:00
+fetched_at: 2026-10-23T16:39:52.151778+00:00
 ---
 
 # Google Workspace · Cloudflare One docs
@@ -22,9 +22,9 @@ Integrations
 
 # Google Workspace
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/google-workspace/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/google-workspace/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSet up Google Workspace as an identity provider 1\. Configure Google Workspace 2\. Add Google Workspace to Cloudflare OneExample API ConfigurationTroubleshooting Error 401: deleted_client Redirect loop when protecting Google apps with Access Group membership not reflected in Access policies Use multiple Google Workspace domains in Access policies
+OverviewSet up Google Workspace as an identity provider 1\. Configure Google Workspace 2\. Add Google Workspace to Cloudflare OneAuthentication options API configurationTroubleshooting Error 401: deleted_client Redirect loop when protecting Google apps with Access Group membership not reflected in Access policies Use multiple Google Workspace domains in Access policies
 
 Note
 
@@ -102,9 +102,11 @@ You can find your team name in the [Cloudflare dashboard ↗︎](https://dash.cl
 
   5. (Optional) Under **Optional configurations** , enter [custom OIDC claims](https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/generic-oidc/#custom-oidc-claims) that you wish to add to your user's identity.
 
-  6. Select **Save**. To complete setup, you must visit the generated link. If you are not the Google Workspace administrator, share the link with the administrator.
+  6. (Optional) Under **Authentication options** , choose a **Google prompt** and turn on **Use previous email as a login hint**.
 
-  7. The generated link will prompt you to log in to your Google admin account and to authorize Cloudflare Access to view group information. After allowing permissions, you will see a success page from Cloudflare Access.
+  7. Select **Save**. To complete setup, you must visit the generated link. If you are not the Google Workspace administrator, share the link with the administrator.
+
+  8. The generated link will prompt you to log in to your Google admin account and to authorize Cloudflare Access to view group information. After allowing permissions, you will see a success page from Cloudflare Access.
 
 
 
@@ -119,17 +121,42 @@ The SCIM provisioning integration with Google Workspace is not currently support
 
 To test successfully, you must [finish setup ↗︎](https://community.cloudflare.com/t/google-workspace-failed-to-fetch-group-information-from-the-identity-provider/313361/2). Testing before finishing setup will result in a [`Failed to fetch user/group information from the identity provider` error](https://developers.cloudflare.com/cloudflare-one/access-controls/troubleshooting/#identity-provider-usergroup-info-error).
 
-## Example API Configuration
+## Authentication options
+
+You can control how Google handles each authentication request. Configure these options in the dashboard or through the API.
+
+The **Google prompt** setting supports these options:
+
+Dashboard option | API `prompt` value | Behavior  
+---|---|---  
+_Google default_ | Omit `prompt` | Google chooses whether to display a prompt based on the current browser session.  
+_No prompt_ | `none` | Google attempts authentication without displaying a prompt. If Google cannot complete silent authentication, Access retries once with the Google default behavior.  
+_Consent_ | `consent` | Google asks the user to consent.  
+_Select account_ | `select_account` | Google displays the account chooser. Access does not send a login hint.  
+  
+To reuse a previous email, turn on **Use previous email as a login hint**. Access checks emails from previous Access logins on the same device. It sends `login_hint` when exactly one email matches the configured Google Workspace domain.
+
+Access does not send a hint when multiple emails match. It also skips the hint for account selection and security reprompts. A login hint does not force Google to display the account chooser.
+
+For more information about these values, refer to [Google's authentication request parameters ↗︎](https://developers.google.com/identity/openid-connect/openid-connect#authenticationuriparameters).
+
+### API configuration
+
+First, retrieve the current identity provider configuration from the [Access identity provider endpoint](https://developers.cloudflare.com/api/resources/zero_trust/subresources/identity_providers/methods/get/). Then, send the complete configuration to the [update identity provider endpoint](https://developers.cloudflare.com/api/resources/zero_trust/subresources/identity_providers/methods/update/).
+
+Add `prompt` and `use_login_hint` to the `config` object:
     
     
     {
     	"config": {
-    		"client_id": "<your client id>",
-    		"client_secret": "<your client secret>",
-    		"apps_domain": "mycompany.com"
+    		"client_id": "<YOUR_CLIENT_ID>",
+    		"client_secret": "<YOUR_CLIENT_SECRET>",
+    		"apps_domain": "example.com",
+    		"prompt": "select_account",
+    		"use_login_hint": true
     	},
     	"type": "google-apps",
-    	"name": "my example idp"
+    	"name": "Google Workspace"
     }
 
 ## Troubleshooting

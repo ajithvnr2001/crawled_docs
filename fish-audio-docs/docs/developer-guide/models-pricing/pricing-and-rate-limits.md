@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits/
 title: Pricing & Rate Limits - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:52:00.177820+00:00
+fetched_at: 2026-10-23T16:37:29.433579+00:00
 ---
 
 # Pricing & Rate Limits - Fish Audio
@@ -50,6 +50,7 @@ TTS pricing is based on the size of input text, measured in millions of UTF-8 by
 
 Model Name| Price (USD)  
 ---|---  
+`drama-3`| $50.00 / M UTF-8 bytes  
 `s2.1-pro`| $15.00 / M UTF-8 bytes  
 `s2.1-pro-free`| $0.00 / M UTF-8 bytes  
 `s2-pro`| $15.00 / M UTF-8 bytes  
@@ -57,7 +58,7 @@ Model Name| Price (USD)
   
 1M UTF-8 bytes is approximately 180,000 English words, or about 12 hours of speech
 
-S1 is deprecated and will be retired on December 31, 2026. After that date, requests that specify `s1` are served by `s2.1-pro` and billed as `s2.1-pro`, at the same price. See [Migrate from S1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-s1).
+Until November 12, 2026, 09:00 PT (17:00 UTC), `drama-3` is billed at a launch promotion price of $10.00 / M UTF-8 bytes, 80% off the list price above. See [Drama 3](https://docs.fish.audio/features/text-to-speech/drama-3). S1 is deprecated and will be retired on December 31, 2026. After that date, requests that specify `s1` are served by `s2.1-pro` and billed as `s2.1-pro`, at the same price. See [Migrate from S1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-s1).
 
 ### 
 
@@ -69,7 +70,7 @@ Model Name| Price (USD)
 ---|---  
 `transcribe-1-pro` (recommended)| $0.36 / audio hour  
 `transcribe-1`| $0.36 / audio hour  
-`transcribe-stream-1` (Realtime ASR)| $0.36 / session hour  
+`transcribe-stream-1` (Realtime ASR, Preview)| $0.36 / session hour  
   
 For recordings, we recommend `transcribe-1-pro`, which handles multi-speaker conversations (speaker markers and speaker turns), long recordings, and inline emotion cues. Both file models cost the same and use the [Speech to Text API](https://docs.fish.audio/api-reference/endpoint/openapi-v1/speech-to-text). Send the `model: transcribe-1-pro` HTTP header to select Pro; a request whose `model` header is missing or not an exact match is served and billed as `transcribe-1`. See the [model comparison](https://docs.fish.audio/features/speech-to-text#choose-an-asr-model). `transcribe-stream-1` transcribes live audio over the [realtime WebSocket](https://docs.fish.audio/features/speech-to-text/realtime) and is billed as its own line item, Realtime ASR, separate from file transcription. **How ASR billing works for files (`transcribe-1-pro`, `transcribe-1`):**
 

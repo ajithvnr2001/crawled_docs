@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts/
 title: Resource-based committed use discounts \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:12:55.397553+00:00
+fetched_at: 2026-10-23T16:50:44.535969+00:00
 ---
 
 # Resource-based committed use discounts  |  Compute Engine  |  Google Cloud Documentation
@@ -916,15 +916,22 @@ To purchase commitments for OS licenses, see [Purchase software commitments for 
 
 ## Block storage commitments
 
-Block storage commitments provide CUDs for block storage in [Hyperdisk Exapools](https://docs.cloud.google.com/compute/docs/disks/hyperdisk-exapools). Exapools let you purchase storage and performance in 1 GiB increments called _[capacity units](https://docs.cloud.google.com/compute/docs/disks/hyperdisk-exapools#how_capacity_units_work)_. You can consume the purchased capacity units by creating an Exapool or by modifying an existing Exapool to consume the purchased capacity units.
-
-To receive block storage CUDs, you must first purchase a block storage commitment for a specific amount of Exapool capacity units (measured in GiB) for a 1-year or 3-year plan. After your commitment becomes active, Google Cloud applies CUDs to the prices of the matching capacity units in your Exapools. You pay these discounted prices for the entire duration of your commitment's term, regardless of whether or not you create an Exapool with those capacity units.
-
-A block storage commitment covers only the capacity units in an Exapool and doesn't automatically create an Exapool for you. The commitment also doesn't apply to individual disks that aren't created in an Exapool. To use the resources covered by your commitment, create or modify an Exapool with matching capacity units, and then create disks in the Exapool as needed.
+Block storage commitments provide CUDs for block storage in [Hyperdisk Exapools](https://docs.cloud.google.com/compute/docs/disks/hyperdisk-exapools). Exapools let you purchase storage and performance in 1 GiB increments called _[capacity units](https://docs.cloud.google.com/compute/docs/disks/hyperdisk-exapools#how_capacity_units_work)_.
 
 ### How block storage commitments work
 
-Block storage commitments apply to usage within the specific region for which you purchased the commitment. These commitments aren't tied to specific disks or specific Exapools. When you purchase a block storage commitment, Compute Engine aggregates your committed Exapool capacity units for the specified region. When you create or modify Exapools with capacity units that match the pool type and region specified by your commitment, Compute Engine counts the capacity units in those pools as eligible usage and automatically applies CUDs to their prices.
+To receive block storage CUDs, you must first purchase a block storage commitment for a specific amount of Exapool capacity units (measured in GiB) for a 1-year or 3-year plan. After your commitment becomes active, Google Cloud applies CUDs to the prices of the matching capacity units in your Exapools. You pay these discounted prices for the entire duration of your commitment's term, regardless of whether or not you create an Exapool with those capacity units.
+
+A block storage commitment covers only the capacity units in an Exapool and doesn't automatically create an Exapool for you. The commitment also doesn't apply to individual disks that aren't created in an Exapool. To use the resources covered by your commitment, do the following:
+
+  1. Provision matching capacity units in an Exapool in the commitment's region by doing one of the following: 
+     * Use an existing Exapool that already has matching capacity units.
+     * Create a new Exapool or modify an existing Exapool to add matching capacity units.
+  2. Create disks in the Exapool to consume the pool's capacity and performance as needed.
+
+
+
+Block storage commitments apply to usage within the specific region for which you purchased the commitment. These commitments aren't tied to specific disks or specific Exapools. When you purchase a block storage commitment, Compute Engine aggregates your committed Exapool capacity units for the specified region. When your Exapools have provisioned capacity units that match the pool type and region specified by your commitment, Compute Engine counts the capacity units in those pools as eligible usage and automatically applies CUDs to their prices.
 
 Compute Engine calculates eligible usage per microsecond and charges you discounted rates on an hourly basis. Compute Engine bills any capacity units in your Exapools that exceed your committed amount as overage usage at on-demand rates. Your commitment continues to cover eligible usage until the expiration date.
 
@@ -1111,6 +1118,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-21 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-21 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/examples/voice-agent/
 title: Voice agent \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:35.512546+00:00
+fetched_at: 2026-10-23T16:40:10.665132+00:00
 ---
 
 # Voice agent · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:35.512546+00:00
 
 # Voice agent
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/examples/voice-agent/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create the project2\. Configure wrangler3\. Build the server4\. Build the client5\. Run itAdding pipeline hooksUsing third-party providersNext steps
 
@@ -59,7 +59,7 @@ Update `wrangler.jsonc` to include a Workers AI binding and a Durable Object for
     {
     	"name": "voice-agent",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-10-23",
     	"compatibility_flags": ["nodejs_compat"],
     	"main": "src/server.ts",
     	"upload_source_maps": true,
@@ -85,7 +85,7 @@ Update `wrangler.jsonc` to include a Workers AI binding and a Durable Object for
     
     name = "voice-agent"
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-23"
     compatibility_flags = [ "nodejs_compat" ]
     main = "src/server.ts"
     upload_source_maps = true
@@ -109,7 +109,7 @@ Replace `src/server.ts` with the following. The `withVoice` mixin adds the full 
     import { Agent, routeAgentRequest } from "agents";
     import { withVoice, WorkersAIFluxSTT, WorkersAITTS } from "@cloudflare/voice";
     import { streamText, tool, stepCountIs } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import { z } from "zod";
     
     const VoiceAgent = withVoice(Agent);
@@ -119,10 +119,10 @@ Replace `src/server.ts` with the following. The `withVoice` mixin adds the full 
     	tts = new WorkersAITTS(this.env.AI);
     
     	async onTurn(transcript, context) {
-    		const workersAi = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersAi("@cf/moonshotai/kimi-k2.6"),
+    			model: ai("@cf/moonshotai/kimi-k2.6"),
     			system:
     				"You are a helpful voice assistant. Keep responses concise — you are being spoken aloud.",
     			messages: [
@@ -174,7 +174,7 @@ Replace `src/server.ts` with the following. The `withVoice` mixin adds the full 
     	type VoiceTurnContext,
     } from "@cloudflare/voice";
     import { streamText, tool, stepCountIs } from "ai";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import { z } from "zod";
     
     const VoiceAgent = withVoice(Agent);
@@ -184,10 +184,10 @@ Replace `src/server.ts` with the following. The `withVoice` mixin adds the full 
     	tts = new WorkersAITTS(this.env.AI);
     
     	async onTurn(transcript: string, context: VoiceTurnContext) {
-    		const workersAi = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersAi("@cf/moonshotai/kimi-k2.6"),
+    			model: ai("@cf/moonshotai/kimi-k2.6"),
     			system:
     				"You are a helpful voice assistant. Keep responses concise — you are being spoken aloud.",
     			messages: [

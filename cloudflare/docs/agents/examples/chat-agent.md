@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/examples/chat-agent/
 title: Chat agent \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:35.809025+00:00
+fetched_at: 2026-10-23T16:40:11.015384+00:00
 ---
 
 # Chat agent · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:35.809025+00:00
 
 # Chat agent
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/examples/chat-agent/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview1\. Create the project2\. Configure Wrangler3\. Write the server What each tool type does4\. Write the client Key client concepts5\. Run locally6\. DeployWhat you builtNext steps
 
@@ -46,7 +46,7 @@ Select **"Hello World" Worker** when prompted. Then install the dependencies:
     
     
     cd chat-agent
-    npm install agents @cloudflare/ai-chat ai workers-ai-provider zod
+    npm install agents @cloudflare/ai-chat ai @ai-sdk/provider zod
 
 ## 2\. Configure Wrangler
 
@@ -58,7 +58,7 @@ Replace your `wrangler.jsonc` with:
     	"main": "src/server.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-10-23",
     	"compatibility_flags": ["nodejs_compat"],
     	"ai": { "binding": "AI" },
     	"durable_objects": {
@@ -72,7 +72,7 @@ Replace your `wrangler.jsonc` with:
     main = "src/server.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-23"
     compatibility_flags = [ "nodejs_compat" ]
     
     [ai]
@@ -101,7 +101,7 @@ Create `src/server.ts`. This is where your agent lives:
     
     import { AIChatAgent } from "@cloudflare/ai-chat";
     import { routeAgentRequest } from "agents";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import {
     	streamText,
     	convertToModelMessages,
@@ -113,10 +113,10 @@ Create `src/server.ts`. This is where your agent lives:
     
     export class ChatAgent extends AIChatAgent {
     	async onChatMessage() {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/meta/llama-4-scout-17b-16e-instruct"),
+    			model: ai("@cf/meta/llama-4-scout-17b-16e-instruct"),
     			system:
     				"You are a helpful assistant. You can check the weather, " +
     				"get the user's timezone, and run calculations.",
@@ -201,7 +201,7 @@ Create `src/server.ts`. This is where your agent lives:
     
     import { AIChatAgent } from "@cloudflare/ai-chat";
     import { routeAgentRequest } from "agents";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import {
     	streamText,
     	convertToModelMessages,
@@ -213,10 +213,10 @@ Create `src/server.ts`. This is where your agent lives:
     
     export class ChatAgent extends AIChatAgent {
     	async onChatMessage() {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/meta/llama-4-scout-17b-16e-instruct"),
+    			model: ai("@cf/meta/llama-4-scout-17b-16e-instruct"),
     			system:
     				"You are a helpful assistant. You can check the weather, " +
     				"get the user's timezone, and run calculations.",

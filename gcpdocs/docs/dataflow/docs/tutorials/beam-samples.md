@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/tutorials/beam-samples/
 title: Examples for the Apache Beam SDKs \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:41:48.656224+00:00
+fetched_at: 2026-10-23T16:53:10.286445+00:00
 ---
 
 # Examples for the Apache Beam SDKs  |  Cloud Dataflow  |  Google Cloud Documentation

@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/voice-agents/quickstart/
-title: Voice Agent Quickstart: Build, Test, and Deploy Your First Agent | Sarvam API Docs
+title: Voice Agents quickstart: build your first AI calling agent | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:15:33.149178+00:00
+fetched_at: 2026-10-23T16:38:47.629584+00:00
 ---
 
-# Voice Agent Quickstart: Build, Test, and Deploy Your First Agent | Sarvam API Docs
+# Voice Agents quickstart: build your first AI calling agent | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/voice-agents/quickstart/
 
@@ -27,13 +27,13 @@ Scroll to top
 
 [Getting Started](https://docs.sarvam.ai/voice-agents/introduction)
 
-# Quickstart
+# Voice Agents quickstart: build your first AI calling agent
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/voice-agents/quickstart.md "View this page as plain text")|More actions
 
 This page is for Voice Agents.
 
-Create a voice agent, test it in test agent, deploy it to a phone number, and make your first call.
+Create a voice agent on Sarvam Voice Agents (Samvaad), test it in test agent, deploy it to a phone number, and make your first call.
 
 ## Start building
 
@@ -46,11 +46,11 @@ You create and manage agents on the **Agents** page (under **Build**). Two ways 
 
 You can also reopen a recent agent to keep working.
 
-[Open AgentsDescribe an agent for Genie to build, or create one from scratch.](https://indus.sarvam.ai/samvaad/build/my-agents)
+[Open AgentsDescribe an agent for Genie to build, or create one from scratch.](https://indus.sarvam.ai/samvaad/build/my-agents?ref=docs)
 
 ## Step 1: Create an agent
 
-  1. Log in at [indus.sarvam.ai](https://indus.sarvam.ai/) and open **Agents** under **Build**.
+  1. Log in and open [Agents](https://indus.sarvam.ai/samvaad/build/my-agents?ref=docs) under **Build**.
   2. Either **describe what your agent should do** in the prompt box (this starts a [Genie](https://docs.sarvam.ai/voice-agents/build/genie) session that drafts the agent) or click **Create from Scratch** for a blank agent.
   3. You land on the **Canvas** , the visual agent builder where you configure everything.
 
@@ -140,7 +140,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/overview)[MCP ServerNext](https://docs.sarvam.ai/voice-agents/mcp)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/overview)[Build voice agents from Claude or Cursor with the MCP serverNext](https://docs.sarvam.ai/voice-agents/mcp)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 
@@ -176,6 +176,7 @@ YesNo
   * Monitor
 
     * [Overview](https://docs.sarvam.ai/voice-agents/monitor/overview)
+    * [Call recordings](https://docs.sarvam.ai/voice-agents/monitor/call-recordings)
     * [Agent Analytics](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics)
 
     * [Boards](https://docs.sarvam.ai/voice-agents/monitor/boards)
@@ -272,6 +273,7 @@ YesNo
   * [Best practices](https://docs.sarvam.ai/voice-agents/deploy/campaigns/best-practices)
   * [Deploy with Code (API & SDK)](https://docs.sarvam.ai/voice-agents/deploy/deploy-with-code)
   * [Overview](https://docs.sarvam.ai/voice-agents/monitor/overview)
+  * [Call recordings](https://docs.sarvam.ai/voice-agents/monitor/call-recordings)
   * [Agent Analytics](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics)
   * [Overview tab](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/overview)
   * [Connectivity](https://docs.sarvam.ai/voice-agents/monitor/agent-analytics/connectivity)
@@ -324,7 +326,9 @@ YesNo
   * [List attempts](https://docs.sarvam.ai/voice-agents/api/analytics/attempts)
   * [List interactions](https://docs.sarvam.ai/voice-agents/api/analytics/interactions)
   * [Get recording](https://docs.sarvam.ai/voice-agents/api/analytics/recordings)
+  * [Get forwarded recording](https://docs.sarvam.ai/voice-agents/api/analytics/forwarded-recordings)
   * [Get transcript](https://docs.sarvam.ai/voice-agents/api/analytics/transcripts)
+  * [Get trace](https://docs.sarvam.ai/voice-agents/api/analytics/traces)
   * [Overview](https://docs.sarvam.ai/voice-agents/api/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/voice-agents/api/boards/sql)
   * [Best practices](https://docs.sarvam.ai/voice-agents/api/boards/best-practices)

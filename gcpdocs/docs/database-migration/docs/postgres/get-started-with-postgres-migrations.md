@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/get-started-with-postgres-migrations/
 title: Get started with PostgreSQL homogeneous migrations \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:42:27.868301+00:00
+fetched_at: 2026-10-23T16:54:20.266100+00:00
 ---
 
 # Get started with PostgreSQL homogeneous migrations  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

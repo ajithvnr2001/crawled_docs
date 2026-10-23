@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/rate-limiting-rules/parameters/
 title: Rate limiting parameters \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:46.022465+00:00
+fetched_at: 2026-10-23T16:39:51.469965+00:00
 ---
 
 # Rate limiting parameters · Cloudflare Web Application Firewall (WAF) docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:16:46.022465+00:00
 
 # Rate limiting parameters
 
-Last updated Apr 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/rate-limiting-rules/parameters/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/rate-limiting-rules/parameters/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewParameter reference When incoming requests match Also apply rate limiting to cached assets With the same characteristics Increment counter when When rate exceeds When rate exceeds > Requests When rate exceeds > Period When rate exceeds > Score per period When rate exceeds > Response header name Then take action For duration With the following behaviorNotes about rate limiting characteristics Use cases of IP with NAT support Incompatible characteristics Do not use cf.colo.id as a field in expressions Use a lowercased header name (for API users) Missing field versus empty value Recommended configurations when using Cookie value of Requirements for using claims inside a JSON Web Token (JWT)Configuration restrictions
 
@@ -66,6 +66,7 @@ Dashboard value | API value | Notes
 N/A (implicitly included) | `cf.colo.id`(mandatory) | Do not use in expressions  
 IP | `ip.src` | Incompatible with **IP with NAT support**  
 IP with NAT support | `cf.unique_visitor_id` | Incompatible with **IP**  
+**Clearance UUID** | `http.request.clearance.uuid` | Available with Advanced Rate Limiting. Use `http.request.clearance.uuid ne ""` in the counting expression to exclude requests without a valid clearance cookie.  
 **Header value of** (enter header name) | `http.request.headers["<header_name>"]` | Use lowercased header name in API and Missing field versus empty value  
 **Cookie value of** (enter cookie name) | `http.request.cookies["<cookie_name>"]` | Recommended configurations and Missing field versus empty value  
 **Query value of** (enter parameter name) | `http.request.uri.args["<query_param_name>"]` | Missing field versus empty value  
@@ -83,7 +84,7 @@ IP with NAT support | `cf.unique_visitor_id` | Incompatible with **IP**
 **Body size** (select operator, enter size) | `http.request.body.size` |   
 **Custom** (enter expression) | Enter a custom expression. You can use a function such as `substring()` or `lower()`, or enter a more complex expression. | [Functions](https://developers.cloudflare.com/ruleset-engine/rules-language/functions/)  
   
-The available characteristics depend on your Cloudflare plan. Refer to [Availability](https://developers.cloudflare.com/waf/rate-limiting-rules/#availability) for more information.
+The available characteristics depend on your Cloudflare plan. **Clearance UUID** is available with Advanced Rate Limiting. Refer to [Availability](https://developers.cloudflare.com/waf/rate-limiting-rules/#availability) for more information.
 
 Caution
 
@@ -290,7 +291,7 @@ If you use the **Header value of** characteristic in an API request (with `http.
 
 ### Missing field versus empty value
 
-If you use the **Header value of** , **Cookie value of** , **Query value of** , **JSON string value of** , `lookup_json_integer(...)`, or **Form input value of** characteristic and the specific header/cookie/parameter/JSON key/form field name is not present in the request, the rate limiting rule may still apply to the request, depending on your counting expression.
+If you use the **Header value of** , **Cookie value of** , **Query value of** , **Clearance UUID** , **JSON string value of** , `lookup_json_integer(...)`, or **Form input value of** characteristic and the specific value is not present in the request, the rate limiting rule may still apply to the request, depending on your counting expression.
 
 If you do not filter out such requests, there will be a specific [request counter](https://developers.cloudflare.com/waf/rate-limiting-rules/request-rate/) for requests where the field is not present, which will be different from the request counter where the field is present with an empty value.
 
@@ -299,6 +300,8 @@ For example, to consider only requests where a specific HTTP header is present i
 `and len(http.request.headers["<header_name>"]) > 0`
 
 Where `<header_name>` is the same header name used as a rate limiting characteristic.
+
+For **Clearance UUID** , use `http.request.clearance.uuid ne ""`. This excludes requests without a valid `cf_clearance` cookie from the clearance counter. Use a separate rule if you also need to rate limit those requests.
 
 ### Recommended configurations when using Cookie value of
 
@@ -316,13 +319,9 @@ To use claims inside a JSON Web Token (JWT), you must first set up a [token vali
 ## Configuration restrictions
 
   * If the rule filter expression, defined in the **When incoming requests match** parameter, includes [custom lists](https://developers.cloudflare.com/waf/tools/lists/custom-lists/), you must enable the **Also apply rate limiting to cached assets** parameter.
-
   * The rule filter expression cannot contain [HTTP response fields](https://developers.cloudflare.com/ruleset-engine/rules-language/fields/reference/?field-category=Response).
-
   * The rule counting expression, defined in the **Increment counter when** parameter, cannot include both [HTTP response fields](https://developers.cloudflare.com/ruleset-engine/rules-language/fields/reference/?field-category=Response) and [custom lists](https://developers.cloudflare.com/waf/tools/lists/custom-lists/). If you use custom lists, you must enable the **Also apply rate limiting to cached assets** parameter.
-
   * When creating a rate limiting ruleset [at the account level](https://developers.cloudflare.com/waf/account/rate-limiting-rulesets/), the ruleset deployment expression (defining the scope) cannot contain [HTTP response fields](https://developers.cloudflare.com/ruleset-engine/rules-language/fields/reference/?field-category=Response) or [custom lists](https://developers.cloudflare.com/waf/tools/lists/custom-lists/).
-
 
 
 

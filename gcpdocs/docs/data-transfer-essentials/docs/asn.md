@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-transfer-essentials/docs/asn/
 title: Recognized ASNs \u00a0|\u00a0 Data Transfer Essentials \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:43:49.690413+00:00
+fetched_at: 2026-10-23T16:52:39.808428+00:00
 ---
 
 # Recognized ASNs  |  Data Transfer Essentials  |  Google Cloud Documentation

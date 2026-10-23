@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/metrics_gcp_p_z/
 title: Google Cloud metrics: P through Z \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:39:13.227770+00:00
+fetched_at: 2026-10-23T16:51:14.612623+00:00
 ---
 
 # Google Cloud metrics: P through Z  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To chart or monitor metric types with values of type `STRING`, you must use Moni
 
 Metrics from [Google Cloud](https://docs.cloud.google.com/docs).
 
-The following list was last generated at 2026-10-14 20:24:33 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
+The following list was last generated at 2026-10-22 02:44:18 UTC. For more information about this process, see [ About the lists](https://docs.cloud.google.com/monitoring/api/metrics#generated).
 
 ### parallelstore
 
@@ -1988,7 +1988,7 @@ Received packets count
 `nat/rule/nat_allocation_failed` GA ** _(project)_**   
 NAT allocation failed per rule   
 `GAUGE`, `BOOL`, ``   
-**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Indicates if there is a failure in allocating NAT IPs to any VM in the NAT gateway for a specific NAT rule._   
+**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Indicates if there is a failure in allocating NAT IPs to any VM in the NAT gateway for a specific NAT rule. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
 `nat_rule_priority`: The priority number of the NAT rule associated with the error.   
 `nat/sent_bytes_count` GA ** _(project)_**   
 Sent bytes count   
@@ -3084,6 +3084,11 @@ Storage utilization
 `GAUGE`, `DOUBLE`, `10^2.%`   
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Storage used as a fraction of storage limit. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `storage_class`: Storage type.   
+`lock_stat/total/lock_wait_latencies` BETA ** _(project)_**   
+Lock wait latencies   
+`DELTA`, `DISTRIBUTION`, `s`   
+**[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Distribution of lock wait latency in seconds for lock conflicts recorded for the entire database. Sampled every 60 seconds. After sampling, data is not visible for up to 210 seconds._   
+`database`: Target database.   
 `lock_stat/total/lock_wait_time` GA ** _(project)_**   
 Lock wait time   
 `DELTA`, `DOUBLE`, `s`   
@@ -3190,13 +3195,13 @@ Buffered ready messages
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Count of ready messages in the queue that are buffered in memory and available for delivery. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
 `database`: Target database.   
 `queue`: Target queue.   
-`queue/lease_expiration_count` BETA ** _(project)_**   
+`queue/lease_expiration_count` GA ** _(project)_**   
 Lease expirations   
 `DELTA`, `INT64`, `1`   
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Count of expired message leases. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
 `database`: Target database.   
 `queue`: Target queue.   
-`queue/message_ack_count` BETA ** _(project)_**   
+`queue/message_ack_count` GA ** _(project)_**   
 Messages acknowledged   
 `DELTA`, `INT64`, `1`   
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Count of messages acknowledged. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
@@ -3208,13 +3213,13 @@ Message payload sizes
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Distribution of message payload sizes in bytes. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
 `database`: Target database.   
 `queue`: Target queue.   
-`queue/message_send_count` BETA ** _(project)_**   
+`queue/message_send_count` GA ** _(project)_**   
 Messages sent   
 `DELTA`, `INT64`, `1`   
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Count of messages sent. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
 `database`: Target database.   
 `queue`: Target queue.   
-`queue/oldest_unacked_message_age` BETA ** _(project)_**   
+`queue/oldest_unacked_message_age` GA ** _(project)_**   
 Oldest unacked message age   
 `GAUGE`, `INT64`, `s`   
 **[spanner_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_spanner_instance)** |  _Age of the oldest unacknowledged message in seconds. Sampled every 60 seconds. After sampling, data is not visible for up to 240 seconds._   
@@ -3439,13 +3444,13 @@ Executed API Requests Count
 `auto_annotate/storage/annotated_objects` BETA ** _(project)_**   
 Objects Enriched Snapshot   
 `GAUGE`, `INT64`, `1`   
-**[gcs_bucket](https://docs.cloud.google.com/monitoring/api/resources#tag_gcs_bucket)** |  _Current snapshot of all objects stored in the bucket that have any model enrichments, grouped by type and data_locations._   
+**[gcs_bucket](https://docs.cloud.google.com/monitoring/api/resources#tag_gcs_bucket)** |  _Current snapshot of all objects stored in the bucket that have any model enrichments, grouped by type and data_locations. Sampled every 60 seconds. After sampling, data is not visible for up to 210 seconds._   
 `type`: The type of the object. For example, 'live-object'.   
 `data_locations`: A comma-separated list of locations where the data is stored. For example, 'US-CENTRAL1-A'.   
 `auto_annotate/storage/model_outputs` BETA ** _(project)_**   
 Models Enriched Snapshot   
 `GAUGE`, `INT64`, `1`   
-**[gcs_bucket](https://docs.cloud.google.com/monitoring/api/resources#tag_gcs_bucket)** |  _Total number of model outputs stored in the bucket, grouped by model_name, model_version, status, type, and data_locations._   
+**[gcs_bucket](https://docs.cloud.google.com/monitoring/api/resources#tag_gcs_bucket)** |  _Total number of model outputs stored in the bucket, grouped by model_name, model_version, status, type, and data_locations. Sampled every 60 seconds. After sampling, data is not visible for up to 210 seconds._   
 `status`: Model processing status, e.g. "SUCCESS", "FAILURE".   
 `model_version`: The version of the model used.   
 `model_name`: The name of the model used for enrichment.   
@@ -4960,12 +4965,12 @@ VPC-SC Protected IO Count
 **[workflows.googleapis.com/Workflow](https://docs.cloud.google.com/monitoring/api/resources#tag_workflows.googleapis.com/Workflow)** |  _Number of I/O requests made using VPC-SC. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
 `revision_id`: The revision ID of the executed workflow.   
   
-Generated at 2026-10-14 20:24:33 UTC.
+Generated at 2026-10-22 02:44:18 UTC.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

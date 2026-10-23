@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/vector-search-overview/
 title: AlloyDB AI Vector Search overview \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:35.836258+00:00
+fetched_at: 2026-10-23T16:50:00.263368+00:00
 ---
 
 # AlloyDB AI Vector Search overview  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

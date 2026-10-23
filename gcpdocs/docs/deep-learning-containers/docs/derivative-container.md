@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deep-learning-containers/docs/derivative-container/
 title: Create a derivative container \u00a0|\u00a0 Deep Learning Containers \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:40:51.996717+00:00
+fetched_at: 2026-10-23T16:52:21.664957+00:00
 ---
 
 # Create a derivative container  |  Deep Learning Containers  |  Google Cloud Documentation

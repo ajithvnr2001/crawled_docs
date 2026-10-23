@@ -10,7 +10,8 @@ crawl_state.json
 .drain.lock
 .git_ship.lock
 seeds/
-tools/
+# anchored: only the corpus-root tools/ (not nested .../tools/ content paths)
+/tools/
 releases/
 
 # docs/: product documentation (guides) IS tracked in git and committed daily.

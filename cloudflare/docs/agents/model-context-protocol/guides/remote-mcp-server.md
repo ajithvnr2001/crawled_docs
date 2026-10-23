@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/
 title: Build a Remote MCP server \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:15.796304+00:00
+fetched_at: 2026-10-23T16:39:59.494966+00:00
 ---
 
 # Build a Remote MCP server · Cloudflare Agents docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-08T07:04:15.796304+00:00
 
 # Build a Remote MCP server
 
-Last updated Jul 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewChoosing an approachDeploy your first MCP server Via the dashboard Via the CLIConnect from an MCP client via a local proxyAdd Authentication Cloudflare Access OAuth Third-party OAuthNext steps
+OverviewChoosing an approachDeploy your first MCP server Via the dashboard Via the CLIConnect from an MCP clientAdd Authentication Cloudflare Access OAuth Third-party OAuthNext steps
 
 This guide shows how to deploy a remote MCP server on Cloudflare using [Streamable HTTP transport](https://developers.cloudflare.com/agents/model-context-protocol/protocol/transport/). You have two options:
 
@@ -60,7 +60,7 @@ The button below will guide you through everything you need to do to deploy an [
 
 [![Deploy to Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/ai/tree/main/demos/remote-mcp-authless)
 
-Once deployed, this server will be live at your `workers.dev` subdomain (for example, `remote-mcp-server-authless.your-account.workers.dev/mcp`). You can connect to it immediately using the [AI Playground ↗︎](https://playground.ai.cloudflare.com/) (a remote MCP client), [MCP inspector ↗︎](https://github.com/modelcontextprotocol/inspector) or [other MCP clients](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#connect-from-an-mcp-client-via-a-local-proxy).
+Once deployed, this server will be live at your `workers.dev` subdomain (for example, `remote-mcp-server-authless.your-account.workers.dev/mcp`). You can connect to it immediately using the [AI Playground ↗︎](https://playground.ai.cloudflare.com/) (a remote MCP client), [MCP inspector ↗︎](https://github.com/modelcontextprotocol/inspector) or [other MCP clients](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#connect-from-an-mcp-client).
 
 A new git repository will be set up on your GitHub or GitLab account for your MCP server, configured to automatically deploy to Cloudflare each time you push a change or merge a pull request to the main branch of the repository. You can clone this repository, [develop locally](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/#via-the-cli), and start customizing the MCP server with your own [tools](https://developers.cloudflare.com/agents/model-context-protocol/protocol/tools/).
 
@@ -129,38 +129,21 @@ The MCP server will be deployed to your `*.workers.dev` subdomain at `https://re
 
 You now have a remote MCP server that MCP clients can connect to.
 
-## Connect from an MCP client via a local proxy
+## Connect from an MCP client
 
-Now that your remote MCP server is running, you can use the [`mcp-remote` local proxy ↗︎](https://www.npmjs.com/package/mcp-remote) to connect Claude Desktop or other MCP clients to it — even if your MCP client does not support remote transport or authorization on the client side. This lets you test what an interaction with your remote MCP server will be like with a real MCP client.
+Connect an MCP client with Streamable HTTP support directly to your deployed endpoint. For example, add the server to Claude Code:
+    
+    
+    claude mcp add --transport http math https://remote-mcp-server-authless.your-account.workers.dev/mcp
 
-For example, to connect from Claude Desktop:
+Run `claude mcp list` to verify the connection. Then ask Claude to use one of your tools. For example:
+    
+    
+    Could you use the math tool to add 23 and 19?
 
-  1. Update your Claude Desktop configuration to point to the URL of your MCP server:
-         
-         {
-         	"mcpServers": {
-         		"math": {
-         			"command": "npx",
-         			"args": [
-         				"mcp-remote",
-         				"https://remote-mcp-server-authless.your-account.workers.dev/mcp"
-         			]
-         		}
-         	}
-         }
+Claude should invoke the tool and show the server response.
 
-  2. Restart Claude Desktop to load the MCP Server. Once this is done, Claude will be able to make calls to your remote MCP server.
-
-  3. To test, ask Claude to use one of your tools. For example:
-         
-         Could you use the math tool to add 23 and 19?
-
-Claude should invoke the tool and show the result generated by the remote MCP server.
-
-
-
-
-To learn how to use remote MCP servers with other MCP clients, refer to [Test a Remote MCP Server](https://developers.cloudflare.com/agents/model-context-protocol/guides/test-remote-mcp-server/).
+For other clients, refer to [Test a Remote MCP Server](https://developers.cloudflare.com/agents/model-context-protocol/guides/test-remote-mcp-server/).
 
 ## Add Authentication
 

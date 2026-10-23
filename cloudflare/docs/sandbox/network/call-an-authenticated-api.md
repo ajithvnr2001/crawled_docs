@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/network/call-an-authenticated-api/
 title: Call an authenticated API from a sandbox \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:20.067753+00:00
+fetched_at: 2026-10-23T16:39:55.973197+00:00
 ---
 
 # Call an authenticated API from a sandbox · Cloudflare Sandboxes docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:20.067753+00:00
 
 # Call an authenticated API from a sandbox
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/network/call-an-authenticated-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/network/call-an-authenticated-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesStore the tokenCall the API from a ContainerCall the API from a Dynamic WorkerRelated resources
 
@@ -140,7 +140,7 @@ src/index.tsts
          		const container = this.ctx.container;
          
          		if (!container) {
-         			throw new Error("The container binding is not configured");
+         			throw new Error("No container is configured");
          		}
          
          		await container.interceptOutboundHttps(
@@ -189,9 +189,11 @@ src/index.tsts
 src/index.tsts
          
          if (url.pathname === "/username") {
-         	const sandbox = env.MY_CONTAINER.getByName("sandbox");
+         	const sandbox = env.MY_CONTAINER.getByName("github");
          	return Response.json({ username: await sandbox.getUsername() });
          }
+
+The route uses a sandbox name of its own. An instance that is already running keeps the Internet access it started with, so `enableInternet: false` applies only to an instance that this method starts.
 
   4. Deploy your Worker, then send a request to `/username` on the `workers.dev` URL that Wrangler prints:
 
@@ -269,7 +271,7 @@ src/index.tsts
 src/index.tsts
          
          const sandbox = env.LOADER.load({
-         	compatibilityDate: "$today",
+         	compatibilityDate: "2026-10-01",
          	mainModule: "code.js",
          	modules: {
          		"code.js": `

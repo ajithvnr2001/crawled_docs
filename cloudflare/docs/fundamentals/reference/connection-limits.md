@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/reference/connection-limits/
 title: Connection limits \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:25.176381+00:00
+fetched_at: 2026-10-23T16:39:59.571610+00:00
 ---
 
 # Connection limits · Cloudflare Fundamentals docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:11:25.176381+00:00
 
 # Connection limits
 
-Last updated Jul 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/reference/connection-limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/reference/connection-limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBetween client and CloudflareBetween Cloudflare and origin serverConfigurable limitsKeep-AlivesRequest limitsResponse limitsCache limits
+OverviewBetween client and CloudflareBetween Cloudflare and origin server What connection means hereConfigurable limitsKeep-AlivesRequest limitsResponse limitsCache limits
 
 When HTTP/HTTPS traffic is [proxied through Cloudflare](https://developers.cloudflare.com/fundamentals/concepts/how-cloudflare-works/#cloudflare-as-a-reverse-proxy), there are often two established [TCP connections](https://developers.cloudflare.com/fundamentals/reference/tcp-connections/): the first is between the requesting client to Cloudflare and the second is between Cloudflare and the origin server. Each connection has their own set of TCP and HTTP limits, which are documented below.
 
@@ -33,14 +33,22 @@ Connection Idle HTTP/2 | 400 | TCP connection closed | No
   
 ## Between Cloudflare and origin server
 
+### What connection means here
+
+A **TCP connection** is established when its TCP handshake completes. For a new **TCP-based HTTPS connection** , setup also requires SSL/TLS negotiation. TCP can therefore be established while HTTPS setup remains unfinished.
+
+Requests can reuse established connections, and a proxied request may traverse multiple connections. A connection timeout does not, by itself, identify which operation timed out or what caused it. Reused connections and QUIC do not have the same per-request TCP/TLS setup sequence as a new TCP-based HTTPS connection.
+
+The TCP establishment and request-acknowledgment rows describe specific TCP timeout conditions. They are not an exhaustive list of every operation that can produce [522](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-522/). Neither value is a universal TCP-plus-TLS setup budget. A timeout while TLS remains pending can be reported as `522` rather than [525](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-525/).
+
 Note
 
 If you are using [Cloudflare tunnels](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/), refer to [Origin configuration](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/configure-tunnels/origin-parameters/) to view or modify your connection settings.
 
 Type | Limit (seconds) | HTTP status code at limit | [Configurable](https://developers.cloudflare.com/fundamentals/reference/connection-limits/#configurable-limits)  
 ---|---|---|---  
-Complete TCP Connection | 19 | [522](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-522/) | No  
-TCP ACK Timeout | 90 | [522](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-522/) | No  
+TCP connection establishment | 19 | [522](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-522/) | No  
+TCP request acknowledgment timeout | 90 | [522](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-522/) | No  
 TCP Keep-Alive Interval | 30 | [520](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-520/) | No  
 Proxy Idle Timeout | 900 | [520](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-520/) | No  
 Proxy Read Timeout | 125 | [524](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-524/) | [Yes, for Enterprise zones](https://developers.cloudflare.com/api/resources/zones/subresources/settings/methods/edit/)  

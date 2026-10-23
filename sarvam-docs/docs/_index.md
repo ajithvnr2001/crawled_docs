@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/
 title: AI for all from India | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T06:39:02.343583+00:00
+fetched_at: 2026-10-23T16:38:47.518138+00:00
 ---
 
 # AI for all from India | Sarvam API Docs
@@ -45,6 +45,14 @@ Seven entry points, one account. Start wherever your problem lives.
 
 [Model APIsSpeech, text, chat, document intelligence, and document-to-document translation behind a single API key. Build it into your own product.](https://docs.sarvam.ai/api/getting-started/welcome)[Voice AgentsBuild, deploy, and monitor voice and chat agents. Bring your own telephony or rent a number from Sarvam.](https://docs.sarvam.ai/voice-agents/overview)[Doc AgentsExtract fields and digitise documents (invoices, KYC, land deeds, handwritten manuscripts) into JSON, CSV, Markdown, or DOCX.](https://docs.sarvam.ai/docai/getting-started/overview)[Document TranslationTranslate whole PDF and Office files into up to 12 Indian languages per job — layout preserved, document-to-document (PDF stays PDF, DOCX stays DOCX).](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)[Content StudioDub video, clone voices, generate speech, and transcribe audio from the browser.](https://docs.sarvam.ai/creative/studio-overview)[CoworkAn agentic workspace for real work: email triage, morning briefings, internal helpdesk, lead follow-up.](https://docs.sarvam.ai/cowork/overview)[Coding AgentAn agentic coding assistant for your terminal and IDE, built on Sarvam models for development tasks.](https://docs.sarvam.ai/api/sarvam-code)
 
+## Build voice agents
+
+Guides for AI voice agents in 11 Indian languages, from a first agent to outbound campaigns at scale.
+
+[All Voice Agents docs →](https://docs.sarvam.ai/voice-agents/overview)
+
+[QuickstartBuild your first AI calling agent, test it, and put it on a phone number in minutes.](https://docs.sarvam.ai/voice-agents/quickstart)[Build an agentWrite the instruction, add variables, tools, and a knowledge base, and pick a voice.](https://docs.sarvam.ai/voice-agents/build/overview)[TestsRun simulated calls against scripted scenarios, with an AI judge grading each conversation.](https://docs.sarvam.ai/voice-agents/build/tests)[Phone numbersBring your own Exotel, Twilio, Plivo, or other provider, or rent a number from Sarvam.](https://docs.sarvam.ai/voice-agents/deploy/telephony)[CampaignsDial a contact list for outbound calls, with schedules, retries, and concurrency control.](https://docs.sarvam.ai/voice-agents/deploy/campaigns)[MonitorTrack connect rates and goals, read call logs and transcripts, and build SQL boards.](https://docs.sarvam.ai/voice-agents/monitor/overview)
+
 ## Build with the APIs
 
 Guides and tutorials for each capability, from a first request to production patterns.
@@ -81,9 +89,9 @@ End-to-end projects you can run today, with the full source in each guide.
 
 [Full changelog →](https://docs.sarvam.ai/changelog)
 
-[October 2026Business Plan for Voice Agents₹3 per minute, the lowest self-serve rate, on a ₹1,99,999 minimum monthly subscription that comes back as credits. 200 concurrent calls, 800 calls a minute, and custom SIP telephony.Read the changelog →](https://docs.sarvam.ai/voice-agents/pricing)
+[October 2026Forwarded Call Recordings, Call Traces, and Provider Details in the Analytics APIDownload the recording of a transferred call’s forwarded leg, get a step-by-step event trace of any call, and match calls to your telephony provider’s records with the new provider details.Read the changelog →](https://docs.sarvam.ai/voice-agents/api/analytics/overview)
 
-[October 2026Forwarded Call Recordings, Call Traces, and Provider Details in the Analytics APIDownload the recording of a transferred call’s forwarded leg, get a step-by-step event trace of any call, and match calls to your telephony provider’s records with the new provider details.](https://docs.sarvam.ai/voice-agents/api/analytics/overview)[October 2026Bulbul V3 End of Life for Voice AgentsBulbul V3 reaches end of life on Voice Agents on November 10, 2026. Switch your agents to Bulbul V4 before then.](https://docs.sarvam.ai/voice-agents/build/voice-language)[October 2026Volume Adjustment for Voice AgentsA new Volume slider in the agent’s voice settings sets how loud the agent sounds, from 0.7 to 2.0.](https://docs.sarvam.ai/voice-agents/build/voice-language#volume)
+[October 2026Bulbul V3 End of Life for Voice AgentsBulbul V3 reaches end of life on Voice Agents on November 10, 2026. Switch your agents to Bulbul V4 before then.](https://docs.sarvam.ai/voice-agents/build/voice-language)[October 2026Volume Adjustment for Voice AgentsA new Volume slider in the agent’s voice settings sets how loud the agent sounds, from 0.7 to 2.0.](https://docs.sarvam.ai/voice-agents/build/voice-language#volume)[October 2026Instant Voice Cloning in the sarvamai SDKsPython and TypeScript SDKs expose Instant Voice Cloning (beta) with the same convert / convertStream / WebSocket shape as Bulbul TTS.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview)
 
 ## Resources
 
@@ -116,7 +124,7 @@ Tools
 
 Community
 
-  * [Dashboard](https://dashboard.sarvam.ai/)
+  * [Dashboard](https://indus.sarvam.ai/?ref=docs)
   * [Discord](https://discord.com/invite/5rAsykttcs)
   * [GitHub](https://github.com/sarvamai/sarvam-ai-cookbook)
   * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)

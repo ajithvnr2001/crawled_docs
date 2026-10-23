@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/rate-limiting-rules/best-practices/
 title: Rate limiting best practices \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:45.810357+00:00
+fetched_at: 2026-10-23T16:39:51.593748+00:00
 ---
 
 # Rate limiting best practices · Cloudflare Web Application Firewall (WAF) docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:16:45.810357+00:00
 
 # Rate limiting best practices
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/rate-limiting-rules/best-practices/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/rate-limiting-rules/best-practices/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEnforcing granular access control Limit by user agent Limit reuse of a single cf_clearance cookie Allow specific IP addresses or ASNs Limit by referrer Limit by destination hostProtecting against credential stuffing Protect OTP and verification endpointsLimiting the number of operations Prevent content scraping (via query string) Prevent content scraping (via body) Limit requests from botsProtecting REST APIs Prevent volumetric attacks Protect resourcesProtecting GraphQL APIs Limit the number of operations Limit the total amount of query complexity Limit any individual query’s complexity
 
@@ -54,18 +54,21 @@ Action | Managed Challenge
   
 ### Limit reuse of a single `cf_clearance` cookie
 
-After a visitor successfully passes a Managed Challenge, Cloudflare issues a `cf_clearance` cookie to identify them as verified. However, malicious actors may attempt to reuse or share a single valid `cf_clearance` value across multiple requests or devices to bypass additional challenges.
+After a visitor successfully passes a Managed Challenge, Cloudflare issues a `cf_clearance` cookie to identify them as verified. However, malicious actors may attempt to reuse or share a single valid clearance identity across multiple requests or devices to bypass additional challenges.
 
-This rate limiting rule helps mitigate such abuse by restricting how many requests can be made with the same `cf_clearance` value within a defined period. Legitimate human users will remain unaffected, while automated or replayed requests using a single clearance token will be blocked once the threshold is exceeded.
+This rate limiting rule helps mitigate such abuse by restricting how many requests can be made with the same **Clearance UUID** within a defined period. The UUID remains stable when Cloudflare refreshes the encrypted cookie value, so JavaScript Detections and Precursor updates do not reset the request counter.
 
 Setting | Value  
 ---|---  
 Matching criteria | URI Path equals `/checkout`  
 Expression | `http.request.uri.path eq "/checkout"`  
-Counting characteristics | Cookie (`cf_clearance`)  
+Counting characteristics | Clearance UUID  
+Counting expression | `http.request.clearance.uuid ne ""`  
 Rate (Requests / Period) | 100 requests / 10 minutes  
 Action | Block  
   
+Requests without a valid clearance cookie are excluded from this counter. To rate limit those requests, create a separate rule using another characteristic, such as **IP**.
+
 ### Allow specific IP addresses or ASNs
 
 Another use case when controlling access to resources is to exclude or include IP addresses or Autonomous System Numbers (ASNs) from a rate limiting rule.

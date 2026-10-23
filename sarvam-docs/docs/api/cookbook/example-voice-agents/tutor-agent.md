@@ -1,11 +1,11 @@
 ---
 url: https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent/
-title: Tutor Agent using Pipecat | Sarvam API Docs
+title: Hindi tutor voice agent with Pipecat | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:29.698842+00:00
+fetched_at: 2026-10-23T16:39:04.444732+00:00
 ---
 
-# Tutor Agent using Pipecat | Sarvam API Docs
+# Hindi tutor voice agent with Pipecat | Sarvam API Docs
 
 > Source: https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent/
 
@@ -44,7 +44,7 @@ Scroll to top
 
 [Cookbook](https://docs.sarvam.ai/api/cookbook/guides/call-analytics-pipeline)[Example Voice Agents](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
 
-# Tutor Agent using Pipecat
+# Hindi tutor voice agent with Pipecat
 
 Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent.md "View this page as plain text")|More actions
 
@@ -86,7 +86,7 @@ A tutor agent that can:
 
   * Python 3.9 or higher
   * API keys from: 
-    * [Sarvam AI](https://dashboard.sarvam.ai/) (get API key from dashboard)
+    * [Sarvam AI](https://indus.sarvam.ai/key-management?ref=docs) (get API key from dashboard)
 
 
 
@@ -634,7 +634,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)[Loan Advisory Agent using PipecatNext](https://docs.sarvam.ai/api/cookbook/example-voice-agents/loan-advisory-agent)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)[Hindi loan advisory voice agent with PipecatNext](https://docs.sarvam.ai/api/cookbook/example-voice-agents/loan-advisory-agent)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 

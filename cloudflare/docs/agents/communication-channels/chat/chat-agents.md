@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/
 title: Chat agents \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:07.424382+00:00
+fetched_at: 2026-10-23T16:40:04.933597+00:00
 ---
 
 # Chat agents · Cloudflare Agents docs
@@ -22,7 +22,7 @@ Communication channels
 
 # Chat agents
 
-Last updated Sep 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOverviewQuick start Install Server Client Wrangler configurationHow it worksServer API AIChatAgent onChatMessage this.messages maxPersistedMessages waitForMcpConnections messageConcurrency persistMessages and saveMessages onChatResponse sanitizeMessageForPersistence Turn lifecycle helpers Lifecycle hooks Request cancellation Stream recoveryClient API useAgentChat Options Return values Non-React clientsTools Server-side tools Client-side tools Tool approval (human-in-the-loop)Custom request dataData parts Writing data parts (server) Three patterns Reading data parts (client) Transient parts with onDataResumable streamingStorage management Row size protection Controlling LLM context vs storageUsing different AI providers Workers AI (Cloudflare) OpenAI AnthropicAdvanced patterns Dynamic model and tool control Language model middleware Structured output In-process subagent delegationMulti-client syncAPI reference Exports WebSocket protocolDeprecated APIsNext steps
 
@@ -57,31 +57,31 @@ Built on the [AI SDK ↗︎](https://ai-sdk.dev) and Cloudflare Durable Objects,
 npmyarnpnpmbun
     
     
-    npm i @cloudflare/ai-chat agents ai @ai-sdk/react workers-ai-provider
+    npm i @cloudflare/ai-chat agents ai @ai-sdk/react @ai-sdk/provider
     
     
-    yarn add @cloudflare/ai-chat agents ai @ai-sdk/react workers-ai-provider
+    yarn add @cloudflare/ai-chat agents ai @ai-sdk/react @ai-sdk/provider
     
     
-    pnpm add @cloudflare/ai-chat agents ai @ai-sdk/react workers-ai-provider
+    pnpm add @cloudflare/ai-chat agents ai @ai-sdk/react @ai-sdk/provider
     
     
-    bun add @cloudflare/ai-chat agents ai @ai-sdk/react workers-ai-provider
+    bun add @cloudflare/ai-chat agents ai @ai-sdk/react @ai-sdk/provider
 
 ### Server
     
     
     import { AIChatAgent } from "@cloudflare/ai-chat";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import { streamText, convertToModelMessages } from "ai";
     
     export class ChatAgent extends AIChatAgent {
     	async onChatMessage() {
-    		// Use any provider such as workers-ai-provider, openai, anthropic, google, etc.
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		// Use any AI SDK provider, such as createAI from agents/models/ai-sdk, openai, anthropic, or google.
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			messages: await convertToModelMessages(this.messages),
     		});
     
@@ -91,16 +91,16 @@ npmyarnpnpmbun
     
     
     import { AIChatAgent } from "@cloudflare/ai-chat";
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     import { streamText, convertToModelMessages } from "ai";
     
     export class ChatAgent extends AIChatAgent {
     	async onChatMessage() {
-    		// Use any provider such as workers-ai-provider, openai, anthropic, google, etc.
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		// Use any AI SDK provider, such as createAI from agents/models/ai-sdk, openai, anthropic, or google.
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			messages: await convertToModelMessages(this.messages),
     		});
     
@@ -278,10 +278,10 @@ This is the main method you override. It receives the conversation context and s
     
     export class ChatAgent extends AIChatAgent {
     	async onChatMessage() {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			system: "You are a helpful assistant.",
     			messages: await convertToModelMessages(this.messages),
     		});
@@ -293,10 +293,10 @@ This is the main method you override. It receives the conversation context and s
     
     export class ChatAgent extends AIChatAgent {
     	async onChatMessage() {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			system: "You are a helpful assistant.",
     			messages: await convertToModelMessages(this.messages),
     		});
@@ -362,10 +362,10 @@ To control what is sent to the model, use the AI SDK's `pruneMessages()`:
     
     export class ChatAgent extends AIChatAgent {
     	async onChatMessage() {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			messages: pruneMessages({
     				messages: await convertToModelMessages(this.messages),
     				reasoning: "before-last-message",
@@ -382,10 +382,10 @@ To control what is sent to the model, use the AI SDK's `pruneMessages()`:
     
     export class ChatAgent extends AIChatAgent {
     	async onChatMessage() {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			messages: pruneMessages({
     				messages: await convertToModelMessages(this.messages),
     				reasoning: "before-last-message",
@@ -710,7 +710,7 @@ When a user clicks "stop" in the chat UI, the client sends a `CF_AGENT_CHAT_REQU
     export class ChatAgent extends AIChatAgent {
     	async onChatMessage(_onFinish, options) {
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			messages: await convertToModelMessages(this.messages),
     			abortSignal: options?.abortSignal, // Pass through for cancellation
     		});
@@ -723,7 +723,7 @@ When a user clicks "stop" in the chat UI, the client sends a `CF_AGENT_CHAT_REQU
     export class ChatAgent extends AIChatAgent {
     	async onChatMessage(_onFinish, options) {
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			messages: await convertToModelMessages(this.messages),
     			abortSignal: options?.abortSignal, // Pass through for cancellation
     		});
@@ -763,9 +763,13 @@ Durable recovery is always on. Use `chatRecovery` only to tune recovery budgets 
     		// Primary stuck-turn bound. Resets on every progress-bearing attempt, so a
     		// turn that keeps producing content survives unbounded interruption.
     		noProgressTimeoutMs: 5 * 60 * 1000,
-    		// Runaway-loop guard. Defaults to 1,000. Set a higher value for a long
+    		// Runaway-loop guard. Defaults to 10,000. Set a higher value for a long
     		// agentic turn, or Infinity to remove the cap.
-    		maxRecoveryWork: 200,
+    		maxRecoveryWork: 2000,
+    		// How many of one turn's attempts may die before recovery gives up, for
+    		// example to a memory-limit reset on every run. Defaults to 5, counting
+    		// the original turn.
+    		maxInterruptedAttempts: 5,
     		// Caller policy consulted from the second recovery attempt onward. Return
     		// false to stop recovery. This is where you enforce a token/cost budget.
     		// Note: this is called as `config.shouldKeepRecovering(ctx)`, so it is not
@@ -789,9 +793,13 @@ Durable recovery is always on. Use `chatRecovery` only to tune recovery budgets 
     		// Primary stuck-turn bound. Resets on every progress-bearing attempt, so a
     		// turn that keeps producing content survives unbounded interruption.
     		noProgressTimeoutMs: 5 * 60 * 1000,
-    		// Runaway-loop guard. Defaults to 1,000. Set a higher value for a long
+    		// Runaway-loop guard. Defaults to 10,000. Set a higher value for a long
     		// agentic turn, or Infinity to remove the cap.
-    		maxRecoveryWork: 200,
+    		maxRecoveryWork: 2000,
+    		// How many of one turn's attempts may die before recovery gives up, for
+    		// example to a memory-limit reset on every run. Defaults to 5, counting
+    		// the original turn.
+    		maxInterruptedAttempts: 5,
     		// Caller policy consulted from the second recovery attempt onward. Return
     		// false to stop recovery. This is where you enforce a token/cost budget.
     		// Note: this is called as `config.shouldKeepRecovering(ctx)`, so it is not
@@ -814,8 +822,8 @@ Field | Default | Description
 `stableTimeoutMs` | `10_000` | How long a recovery attempt waits for the isolate to reach stable state before rescheduling.  
 `terminalMessage` | generic message | The message shown to the user when recovery is given up on.  
 `noProgressTimeoutMs` | `300_000` (5 min) | Primary stuck-turn bound: how long an incident may go without forward progress before it is sealed (`no_progress_timeout`). **Resets on every progress-bearing attempt** , so a turn that keeps producing content survives unbounded interruption.  
-`maxRecoveryWork` | `1,000` | Runaway-loop guard. Maximum produced content/tool units since the incident began before a still-progressing turn is sealed. Set a higher value or `Infinity` for a long agentic turn.  
-`maxOomRetries` | `3` | Retry budget for Durable Object memory-limit resets. Set `0` to stop after the first memory-limit reset.  
+`maxRecoveryWork` | `10,000` | Runaway-loop guard. Maximum produced content/tool units since the incident began before a still-progressing turn is sealed. Set a higher value or `Infinity` for a long agentic turn.  
+`maxInterruptedAttempts` | `5` | How many of one turn's attempts may be interrupted before recovery gives up (`interrupted_attempts_exceeded`). An attempt is interrupted when its isolate dies before it finishes, for example in a Durable Object memory-limit reset or a deploy. The original turn counts, and progress never resets the count. Replaces `maxOomRetries`, which is still read as `maxInterruptedAttempts: maxOomRetries + 1`.  
 `shouldKeepRecovering` | — | Caller policy consulted from the second recovery attempt onward. Return `false` to stop recovery. Use it to enforce a token or cost budget. `ctx.work` is a coarse segment count, not tokens, so track real spend yourself.  
 `onExhausted` | — | Called once when recovery is given up on, before the terminal message is delivered. Inspect `ctx.reason` for why.  
   
@@ -832,13 +840,14 @@ Field | Type | Description
 `work` | `number` | Coarse, monotonic count of content/tool segments produced since the incident opened (not tokens).  
 `ageMs` | `number` | Wall-clock ms since the incident's first interruption.  
   
-A progressing turn survives repeated interruptions as long as it stays within the `maxRecoveryWork` limit. Recovery is sealed by one of these `ctx.reason` values:
+A progressing turn survives repeated interruptions as long as it stays within the `maxRecoveryWork` limit and fewer than `maxInterruptedAttempts` of its attempts die. Recovery is sealed by one of these `ctx.reason` values:
 
   * `no_progress_timeout` — no forward progress within the no-progress window (a stuck turn).
   * `max_attempts_exceeded` — the attempt cap was spent on a tight no-progress alarm loop.
   * `work_budget_exceeded` — the turn kept producing content but exceeded `maxRecoveryWork` (a runaway loop).
+  * `interrupted_attempts_exceeded` — the turn's attempts kept dying before they finished, for example in a memory-limit reset on every run, until `maxInterruptedAttempts` of them had been interrupted.
+  * `out_of_memory` — the alarm memory-limit circuit breaker sealed the recovery after repeated memory-limit resets.
   * `recovery_aborted` — your `shouldKeepRecovering` hook returned `false`.
-  * `out_of_memory` — recovery exceeded the memory-limit retry budget.
   * `stable_timeout` — recovery attempts kept timing out waiting for stable state until the budget drained (extreme churn).
 
 
@@ -1198,10 +1207,10 @@ Tools with an `execute` function run automatically on the server:
     import { z } from "zod";
     export class ChatAgent extends AIChatAgent {
     	async onChatMessage() {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			messages: await convertToModelMessages(this.messages),
     			tools: {
     				getWeather: tool({
@@ -1225,10 +1234,10 @@ Tools with an `execute` function run automatically on the server:
     import { z } from "zod";
     export class ChatAgent extends AIChatAgent {
     	async onChatMessage() {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			messages: await convertToModelMessages(this.messages),
     			tools: {
     				getWeather: tool({
@@ -1502,12 +1511,12 @@ Use `createUIMessageStream` with `writer.write()` to send data parts from the se
     
     export class ChatAgent extends AIChatAgent {
     	async onChatMessage() {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const stream = createUIMessageStream({
     			execute: async ({ writer }) => {
     				const result = streamText({
-    					model: workersai("@cf/zai-org/glm-4.7-flash"),
+    					model: ai("@cf/zai-org/glm-4.7-flash"),
     					messages: await convertToModelMessages(this.messages),
     				});
     
@@ -1548,12 +1557,12 @@ Use `createUIMessageStream` with `writer.write()` to send data parts from the se
     
     export class ChatAgent extends AIChatAgent {
     	async onChatMessage() {
-    		const workersai = createWorkersAI({ binding: this.env.AI });
+    		const ai = createAI({ binding: this.env.AI });
     
     		const stream = createUIMessageStream({
     			execute: async ({ writer }) => {
     				const result = streamText({
-    					model: workersai("@cf/zai-org/glm-4.7-flash"),
+    					model: ai("@cf/zai-org/glm-4.7-flash"),
     					messages: await convertToModelMessages(this.messages),
     				});
     
@@ -1742,7 +1751,7 @@ Row size limits | Automatic compaction | Per-message
     export class ChatAgent extends AIChatAgent {
     	async onChatMessage() {
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			messages: pruneMessages({
     				// LLM context limit
     				messages: await convertToModelMessages(this.messages),
@@ -1759,7 +1768,7 @@ Row size limits | Automatic compaction | Per-message
     export class ChatAgent extends AIChatAgent {
     	async onChatMessage() {
     		const result = streamText({
-    			model: workersai("@cf/zai-org/glm-4.7-flash"),
+    			model: ai("@cf/zai-org/glm-4.7-flash"),
     			messages: pruneMessages({
     				// LLM context limit
     				messages: await convertToModelMessages(this.messages),
@@ -1779,20 +1788,20 @@ Row size limits | Automatic compaction | Per-message
 ### Workers AI (Cloudflare)
     
     
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
-    const workersai = createWorkersAI({ binding: this.env.AI });
+    const ai = createAI({ binding: this.env.AI });
     const result = streamText({
-    	model: workersai("@cf/zai-org/glm-4.7-flash"),
+    	model: ai("@cf/zai-org/glm-4.7-flash"),
     	messages: await convertToModelMessages(this.messages),
     });
     
     
-    import { createWorkersAI } from "workers-ai-provider";
+    import { createAI } from "agents/models/ai-sdk";
     
-    const workersai = createWorkersAI({ binding: this.env.AI });
+    const ai = createAI({ binding: this.env.AI });
     const result = streamText({
-    	model: workersai("@cf/zai-org/glm-4.7-flash"),
+    	model: ai("@cf/zai-org/glm-4.7-flash"),
     	messages: await convertToModelMessages(this.messages),
     });
 

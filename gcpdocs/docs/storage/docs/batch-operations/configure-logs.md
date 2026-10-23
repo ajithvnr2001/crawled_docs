@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/batch-operations/configure-logs/
 title: Cloud Logging for storage batch operations \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:10.680432+00:00
+fetched_at: 2026-10-23T16:50:46.905361+00:00
 ---
 
 # Cloud Logging for storage batch operations  |  Cloud Storage  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Cloud Logging for storage batch operations Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can configure and view [storage batch operations](https://docs.cloud.google.com/storage/docs/batch-operations/overview) logs in Cloud Logging. When you configure Cloud Logging, a batch operations job generates log entries for each transformation job, with each entry corresponding to the attempted transformation of an object.
+You can configure and view [storage batch operations](https://docs.cloud.google.com/storage/docs/batch-operations/overview) logs in Cloud Logging to monitor job progress, filter transformation events, and troubleshoot failed object operations. When enabled, this logging generates an entry for each object that a batch job attempts to transform.
 
-Storage batch operations support logging to both Cloud Logging and [Cloud Storage Cloud Audit Logs](https://docs.cloud.google.com/storage/docs/audit-logging). While both options capture storage batch operations actions, we recommend using Cloud Logging. Cloud Logging provides a centralized platform for log analysis, real-time monitoring, and advanced filtering, offering a robust solution for managing and understanding your batch operation activity.
+Although storage batch operations also sends logs to Cloud Audit Logs, we recommend using Cloud Logging for centralized log analysis and real-time monitoring.
 
 ## Before you begin
 
@@ -298,7 +298,7 @@ Operation-specific log fields | Type | Description
 `PutMetadata.content_disposition_after` | String | Specifies the `Content-Disposition` header value after the completion of the `PutMetadata` job. It's an optional field and is only populated if the content disposition was set or modified.  
 `PutMetadata.content_encoding_after` | String | Specifies the `Content-Encoding` header value after the completion of the `PutMetadata` job. It's an optional field and is only populated if the content encoding was set or modified.  
 `PutMetadata.content_language_after` | String | Specifies the `Content-Language` header value after the completion of the `PutMetadata` job. It's an optional field and is only populated if the content language was set or modified.  
-`PutMetadata.content_type_after` | String | Specifies the `Content-Type` header value after the completion of the `PutMetadata` job. It's an optional field and is only populated if the content type was set or modified.  
+`PutMetadata.content_type_after` | String | Specifies the `Content-Type` header value after the completion of the `PutMetadata` job. It's an optional field and is only populated if the content- type was set or modified.  
 `PutMetadata.cache_control_after` | String | Specifies the `Cache-Control` header value after the completion of the `PutMetadata` job. It's an optional field and is only populated if the cache control was set or modified.  
 `PutMetadata.custom_time_after` | String | Specifies the `Custom-Time` header value after the completion of the `PutMetadata` job. It's an optional field and is only populated if the custom time was set or modified.  
 `PutMetadata.custom_metadata_after` | Map (key: string, value: string) | Contains a map of `Custom- Metadata` key-value pairs after the transformation. This field includes any user-defined metadata that was set or modified on the object. It allows for flexible storage of additional metadata.  
@@ -309,6 +309,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
