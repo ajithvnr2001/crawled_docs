@@ -1,0 +1,7 @@
+{
+  "url": "https://ai.google.dev/showcase/sourcegraph/",
+  "file": "showcase/sourcegraph.md",
+  "title": "Google AI Studio",
+  "method": "httpx+scrapegraph (scrapling: scrapling thin content (76 chars), fallback to crawl4ai | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 632 in wrap_api_call (../../../usr/local/lib/python3.10/dist-packages/playwright/_impl/_connection.py):\nError: BrowserContext.add_cookies: Protocol error (Storage.setCookies): Invalid cookie fields\n\nCode context:\n 627           )\n 628           self._api_zone.set(parsed_st)\n 629           try:\n 630               return await cb()\n 631           except Exception as error:\n 632 \u2192             raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\n 633           finally:\n 634               self._api_zone.set(None)\n 635   \n 636       def wrap_api_call_sync(\n 637           self, cb: Callable[[], Any], is_internal: bool = False, title: str = None)",
+  "fetched_at": "2026-10-23T11:46:29.811836+00:00"
+}

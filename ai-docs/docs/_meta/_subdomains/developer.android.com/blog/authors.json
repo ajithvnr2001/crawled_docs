@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/blog/authors/",
+  "file": "_subdomains/developer.android.com/blog/authors.md",
+  "title": "Authors \u00a0|\u00a0 Android Developers' Blog",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:21:35.251560+00:00",
+  "html_len": 290570,
+  "md_len": 6007,
+  "depth": 2
+}

@@ -1,0 +1,10 @@
+{
+  "url": "https://aistudio.google.com/",
+  "file": "_subdomains/aistudio.google.com/_index.md",
+  "title": "Google AI Studio",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (61 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T19:20:26.070236+00:00",
+  "html_len": 182664,
+  "md_len": 6442,
+  "depth": 1
+}

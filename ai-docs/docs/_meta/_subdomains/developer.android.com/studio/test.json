@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/studio/test/",
+  "file": "_subdomains/developer.android.com/studio/test.md",
+  "title": "Test your app \u00a0|\u00a0 Android Studio \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:44:58.321672+00:00",
+  "html_len": 245239,
+  "md_len": 3626,
+  "depth": 3
+}

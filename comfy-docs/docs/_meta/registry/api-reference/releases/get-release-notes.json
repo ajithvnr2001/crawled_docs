@@ -1,0 +1,7 @@
+{
+  "url": "https://docs.comfy.org/registry/api-reference/releases/get-release-notes/",
+  "file": "registry/api-reference/releases/get-release-notes.md",
+  "title": "Get release notes - ComfyUI",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-20T12:40:26.326823+00:00"
+}

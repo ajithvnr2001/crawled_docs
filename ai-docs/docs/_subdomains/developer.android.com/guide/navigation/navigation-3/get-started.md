@@ -1,0 +1,90 @@
+---
+url: https://developer.android.com/guide/navigation/navigation-3/get-started/
+title: Get started \u00a0|\u00a0 App architecture \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:40:50.186053+00:00
+---
+
+# Get started  |  App architecture  |  Android Developers
+
+> Source: https://developer.android.com/guide/navigation/navigation-3/get-started/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Design & Plan ](https://developer.android.com/design)
+  * [ App architecture ](https://developer.android.com/topic/architecture/intro)
+
+
+
+#  Get started Stay organized with collections  Save and categorize content based on your preferences. 
+
+To get started with Navigation 3, add the library to your project along with any supporting libraries. Use the following table to decide which libraries to add:
+
+## Artifacts
+
+**Name** | **What it does** | **Artifact**  
+---|---|---  
+Navigation 3 runtime library | Core Navigation 3 API. Includes `NavEntry`, `EntryProvider` and the associated DSL. | [androidx.navigation3:navigation3-runtime](https://developer.android.com/jetpack/androidx/releases/navigation3)  
+Navigation 3 UI library | Provides classes to display content, including `NavDisplay` and `Scene`. | [androidx.navigation3:navigation3-ui](https://developer.android.com/jetpack/androidx/releases/navigation3)  
+ViewModel Lifecycle for Navigation 3 | Allows ViewModels to be scoped to entries in the back stack. | [androidx.lifecycle:lifecycle-viewmodel-navigation3](https://developer.android.com/jetpack/androidx/releases/lifecycle#lifecycle.lifecycle-viewmodel-navigation3)  
+Material 3 adaptive layouts for Navigation 3 | Provides adaptive layouts (SceneStrategies, Scenes and metadata definitions) for use with NavDisplay. | [androidx.compose.material3.adaptive:adaptive-navigation3](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive)  
+[KotlinX Serialization](https://kotlinlang.org/docs/serialization.html) | Allows navigation keys to be serialized. | Plugin: org.jetbrains.kotlin.plugin.serializationLibrary:org.jetbrains.kotlinx:kotlinx-serialization-core  
+  
+## Project setup
+
+To add the Navigation 3 library to your existing project, add the following to your `libs.versions.toml`:
+    
+    
+    [versions]
+    nav3Core = "1.2.0"
+    lifecycleViewmodelNav3 = "2.12.0-alpha04"
+    kotlinSerialization = "2.2.21"
+    kotlinxSerializationCore = "1.9.0"
+    material3AdaptiveNav3 = "1.4.0-alpha03"
+    
+    [libraries]
+    # Core Navigation 3 libraries
+    androidx-navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "nav3Core" }
+    androidx-navigation3-ui = { module = "androidx.navigation3:navigation3-ui", version.ref = "nav3Core" }
+    
+    # Optional add-on libraries
+    androidx-lifecycle-viewmodel-navigation3 = { module = "androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "lifecycleViewmodelNav3" }
+    kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinxSerializationCore" }
+    androidx-material3-adaptive-navigation3 = { group = "androidx.compose.material3.adaptive", name = "adaptive-navigation3", version.ref = "material3AdaptiveNav3" }
+    
+    [plugins]
+    # Optional plugins
+    jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinSerialization"}
+    
+    
+
+Also, update your compile SDK to 36 or later:
+    
+    
+    [versions]
+    compileSdk = "36"
+    
+
+Add the following to your **app** build file `app/build.gradle.kts`:
+    
+    
+    plugins {
+        ...
+        // Optional, provides the @Serialize annotation for autogeneration of Serializers.
+        alias(libs.plugins.jetbrains.kotlin.serialization)
+    }
+    
+    dependencies {
+        ...
+        implementation(libs.androidx.navigation3.ui)
+        implementation(libs.androidx.navigation3.runtime)
+        implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+        implementation(libs.androidx.material3.adaptive.navigation3)
+        implementation(libs.kotlinx.serialization.core)
+    }
+    
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-10-07 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-07 UTC."],[],[]] 

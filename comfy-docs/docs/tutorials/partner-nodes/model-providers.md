@@ -1,0 +1,101 @@
+---
+url: https://docs.comfy.org/tutorials/partner-nodes/model-providers/
+title: Model provider verification, licensing, and data residency - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:51:34.672509+00:00
+---
+
+# Model provider verification, licensing, and data residency - ComfyUI
+
+> Source: https://docs.comfy.org/tutorials/partner-nodes/model-providers/
+
+Partner Nodes
+
+# Model provider verification, licensing, and data residency
+
+Copy pageCopy page
+
+Verification status, commercial licensing, and data residency for the model providers behind Comfy’s Partner Nodes.
+
+Copy pageCopy page
+
+This page tracks the model providers behind Comfy’s Partner Nodes in one table: verification status, commercial licensing for Cloud and local use, and data residency. It’s a structure we’re actively filling in, not a finished reference. Some columns reflect confirmed facts today, others are placeholders until we’ve verified the details with each provider. For pricing by provider, see [Partner Node Pricing](https://docs.comfy.org/tutorials/partner-nodes/pricing). This page covers the providers behind Partner Nodes. For how long Comfy stores Partner Node inputs and outputs, see [Data Retention](https://docs.comfy.org/tutorials/partner-nodes/data-retention). For the providers that serve each Comfy Router model, see [Serving providers](https://docs.comfy.org/development/comfy-router/providers).
+
+## 
+
+​
+
+What each column means
+
+  * **Verified** : “Yes” means Comfy has a signed contract with this provider. The contract says the provider does not use your content to train or improve its models when you use it through Comfy. The provider also gives IP indemnity to Comfy. “No” means the provider’s own terms and privacy policy apply. This does not mean the provider trains on your data. “Pending” means we have not confirmed this provider’s status yet.
+  * **Commercial License (Cloud)** : whether commercial use through Comfy Cloud is confirmed for that provider’s models.
+  * **Commercial License (Local)** : whether commercial use for local, self-hosted usage is confirmed for that provider’s models. “Request” means commercial use needs a separate request or license rather than being included automatically.
+  * **Data Residency** : where a provider processes data by default today. “Pending” means we haven’t confirmed the location with that provider yet.
+
+“Pending” in a license column means we haven’t confirmed that license yet. That will change to a checkmark, a dash, or “Request” as each partnership is confirmed.
+
+## 
+
+​
+
+Providers
+
+Provider| Verified| Commercial License (Cloud)| Commercial License (Local)| Data Residency  
+---|---|---|---|---  
+Alibaba| Yes| ✓| Pending| Singapore  
+Black Forest Labs (FLUX)| Yes| ✓| ✓| US, EU, Israel  
+Bria| Yes| ✓| ✓| US, EU  
+Clarity AI| Pending| Pending| Pending| Pending  
+ElevenLabs| Yes| ✓| ✓| Pending  
+Fish Audio| Pending| ✓| Pending| US  
+Freepik (Magnific)| Pending| ✓| Pending| US, EU (varies by model)  
+Genary| Yes| ✓| Pending| Pending  
+Google| Yes| ✓| ✓| Pending  
+Hitpaw| No| ✓| —| —  
+Ideogram| Pending| ✓| Pending| US  
+Kling| Yes| ✓| Pending| Singapore  
+Lightricks (LTX)| Yes| ✓| ✓| US, Iceland  
+Luma| Yes| ✓| Pending| Pending  
+Meshy| Yes| ✓| Pending| Pending  
+MiniMax| Yes| ✓| Request| US  
+Pixverse| Yes| ✓| ✓| Pending  
+Recraft| Pending| ✓| Pending| US, EU  
+Runway| Yes| ✓| ✓| Pending  
+Singdata (ByteDance)| Yes| ✓| ✓| Malaysia, EU (some models)  
+Sonilo| No| ✓| —| —  
+Tencent| Yes| ✓| ✓| Pending  
+Topaz| Yes| ✓| Pending| US  
+Vidu| Yes| ✓| Pending| Pending  
+xAI| Yes| ✓| ✓| Pending  
+  
+Additional data residency options may be available for Enterprise customers. [Contact us](https://comfy.org/contact/) for details.This table is a living document. Verification status is current, but license and residency details for most providers are still being confirmed and will update as we verify them.
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/model-providers.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/model-providers)
+
+[Partner Node Data RetentionPrevious](https://docs.comfy.org/tutorials/partner-nodes/data-retention)[Image ModelsNext](https://docs.comfy.org/tutorials/partner-nodes/image/overview)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

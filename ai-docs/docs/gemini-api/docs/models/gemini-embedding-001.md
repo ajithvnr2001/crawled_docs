@@ -1,0 +1,30 @@
+---
+url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001/
+title: Gemini Embedding model
+method: scrapling+scrapegraph
+fetched_at: 2026-10-23T11:44:43.542048+00:00
+---
+
+# Gemini Embedding model
+
+> Source: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001/
+
+A specialized engine for high-dimensional vector representation, providing efficient numerical mapping of text and images. The Gemini Embedding model is best for semantic search, document retrieval, and recommendation systems that require fast, scalable similarity calculations across large datasets.
+
+## Documentation
+
+Visit the [Embeddings](https://ai.google.dev/gemini-api/docs/embeddings) page for full coverage of features and capabilities.
+
+## gemini-embedding-001
+
+Property | Description  
+---|---  
+id_cardModel code |  **Gemini API** `gemini-embedding-001`  
+saveSupported data types |  **Input** Text **Output** Text embeddings  
+token_autoToken limits[[*]](https://ai.google.dev/gemini-api/docs/tokens) |  **Input token limit** 2,048 **Output dimension size** Flexible, supports: 128 - 3072, Recommended: 768, 1536, 3072  
+123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models/gemini#model-versions) for more details.
+
+  * Stable: `gemini-embedding-001`
+
+  
+calendar_monthLatest update | June 2025

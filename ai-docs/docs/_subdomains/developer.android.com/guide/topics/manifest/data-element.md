@@ -1,0 +1,211 @@
+---
+url: https://developer.android.com/guide/topics/manifest/data-element/
+title: <data> \u00a0|\u00a0 App architecture \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:40:20.523085+00:00
+---
+
+# <data>  |  App architecture  |  Android Developers
+
+> Source: https://developer.android.com/guide/topics/manifest/data-element/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Design & Plan ](https://developer.android.com/design)
+  * [ App architecture ](https://developer.android.com/topic/architecture/intro)
+
+
+
+#  <data> Stay organized with collections  Save and categorize content based on your preferences. 
+
+syntax:
+    If the data tag is the immediate child of an `[<intent-filter>](https://developer.android.com/guide/topics/manifest/intent-filter-element)`:   
+
+    
+    
+    <data android:scheme="_string_ "
+          android:host="_string_ "
+          android:port="_string_ "
+          android:path="_string_ "
+          android:pathPattern="_string_ "
+          android:pathPrefix="_string_ "
+          android:pathSuffix="_string_ "
+          android:pathAdvancedPattern="_string_ "
+          android:mimeType="_string_ " />
+
+  
+If the data tag is the immediate child of a `[<uri-relative-filter-group>](https://developer.android.com/guide/topics/manifest/uri-relative-filter-group-element)`:   
+
+    
+    
+    <data
+          android:path="_string_ "
+          android:pathPattern="_string_ "
+          android:pathPrefix="_string_ "
+          android:pathSuffix="_string_ "
+          android:pathAdvancedPattern="_string_ "
+          android:fragment="_string_ "
+          android:fragmentPattern="_string_ "
+          android:fragmentPrefix="_string_ "
+          android:fragmentSuffix="_string_ "
+          android:fragmentAdvancedPattern="_string_ "
+          android:query="_string_ "
+          android:queryPattern="_string_ "
+          android:queryPrefix="_string_ "
+          android:querySuffix="_string_ "
+          android:queryAdvancedPattern="_string_ " />
+
+contained in:
+     `[<intent-filter>](https://developer.android.com/guide/topics/manifest/intent-filter-element)`   
+`[<uri-relative-filter-group>](https://developer.android.com/guide/topics/manifest/uri-relative-filter-group-element)`
+description:
+    Adds a data specification to an intent filter. The specification is a data type, using the `[mimeType](https://developer.android.com/guide/topics/manifest/data-element#mime)` attribute, a URI, or both a data type and a URI. A URI is specified by separate attributes for each of its parts: 
+
+`<scheme>://<host>:<port>[<path>|<pathPrefix>|<pathPattern>|<pathAdvancedPattern>|<pathSuffix>]`
+
+These attributes that specify the URI format are optional, but also mutually dependent: 
+
+  * If a `[scheme](https://developer.android.com/guide/topics/manifest/data-element#scheme)` isn't specified for the intent filter, all the other URI attributes are ignored.
+  * If a `[host](https://developer.android.com/guide/topics/manifest/data-element#host)` isn't specified for the filter, the `port` attribute and all the path attributes are ignored. 
+
+
+
+All the `<data>` elements contained within the same `[<intent-filter>](https://developer.android.com/guide/topics/manifest/intent-filter-element)` element contribute to the same filter. So, for example, the following filter specification: 
+    
+    
+    <intent-filter . . . >
+        <data android:scheme="something" android:host="project1.example.com" />
+        <data android:scheme="something-else" android:host="project2.example.com" android:path="/page1" />
+        ...
+    </intent-filter>
+
+is equivalent to this one:
+    
+    
+    <intent-filter . . . >
+        <data android:scheme="something" />
+        <data android:scheme="something-else" />
+        <data android:host="project1.example.com" />
+        <data android:host="project2.example.com" />
+        <data android:path="/page1" />
+        ...
+    </intent-filter>
+
+You can place any number of `<data>` elements inside an `[<intent-filter>](https://developer.android.com/guide/topics/manifest/intent-filter-element)` to give it multiple data options. None of its attributes have default values. 
+
+For information on how intent filters work, including the rules for how intent objects are matched against filters, see [Intents and Intent Filters](https://developer.android.com/guide/components/intents-filters) and the [Intent filters](https://developer.android.com/guide/topics/manifest/manifest-intro#ifs) section in the manifest file overview. 
+
+attributes:
+    
+
+`android:scheme`
+    The scheme part of a URI. This is the minimal essential attribute for specifying a URI. At least one `scheme` attribute must be set for the filter, or none of the other URI attributes are meaningful. 
+
+A scheme is specified without the trailing colon, such as `http` rather than `http:`. 
+
+If the filter has a data type set (using the `[mimeType](https://developer.android.com/guide/topics/manifest/data-element#mime)` attribute) but no scheme, the `content:` and `file:` schemes are assumed. 
+
+**Note** : Scheme matching in the Android framework is case-sensitive, unlike the RFC. As a result, always specify schemes using lowercase letters.
+
+`android:host`
+     The host part of a URI authority. This attribute is meaningless unless a `[scheme](https://developer.android.com/guide/topics/manifest/data-element#scheme)` attribute is also specified for the filter. To match multiple subdomains, use an asterisk (`*`) to match zero or more characters in the host. For example, the host `*.google.com` matches `www.google.com`, `.google.com`, and `developer.google.com`. 
+
+The asterisk must be the first character of the host attribute. For example, the host `google.co.*` is invalid, because the asterisk wildcard isn't the first character.
+
+**Note** : Host name matching in the Android framework is case-sensitive, unlike the formal RFC. As a result, always specify host names using lowercase letters.
+
+`android:port`
+    The port part of a URI authority. This attribute is meaningful only if the `scheme` and `host` attributes are also specified for the filter.
+`android:path`   
+`android:pathPrefix`   
+`android:pathSuffix`   
+`android:pathPattern`   
+`android:pathAdvancedPattern`
+    The path part of a URI, which must begin with a `/`. The `path` attribute specifies a complete path that is matched against the complete path in an `Intent` object. The `pathPrefix` attribute specifies a partial path that is matched against only the initial part of the path in the `Intent` object. 
+
+The `pathSuffix` attribute is matched exactly against the ending part of the path in the `Intent` object, and this attribute doesn't have to begin with the `/` character. 
+
+The `pathPattern` attribute specifies a complete path that is matched against the complete path in the `Intent` object, but it can contain the following wildcards: 
+
+  * A period (`.`) matches any single character. To match a literal period, escape it as `\\.` in your XML. 
+  * An asterisk (`*`) matches a sequence of zero to many occurrences of the immediately preceding character. For example, `a*` matches "a" and "aa", but doesn't match an empty string. 
+  * A period followed by an asterisk (`.*`) matches any sequence of zero or more characters. For example, `.*` matches an empty string, and `b.*` matches "b", "bc", and "bcd". 
+
+
+
+**Important Considerations for`pathPattern`:**
+
+  * **No Backtracking:** Android's pattern matcher evaluates strings in a single forward pass without backtracking. If a wildcard consumes characters that are needed later in the pattern, the match will fail. 
+  * **`.*` is Lazy:** The `.*` wildcard is lazy. It consumes characters until it finds the _first_ occurrence of the next literal character in the pattern. 
+    * `"abc.*xyz"` will **not** match `"abcpxqrxyz"`. The `.*` lazily stops at the first `"x"` (from `"px..."`). The remaining string `"qrxyz"` fails to match the expected `"yz"`. 
+    * _Warning:_ Because `.*` looks for an exact character match to stop, `"a.*.c"` will **not** match `"abbbc"`. The matcher treats the second `.` as a literal period and scans the string looking for a `"."`, failing when it reaches the end. 
+  * **`*` is Greedy:** A specific character followed by an asterisk (like `a*`) is greedy. It consumes _all_ consecutive occurrences of that character without looking ahead. 
+    * `"a*a"` will **not** match strings like `"aaa"`. The `a*` part greedily consumes all three `"a"`s. The pattern then expects the final `"a"`, but the string is already exhausted, causing the match to fail. 
+  * **Best Practices:**
+    * Avoid patterns where the character immediately following an `*` is the same as the character preceding it (e.g., `a*a`). 
+    * Avoid placing wildcards immediately after `.*` (e.g., `.*.` or `.*.*`). 
+    * If you intend to match a prefix, it is safer and more efficient to use `android:pathPrefix` instead of ending a `pathPattern` with `.*`. 
+
+
+
+The `pathAdvancedPattern` attribute specifies a complete path, which is matched against the complete path of the `Intent` object and supports the following regex-like patterns: 
+
+  * A period (`.`) matches any character. 
+  * A set (`[...]`) matches ranges of characters. For example , `[0-5]` matches a single digit from 0 through 5 but not 6 through 9. `[a-zA-Z]` matches any letter, regardless of case. Sets also support the "not" `^` modifier. 
+  * The asterisk (`*`) modifier matches the preceding pattern zero or more times. 
+  * The plus (`+`) modifier matches the preceding pattern one or more times. 
+  * The range (`{...}`) modifier specifies the number of times a pattern can match. 
+
+The `pathAdvancedPattern` matcher is an evaluation implementation in which matching is done against the pattern in real time with no backtracking support. 
+
+Because `\` is used as an escape character when the string is read from XML, before it is parsed as a pattern, you need to double-escape. For example, a literal `*` is written as `\\*`, and a literal `\` is written as `\\\\`. This is like what you write when constructing the string in Java code. 
+
+For more information about these five types of patterns, see the descriptions of `[PATTERN_LITERAL](https://developer.android.com/reference/android/os/PatternMatcher#PATTERN_LITERAL)`, `[PATTERN_PREFIX](https://developer.android.com/reference/android/os/PatternMatcher#PATTERN_PREFIX)`, `[PATTERN_SIMPLE_GLOB](https://developer.android.com/reference/android/os/PatternMatcher#PATTERN_SIMPLE_GLOB)`, `[PATTERN_SUFFIX](https://developer.android.com/reference/android/os/PatternMatcher#PATTERN_SUFFIX)`, and `[PATTERN_ADVANCED_GLOB](https://developer.android.com/reference/android/os/PatternMatcher#PATTERN_ADVANCED_GLOB)` in the `[PatternMatcher](https://developer.android.com/reference/android/os/PatternMatcher)` class. 
+
+These attributes are meaningful only if the `scheme` and `host` attributes are also specified for the filter. 
+
+`pathSuffix` and `pathAdvancedPattern` were introduced in API level 31.
+
+`android:fragment`   
+`android:fragmentPrefix`   
+`android:fragmentSuffix`   
+`android:fragmentPattern`   
+`android:fragmentAdvancedPattern`
+    
+
+A matcher for a URI fragment. Do not include the `#` prefix. See above for the meaning of and patterns permitted in each attribute. 
+
+To match characters that are usually URI encoded, include the raw (nonencoded) form in the attribute value. For example, `<data android:fragment="test!" />` matches `#test!` and `#test%21`. 
+
+Introduced in API level 35.
+
+`android:query`   
+`android:queryPrefix`   
+`android:querySuffix`   
+`android:queryPattern`   
+`android:queryAdvancedPattern`
+    
+
+A matcher for a URI query parameter (and, optionally, a value). For example, you can match URIs ending in `?param=value` with `<data android:query="param=value" />`. Do not include the `?` prefix. See above for the meaning of and patterns permitted in each attribute. 
+
+To match characters that are usually URI-encoded, include the raw (nonencoded) form in the attribute value. For example, `<data android:query="test!" />` matches `?test!` and `?test%21`. 
+
+Introduced in API level 35.
+
+`android:mimeType`
+    A MIME media type, such as `image/jpeg` or `audio/mpeg4-generic`. The subtype can be the asterisk wildcard (`*`) to indicate that any subtype matches. 
+
+It's common for an intent filter to declare a `<data>` element that includes only the `android:mimeType` attribute.
+
+**Note** : MIME type matching in the Android framework is case-sensitive, unlike formal RFC MIME types. As a result, always specify MIME types using lowercase letters.
+
+introduced in:
+    API level 1
+see also:
+    `[<action>](https://developer.android.com/guide/topics/manifest/action-element)`   
+`[<category>](https://developer.android.com/guide/topics/manifest/category-element)`
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-04-21 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-04-21 UTC."],[],[]] 

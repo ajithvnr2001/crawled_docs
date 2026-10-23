@@ -1,0 +1,81 @@
+---
+url: https://docs.comfy.org/built-in-nodes/FreSca/
+title: FreSca - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:47:58.591767+00:00
+---
+
+# FreSca - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/FreSca/
+
+Experimental
+
+# FreSca - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+The FreSca node applies frequency-dependent scaling to the guidance during the sampling process.
+
+Copy pageCopy page
+
+The FreSca node applies frequency-dependent scaling to the guidance during the sampling process. It separates the guidance signal into low-frequency and high-frequency components using Fourier filtering, then applies different scaling factors to each frequency range before recombining them. This allows for more nuanced control over how guidance affects different aspects of the generated output.
+
+## 
+
+​
+
+Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`model`| The model to apply frequency scaling to| MODEL| Yes| -  
+`scale_low`| Scaling factor for low-frequency components (default: 1.0)| FLOAT| No| 0 - 10  
+`scale_high`| Scaling factor for high-frequency components (default: 1.25)| FLOAT| No| 0 - 10  
+`freq_cutoff`| Number of frequency indices around center to consider as low-frequency (default: 20)| INT| No| 1 - 10000  
+  
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`model`| The modified model with frequency-dependent scaling applied to its guidance function| MODEL  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/FreSca/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `2ff3517619d856db68a9091ae7c87af8c56a23420fa2176b089bf9700475a7a9`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/FreSca.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/FreSca)
+
+[FluxKVCache - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/FluxKVCache)[LatentBlend - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/LatentBlend)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

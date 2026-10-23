@@ -1,0 +1,10 @@
+{
+  "url": "https://discuss.ai.google.dev/t/gemini-4-argon-returns-no-context-cache-hits-explicit-caching-returns-400-gemini-3-7-flash-caches-the-same-prefix/189019/3/",
+  "file": "_subdomains/discuss.ai.google.dev/t/gemini-4-argon-returns-no-context-cache-hits-explicit-caching-returns-400-gemini-3-7-flash-caches-the-same-prefix/189019/3.md",
+  "title": "Gemini-4-argon returns no context cache hits; explicit caching returns 400 (gemini-3.7-flash caches the same prefix) - Gemini API - Google AI Developers Forum",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (347 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T19:27:16.443772+00:00",
+  "html_len": 482534,
+  "md_len": 10170,
+  "depth": 2
+}

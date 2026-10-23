@@ -1,0 +1,184 @@
+---
+url: https://docs.comfy.org/ja/api-reference/v2/overview/
+title: Comfy API v2 \u306e\u6982\u8981 - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:53:51.705666+00:00
+---
+
+# Comfy API v2 の概要 - ComfyUI
+
+> Source: https://docs.comfy.org/ja/api-reference/v2/overview/
+
+## このページの内容
+
+  * v2 が動作する場所
+  * 設計原則
+  * ベース URL
+  * エンドポイントのカテゴリ
+  * 出力URLとその有効期間
+    * 2つのURL形状
+    * 署名付きURLの有効期限を読み取る
+    * ジョブ出力の url_expires_at は別の数値
+    * 自分のプロダクトで出力を表示する
+  * Comfy Router
+
+
+
+ワークフローの実行
+
+# Comfy API v2 の概要
+
+ページをコピーページをコピー
+
+公式 Comfy API v2 リファレンス：入力をアップロードしてワークフローを送信し、結果をポーリングして外部アプリケーションから ComfyUI ワークフローを実行します。
+
+ページをコピーページをコピー
+
+Comfy API v2 はバージョン管理された API です。v2 内の変更は追加的なものに限られ、互換性を損なう変更は v3 で行われます。
+
+外部アプリケーションから ComfyUI ワークフローを実行するための、公式のバージョン管理された HTTP API です。入力のアップロード、ワークフローの送信、実行の監視、結果の取得を行うことができます。 ほとんどのユーザーは、この API を Python と TypeScript でラップした [Comfy SDK](https://docs.comfy.org/ja/development/api-development/sdks) から始めることをお勧めします。別の言語で開発している場合は、これらのエンドポイントを直接呼び出してください。 このセクションの API Reference ページに、OpenAPI 仕様から生成された完全なエンドポイントドキュメントがあります。
+
+## 
+
+​
+
+v2 が動作する場所
+
+同じ API は 3 つのサーフェスで提供されているため、ベース URL を変更するだけで 1 つの統合をそれらの間で移行できます。 **Comfy Cloud。** `https://cloud.comfy.org` で提供されるマネージド型のマルチテナントサービスです。[API キー](https://docs.comfy.org/ja/development/api-development/getting-an-api-key) を作成すれば、任意のワークフローを送信できます。クレジット、モデルの閲覧、キューの管理といった Cloud 固有の機能は v2 ではなく [v1 Cloud API](https://docs.comfy.org/ja/development/cloud/overview) にあります。 **Comfy API デプロイメント。** [Developer Platform](https://platform.comfy.org) を通じてデプロイした環境には、`https://{deployment}.run.comfy.app` という専用のエンドポイントが割り当てられ、同じ API キーで同じ v2 API を提供します。Comfy API デプロイメントは 1 つの固定された環境に対してワークフローを実行するため独立してスケールし、`GET /workflow` は実行されたグラフを返します。構築とデプロイの手順については、[Comfy API デプロイメントガイド](https://docs.comfy.org/ja/development/serverless/overview) を参照してください。 **オープンソースの ComfyUI（プロキシ経由）。** セルフホストの ComfyUI は [comfy-api-proxy](https://github.com/Comfy-Org/comfy-api-proxy) を通じて v2 を利用できます。これは ComfyUI と並行して動作する小規模なオープンソースサービスです：
+    
+    
+    pip install comfy-api-proxy
+    comfy-api-proxy
+    
+
+デフォルトでは `127.0.0.1:8188` の ComfyUI をプロキシし、`127.0.0.1:8189` で v2 API を提供して、ループバックにのみバインドします。認証はデフォルトで無効であり、オプションで静的なベアラートークンを使用できます。設定の詳細については、SDK ガイドの [独自の ComfyUI](https://docs.comfy.org/ja/development/api-development/sdks) を参照してください。
+
+## 
+
+​
+
+設計原則
+
+  * **ポーリング優先。** すべての機能は、単純な GET ポーリングで利用できます。SSE ストリームはライブ拡張機能であり、正本（source of truth）にはなりません。
+  * **すべて再開可能。** 送信は冪等であり、ジョブの状態と出力は `expires_at` まで ID で取得できます。出力用に返される URL の有効期間はそれよりも短くなります。出力 URL とその有効期間 を参照してください。
+  * **コンテンツアドレス型アセット。** アセットは、サーバーが計算した blake3 ハッシュをキーとする blob 上の UUID 識別レコードです。そのため、同一の入力が 2 回アップロードされることはありません。
+  * **URL を組み立てず、リンクに従う。** レスポンスには後続の URL が埋め込まれています。
+
+これらの背景にある設計上の理由については、[設計メモ](https://docs.comfy.org/ja/development/api-development/sdks-design) を参照してください。
+
+## 
+
+​
+
+ベース URL
+
+サーフェス| URL| 認証  
+---|---|---  
+Comfy Cloud| `https://cloud.comfy.org`| `Authorization: Bearer <api-key>`  
+Comfy API デプロイメント| `https://{deployment}.run.comfy.app`| `Authorization: Bearer <api-key>`  
+セルフホスト（[comfy-api-proxy](https://github.com/Comfy-Org/comfy-api-proxy) 経由）| `http://127.0.0.1:8189`| デフォルトでは認証なし。オプションで静的ベアラートークンを使用可能  
+  
+## 
+
+​
+
+エンドポイントのカテゴリ
+
+カテゴリ| 説明  
+---|---  
+アセット| コンテンツアドレス型 blob 上の UUID 識別レコード。入力のアップロードと出力のダウンロードを行います。  
+ジョブ| ワークフローの 1 回の実行。永続的で、ポーリング可能であり、キャンセルも可能です。  
+  
+## 
+
+​
+
+出力URLとその有効期間
+
+「自分の出力のURL」には3つの異なる寿命があり、それらは同じ数字ではありません。出力を自社のユーザーに表示するアプリケーションは、この3つすべてを考慮に入れる必要があります。
+
+### 
+
+​
+
+2つのURL形状
+
+形状| 入手場所| 第三者が開けるか| 有効期間  
+---|---|---|---  
+コンテンツエンドポイント、`{base}/api/v2/assets/{id}/content`| ジョブの `outputs` の各エントリの `url`| いいえ。認証が必要なルートであり、APIキーがなければ `401` を返します。| 安定。アセットが存在する限り解決されます。  
+署名付きストレージURL| `Asset` レスポンスの `url`、コンテンツエンドポイントがリダイレクトする `302` の `Location`、および両SDKの `getDownloadUrl()`| はい。それ自体が認可を伴うため、ブラウザや別のサービスが独自のキーなしで読み取れます。| 短い。現在の Comfy Cloud では約6時間です。  
+  
+実用上の結論: `Output.url` は共有できるリンクではありません。これをユーザーのブラウザが読み込む `<img src>` に入れると、そのブラウザはあなたのAPIキーを持っていないため `401` が返ります。配布できるのは署名付きURLの方です。 [comfy-api-proxy](https://github.com/Comfy-Org/comfy-api-proxy) の背後のセルフホスト ComfyUI には署名付きURLがまったくありません。プロキシがコンテンツエンドポイントからバイトを配信し、通常の認証が適用され、SDKは有効期限を `null` (Python: `None`) として報告します。
+
+### 
+
+​
+
+署名付きURLの有効期限を読み取る
+
+Comfy Cloud と Comfy API のデプロイメントでは、署名付きURLは**約6時間** の有効期間で発行されます。この数値はAPIコントラクトの一部ではなくサーバー側の設定であるため、桁数程度の目安として扱い、決してハードコードしないでください。有効期限は与えられたレスポンスから読み取ってください:
+
+  * `Asset` レスポンスの `url_expires_at` は、同じレスポンス内の `url` の実際の有効期限です。
+  * `getDownloadUrl()` はURLとともにこれを返します。TypeScript では `expiresAt`、Python では `expires_at` です。
+
+
+
+### 
+
+​
+
+ジョブ出力の `url_expires_at` は別の数値
+
+ジョブの `outputs` のエントリにある `url_expires_at` は、署名付きURLの有効期限では**ありません** 。Comfy Cloud では、ジョブ自身の `expires_at` を繰り返しており、現在これはジョブの `created_at` に固定の30日間のウィンドウを加えたものです。 このウィンドウはプレースホルダーです。プラットフォームにはまだこれを裏付けるジョブ保持やガベージコレクションのポリシーがないため、30日間はフィールドを null 以外にするための代用値であり、出力がいつまで取得可能かを約束するものではありません。これを約束事として読んだり、キャッシュのキーにしたりしないでください。実際の保持ポリシーがこれに取って代われば、このページは更新されます。
+
+### 
+
+​
+
+自分のプロダクトで出力を表示する
+
+1日後にも出力を表示し続けるには、次のいずれかを行ってください:
+
+  * **バイトを再ホストする。** 出力を一度ダウンロードし、自分のストレージにコピーします。ほとんどのアプリケーションはここに落ち着きます。
+  * **オンデマンドで再発行する。** アセットの `id` を永続化し、レンダリングする時点でそれを新しいURL (`GET /api/v2/assets/{id}`、または `getDownloadUrl()`) に解決し、そのURLをすぐに使用します。
+  * **プロキシする。** すでにAPIキーを保持している自分のバックエンドから `Output.url` を取得し、バイトをユーザーにストリーミングします。
+
+うまくいかないのは、署名付きURLを永続化することです。有効なのは数時間であり数日ではないため、保存したコピーはローカルテストでは動き続けますが、有効期限が切れるとユーザーに対しては壊れてしまいます。
+
+## 
+
+​
+
+Comfy Router
+
+Comfy API v2 は、送信してポーリングする永続的なジョブとしてワークフローを実行します。モデルを直接呼び出す場合（パートナーモデル 1 つ、リクエスト 1 つ、モデル固有のネイティブな入出力）は、[Comfy Router](https://docs.comfy.org/ja/development/comfy-router/quickstart) をご覧ください。先に [Router の制限事項](https://docs.comfy.org/ja/development/comfy-router/limitations) をご確認ください。Router はまだ一般提供されていません。
+
+このページは役に立ちましたか？
+
+はいいいえ
+
+[編集を提案](https://github.com/comfy-org/docs/edit/main/ja/api-reference/v2/overview.mdx)[問題を報告](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/ja/api-reference/v2/overview)
+
+[API キーの取得前へ](https://docs.comfy.org/ja/development/api-development/getting-an-api-key)[Upload an asset (single-call multipart)次へ](https://docs.comfy.org/ja/api-reference/v2/assets/upload-an-asset-single-call-multipart)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+リソース
+
+[インストール](https://docs.comfy.org/ja/installation/system_requirements)[チュートリアル](https://docs.comfy.org/ja/tutorials/basic/text-to-image)[開発](https://docs.comfy.org/ja/development/overview)
+
+プロダクト
+
+[機能](https://www.comfy.org/?utm_source=docs)[ギャラリー](https://www.comfy.org/gallery?utm_source=docs)[ダウンロード](https://www.comfy.org/download?utm_source=docs)
+
+会社情報
+
+[概要](https://www.comfy.org/about?utm_source=docs)[採用情報](https://www.comfy.org/careers?utm_source=docs)[利用規約](https://www.comfy.org/terms-of-service?utm_source=docs)[プライバシーポリシー](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

@@ -1,0 +1,10 @@
+{
+  "url": "https://docs.comfy.org/registry/api-reference/nodes/returns-a-node-version-to-be-installed/",
+  "file": "registry/api-reference/nodes/returns-a-node-version-to-be-installed.md",
+  "title": "Returns a node version to be installed. - ComfyUI",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-17T10:52:44.539994+00:00",
+  "html_len": 826725,
+  "md_len": 9927,
+  "depth": 1
+}

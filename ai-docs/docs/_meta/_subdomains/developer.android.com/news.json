@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/news/",
+  "file": "_subdomains/developer.android.com/news.md",
+  "title": "News \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:21:43.724087+00:00",
+  "html_len": 200053,
+  "md_len": 988,
+  "depth": 2
+}

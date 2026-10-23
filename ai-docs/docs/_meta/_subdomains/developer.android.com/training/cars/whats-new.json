@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/training/cars/whats-new/",
+  "file": "_subdomains/developer.android.com/training/cars/whats-new.md",
+  "title": "What's new \u00a0|\u00a0 Android for Cars \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:45:53.109431+00:00",
+  "html_len": 255752,
+  "md_len": 23480,
+  "depth": 3
+}

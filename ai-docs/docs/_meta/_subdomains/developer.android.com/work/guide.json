@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/work/guide/",
+  "file": "_subdomains/developer.android.com/work/guide.md",
+  "title": "Developer guide \u00a0|\u00a0 Android Enterprise \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:35:50.265036+00:00",
+  "html_len": 228285,
+  "md_len": 16362,
+  "depth": 3
+}

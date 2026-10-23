@@ -1,0 +1,81 @@
+---
+url: https://docs.comfy.org/built-in-nodes/AudioConcat/
+title: AudioConcat - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-18T12:01:28.019741+00:00
+---
+
+# AudioConcat - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/AudioConcat/
+
+Audio
+
+# AudioConcat - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+The AudioConcat node combines two audio inputs by joining them together.
+
+Copy pageCopy page
+
+The AudioConcat node combines two audio inputs by joining them together. It takes two audio inputs and connects them in the order you specify, either placing the second audio before or after the first audio. The node automatically handles different audio formats by converting mono audio to stereo and matching sample rates between the two inputs.
+
+## 
+
+​
+
+Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`audio1`| The first audio input to be concatenated| AUDIO| Yes| -  
+`audio2`| The second audio input to be concatenated| AUDIO| Yes| -  
+`direction`| Whether to append audio2 after or before audio1 (default: “after”)| COMBO| Yes| `"after"`  
+`"before"`  
+  
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`AUDIO`| The combined audio containing both input audio files joined together| AUDIO  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/AudioConcat/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `faccc3d42e9c6927deadb7d5f7fe9e5bbbf08e4e9a3d636f42a2b9f995eec8c1`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/AudioConcat.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/AudioConcat)
+
+[AudioAdjustVolume - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/AudioAdjustVolume)[AudioEqualizer3Band - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/AudioEqualizer3Band)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

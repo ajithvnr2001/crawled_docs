@@ -1,0 +1,10 @@
+{
+  "url": "https://www.comfy.org/changelog/",
+  "file": "_subdomains/www.comfy.org/changelog.md",
+  "title": "Changelog - Comfy",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (204 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-17T10:53:27.326758+00:00",
+  "html_len": 375223,
+  "md_len": 157256,
+  "depth": 2
+}

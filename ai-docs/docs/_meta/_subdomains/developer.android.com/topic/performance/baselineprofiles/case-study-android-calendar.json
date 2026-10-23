@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/topic/performance/baselineprofiles/case-study-android-calendar/",
+  "file": "_subdomains/developer.android.com/topic/performance/baselineprofiles/case-study-android-calendar.md",
+  "title": "How the Android Calendar team improved app startup and jank with Baseline Profiles \u00a0|\u00a0 App quality \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:43:03.645799+00:00",
+  "html_len": 261080,
+  "md_len": 7827,
+  "depth": 3
+}

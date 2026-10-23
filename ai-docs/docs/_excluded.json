@@ -1,0 +1,632 @@
+{
+  "generated_at": "2026-10-23T11:53:08.332288+00:00",
+  "not_found": [
+    {
+      "url": "https://ai.google.dev/edge/mediapipe/solutions/genai/rag/android/",
+      "file": "edge/mediapipe/solutions/genai/rag/android.md"
+    },
+    {
+      "url": "https://ai.google.dev/palm_docs/deprecation/",
+      "file": "palm_docs/deprecation.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/ImageFormat/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/ImageFormat.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/Image/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/Image.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/BaseOptions/Delegate/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/BaseOptions/Delegate.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/audio/AudioClassifierResult/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/audio/AudioClassifierResult.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/BoundingBox/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/BoundingBox.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/Category/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/Category.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/Landmark/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/Landmark.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/Detection/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/Detection.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/BaseOptions/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/BaseOptions.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/Embedding/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/Embedding.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/NormalizedLandmark/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/NormalizedLandmark.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/category_c/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/category_c.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/NormalizedRect/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/NormalizedRect.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/category_c/CategoriesC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/category_c/CategoriesC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/category_c/CategoryC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/category_c/CategoryC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/detections_c/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/detections_c.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/detections_c/DetectionC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/detections_c/DetectionC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/keypoint/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/keypoint.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/embedding_result_c/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/embedding_result_c.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/embedding_result_c/EmbeddingC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/embedding_result_c/EmbeddingC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/detections_c/DetectionResultC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/detections_c/DetectionResultC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/keypoint/NormalizedKeypoint/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/keypoint/NormalizedKeypoint.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/keypoint_c/NormalizedKeypointC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/keypoint_c/NormalizedKeypointC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/keypoint_c/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/keypoint_c.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/landmark_c/LandmarkC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/landmark_c/LandmarkC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/landmark_c/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/landmark_c.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/embedding_result_c/EmbeddingResultC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/embedding_result_c/EmbeddingResultC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/landmark_c/NormalizedLandmarkC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/landmark_c/NormalizedLandmarkC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/landmark_c/LandmarksC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/landmark_c/LandmarksC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/landmark_c/NormalizedLandmarksC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/landmark_c/NormalizedLandmarksC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/matrix_c/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/matrix_c.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/matrix_c/MatrixC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/matrix_c/MatrixC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/rect_c/RectFC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/rect_c/RectFC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/rect_c/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/rect_c.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/rect_c/NormalizedRectC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/rect_c/NormalizedRectC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/rect_c/RectC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/rect_c/RectC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/Rect/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/containers/Rect.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/text/TextEmbedderResult/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/text/TextEmbedderResult.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/processors/ClassifierOptions/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/components/processors/ClassifierOptions.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/FaceLandmarkerResult/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/FaceLandmarkerResult.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/FaceDetectorResult/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/FaceDetectorResult.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/FaceLandmarksConnections/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/FaceLandmarksConnections.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/FaceLandmarker/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/FaceLandmarker.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/FaceLandmarkerOptions/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/FaceLandmarkerOptions.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/FaceLandmarksConnections/Connection/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/FaceLandmarksConnections/Connection.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/HandLandmarksConnections/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/HandLandmarksConnections.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/GestureRecognizerResult/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/GestureRecognizerResult.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/HandLandmarkerResult/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/HandLandmarkerResult.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/HandLandmarksConnections/Connection/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/HandLandmarksConnections/Connection.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/HandLandmarkerOptions/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/HandLandmarkerOptions.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/HandLandmarker/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/HandLandmarker.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/RunningMode/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/RunningMode.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/PoseLandmarker/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/PoseLandmarker.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/PoseLandmarkerResult/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/PoseLandmarkerResult.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/ImageProcessingOptions/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/ImageProcessingOptions.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/PoseLandmarksConnections/Connection/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/PoseLandmarksConnections/Connection.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/PoseLandmark/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/PoseLandmark.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/PoseLandmarkerOptions/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/PoseLandmarkerOptions.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/PoseLandmarksConnections/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/PoseLandmarksConnections.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/Blendshapes/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/Blendshapes.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/FaceLandmarkerResultC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/FaceLandmarkerResultC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/async_result_dispatcher/AsyncResultDispatcher/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/async_result_dispatcher/AsyncResultDispatcher.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/base_options_c_lib/BaseOptionsC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/base_options_c_lib/BaseOptionsC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/base_options_lib/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/base_options_lib.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/async_result_dispatcher/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/async_result_dispatcher.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/image_processing_options_c_lib/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/image_processing_options_c_lib.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/base_options_c_lib/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/base_options_c_lib.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/FaceLandmarkerOptionsC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/FaceLandmarkerOptionsC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/image_lib/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/image_lib.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/image_processing_options_c_lib/ImageProcessingOptionsC/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/image_processing_options_c_lib/ImageProcessingOptionsC.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/async_result_dispatcher/LiveStreamPacket/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/async_result_dispatcher/LiveStreamPacket.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/image_processing_options_lib/rect_module/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/image_processing_options_lib/rect_module.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/image_processing_options_lib/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/image_processing_options_lib.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/image_processing_options_lib/rect_module/RectF/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/image_processing_options_lib/rect_module/RectF.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_bindings_lib/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_bindings_lib.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_bindings_lib/convert_strings_to_ctypes_array/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_bindings_lib/convert_strings_to_ctypes_array.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/atexit/register/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/atexit/register.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/CStatusFunction/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/CStatusFunction.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/convert_to_exception/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/convert_to_exception.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/handle_status/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/handle_status.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/atexit/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/atexit.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/running_mode_lib/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/running_mode_lib.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/CFunction/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/CFunction.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_bindings_lib/load_shared_library/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_bindings_lib/load_shared_library.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_bindings_lib/load_raw_library/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_bindings_lib/load_raw_library.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/MpStatus/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/MpStatus.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/serial_dispatcher/SerialDispatcher/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/serial_dispatcher/SerialDispatcher.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_utils/detections_module/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_utils/detections_module.md"
+    },
+    {
+      "url": "https://saif.google/secure-ai-framework/saif-map/components/",
+      "file": "_subdomains/saif.google/secure-ai-framework/saif-map/components.md"
+    },
+    {
+      "url": "https://saif.google/secure-ai-framework/saif-map/controls/",
+      "file": "_subdomains/saif.google/secure-ai-framework/saif-map/controls.md"
+    },
+    {
+      "url": "https://developer.android.com/cookies/",
+      "file": "_subdomains/developer.android.com/cookies.md"
+    },
+    {
+      "url": "https://developer.android.com/protections/",
+      "file": "_subdomains/developer.android.com/protections.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/status/",
+      "file": "_subdomains/developer.android.com/overview/status.md"
+    },
+    {
+      "url": "https://developer.android.com/private-advertising/console/create-your-account/",
+      "file": "_subdomains/developer.android.com/private-advertising/console/create-your-account.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/android-progress-updates/",
+      "file": "_subdomains/developer.android.com/overview/android-progress-updates.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/where-are-the-privacy-sandbox-apis-available/",
+      "file": "_subdomains/developer.android.com/overview/where-are-the-privacy-sandbox-apis-available.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/feedback/report-2024-q2-q3/",
+      "file": "_subdomains/developer.android.com/overview/feedback/report-2024-q2-q3.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/android-release-notes/",
+      "file": "_subdomains/developer.android.com/overview/android-release-notes.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/feedback/report-2025-q2/",
+      "file": "_subdomains/developer.android.com/overview/feedback/report-2025-q2.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/feedback/report-2024-q1/",
+      "file": "_subdomains/developer.android.com/overview/feedback/report-2024-q1.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/feedback/report-2025-q1/",
+      "file": "_subdomains/developer.android.com/overview/feedback/report-2025-q1.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/feedback/report-2024-q4/",
+      "file": "_subdomains/developer.android.com/overview/feedback/report-2024-q4.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/feedback/report-2023-q3/",
+      "file": "_subdomains/developer.android.com/overview/feedback/report-2023-q3.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/feedback/report-2023-q4/",
+      "file": "_subdomains/developer.android.com/overview/feedback/report-2023-q4.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/proposal-lifecycle/",
+      "file": "_subdomains/developer.android.com/overview/proposal-lifecycle.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/feedback/report-2022-q2/",
+      "file": "_subdomains/developer.android.com/overview/feedback/report-2022-q2.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/feedback/report-2022-q4/",
+      "file": "_subdomains/developer.android.com/overview/feedback/report-2022-q4.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/feedback/report-2023-q2/",
+      "file": "_subdomains/developer.android.com/overview/feedback/report-2023-q2.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/feedback/report-2023-q1/",
+      "file": "_subdomains/developer.android.com/overview/feedback/report-2023-q1.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/feedback/report-2022-q3/",
+      "file": "_subdomains/developer.android.com/overview/feedback/report-2022-q3.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/testers/",
+      "file": "_subdomains/developer.android.com/overview/testers.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/relevance-and-measurement-faqs/",
+      "file": "_subdomains/developer.android.com/overview/relevance-and-measurement-faqs.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/testing-faq/",
+      "file": "_subdomains/developer.android.com/overview/testing-faq.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/feedback/report-2022-q1/",
+      "file": "_subdomains/developer.android.com/overview/feedback/report-2022-q1.md"
+    },
+    {
+      "url": "https://developer.android.com/private-advertising/setup/web/permissions-policy/",
+      "file": "_subdomains/developer.android.com/private-advertising/setup/web/permissions-policy.md"
+    },
+    {
+      "url": "https://developer.android.com/overview/privacy-compliance-faqs/",
+      "file": "_subdomains/developer.android.com/overview/privacy-compliance-faqs.md"
+    },
+    {
+      "url": "https://developer.android.com/resources/glossary/",
+      "file": "_subdomains/developer.android.com/resources/glossary.md"
+    },
+    {
+      "url": "https://developer.android.com/resources/case-studies/tray/",
+      "file": "_subdomains/developer.android.com/resources/case-studies/tray.md"
+    },
+    {
+      "url": "https://developer.android.com/resources/case-studies/mercado-libre/",
+      "file": "_subdomains/developer.android.com/resources/case-studies/mercado-libre.md"
+    },
+    {
+      "url": "https://developer.android.com/resources/case-studies/times-internet/",
+      "file": "_subdomains/developer.android.com/resources/case-studies/times-internet.md"
+    },
+    {
+      "url": "https://developer.android.com/resources/demos/",
+      "file": "_subdomains/developer.android.com/resources/demos.md"
+    },
+    {
+      "url": "https://developer.android.com/resources/videos/",
+      "file": "_subdomains/developer.android.com/resources/videos.md"
+    },
+    {
+      "url": "https://developer.android.com/resources/case-studies/smn/",
+      "file": "_subdomains/developer.android.com/resources/case-studies/smn.md"
+    },
+    {
+      "url": "https://developer.android.com/resources/case-studies/audigent-nextroll/",
+      "file": "_subdomains/developer.android.com/resources/case-studies/audigent-nextroll.md"
+    },
+    {
+      "url": "https://developer.android.com/resources/case-studies/miq/",
+      "file": "_subdomains/developer.android.com/resources/case-studies/miq.md"
+    },
+    {
+      "url": "https://developer.android.com/resources/case-studies/appsflyer-unityads/",
+      "file": "_subdomains/developer.android.com/resources/case-studies/appsflyer-unityads.md"
+    },
+    {
+      "url": "https://developer.android.com/resources/case-studies/nextroll/",
+      "file": "_subdomains/developer.android.com/resources/case-studies/nextroll.md"
+    },
+    {
+      "url": "https://developer.android.com/resources/case-studies/ogury/",
+      "file": "_subdomains/developer.android.com/resources/case-studies/ogury.md"
+    },
+    {
+      "url": "https://developer.android.com/resources/case-studies/seznam/",
+      "file": "_subdomains/developer.android.com/resources/case-studies/seznam.md"
+    },
+    {
+      "url": "https://developer.android.com/games/gamemode/about-API-and-interventions/",
+      "file": "_subdomains/developer.android.com/games/gamemode/about-API-and-interventions.md"
+    },
+    {
+      "url": "https://developer.android.com/studio/test/other-testing-tools/app-crawler/",
+      "file": "_subdomains/developer.android.com/studio/test/other-testing-tools/app-crawler.md"
+    },
+    {
+      "url": "https://ai.google.dev/robots.txt",
+      "file": "robots.txt"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/is_shutdown/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/is_shutdown.md"
+    },
+    {
+      "url": "https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/atexit/unregister/",
+      "file": "edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_styles/face_landmarker/mediapipe_c_utils/atexit/unregister.md"
+    },
+    {
+      "url": "https://ai.google.dev/signup/",
+      "file": "signup.md"
+    },
+    {
+      "url": "https://ai.google.dev/login/",
+      "file": "login.md"
+    },
+    {
+      "url": "https://ai.google.dev/google/",
+      "file": "google.md"
+    },
+    {
+      "url": "https://ai.google.dev/google/generative-ai-docs/",
+      "file": "google/generative-ai-docs.md"
+    },
+    {
+      "url": "https://ai.google.dev/google/generative-ai-docs/issues/",
+      "file": "google/generative-ai-docs/issues.md"
+    },
+    {
+      "url": "https://ai.google.dev/google/generative-ai-docs/pulls/",
+      "file": "google/generative-ai-docs/pulls.md"
+    },
+    {
+      "url": "https://ai.google.dev/google/generative-ai-docs/actions/",
+      "file": "google/generative-ai-docs/actions.md"
+    },
+    {
+      "url": "https://ai.google.dev/google/generative-ai-docs/projects/",
+      "file": "google/generative-ai-docs/projects.md"
+    },
+    {
+      "url": "https://ai.google.dev/google/generative-ai-docs/security/",
+      "file": "google/generative-ai-docs/security.md"
+    },
+    {
+      "url": "https://ai.google.dev/google/generative-ai-docs/pulse/",
+      "file": "google/generative-ai-docs/pulse.md"
+    },
+    {
+      "url": "https://ai.google.dev/google/generative-ai-docs/tree/main/",
+      "file": "google/generative-ai-docs/tree/main.md"
+    },
+    {
+      "url": "https://ai.google.dev/google/generative-ai-docs/tree/main/site/",
+      "file": "google/generative-ai-docs/tree/main/site.md"
+    },
+    {
+      "url": "https://ai.google.dev/google/generative-ai-docs/tree/main/site/en/",
+      "file": "google/generative-ai-docs/tree/main/site/en.md"
+    },
+    {
+      "url": "https://ai.google.dev/google/generative-ai-docs/tree/main/site/en/gemini-api/",
+      "file": "google/generative-ai-docs/tree/main/site/en/gemini-api.md"
+    },
+    {
+      "url": "https://saif.google/secure-ai-framework/saif-map/risks/",
+      "file": "",
+      "reason": "404"
+    }
+  ],
+  "non_page": [
+    {
+      "url": "https://ai.google.dev/google658eac16c11deb38/",
+      "file": "google658eac16c11deb38.md"
+    },
+    {
+      "url": "https://developer.android.com/design/ui/ai-glasses/guides/interaction/Glasses_userEdu_motion.aep",
+      "file": "_subdomains/developer.android.com/design/ui/ai-glasses/guides/interaction/Glasses_userEdu_motion.aep.md"
+    },
+    {
+      "url": "https://ai.google.dev/sitemap_0_of_1.xml",
+      "file": "sitemap_0_of_1.xml.md"
+    }
+  ]
+}

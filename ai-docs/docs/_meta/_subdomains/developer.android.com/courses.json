@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/courses/",
+  "file": "_subdomains/developer.android.com/courses.md",
+  "title": "Training \u00a0|\u00a0 Get started \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:21:02.915230+00:00",
+  "html_len": 220703,
+  "md_len": 4423,
+  "depth": 2
+}

@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/blog/categories/case-studies/",
+  "file": "_subdomains/developer.android.com/blog/categories/case-studies.md",
+  "title": "Case Studies \u00a0|\u00a0 Android Developers' Blog",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:21:37.428775+00:00",
+  "html_len": 302860,
+  "md_len": 8610,
+  "depth": 2
+}

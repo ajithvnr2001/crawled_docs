@@ -1,0 +1,10 @@
+{
+  "url": "https://discuss.ai.google.dev/hot/",
+  "file": "_subdomains/discuss.ai.google.dev/hot.md",
+  "title": "Hot topics - Google AI Developers Forum",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (77 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T19:23:28.060955+00:00",
+  "html_len": 604100,
+  "md_len": 38017,
+  "depth": 2
+}

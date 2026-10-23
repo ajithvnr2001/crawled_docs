@@ -1,0 +1,173 @@
+---
+url: https://docs.comfy.org/built-in-nodes/TopazVideoEnhanceV2/
+title: TopazVideoEnhanceV2 - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:49:11.352337+00:00
+---
+
+# TopazVideoEnhanceV2 - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/TopazVideoEnhanceV2/
+
+Topaz
+
+# TopazVideoEnhanceV2 - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+The Topaz Video Enhance V2 node breathes new life into video with powerful upscaling and recovery technology.
+
+Copy pageCopy page
+
+The **Topaz Video Enhance V2** node breathes new life into video with powerful upscaling and recovery technology. It can increase the resolution of a video using different Topaz upscaler models, adjust the frame rate through frame interpolation, and apply creative or realistic enhancement settings.
+
+## 
+
+​
+
+Inputs
+
+### 
+
+​
+
+Common Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`video`| The input video to be processed. Must be in MP4 container format.| VIDEO| Yes| -  
+`upscaler_model`| The AI model used to upscale the video. The available sub-parameters depend on the selected model. Selecting `"Disabled"` disables upscaling.| DYNAMIC_COMBO| Yes| `"Astra 2"`  
+`"Starlight (Astra) Fast"`  
+`"Starlight (Astra) Creative"`  
+`"Starlight Precise 2.5"`  
+`"Disabled"`  
+`interpolation_model`| The AI model used for frame interpolation. The available sub-parameters depend on the selected model. Selecting `"Disabled"` disables interpolation.| DYNAMIC_COMBO| Yes| `"Disabled"`  
+`"apo-8"`  
+`dynamic_compression_level`| CQP level used for video compression (default: `"Low"`).| COMBO| No| `"Low"`  
+`"Mid"`  
+`"High"`  
+  
+The following sections describe the sub-parameters that appear for each option of the `upscaler_model` and `interpolation_model` selectors. The `"Disabled"` options do not show any additional parameters.
+
+### 
+
+​
+
+Astra 2 Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`upscaler_model.upscaler_resolution`| Target output resolution of the upscale.| COMBO| Yes (when “Astra 2” is selected)| `"FullHD (1080p)"`  
+`"4K (2160p)"`  
+`upscaler_model.creativity`| Creative strength of the upscale (default: 0.5).| FLOAT| No| 0.0 to 1.0 (step 0.1)  
+`upscaler_model.prompt`| Optional descriptive (not instructive) scene prompt. Capping input at 450 frames (~15s @ 30fps) when set (default: empty).| STRING| No| -  
+`upscaler_model.sharp`| Pre-enhance sharpness: 0.0=Gaussian blur, 0.5=passthrough (default), 1.0=USM sharpening.| FLOAT| No| 0.0 to 1.0 (step 0.01)  
+`upscaler_model.realism`| Pulls output toward photographic realism. Leave at 0 for the model default (default: 0.0).| FLOAT| No| 0.0 to 1.0 (step 0.01)  
+  
+### 
+
+​
+
+Starlight (Astra) Fast Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`upscaler_model.upscaler_resolution`| Target output resolution of the upscale.| COMBO| Yes (when this model is selected)| `"FullHD (1080p)"`  
+`"4K (2160p)"`  
+  
+### 
+
+​
+
+Starlight (Astra) Creative Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`upscaler_model.upscaler_resolution`| Target output resolution of the upscale.| COMBO| Yes (when this model is selected)| `"FullHD (1080p)"`  
+`"4K (2160p)"`  
+`upscaler_model.creativity`| Creative strength of the upscale (default: `"low"`).| COMBO| No| `"low"`  
+`"middle"`  
+`"high"`  
+  
+### 
+
+​
+
+Starlight Precise 2.5 Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`upscaler_model.upscaler_resolution`| Target output resolution of the upscale.| COMBO| Yes (when this model is selected)| `"FullHD (1080p)"`  
+`"4K (2160p)"`  
+  
+### 
+
+​
+
+apo-8 Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`interpolation_model.interpolation_frame_rate`| Output frame rate (default: 60).| INT| Yes (when “apo-8” is selected)| 15 to 240  
+`interpolation_model.interpolation_slowmo`| Slow-motion factor applied to the input video. For example, 2 makes the output twice as slow and doubles the duration (default: 1).| INT| No| 1 to 16  
+`interpolation_model.interpolation_duplicate`| Analyze the input for duplicate frames and remove them (default: False).| BOOLEAN| No| True  
+False  
+`interpolation_model.interpolation_duplicate_threshold`| Detection sensitivity for duplicate frames (default: 0.01).| FLOAT| No| 0.001 to 0.1 (step 0.001)  
+  
+**Important Constraints:**
+
+  * At least one of `upscaler_model` or `interpolation_model` must be enabled. If both are set to `"Disabled"`, the node raises an error because there is nothing to process.
+  * The input `video` must be in MP4 container format.
+  * The `"Astra 2"` model is limited to 9000 input frames. When a `prompt` is set, the limit is 450 input frames (~15 seconds at 30 fps). The node raises an error if the video exceeds the applicable limit.
+  * `upscaler_model.upscaler_resolution` is required whenever an upscaler model other than `"Disabled"` is selected. `"FullHD (1080p)"` targets a 1080p result and `"4K (2160p)"` targets a 2160p result; the exact output width and height are computed from the input aspect ratio, capped to a maximum long side of 1920 or 3840 pixels respectively, and rounded to an even number.
+  * `interpolation_model.interpolation_frame_rate` is required whenever `interpolation_model` is `"apo-8"`.
+  * Very large files are not currently supported; uploads are limited to a single part, otherwise the node raises an error.
+  * Several parameters (`sharp`, `realism`, `interpolation_slowmo`, `interpolation_duplicate`, `interpolation_duplicate_threshold`) are marked as advanced in the UI and may be hidden by default.
+
+
+
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`video`| The enhanced video after applying the selected upscaling and/or interpolation filters.| VIDEO  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/TopazVideoEnhanceV2/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `14627dc772a6a46a645517bd34b545e0986a84561e24bdfe810b67f791ee47e3`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/TopazVideoEnhanceV2.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/TopazVideoEnhanceV2)
+
+[TopazVideoEnhance - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/TopazVideoEnhance)[Veo3FirstLastFrameNode - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/Veo3FirstLastFrameNode)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

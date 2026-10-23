@@ -1,0 +1,142 @@
+---
+url: https://docs.comfy.org/development/api-development/sdks-design/
+title: Design Notes - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:49:42.123818+00:00
+---
+
+# Design Notes - ComfyUI
+
+> Source: https://docs.comfy.org/development/api-development/sdks-design/
+
+## On this page
+
+  * Why a new API
+  * Why not wrap the endpoints that already exist
+  * Poll first, stream for progress
+  * Relationship to the existing APIs
+  * Scope of the first version
+  * The local proxy
+  * Why Python and TypeScript first
+  * What we want from you
+
+
+
+v2
+
+# Design Notes
+
+Copy pageCopy page
+
+Why the Comfy API v2 exists, how it relates to the existing ComfyUI APIs, and what is coming next
+
+Copy pageCopy page
+
+Background for the [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks) and the [Comfy API v2](https://docs.comfy.org/api-reference/v2/overview) they call. You do not need any of this to use the SDKs. Read it if you are deciding whether to build on the new API or the existing ones.
+
+## 
+
+​
+
+Why a new API
+
+You can already drive ComfyUI over HTTP by calling `/prompt` and `/history`. Those endpoints exist to serve the ComfyUI web UI, and building on them means depending on internals that were never promised to you. The v2 API adds three things they cannot give you. **A commitment.** v2 is versioned, documented, and supported. Changes within v2 are additive; anything breaking would ship as v3. New releases of ComfyUI will not break your integration. **Portability.** The same behavior against local ComfyUI, against Comfy Cloud, and against a Comfy API deployment. Same code, different base URL. **A shape that survives production.** Durable job IDs, idempotent submission, typed errors, normalized outputs, and real backpressure, instead of every integration reinventing all five on top of `prompt_id` and `/history`.
+
+## 
+
+​
+
+Why not wrap the endpoints that already exist
+
+Because they assume one ComfyUI instance running one workflow at a time, and that assumption is welded into `prompt_id`, `/history`, and the websocket protocol. The v2 API does not assume it. Many workflows in flight at once, each addressed by a durable job ID, is the default case rather than the exception.
+
+## 
+
+​
+
+Poll first, stream for progress
+
+Every capability in v2 is reachable with plain GET requests. `GET /api/v2/jobs/{id}` returns the current status, the latest progress snapshot, and every output committed so far. It is the authoritative view of a job, and it stays available until the job’s `expires_at`. The SSE stream at `GET /api/v2/jobs/{id}/events`, exposed as `job.events()` in both SDKs, is a live enhancement on top of that. Use it to drive a progress bar. Do not use it as your source of truth: it carries no event IDs, has no resume cursor, and frames emitted while you were disconnected are gone. Two reasons the authoritative path is a poll rather than a stream or a webhook:
+
+  * Workflows can run for a long time. A connection that blips for three seconds should never cost you a result.
+  * Webhooks work well for a service with a public address. They do not work for a Blender plugin on someone’s desktop that is not listening on a port, and should not be.
+
+The practical effect is that every step is resumable. If your process crashes mid-job, you can come back an hour later and `GET /api/v2/jobs/{id}` still has the status and the outputs. Other transports may be added later for cases that suit them; this is the one that works everywhere.
+
+## 
+
+​
+
+Relationship to the existing APIs
+
+Existing APIs, including the [Cloud API](https://docs.comfy.org/development/cloud/overview), will continue to work. `/prompt`, `/history`, `/ws`, and the rest keep working. If your integration works today, none of this breaks it. The two live side by side.
+
+| Comfy API v2| Existing APIs  
+---|---|---  
+**Compatibility**|  Versioned. Additive changes only within v2| No compatibility guarantee across releases  
+**Concurrency model**|  Many jobs in flight, each with a durable ID| One instance, one workflow at a time  
+**Runs against**|  Comfy Cloud, Comfy API deployments, and self-hosted ComfyUI, same contract| Cloud API and ComfyUI Server API differ  
+**Official clients**|  Python and TypeScript SDKs| None  
+**Best for**|  New integrations| Integrations that already work  
+  
+## 
+
+​
+
+Scope of the first version
+
+One thing, properly: run a workflow and get the results back. Upload inputs, submit an API-format graph, watch it execute, pull down outputs. That is the whole scope on purpose. Saved workflows, model library management, node introspection, and named workflow parameters are not here yet. We would rather ship a small surface we can genuinely commit to across every way ComfyUI gets deployed than a large one that only holds together in one of them. It will grow from here.
+
+## 
+
+​
+
+The local proxy
+
+Self-hosted ComfyUI speaks v2 through [comfy-api-proxy](https://github.com/Comfy-Org/comfy-api-proxy), which runs alongside your instance and serves the v2 contract in front of it. The proxy is open source. See the [API Proxy guide](https://docs.comfy.org/development/comfyui-server/api-proxy) for setup instructions.
+
+## 
+
+​
+
+Why Python and TypeScript first
+
+That is where the demand was when we asked people already running ComfyUI at scale. Both SDKs sit on the same documented HTTP contract, so any language can talk to the API right now. If you want a first-party SDK in another language, tell us in the `#developer-platform` channel in [our Discord](https://discord.com/invite/comfyorg).
+
+## 
+
+​
+
+What we want from you
+
+We welcome feedback on the SDKs and API. Tell us what is awkward, what you expected to find, and what you had to work around. See [Feedback](https://docs.comfy.org/development/api-development/sdks#feedback).
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/development/api-development/sdks-design.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/api-development/sdks-design)
+
+[Comfy API v2 OverviewPrevious](https://docs.comfy.org/api-reference/v2/overview)[Upload an asset (single-call multipart)Next](https://docs.comfy.org/api-reference/v2/assets/upload-an-asset-single-call-multipart)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

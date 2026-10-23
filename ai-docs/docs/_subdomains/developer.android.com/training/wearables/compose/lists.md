@@ -1,0 +1,363 @@
+---
+url: https://developer.android.com/training/wearables/compose/lists/
+title: Lists with Compose for Wear OS \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:37:06.614295+00:00
+---
+
+# Lists with Compose for Wear OS  |  Android Developers
+
+> Source: https://developer.android.com/training/wearables/compose/lists/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Develop ](https://developer.android.com/develop)
+  * [ Devices ](https://developer.android.com/develop/devices)
+  * [ Wear OS ](https://developer.android.com/training/wearables)
+
+
+
+#  Lists with Compose for Wear OS Stay organized with collections  Save and categorize content based on your preferences. 
+
+Compose for Wear OS Material version 2.5 3
+
+* * *
+
+Lists let users select an item from a set of choices on Wear OS devices. 
+
+Many Wear OS devices use round screens, which makes it more difficult to see list items that appear near the top and bottom of the screen. For this reason, Compose for Wear OS includes a version of the `LazyColumn` class called [`TransformingLazyColumn`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/lazy/package-summary#TransformingLazyColumn\(androidx.compose.ui.Modifier,androidx.wear.compose.foundation.lazy.TransformingLazyColumnState,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.wear.compose.foundation.rotary.RotaryScrollableBehavior,androidx.compose.foundation.OverscrollEffect,kotlin.Function1\)), which supports scaling and morphing animations. When items move to the edges, they get smaller and fade out.
+
+To apply the recommended scaling and scrolling effects:
+
+  1. Use `Modifier.transformedHeight` to allow Compose to calculate the height change as the item scrolls through the screen.
+  2. Use `transformation = SurfaceTransformation(transformationSpec)` to apply the visual effects, including scaling down the item contents.
+  3. Use a custom [`TransformationSpec`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/lazy/TransformationSpec) for components that don't take `transformation` as a parameter such as `Text`. 
+
+
+
+The following animation shows how a list element scales and changes shape when approaching the top and bottom of the screen:
+
+The following code snippet shows how to create a list using [`TransformingLazyColumn`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/lazy/package-summary#TransformingLazyColumn\(androidx.compose.ui.Modifier,androidx.wear.compose.foundation.lazy.TransformingLazyColumnState,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.wear.compose.foundation.rotary.RotaryScrollableBehavior,androidx.compose.foundation.OverscrollEffect,kotlin.Function1\)) layout to create content that [looks great on a variety of Wear OS screen sizes](https://developer.android.com/training/wearables/compose/screen-size). 
+
+The snippet also demonstrates the use of the `minimumVerticalContentPadding` modifier, which you should set on the list items to apply the correct padding at the top and bottom of the list.
+
+To show the scroll indicator, share the `columnState` between the `ScreenScaffold` and the `TransformingLazyColumn`:
+    
+    
+    val columnState = rememberTransformingLazyColumnState()
+    val transformationSpec = rememberTransformationSpec()
+    ScreenScaffold(
+        scrollState = columnState
+    ) { contentPadding ->
+        TransformingLazyColumn(
+            state = columnState,
+            contentPadding = contentPadding
+        ) {
+            item {
+                ListHeader(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .transformedHeight(this, transformationSpec)
+                        .minimumVerticalContentPadding(ListHeaderDefaults.minimumTopListContentPadding),
+                    transformation = SurfaceTransformation(transformationSpec)
+                ) {
+                    Text(text = "Header")
+                }
+            }
+            // ... other items
+            item {
+                Button(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .transformedHeight(this, transformationSpec)
+                        .minimumVerticalContentPadding(ButtonDefaults.minimumVerticalListContentPadding),
+                    transformation = SurfaceTransformation(transformationSpec),
+                    onClick = { /* ... */ },
+                    icon = {
+                        Icon(
+                            imageVector = Icons.Default.Build,
+                            contentDescription = "build",
+                        )
+                    },
+                ) {
+                    Text(
+                        text = "Build",
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
+            }
+        }
+    }
+    
+    [List.kt](https://github.com/android/snippets/blob/cf6066f995732d4217d67d3853eae3eb0d4e5071/wear/src/main/java/com/example/wear/snippets/m3/list/List.kt#L60-L104)
+
+## Add a snap-and-fling effect
+
+Snapping ensures that when a user finishes a scroll or fling gesture, the list settles with an item positioned precisely at a specific point, typically the center of the screen. On round screens, where items scale and morph as they move away from the center, snapping is particularly useful to ensure the most relevant item remains fully visible and readable in the optimal viewing area. 
+
+To add a snap-and-fling behavior, set the `flingBehavior` parameter to `TransformingLazyColumnDefaults.snapFlingBehavior(columnState)`. Set the `rotaryScrollableBehavior` to match, using `RotaryScrollableDefaults.snapBehavior(columnState)` for a consistent experience when using the physical crown or bezel.
+    
+    
+    val columnState = rememberTransformingLazyColumnState()
+    ScreenScaffold(scrollState = columnState) { contentPadding ->
+        TransformingLazyColumn(
+            state = columnState,
+            flingBehavior = TransformingLazyColumnDefaults.snapFlingBehavior(columnState),
+            rotaryScrollableBehavior = RotaryScrollableDefaults.snapBehavior(columnState)
+        ) {
+            // ...
+            // ...
+        }
+    }
+    
+    [List.kt](https://github.com/android/snippets/blob/cf6066f995732d4217d67d3853eae3eb0d4e5071/wear/src/main/java/com/example/wear/snippets/m3/list/List.kt#L112-L143)
+
+## Reverse layout
+
+By default, a scrollable list anchors to its top edge. If a user has scrolled to the bottom of a standard list and a new item is added to the end, the list maintains the user's view on the current item. For example, if the user is viewing item 10 at the bottom of the screen, and item 11 is added, the view remains focused on item 10, and item 11 appears off-screen below the current view.
+
+For use cases like messaging applications or live logs, this behavior is usually not wanted. When new items arrive, users typically want to see the latest content immediately if they are already at the bottom of the list. If many items arrive at once, the list should skip to display the very latest item at the bottom (meaning some intermediate items might not be displayed at all unless the user scrolls back up).
+
+To support these use cases, `TransformingLazyColumn` lets you reverse the layout by setting `reverseLayout = true`. This changes the list's anchor from the top edge to the bottom edge.
+
+For convenience, setting `reverseLayout = true` also reverses the visual order of the items and the direction of scrolling gestures:
+
+  * Items are composed from the bottom to the top, meaning index 0 appears at the bottom of the screen.
+  * Scrolling up reveals items with higher indexes.
+
+
+
+To add a snap-and-fling behavior along with reverse layout, you can combine `flingBehavior` and `rotaryScrollableBehavior` as shown in the following snippet:
+    
+    
+    val columnState = rememberTransformingLazyColumnState()
+    val transformationSpec = rememberTransformationSpec()
+    ScreenScaffold(scrollState = columnState) { contentPadding ->
+        TransformingLazyColumn(
+            state = columnState,
+            contentPadding = contentPadding,
+            reverseLayout = true,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            items(10) { index ->
+                Button(
+                    label = {
+                        Text(
+                            text = "Item ${index + 1}"
+                        )
+                    },
+                    onClick = {},
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .transformedHeight(this, transformationSpec)
+                        .minimumVerticalContentPadding(ButtonDefaults.minimumVerticalListContentPadding),
+                    transformation = SurfaceTransformation(transformationSpec)
+                )
+            }
+            item {
+                // With reverseLayout = true, the last item declared appears at the top.
+                ListHeader(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .transformedHeight(this, transformationSpec)
+                        .minimumVerticalContentPadding(ListHeaderDefaults.minimumTopListContentPadding),
+                    transformation = SurfaceTransformation(transformationSpec)
+                ) {
+                    Text("Header")
+                }
+            }
+        }
+    }
+    
+    [List.kt](https://github.com/android/snippets/blob/cf6066f995732d4217d67d3853eae3eb0d4e5071/wear/src/main/java/com/example/wear/snippets/m3/list/List.kt#L204-L241)
+
+The following images show the difference between a normal list and a reversed list:
+
+![A TransformingLazyColumn with normal layout, showing Item 1 at the top and items in ascending order.](https://developer.android.com/static/images/wear/compose-tlc-normal.png)**Figure 1.** A standard list layout where content fills from top to bottom.![A TransformingLazyColumn with reverse layout, showing Item 1 at the bottom and items in descending order towards the top.](https://developer.android.com/static/images/wear/compose-tlc-reverse.png)**Figure 2.** A reversed list layout where content fills from bottom to top.
+
+## Edge buttons on lists
+
+For Material 3, you can add an `EdgeButton` which is an edge-hugging button at the bottom of the lists. However, take care not to add this as an item within the `TransformingLazyColumn` but instead to use the `edgeButton` slot in the `ScreenScaffold`.
+
+Using the `edgeButton` slot ensures that the button is positioned correctly at the bottom of the screen and behaves appropriately when the list is scrolled.
+
+The following code snippet shows how to implement [`EdgeButton`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/EdgeButton.composable):
+    
+    
+    val columnState = rememberTransformingLazyColumnState()
+    ScreenScaffold(
+        scrollState = columnState,
+        edgeButton = {
+            EdgeButton(
+                onClick = { /* TODO */ },
+                modifier = Modifier.scrollable(
+                    columnState,
+                    orientation = Orientation.Vertical,
+                    reverseDirection = true,
+                    // Apply overscroll to the EdgeButton for proper scrolling behavior.
+                    overscrollEffect = rememberOverscrollEffect(),
+                )
+            ) {
+                Text("More")
+            }
+        }
+    ) { contentPadding ->
+        TransformingLazyColumn(
+            contentPadding = contentPadding,
+            state = columnState,
+        ) {
+            // ...
+            // ...
+        }
+    }
+    
+    [List.kt](https://github.com/android/snippets/blob/cf6066f995732d4217d67d3853eae3eb0d4e5071/wear/src/main/java/com/example/wear/snippets/m3/list/List.kt#L151-L197)
+
+## SwipeToReveal in Lists
+
+The [`SwipeToReveal`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/SwipeToReveal.composable#SwipeToReveal\(kotlin.Function1,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,kotlin.Function1,androidx.wear.compose.material3.RevealState,androidx.wear.compose.material3.RevealDirection,kotlin.Boolean,androidx.wear.compose.foundation.GestureInclusion,androidx.compose.ui.unit.Dp,kotlin.Function0\)) component lets you access actions for a list item, such as a `Card` or `Chip`, by swiping. Swiping typically reveals one or two action buttons (such as "Delete" or "More") from the side.
+
+When using `SwipeToReveal` within a `TransformingLazyColumn`, follow these guidelines:
+
+  * **Reset on scroll** : When the user scrolls the list, reset any swiped-open items to their covered state.
+  * **Consistent heights** : Set the action button heights to match the inner swiped item (whether it's a `Button` or a `Card`) to ensure a consistent look.
+  * **Transform the container** : Apply the `transformedHeight` modifier and `transformationSpec` to the `SwipeToReveal` component itself.
+  * **Do not double-transform** : Don't apply `transformedHeight` or `transformation` modifiers to the inner swiped item (the card or button inside the `SwipeToReveal` container).
+
+
+
+## Custom composables in lists
+
+When building custom surface components for a `TransformingLazyColumn`, follow these best practices so your composable scales, fades, and morphs smoothly near the display edges:
+
+  * **Expose`SurfaceTransformation`**: Accept an optional [`SurfaceTransformation`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/SurfaceTransformation) parameter (defaulting to `null`), matching standard Wear Compose Material 3 components like `Card` and `Button`. This lets callers in a `TransformingLazyColumn` pass `SurfaceTransformation(transformationSpec)` while letting the component work normally outside of a list.
+  * **Apply`Modifier.transformedHeight` first in calling code**: When placing your custom composable in a `TransformingLazyColumn`, pass `Modifier.transformedHeight(this, transformationSpec)` as the first modifier in the calling code's modifier chain. While `SurfaceTransformation` applies the visual scaling and fading effects, `transformedHeight` is critical for telling the list layout to recalculate the item's height as it shrinks.
+  * **Apply transformation layers, caller`modifier`, and painter in order**: 
+    1. **Container transformation layer** : Start the root container's modifier chain with `Modifier.graphicsLayer` and `applyContainerTransformation()`, so that both the background and the content are drawn within the scaled, tilted coordinate space.
+    2. **Caller`modifier`**: Apply the `modifier` parameter passed by the caller (which includes `Modifier.transformedHeight`) next, before any internal sizing or padding.
+    3. **Shape clip when there is no transformation** : If `transformation` is `null`, apply `Modifier.clip(shape)` _before_ drawing the background. The painter returned by `createContainerPainter()` clips itself to the shape, but a plain painter doesn't, so without this the background is drawn with square corners outside of a list.
+    4. **Morphing background painter** : Draw the background inside the container layer using `Modifier.drawBehind` and a painter created from `createContainerPainter()`.
+    5. **Content transformation layer** : Apply a second `Modifier.graphicsLayer` with `applyContentTransformation()` and clip to the container shape so inner content fades out earlier as it approaches the bezel.
+
+
+
+The following snippet shows how to implement a custom `BoardingPassCard` composable that applies these transformations in order:
+    
+    
+    @Composable
+    fun BoardingPassCard(
+        flightNumber: String,
+        origin: String,
+        destination: String,
+        gate: String,
+        seat: String,
+        departureTime: String,
+        modifier: Modifier = Modifier,
+        transformation: SurfaceTransformation? = null,
+        shape: Shape = RoundedCornerShape(18.dp),
+        statusBadge: @Composable () -> Unit = {}
+    ) {
+        // 1. Create morphing container painter
+        val backgroundPainter = ColorPainter(MaterialTheme.colorScheme.surfaceContainer)
+        val finalPainter = if (transformation != null) {
+            remember(transformation, backgroundPainter, shape) {
+                transformation.createContainerPainter(backgroundPainter, shape, border = null)
+            }
+        } else {
+            backgroundPainter
+        }
+    
+        Column(
+            modifier = Modifier
+                // 2a. Container layer: Scales, fades, and tilts the whole card surface
+                .then(
+                    if (transformation != null) {
+                        Modifier.graphicsLayer {
+                            transformation.run { applyContainerTransformation() }
+                        }
+                    } else Modifier
+                )
+                // 2b. Caller modifier: Includes Modifier.transformedHeight in a list
+                .then(modifier)
+                .fillMaxWidth()
+                // 2c. Shape clip: Only needed without a transformation, because the
+                // painter from createContainerPainter clips itself to the shape
+                .then(if (transformation == null) Modifier.clip(shape) else Modifier)
+                // 2d. Morphing background: Drawn inside the transformed container layer
+                .drawBehind {
+                    with(finalPainter) {
+                        draw(size)
+                    }
+                }
+                // 2e. Content layer: Fades content earlier and clips children to shape
+                .then(
+                    if (transformation != null) {
+                        Modifier.graphicsLayer {
+                            this.shape = shape
+                            this.clip = true
+                            transformation.run { applyContentTransformation() }
+                        }
+                    } else Modifier
+                )
+                .padding(horizontal = 14.dp, vertical = 10.dp)
+        ) {
+            // Card content goes here
+        }
+    }
+    
+    [CustomList.kt](https://github.com/android/snippets/blob/cf6066f995732d4217d67d3853eae3eb0d4e5071/wear/src/main/java/com/example/wear/snippets/m3/list/CustomList.kt#L67-L173)
+
+**Figure 3.** A custom boarding pass composable transforming as it scrolls through a list.
+
+You can then use `BoardingPassCard` inside a `TransformingLazyColumn` by passing `Modifier.transformedHeight` as the first modifier, along with `SurfaceTransformation(transformationSpec)`:
+    
+    
+    @Composable
+    fun BoardingPassListSample(flights: List<FlightInfo>) {
+        val listState = rememberTransformingLazyColumnState()
+        val transformationSpec = rememberTransformationSpec()
+    
+    
+        ScreenScaffold(scrollState = listState) { contentPadding ->
+            TransformingLazyColumn(
+                state = listState,
+                contentPadding = contentPadding,
+                modifier = Modifier.fillMaxSize()
+            ) {
+                items(flights.size) { index ->
+                    val flight = flights[index]
+                    BoardingPassCard(
+                        flightNumber = flight.number,
+                        origin = flight.origin,
+                        destination = flight.destination,
+                        gate = flight.gate,
+                        seat = flight.seat,
+                        departureTime = flight.time,
+                        modifier = Modifier
+                            .transformedHeight(this, transformationSpec)
+                            .minimumVerticalContentPadding(
+                                CardDefaults.minimumVerticalListContentPadding
+                            ),
+                        transformation = SurfaceTransformation(transformationSpec)
+                    )
+                }
+            }
+        }
+    }
+    
+    [CustomList.kt](https://github.com/android/snippets/blob/cf6066f995732d4217d67d3853eae3eb0d4e5071/wear/src/main/java/com/example/wear/snippets/m3/list/CustomList.kt#L177-L211)
+
+## Recommended for you
+
+  * Note: link text is displayed when JavaScript is off
+  * [Compose for Wear OS Codelab](https://developer.android.com/codelabs/compose-for-wear-os)
+  * [Lists and Grids](https://developer.android.com/develop/ui/compose/lists)
+  * [Using Views in Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose)
+
+
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-09-22 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-22 UTC."],[],[]] 

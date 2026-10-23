@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/get-started/codelabs/",
+  "file": "_subdomains/developer.android.com/get-started/codelabs.md",
+  "title": "Android codelabs \u00a0|\u00a0 Get started \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:34:26.296321+00:00",
+  "html_len": 209633,
+  "md_len": 1355,
+  "depth": 3
+}

@@ -1,0 +1,76 @@
+---
+url: https://developers.cloudflare.com/changelog/post/2026-10-13-core-web-vital-subparts/
+title: Deeper Core Web Vitals Diagnostics: LCP & INP Sub-Part Metrics in Real User Monitoring \u00b7 Changelog
+method: scrapling+scrapegraph
+fetched_at: 2026-10-19T07:10:32.677517+00:00
+---
+
+# Deeper Core Web Vitals Diagnostics: LCP & INP Sub-Part Metrics in Real User Monitoring · Changelog
+
+> Source: https://developers.cloudflare.com/changelog/post/2026-10-13-core-web-vital-subparts/
+
+# Changelog
+
+New updates and improvements at Cloudflare.
+
+[ View RSS feeds ](https://developers.cloudflare.com/fundamentals/new-features/available-rss-feeds/)[ Subscribe to RSS ](https://developers.cloudflare.com/changelog/rss/index.xml)
+
+[Back to all posts](https://developers.cloudflare.com/changelog)October 13, 2026
+
+## Deeper Core Web Vitals Diagnostics: LCP & INP Sub-Part Metrics in Real User Monitoring
+
+[Cloudflare Web Analytics](https://developers.cloudflare.com/web-analytics/)
+
+Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+
+The Core Web Vitals tell you whether a page is slow but beyond perceived load time, layout instability, or responsiveness they do not guide you to the problematic area directly. To help you with this, Real User Monitoring (RUM) in Web Analytics now breaks Largest Contentful Paint (LCP) and Interaction to Next Paint (INP) into their respective sub-parts. It also splits connection time into TCP and TLS. You can see this visualised in the dashboard or query it through the GraphQL Analytics API.
+
+#### LCP sub-parts
+
+LCP is broken into four phases, so you can see which one is impacting your perceived load time:
+
+  1. **Time to First Byte:** how long the browser waits for the HTML document (`timeToFirstByte` in GraphQL).
+  2. **Resource load delay:** how long the browser takes to discover the LCP resource after the document starts arriving (`lcpResourceLoadDelay`).
+  3. **Resource load duration:** how long it takes to download that resource (`lcpResourceLoadTime`).
+  4. **Element render delay:** the gap between the resource arriving and the element appearing on screen (`lcpElementRenderDelay`).
+
+
+
+You do not have to remember all this detail, there are tooltips available to guide you next to each sub-part metric in the dashboard.
+
+![LCP sub-parts visual in the dashboard](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1704,height=384,format=webp/_astro/dash-web_analytics-lcp-sub-parts.CSpKXT00.png)
+
+#### INP sub-parts
+
+INP is broken into three phases, guiding you to the area slowing down responsiveness:
+
+  1. **Input delay:** how long an interaction (click, tap or key press) is blocked before it can be processed (`inpInputDelay`).
+  2. **Processing duration:** how long your event handlers take to run (`inpProcessingDuration`).
+  3. **Presentation delay:** how long the browser takes to render the next frame after the handlers finish (`inpPresentationDelay`).
+
+![INP sub-parts visual in the dashboard](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1704,height=382,format=webp/_astro/dash-web_analytics-inp-sub-parts.DWKDfc7K.png)
+
+#### TCP and TLS timing
+
+The page load timing breakdown now separates connection setup from the TLS handshake, so you can tell a slow network path from a slow TLS negotiation:
+
+  * **Connection time (excluding TLS)** (`connectionTimeWithoutTLS`)
+  * **TLS handshake time:** (`tlsTime`).
+
+
+
+Note: we've retained `connectionTime` in the GraphQL API so you can still analyze the combined time.
+
+#### How to query the GraphQL data
+
+The sub-parts are available on `rumWebVitalsEventsAdaptiveGroups` as percentiles, for example: `lcpResourceLoadDelayP50` or `inpInputDelayP50`. The connection split is available on `rumPerformanceEventsAdaptiveGroups` as `connectionTimeWithoutTLSP50` and `tlsTimeP50`, and so on for the other percentiles.
+
+The percentiles available are: P25, P50, P75, P90, P95, P99, P999. All values are in microseconds. A negative value means the data is not available.
+
+#### How to get started
+
+[ Go to **Real user monitoring** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/speed/rum)
+
+Head to the 'Core Web Vitals' section, here you can scroll down the report to see the sub-parts. The 'Page Load' section contains the Connection and TLS negotiation durations.
+
+For more on the data, refer to [the Web Analytics docs](https://developers.cloudflare.com/web-analytics/) and [the GraphQL Analytics API docs](https://developers.cloudflare.com/analytics/graphql-api/).

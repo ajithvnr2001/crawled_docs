@@ -1,0 +1,205 @@
+---
+url: https://docs.comfy.org/built-in-nodes/ByteDanceSeedreamNodeV3/
+title: ByteDanceSeedreamNodeV3 - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:47:31.171598+00:00
+---
+
+# ByteDanceSeedreamNodeV3 - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/ByteDanceSeedreamNodeV3/
+
+Bytedance
+
+# ByteDanceSeedreamNodeV3 - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+ByteDance Seedream 4.5 & 5.0 generates images from a text prompt (text-to-image) or generates/edits images guided by optional reference images
+
+Copy pageCopy page
+
+ByteDance Seedream 4.5 & 5.0 generates images from a text prompt (text-to-image) or generates/edits images guided by optional reference images, using ByteDance Seedream 4.0, 4.5, and 5.0 models at up to 4K resolution. The node sends the prompt and any reference images to the ByteDance API, waits for the generation task to complete, and returns the resulting image tensor or tensors.
+
+## 
+
+​
+
+Inputs
+
+### 
+
+​
+
+Common Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`prompt`| Text prompt for creating or editing an image. Must not be empty after trimming whitespace.| STRING| Yes| Multiline text  
+`model`| Selects the Seedream model to use. Each model exposes its own set of sub-parameters and limits below.| DYNAMIC_COMBO| Yes| ”seedream 5.0 pro"  
+"seedream 5.0 flash"  
+"seedream 5.0 lite"  
+"seedream-4-5-251128"  
+"seedream-4-0-250828”  
+  
+### 
+
+​
+
+Seedream 5.0 Pro Inputs (seedream 5.0 pro)
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`size_preset`| Pick a recommended size. Select Custom to use the width and height below. Default: first recommended preset for this model.| COMBO| No| Model-specific recommended size presets  
+”Custom”  
+`width`| Custom width for image. Value is working only if `size_preset` is set to `Custom`. Default: 2048.| INT| No| 1024 to 4514 (step 2)  
+`height`| Custom height for image. Value is working only if `size_preset` is set to `Custom`. Default: 2048.| INT| No| 1024 to 4514 (step 2)  
+`prompt_optimization`| Prompt-optimization mode when reference images are provided: ‘standard’ gives higher quality, ‘fast’ shorter generation time. Default: “standard”.| COMBO| No| ”standard"  
+"fast”  
+`seed`| Seed to use for generation. Default: 42.| INT| No| 0 to 2147483647  
+`watermark`| Whether to add an “AI generated” watermark to the image. Default: false.| BOOLEAN| No| true / false  
+`thinking`| Enable the model’s prompt-optimization reasoning (‘thinking’) for better adherence. Can substantially increase generation time — notably on Seedream 5.0 Pro. Can only be disabled for text-to-image (not when reference images are provided). Default: true.| BOOLEAN| No| true / false  
+  
+### 
+
+​
+
+Seedream 5.0 Flash Inputs (seedream 5.0 flash)
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`size_preset`| Pick a recommended size. Select Custom to use the width and height below. Default: first recommended preset for this model.| COMBO| No| Model-specific recommended size presets  
+”Custom”  
+`width`| Custom width for image. Value is working only if `size_preset` is set to `Custom`. Default: 2048.| INT| No| 1024 to 4514 (step 2)  
+`height`| Custom height for image. Value is working only if `size_preset` is set to `Custom`. Default: 2048.| INT| No| 1024 to 4514 (step 2)  
+`seed`| Seed to use for generation. Default: 42.| INT| No| 0 to 2147483647  
+`watermark`| Whether to add an “AI generated” watermark to the image. Default: false.| BOOLEAN| No| true / false  
+  
+### 
+
+​
+
+Seedream 5.0 Lite Inputs (seedream 5.0 lite)
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`size_preset`| Pick a recommended size. Select Custom to use the width and height below. Default: first recommended preset for this model.| COMBO| No| Model-specific recommended size presets  
+”Custom”  
+`width`| Custom width for image. Value is working only if `size_preset` is set to `Custom`. Default: 2048.| INT| No| 1024 to 6240 (step 2)  
+`height`| Custom height for image. Value is working only if `size_preset` is set to `Custom`. Default: 2048.| INT| No| 1024 to 4992 (step 2)  
+`max_images`| Maximum number of images to generate. With 1, exactly one image is produced. With >1, the model generates between 1 and max_images related images (e.g., story scenes, character variations). Total images (input + generated) cannot exceed 15. Default: 1.| INT| No| 1 to 14  
+`fail_on_partial`| If enabled, abort execution if any requested images are missing or return an error. Default: false.| BOOLEAN| No| true / false  
+`seed`| Seed to use for generation. Default: 42.| INT| No| 0 to 2147483647  
+`watermark`| Whether to add an “AI generated” watermark to the image. Default: false.| BOOLEAN| No| true / false  
+`thinking`| Enable the model’s prompt-optimization reasoning (‘thinking’) for better adherence. Can substantially increase generation time — notably on Seedream 5.0 Pro. Can only be disabled for text-to-image (not when reference images are provided). Default: true.| BOOLEAN| No| true / false  
+  
+### 
+
+​
+
+Seedream 4.5 Inputs (seedream-4-5-251128)
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`size_preset`| Pick a recommended size. Select Custom to use the width and height below. Default: first recommended preset for this model.| COMBO| No| Model-specific recommended size presets  
+”Custom”  
+`width`| Custom width for image. Value is working only if `size_preset` is set to `Custom`. Default: 2048.| INT| No| 1024 to 6240 (step 2)  
+`height`| Custom height for image. Value is working only if `size_preset` is set to `Custom`. Default: 2048.| INT| No| 1024 to 4992 (step 2)  
+`max_images`| Maximum number of images to generate. With 1, exactly one image is produced. With >1, the model generates between 1 and max_images related images (e.g., story scenes, character variations). Total images (input + generated) cannot exceed 15. Default: 1.| INT| No| 1 to 10  
+`fail_on_partial`| If enabled, abort execution if any requested images are missing or return an error. Default: false.| BOOLEAN| No| true / false  
+`seed`| Seed to use for generation. Default: 42.| INT| No| 0 to 2147483647  
+`watermark`| Whether to add an “AI generated” watermark to the image. Default: false.| BOOLEAN| No| true / false  
+`thinking`| Enable the model’s prompt-optimization reasoning (‘thinking’) for better adherence. Can substantially increase generation time — notably on Seedream 5.0 Pro. Can only be disabled for text-to-image (not when reference images are provided). Default: true.| BOOLEAN| No| true / false  
+  
+### 
+
+​
+
+Seedream 4.0 Inputs (seedream-4-0-250828)
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`size_preset`| Pick a recommended size. Select Custom to use the width and height below. Default: first recommended preset for this model.| COMBO| No| Model-specific recommended size presets  
+”Custom”  
+`width`| Custom width for image. Value is working only if `size_preset` is set to `Custom`. Default: 2048.| INT| No| 1024 to 6240 (step 2)  
+`height`| Custom height for image. Value is working only if `size_preset` is set to `Custom`. Default: 2048.| INT| No| 1024 to 4992 (step 2)  
+`max_images`| Maximum number of images to generate. With 1, exactly one image is produced. With >1, the model generates between 1 and max_images related images (e.g., story scenes, character variations). Total images (input + generated) cannot exceed 15. Default: 1.| INT| No| 1 to 10  
+`fail_on_partial`| If enabled, abort execution if any requested images are missing or return an error. Default: false.| BOOLEAN| No| true / false  
+`seed`| Seed to use for generation. Default: 42.| INT| No| 0 to 2147483647  
+`watermark`| Whether to add an “AI generated” watermark to the image. Default: false.| BOOLEAN| No| true / false  
+`thinking`| Enable the model’s prompt-optimization reasoning (‘thinking’) for better adherence. Can substantially increase generation time — notably on Seedream 5.0 Pro. Can only be disabled for text-to-image (not when reference images are provided). Default: true.| BOOLEAN| No| true / false  
+  
+### 
+
+​
+
+Reference Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`images`| Growable slot: optional reference image(s) for image-to-image or multi-reference generation. Connect 1..N images (e.g., `image_1`, `image_2`, …); the count limit is per model (see notes below). If a connected image contains a batch of images, every image in the batch counts toward the limit.| IMAGE| No| 0 to 10 (Seedream 5.0 Pro, Seedream 5.0 Flash, Seedream 4.5, Seedream 4.0)  
+0 to 14 (Seedream 5.0 Lite)  
+  
+**Notes:**
+
+  * The `prompt` must not be empty after trimming whitespace.
+  * Maximum number of reference images: 10 for Seedream 5.0 Pro, Seedream 5.0 Flash, Seedream 4.5, and Seedream 4.0; 14 for Seedream 5.0 Lite.
+  * Each reference image must have an aspect ratio between 1:16 and 16:1.
+  * When `max_images` is greater than 1 (not available on Seedream 5.0 Pro or Seedream 5.0 Flash), the total number of reference images plus generated images cannot exceed 15.
+  * `thinking` can only be disabled for text-to-image generation. When reference images are provided, `thinking` must be enabled. Seedream 5.0 Flash has no `thinking` input.
+  * `width` and `height` are only used when `size_preset` is set to “Custom”.
+  * `prompt_optimization` is only available on Seedream 5.0 Pro.
+  * `max_images` and `fail_on_partial` are only available on Seedream 5.0 Lite, Seedream 4.5, and Seedream 4.0; Seedream 5.0 Pro and Seedream 5.0 Flash always request a single image.
+  * Resolution requirements (width x height): 
+    * Seedream 5.0 Pro and Seedream 5.0 Flash: between 0.92MP (921,600 pixels) and 4.62MP (4,624,220 pixels).
+    * Seedream 5.0 Lite and Seedream 4.5: at least 3.68MP (3,686,400 pixels).
+    * Seedream 4.0: at least 0.92MP (921,600 pixels).
+    * Seedream 5.0 Lite, Seedream 4.5, and Seedream 4.0: at most 16.78MP (16,777,216 pixels).
+
+
+
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`image`| The generated image tensor. When multiple images are generated, they are concatenated into a single batched IMAGE tensor.| IMAGE  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/ByteDanceSeedreamNodeV3/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `1c1f40b202ccbb3e0f73cd072170e1c16b833e007f26e63505b54c42b004a8a6`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/ByteDanceSeedreamNodeV3.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/ByteDanceSeedreamNodeV3)
+
+[ByteDanceSeedreamNodeV2 - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/ByteDanceSeedreamNodeV2)[ClarityCrystalUpscaleNode - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/ClarityCrystalUpscaleNode)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

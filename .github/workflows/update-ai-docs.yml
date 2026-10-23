@@ -1,0 +1,48 @@
+name: update-ai-docs
+on:
+  schedule:
+    - cron: "0 4 * * *"   # daily 04:00 UTC
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: monorepo-ai-docs
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    defaults:
+      run:
+        working-directory: ai-docs
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install deps
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install chromium
+      - name: Incremental update (new + stale + blocked-page repair)
+        run: python3 update_incremental.py --concurrency 4
+      - name: Corpus integrity audit
+        run: python3 ../shared/audit_corpus.py --name ai-docs --root docs
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A -- docs README.md guide_code/README.md
+          if git diff --cached --quiet; then echo "no changes"; exit 0; fi
+          git commit -m "chore(ai-docs): daily docs update $(date -u +%F)"
+          for i in 1 2 3 4 5; do
+            if git push; then echo "pushed"; exit 0; fi
+            git fetch origin main
+            if ! git rebase origin/main; then
+              git checkout --ours -- docs/_last_verified.json docs/_manifest.json 2>/dev/null || true
+              git add -u || true
+              GIT_EDITOR=true git rebase --continue || { git rebase --abort || true; sleep 10; continue; }
+            fi
+          done
+          echo "push failed after retries" >&2
+          exit 1

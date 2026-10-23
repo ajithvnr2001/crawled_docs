@@ -1,0 +1,52 @@
+---
+url: https://developer.android.com/ai/intelligence-system/
+title: Connect your app to the Android intelligence system \u00a0|\u00a0 AI \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:21:41.625601+00:00
+---
+
+# Connect your app to the Android intelligence system  |  AI  |  Android Developers
+
+> Source: https://developer.android.com/ai/intelligence-system/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Develop ](https://developer.android.com/develop)
+  * [ AI ](https://developer.android.com/ai)
+  * [ Guides ](https://developer.android.com/ai/overview)
+
+
+
+Send feedback 
+
+#  Connect your app to the Android intelligence system Stay organized with collections  Save and categorize content based on your preferences. 
+
+User expectations for AI on their devices are fundamentally shifting how they interact with their apps. Instead of opening apps to do tasks step-by-step, they're asking AI to perform steps for them, often across multiple apps. 
+
+![user-evolution](https://developer.android.com/static/ai/images/user-evolution.png)
+
+To meet these user needs, the Android platform is evolving into an intelligence system that transitions the OS from an application launchpad into an active task orchestrator. Android provides you with the following new capabilities that include on-device APIs and complementary cloud integrations, enabling system agents such as Google Gemini to execute tasks across local applications and web services securely and contextually.
+
+**Preview:** While we're in the early stages of this journey, we're designing these features with privacy and security at their core as our first step in exploring this paradigm shift as an app ecosystem.
+
+  * You're fully in control with the following options:
+
+    * **AppFunctions** : AppFunctions is an Android platform API with an accompanying Jetpack library to simplify Android MCP integration. AppFunctions lets your app make specific capabilities available as discrete functions that agents can discover and execute on-device. This enables deep, secure, and performant integrations. Browse our resources for AppFunctions, including [documentation](https://developer.android.com/ai/appfunctions), [samples](https://github.com/android/appfunctions), and [skills](https://github.com/android/skills/tree/main/device-ai/appfunctions).
+
+    * **Remote MCP server** : With the server-side MCP approach, your app makes specific capabilities available to agents that can directly integrate with its backend. It's a complementary approach that is a good option for coverage across Android and other platforms. Read the [Model Context Protocol docs](https://modelcontextprotocol.io/docs/2026-07-28/develop/connect-remote-servers) for details.
+
+  * With this feature, the OEM-preloaded assistant is in control:
+
+    * **Computer Control** : Computer Control is an upcoming Android API that allows an OEM-preloaded assistant to automate tasks by interacting directly with an app's user interface. The target app doesn't need any explicit code changes to integrate. Read about [Computer Control](https://developer.android.com/ai/computer-control).
+  * To render interactive interfaces from in-app agents:
+
+    * **Agent-to-UI (A2UI)** : To go beyond the capabilities of AppFunctions, which enable agents to invoke discrete actions and tools, you can use agents to dynamically generate structured UI for your users. Using the [Jetpack Compose A2UI Renderer](https://developer.android.com/develop/ui/compose/agentic), your app can translate agent-to-UI (A2UI) protocol messages directly into native Jetpack Compose and Material 3 components.
+
+
+
+Send feedback 
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-09-23 UTC.
+
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-23 UTC."],[],[]] 

@@ -1,0 +1,48 @@
+---
+url: https://developer.android.com/work/versions/android-13/
+title: What's new for enterprise in Android 13 \u00a0|\u00a0 Android Enterprise \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:35:59.511797+00:00
+---
+
+# What's new for enterprise in Android 13  |  Android Enterprise  |  Android Developers
+
+> Source: https://developer.android.com/work/versions/android-13/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Develop ](https://developer.android.com/develop)
+  * [ Android Enterprise ](https://developer.android.com/work)
+
+
+
+#  What's new for enterprise in Android 13 Stay organized with collections  Save and categorize content based on your preferences. 
+
+This page provides an overview of the new enterprise APIs, features, and behavior changes introduced in Android 13 (API level 33).
+
+## New Security Logs
+
+To standardize the audit output on the device to meet the requirements of the [Common Criteria Protection Profile for Mobile Device Fundamentals](https://www.niap-ccevs.org/Profile/Info.cfm?PPID=455&id=455) (PP_MDF), additional audit events have been added to the SecurityLog that were previously only available in logcat. The events are focused on Wi-Fi and Bluetooth connectivity.
+
+## Behavior changes
+
+In Android 13 (API level 33) and higher, internet connectivity is required by default to provision company-owned devices. If a device is expected to be provisioned offline or in a closed-network environment, EMMs must include the following flag in the provisioning extras:
+    
+    
+    DevicePolicyManager.EXTRA_PROVISIONING_ALLOW_OFFLINE = "android.app.extra.PROVISIONING_ALLOW_OFFLINE"
+    
+
+Provisioning without internet connectivity results in a loss of functionality, so EMMs should only use this flag when devices can't access the internet as part of deployment requirements.
+
+## Deprecations
+
+Android 13 (API level 33) and higher includes the following notable API deprecation:
+
+  * `android.app.extra.PROVISIONING_LOGO_URI` is fully deprecated in Android 13 and higher. Logo customization is no longer supported during the provisioning flows.
+
+
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-10-01 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-01 UTC."],[],[]] 

@@ -1,0 +1,86 @@
+---
+url: https://docs.comfy.org/built-in-nodes/CosmosPredict2ImageToVideoLatent/
+title: CosmosPredict2ImageToVideoLatent - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:47:44.806899+00:00
+---
+
+# CosmosPredict2ImageToVideoLatent - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/CosmosPredict2ImageToVideoLatent/
+
+Cosmos
+
+# CosmosPredict2ImageToVideoLatent - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+Creates video latents for the Cosmos Predict2 image-to-video workflow.
+
+Copy pageCopy page
+
+Creates video latents for the Cosmos Predict2 image-to-video workflow. The node can produce an empty video latent of a given size and length, or insert encoded start and/or end images into the sequence so those frames are kept during generation. Any supplied image is resized to the requested `width` and `height` and encoded with the provided VAE before being placed at the beginning and/or end of the latent sequence.
+
+## 
+
+​
+
+Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`vae`| The VAE model used to encode the start and end images into latent space| VAE| Yes| -  
+`width`| Width of the output video in pixels (default: 848, must be a multiple of 16)| INT| Yes| 16 to MAX_RESOLUTION  
+`height`| Height of the output video in pixels (default: 480, must be a multiple of 16)| INT| Yes| 16 to MAX_RESOLUTION  
+`length`| Number of frames in the video sequence (default: 93)| INT| Yes| 1 to MAX_RESOLUTION  
+`batch_size`| Number of video sequences to generate (default: 1)| INT| Yes| 1 to 4096  
+`start_image`| Optional starting image for the video sequence| IMAGE| No| -  
+`end_image`| Optional ending image for the video sequence| IMAGE| No| -  
+  
+**Note:** When neither `start_image` nor `end_image` is provided, the node simply returns an empty latent of the requested size and length. When one or both images are provided, they are resized to `width` and `height`, encoded with the `vae`, and placed at the beginning and/or end of the latent sequence. The corresponding regions are marked in the noise mask so they are preserved during generation. The encoded latents are converted with the Wan 2.1 latent format, and the resulting latent and mask are repeated `batch_size` times.
+
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`LATENT`| The generated video latent containing `samples` (the video latent sequence) and, when at least one of `start_image` or `end_image` is provided, a `noise_mask` marking the frames that should be preserved during generation| LATENT  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/CosmosPredict2ImageToVideoLatent/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `842bd2b8cda438e7b938439d4eba280478939e3302dc1846d52595d40082ff05`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/CosmosPredict2ImageToVideoLatent.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/CosmosPredict2ImageToVideoLatent)
+
+[CosmosImageToVideoLatent - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/CosmosImageToVideoLatent)[ClipTextEncodeFLUXNext](https://docs.comfy.org/built-in-nodes/ClipTextEncodeFLUX)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

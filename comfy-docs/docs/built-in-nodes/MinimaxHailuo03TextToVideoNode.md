@@ -1,0 +1,147 @@
+---
+url: https://docs.comfy.org/built-in-nodes/MinimaxHailuo03TextToVideoNode/
+title: MinimaxHailuo03TextToVideoNode - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:48:33.651051+00:00
+---
+
+# MinimaxHailuo03TextToVideoNode - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/MinimaxHailuo03TextToVideoNode/
+
+Minimax
+
+# MinimaxHailuo03TextToVideoNode - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+This node generates a video from a text prompt using the MiniMax H3 family of models: MiniMax H3, MiniMax H3 Max, and MiniMax H3 Max Turbo.
+
+Copy pageCopy page
+
+This node generates a video from a text prompt using the MiniMax H3 family of models: MiniMax H3, MiniMax H3 Max, and MiniMax H3 Max Turbo. You select the model, enter a text prompt, and adjust settings such as resolution, aspect ratio, and duration. The node sends the request to the MiniMax API, waits for the generation task to complete, and returns the resulting video.
+
+## 
+
+​
+
+Inputs
+
+### 
+
+​
+
+Common Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`model`| Model to use for video generation (default: “MiniMax H3”). Selecting a model also shows the model-specific settings described in the sections below.| DYNAMIC_COMBO| Yes| ”MiniMax H3"  
+"MiniMax H3 Max"  
+"MiniMax H3 Max Turbo”  
+`seed`| Random seed. The same request with the same seed gives similar, but not guaranteed identical, results (default: 42).| INT| Yes| 0 to 4294967295  
+`watermark`| Whether to add an AIGC watermark to the video (default: false). When enabled, only the “MiniMax H3” model is supported.| BOOLEAN| No| true  
+false  
+  
+### 
+
+​
+
+MiniMax H3 Inputs
+
+These settings appear when the “MiniMax H3” model is selected.
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`prompt`| Text prompt for video generation. Must contain at least one non-whitespace character.| STRING| Yes| Any text  
+`resolution`| Resolution of the output video.| COMBO| Yes| ”768P"  
+"2K”  
+`ratio`| Aspect ratio of the output video (default: “16:9”).| COMBO| Yes| ”16:9"  
+"4:3"  
+"1:1"  
+"3:4"  
+"9:16"  
+"21:9”  
+`duration`| Duration of the output video in seconds (4-15) (default: 5).| INT| Yes| 4 to 15  
+  
+### 
+
+​
+
+MiniMax H3 Max and MiniMax H3 Max Turbo Inputs
+
+These settings are shared by the “MiniMax H3 Max” and “MiniMax H3 Max Turbo” models and appear when either model is selected.
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`prompt`| Text prompt for video generation. Must contain at least one non-whitespace character and can be up to 50,000 characters long.| STRING| Yes| Up to 50000 characters  
+`resolution`| Resolution of the output video (default: “768P”).| COMBO| Yes| ”480P"  
+"768P”  
+`ratio`| Aspect ratio of the output video (default: “16:9”).| COMBO| Yes| ”16:9"  
+"4:3"  
+"1:1"  
+"3:4"  
+"9:16"  
+"21:9”  
+`duration`| Duration of the output video in seconds (5-15) (default: 5).| INT| Yes| 5 to 15  
+`prompt_expansion_mode`| How much effort is spent rewriting the prompt before generation (default: “balanced”).| COMBO| Yes| ”balanced"  
+"quality”  
+  
+### 
+
+​
+
+Notes
+
+  * For all models, the prompt must contain at least one non-whitespace character.
+  * The `watermark` setting is only supported by “MiniMax H3”. Enabling it with “MiniMax H3 Max” or “MiniMax H3 Max Turbo” causes an error.
+  * The “MiniMax H3 Max” and “MiniMax H3 Max Turbo” models limit the prompt to 50,000 characters.
+  * Resolution and duration limits depend on the selected model: “MiniMax H3” supports “768P” and “2K” resolution and 4-15 second videos, while “MiniMax H3 Max” and “MiniMax H3 Max Turbo” support “480P” and “768P” resolution and 5-15 second videos.
+  * The estimated price shown for this node is calculated from the selected model, resolution, and duration.
+
+
+
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`VIDEO`| The generated video created from the provided text prompt.| VIDEO  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/MinimaxHailuo03TextToVideoNode/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `4d3de190d18de4370aff878279755e881841d2ada28320a7c1d7c52061071c05`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/MinimaxHailuo03TextToVideoNode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/MinimaxHailuo03TextToVideoNode)
+
+[MinimaxHailuo03RegenerateNode - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/MinimaxHailuo03RegenerateNode)[MinimaxHailuoVideoNode - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/MinimaxHailuoVideoNode)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/",
+  "file": "_subdomains/developer.android.com/_index.md",
+  "title": "Android Mobile App Developer Tools - Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:21:00.848657+00:00",
+  "html_len": 469541,
+  "md_len": 200781,
+  "depth": 2
+}

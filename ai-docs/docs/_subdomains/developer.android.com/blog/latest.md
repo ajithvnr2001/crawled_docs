@@ -1,0 +1,520 @@
+---
+url: https://developer.android.com/blog/latest/
+title: Latest \u00a0|\u00a0 Android Developers' Blog
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:21:34.801204+00:00
+---
+
+# Latest  |  Android Developers' Blog
+
+> Source: https://developer.android.com/blog/latest/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Android Developers' Blog ](https://developer.android.com/)
+  * [ Blog ](https://developer.android.com/blog)
+
+
+
+Stay organized with collections  Save and categorize content based on your preferences. 
+
+# The Latest
+
+Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
+
+  * [ ![View Jason Buchel's profile](https://developer.android.com/static/blog/assets/unnamed_25_28af9250eb_I4mHO.webp)](https://developer.android.com/blog/authors/jason-buchel)
+
+13 Oct 2026
+
+13 Oct 2026
+
+![](https://developer.android.com/static/blog/assets/Blog_0140_strapi_8d85f71a6e_ZvGJv2.webp)
+
+[ Product News ](https://developer.android.com/blog/categories/product-news)
+
+##  [ Bringing our latest frontier model to Android Developers ](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
+
+As agentic development accelerates, Android engineering is reaching an exciting new frontier: moving from assistive code completion to agents executing end-to-end under your direction. You have total choice and flexibility in the models and agents you use. 
+
+[Jason Buchel](https://developer.android.com/blog/authors/jason-buchel) • 3 min read 
+    * [ #Agentic Android development ](https://developer.android.com/blog/topics/agentic-android-development)
+
+  * [ ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng)
+
+13 Oct 2026
+
+13 Oct 2026
+
+![](https://developer.android.com/static/blog/assets/Developer_Strapi_Banner_2000x1000_c21932c96a_1wEPmN.webp)
+
+[ Product News ](https://developer.android.com/blog/categories/product-news)
+
+##  [ New ways to drive smarter discovery, deeper engagement, and business growth on Google Play ](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth)
+
+Today, we shared how we’re taking our “more than a store” vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are. 
+
+[Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read 
+
+  * [ ![View Cyrus Stoller's profile](https://developer.android.com/static/blog/assets/unnamed_26_f996d1f7cf_2bofD0.webp)](https://developer.android.com/blog/authors/cyrus-stoller)
+
+12 Oct 2026
+
+12 Oct 2026
+
+![](https://developer.android.com/static/blog/assets/1006_ABL_141_Strapi_1_540d64279e_Z1veewf.webp)
+
+[ Product News ](https://developer.android.com/blog/categories/product-news)
+
+##  [ Introducing the Googlebook Linux Terminal Preview: A VM-Backed Environment for AI and Development ](https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm)
+
+With Googlebook, we’re excited to help users express themselves and gain access to these tools.
+
+[Cyrus Stoller](https://developer.android.com/blog/authors/cyrus-stoller) • 2 min read 
+    * [ #Googlebook ](https://developer.android.com/blog/topics/googlebook)
+
+  * [ ![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic)
+
+02 Oct 2026
+
+02 Oct 2026
+
+![](https://developer.android.com/static/blog/assets/ABL_135_Android_CLI_and_Android_skills_Strapi_d22702426a_ZIUXgH.webp)
+
+[ Product News ](https://developer.android.com/blog/categories/product-news)
+
+##  [ Device Streaming and Android skills - available in Android CLI ](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills)
+
+As Android developers, you have many choices when it comes to the agents, LLMs, tools, and command-line interfaces (CLI) you use for app development. Our goal is to help you build beautiful, high-quality Android apps, no matter how you choose to build.
+
+[Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) • 4 min read 
+    * [ #Agentic Android development ](https://developer.android.com/blog/topics/agentic-android-development)
+
+  * [ ![View Pavlo Stavytskyi's profile](https://developer.android.com/static/blog/assets/pavlo_a4e2ec12e9_v4xs2.webp)](https://developer.android.com/blog/authors/pavlo-stavytskyi)[ ![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)](https://developer.android.com/blog/authors/rebecca-franks)
+
+30 Sep 2026
+
+30 Sep 2026
+
+![](https://developer.android.com/static/blog/assets/Compose_Carousel_Strapi_3_ca1ff69fce_Z1u412n.webp)
+
+[ Case Studies ](https://developer.android.com/blog/categories/case-studies)
+
+##  [ How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33% ](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct)
+
+The team built an AI-native UI codebase that is 50% smaller than the original implementation, while achieving a 35% reduction in AI agent execution time, 32% fewer engineer-agent exchanges, and a 33% reduction in token cost. 
+
+[Pavlo Stavytskyi](https://developer.android.com/blog/authors/pavlo-stavytskyi), [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks) • 11 min read 
+    * [ #Compose-first ](https://developer.android.com/blog/topics/compose-first)
+    * [ #Jetpack Compose ](https://developer.android.com/blog/topics/jetpack-compose)
+
+  * [ ![View Sheenam Mittal's profile](https://developer.android.com/static/blog/assets/unnamed_24_1859332bf9_Z2nsiJr.webp)](https://developer.android.com/blog/authors/sheenam-mittal)
+
+29 Sep 2026
+
+29 Sep 2026
+
+![](https://developer.android.com/static/blog/assets/ABL_0137_Strapi_1331188d3a_Z17ea85.webp)
+
+[ Product News ](https://developer.android.com/blog/categories/product-news)
+
+##  [ Driving growth on Google Play: The next era of subscriptions ](https://developer.android.com/blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions)
+
+On Google Play, we are continuously expanding our subscription platform to help you drive growth, adapt to new business models, and meet your users exactly where they are.
+
+[Sheenam Mittal](https://developer.android.com/blog/authors/sheenam-mittal) • 4 min read 
+    * [ #Google Play subscriptions ](https://developer.android.com/blog/topics/google-play-subscriptions)
+
+  * [ ![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner)
+
+24 Sep 2026
+
+24 Sep 2026
+
+![](https://developer.android.com/static/blog/assets/BYOA_Backup_Strapi_1_5c3f94f766_Z1WI1Mt.webp)
+
+[ Product News ](https://developer.android.com/blog/categories/product-news)
+
+##  [ Build your way: Use any AI agent of your choice in Android Studio ](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio)
+
+Last year, Android Studio opened up to any AI model. Today, we’re taking the next step by introducing support for your choice of coding agents. 
+
+[Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 3 min read 
+    * [ #Agentic Android development ](https://developer.android.com/blog/topics/agentic-android-development)
+
+  * [ ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[ ![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)](https://developer.android.com/blog/authors/loryn-hairston)
+
+22 Sep 2026
+
+22 Sep 2026
+
+![](https://developer.android.com/static/blog/assets/Googlebook_Blog_Strapi_4a4a7d3291_Z1ReCnu.webp)
+
+[ Product News ](https://developer.android.com/blog/categories/product-news)
+
+##  [ Land your apps on Googlebook with adaptive development ](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development)
+
+Googlebook introduces a new category of laptops built on a shared Android foundation. High-performance hardware from partners such as HP, Dell, Lenovo, Acer, and Asus, combines mobile convenience with desktop power.
+
+[Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read 
+    * [ #Googlebook ](https://developer.android.com/blog/topics/googlebook)
+    * [ #Adaptive development ](https://developer.android.com/blog/topics/adaptive-development)
+    * [ #Jetpack Compose ](https://developer.android.com/blog/topics/jetpack-compose)
+    * +1 ↩
+
+  * [ ![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)](https://developer.android.com/blog/authors/jan-kleinert)
+
+21 Sep 2026
+
+21 Sep 2026
+
+![](https://developer.android.com/static/blog/assets/Games_for_car_Strapi_1_c55588726e_Z2cIhWx.webp)
+
+[ Product News ](https://developer.android.com/blog/categories/product-news)
+
+##  [ Bring your Android game to the car screen today ](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today)
+
+Today, the games category for Android Auto and cars powered by Android Automotive OS with Google built-in is officially graduating from beta to general availability. 
+
+[Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert) • 3 min read 
+    * [ #Android Automotive OS ](https://developer.android.com/blog/topics/android-automotive-os)
+    * [ #Adaptive & Differentiated ](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+    * [ #Android Auto ](https://developer.android.com/blog/topics/android-auto)
+    * +1 ↩
+
+  * [ ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough)
+
+17 Sep 2026
+
+17 Sep 2026
+
+![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp)
+
+[ Product News ](https://developer.android.com/blog/categories/product-news)
+
+##  [ Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks ](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
+
+Today we’re releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers. 
+
+[Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read 
+    * [ #Agentic Android development ](https://developer.android.com/blog/topics/agentic-android-development)
+    * [ #Android Bench ](https://developer.android.com/blog/topics/android-bench)
+
+  * 3 Authors
+
+17 Sep 2026
+
+17 Sep 2026
+
+![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp)
+
+[ Product News ](https://developer.android.com/blog/categories/product-news)
+
+##  [ Introducing the AndroidX Security State Libraries: A Unified View of Device Security ](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
+
+Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
+
+[Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read 
+
+  * 3 Authors
+
+09 Sep 2026
+
+09 Sep 2026
+
+![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp)
+
+[ Product News ](https://developer.android.com/blog/categories/product-news)
+
+##  [ Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0 ](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
+
+Wireless debugging on Android is now faster, more reliable, and easier to set up than ever. With ADB Wi-Fi 2.0, we’ve introduced a new server stack and smarter network handling to directly address developer feedback around usability gaps.
+
+[Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins), [Sherif Eid](https://developer.android.com/blog/authors/sherif-eid), [Fabien Sanglard](https://developer.android.com/blog/authors/fabien-sanglard) • 1 min read 
+    * [ #Wireless Debugging ](https://developer.android.com/blog/topics/wireless-debugging)
+    * [ #ADB Wi-Fi 2.0 ](https://developer.android.com/blog/topics/adb-wi-fi-2-0)
+    * [ #Android Studio ](https://developer.android.com/blog/topics/android-studio)
+    * +1 ↩
+
+  * [ ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)](https://developer.android.com/blog/authors/amman-asfaw)
+
+01 Sep 2026
+
+01 Sep 2026
+
+![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_ZqnmK9.webp)
+
+[ Product News ](https://developer.android.com/blog/categories/product-news)
+
+##  [ Leverage Android skills and Gemma 4 in Android Studio Quail 4 ](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4)
+
+This is the final stable release for Android Studio Quail. The new features in Android Studio enable you to build premium apps with AI efficiently and effectively.
+
+[Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 5 min read 
+    * [ #Android Studio ](https://developer.android.com/blog/topics/android-studio)
+    * [ #Android Skills ](https://developer.android.com/blog/topics/android-skills)
+
+  * [ ![View Rob Orgiu's profile](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_Z2l461S.webp)](https://developer.android.com/blog/authors/rob-orgiu)
+
+31 Aug 2026
+
+31 Aug 2026
+
+![](https://developer.android.com/static/blog/assets/ABL_123_Streamline_adaptive_testing_with_emulator_commands_Strapi_0d1336f9a2_1recRz.webp)
+
+[ Documentation ](https://developer.android.com/blog/categories/documentation)
+
+##  [ Emulator control for adaptive app development ](https://developer.android.com/blog/posts/emulator-control-for-adaptive-app-development)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/emulator-control-for-adaptive-app-development)
+
+Adaptive app development is fundamental on Android, but making sure everything looks good and every feature works the way it should require multiple tests on multiple devices. Or does it?
+
+[Rob Orgiu](https://developer.android.com/blog/authors/rob-orgiu) • 2 min read 
+    * [ #Adaptive apps ](https://developer.android.com/blog/topics/adaptive-apps)
+    * [ #Adaptive development ](https://developer.android.com/blog/topics/adaptive-development)
+
+  * 3 Authors
+
+27 Aug 2026
+
+27 Aug 2026
+
+![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp)
+
+[ Case Studies ](https://developer.android.com/blog/categories/case-studies)
+
+##  [ How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys ](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
+
+WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
+
+[Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read 
+    * [ #Passkeys ](https://developer.android.com/blog/topics/passkeys)
+
+  * [ ![View Raghavendra Hareesh Pottamsetty's profile](https://developer.android.com/static/blog/assets/Raghavendra_Hareesh_Pottamsetty_72fdb063a0_HTSBv.webp)](https://developer.android.com/blog/authors/raghavendra-hareesh-pottamsetty)
+
+26 Aug 2026
+
+26 Aug 2026
+
+![](https://developer.android.com/static/blog/assets/Raising_the_bar_Google_Play_Strapi_2_a80695bf12_ZCNvdc.webp)
+
+[ Product News ](https://developer.android.com/blog/categories/product-news)
+
+##  [ Elevating app quality: Reducing memory usage and improving device migration ](https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration)
+
+Maintaining a healthy Android ecosystem is a shared commitment where every app and game has a role to play. 
+
+[Raghavendra Hareesh Pottamsetty](https://developer.android.com/blog/authors/raghavendra-hareesh-pottamsetty) • 4 min read 
+
+  * [ ![View Ron Aquino's profile](https://developer.android.com/static/blog/assets/unnamed_18_8bd07de9bd_ZRiq2s.webp)](https://developer.android.com/blog/authors/ron-aquino)
+
+25 Aug 2026
+
+25 Aug 2026
+
+![](https://developer.android.com/static/blog/assets/Ensuring_a_safe_Gen_AI_ecosystem_on_Google_Play_Scrapi_a8fa6da415_1HFCG4.webp)
+
+[ Product News ](https://developer.android.com/blog/categories/product-news)
+
+##  [ Ensuring Safety in the Generative AI Ecosystem: Protecting Users from Non-Consensual Intimate Content ](https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content)
+
+At Google Play, user safety and developer success go hand in hand. We continue to see growth in apps with AI generated features, and indeed, adding generative AI into your apps is a great way to unlock incredible creative possibilities. 
+
+[Ron Aquino](https://developer.android.com/blog/authors/ron-aquino) • 4 min read 
+
+  * 3 Authors
+
+24 Aug 2026
+
+24 Aug 2026
+
+![](https://developer.android.com/static/blog/assets/Android_1_Strapi_6f49d09922_1I8TFC.webp)
+
+[ Product News ](https://developer.android.com/blog/categories/product-news)
+
+##  [ AAOS SDV - Secure by Design ](https://developer.android.com/blog/posts/aaos-sdv-secure-by-design)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/aaos-sdv-secure-by-design)
+
+At Google, we believe our products should be secure by design, which is why we built the Android Automotive Operating System for Software Defined Vehicle (AAOS SDV) on existing, market-proven platforms, leveraging virtualization technologies like Cuttlefish. 
+
+[Markus Vill](https://developer.android.com/blog/authors/markus-vill), [Sean Keys](https://developer.android.com/blog/authors/sean-keys), [István Nádor](https://developer.android.com/blog/authors/istvan-nador) • 5 min read 
+    * [ #Android Auto ](https://developer.android.com/blog/topics/android-auto)
+    * [ #Security ](https://developer.android.com/blog/topics/security)
+
+  * [ ![View Blair Harmon's profile](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_27tpBh.webp)](https://developer.android.com/blog/authors/blair-harmon)
+
+19 Aug 2026
+
+19 Aug 2026
+
+![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1o8xIO.webp)
+
+[ Product News ](https://developer.android.com/blog/categories/product-news)
+
+##  [ Preparing your app for broader memory limits ](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits)
+
+A great user experience is central to Android's mission, and delivering on that promise requires keeping devices fast, responsive, and reliable.
+
+[Blair Harmon](https://developer.android.com/blog/authors/blair-harmon) • 2 min read 
+    * [ #App Memory Limits ](https://developer.android.com/blog/topics/app-memory-limits)
+    * [ #Android Vitals ](https://developer.android.com/blog/topics/android-vitals)
+    * [ #Multi-Process Architecture ](https://developer.android.com/blog/topics/multi-process-architecture)
+    * [ #Android 17 ](https://developer.android.com/blog/topics/android-17)
+    * [ #Performance ](https://developer.android.com/blog/topics/performance)
+    * +3 ↩
+
+  * 3 Authors
+
+18 Aug 2026
+
+18 Aug 2026
+
+![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp)
+
+[ Case Studies ](https://developer.android.com/blog/categories/case-studies)
+
+##  [ Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer ](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
+
+Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles. 
+
+[Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [ Ulises Uriel Verduzco Díaz ](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read 
+    * [ #Adaptive & Differentiated ](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+
+
+
+
+arrow_back 
+
+#### Page 1
+
+###### of 10
+
+[ arrow_forward  ](https://developer.android.com/blog/latest/2)
+
+# Popular Topics
+
+  * [ #Android ](https://developer.android.com/blog/topics/android)
+  * [ #Google I/O ](https://developer.android.com/blog/topics/google-i-o)
+  * [ #Android Studio ](https://developer.android.com/blog/topics/android-studio)
+  * [ #Compose ](https://developer.android.com/blog/topics/compose)
+  * [ #Performance ](https://developer.android.com/blog/topics/performance)
+  * [ #Android XR ](https://developer.android.com/blog/topics/android-xr)
+  * [ #Agentic Android development ](https://developer.android.com/blog/topics/agentic-android-development)
+  * [ #Jetpack Compose ](https://developer.android.com/blog/topics/jetpack-compose)
+  * [ #Android 17 ](https://developer.android.com/blog/topics/android-17)
+  * [ #Wear OS ](https://developer.android.com/blog/topics/wear-os)
+  * [ #Adaptive & Differentiated ](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+  * [ #Adaptive development ](https://developer.android.com/blog/topics/adaptive-development)
+  * [ #Intelligent Apps ](https://developer.android.com/blog/topics/intelligent-apps)
+  * [ #R8 ](https://developer.android.com/blog/topics/r8)
+  * [ #Adaptive apps ](https://developer.android.com/blog/topics/adaptive-apps)
+  * [ #Mobile App Development ](https://developer.android.com/blog/topics/mobile-app-development)
+  * [ #Jetpack Navigation ](https://developer.android.com/blog/topics/jetpack-navigation)
+  * [ #Automotive OS ](https://developer.android.com/blog/topics/automotive-os)
+  * [ #AppFunctions ](https://developer.android.com/blog/topics/app-functions)
+  * [ #Android XR SDK ](https://developer.android.com/blog/topics/android-xr-sdk)
+  * [ #Google Play ](https://developer.android.com/blog/topics/google-play)
+  * [ #Memory ](https://developer.android.com/blog/topics/memory)
+  * [ #Android Skills ](https://developer.android.com/blog/topics/android-skills)
+  * [ #Jetpack ](https://developer.android.com/blog/topics/jetpack)
+  * [ #Widgets ](https://developer.android.com/blog/topics/widgets)
+  * [ #made by google ](https://developer.android.com/blog/topics/made-by-google)
+  * [ #Android Auto ](https://developer.android.com/blog/topics/android-auto)
+  * [ #Googlebook ](https://developer.android.com/blog/topics/googlebook)
+  * [ #Idling Resources ](https://developer.android.com/blog/topics/idling-resources)
+  * [ #identity ](https://developer.android.com/blog/topics/identity)
+  * [ #Nav3 ](https://developer.android.com/blog/topics/nav3)
+  * [ #Now In Android ](https://developer.android.com/blog/topics/now-in-android)
+  * [ #Android 16 ](https://developer.android.com/blog/topics/android-16)
+  * [ #Foldables ](https://developer.android.com/blog/topics/foldables)
+  * [ #beta ](https://developer.android.com/blog/topics/beta)
+  * [ #Generative AI ](https://developer.android.com/blog/topics/generative-ai)
+  * [ #Developer Preview ](https://developer.android.com/blog/topics/developer-preview)
+  * [ #Unity ](https://developer.android.com/blog/topics/unity)
+  * [ #Play Console ](https://developer.android.com/blog/topics/play-console)
+  * [ #Android Developers ](https://developer.android.com/blog/topics/android-developers)
+  * [ #Agent Skills ](https://developer.android.com/blog/topics/agent-skills)
+  * [ #Gemini features ](https://developer.android.com/blog/topics/gemini-features)
+  * [ #Engage SDK ](https://developer.android.com/blog/topics/engage-sdk)
+  * [ #On-device ](https://developer.android.com/blog/topics/on-device)
+  * [ #Game engine development ](https://developer.android.com/blog/topics/game-engine-development)
+  * [ #intelligent eyewear ](https://developer.android.com/blog/topics/intelligent-eyewear)
+  * [ #Wired XR glasses ](https://developer.android.com/blog/topics/wired-xr-glasses)
+  * [ #Profiling Manager ](https://developer.android.com/blog/topics/profiling-manager)
+  * [ #Developer Preview 4 ](https://developer.android.com/blog/topics/developer-preview-4)
+  * [ #coroutines ](https://developer.android.com/blog/topics/coroutines)
+  * [ #Gemini in Android Studio ](https://developer.android.com/blog/topics/gemini-in-android-studio)
+  * [ # Quail 2 ](https://developer.android.com/blog/topics/quail-2)
+  * [ #AI-assisted coding ](https://developer.android.com/blog/topics/ai-assisted-coding)
+  * [ #Media3 ](https://developer.android.com/blog/topics/media3)
+  * [ #ExoPlayer ](https://developer.android.com/blog/topics/exo-player)
+  * [ #pixel watch ](https://developer.android.com/blog/topics/pixel-watch)
+  * [ #Wear OS 7 ](https://developer.android.com/blog/topics/wear-os-7)
+  * [ #Gemini Nano 4 ](https://developer.android.com/blog/topics/gemini-nano-4)
+  * [ #ML Kit Prompt API ](https://developer.android.com/blog/topics/ml-kit-prompt-api)
+  * [ #Jetpack XR SDK ](https://developer.android.com/blog/topics/jetpack-xr-sdk)
+  * [ #App Memory Limits ](https://developer.android.com/blog/topics/app-memory-limits)
+  * [ #Android Vitals ](https://developer.android.com/blog/topics/android-vitals)
+  * [ #Multi-Process Architecture ](https://developer.android.com/blog/topics/multi-process-architecture)
+  * [ #Security ](https://developer.android.com/blog/topics/security)
+  * [ #Passkeys ](https://developer.android.com/blog/topics/passkeys)
+  * [ #Wireless Debugging ](https://developer.android.com/blog/topics/wireless-debugging)
+  * [ #ADB Wi-Fi 2.0 ](https://developer.android.com/blog/topics/adb-wi-fi-2-0)
+  * [ #Android Automotive OS ](https://developer.android.com/blog/topics/android-automotive-os)
+  * [ #Compose-first ](https://developer.android.com/blog/topics/compose-first)
+  * [ #Google Play subscriptions ](https://developer.android.com/blog/topics/google-play-subscriptions)
+  * [ #Android Bench ](https://developer.android.com/blog/topics/android-bench)
+  * [ #authentication ](https://developer.android.com/blog/topics/authentication)
+  * [ #CredentialManager ](https://developer.android.com/blog/topics/credential-manager)
+  * [ #Large Screens ](https://developer.android.com/blog/topics/large-screens)
+  * [ #Layouts ](https://developer.android.com/blog/topics/layouts)
+  * [ #Window Size Classes ](https://developer.android.com/blog/topics/blog-topic)
+  * [ #usage-based billing GenAI apps ](https://developer.android.com/blog/topics/usage-based-billing-gen-ai-apps)
+
+
+
+Stay in the loop
+
+Get the latest Android development insights delivered to your inbox weekly. 
+
+[ mail  Subscribe ](https://developer.android.com/subscribe)
+
+![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]] 

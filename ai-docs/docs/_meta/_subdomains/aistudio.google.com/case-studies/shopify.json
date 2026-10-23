@@ -1,0 +1,10 @@
+{
+  "url": "https://aistudio.google.com/case-studies/shopify/",
+  "file": "_subdomains/aistudio.google.com/case-studies/shopify.md",
+  "title": "Shopify | Google AI Studio",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (82 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T19:34:22.564964+00:00",
+  "html_len": 345462,
+  "md_len": 3661,
+  "depth": 2
+}

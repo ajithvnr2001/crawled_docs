@@ -1,0 +1,10 @@
+{
+  "url": "https://aistudio.google.com/status/",
+  "file": "_subdomains/aistudio.google.com/status.md",
+  "title": "Google AI Studio",
+  "method": "httpx+scrapegraph (scrapling: scrapling thin content (68 chars), fallback to crawl4ai | crawl4ai: crawl4ai thin content: scrapling: scrapling thin content (68 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T22:20:00.724412+00:00",
+  "html_len": 33035,
+  "md_len": 68,
+  "depth": 1
+}

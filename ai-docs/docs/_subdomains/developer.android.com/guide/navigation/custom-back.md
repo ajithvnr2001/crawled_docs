@@ -1,0 +1,105 @@
+---
+url: https://developer.android.com/guide/navigation/custom-back/
+title: Provide custom back navigation \u00a0|\u00a0 App architecture \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:40:46.271190+00:00
+---
+
+# Provide custom back navigation  |  App architecture  |  Android Developers
+
+> Source: https://developer.android.com/guide/navigation/custom-back/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Design & Plan ](https://developer.android.com/design)
+  * [ App architecture ](https://developer.android.com/topic/architecture/intro)
+
+
+
+#  Provide custom back navigation Stay organized with collections  Save and categorize content based on your preferences. 
+
+Users navigate backward through screens using _back navigation_. Most Android devices have a back button (physical, software, or gesture-based). Usually, you shouldn't add a back button to your app. However, Android Automotive OS (AAOS) devices in compatibility mode use a system back button. This handles navigation, so you don't need to add your own. For details, see [AAOS Compatibility Mode](https://developer.android.com/training/cars/platforms/automotive-os/compatibility-mode).
+
+Android maintains a _back stack_ of destinations as the user navigates throughout your application. This usually allows Android to properly navigate to previous destinations when the Back button is pressed. However, there are a few cases where your app might need to implement its own Back behavior in order to provide the best possible user experience. For example, when using a `WebView`, you might want to override the default Back button behavior to allow the user to navigate back through their web browsing history instead of the previous screens in your app.
+
+**Note:** Android 13 introduces predictive back navigation, which works with custom back navigation, for Android devices. We strongly recommend that you implement predictive back navigation as soon as possible. Otherwise, users might experience unexpected behavior in a future Android release. To learn more, see [Add support for the predictive back gesture](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture).
+
+## Implement custom back navigation in Compose
+
+In Jetpack Compose, you can handle custom back navigation using the [`BackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/BackHandler.composable#BackHandler\(kotlin.Boolean,kotlin.Function0\)) composable.
+
+When using [Navigation Compose](https://developer.android.com/guide/navigation#framework-options), you typically use [`NavController.navigateUp()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController#navigateUp\(\)) or [`NavController.popBackStack()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController#popBackStack\(\)) to navigate to the previous screen in the back stack. However, `BackHandler` is useful for cases where you want to implement custom behavior when the user presses the system back button or uses the back gesture. For example, if you are displaying a [`WebView`](https://developer.android.com/develop/ui/views/layout/webapps/webview) in your app, you might want to allow users to navigate back through browsing history when they press the system back button.
+
+### Basic usage
+
+Here's an example showing how to intercept the back event to control custom state (like collapsing a panel):
+    
+    
+    @Composable
+    fun MyScreen() {
+        var isExpanded by remember { mutableStateOf(false) }
+    
+        // Intercept the back button or gesture only when isExpanded is true
+        BackHandler(enabled = isExpanded) {
+            // Collapsing the content disables this handler, so it does not
+            // receive the next back event.
+            isExpanded = false
+        }
+    
+        if (isExpanded) {
+            Text("Expanded content. Go back to collapse it.")
+        } else {
+            Button(onClick = { isExpanded = true }) {
+                Text("Expand")
+            }
+        }
+    }
+    
+    [CustomBack.kt](https://github.com/android/snippets/blob/9dba385ef8f1cef53c86401b21b013550b9d8604/compose/snippets/src/main/java/com/example/compose/snippets/navigation/CustomBack.kt#L29-L47)
+
+### Composable tree interception
+
+If you have multiple enabled `BackHandler` composables at different levels of your composable tree, only the innermost one intercepts the back event.
+
+## Implement custom back navigation with Views
+
+[`ComponentActivity`](https://developer.android.com/reference/androidx/activity/ComponentActivity), the base class for [`FragmentActivity`](https://developer.android.com/reference/androidx/fragment/app/FragmentActivity) and [`AppCompatActivity`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity), lets you control the behavior of the Back button by using its [`OnBackPressedDispatcher`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher), which you can retrieve by calling [`getOnBackPressedDispatcher()`](https://developer.android.com/reference/androidx/activity/ComponentActivity#getOnBackPressedDispatcher\(\)).
+
+**Note:** If your app uses Activity 1.5.0 or higher, you can also implement custom back navigation for a dialog by using [`ComponentDialog`](https://developer.android.com/reference/androidx/activity/ComponentDialog) and its `OnBackPressedDispatcher`.
+
+The `OnBackPressedDispatcher` controls how Back button events are dispatched to one or more [`OnBackPressedCallback`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback) objects. The constructor for `OnBackPressedCallback` takes a boolean for the initial enabled state. Only when a callback is enabled, for example when [`isEnabled()`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback#isEnabled\(\)) returns `true`, will the dispatcher call the callback's [`handleOnBackPressed()`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback#handleOnBackPressed\(\)) to handle the Back button event. You can change the enabled state by calling [`setEnabled()`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback#setEnabled\(boolean\)).
+
+Callbacks are added using the `addCallback` methods. Use the [`addCallback()`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher#addCallback\(androidx.lifecycle.LifecycleOwner,androidx.activity.OnBackPressedCallback\)) method which takes a [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner). This way the `OnBackPressedCallback` is only added when the `LifecycleOwner` is [`Lifecycle.State.STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#STARTED). The activity also removes registered callbacks when their associated `LifecycleOwner` is destroyed, which prevents memory leaks and makes it suitable for use in fragments or other lifecycle owners that have a shorter lifetime than the activity.
+
+Here's an example callback implementation:
+    
+    
+    class MyFragment : Fragment() {
+    
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+    
+            // This callback will only be called when MyFragment is at least Started.
+            val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
+                // Handle the back button event
+            }
+    
+            // The callback can be enabled or disabled here or in the lambda
+        }
+        ...
+    }
+
+You can provide multiple callbacks using [`addCallback()`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher#addCallback\(androidx.activity.OnBackPressedCallback\)). When doing so, the callbacks are invoked in the reverse order in which they are added—the callback added last is the first given a chance to handle the Back button event. For example, if you added three callbacks named `one`, `two`, and `three` in order, they would be invoked in the order of `three`, `two`, and `one`, respectively.
+
+Callbacks follow the [Chain of Responsibility](https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern) pattern. Each callback in the chain is invoked only if the preceding callback wasn't enabled. This means that in the preceding example, callback `two` would be invoked only if callback `three` wasn't enabled. Callback `one` would only be invoked if callback `two` wasn't enabled, and this pattern continues for any additional callbacks.
+
+Note that when added using [`addCallback()`](https://developer.android.com/reference/androidx/activity/OnBackPressedDispatcher#addCallback\(androidx.lifecycle.LifecycleOwner,androidx.activity.OnBackPressedCallback\)), the callback isn't added to the chain of responsibility until the `LifecycleOwner` enters the [`Lifecycle.State.STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#STARTED) state.
+
+Changing the enabled state on the callback is strongly recommended for temporary changes as it maintains the ordering described earlier, which is particularly important if you have callbacks registered on multiple different nested lifecycle owners.
+
+If you want to remove the callback entirely, call [`remove()`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback#remove\(\)). This usually isn't necessary because callbacks are automatically removed when their associated [`LifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/LifecycleOwner) is [destroyed](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#DESTROYED).
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-10-15 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-15 UTC."],[],[]] 

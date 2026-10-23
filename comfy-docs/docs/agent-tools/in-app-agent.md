@@ -1,0 +1,273 @@
+---
+url: https://docs.comfy.org/agent-tools/in-app-agent/
+title: Comfy Agent - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-19T14:35:05.844618+00:00
+---
+
+# Comfy Agent - ComfyUI
+
+> Source: https://docs.comfy.org/agent-tools/in-app-agent/
+
+## On this page
+
+  * What it can do
+  * Where you can use it
+  * What it costs
+    * Pricing per token
+  * Coming soon on local
+  * Choose which workflow to edit
+  * Build and edit workflows
+  * Validate before running
+  * Work with media
+  * Reference nodes, workflows, and assets
+  * Run permissions
+  * What the Agent can use
+  * Stop or cancel
+  * Chat history
+  * Next steps
+  * Feedback
+
+
+
+Comfy Agent
+
+# Comfy Agent
+
+Copy pageCopy page
+
+Use Comfy Agent to understand, build, edit, and run ComfyUI workflows. It is generally available in Comfy Cloud. Local support for Comfy Desktop is coming soon.
+
+Copy pageCopy page
+
+**Comfy Agent is generally available in Comfy Cloud**. Agent inside Comfy Desktop on local is coming soon. [Join the waitlist](https://links.comfy.org/agentalpha) to get notified.
+
+Describe what you want right inside ComfyUI. It plans, builds, and runs workflows. Editing the canvas while you work, it crafts side by side with you. If it’s your first time, select the info icon beside the Comfy Agent title to take a short tour.
+
+## 
+
+​
+
+What it can do
+
+  * Find templates, models, and nodes available in your ComfyUI environment.
+  * Build a workflow from a template and customize its prompts and settings.
+  * Change part of the current workflow without rebuilding the rest.
+  * Add, connect, configure, and remove nodes.
+  * Validate a workflow before running it.
+  * Inspect images and read video or audio properties.
+  * Run workflows and return their outputs.
+  * Keep working on the canvas while the Agent responds — you don’t have to wait for it to finish, and it works from what you currently have open.
+  * Create a skill in plain language, or ask the Agent to use one of Comfy’s public skills instead of only your own. See [Agent skills](https://docs.comfy.org/agent-tools/in-app-agent-skills).
+  * Open more than one chat at once. Each chat is its own session with its own history and context.
+
+
+
+## 
+
+​
+
+Where you can use it
+
+Where you use Comfy Agent| What to expect  
+---|---  
+**Comfy Cloud**|  Generally available. The Agent, workflows, and assets use your Comfy Cloud account. There is no local package to install.  
+**Comfy Desktop**| **Coming soon.** [Join the waitlist](https://links.comfy.org/agentalpha) to get notified when Comfy Agent is available for local ComfyUI, including your own models and custom nodes.  
+  
+Either way, Agent requests use Comfy services over the network. See [Data and privacy](https://docs.comfy.org/agent-tools/in-app-agent-data-privacy). Comfy Agent is separate from [Comfy MCP](https://docs.comfy.org/agent-tools/mcp) and [Comfy CLI](https://docs.comfy.org/agent-tools/cli). MCP connects an external AI client to Comfy. The CLI is for terminal and script workflows. Comfy Agent works in the ComfyUI interface. To make your first image, follow [Get started with Comfy Agent](https://docs.comfy.org/agent-tools/in-app-agent-installation#make-your-first-image).
+
+## 
+
+​
+
+What it costs
+
+Free initial tokens are now available for everyone to try several Comfy Agent chats. After that, Comfy Agent charges from the same Comfy Credits pool you already use for generations. You need a positive balance in Comfy Credits to keep running the Agent, but you don’t necessarily need a subscription plan. See the [subscription and top-up plans](https://www.comfy.org/cloud/pricing?utm_source=docs&utm_campaign=agent) for plan details.
+
+### 
+
+​
+
+Pricing per token
+
+Model| Input credits / 1K| 5m Cache Write credits / 1K| 1h Cache Write credits / 1K| Cache Hit credits / 1K| Output credits / 1K  
+---|---|---|---|---|---  
+Opus 4.8| 1.055| 1.319| 2.110| 0.106| 5.275  
+  
+## 
+
+​
+
+Coming soon on local
+
+Once Comfy Agent reaches Comfy Desktop, it will work with your own GPU, models, and custom nodes, and walk you through setup. It will also go beyond what’s on Cloud today: building custom editing tools directly on the canvas for you, such as a one-off masking or compositing tool you didn’t have to install.
+
+## Join the waitlist
+
+Get notified when Comfy Agent is available for Comfy Desktop.
+
+## 
+
+​
+
+Choose which workflow to edit
+
+Use the workflow selector in the Agent panel to choose the workflow to edit, then send your message. Switching to another tab while the Agent is responding does not redirect its edits. The Agent cannot create or switch tabs itself. To work elsewhere, open the other workflow, choose it in the Agent panel, and send a new message. The Agent can read another open or saved workflow for comparison without loading it into the current tab. For example:
+
+> Compare this workflow with my portrait workflow and use the same sampler settings here.
+
+## 
+
+​
+
+Build and edit workflows
+
+For a new workflow, open a blank workflow tab and choose it in the Agent panel. The Agent searches for a matching template before building from individual nodes. A template includes a connected graph and an output node. For changes to an existing workflow, name the part you want changed and what should stay the same:
+
+  * “Change the prompt to a watercolor landscape. Keep the model and sampler settings.”
+  * “Add an upscaling stage after image generation.”
+  * “Switch this workflow to Flux using models installed here.”
+
+The Agent builds in real time on the canvas while you keep editing the canvas.
+
+## 
+
+​
+
+Validate before running
+
+The Agent checks node connections, model names, required values, and output nodes before a run. It separates workflow errors from inputs that only you can provide. If the workflow is valid but still needs an image, video, or other input, attach the file and ask the Agent to continue.
+
+## 
+
+​
+
+Work with media
+
+The Agent can inspect the visible contents and dimensions of a still image. For video, it can read the duration, dimensions, frame rate, and format. For audio, it can read the duration, format, and audio tracks. Use **Upload images or files** in the Add to prompt menu, drag files into the conversation, or drag an asset in from the asset panel. Images, video, audio, 3D models, and text files can all be added. Everything you add appears in the asset tray at the top of the message box. Hover an item to see the file name, and for images, video, and audio a larger preview. Use the × to remove an item. An asset in the tray is sent with your message even when you do not reference it in the text.
+
+Add to the conversation| Ask| Result  
+---|---|---  
+An image| “Describe the lighting in this image.”| A description you can use to refine your prompt.  
+A video| “Trim this to the first five seconds.”| A shortened video file.  
+Two video clips| “Join clip A followed by clip B.”| One video containing both clips in that order.  
+A video and an audio file| “Add this audio to the video.”| A video with the supplied audio.  
+  
+Media editing requires the media tools to be available in your installation. In Cloud, edited files are saved to your asset library. The Agent returns a preview or file link in the conversation.
+
+## 
+
+​
+
+Reference nodes, workflows, and assets
+
+Type `@` in the message box to reference something by name instead of describing it:
+
+  * **Nodes** : pick a node from the list, or choose **Nodes** from the Add to prompt menu and click one or more nodes on the canvas. The Agent reads the referenced nodes as part of your message.
+  * **Workflows** : pick another open or saved workflow to let the Agent read it for comparison or reuse. It does not load that workflow into your current tab.
+  * **Assets** : pick an asset from the tray to reference it by name. You can reference the same asset as many times as you like.
+
+The target workflow follows the tab you are viewing until you choose a target, reference nodes, or send a message. Referencing nodes pins that workflow for the rest of the chat.
+
+## 
+
+​
+
+Run permissions
+
+Choose a run permission next to the message box:
+
+  * **Ask** requests approval before each workflow run.
+  * **Auto** runs workflows without asking for each run.
+
+Your choice takes effect as soon as you select it. In Ask mode, select **Run** in the approval message to start the workflow, or **Cancel** to decline that run. Ask and Auto control workflow runs. The Agent can edit the selected workflow in either mode.
+
+## 
+
+​
+
+What the Agent can use
+
+Normally in a chat session, the Agent uses your message, selected workflow, selected nodes, attachments, and workflow errors. It can also read another workflow when you ask it to compare or reuse settings. Besides, the agent also has access to the saved workflows, available models and available nodes in the current workspace, as well as public template workflows and public/private skills, which will all be used when needed. For Cloud and local data flow, chat history, and privacy controls, see [Comfy Agent data and privacy](https://docs.comfy.org/agent-tools/in-app-agent-data-privacy).
+
+## 
+
+​
+
+Stop or cancel
+
+Select **Stop** in the message box to stop the Agent’s current response. Workflow execution has separate controls in the [run and queue area](https://docs.comfy.org/interface/overview); use those to manage a workflow that has already been submitted.
+
+## 
+
+​
+
+Chat history
+
+Conversations are saved, so you can return to an earlier one at any time.
+
+  * **New chat** in the panel header starts a new conversation.
+  * **Show chat history** opens the list of saved conversations, grouped into Current, Today, Yesterday, and Earlier. Select a conversation to reopen it, or use the options on a conversation to rename, copy, or delete it.
+
+Where conversations are stored depends on your setup. See [Chat history and sync](https://docs.comfy.org/agent-tools/in-app-agent-data-privacy#chat-history-and-sync).
+
+## 
+
+​
+
+Next steps
+
+## Make your first image
+
+Build, run, and revise an image workflow.
+
+## Agent skills
+
+Create and use reusable Agent instructions.
+
+## 
+
+​
+
+Feedback
+
+Comfy Agent is currently in beta. We are actively developing new features and fixing issues. Tell us what works and what doesn’t and it is the best way to help us prioritize the right things to build.
+
+  * Feedback: <https://links.comfy.org/agentfeedback>
+  * Discord: join our [server](https://discord.com/invite/comfyorg) and find us in #comfy-agent channel
+
+
+
+## Send feedback
+
+Report bugs or share impressions.
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/agent-tools/in-app-agent.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/agent-tools/in-app-agent)
+
+[Comfy CLI: Run ComfyUI from the TerminalPrevious](https://docs.comfy.org/agent-tools/cli)[Get Started with Comfy AgentNext](https://docs.comfy.org/agent-tools/in-app-agent-installation)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

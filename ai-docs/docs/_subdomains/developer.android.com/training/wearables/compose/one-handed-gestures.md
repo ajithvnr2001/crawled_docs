@@ -1,0 +1,253 @@
+---
+url: https://developer.android.com/training/wearables/compose/one-handed-gestures/
+title: One-handed gestures with Compose \u00a0|\u00a0 Wear OS \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:37:08.847213+00:00
+---
+
+# One-handed gestures with Compose  |  Wear OS  |  Android Developers
+
+> Source: https://developer.android.com/training/wearables/compose/one-handed-gestures/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Develop ](https://developer.android.com/develop)
+  * [ Devices ](https://developer.android.com/develop/devices)
+  * [ Wear OS ](https://developer.android.com/training/wearables)
+
+
+
+#  One-handed gestures with Compose Stay organized with collections  Save and categorize content based on your preferences. 
+
+Compose for Wear OS Material version 2.5 3
+
+* * *
+
+On Wear OS 7 (API level 37) and higher, a one-handed gesture framework, along with an API that's part of Compose for Wear OS, lets users interact with your app touch-free.
+
+While initially supported on Pixel Watch devices (Pixel Watch 3 and later), the framework is available to all OEMs. By adopting this API, your app's gesture support automatically scales across the ecosystem as hardware support expands.
+
+To help users discover available gestures without cluttering the UI, the Wear OS framework provides animated gesture indicators. These visual hints highlight where a gesture can be performed, while the system automatically manages their display cadence and muting frequency according to user preferences.
+
+## Supported gestures and actions
+
+The Wear OS gestures framework supports two gesture types:
+
+  * **Primary action (Double pinch):** Maps to the main action on a screen, such as answering a call or toggling media playback.
+  * **Dismiss action (Wrist turn):** Maps to backward navigation, dismissing a dialog, or canceling a prompt.
+
+
+
+## Configure gestures in Compose
+
+Although the one-handed gestures API can enhance your UI, it's important to keep in mind that some hardware and OEMs don't support these gestures. If the API detects that your app is running on one of these unsupported devices, the library automatically no-ops without affecting standard touch interactions.
+
+As with standard Compose behaviors, you enable one-handed gestures on UI elements using [modifiers](https://developer.android.com/develop/ui/compose/modifiers). You configure your app's gestures according to the action to perform—either primary or dismiss—and a `gestureId` to coordinate with system-level user preferences, such as hint display cadence and frequency muting. You express this configuration by creating a `OneHandedGestureConfiguration` object; we recommend using the `rememberOneHandedGestureConfiguration` function to create it. The `OneHandedGestureConfiguration` is also where you can provide the gesture priority.
+
+The `rememberOneHandedGestureConfiguration` function tracks user interaction history across recompositions without exposing application state. Once your app has created the configuration, it should pass the configuration to `Modifier.oneHandedGesture` on your interactive composable.
+
+To help users discover available gestures, the library provides the `OneHandedGestureClickIndicator` method. This method acts as a wrapper that replaces its underlying content to indicate to the user that a gesture action is available.
+
+### Interactive components
+
+To enable gestures on an interactive control like a button, create a configuration specifying `OneHandedGestureAction.Primary` and apply the `oneHandedGesture` modifier. Pass the same `MutableInteractionSource` to both the control and the modifier so gesture events emit visual press feedback onto the control.
+
+To enable the gesture indicator, create and remember an instance of `OneHandedGestureClickIndicatorState`. Then, to trigger the visual feedback, call `showIndicator` within the `onGestureAvailable` callback provided by the `oneHandedGesture` modifier, which signals to the system that an indication event has occurred. Once called, the component briefly replaces its normal content with a gesture animation.
+    
+    
+    var isPlaying by remember { mutableStateOf(false) }
+    val onClick = { isPlaying = !isPlaying }
+    
+    val gestureConfig = rememberOneHandedGestureConfiguration(
+        action = OneHandedGestureAction.Primary
+    )
+    val indicatorState = remember { OneHandedGestureClickIndicatorState() }
+    val coroutineScope = rememberCoroutineScope()
+    val interactionSource = remember { MutableInteractionSource() }
+    
+    Button(
+        onClick = onClick,
+        interactionSource = interactionSource,
+        modifier = Modifier
+            .fillMaxWidth()
+            .oneHandedGesture(
+                gestureConfiguration = gestureConfig,
+                interactionSource = interactionSource,
+                onGestureLabel = if (isPlaying) "pause" else "play",
+                onGestureAvailable = { coroutineScope.launch { indicatorState.showIndicator() } },
+                onGesture = onClick
+            )
+    ) {
+        OneHandedGestureClickIndicator(
+            gestureConfiguration = gestureConfig,
+            state = indicatorState
+        ) {
+            Text(if (isPlaying) "Pause" else "Play", modifier = Modifier.fillMaxWidth())
+        }
+    }
+    
+    [OneHandedGestures.kt](https://github.com/android/snippets/blob/c5a7606bad6849720ec9819305f64b32926449e3/wear/snapshot/src/main/java/com/example/wear/snippets/m3/gestures/OneHandedGestures.kt#L188-L217)
+
+### Scrollable containers
+
+For scrollable screens or lists, create a configuration specifying `OneHandedGestureAction.Primary` and apply the `oneHandedGesture` modifier to your container, calling a scrolling helper such as `scrollDown`.
+
+To provide visual feedback for scrolling actions, you can use the [`OneHandedGestureScrollIndicator`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/OneHandedGestureScrollIndicator.composable). This component functions as a standard scroll indicator that shows the scroll position, but it can also indicate that a scroll gesture is available to the user. This indicator is typically passed to the `scrollIndicator` slot of a [`ScreenScaffold`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/ScreenScaffold.composable) and is coupled with the state of a scrollable container, such as a `TransformingLazyColumn`. It also observes a `OneHandedGestureScrollIndicatorState` to manage its visual transitions.
+
+To trigger the visual feedback, call `showIndicator` on this state—typically inside the `onGestureAvailable` callback of the `oneHandedGesture` modifier. Once triggered, the indicator temporarily replaces its standard visual state with a gesture animation sequence to alert the user.
+    
+    
+    val scrollState = rememberTransformingLazyColumnState()
+    val gestureConfig = rememberOneHandedGestureConfiguration(
+        action = OneHandedGestureAction.Primary,
+        priority = OneHandedGesturePriority.Scrollable
+    )
+    val indicatorState = remember(gestureConfig) { OneHandedGestureScrollIndicatorState() }
+    val coroutineScope = rememberCoroutineScope()
+    
+    ScreenScaffold(
+        scrollState = scrollState,
+        scrollIndicator = {
+            OneHandedGestureScrollIndicator(
+                gestureConfiguration = gestureConfig,
+                indicatorState = indicatorState,
+                scrollState = scrollState,
+                modifier = Modifier.align(Alignment.CenterEnd)
+            )
+        }
+    ) { contentPadding ->
+        TransformingLazyColumn(
+            state = scrollState,
+            contentPadding = contentPadding,
+            modifier = Modifier
+                .fillMaxSize()
+                .oneHandedGesture(
+                    gestureConfiguration = gestureConfig,
+                    onGestureLabel = "scroll",
+                    onGestureAvailable = {
+                        coroutineScope.launch { indicatorState.showIndicator() }
+                    },
+                    onGesture = { OneHandedGestureDefaults.scrollDown(scrollState) }
+                )
+        ) {
+            items(10) { index ->
+                Text("Item $index", modifier = Modifier.padding(8.dp))
+            }
+        }
+    }
+    
+    [OneHandedGestures.kt](https://github.com/android/snippets/blob/c5a7606bad6849720ec9819305f64b32926449e3/wear/snapshot/src/main/java/com/example/wear/snippets/m3/gestures/OneHandedGestures.kt#L224-L261)
+
+### Combine multiple gestures
+
+You can configure both a scroll gesture and a click gesture with the same primary action by adding `gesturePriority` to your `OneHandedGestureConfiguration` object:
+
+  * **[`OneHandedGesturePriority.Clickable`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/OneHandedGesturePriority)** (highest): Assign to interactive controls—such as those with type `Button` or `Card`—so that they capture gestures when visible on screen.
+  * **[`OneHandedGesturePriority.Scrollable`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/OneHandedGesturePriority)** (medium): Assign to scrollable or pageable containers so they yield to clickable children but scroll when no clickable control is visible.
+  * **[`OneHandedGesturePriority.Unspecified`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/onehandedgesture/OneHandedGesturePriority)** (lowest): An unassigned priority. This is the default value for a gesture that doesn't have a `priority` set.
+
+
+
+By explicitly setting `priority = OneHandedGesturePriority.Clickable` on an inner button and `priority = OneHandedGesturePriority.Scrollable` on its parent list, the system can show this gesture-priority behavior. When the user triggers the primary action by the one-handed gesture, it first scrolls the list down until the button is visible, and then captures the button's click action.
+
+## Test and debug gestures with ADB
+
+You can test one-handed gestures on a physical device or emulator without performing physical wrist movements by using the Android Debug Bridge (`adb`) and the `IWearGestureService` system service.
+
+### Enable gesture simulation
+
+Before simulating gestures using ADB, configure your device settings and constraint overrides:
+
+  1. Verify that your Wear OS device is running Wear OS 7 (API level 37) and higher:
+         
+         adb shell getprop ro.build.version.sdk
+         
+
+  2. If you're testing on a physical device that isn't on your wrist or is resting on a charger, override the off-body constraint so the gesture framework remains active:
+         
+         adb shell cmd IWearGestureService override-constraints offbody-state
+         
+
+
+
+
+### Trigger gesture events using ADB
+
+To simulate the **Double pinch** gesture (which is the `Primary` action on Pixel watches), run the following ADB shell command:
+    
+    
+    adb shell cmd IWearGestureService gesture DoublePinch
+    
+
+To simulate the **Wrist turn** gesture (which is the `Dismiss` action on Pixel watches), run the following ADB shell command:
+    
+    
+    adb shell cmd IWearGestureService gesture WristTurn
+    
+
+### Reset gesture hint tracking
+
+The system tracks user interaction history and displays floating gesture hints based on the global cadence setting (such as **Always** or **Daily**). When debugging your app's gesture indicators, reset this tracking history so hints appear again for your package:
+
+  * **On`userdebug` builds or emulators:**
+        
+        adb shell cmd IWearGestureService hint clear <your_package_name>
+        
+
+  * **On retail (`user`) builds:**
+
+On commercial devices without root access, `hint clear` is blocked by system permissions. Clear the app's local data to reset hint discovery:
+        
+        adb shell pm clear <your_package_name>
+        
+
+
+
+
+### Restore default constraints
+
+To reset all debug constraint overrides when you're finished testing:
+    
+    
+    adb shell cmd IWearGestureService override-constraints reset
+    
+
+### Troubleshoot gesture injection
+
+If your app doesn't receive simulated gestures:
+
+  1. Verify that the watch screen is awake and turned ON. The gesture framework does not dispatch gestures to applications while the screen is off or in ambient mode. To wake the display using ADB, run:
+         
+         adb shell input keyevent KEYCODE_WAKEUP
+         
+
+  2. Check whether your app is registered as an active gesture subscriber and currently holds window focus:
+         
+         adb shell cmd IWearGestureService get-active-gestures -readable
+         
+
+When your app's gesture screen is in the foreground and the screen is awake, this command returns `[DoublePinch]` or `[DoublePinch, WristTurn]`. If an empty list (`[]`) is returned, check whether your window has focus or if off-body constraints are blocking activation.
+
+  3. Inspect the internal gesture service state and active subscriber tokens:
+         
+         adb shell dumpsys IWearGestureService
+         
+
+
+
+
+## Additional resources
+
+For design guidance on when and where to use one-handed gestures, see [One-handed gestures](https://developer.android.com/design/ui/wear/guides/patterns/gestures).
+
+## Recommended for you
+
+  * Note: link text is displayed when JavaScript is off
+  * [One-handed gestures design guide](https://developer.android.com/design/ui/wear/guides/patterns/gestures)
+
+
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-10-07 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-07 UTC."],[],[]] 

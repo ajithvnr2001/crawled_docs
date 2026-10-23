@@ -1,0 +1,138 @@
+---
+url: https://docs.comfy.org/built-in-nodes/Wan3ReferenceToVideoApi/
+title: Wan3ReferenceToVideoApi - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:49:22.796597+00:00
+---
+
+# Wan3ReferenceToVideoApi - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/Wan3ReferenceToVideoApi/
+
+Wan
+
+# Wan3ReferenceToVideoApi - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+This node generates a video from a text prompt and optional reference images, videos, and audio using the Wan 3.0 model.
+
+Copy pageCopy page
+
+This node generates a video from a text prompt and optional reference images, videos, and audio using the Wan 3.0 model. Reference media can be combined freely and mentioned in the prompt as @Image1, @Video1, and @Audio1. The node submits the generation request to the Wan API and returns the finished video.
+
+## 
+
+​
+
+Inputs
+
+### 
+
+​
+
+Common Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`model`| Selects the Wan 3.0 model variant used for generation.| DYNAMIC_COMBO| Yes| `wan3.0-video`  
+`wan3.0-video-prime`  
+`seed`| Seed to use for generation. Default: 42.| INT| Yes| 0 to 2147483647  
+`watermark`| Whether to add an AI-generated watermark to the result. Default: false.| BOOLEAN| Yes| true  
+false  
+  
+### 
+
+​
+
+wan3.0-video and wan3.0-video-prime Inputs
+
+Both model options share the same parameter set.
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`prompt`| Prompt describing the elements and visual features. Supports English and Chinese. Refer to connected reference media as @Image1, @Video1, @Audio1, numbered per type in input order. Default: empty.| STRING| Yes| Up to 20,000 characters  
+`resolution`| Resolution of the output video.| COMBO| Yes| ”1080P"  
+"720P"  
+"480P”  
+`ratio`| Aspect ratio of the output video. With “adaptive”, the output dimensions are derived from the input media.| COMBO| Yes| ”adaptive"  
+"16:9"  
+"9:16"  
+"1:1"  
+"4:3"  
+"3:4”  
+`duration`| Output duration in seconds. With “auto”, the model chooses a duration that fits the prompt and reference media. The combined duration of reference videos and output must not exceed 30 seconds.| COMBO| Yes| ”auto"  
+"2” through “30” (integer seconds)  
+`audio`| Whether the output video contains an audio track. Default: true.| BOOLEAN| Yes| true  
+false  
+`prompt_extend`| Whether to enhance the prompt with AI assistance. Default: true.| BOOLEAN| Yes| true  
+false  
+  
+### 
+
+​
+
+Reference Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`reference_images`| Growable slot: connect 1 to 10 reference images. References are numbered as image1 to image10 in input order.| IMAGE| No| 0 to 10 images  
+`reference_videos`| Growable slot: connect 1 to 5 reference videos. References are numbered as video1 to video5 in input order.| VIDEO| No| 0 to 5 videos  
+`reference_audios`| Growable slot: connect 1 to 5 reference audio clips. References are numbered as audio1 to audio5 in input order.| AUDIO| No| 0 to 5 audio clips  
+  
+**Constraints:**
+
+  * The prompt must contain at least one non-empty character, or at least one reference image, video, or audio input must be connected.
+  * Reference tags in the prompt must match connected inputs. For example, @Image1 refers to the first connected reference image, @Video2 to the second connected reference video, and @Audio1 to the first connected reference audio. Tags are numbered separately per type in input order.
+  * Each connected reference image must contain exactly one image, not a batch.
+  * Each reference video must be 15 seconds or shorter. The total duration of all reference videos must not exceed 15 seconds.
+  * Each reference audio must be 15 seconds or shorter. The total duration of all reference audios must not exceed 15 seconds.
+  * When `duration` is not “auto”, the total duration of all reference videos plus the selected output duration must not exceed 30 seconds.
+
+
+
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`video`| The generated video file. Includes an audio track when the `audio` parameter is enabled.| VIDEO  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/Wan3ReferenceToVideoApi/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `09caa8142d71235417a3dfc5676c5f6accc2af1287fad3b7050844dd9453cc64`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/Wan3ReferenceToVideoApi.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/Wan3ReferenceToVideoApi)
+
+[Wan3ImageToVideoApi - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/Wan3ImageToVideoApi)[WanImageToVideoApi - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/WanImageToVideoApi)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

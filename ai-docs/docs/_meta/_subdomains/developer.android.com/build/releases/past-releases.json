@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/build/releases/past-releases/",
+  "file": "_subdomains/developer.android.com/build/releases/past-releases.md",
+  "title": "Past Android Gradle plugin releases \u00a0|\u00a0 Android Studio \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:45:16.544552+00:00",
+  "html_len": 221276,
+  "md_len": 1720,
+  "depth": 3
+}

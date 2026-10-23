@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/productivity/guides/",
+  "file": "_subdomains/developer.android.com/productivity/guides.md",
+  "title": "About productivity apps \u00a0|\u00a0 Android productivity \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:35:24.342455+00:00",
+  "html_len": 216792,
+  "md_len": 4929,
+  "depth": 3
+}

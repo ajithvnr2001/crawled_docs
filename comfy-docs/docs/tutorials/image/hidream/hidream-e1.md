@@ -1,0 +1,291 @@
+---
+url: https://docs.comfy.org/tutorials/image/hidream/hidream-e1/
+title: HiDream-E1 and E1.1 in ComfyUI: Instruct Image Editing - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:51:21.409701+00:00
+---
+
+# HiDream-E1 and E1.1 in ComfyUI: Instruct Image Editing - ComfyUI
+
+> Source: https://docs.comfy.org/tutorials/image/hidream/hidream-e1/
+
+## On this page
+
+  * HiDream E1 and E1.1 Workflow Related Models
+  * HiDream E1.1 ComfyUI Native Workflow Example
+    * HiDream E1.1 Image Editing
+    * 1\. HiDream E1.1 Workflow and Related Materials
+    * 2\. Step-by-step Guide to Running the HiDream-e1 Workflow
+    * 3\. Additional Notes on the Workflow
+  * HiDream E1 ComfyUI Native Workflow Example
+    * HiDream E1 Image Edit
+    * 1\. HiDream-e1 workflow
+    * 2\. Complete the HiDream-e1 Workflow Step by Step
+    * Additional Notes on ComfyUI HiDream-e1 Workflow
+
+
+
+HiDream
+
+# HiDream-E1 and E1.1 in ComfyUI: Instruct Image Editing
+
+Copy pageCopy page
+
+Edit images with natural language using HiDream-E1 and E1.1 in ComfyUI. The E1.1 update improves quality and pairs with HiDream-I1 text-to-image generation.
+
+Copy pageCopy page
+
+![HiDream-E1 Demo](https://raw.githubusercontent.com/HiDream-ai/HiDream-E1/refs/heads/main/assets/demo.jpg) HiDream-E1 is an interactive image editing large model officially open-sourced by HiDream-ai, built based on HiDream-I1. It allows you to edit images using natural language. The model is released under the [MIT License](https://github.com/HiDream-ai/HiDream-E1?tab=MIT-1-ov-file), supporting use in personal projects, scientific research, and commercial applications. In combination with the previously released [hidream-i1](https://docs.comfy.org/tutorials/image/hidream/hidream-i1), it enables **creative capabilities from image generation to editing**.
+
+Name| Update Date| Inference Steps| Resolution| HuggingFace Repository  
+---|---|---|---|---  
+HiDream-E1-Full| 2025-4-28| 28| 768x768| 🤗 [HiDream-E1-Full](https://huggingface.co/HiDream-ai/HiDream-E1-Full)  
+HiDream-E1.1| 2025-7-16| 28| Dynamic (1 Megapixel)| 🤗 [HiDream-E1.1](https://huggingface.co/HiDream-ai/HiDream-E1-1)  
+  
+[HiDream E1 - Github](https://github.com/HiDream-ai/HiDream-E1)
+
+  * Local users
+
+  * Cloud users
+
+
+
+
+Make sure your ComfyUI is updated.
+
+  * [Download ComfyUI](https://www.comfy.org/download)
+  * [Update Guide](https://docs.comfy.org/installation/update_comfyui)
+
+Workflows in this guide can be found in the [Workflow Templates](https://docs.comfy.org/interface/features/template). If you can’t find them in the template, your ComfyUI may be outdated.If nodes are missing when loading a workflow, possible reasons:
+
+  1. You are not using the latest ComfyUI version (Nightly version)
+  2. Some nodes failed to import at startup
+
+
+
+  * [Cloud](https://cloud.comfy.org) will update after ComfyUI stable release.
+
+So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
+
+## 
+
+​
+
+HiDream E1 and E1.1 Workflow Related Models
+
+All the models involved in this guide can be found [here](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/tree/main/split_files). Except for the Diffusion model, E1 and E1.1 use the same models. The corresponding workflow files also include the relevant model information. You can choose to manually download and save the models, or follow the workflow prompts to download them after loading the workflow. It is recommended to use E1.1. This model requires a large amount of VRAM to run. Please refer to the relevant sections for specific VRAM requirements. **Diffusion Model** You do not need to download both models. Since E1.1 is an iterative version based on E1, our tests show that its quality and performance are significantly improved compared to E1.
+
+  * [hidream_e1_1_bf16.safetensors (Recommended)](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/diffusion_models/hidream_e1_1_bf16.safetensors) 34.2GB
+  * [hidream_e1_full_bf16.safetensors](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/diffusion_models/hidream_e1_full_bf16.safetensors) 34.2GB
+
+**Text Encoder** :
+
+  * [clip_l_hidream.safetensors](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/text_encoders/clip_l_hidream.safetensors) 236.12MB
+  * [clip_g_hidream.safetensors](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/text_encoders/clip_g_hidream.safetensors) 1.29GB
+  * [t5xxl_fp8_e4m3fn_scaled.safetensors](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/text_encoders/t5xxl_fp8_e4m3fn_scaled.safetensors) 4.8GB
+  * [llama_3.1_8b_instruct_fp8_scaled.safetensors](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/text_encoders/llama_3.1_8b_instruct_fp8_scaled.safetensors) 8.46GB
+
+**VAE**
+
+  * [ae.safetensors](https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/blob/main/split_files/vae/ae.safetensors) 319.77MB
+
+
+
+> This is the VAE model for FLUX. If you have used the FLUX workflow before, you may have already downloaded this file.
+
+Model Save Location
+    
+    
+    📂 ComfyUI/
+    ├── 📂 models/
+    │   ├── 📂 text_encoders/
+    │   │   ├─── clip_l_hidream.safetensors
+    │   │   ├─── clip_g_hidream.safetensors
+    │   │   ├─── t5xxl_fp8_e4m3fn_scaled.safetensors
+    │   │   └─── llama_3.1_8b_instruct_fp8_scaled.safetensors
+    │   └── 📂 vae/
+    │   │   └── ae.safetensors
+    │   └── 📂 diffusion_models/
+    │       ├── hidream_e1_1_bf16.safetensors
+    │       └── hidream_e1_full_bf16.safetensors
+    
+
+## 
+
+​
+
+HiDream E1.1 ComfyUI Native Workflow Example
+
+### 
+
+​
+
+HiDream E1.1 Image Editing
+
+Edit images with HiDream E1.1. Superior image quality and editing accuracy compared to HiDream-E1-Full. ![HiDream E1.1 image editing workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/hidream_e1_1-1.webp)
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “HiDream E1.1” in Template Library
+
+**Input materials** Upload this file to the matching `LoadImage` node:
+
+## hidream_e1_1_input_image.jpg
+
+`LoadImage` node 13 · `hidream_e1_1_input_image.jpg`
+
+![hidream_e1_1_input_image.jpg](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/hidream_e1_1_input_image.jpg)
+
+### 
+
+​
+
+1\. HiDream E1.1 Workflow and Related Materials
+
+Download the image below and drag it into ComfyUI with the corresponding workflow and models loaded: ![HiDream E1.1 Workflow](https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/image/hidream/e1.1/hidream_e1_1.png) Download the image below as input: ![HiDream E1.1 Workflow Input](https://raw.githubusercontent.com/Comfy-Org/example_workflows/refs/heads/main/image/hidream/e1.1/input.webp)
+
+### 
+
+​
+
+2\. Step-by-step Guide to Running the HiDream-e1 Workflow
+
+![hidream_e1_1_guide](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/image/hidream/hidream-e1-1-guide.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=7cb0e9f7bd4629121f484f14e68e2841) Follow these steps to run the workflow:
+
+  1. Make sure the `Load Diffusion Model` node loads the `hidream_e1_1_bf16.safetensors` model.
+  2. Make sure the four corresponding text encoders in `QuadrupleCLIPLoader` are loaded correctly: 
+     * clip_l_hidream.safetensors
+     * clip_g_hidream.safetensors
+     * t5xxl_fp8_e4m3fn_scaled.safetensors
+     * llama_3.1_8b_instruct_fp8_scaled.safetensors
+  3. Make sure the `Load VAE` node uses the `ae.safetensors` file.
+  4. In the `Load Image` node, load the provided input or your desired image.
+  5. In the `Empty Text Encoder(Positive)` node, enter **the modifications you want to make to the image**.
+  6. In the `Empty Text Encoder(Negative)` node, enter **the content you do not want to appear in the image**.
+  7. Click the `Run` button, or use the shortcut `Ctrl(cmd) + Enter` to execute image generation.
+
+
+
+### 
+
+​
+
+3\. Additional Notes on the Workflow
+
+  * Since HiDream E1.1 supports dynamic input with a total of 1 million pixels, the workflow uses `Scale Image to Total Pixels` to process and convert all input images, which may cause the aspect ratio to differ from the original input image.
+  * When using the fp16 version of the model, in actual tests, the full version ran out of memory on both A100 40GB and 4090D 24GB, so the workflow is set by default to use `fp8_e4m3fn_fast` for inference.
+
+
+
+## 
+
+​
+
+HiDream E1 ComfyUI Native Workflow Example
+
+### 
+
+​
+
+HiDream E1 Image Edit
+
+Edit images with HiDream E1. Professional natural language image editing model. ![HiDream E1 image editing workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/hidream_e1_full-1.webp)
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “HiDream E1 Full” in Template Library
+
+**Input materials** Upload this file to the matching `LoadImage` node:
+
+## hidream_e1_full_input_image.jpg
+
+`LoadImage` node 13 · `hidream_e1_full_input_image.jpg`
+
+![hidream_e1_full_input_image.jpg](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/hidream_e1_full_input_image.jpg)
+
+**Example output**
+
+![Input image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/hidream_e1_full_input_image.jpg)![HiDream E1 example output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/hidream_e1_full.png)
+
+E1 is a model released on April 28, 2025.
+
+For reference, this workflow takes about 500s for the first run and 370s for the second run with 28 sampling steps on Google Colab L4 with 22.5GB VRAM.
+
+### 
+
+​
+
+1\. HiDream-e1 workflow
+
+Please download the image below and drag it into ComfyUI. The workflow already contains model download information, and after loading, it will prompt you to download the corresponding models. ![ComfyUI Native HiDream-e1 Workflow](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/hidream_e1/hidream_e1_full.png) Download this image below as input: ![ComfyUI Native HiDream-e1 Workflow Input](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/hidream_e1/input.webp)
+
+### 
+
+​
+
+2\. Complete the HiDream-e1 Workflow Step by Step
+
+![hidream_e1_full_step_guide](https://mintcdn.com/dripart/NmGUk_QSXQXRVtZP/images/tutorial/advanced/hidream/hidream_e1_full_step_guide.jpg?fit=max&auto=format&n=NmGUk_QSXQXRVtZP&q=85&s=c218858bea510e5fd5ab71f7885cd7db) Follow these steps to complete the workflow:
+
+  1. Make sure the `Load Diffusion Model` node has loaded the `hidream_e1_full_bf16.safetensors` model
+  2. Ensure that the four corresponding text encoders are correctly loaded in the `QuadrupleCLIPLoader`
+     * clip_l_hidream.safetensors
+     * clip_g_hidream.safetensors
+     * t5xxl_fp8_e4m3fn_scaled.safetensors
+     * llama_3.1_8b_instruct_fp8_scaled.safetensors
+  3. Make sure the `Load VAE` node is using the `ae.safetensors` file
+  4. Load the input image we downloaded earlier in the `Load Image` node
+  5. (Important) Enter **the prompt for how you want to modify the image** in the `Empty Text Encoder(Positive)` node
+  6. Click the `Run` button, or use the shortcut `Ctrl(cmd) + Enter` to generate the image
+
+
+
+### 
+
+​
+
+Additional Notes on ComfyUI HiDream-e1 Workflow
+
+  * You may need to modify the prompt multiple times or generate multiple times to get better results
+  * This model has difficulty maintaining consistency when changing image styles, so try to make your prompts as complete as possible
+  * As the model supports a resolution of 768*768, in actual testing with other dimensions, the image performance is poor or even significantly different at other dimensions
+
+
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/image/hidream/hidream-e1.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/image/hidream/hidream-e1)
+
+[ComfyUI Native HiDream-I1 Text-to-Image Workflow ExamplePrevious](https://docs.comfy.org/tutorials/image/hidream/hidream-i1)[ComfyUI Native HiDream-O1-Image Workflow ExampleNext](https://docs.comfy.org/tutorials/image/hidream/hidream-o1)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

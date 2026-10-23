@@ -1,0 +1,130 @@
+---
+url: https://developer.android.com/studio/preview/features/
+title: Release notes for Android Studio preview \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:36:02.128860+00:00
+---
+
+# Release notes for Android Studio preview  |  Android Developers
+
+> Source: https://developer.android.com/studio/preview/features/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Develop ](https://developer.android.com/develop)
+  * [ Android Studio ](https://developer.android.com/studio)
+  * [ Android Studio preview ](https://developer.android.com/studio/preview)
+
+
+
+#  Release notes for Android Studio preview Stay organized with collections  Save and categorize content based on your preferences. 
+
+This page lists the new features introduced in Android Studio preview releases. The preview builds provide early access to the latest features and improvements in Android Studio. [You can download these preview versions](https://developer.android.com/studio/preview). If you encounter any problems using a preview version of Android Studio, [let us know](https://developer.android.com/studio/report-bugs). Your bug reports help to make Android Studio better.
+
+Canary releases contain leading edge features under active development, and are lightly tested. While you can use Canary builds for development, be aware that features might be added or changed. Release Candidates (RC) are the next version of Android Studio, and are almost ready for stable release. The feature set for the next version has been stabilized. See [Android Studio release names](https://developer.android.com/studio/releases/studio-release-names) to understand Android Studio version naming.
+
+For the latest news on Android Studio preview releases, including a list of notable fixes in each preview release, see the [Release Updates](https://androidstudio.googleblog.com/) in the Android Studio blog.
+
+## Current versions of Android Studio
+
+The following table lists the current versions of Android Studio and their respective channels.
+
+Version | Channel  
+---|---  
+Android Studio Rabbit 1 | Stable  
+Android Gradle plugin 9.4.0 | Stable  
+Android Studio Rabbit 2 | Canary  
+  
+## Compatibility with Android Gradle plugin previews
+
+Each preview version of Android Studio is published alongside a corresponding version of the Android Gradle plugin (AGP). Preview versions of Studio should work with any [compatible](https://developer.android.com/studio/releases#android_gradle_plugin_and_android_studio_compatibility) stable version of AGP. However, if you're using a preview version of AGP, you must use the corresponding preview version of Studio (for example, Android Studio Chipmunk Canary 7 with AGP 7.2.0-alpha07). Attempts to use divergent versions (for example, Android Studio Chipmunk Beta 1 with AGP 7.2.0-alpha07) will cause a Sync failure, which results in a prompt to update to the corresponding version of AGP.
+
+For a detailed log of Android Gradle plugin API deprecations and removals, see the [Android Gradle plugin API updates](https://developer.android.com/studio/releases/gradle-plugin-api-updates).
+
+## Studio Labs
+
+Studio Labs lets you try out the latest AI experimental features in a stable version of Android Studio, so you can more quickly integrate our AI assistance offerings in your development workflow. For more information, see [Studio Labs](https://developer.android.com/studio/gemini/labs).
+
+**Note:** Studio Labs is accessible in RC and stable releases starting with Android Studio Narwhal. In the corresponding canary versions of Android Studio, the features are enabled by default.
+
+The following are features currently available in Studio Labs.
+
+Feature | Description | Docs  
+---|---|---  
+Journeys for Android Studio | Use natural language to describe steps and assertions for end-to-end tests. | [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys)  
+  
+## Android Studio Rabbit 2
+
+The following are new features in Android Studio Rabbit 2.
+
+To see what's been fixed in this version of Android Studio, see the [closed issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.2).
+
+### Bring Your Own Agent (BYOA): Integrate your preferred coding agents
+
+Building on Android Studio's support for [custom AI models](https://developer.android.com/studio/gemini/use-a-remote-model), Android Studio Rabbit 2 Canary 2 introduces Bring Your Own Agent (BYOA). Using BYOA, you can connect your preferred AI coding agents—including Claude Agent, OpenAI Codex, and Google Antigravity—directly into Android Studio using the open Agent Client Protocol (ACP).
+
+BYOA pairs your chosen agent with IDE-native intelligence, passing the full project graph, build diagnostics, and emulator controls directly into your agent for faster execution and lower token consumption. You can authenticate with your personal or enterprise subscriptions, while Android Studio's built-in agent remains available at no extra charge.
+
+![Select an AI agent from the Agents menu in the Agent tool window.](https://developer.android.com/static/studio/gemini/images/byoa.png)
+
+BYOA offers the following benefits:
+
+  * Support for any ACP-compliant agent.
+  * Direct IDE access to build diagnostics, Android SDK tools, terminal and shell execution, and emulator management.
+  * Flexible sign-in options supporting personal API keys and consumer subscriptions.
+
+
+
+#### Get started
+
+To get started with BYOA, follow these steps:
+
+  1. Update Android Studio to the latest canary release.
+  2. Connect your agents: In the agent window, select one of the default agents (Claude Agent, Codex, or Antigravity) and sign in or provide an API key. Additional agents can be found in the registry at **File** (**Android Studio** on macOS) **> Settings > Tools > AI > Agents**.
+
+
+
+### Compose Preview Screenshot Testing tool
+
+Use the Compose Preview Screenshot Testing tool to test your Compose UIs and prevent regressions. The new tool helps you generate HTML reports that let you visually detect any changes to your app's UI. Learn more at [Compose Preview Screenshot Testing](https://developer.android.com/studio/preview/compose-screenshot-testing-with-testsuites).
+
+### Model Assignment
+
+The Model Assignment feature lets you pick different AI models for different types of tasks in Android Studio. For example, you can assign a large, pro-tier model for complex reasoning tasks in Agent Mode, and a faster, lightweight model for simpler, latency-sensitive tasks like commit message generation or next edit prediction. This lets you balance quality, speed, and quota usage across features.
+
+![](https://developer.android.com/static/studio/preview/images/model-assignment.png)
+
+To configure this, go to **File** (**Android Studio** on macOS) **> Settings > Tools > AI > Model Providers**, select the **Model Assignment** tab, and use the dropdowns to assign a model to each feature category. You can also change the model directly from the model selector dropdown in the Agent Mode panel—the Model Assignment settings for **Thinking** features will automatically update to reflect your selection.
+
+### Migrate iOS, Flutter, and React Native apps to Android
+
+You can now migrate existing iOS, Flutter, and React Native projects to native Android using automated migration tooling in Android Studio. From the New Project Wizard, you can call the assistant to convert the selected project to a Kotlin and Jetpack Compose-based Android app. The integrated progress UI provides end-to-end visibility across task planning, code transformation, and compilation checks, producing a functional project that's ready for testing and verification.
+
+To learn more, see [Perform cross-platform app migrations](https://developer.android.com/tools/agents/workflows/app-migrations).
+
+### Publish to Google Play for testing
+
+Android Studio now gives you the ability to upload new releases of your app directly to Google Play Console test tracks. You can do this by selecting a new option to continue to 'Publish for Testing' at the end of the Generate Signed App Bundle flow. This integration supports uploading an initial release of a brand-new app to a Play Console internal test track. You can also use this feature to upload releases of existing apps to other types of test tracks. You need to be registered on Google Play Console to take advantage of this functionality.
+
+### Agentic fixes with LeakCanary
+
+Starting in Rabbit 2, Android Studio directly integrates LeakCanary with the AI agent to help you diagnose and resolve memory leaks without leaving the IDE. This integration lets LeakCanary provide more meaningful narrative explanations of the underlying causes of memory leaks and suggest specific code changes to correct them. Try this feature out in the **LeakCanary** task in **Profiler**.
+
+### Discover, install, and manage Android skills in Android Studio
+
+In Android Studio Rabbit 2, it's easier to discover, install, and manage Android [skills](https://developer.android.com/studio/gemini/skills) directly in the IDE, giving you granular control over the specialized workflows and procedural guidance available to the agent.
+
+### Resize Running Devices tool window by double-clicking empty space
+
+You can eliminate unused space around your virtual or mirrored physical devices in the **Running Devices** tool window. Double-click anywhere in the empty background area outside the device screen (and frame, if visible) to automatically resize the tool window or adjust split pane proportions to snugly fit the device display.
+
+  * **Docked tool windows:** Adjusts the tool window's width (when docked to the left or right) or height (when docked to the top or bottom) to remove excess margin around the device.
+  * **Floating and windowed modes:** Resizes both width and height of the window to wrap tightly around the device display.
+  * **Split views:** Automatically adjusts internal splitters when viewing multiple displays or devices side by side.
+
+
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-10-14 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-14 UTC."],[],[]] 

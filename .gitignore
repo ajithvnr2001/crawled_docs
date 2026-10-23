@@ -1,0 +1,13 @@
+# ── crawled_docs runtime / OS noise ─────────────────────────────────────────
+*.log
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+*.swp
+# secrets — never commit
+.env
+.api_keys.env
+
+# Per-corpus ignore rules live in each subdirectory's .gitignore
+# (e.g. gcpdocs/.gitignore hides the massive versioned API reference).

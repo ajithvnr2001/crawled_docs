@@ -1,0 +1,3973 @@
+---
+url: https://docs.comfy.org/zh/changelog/
+title: \u66f4\u65b0\u65e5\u5fd7 - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:52:55.766807+00:00
+---
+
+# 更新日志 - ComfyUI
+
+> Source: https://docs.comfy.org/zh/changelog/
+
+## 在此页面
+
+  * v0.41.1
+  * v0.41.0
+  * v0.40.0
+  * v0.39.2
+  * v0.39.1
+  * v0.39.0
+  * v0.38.2
+  * v0.38.1
+  * v0.38.0
+  * v0.37.2
+  * v0.37.1
+  * v0.37.0
+  * v0.36.0
+  * v0.35.2
+  * v0.35.1
+  * v0.35.0
+  * v0.34.6
+  * v0.34.5
+  * v0.34.4
+  * v0.34.3
+  * v0.34.2
+  * v0.34.1
+  * v0.34.0
+  * v0.33.4
+  * v0.33.3
+  * v0.33.2
+  * v0.33.1
+  * v0.32.0
+  * v0.31.0
+  * v0.30.2
+  * v0.30.1
+  * v0.30.0
+  * v0.29.2
+  * v0.29.1
+  * v0.29.0
+  * v0.28.3
+  * v0.28.2
+  * v0.28.1
+  * v0.28.0
+  * v0.27.1
+  * v0.27.0
+  * v0.26.2
+  * v0.26.1
+  * v0.26.0
+  * v0.25.1
+  * v0.25.0
+  * v0.24.1
+  * v0.24.0
+  * v0.23.0
+  * v0.22.3
+  * v0.22.2
+  * v0.22.1
+  * v0.22.0
+  * v0.21.1
+  * v0.21.0
+  * v0.20.3
+  * v0.20.2
+  * v0.20.1
+  * v0.20.0
+  * v0.19.5
+  * v0.19.4
+  * v0.19.3
+  * v0.19.2
+  * v0.19.1
+  * v0.19.0
+  * v0.18.5
+  * v0.18.4
+  * v0.18.3
+  * v0.18.2
+  * v0.18.1
+  * v0.18.0
+  * v0.17.2
+  * v0.17.1
+  * v0.17.0
+  * v0.16.4
+  * v0.16.3
+  * v0.16.2
+  * v0.16.1
+  * v0.16.0
+  * v0.15.1
+  * v0.15.0
+  * v0.14.2
+  * v0.14.1
+  * v0.14.0
+  * v0.13.0
+  * v0.12.3
+  * v0.12.2
+  * v0.12.1
+  * v0.12.0
+  * v0.11.1
+  * v0.11.0
+  * v0.10.0
+  * v0.9.2
+  * v0.9.1
+  * v0.9.0
+  * v0.8.1
+  * v0.8.0
+  * v0.7.0
+  * v0.6.0
+  * v0.5.1
+  * v0.5.0
+  * v0.4.0
+  * v0.3.76
+  * v0.3.75
+  * v0.3.73
+  * v0.3.72
+  * v0.3.71
+  * v0.3.70
+  * v0.3.69
+  * v0.3.68
+  * v0.3.67
+  * v0.3.66
+  * v0.3.65
+  * v0.3.64
+  * v0.3.63
+  * v0.3.62
+  * v0.3.61
+  * v0.3.60
+  * v0.3.59
+  * v0.3.58
+  * v0.3.57
+  * v0.3.56
+  * v0.3.55
+  * v0.3.54
+  * v0.3.53
+  * v0.3.52
+  * v0.3.51
+  * v0.3.50
+  * v0.3.49
+  * v0.3.48
+  * v0.3.47
+  * v0.3.46
+  * v0.3.45
+  * v0.3.44
+  * v0.3.43
+  * v0.3.41
+  * v0.3.40
+
+
+
+# 更新日志
+
+复制页面复制页面
+
+ComfyUI 变更日志：每个版本的最新功能、改进和错误修复，随新版本发布持续更新。
+
+复制页面复制页面
+
+​
+
+v0.41.1
+
+2026年10月15日
+
+**合作伙伴节点更新**
+
+  * [**Krea 3 Image**](https://github.com/Comfy-Org/ComfyUI/pull/17067)：在一个节点中同时实现文生图和图像编辑，支持最多 8 张参考图像、1K 或 2K 输出，以及可保持图像其余部分不变的精确编辑模式
+
+**工作流模板**
+
+  * [**模板 v0.11.85**](https://github.com/Comfy-Org/ComfyUI/pull/17068)：更新了内置工作流模板。v0.11.84 中的 Krea 3 模板现在使用新节点运行： 
+    * [**Krea 3: Text to Image**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/api_krea3_t2i.json)：根据文本提示生成一张图像
+    * [**Krea 3: Image Edit**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/api_krea3_image_edit.json)：仅修改你描述的区域，图像其余部分保持不变
+
+
+
+​
+
+v0.41.0
+
+2026年10月15日
+
+**新增开源模型支持**
+
+  * [**FLUX.3 Image Klein**](https://github.com/Comfy-Org/ComfyUI/pull/17064)：原生支持基础版与步数蒸馏模型，并搭配 Qwen3-VL-4B 文本编码器和现有的 Flux2 VAE
+
+**新增节点更新**
+
+  * [**FLUX.3 布局提示词**](https://github.com/Comfy-Org/ComfyUI/pull/17064)：将创建边界框中的框以 FLUX.3 布局表格的形式追加到提示词中
+  * [**设置多参考 Latent**](https://github.com/Comfy-Org/ComfyUI/pull/17009)：通过一个节点为模型提供多个参考 Latent，并支持[可选的图像输入](https://github.com/Comfy-Org/ComfyUI/pull/17053)
+  * [**转换 SDR 为 HDR**](https://github.com/Comfy-Org/ComfyUI/pull/16990)：将标准动态范围图像转换为 HDR
+  * [**Latent 尺寸节点**](https://github.com/Comfy-Org/ComfyUI/pull/16093)：获取图像/视频 Latent 尺寸和获取音频 Latent 尺寸可报告重叠与遮罩配置所需的 Latent 维度
+
+**性能与稳定性**
+
+  * [**MiniMax-H3 LightVAE**](https://github.com/Comfy-Org/ComfyUI/pull/17049)：支持 lightx2v LightVAE，并可分别加载 VAE 编码器和解码器
+
+**开发者体验**
+
+  * [**默认工作流路由**](https://github.com/Comfy-Org/ComfyUI/pull/16956)：默认工作流现已随核心一起发布，并通过 `GET /default_workflow` 提供
+
+**工作流模板**
+
+  * [**模板 v0.11.84**](https://github.com/Comfy-Org/ComfyUI/pull/17065)：更新了内置的工作流模板，新增以下模板： 
+    * [**Flux.3 Image Klein：文本生成图像**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/image_flux3_klein_t2i.json)：使用基础版模型根据文本提示词生成图像
+    * [**Flux.3 Image Klein：图像编辑**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/image_flux3_klein_image_edit.json)：使用两个文本提示词编辑一张输入图像
+    * [**Flux.3 Image Klein 蒸馏版：文本生成图像**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/image_flux3_klein_distilled_t2i.json)：15 步采样，不使用无分类器引导
+    * [**Flux.3 Image Klein 蒸馏版：图像编辑**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/image_flux3_klein_distilled_image_edit.json)：使用单个文本提示词编辑一张输入图像
+
+
+
+​
+
+v0.40.0
+
+2026年10月13日
+
+**新增开源模型支持**
+
+  * [**Qwen-Image 2.1 Turbo**](https://github.com/Comfy-Org/workflow_templates/pull/1328)：8 步加速的 Qwen-Image 2.1 checkpoint，并附带新的文生图和图像编辑模板
+
+**新增节点更新**
+
+  * [**LoRA 堆叠加载器**](https://github.com/Comfy-Org/ComfyUI/pull/16309)：在单个节点中按顺序应用多个 LoRA，每个 LoRA 都有自己的文件、强度和开关，可作用于 diffusion 模型或文本编码器
+  * [**相机角度**](https://github.com/Comfy-Org/ComfyUI/pull/16251)：选择水平角度、竖直角度和缩放，输出一个 `camera_info` 以及用于提示词的纯英文镜头描述
+  * [**创建相机信息**](https://github.com/Comfy-Org/ComfyUI/pull/14964)：以 orbit、look-at 或 quaternion 模式构建 `camera_info`，供渲染 Splat 及其他 3D 相机节点使用
+  * [**Latent 操作混合**](https://github.com/Comfy-Org/ComfyUI/pull/16923)：新增一种混合操作，并为 `LatentApplyOperationCFG` 增加起始和结束百分比
+  * [**LoRA 注意力配置**](https://github.com/Comfy-Org/ComfyUI/pull/16880)：LoRA 可以替换模型的逐层注意力配置，因此 turbo LoRA 可以将图层切换为 sol 或 kitchen 注意力
+
+**合作伙伴节点更新**
+
+  * [**Fish Audio Drama 3**](https://github.com/Comfy-Org/ComfyUI/pull/16999)：Fish Audio 的语音导演模型登陆文本转语音节点，支持自然语言指令、词语标签以及最多 5 个音色
+  * [**Higgsfield Genjutsu 运动迁移**](https://github.com/Comfy-Org/ComfyUI/pull/16913)：根据参考图像重建视频的演员阵容、场景和风格，同时保留其运动和音频
+  * [**HeyGen Video 1.0**](https://github.com/Comfy-Org/ComfyUI/pull/16876)：为 HeyGen Video 1.0 节点新增了 2K 分辨率
+
+**性能与稳定性**
+
+  * [**Qwen-Image 2.1 低显存**](https://github.com/Comfy-Org/ComfyUI/pull/16870)：comfy-aimdo 0.5.6，以及在 KV 缓存卸载到 CPU 时更少的编译器异常
+  * [**Qwen 3.5 LLM**](https://github.com/Comfy-Org/ComfyUI/pull/16820)：在低显存条件下速度更快
+  * [**Qwen 3.5 MTP**](https://github.com/Comfy-Org/ComfyUI/pull/16922)：MTP 解码现在也能在包含图像的提示词上运行
+  * [**comfy_attention**](https://github.com/Comfy-Org/ComfyUI/pull/16806)：扩展到剩余模型，并且[模型文件现在可以使用 kitchen sol 注意力](https://github.com/Comfy-Org/ComfyUI/pull/16831)
+  * [**AMD gfx1151**](https://github.com/Comfy-Org/ComfyUI/pull/16726)：当键和值无法装入 L2 缓存时，注意力速度更快
+  * [**EXR 保存**](https://github.com/Comfy-Org/ComfyUI/pull/16948)：EXR 文件现在以压缩方式保存
+  * [**GLB 纹理**](https://github.com/Comfy-Org/ComfyUI/pull/16867)：使用 PNG 压缩级别 4，保存速度更快
+  * [**3D 输出**](https://github.com/Comfy-Org/ComfyUI/pull/16200)：现在每个 3D 节点都会将其模型报告为标准的 `3d` 输出项
+  * [**移除 cryptography**](https://github.com/Comfy-Org/ComfyUI/pull/16988)：去掉了 cryptography 包依赖
+
+**Bug 修复**
+
+  * [**绕过 LoRA**](https://github.com/Comfy-Org/ComfyUI/pull/16862)：修复了融合 Linear 路径上的绕过 LoRA
+  * [**Qwen 3.5 MTP 卸载**](https://github.com/Comfy-Org/ComfyUI/pull/16877)：修复了 MTP embedding 卸载
+  * [**MiniMax-H3 单张图像**](https://github.com/Comfy-Org/ComfyUI/pull/16881)：单张图像现在被解码为片段的第一个 latent
+  * [**半精度浮点视频**](https://github.com/Comfy-Org/ComfyUI/pull/16949)：修复了使用 PyAV 加载半浮点文件的问题
+  * [**动态输入**](https://github.com/Comfy-Org/ComfyUI/pull/16377)：验证和惰性执行现在可与动态输入配合工作
+  * [**资产日期**](https://github.com/Comfy-Org/ComfyUI/pull/16810)：扫描到的资产以其文件修改时间作为日期
+
+**资产库**
+
+  * [**启用开关**](https://github.com/Comfy-Org/ComfyUI/pull/16929)：除非 ComfyUI 以 `--enable-assets` 启动，否则资产系统保持关闭；开启后输出文件夹会被重新扫描
+  * [**Windows 便携版**](https://github.com/Comfy-Org/ComfyUI/pull/16928)：在 Windows 独立构建中，资产系统默认开启
+  * [**资产导出 API**](https://github.com/Comfy-Org/ComfyUI/pull/16578)：资产导出 API 现在可在本地使用
+  * [**视频元数据**](https://github.com/Comfy-Org/ComfyUI/pull/15180)：视频元数据在导入和扫描时提取
+  * [**EXR 预览**](https://github.com/Comfy-Org/ComfyUI/pull/16898)：为 EXR 资产提供预览，由 `SaveImageAdvanced` 为输出写入
+
+**开发者体验**
+
+  * [**提示词元数据**](https://github.com/Comfy-Org/ComfyUI/pull/16763)：将元数据附加到提示词的 websocket 消息和[预览图像帧](https://github.com/Comfy-Org/ComfyUI/pull/16809)上
+  * [**自定义节点治理**](https://github.com/Comfy-Org/ComfyUI/pull/16167)：受管控的构建可以将 ComfyUI 限定为已批准的自定义节点包；普通安装保持不变
+  * [**内容安全策略**](https://github.com/Comfy-Org/ComfyUI/pull/15565)：CSP 现在允许 `blob:` 和 `data:` 来源
+
+**安装**
+
+  * [**ARM64 NVIDIA 便携版**](https://github.com/Comfy-Org/ComfyUI/pull/16985)：面向配备 NVIDIA GPU 的 ARM64 设备的新 Windows 便携版构建
+
+**工作流模板**
+
+  * [**模板 v0.11.82**](https://github.com/Comfy-Org/ComfyUI/pull/17001)：更新了内置工作流模板，新增以下模板： 
+    * [**Qwen Image 2.1 Turbo：文生图**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/image_qwen_image_2_1_turbo_t2i.json)：在 8 个采样步骤内生成 1024×1024 图像，并提供可选的 Qwen 3.5 提示词增强器
+    * [**Qwen Image 2.1 Turbo：图像编辑**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/image_qwen_image_2_1_turbo_image_edit.json)：使用 Turbo checkpoint 基于两张参考图像编辑图像
+    * [**LTX-2.5 DFR：图生视频**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/video_ltx2_5_dfr_i2v.json)：三阶段图生视频，具备空间放大和可选的时间放大，并在同一次处理中生成音频
+    * [**Higgsfield Genjutsu：动作迁移**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/api_higgsfield_genjutsu_motion_transfer.json)：用 1 到 8 张参考图像重新演绎视频，同时保留其动作、相机运动、时序和音频
+    * [**Fish Audio Drama 3：双人对话**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/api_fishaudio_drama3_dialogue.json)：一个脚本中两段声音之间的对话场景
+    * [**Fish Audio Drama 3：定向表演**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/api_fishaudio_drama3_directed.json)：用自然语言指令和词语标签执导的单一声音
+    * Luma Ray 2 图生视频和文生视频模板已弃用，与 [v0.39.0 中弃用的 Ray 2 节点](https://github.com/Comfy-Org/ComfyUI/pull/16741)保持一致。Ray 2 接口将于 10 月 24 日停止服务
+
+
+
+​
+
+v0.39.2
+
+2026年10月8日
+
+**合作伙伴节点更新**
+
+  * [**Kling Virtual Try-On**](https://github.com/Comfy-Org/ComfyUI/pull/16844)：将服装图像中的衣物穿到人物身上，同时保留其面部和姿势
+  * [**Clarity AI Crystal Upscaler**](https://github.com/Comfy-Org/ComfyUI/pull/16817)：忠实的图像放大，缩放倍率最高可达 200 倍，并可调节细节重建
+  * [**Vidu Q4 Preview**](https://github.com/Comfy-Org/ComfyUI/pull/16849)：图生视频和参考生视频节点，支持 540p 至 4K 输出和同步音频
+  * [**Quiver SVG**](https://github.com/Comfy-Org/ComfyUI/pull/16775)：全新的 V2 文本生 SVG 和图像生 SVG 节点，按模型提供输入；原始 Quiver 节点已弃用
+
+**工作流模板**
+
+  * [**Templates v0.11.78**](https://github.com/Comfy-Org/ComfyUI/pull/16851)：更新了内置的工作流模板
+
+
+
+​
+
+v0.39.1
+
+2026年10月7日
+
+**合作伙伴节点更新**
+
+  * [**Nano Banana 2.1**](https://github.com/Comfy-Org/ComfyUI/pull/16822)：在一个节点内完成文生图和图像编辑，支持 1K 到 4K 输出、三档思考级别，以及最多 14 张参考图像
+
+
+
+​
+
+v0.39.0
+
+2026年10月5日
+
+**新节点更新**
+
+  * [**DynamicGroup 控件输入**](https://github.com/Comfy-Org/ComfyUI/pull/16260)：自定义节点可以声明一组可重复的控件输入，例如 LoRA 行及其强度
+
+**合作伙伴节点更新**
+
+  * [**Eleven v4 和 v4 Turbo**](https://github.com/Comfy-Org/ComfyUI/pull/16737)：文本转语音和文本转对话节点新增 ElevenLabs 语音与对话模型
+  * [**Luma Ray 2**](https://github.com/Comfy-Org/ComfyUI/pull/16741)：Ray 2 节点已弃用，将于 10 月 24 日移除
+  * [**GPT Image 2 背景**](https://github.com/Comfy-Org/ComfyUI/pull/16744)：移除了透明背景选项
+
+**性能与稳定性**
+
+  * [**Save EXR**](https://github.com/Comfy-Org/ComfyUI/pull/16706)：新增 16 位浮点输出，现已成为 `exr` 选项的默认位深
+  * [**Save Video**](https://github.com/Comfy-Org/ComfyUI/pull/16663)：默认编码质量更高，h264 使用 CRF 18，AV1 使用 CRF 24
+  * [**MiniMax-H3 VRAM**](https://github.com/Comfy-Org/ComfyUI/pull/16677)：在 blocks 之前释放 embedding 临时对象，从而降低峰值显存
+  * [**MiniMax-H3 VAE**](https://github.com/Comfy-Org/ComfyUI/pull/16657)：支持 LynnReal light H3 VAE
+  * [**集成显卡**](https://github.com/Comfy-Org/ComfyUI/pull/16746)：固定内存现在会自动禁用
+  * [**comfy_attention**](https://github.com/Comfy-Org/ComfyUI/pull/16766)：扩展到更多模型系列
+  * [**素材库**](https://github.com/Comfy-Org/ComfyUI/pull/16719)：扫描现在会报告 CPU 和暂停时间，并对失败进行分类
+
+**错误修复**
+
+  * [**素材扫描**](https://github.com/Comfy-Org/ComfyUI/pull/16696)：修剪和离线标记现在以短批次运行，因此保存操作不会被阻塞
+  * [**素材上传**](https://github.com/Comfy-Org/ComfyUI/pull/16722)：当目标位于其他卷上时，上传内容会被复制到相应位置
+
+**命令行**
+
+  * [**启动参数**](https://github.com/Comfy-Org/ComfyUI/pull/16672)：新增 `--offline` 和 `--disable-partner-nodes`；`--disable-api-nodes` 已弃用
+
+**工作流模板**
+
+  * [**模板 v0.11.76**](https://github.com/Comfy-Org/ComfyUI/pull/16739)：已更新内置的工作流模板
+
+
+
+​
+
+v0.38.2
+
+2026年10月2日
+
+**合作伙伴节点更新**
+
+  * [**FLUX 3 Image**](https://github.com/Comfy-Org/ComfyUI/pull/16716)：BFL 的 FLUX 3 图像模型，支持文生图、图像编辑和边界框控制
+  * [**Grok Imagine Video 1.5 Lite**](https://github.com/Comfy-Org/ComfyUI/pull/16721)：Grok 视频节点上成本更低的档位
+
+
+
+​
+
+v0.38.1
+
+2026年9月30日
+
+**合作伙伴节点更新**
+
+  * [**Ideogram 4.5**](https://github.com/Comfy-Org/ComfyUI/pull/16689)：为新模型提供文生图、编辑和精确编辑节点
+  * [**HeyGen Video 1.0**](https://github.com/Comfy-Org/ComfyUI/pull/16695)：参考生视频和图生视频节点
+  * [**Claude Sonnet 5.5**](https://github.com/Comfy-Org/ComfyUI/pull/16647)：已添加至 Claude 节点
+
+**错误修复**
+
+  * [**Qwen-Image 2.1 缓存**](https://github.com/Comfy-Org/ComfyUI/pull/16667)：修复了选择 int8 或 int4 缓存时崩溃的问题
+
+
+
+​
+
+v0.38.0
+
+2026年9月29日
+
+**新增开源模型支持**
+
+  * [**Ming Image 0.1 Design**](https://github.com/Comfy-Org/ComfyUI/pull/16482)：一个 6B 文生图模型，面向文字密集的设计排版，可输出带透明通道的 RGBA
+  * [**MiniMax-H3 Fun ControlNet Union 2.0**](https://github.com/Comfy-Org/ComfyUI/pull/16471)：在一次 H3 生成中组合多种控制条件
+  * [**ID-V2V**](https://github.com/Comfy-Org/ComfyUI/pull/15139)：在 Wan 2.1 和基于 VACE 的模型上实现保留身份特征的视频转视频
+  * [**Qwen-Image 2.1 ControlNet**](https://github.com/Comfy-Org/ComfyUI/pull/16519)：为 Qwen-Image 2.1 编辑提供 Union Fun ControlNet 支持
+  * [**Qwen-Image 2.1 tiny VAE**](https://github.com/Comfy-Org/ComfyUI/pull/16552)：一个小型 VAE，可加快预览并降低内存占用
+
+**新增节点更新**
+
+  * [**Convert Image Color Space**](https://github.com/Comfy-Org/ComfyUI/pull/16541)：新增 LogC3 和 ACEScct HDR 色彩空间
+  * [**w6a8 量化**](https://github.com/Comfy-Org/ComfyUI/pull/16483)：新增对 w6a8 格式的支持
+  * [**JsonExtractString**](https://github.com/Comfy-Org/ComfyUI/pull/16439)：解析带有前缀或后缀的 JSON
+  * [**逐块注意力**](https://github.com/Comfy-Org/ComfyUI/pull/16419)：模型文件可以声明每个块使用哪种注意力实现
+
+**合作伙伴节点更新**
+
+  * [**Seedance 2.5 Draft 模式**](https://github.com/Comfy-Org/ComfyUI/pull/16529)：快速渲染 480p 预览，其 `draft_task_id` 用于驱动 1080p 最终渲染
+  * [**Seedream 5.0 Flash**](https://github.com/Comfy-Org/ComfyUI/pull/16522)：Seedream 节点上更快、成本更低的模型，Pro 的最大分辨率现在可达 4.62MP
+  * [**GPT-6 Sol 和 Luna**](https://github.com/Comfy-Org/ComfyUI/pull/16520)：OpenAI Chat 节点上两个成本更低的 GPT-6 档位
+  * [**移除 Sora 节点**](https://github.com/Comfy-Org/ComfyUI/pull/16609)：已停用的 Sora 视频节点已从 ComfyUI 中移除
+
+**性能与稳定性**
+
+  * [**NPU 上的异步权重卸载**](https://github.com/Comfy-Org/ComfyUI/pull/16057)：异步权重卸载路径现在可在 Ascend NPU 设备上运行
+  * [**ACE-Step 1.5**](https://github.com/Comfy-Org/ComfyUI/pull/16461)：在自回归模型上启用 CUDA graphs 和内存编译器
+  * [**Yue2 AR**](https://github.com/Comfy-Org/ComfyUI/pull/16626)：Yue2 更快的自回归生成
+  * [**SeedVR2**](https://github.com/Comfy-Org/ComfyUI/pull/16530)：优化了视频放大
+  * [**快速磁盘检测**](https://github.com/Comfy-Org/ComfyUI/pull/16425)：扩展到所有模型加载器
+  * [**素材扫描**](https://github.com/Comfy-Org/ComfyUI/pull/16546)：在大型素材库中，素材扫描和输出重新扫描不再阻塞 UI
+  * [**Lumina 模型**](https://github.com/Comfy-Org/ComfyUI/pull/16515)：更低的内存占用，并支持 `comfy_attention`
+  * [**移除 torchaudio**](https://github.com/Comfy-Org/ComfyUI/pull/16457)：移除了 torchaudio 依赖
+
+**错误修复**
+
+  * [**ImageUpscaleWithModel**](https://github.com/Comfy-Org/ComfyUI/pull/16500)：不再在 RGBA 图像上崩溃，且透明通道在放大后仍能保留
+  * [**Qwen VL 预处理**](https://github.com/Comfy-Org/ComfyUI/pull/16548)：修复了在 4 通道 RGBA 参考图像上的崩溃
+  * [**MiniMax-H3 VAE**](https://github.com/Comfy-Org/ComfyUI/pull/16485)：修复了 `qk_norm_scale` 卸载时 `rms_rope` 的崩溃
+  * [**HDR 输出**](https://github.com/Comfy-Org/ComfyUI/pull/16565)：修复了 Convert Image Color Space 中负值导致的 HDR 输出问题
+
+**工作流模板**
+
+  * [**Templates v0.11.70**](https://github.com/Comfy-Org/ComfyUI/pull/16557)：已更新内置工作流模板
+
+
+
+​
+
+v0.37.2
+
+2026年9月23日
+
+**合作伙伴节点更新**
+
+  * [**Recraft V4.1 Flash**](https://github.com/Comfy-Org/ComfyUI/pull/16501)：Recraft V4 文生图节点上更快、更低成本的选项
+  * [**Claude Opus 5.5**](https://github.com/Comfy-Org/ComfyUI/pull/16479)：添加到 Claude 节点
+  * [**Quiver Arrow 2**](https://github.com/Comfy-Org/ComfyUI/pull/16478)：SVG 节点上的 Arrow 2 模型，带推理力度控制
+
+**新节点更新**
+
+  * [**Generate Text**](https://github.com/Comfy-Org/ComfyUI/pull/16442)：`system_prompt` 替换对话模板的系统轮次，并新增思考输出
+
+
+
+​
+
+v0.37.1
+
+2026年9月22日
+
+**合作伙伴节点更新**
+
+  * [**HY Image 3.5 Preview**](https://github.com/Comfy-Org/ComfyUI/pull/16462)：文生图与图像编辑，支持最多 5 张参考图像，原生 2K 输出
+
+
+
+​
+
+v0.37.0
+
+2026年9月21日
+
+**新增开源模型支持**
+
+  * [**Qwen-Image-2.1**](https://blog.comfy.org/p/qwen-image-21-in-comfyui-open-weight)：原生 2K 生成与编辑，支持透明度通道和多图像参考
+  * [**MoGe 3**](https://github.com/Comfy-Org/ComfyUI/pull/16381)：从单张图像进行精细几何估算，提供 ViT-L 和 ViT-g 模型
+
+**新节点更新**
+
+  * [**YuE2 CFG**](https://github.com/Comfy-Org/ComfyUI/pull/16373)：为 YuE2 Generate Music 节点添加了 CFG 控制
+  * [**Empty Latent Image**](https://github.com/Comfy-Org/ComfyUI/pull/16384)：默认宽度和高度现在为 1024
+
+**合作伙伴节点更新**
+
+  * [**GPT Image 2**](https://github.com/Comfy-Org/ComfyUI/pull/16366)：添加了透明背景选项
+  * [**Meshy 7.1**](https://github.com/Comfy-Org/ComfyUI/pull/16412)：在 Meshy 3D 节点上添加了 Meshy 7.1
+  * [**Tripo P2 outputs**](https://github.com/Comfy-Org/ComfyUI/pull/16369)：拒绝会写入空 GLB 或 FBX 的 P2 运行
+
+**性能与稳定性**
+
+  * [**自动 fast-disk**](https://github.com/Comfy-Org/ComfyUI/pull/16333)：在快速 NVMe 上自动启用 `--fast-disk`，并加入 Aimdo 0.5.5 和 `--disable-fast-disk`
+  * [**Qwen 文本编码器**](https://github.com/Comfy-Org/ComfyUI/pull/15623)：为 Qwen3、3.5 和 3.8 提供 CUDA graphs 和 W4A8 GEMV
+  * [**动态 VRAM 文本编码器**](https://github.com/Comfy-Org/ComfyUI/pull/16374)：开启动态 VRAM 时，将文本编码器保留在 GPU 上
+  * [**Wan VRAM**](https://github.com/Comfy-Org/ComfyUI/pull/16418)：通过 comfy-kitchen 注意力降低峰值 VRAM
+
+**错误修复**
+
+  * [**ACE-Step VAE**](https://github.com/Comfy-Org/ComfyUI/pull/16405)：修复在非 bf16 GPU 上的 VAE 解码崩溃
+  * [**MiniMax Music 3**](https://github.com/Comfy-Org/ComfyUI/pull/16428)：修复启用 CUDA graphs 时输出有噪声的问题
+
+
+
+​
+
+v0.36.0
+
+2026年9月15日
+
+**新增开源模型支持**
+
+  * [**FastVideo FastH3**](https://cloud.comfy.org/?template=video_fastvideo_fasth3_i2v)：FastVideo 8 步蒸馏 MiniMax H3，支持原生音频的文生视频和图生视频
+  * [**Marigold V2**](https://github.com/Comfy-Org/ComfyUI/pull/16232)：从单张图像进行深度、表面法线和反照率估计
+  * [**YuE2**](https://github.com/Comfy-Org/ComfyUI/pull/16250)：根据风格提示词和歌词生成音乐
+
+**新增节点更新**
+
+  * [**Video Concatenate**](https://github.com/Comfy-Org/ComfyUI/pull/16267)：将多个视频片段首尾相接
+  * [**Generic Loops**](https://github.com/Comfy-Org/ComfyUI/pull/16227)：在画面中遍历列表，在每次迭代中携带异构项，并在节点 schema 中声明循环边界
+  * [**线性颜色空间**](https://github.com/Comfy-Org/ComfyUI/pull/16247)：在 ImageColorSpace 中添加了线性
+  * [**Gemini V3 节点**](https://github.com/Comfy-Org/ComfyUI/pull/16287)：添加了 GeminiNodeV3，并弃用了 V2 节点
+
+**合作伙伴节点更新**
+
+  * [**Tripo P2**](https://github.com/Comfy-Org/ComfyUI/pull/16320)：使用 P2 模型实现文本、图像和多视图到 3D 模型生成
+  * [**Pruna P-Video-2**](https://github.com/Comfy-Org/ComfyUI/pull/16315)：文生视频和图生视频，支持 720p/1080p 输出以及草稿模式
+  * [**Flux Video Edit**](https://github.com/Comfy-Org/ComfyUI/pull/16259)：根据文本指令编辑来源片段：移除或替换对象、更改画面风格、修改屏幕文字或对白
+  * [**Bria 编辑套件**](https://github.com/Comfy-Org/ComfyUI/pull/16264)：新增图像编辑节点和 Video Eraser 节点
+
+**性能与稳定性**
+
+  * [**自动 fast-disk**](https://github.com/Comfy-Org/ComfyUI/pull/16333)：当磁盘速度较快时自动检测并启用 `--fast-disk`，并加入 Aimdo 0.5.5
+  * [**MiniMax-H3 VAE**](https://github.com/Comfy-Org/ComfyUI/pull/16187)：VAE 优化并降低 VAE 内存占用
+  * [**Llama rope 内核**](https://github.com/Comfy-Org/ComfyUI/pull/16326)：在基于 llama 的模型中使用 comfy-kitchen apply rope，并在更多模型上提供快速内核
+  * [**AMD Windows VA 配额**](https://github.com/Comfy-Org/ComfyUI/pull/16199)：将 VA 配额提升至 4TB
+  * [**AMD 上的 YuE2**](https://github.com/Comfy-Org/ComfyUI/pull/16293)：修复了 AMD 相关问题，并为 generate ABC 节点添加了更多控制项
+  * [**YuE2 更长的歌曲**](https://github.com/Comfy-Org/ComfyUI/pull/16292)：将歌曲最大时长增加到 900 秒
+
+**错误修复**
+
+  * [**Add Noise 透明度**](https://github.com/Comfy-Org/ComfyUI/pull/15626)：不再向透明度通道添加噪波
+  * [**H3 Fun ControlNet**](https://github.com/Comfy-Org/ComfyUI/pull/16240)：修复了 Comfy 模型编译器启用时 H3 Fun ControlNet 的问题
+
+**工作流模板**
+
+  * [**模板 v0.11.62**](https://github.com/Comfy-Org/ComfyUI/pull/16350)：新增 FastH3 视频、Marigold V2 估计和 YuE2 音乐模板，并更新了 Tripo、Gemini 和 Ideogram 工作流
+
+
+
+​
+
+v0.35.2
+
+2026年9月14日
+
+**合作伙伴节点更新**
+
+  * [**Bria 编辑套件**](https://github.com/Comfy-Org/ComfyUI/pull/16264)：新增图像编辑节点以及 Video Eraser 节点
+  * [**Flux Video Edit**](https://github.com/Comfy-Org/ComfyUI/pull/16259)：通过文本指令编辑源视频片段：移除或替换对象、重新调整画面风格、更改屏幕文本或对白
+  * [**Gemini V3 节点**](https://github.com/Comfy-Org/ComfyUI/pull/16287)：新增 GeminiNodeV3，并弃用 V2 节点
+  * [**合作伙伴进度估算**](https://github.com/Comfy-Org/ComfyUI/pull/16152)：在合作伙伴任务排队和运行期间，根据服务器时长估算显示剩余时间
+
+**错误修复**
+
+  * [**H3 Fun ControlNet**](https://github.com/Comfy-Org/ComfyUI/pull/16240)：修复了启用 Comfy 模型编译器时 H3 Fun ControlNet 的问题
+
+**工作流模板**
+
+  * [**模板 v0.11.60**](https://github.com/Comfy-Org/ComfyUI/pull/16319)：更新了内置的工作流模板
+
+
+
+​
+
+v0.35.1
+
+2026年9月10日
+
+**合作伙伴节点更新**
+
+  * [**Tripo v3 API**](https://github.com/Comfy-Org/ComfyUI/pull/16201)：将 Tripo 节点迁移至 v3 API，并新增 Smart Segment 节点
+  * [**Microsoft MAI Image 2.6**](https://github.com/Comfy-Org/ComfyUI/pull/16188)：在 OpenRouter Image 节点中新增 mai-image-2.6 和 mai-image-2.6-flash 模型
+  * [**MAI 自动宽高比**](https://github.com/Comfy-Org/ComfyUI/pull/16229)：为 MAI 图像节点新增自动宽高比选项
+  * [**Gemini 3.8 Flash**](https://github.com/Comfy-Org/ComfyUI/pull/16195)：在 Gemini 文本节点中新增 Gemini 3.8 Flash
+
+**工作流模板**
+
+  * [**模板 v0.11.59**](https://github.com/Comfy-Org/ComfyUI/pull/16233)：更新了内置的工作流模板
+
+
+
+​
+
+v0.35.0
+
+2026年9月9日
+
+**新增开源模型支持**
+
+  * [**Pixal3D Multi-View**](https://github.com/Comfy-Org/ComfyUI/pull/16048)：通过 Pixal3D Multi-View Conditioning，从前、后、左、右视图重建带纹理的网格
+  * [**SenseNova U1.5**](https://github.com/Comfy-Org/ComfyUI/pull/15922)：原生像素空间生成与多参考编辑，最多支持 10 张参考图像
+  * [**MiniMax-H3 PDD LoRA**](https://github.com/Comfy-Org/ComfyUI/pull/15908)：加载并行解码蒸馏 LoRA，以加速 H3 采样
+  * [**MiniMax-H3 Fun ControlNet Union**](https://github.com/Comfy-Org/ComfyUI/pull/16020)：为 `fl2va` 和 `ref2va` 添加 Fun ControlNet Union 支持，可同时使用参考与关键帧条件
+  * [**MiniMax-H3 参考转视频**](https://github.com/Comfy-Org/ComfyUI/pull/16065)：使 VAE 可选，以便参考仅通过文本编码器进行条件控制
+  * [**MiniMax-H3 与 HiDream O1 LoRA**](https://github.com/Comfy-Org/ComfyUI/pull/15662)：支持 DiffSynth-Studio 和 ModelScope 训练的 LoRA
+
+**新节点更新**
+
+  * [**LTXV 生成关键帧**](https://github.com/Comfy-Org/ComfyUI/pull/16040)：添加、分离并重新固定生成的关键帧，以及 Freeze Latent
+  * [**LTXV Add Latent Guide**](https://github.com/Comfy-Org/ComfyUI/pull/16176)：将已编码的 latent 固定为引导，无需 VAE 往返
+  * [**Sparse Attention**](https://github.com/Comfy-Org/ComfyUI/pull/16072)：用于 comfy-kitchen 稀疏后端的 Model Sparse Attention 节点
+  * [**色彩空间转换**](https://github.com/Comfy-Org/ComfyUI/pull/16135)：在 sRGB、HDR HLG 和 HDR PQ 之间转换
+  * [**File3DToMesh**](https://github.com/Comfy-Org/ComfyUI/pull/15919)：将 GLB、GLTF、OBJ 和 STL 文件解析到 MESH 管线
+  * [**VideoTrim 与 VideoCrop**](https://github.com/Comfy-Org/ComfyUI/pull/15637)：通过前端 VIDEO_EDIT 控件裁剪和修剪视频
+  * [**Save Image Advanced AVIF**](https://github.com/Comfy-Org/ComfyUI/pull/15891)：为 Save Image Advanced 添加 AVIF 输出
+  * [**cfgpp_ud10_ab 采样器**](https://github.com/Comfy-Org/ComfyUI/pull/15951)：新增在较低步数下对 Anima 效果更好的 CFG++ 采样器
+  * [**ResolutionSelector 预览**](https://github.com/Comfy-Org/ComfyUI/pull/16013)：根据宽高比和百万像素设置实时显示宽度和高度
+
+**合作伙伴节点更新**
+
+  * [**GPT Image 2.5**](https://github.com/Comfy-Org/ComfyUI/pull/16190)：为 OpenAI GPT Image 节点添加了 Flare 和 Sunburst 模型
+
+**性能与稳定性**
+
+  * [**Comfy Compiler**](https://github.com/Comfy-Org/ComfyUI/pull/15861)：Aimdo 内存编译器加上 CUDA graphs，减少分配抖动
+  * [**TRELLIS 内存**](https://github.com/Comfy-Org/ComfyUI/pull/16054)：降低 TRELLIS 工作流的峰值显存和内存占用
+  * [**容器 cgroup 内存**](https://github.com/Comfy-Org/ComfyUI/pull/15927)：遵循容器内存上限，而不是主机 RAM
+  * [**RDNA3.5 attention**](https://github.com/Comfy-Org/ComfyUI/pull/16014)：在 gfx1170 和 gfx1171 上启用 PyTorch SDPA 和 FP8 运算
+
+**Bug 修复**
+
+  * [**MiniMax H3 denoise masks**](https://github.com/Comfy-Org/ComfyUI/pull/15988)：在 x0 转换前按 denoise mask 缩放视频和音频速度
+  * [**SAM 3 文本遮罩**](https://github.com/Comfy-Org/ComfyUI/pull/15979)：修复 scalp=1 传入四级 FPN 时文本提示遮罩为空的问题
+  * [**图像 Alpha**](https://github.com/Comfy-Org/ComfyUI/pull/15632)：在 RGB/YUV、Canny、量化、叠加、混合、反相和颜色调整节点上保留 alpha
+  * [**Switch 输入**](https://github.com/Comfy-Org/ComfyUI/pull/16083)：允许 Switch 输入断开连接
+  * [**MPS int8**](https://github.com/Comfy-Org/ComfyUI/pull/16130)：在缺少 `torch._int_mm` 时禁用 int8 仅权重量化
+
+
+
+​
+
+v0.34.6
+
+2026年9月7日
+
+**合作伙伴节点更新**
+
+  * [**GPT-6 Astra**](https://github.com/Comfy-Org/ComfyUI/pull/16125)：为受支持的 OpenAI 聊天模型添加了 GPT-6 Astra 与推理努力级别
+  * [**已停用的合作伙伴模型**](https://github.com/Comfy-Org/ComfyUI/pull/16121)：移除了 DALL·E 2/3、Kling 视频扩展、LTX-2 合作伙伴视频节点、字节跳动图片（Seedream 3）和 Seedance 1.0 Lite 选项
+
+
+
+​
+
+v0.34.5
+
+2026年9月5日
+
+**合作伙伴节点更新**
+
+  * [**Comfy Cloud**](https://github.com/Comfy-Org/ComfyUI/pull/15935)：新增了测试版节点，可在 Comfy Cloud GPU 上运行精选的 Flux 2、Z-Image Turbo、Mage Flow、MiniMax H3 和 Music 3 工作流
+
+
+
+​
+
+v0.34.4
+
+2026年9月4日
+
+**合作伙伴节点更新**
+
+  * [**Meta Muse Image**](https://github.com/Comfy-Org/ComfyUI/pull/16078)：添加了 Muse Image 1.0 文生图和编辑节点，最多支持 10 张参考图像
+  * [**Recraft V4 Styles Pro**](https://github.com/Comfy-Org/ComfyUI/pull/16043)：在创建样式节点中添加了 `recraftv4_styles_pro` 和 `recraftv4_styles_pro_vector`
+  * [**MiniMax H3 Max Turbo**](https://github.com/Comfy-Org/ComfyUI/pull/16094)：为 MiniMax H3 文生视频和首尾帧节点添加了 H3 Max Turbo 模型选项
+  * [**Claude Fable 5.1**](https://github.com/Comfy-Org/ComfyUI/pull/16085)：添加了 Claude Fable 5.1，并为支持的 Claude 模型添加了 xhigh/max 推理等级
+  * [**Tripo**](https://github.com/Comfy-Org/ComfyUI/pull/16060)：修复了 Tripo 节点的真实 FBX/GLB 输出、精确定价和缺失参数
+
+
+
+​
+
+v0.34.3
+
+2026年9月2日
+
+**合作伙伴节点更新**
+
+  * [**MiniMax H3 Max**](https://github.com/Comfy-Org/ComfyUI/pull/16025)：为 MiniMax H3 文生视频、首尾帧和参考节点新增了 H3 Max 模型选项
+
+**性能与稳定性**
+
+  * [**TRELLIS 重新网格化内存**](https://github.com/Comfy-Org/ComfyUI/pull/16034)：降低了 TRELLIS 工作流中重新网格化的内存占用
+
+**Bug 修复**
+
+  * [**3D 预览路径**](https://github.com/Comfy-Org/ComfyUI/pull/16038)：为 Preview3DAdvanced、PreviewGaussianSplat 和 PreviewPointCloud 标注临时路径，以便云端预览能够正常解析
+
+
+
+​
+
+v0.34.2
+
+2026年8月27日
+
+**合作伙伴节点更新**
+
+  * [**Gemini Omni 1.1 Flash**](https://links.comfy.org/3UjQmgE)：更快的视频生成和对话式编辑，支持 4K 输出和视频扩展
+
+**Bug 修复**
+
+  * [**HEVC 重新封装**](https://github.com/Comfy-Org/ComfyUI/pull/15809)：将 HEVC 以 hvc1 编码重新封装为 mp4/mov 格式，以便 Apple 播放器可以播放这些文件
+
+
+
+​
+
+v0.34.1
+
+2026年8月26日
+
+**合作伙伴节点更新**
+
+  * [**WAN3-Prime**](https://github.com/Comfy-Org/ComfyUI/pull/15894)：为 Wan 3.0 节点新增 Prime 模型选项，按更高的每秒费率计费
+  * [**Recraft V4 样式**](https://github.com/Comfy-Org/ComfyUI/pull/15903)：新增 Recraft V4 Create Style 节点，以及必须指定样式 ID 或参考图片的 `recraftv4_styles` 模型
+  * [**Google Veo**](https://github.com/Comfy-Org/ComfyUI/pull/15883)：从 Veo 节点中移除即将退役的 Veo 2 和 Veo 3.0 模型
+
+
+
+​
+
+v0.34.0
+
+2026年8月26日
+
+**新增开源模型支持**
+
+  * [**Pixal3D & TRELLIS2**](https://github.com/Comfy-Org/ComfyUI/pull/14718)：3D 网格和纹理生成，支持重新网格化、减面、UV 展开和纹理烘焙后处理
+  * [**SAM 3D Body**](https://github.com/Comfy-Org/ComfyUI/pull/14370)：无依赖的 3D 人体检测和分割，支持姿态渲染和动画导出
+  * [**TAESD H3**](https://github.com/Comfy-Org/ComfyUI/pull/15695)：轻量级 VAE 解码器，用于更快的预览
+
+**新节点更新**
+
+  * [**MiniMax-H3 提示词嵌入**](https://github.com/Comfy-Org/ComfyUI/pull/15697)：在提示词中使用 `embedding:` 语法加载 MiniMax-H3 嵌入
+  * [**CreateVideo 色彩空间**](https://github.com/Comfy-Org/ComfyUI/pull/15810)：新增色彩空间选项，并将位深作为组合选项
+
+**合作伙伴节点更新**
+
+  * [**PixVerse V6**](https://github.com/Comfy-Org/ComfyUI/pull/15880)：新增了支持原生音频的 V6 文生视频、图生视频、首尾帧、扩展和融合节点
+  * [**Tripo**](https://github.com/Comfy-Org/ComfyUI/pull/15851)：移除了已退役的 Refine Draft 模型节点和 v2.0 模型版本
+
+**性能与稳定性**
+
+  * [**HDR 视频保存**](https://github.com/Comfy-Org/ComfyUI/pull/15741)：新增了使用 AV1 编解码器和 mkv/webm 容器支持的 HDR 视频保存
+
+**Bug 修复**
+
+  * [**数据库路径**](https://github.com/Comfy-Org/ComfyUI/pull/14539)：修复了默认 SQLite 数据库路径，使其从用户目录（而非安装目录）解析
+
+
+
+​
+
+v0.33.4
+
+2026年8月24日
+
+**合作伙伴节点更新**
+
+  * [**Wan 3.0**](https://github.com/Comfy-Org/ComfyUI/pull/15843): 新增 Wan 3.0 文本转视频、图像转视频和参考转视频功能，支持原生音频，最长 30 秒
+  * [**Meshy-7**](https://github.com/Comfy-Org/ComfyUI/pull/15807): 为 Meshy 文本、图像和多图像转 3D 节点新增 meshy-7 和 ultra 模式
+  * [**字节跳动 vCube 视频增强**](https://github.com/Comfy-Org/ComfyUI/pull/15755): 放大并修复视频，最高支持 8K，可选帧插值
+  * [**Kling v2**](https://github.com/Comfy-Org/ComfyUI/pull/15676): 在 9 月 15 日停用之前，已从 Kling 图像生成中移除 kling-v2
+
+
+
+​
+
+v0.33.3
+
+2026年8月20日
+
+**合作伙伴节点更新**
+
+  * [**Flux 视频 Upscale**](https://github.com/Comfy-Org/ComfyUI/pull/15753)：使用 FLUX 超分辨率将视频放大 1.5 倍至 3 倍
+  * [**字节跳动 Seedream 快速模式**](https://github.com/Comfy-Org/ComfyUI/pull/15750)：适用于 Seedream 5.0 Pro 图生图的快速提示词优化模式
+  * [**Gemini 3.7 Flash**](https://github.com/Comfy-Org/ComfyUI/pull/15688)：在 Gemini 文本节点中新增了 Gemini 3.7 Flash
+  * [**Ideogram 与 Pruna P-Image**](https://github.com/Comfy-Org/ComfyUI/pull/15751)：重命名 Ideogram P-Image 以向 Pruna 致谢
+
+
+
+​
+
+v0.33.2
+
+2026年8月17日
+
+**合作伙伴节点更新**
+
+  * [**Fish Audio**](https://github.com/Comfy-Org/ComfyUI/pull/15612)：新增文本转语音、语音转文本、音色选择器和实时语音克隆节点
+  * [**字节跳动 Seedance 2.5 1080p**](https://github.com/Comfy-Org/ComfyUI/pull/15684)：为 Seedance 2.5 新增 1080p 分辨率
+  * [**字节跳动 Seedance 2.5 Extend**](https://github.com/Comfy-Org/ComfyUI/pull/15579)：新增 extend 任务类型，用于视频续写
+
+**前端更新**
+
+  * [**Frontend**](https://github.com/Comfy-Org/ComfyUI/pull/15526)：将 comfyui-frontend-package 升级至 1.49.6
+
+
+
+​
+
+v0.33.1
+
+2026年8月13日
+
+**新增开源模型支持**
+
+  * [**MiniMax Music 3**](https://links.comfy.org/4zmDV3G)：原生文本转音乐支持，可根据描述和歌词生成最长 5 分钟的歌曲
+  * [**Anima tunes**](https://github.com/Comfy-Org/ComfyUI/pull/15555)：支持带有额外模块的 Anima tunes 模型
+
+**合作伙伴节点更新**
+
+  * [**MiniMax H3 Context IR & Regenerate**](https://github.com/Comfy-Org/ComfyUI/pull/15471)：为 2K 节点添加了 Context IR 提示词增强器和 Regenerate 功能
+  * [**Bria GenFill, Eraser, Expand & Upscale**](https://github.com/Comfy-Org/ComfyUI/pull/15572)：新增生成式填充、橡皮擦、展开图像和提升分辨率节点
+
+**新增节点**
+
+  * [**MiniMax Music3 Text Encode**](https://github.com/Comfy-Org/ComfyUI/pull/15570)：MiniMax Music 3 的描述和歌词文本编码
+  * [**Empty MiniMax Music3 Latent Audio**](https://github.com/Comfy-Org/ComfyUI/pull/15570)：创建指定时长的空音频 Latent
+
+**性能与稳定性**
+
+  * [**CUDA Graphs**](https://github.com/Comfy-Org/ComfyUI/pull/15570)：原生 CUDA Graphs 支持，可与动态 VRAM 互操作
+  * [**WSL dynamic VRAM**](https://github.com/Comfy-Org/ComfyUI/pull/15562)：在 WSL 上保持启用动态 VRAM
+  * [**aotriton detection**](https://github.com/Comfy-Org/ComfyUI/pull/15412)：改为向 PyTorch 查询 aotriton 支持，而不是扫描其 lib 目录
+  * [**MiniMax Music VRAM**](https://github.com/Comfy-Org/ComfyUI/pull/15588)：修复了 MiniMax Music 在非动态 VRAM 上的问题
+  * [**MiniMax QKV detect**](https://github.com/Comfy-Org/ComfyUI/pull/15581)：提前检测融合的 qkv 权重与分离的 q、k、v 权重
+
+**Bug 修复**
+
+  * [**KSamplerAdvanced**](https://github.com/Comfy-Org/ComfyUI/pull/15447)：修复了嵌套 Latent 上 `add_noise` 被禁用的问题
+  * [**PreviewAny**](https://github.com/Comfy-Org/ComfyUI/pull/15513)：修复了字典和列表预览中的非 ASCII 转义问题
+  * [**LTX decoder**](https://github.com/Comfy-Org/ComfyUI/pull/15516)：修复了 LTX 扩散解码器中的 float64 设备问题
+  * [**Generate Text**](https://github.com/Comfy-Org/ComfyUI/pull/15278)：修复了 Gemma4 E2B/E4B 上 `thinking=false` 被忽略的问题
+  * [**Llama path**](https://github.com/Comfy-Org/ComfyUI/pull/15580)：修复了 Llama 模块之间的非局部激活路径问题
+
+
+
+​
+
+v0.32.0
+
+2026年8月11日
+
+**新增开源模型支持**
+
+  * [**LTX 2.5**](https://links.comfy.org/docLTX2_5)：原生支持 LTX 2.5，包含 STG、双CFG 和时长预测
+
+**合作节点更新**
+
+  * [**Qwen-Image 3.0**](https://github.com/Comfy-Org/ComfyUI/pull/15327)：新增了 Qwen-Image 3.0 和 3.0 Pro 文生图与编辑节点
+  * [**LTX 2.5**](https://github.com/Comfy-Org/ComfyUI/pull/15501)：新增了 LTX 2.5 文本/图像/音频转视频合作节点
+  * [**Grok Imagine Image 2.0**](https://github.com/Comfy-Org/ComfyUI/pull/15496)：新增了 grok-imagine-image-2.0 模型支持
+
+**新增节点**
+
+  * [**LTXV 时空引导**](https://github.com/Comfy-Org/ComfyUI/pull/15499)：用于 LTX 视频生成的 STG 引导
+  * [**LTXV 模态引导**](https://github.com/Comfy-Org/ComfyUI/pull/15499)：用于 LTX 的音频/视频耦合引导
+  * [**LTXV 双CFG引导器**](https://github.com/Comfy-Org/ComfyUI/pull/15499)：用于 LTX 工作流的双CFG引导器
+  * [**LTXV 时长预测器**](https://github.com/Comfy-Org/ComfyUI/pull/15499)：根据文本令牌预测自然的镜头时长
+
+**性能与稳定性**
+
+  * [**PyTorch 2.7**](https://github.com/Comfy-Org/ComfyUI/pull/15413)：官方支持的最低 PyTorch 版本现为 2.7
+  * [**MiniMax-H3 VAE**](https://github.com/Comfy-Org/ComfyUI/pull/15446)：优化了 MiniMax-H3 VAE
+  * [**Comfy kitchen attention**](https://github.com/Comfy-Org/ComfyUI/pull/15479)：实现了 comfy kitchen 注意力
+  * [**MiniMax-H3 内存**](https://github.com/Comfy-Org/ComfyUI/pull/15486)：修复了 MiniMax-H3 的峰值内存问题
+  * [**ER-SDE 缩放器**](https://github.com/Comfy-Org/ComfyUI/pull/15428)：通过缩放 h(t) 扩展了 ER-SDE 噪波缩放器
+  * [**Tokenizers**](https://github.com/Comfy-Org/ComfyUI/pull/15503)：Mistral 和 Llama tokenizers 不再依赖 transformers
+
+**Bug 修复**
+
+  * [**Upscale 模型**](https://github.com/Comfy-Org/ComfyUI/pull/15437)：修复了 upscale 模型在非动态低 VRAM 情况下崩溃的问题
+  * [**VAEDecodeTiled**](https://github.com/Comfy-Org/ComfyUI/pull/15477)：修复了 NestedTensor latents（MiniMax H3）崩溃的问题
+  * [**分块音频解码**](https://github.com/Comfy-Org/ComfyUI/pull/15502)：修复了分块音频解码失效的问题
+  * [**CLIP Vision**](https://github.com/Comfy-Org/ComfyUI/pull/15506)：修复了 CLIP Vision 的回归问题
+  * [**Create Layered Image**](https://github.com/Comfy-Org/ComfyUI/pull/15429)：通过更清晰的标志使 Create Layered Image 更易于被发现
+
+
+
+​
+
+v0.31.0
+
+2026年8月7日
+
+**新增开源模型支持**
+
+  * [**Wan-Animate2**](https://github.com/Comfy-Org/ComfyUI/pull/15362)：原生 Wan-Animate2，支持姿势/参考控制及可选的姿势分支缓存（CORE-358）
+
+**合作节点更新**
+
+  * [**字节跳动 SeeDance 2.5**](https://links.comfy.org/4gkNSa4)：新增 SeeDance 2.5 模型支持
+  * [**Seedream 5.0 图层分离**](https://github.com/Comfy-Org/ComfyUI/pull/15317)：支持字节跳动 Seedream 5.0 Pro 图层分离
+  * [**Reve 弃用**](https://github.com/Comfy-Org/ComfyUI/pull/15331)：弃用 Reve 合作节点
+
+**新增节点**
+
+  * [**创建分层图像**](https://github.com/Comfy-Org/ComfyUI/pull/15317)：PSD 风格的图层合成，支持混合模式和图层状态
+  * [**添加图层**](https://github.com/Comfy-Org/ComfyUI/pull/15317)：将图层添加到合成器的图层堆栈中
+  * [**从边界框生成图层**](https://github.com/Comfy-Org/ComfyUI/pull/15317)：从边界框构建合成器图层
+  * [**WanAnimate2ToVideo**](https://github.com/Comfy-Org/ComfyUI/pull/15362)：支持姿势/参考控制的 Wan-Animate2 条件
+  * [**WanAnimate2Cache**](https://github.com/Comfy-Org/ComfyUI/pull/15362)：可选的姿势分支缓存，用于加速 Wan-Animate2
+
+**前端更新**
+
+  * [**前端**](https://github.com/Comfy-Org/ComfyUI/pull/15403)：将 comfyui-frontend-package 升级至 1.48.7
+  * [**图像合成器编辑器**](https://github.com/Comfy-Org/ComfyUI_frontend/pull/14901)：适用于 ImageCompositor 的 PSD 风格图层编辑器
+  * [**3D 查看器**](https://github.com/Comfy-Org/ComfyUI_frontend/pull/14076)：默认启用 3D 查看器（测试版）
+  * [**保存 3D 高级**](https://github.com/Comfy-Org/ComfyUI_frontend/pull/13330)：接入 Save 3D（高级）节点系列（CORE-329）
+  * [**HF 受限模型**](https://github.com/Comfy-Org/ComfyUI_frontend/pull/14338)：Hugging Face 受限模型访问提示
+
+**性能与稳定性**
+
+  * [**LTX 和 Wan**](https://github.com/Comfy-Org/ComfyUI/pull/15138)：LTX 和 Wan 加速
+  * [**asym w4a8_int**](https://github.com/Comfy-Org/ComfyUI/pull/15308)：支持非对称 w4a8_int 量化
+  * [**int8_convrot VAE**](https://github.com/Comfy-Org/ComfyUI/pull/15334)：适用于 MiniMax-H3 的 int8_convrot VAE
+  * [**Linux 内存锁定**](https://github.com/Comfy-Org/ComfyUI/pull/15266)：避免在无交换空间的 Linux 上过度锁定内存
+
+**Bug 修复**
+
+  * [**MiniMax H3 音频**](https://github.com/Comfy-Org/ComfyUI/pull/15390)：修复 EasyCache 导致的 MiniMax H3 音频损坏问题
+  * [**MiniMax 采样器**](https://github.com/Comfy-Org/ComfyUI/pull/15243)：修复 MiniMax 音频采样器问题并扩展采样器支持
+  * [**MiniMax 音频 VAE 卸载**](https://github.com/Comfy-Org/ComfyUI/pull/15377)：修复 MiniMax 音频 VAE 的完全卸载问题
+  * [**MiniMax H3 遮罩**](https://github.com/Comfy-Org/ComfyUI/pull/15322)：修复 MiniMax H3 的 Latent 噪波遮罩采样问题
+  * [**res_multistep**](https://github.com/Comfy-Org/ComfyUI/pull/15339)：跳过在 res_multistep 采样器中创建无效噪波
+
+
+
+​
+
+v0.30.2
+
+2026年8月5日
+
+**合作伙伴节点更新**
+
+  * [**BFL Flux 3 Video**](https://links.comfy.org/3TVdf9N)：新增 Flux 3 视频模型支持
+  * [**TopazAI Bloom 2 & Wonder 3.5**](https://github.com/Comfy-Org/ComfyUI/pull/15294)：新增 Bloom 2 和 Wonder 3.5 模型支持
+  * [**Kling EOL**](https://github.com/Comfy-Org/ComfyUI/pull/15249)：移除了已退役的传统 Kling 模型和虚拟试穿 API
+
+
+
+​
+
+v0.30.1
+
+2026年8月3日
+
+**性能与稳定性**
+
+  * [**前端**](https://github.com/Comfy-Org/ComfyUI/pull/15244)：将 comfyui-frontend-package 升级至 1.47.12
+
+
+
+​
+
+v0.30.0
+
+2026年8月3日
+
+**新增开源模型支持**
+
+  * [**MiniMax-H3**](https://links.comfy.org/3TuT9TO)：MiniMax-H3 音视频模型支持（CORE-375）
+  * [**Pruna LTX VAE**](https://github.com/Comfy-Org/ComfyUI/pull/15129)：支持 PrunaVAED，以实现更快的 LTX 2.3 解码
+
+**新增节点**
+
+  * [**Save Video CRF**](https://github.com/Comfy-Org/ComfyUI/pull/15191)：为保存视频节点添加了 CRF 选项
+  * [**SaveText CSV**](https://github.com/Comfy-Org/ComfyUI/pull/15217)：SaveText 节点可以保存 `.csv` 输出
+  * [**VAEDecodeAudio**](https://github.com/Comfy-Org/ComfyUI/pull/15211)：VAEDecodeAudio 可以解码嵌套的音频 Latent
+
+**合作节点更新**
+
+  * [**xAI Grok Imagine Video 1.5**](https://github.com/Comfy-Org/ComfyUI/pull/15197)：为 grok-imagine-video-1.5 更新了 xAI 节点
+  * [**MiniMax H3 768P**](https://github.com/Comfy-Org/ComfyUI/pull/15227)：为 MiniMax H3 合作节点添加了 768P 分辨率
+
+**性能与稳定性**
+
+  * [**int8 embedding lookup**](https://github.com/Comfy-Org/ComfyUI/pull/15035)：针对文本生成模型的 int8 convrot embedding 查找（CORE-371）
+  * [**Weight pinning**](https://github.com/Comfy-Org/ComfyUI/pull/15027)：使用 MRU 固定基础设施将权重加载到处理 RAM
+  * [**Comfy Kitchen AMD**](https://github.com/Comfy-Org/ComfyUI/pull/15160)：Comfy Kitchen 支持 AMD
+  * [**Dataset folder**](https://github.com/Comfy-Org/ComfyUI/pull/14807)：数据集文件夹路径，以避免任意目录访问
+  * [**DETAIL logging**](https://github.com/Comfy-Org/ComfyUI/pull/15064)：可配置的 DETAIL 日志记录侧通道（CORE-369）
+  * [**GQA attention**](https://github.com/Comfy-Org/ComfyUI/pull/15190)：当 GQA 注意力会回退到数学计算时，展开 k/v
+  * [**Nested latent previews**](https://github.com/Comfy-Org/ComfyUI/pull/15196)：针对嵌套 Latent（例如 LTXAV）的 Latent 预览
+  * [**MP4 metadata**](https://github.com/Comfy-Org/ComfyUI/pull/15195)：尽可能将 MP4 元数据存储在文件开头
+  * [**Frontend**](https://github.com/Comfy-Org/ComfyUI/pull/15161)：将 comfyui-frontend-package 升级到 1.47.11
+
+**错误修复**
+
+  * [**LTXAV**](https://github.com/Comfy-Org/ComfyUI/pull/15132)：修复了在没有音频 Latent 时采样崩溃的问题
+  * [**Jobs preview**](https://github.com/Comfy-Org/ComfyUI/pull/14681)：对于任务的 `preview_output`，优先使用媒体而非文本
+  * [**cuDNN attention**](https://github.com/Comfy-Org/ComfyUI/pull/15146)：在 Linux 上，当 Flash Attention 失败时回退到 cuDNN 注意力
+  * [**CurveEditor**](https://github.com/Comfy-Org/ComfyUI/pull/15152)：页面刷新后重新发送 CurveEditor 的缓存直方图 UI
+  * [**ByteDance stereo audio**](https://github.com/Comfy-Org/ComfyUI/pull/15177)：编码立体声参考音频，且不会使时长加倍
+
+
+
+​
+
+v0.29.2
+
+2026年7月31日
+
+**合作伙伴节点更新**
+
+  * [**Ideogram P-Image**](https://github.com/Comfy-Org/ComfyUI/pull/15154): 添加了 Ideogram P-Image 模型支持
+  * [**MiniMax H3**](https://github.com/Comfy-Org/ComfyUI/pull/15167): 添加了 MiniMax H3 模型支持
+
+
+
+​
+
+v0.29.1
+
+2026年7月31日
+
+**问题修复**
+
+  * [**user.css**](https://github.com/Comfy-Org/ComfyUI/pull/15000): 修复了先前前端更改导致的 `user.css` 加载失效问题
+  * [**SVG 预览**](https://github.com/Comfy-Org/ComfyUI/pull/15149): 修复了存储型 XSS 下载加固之后的 SVG 节点输出和媒体资产预览问题
+
+
+
+​
+
+v0.29.0
+
+2026年7月29日
+
+**新增开源模型支持**
+
+  * [**JoyImageEdit**](https://github.com/Comfy-Org/ComfyUI/pull/14428): 原生 JoyImageEdit 模型支持
+  * [**Gemma4 12B**](https://github.com/Comfy-Org/ComfyUI/pull/14304): Gemma4 12B 模型支持 (CORE-277)
+  * [**MageFlow**](https://github.com/Comfy-Org/ComfyUI/pull/15026): MageFlow 模型支持 (CORE-372)
+  * [**Uni3C ControlNet**](https://github.com/Comfy-Org/ComfyUI/pull/14946): 针对 Wan 万相模型的原生 Uni3C ControlNet 支持 (CORE-365)
+  * [**Anima**](https://github.com/Comfy-Org/ComfyUI/pull/14954): Anima llite 控制模型支持
+
+**新节点**
+
+  * [**Trainer 视频处理**](https://github.com/Comfy-Org/ComfyUI/pull/13588): 视频处理节点、图像处理节点的视频支持，以及 trainer 视频支持 (CORE-81)
+
+**合作伙伴节点更新**
+
+  * [**Recraft V4.1**](https://github.com/Comfy-Org/ComfyUI/pull/15105): Recraft V4.1 模型及 V4 图像编辑节点
+  * [**字节跳动多语言音频**](https://github.com/Comfy-Org/ComfyUI/pull/15034): 字节跳动 audio-1.0-multilingual 模型
+  * [**OpenRouter**](https://github.com/Comfy-Org/ComfyUI/pull/15021): 新增 OpenRouter 模型，包括 [Claude Opus 5](https://github.com/Comfy-Org/ComfyUI/pull/15075)
+  * [**Anthropic**](https://github.com/Comfy-Org/ComfyUI/pull/15023): 新增 Anthropic 模型，包括 [Claude Opus 5](https://github.com/Comfy-Org/ComfyUI/pull/15079)
+  * [**弃用 Runway Gen3a**](https://github.com/Comfy-Org/ComfyUI/pull/15050): 弃用 Runway Gen3a 模型
+
+**性能与稳定性**
+
+  * [**视频转码**](https://github.com/Comfy-Org/ComfyUI/pull/14813): 以流式方式转码视频，而不是在 RAM 中缓冲每一帧 (CORE-353, CORE-351)
+  * [**Anima**](https://github.com/Comfy-Org/ComfyUI/pull/14953): 更快的 Anima 推理
+  * [**Comfy Kitchen**](https://github.com/Comfy-Org/ComfyUI/pull/14963): Comfy Kitchen 优化与修复，以及[更多 int8 优化](https://github.com/Comfy-Org/ComfyUI/pull/14980)
+  * [**Krea 2 参考图像**](https://github.com/Comfy-Org/ComfyUI/pull/14843): 用于 Krea 2 Ostris 和 identity edit ref LoRA 的常规及 timestep-zero 参考图像
+  * [**FreSca**](https://github.com/Comfy-Org/ComfyUI/pull/15007): FreSca 5D+（例如 Anima）修复及模型无关的迭代
+  * [**Latent 放大器**](https://github.com/Comfy-Org/ComfyUI/pull/15063): 将 `latent_upsampler` 模型转换为 ModelPatcherDynamic
+  * [**后台使用上限**](https://github.com/Comfy-Org/ComfyUI/pull/15068): 默认后台使用上限提升至 128GB
+  * [**gfx1035**](https://github.com/Comfy-Org/ComfyUI/pull/15009): 修复 gfx1035 未被当作 RDNA2 处理的问题
+  * [**前端**](https://github.com/Comfy-Org/ComfyUI/pull/15045): 将 comfyui-frontend-package 升级至 1.47.10
+
+**Bug 修复**
+
+  * [**Wan 万相舞者分批**](https://github.com/Comfy-Org/ComfyUI/pull/14999): 修复 Wan 万相舞者在分批处理时的问题
+  * [**Gemini Video Omni**](https://github.com/Comfy-Org/ComfyUI/pull/15014): 在 Gemini Omni 合作伙伴节点中以内联数据方式传递视频
+  * [**MageFlow bf16**](https://github.com/Comfy-Org/ComfyUI/pull/15081): 修复 MageFlow 在不支持 bf16 的显卡上的运行问题
+  * [**LTXV IC-LoRA**](https://github.com/Comfy-Org/ComfyUI/pull/15073): 改进 LTXV IC-LoRA 检测
+  * [**LTXVEmptyLatentAudio**](https://github.com/Comfy-Org/ComfyUI/pull/15106): 允许 LTXVEmptyLatentAudio 使用浮点 fps
+
+
+
+​
+
+v0.28.3
+
+2026年7月22日
+
+**合作伙伴节点更新**
+
+  * [**Gemini Video Omni**](https://github.com/Comfy-Org/ComfyUI/pull/15014)：在 Gemini Omni 合作伙伴节点中将视频作为内联数据传递
+  * [**OpenRouter**](https://github.com/Comfy-Org/ComfyUI/pull/15021)：新增 OpenRouter 模型
+  * [**Anthropic**](https://github.com/Comfy-Org/ComfyUI/pull/15023)：新增 Anthropic 模型
+
+
+
+​
+
+v0.28.2
+
+2026年7月18日
+
+**合作伙伴节点更新**
+
+  * [**Gemini Video Omni**](https://github.com/Comfy-Org/ComfyUI/pull/14984)：已将 Omni 模型切换至 Interactions API
+
+
+
+​
+
+v0.28.1
+
+2026年7月17日
+
+**合作伙伴节点更新**
+
+  * [**GPT-5.6**](https://github.com/Comfy-Org/ComfyUI/pull/14957)：新增 GPT-5.6 Sol、Terra 和 Luna 模型
+  * [**Gemini 3.5 Flash**](https://github.com/Comfy-Org/ComfyUI/pull/14972)：为 Gemini LLM 节点新增 Gemini 3.5 Flash
+  * [**HeyGen**](https://github.com/Comfy-Org/ComfyUI/pull/14958)：新增 Avatar 视频、说话照片、创建 Avatar、视频翻译和文本转语音节点
+
+
+
+​
+
+v0.28.0
+
+2026年7月15日
+
+**新型开源模型支持**
+
+  * [**SeedVR2**](https://github.com/Comfy-Org/workflow_templates/blob/main/templates/utility_seedvr2_3b_int8_upscale_image.json)：原生SeedVR2图像与视频放大（[#14424](https://github.com/Comfy-Org/ComfyUI/pull/14424)）
+  * [**PID 1.5**](https://github.com/Comfy-Org/ComfyUI/pull/14894)：PixelDiT PID 1.5模型支持
+  * [**int4模型**](https://github.com/Comfy-Org/ComfyUI/pull/14859)：convrot int4支持，以及[Turing int8/int4优化](https://github.com/Comfy-Org/ComfyUI/pull/14927)
+
+**新增节点**
+
+  * [**保存3D（高级）**](https://github.com/Comfy-Org/ComfyUI/pull/14701)：保存3D（高级）、保存Splat和保存点云节点
+  * [**SaveText**](https://github.com/Comfy-Org/ComfyUI/pull/14102)：将文本输出保存为`.txt`、`.md`或`.json`
+  * [**文本叠加**](https://github.com/Comfy-Org/ComfyUI/pull/14610)：图像与视频的文本叠加
+  * [**Text**](https://github.com/Comfy-Org/ComfyUI/pull/14870)：已重新启用内置 Text 节点
+  * [**创建边界框**](https://github.com/Comfy-Org/ComfyUI/pull/14724)：增加了`bboxes`输入，用于上游连线
+
+**合作伙伴节点更新**
+
+  * [**sync.so sync-3**](https://github.com/Comfy-Org/ComfyUI/pull/14928)：sync.so sync-3 唇形同步与说话图像支持
+  * [**Seedream 思考链 COT**](https://github.com/Comfy-Org/ComfyUI/pull/14853)：Seedream 节点可禁用思考链 COT
+  * [**Gemini图像**](https://github.com/Comfy-Org/ComfyUI/pull/14917)：Gemini图像预览模型已移至发布版本
+
+**性能与稳定性**
+
+  * [**`--models-directory`**](https://github.com/Comfy-Org/ComfyUI/pull/9113)：用于设置默认模型目录的启动参数
+  * [**GQA注意力**](https://github.com/Comfy-Org/ComfyUI/pull/14772)：所有注意力后端均支持GQA；已放弃PyTorch 2.4
+  * [**16xx上的int8**](https://github.com/Comfy-Org/ComfyUI/pull/14941)：修复了GTX 16xx上的int8回归问题
+  * [**ROCm / AMD Triton**](https://github.com/Comfy-Org/ComfyUI/pull/14869)：Triton自动启用仅限于矩阵核心GPU
+  * [**前端**](https://github.com/Comfy-Org/ComfyUI/pull/14944)：comfyui-frontend-package 更新至1.45.21
+
+**错误修复**
+
+  * [**缓存的任务输出**](https://github.com/Comfy-Org/ComfyUI/pull/14939)：修复了当提示中没有`client_id`时缓存输出缺失的问题
+  * [**3D高级（API模式）**](https://github.com/Comfy-Org/ComfyUI/pull/14930)：修复了高级3D节点在无UI情况下崩溃的问题
+  * [**int4 Turing**](https://github.com/Comfy-Org/ComfyUI/pull/14864)：修复了Turing显卡上int4模型输出黑色图像的问题
+  * [**Qwen3-VL**](https://github.com/Comfy-Org/ComfyUI/pull/14845)：修复将参考图像用于文本编码模型时的问题
+  * [**保存图像（高级）**](https://github.com/Comfy-Org/ComfyUI/pull/14761)：支持单通道图像
+  * [**HiDream O1**](https://github.com/Comfy-Org/ComfyUI/pull/14923)：修复了HiDream O1回归问题
+
+
+
+​
+
+v0.27.1
+
+2026年7月8日
+
+**合作节点更新**
+
+  * [**Seedream 5 Pro**](https://links.comfy.org/3R12fXw)：支持字节跳动 Seedream 5 Pro 图像生成模型
+  * [**Seed Audio 1.0**](https://github.com/Comfy-Org/ComfyUI/pull/14731)：字节跳动 Seed Audio 1.0，支持语音、音乐、音效及多说话人对话
+  * [**Ideogram V1/V2 弃用**](https://github.com/Comfy-Org/ComfyUI/pull/14712)：弃用传统 Ideogram V1 和 V2 合作节点
+  * [**StabilityAI 暂时移除**](https://github.com/Comfy-Org/ComfyUI/pull/14737)：暂时移除 StabilityAI 合作节点
+
+**错误修复**
+
+  * [**视频解码**](https://github.com/Comfy-Org/ComfyUI/pull/14746)：修复了视频中含有无法解码的音频流时崩溃的问题
+
+
+
+​
+
+v0.27.0
+
+2026年6月30日
+
+**int8 模型支持** 此版本新增了对 **int8 convrot 模型** 的支持，为量化模型带来了显著的性能提升。现在 int8 支持在 Turing 及更新架构的 GPU 上工作，并优化了 LoRA 应用和内存管理。**新节点**
+
+  * [**种子节点**](https://github.com/Comfy-Org/ComfyUI/pull/14616)：新增种子节点，用于管理工作流中的种子值 (CORE-295)
+  * [**高级 Krea 2 模型合并**](https://github.com/Comfy-Org/ComfyUI/pull/14621)：用于合并 Krea 2 模型的高级节点
+  * [**边界框画布**](https://github.com/Comfy-Org/ComfyUI/pull/14537)：边界框画布节点及 Ideogram JSON 提示词支持 (CORE-292)
+  * [**ConditioningMultiply**](https://github.com/Comfy-Org/ComfyUI/pull/14686)：新的条件节点，用于乘以条件值
+  * [**GLSL 更新**](https://github.com/Comfy-Org/ComfyUI/pull/13195)：GLSL 节点已更新为使用 ANGLE 库 (CORE-162)
+
+**合作伙伴节点更新**
+
+  * [**Nano Banana 2 Lite**](https://github.com/Comfy-Org/ComfyUI/pull/14693)：新增对 Google 的 Nano Banana 2 Lite 模型的支持
+  * [**Gemini Video Omni**](https://github.com/Comfy-Org/ComfyUI/pull/14695)：新增 Gemini Video Omni 节点，用于视频生成
+
+**性能与稳定性**
+
+  * [**int8 模型**](https://github.com/Comfy-Org/ComfyUI/pull/14636)：新增对 int8 convrot 模型的支持，推理速度更快
+  * [**更快的 int8**](https://github.com/Comfy-Org/ComfyUI/pull/14641)：优化了 int8 内核性能
+  * [**Turing GPU 支持**](https://github.com/Comfy-Org/ComfyUI/pull/14662)：int8 支持扩展到 Turing 架构 GPU
+  * [**更好的 int8 LoRA**](https://github.com/Comfy-Org/ComfyUI/pull/14685)：改进了 int8 LoRA 的应用，质量和速度更佳
+  * [**内存泄漏修复**](https://github.com/Comfy-Org/ComfyUI/pull/14697)：修复了 int8 操作相关的内存泄漏
+  * [**资产哈希可选**](https://github.com/Comfy-Org/ComfyUI/pull/14663)：资产哈希改为通过 `--enable-asset-hashing` 标志选择加入（默认关闭）
+
+**错误修复**
+
+  * [**int8 LoRA 重新量化**](https://github.com/Comfy-Org/ComfyUI/pull/14650)：修复了在 int8 LoRA 上使用错误设置时导致的低质量重新量化问题
+  * [**int8 矩阵乘法卸载**](https://github.com/Comfy-Org/ComfyUI/pull/14669)：修复了在卸载的 LoRA 权重上跳过 int8 矩阵乘法的问题
+  * [**节点分类**](https://github.com/Comfy-Org/ComfyUI/pull/14674)：更新并重新组织了节点分类
+  * [**前端**](https://github.com/Comfy-Org/ComfyUI/pull/14684)：将 comfyui-frontend-package 升级至 1.45.20
+
+
+
+​
+
+v0.26.2
+
+2026年6月25日
+
+**合作伙伴节点更新**
+
+  * [**SeeDance 2.0 Mini**](https://links.comfy.org/4eOUnjJ): 在文生视频、首尾帧和参考节点中添加了对字节跳动 SeeDance 2.0 Mini 的支持
+
+
+
+​
+
+v0.26.1
+
+2026年6月24日
+
+**合作伙伴节点更新**
+
+  * [**SeeDance 2.0**](https://github.com/Comfy-Org/ComfyUI/pull/14614)：为字节跳动 SeeDance 2.0 添加了4K分辨率支持
+  * [**HappyHorse 1.1**](https://links.comfy.org/3SoBFYI)：为阿里巴巴的 HappyHorse 1.1 模型添加了支持
+  * [**Grok 视频**](https://github.com/Comfy-Org/ComfyUI/pull/14612)：为 Grok 视频生成添加了1080p支持
+
+
+
+​
+
+v0.26.0
+
+2026年6月23日
+
+**新的开源模型支持**
+
+  * [**Krea2**](https://links.comfy.org/4eC8714): Krea 的开源图像模型，审美和风格范围广泛 — 开放权重 **RAW** / **Turbo** 组合；在 RAW 上训练 LoRA，在 Turbo 上运行 8 步推理
+  * [**Boogu-Image**](https://github.com/Comfy-Org/ComfyUI/pull/14523): 文生图模型，使用 Qwen3-VL-8B 文本编码器；[**TextEncodeBooguEdit**](https://github.com/Comfy-Org/ComfyUI/pull/14529) 节点增加了带负面提示词和可选参考图像的图像编辑功能
+  * [**Qwen3-VL 文本生成**](https://github.com/Comfy-Org/ComfyUI/pull/14298): 使用 Qwen3-VL 4B 和 8B 模型进行带图像理解的文本生成
+  * [**SCAIL-2 Multireference**](https://github.com/Comfy-Org/ComfyUI/pull/14509): SCAIL-2 角色替换的多参考支持
+
+**新节点**
+
+  * [**LTX2 上下文窗口**](https://github.com/Comfy-Org/ComfyUI/pull/13325): LTX-2 多模态视频+音频模型的上下文窗口采样，支持 IC-LoRA 引导拼接
+  * [**Load3DAdvanced**](https://github.com/Comfy-Org/ComfyUI/pull/14316): 仅网格的 3D 加载器，输出 model_3d、camera_info、model_3d_info、宽度和高度
+  * [**保存节点输出接口**](https://github.com/Comfy-Org/ComfyUI/pull/13866): 为保存节点新增输出接口，以便连接下游管线
+
+**合作伙伴节点更新**
+
+  * [**Luma Rays 3.2**](https://github.com/Comfy-Org/ComfyUI/pull/14540): 为 Luma Ray 3.2 视频生成新增七个节点
+
+**性能与稳定性**
+
+  * [**Krea 2**](https://github.com/Comfy-Org/ComfyUI/pull/14594): 更准确的内存使用因子
+  * [**Dynamic VRAM**](https://github.com/Comfy-Org/ComfyUI/pull/14577): 提示用户尝试原生格式，而不是禁用动态 VRAM
+  * [**Anima**](https://github.com/Comfy-Org/ComfyUI/pull/14557): 小幅推理优化
+  * [**Jobs API**](https://github.com/Comfy-Org/ComfyUI/pull/14493): 新增取消端点 (`POST /api/jobs/{job_id}/cancel`, `POST /api/jobs/cancel`)
+
+**问题修复**
+
+  * [**资产面板**](https://github.com/Comfy-Org/ComfyUI_frontend/pull/11716): 修复了滚动大型作业时出现重复媒体条目的问题
+  * [**高级输入**](https://github.com/Comfy-Org/ComfyUI_frontend/pull/12652): 修复了折叠高级部分后已连接的高级输入被隐藏的问题
+  * [**工作流恢复**](https://github.com/Comfy-Org/ComfyUI_frontend/pull/12659): 修复了重新加载后台工作流后缺少子图节点预览的问题
+
+
+
+​
+
+v0.25.1
+
+2026年6月16日
+
+**合作伙伴节点更新**
+
+  * [**Kling V3-Turbo**](https://github.com/Comfy-Org/ComfyUI/pull/14528): 添加了对 Kling V3-Turbo 模型的支持
+
+
+
+​
+
+v0.25.0
+
+2026年6月16日
+
+**新的开源模型支持**
+
+  * [**Depth Anything 3**](https://github.com/Comfy-Org/ComfyUI/pull/13853): 来自 LiheYoung 的单目深度估计模型
+  * [**SCAIL-2**](https://github.com/Comfy-Org/ComfyUI/pull/14373): 用于增强视频编辑的角色替换模型
+  * [**Bernini-R**](https://github.com/Comfy-Org/ComfyUI/pull/14216): Wan 万相视频模型支持
+  * **Ideogram 4** : 修复 fp8 dtype 问题以提高稳定性
+  * **10 位视频支持** : 为核心节点新增 10 位视频输入/输出支持
+
+**新节点**
+
+  * [**PreviewGaussianSplat + PreviewPointCloud**](https://github.com/Comfy-Org/ComfyUI/pull/14194): 用于高斯泼溅和点云可视化的新 3D 预览节点
+  * [**Color Primitive**](https://github.com/Comfy-Org/ComfyUI/pull/14260): 工作流用的颜色类型和实用工具
+  * **Improved ResolutionSelector** ([#14309](https://github.com/Comfy-Org/ComfyUI/pull/14309)): 增强的分辨率选择与更好的默认设置
+
+**合作伙伴节点更新**
+
+  * Bria Transparent Video Background + Green Background + Replace Background 节点
+  * Gemini Text Node ([#14299](https://github.com/Comfy-Org/ComfyUI/pull/14299)): 新增的大语言模型合作伙伴节点
+  * Runway Aleph2 ([#14306](https://github.com/Comfy-Org/ComfyUI/pull/14306)): 新增的视频生成节点
+  * Krea 2 Medium Turbo 模型支持
+  * Tripo3D Import 3D 节点
+  * Flux Erase: 新增种子输入
+  * NanoBanana: 新增 temperature 和 top_p 控制
+  * Flux KV 缓存: 修复拆分批次时的崩溃问题
+
+**性能与稳定性**
+
+  * Aimdo 0.4.10 及 `--reserve-vram` 和 `--vram-headroom` 选项
+  * Comfy Aimdo 0.4.9 带可靠性改进
+  * 媒体加载: 通用化的 `--high-ram` 选项
+  * **资产 API** : 基于游标的分页、摄入时提取图像尺寸、WebSocket 消息中的资产 ID
+  * 在 CUDA 130+ 上始终启用 CUDA malloc
+  * 将 cudnn.benchmark 强制设为 false 以获得确定性结果
+  * 修复了非对齐宽度图像/视频解码中的奇数高度崩溃和边缘渗色问题
+  * 修复了非对齐宽度视频解码的非确定性问题
+  * **Ideogram 4** : 修复 cleanup_models_gc() 中不重置 cast 缓冲区的问题
+  * **训练器** : 修复训练节点中条件变为可训练的问题
+
+
+
+​
+
+v0.24.1
+
+2026年6月3日
+
+**合作伙伴节点更新**
+
+  * 新增 Bria Green Background 节点
+  * 新增 Bria Transparent Video Background 节点，支持 SaveWEBM 中的透明度通道
+  * 新增 Krea 2 Medium Turbo 模型
+  * 为 Flux Erase 节点新增种子输入
+
+**问题修复**
+
+  * 修复了 Seedance 2.0 1080p 首帧/末帧拉伸跳跃问题
+
+
+
+​
+
+v0.24.0
+
+2026年6月3日
+
+**新增开源模型支持**
+
+  * [**Ideogram 4**](https://github.com/Comfy-Org/ComfyUI/pull/14259)：首日支持 Ideogram 开源文生图模型。基于 NextDiT/Lumina2 单流 DiT 架构，使用 Qwen3-VL-8B（13 层隐藏态特征）作为文本编码器。新增 **Ideogram4Scheduler** 、**DualModelGuider** （条件/无条件分别在不同模型上运行）和 **CFGOverride** 节点
+  * [**PiD 模型**](https://github.com/Comfy-Org/ComfyUI/pull/14240)：PiD 条件节点新增 SDXL 和 QwenImage 变体支持
+  * [**Radiance**](https://github.com/Comfy-Org/ComfyUI/pull/14206)：支持使用非零顺序 txt_ids 的 checkpoint
+
+**合作伙伴节点更新**
+
+  * **Ideogram V4 API 节点：** 新增 Ideogram V4 云服务的 API 节点
+
+**性能与稳定性**
+
+  * **MultiGPU CFG Split：** 修复手动中止时的冻结问题
+  * **Ideogram 4：** 优化非动态 VRAM 配置下的内存使用因子
+  * **DualModelGuider：** 标记为实验性功能
+  * **comfy-aimdo：** 更新至 0.4.8
+
+**Bug 修复**
+
+  * 修复 BiRefNet 和 DINOv3 模型的 cast/dtype 问题
+  * 修复 TripoSplat 在旧版 offloading 模式下的预览问题
+  * DINOv3 推理改为 fp32 运行，提高准确性
+  * 修复数学表达式节点对大整数结果的 OverflowError 处理
+  * 恢复合作伙伴节点类别更改，保持工作流兼容性
+  * 移除过时的 ComfyUI kitchen 回退代码
+  * 工作流模板更新至 v0.9.94
+
+
+
+​
+
+v0.23.0
+
+2026年6月1日
+
+**新增开源模型支持**
+
+  * [**Microsoft Lens**](https://github.com/Comfy-Org/ComfyUI/pull/14077)：支持 Microsoft 的 Lens 文生图模型，使用 GPT-OSS-20B MoE 文本编码器（转换为 nvfp4），分词器直接嵌入 safetensors 文件
+  * [**NVIDIA PixelDiT & PiD**](https://github.com/Comfy-Org/ComfyUI/pull/14103)：支持 NVIDIA PixelDiT 1300M 文生图模型及 PiD 系列模型，支持上下文窗口和内存优化
+  * [**TripoSplat**](https://github.com/Comfy-Org/ComfyUI/pull/14210)：支持 VAST-AI 的图像转 3D Gaussian Splat 模型——通过 DINOv3 + Flux2 VAE 编码单张图像，经流匹配去噪器和八叉树高斯解码器生成 3D Gaussian Splat
+  * [**MediaPipe 人脸检测**](https://github.com/Comfy-Org/ComfyUI/pull/14009)：无依赖重新实现 Google MediaPipe 人脸检测和关键点定位，权重以 safetensors 格式分发
+
+**新节点**
+
+  * [**Save Image Advanced**](https://github.com/Comfy-Org/ComfyUI/pull/13850)：高级图像保存节点，提供更多文件输出控制选项
+  * [**Gaussian Splat 节点**](https://github.com/Comfy-Org/ComfyUI/pull/14190)：新增 `GAUSSIAN` 类型及工具节点，无需外部依赖即可处理 3D Gaussian Splat（支持导出 `.ply`、`.splat`、`.spz`、`.ksplat`）
+  * [**逻辑节点**](https://github.com/Comfy-Org/ComfyUI/pull/14004)：新增 And、Or、Not 工具节点（归入 utils 分类）
+  * [**Preview3DAdvanced**](https://github.com/Comfy-Org/ComfyUI/pull/14175)：高级 3D 预览节点
+
+**性能提升**
+
+  * [**多线程模型加载**](https://github.com/Comfy-Org/ComfyUI/pull/13802)：多线程磁盘读取显著加速模型加载，同时支持将模型卸载到磁盘，适合内存有限的系统
+  * [**MultiGPU 工作单元**](https://github.com/Comfy-Org/ComfyUI/pull/7063)：通过跨 GPU 分配条件工作单元加速采样；支持正向+负向条件及掩码条件作为工作单元；XPU MultiGPU CFG Split 现已在 Windows 上启用
+  * **随机舍入：** 浮点运算改用 comfy-kitchen CUDA 随机舍入内核，提升数值精度
+  * **缓存 RAM：** 调低阈值，实现更智能的 RAM 缓存淘汰
+  * **Anima / ERNIE 加速：** 在 NVIDIA 硬件上提升推理速度；ERNIE 使用更高质量的 rope
+
+**合作伙伴节点更新**
+
+  * **OpenRouter LLM 节点：** 新增 OpenRouter 语言模型 API 节点
+  * **Rodin 2.5：** 新增 Rodin 3D 生成节点
+  * **Krea2 Image：** 新增 Krea2 图像生成节点
+  * **Beeble SwitchX：** 新增 Beeble 重光照/背景替换节点
+  * **Tripo3D P1：** 新增 Tripo3D P1 生成模型节点
+  * **Flux Virtual Try-On & Erase：** 新增基于 Flux 的虚拟试穿和目标擦除节点
+  * **SeeDance 2：** 改进视频参考上传；添加运行时输入验证
+  * **ByteDance2Reference：** 新增自动放大控件
+  * **Grok Video：** 在 First Frame 模式下添加 `grok-imagine-video-1.5` 模型；移除 Grok 节点中的 beta 模型版本
+
+**Load3D 增强**
+
+  * 在 Load3DCamera 信息输出中添加相机内参字段
+  * `model_file` 现为可选项（新增 “none” 选项）
+  * Load3D 节点新增 `model_info` 输出
+  * 移除 Load3DCamera 的 rotation 字段
+  * 新增 `File3DPLY`、`File3DSPLAT`、`File3DSPZ`、`File3DKSPLAT` IO 类型
+  * `SaveImageTextDataSetToFolderNode`：新增覆盖/递增模式
+
+**Bug 修复**
+
+  * 修复安装 xformers 时 `--use-flash-attention` 被忽略的问题
+  * 修复 Lanczos 对单通道张量的维度转置问题
+  * 修复 LoRA 重塑应用
+  * 修复 LTX AV 交叉注意力 AdaLN 调制中的时间步传递
+  * 修复 LTXVCropGuides 当引导共享起始位置时产生的多余潜变量帧
+  * 修复背景去除掩码输出形状
+  * 禁用 Stable Audio DiT 和 VAE 中的 sage attention
+  * 升级 pyav 以修复部分图像加载问题
+  * 撤销非动态智能内存的弃用
+
+**其他**
+
+  * 新增彩色控制台日志，便于调试
+  * 更新嵌入式文档至 v0.5.2，工作流模板至 v0.9.92
+  * comfy-kitchen 固定至 0.2.9
+  * 多项 OpenAPI 规范修复与节点分类更新
+
+
+
+​
+
+v0.22.3
+
+2026年5月20日
+
+**合作伙伴节点更新**
+
+  * 新增 Krea2 图像节点
+  * 改进了使用 memoryview 的 SeeDance 2 视频参考上传
+
+
+
+​
+
+v0.22.2
+
+2026年5月20日
+
+**合作伙伴节点更新**
+
+  * 新增 Rodin2.5 节点，并包含高质量网格选项（usdz 导出已禁用）
+  * 修复了 Rodin2.5 中种子参数始终会被传递至服务器的问题
+
+
+
+​
+
+v0.22.1
+
+2026年5月20日
+
+**合作伙伴节点更新**
+
+  * 新增 OpenRouter LLM 节点
+  * 为 Anthropic 节点新增推理小部件
+  * 为 ByteDance2Reference 节点新增自动图像放大小部件
+  * 修复了向 Grok LLM 传递图像的问题
+
+
+
+​
+
+v0.22.0
+
+2026年5月20日
+
+**开源模型支持**
+
+  * [**Stable Audio 3.0**](https://blog.comfy.org/p/stable-audio-3-day-0-support)：支持最新的 Stable Audio 3 模型，具有改进的音频生成能力
+  * **MoGe：** 新增 MoGe 模型支持，用于增强几何处理功能
+  * **HiDream-O1：** 新增区域条件化支持，实现更精确的图像生成控制
+  * **LTXV 增强：** 新增降采样 IC-LoRA 支持和可选的 attention_mask 输入，改善视频控制效果
+  * **时序处理：** 实现 downscale_ratio_temporal 功能，为视频工作流提供更好的时序控制
+  * **LTX2.3 优化：** 在使用 guide_mask 时减少峰值显存占用，提高视频生成效率
+
+**合作伙伴节点**
+
+  * **Seed2.0：** 新增节点，提供字节跳动增强的语言模型功能
+  * **Opus 4.7：** 修复已弃用的 temperature 参数，提高模型兼容性
+
+**节点增强**
+
+  * **StringFormat Node：** 新增节点，用于工作流中的高级字符串操作
+  * **音频处理：** 改进音频潜在节点的时序降采样支持，提高重用性
+  * **批处理节点：** 将 Image/Mask/Latent 批处理节点的最小批处理大小从 2 减少到 1，提供更多灵活性
+  * **负值支持：** 允许特定节点参数使用负值，扩展创意控制范围
+
+**其他**
+
+  * **模型采样：** 在链式 model_sampling 补丁中保持 noise_scale/shift，确保结果一致性
+  * **文本生成：** 修复 Qwen3.5 多图像提示处理，改善文本生成工作流
+  * **动态 CLIP：** 实现适当的动态 CLIP 保存功能
+  * **BiRefNet：** 解决兼容性问题，提高背景移除性能
+  * **Hunyuan3D 2.1：** 修复 attention 和 forward pass 操作中的批处理大小崩溃问题
+  * 更新各种节点显示名称、描述和分类，提升用户体验
+  * 改进前端版本警告系统，提供更好的兼容性检查
+  * 增强 README，添加应用程序和云端链接，方便访问资源
+  * 向项目资源添加安全文档和职业信息
+  * 修复 FeatherMask 负零索引问题，确保右侧/底部羽化功能正常
+  * 纠正 OOM 内存摘要格式，提供更清晰的错误报告
+  * 修复批处理问题并改善模型加载稳定性
+  * 解决各种工作流兼容性问题和已弃用参数处理
+
+
+
+​
+
+v0.21.1
+
+2026年5月13日
+
+**新的合作伙伴节点**
+
+  * **Flux2ImageNode 和 GrokImageEditNodeV2：** 新增节点，用于增强图像生成和编辑工作流
+  * **ByteDanceSeedreamNodeV2：** 新版本，带有 DynamicCombo 和 Autogrow 功能，改善参数处理
+  * **OpenAI Image 节点：** 新的集成，具备 DynamicCombo 和 Autogrow 能力
+  * **Claude LLM 节点：** 为文本生成工作流添加了 Claude 语言模型支持
+
+**模型支持增强**
+
+  * **Anima TE LoRA：** 新增对 Kohya 格式的 Anima TE LoRA 支持
+  * **HiDream-O1-Image：** 完全支持 HiDream-O1-Image 模型，修复了数据类型问题并改善了非动态 VRAM 配置下的内存使用
+
+**技术改进**
+
+  * 修复了模型补丁器中 fp8 格式的 safetensors 保存问题
+  * 修正了 LTXV 视频中段多帧引导对齐，优化视频处理效果
+  * 通过修复 RuntimeError 问题，提高了 VOID 模型兼容性
+  * 增强了 Save3D 节点，支持顶点颜色和纹理，为全面的 3D 工作流提供支持
+
+**界面和文档更新**
+
+  * 在基础功能选项卡中添加了”创建视频”，便于访问视频生成工作流
+  * 更新嵌入式文档到 v0.5.0，工作流模板到 v0.9.75
+  * 修复了 LoadAudio define_schema 中的输入目录创建，改善音频工作流处理
+
+**错误修复**
+
+  * 撤销了破坏性更改以维持工作流兼容性
+  * 修复了 Quiver 节点功能
+  * 修正了 API 规范中已弃用的云运行时端点标记
+
+
+
+​
+
+v0.21.0
+
+2026年5月11日
+
+**开源模型支持**
+
+  * [**BiRefNet**](https://github.com/Comfy-Org/ComfyUI/pull/12747)：背景移除
+  * [**Gemma4**](https://github.com/Comfy-Org/ComfyUI/pull/13376)：LLM 文本生成
+  * [**Void**](https://github.com/Comfy-Org/ComfyUI/pull/13403)：第 1、2 阶段模型支持
+
+**合作伙伴模型支持**
+
+  * [**Tripo 3.1**](https://github.com/Comfy-Org/ComfyUI/pull/13788)：面向生产的 3D 生成能力
+  * **NanoBanana2** 节点 v2：DynamicCombo 与 Autogrow 交互更新
+
+**节点改进**
+
+  * **数学表达式：** 增加布尔运算，支持更复杂计算
+  * **Flux2 潜在预览：** Flux2 模型潜在变量的高质量预览
+  * **核心蓝图：** 新增内置蓝图模板
+
+**错误修复与稳定性**
+
+  * 修正 VAEDecodeAudio 与 LTX-2.x 生成音频潜在变量的兼容性
+  * 解决 SolidMask 与 MaskComposite 的设备不匹配问题
+  * 其他修复与改进（CPU TE 元张量处理、端口占用报错、不带尾随下划线的保存文件名等）
+
+**其他模型与媒体**
+
+  * **CogVideoX：** 视频生成模型支持
+  * **Wan-Dancer：** 模型支持
+  * **媒体加载：** 视频加载器统一读取音视频；以 PyAV 替代 Pillow（JPEG 内存、tRNS PNG）；自动方向元数据处理
+
+**性能与视频生成**
+
+  * 块预取与 LoRA 异步加载（对 LTX 等更明显）
+  * 动态 VRAM 调优：`--cache-ram 2`、降低视频处理峰值显存占用
+  * Triton ComfyUI kitchen CLI，用于进阶优化选项
+  * 自回归视频、因果模型的图生视频、`causal_window_fix`；帧插值内存与开销优化
+
+**更多合作伙伴集成**
+
+  * **Luma UNI-1** 、**Topaz Astra 2** 、**GPT-5.5** / **GPT-5.5-pro**
+
+**其他节点修复**
+
+  * `--gpu-only` 下的图像混合；JoinImageWithAlpha 批处理广播；SplitImageToTileList / ImageMergeTileList 瓦片步幅
+
+**开发者与 API**
+
+  * `--feature-flag` 注册表；OpenAPI 云运行时与实验端点；蓝图子图描述；ControlNet 加载顺序确定性
+
+
+
+​
+
+v0.20.3
+
+2026年4月27日
+
+**合作伙伴节点更新**
+
+  * 新增 Luma UNI-1 模型
+  * 新增 GPT 5.5 和 5.5-pro LLM 模型
+  * 新增 grok-imagine-image-quality 模型
+  * 全新 NanoBanana2 节点，支持 DynamicCombo/Autogrow
+
+**错误修复**
+
+  * 修复了 ImageBlend/ImageCompositeMasked 处理具有不同通道数（透明度通道）的图像时的问题
+  * 修复了 Motion Control 节点中 Kling V3 的价格标签
+
+
+
+​
+
+v0.20.2
+
+2026年4月27日
+
+**合作伙伴节点更新**
+
+  * 添加了 Topaz Astra 2 模型（现已成为默认上采样器）
+  * 面向常规图像的字节跳动虚拟肖像库
+  * 为 GPTImage2 节点添加了自定义分辨率支持
+  * 移除了 Moonvalley API 节点
+  * 增加了合作伙伴 API 节点任务的默认超时时间
+
+**模型支持**
+
+  * SDPose 调整大小修复
+  * OneTainer ERNIE LoRA 支持
+
+
+
+​
+
+v0.20.1
+
+2026年4月27日
+
+**新增模型支持**
+
+  * **SUPIR：** 新增SUPIR图像超分辨率模型支持
+  * **SAM 3.1：** 引入segment anything model 3.1支持，用于高级图像分割
+  * **RIFE和FILM：** 新增帧插值模型，用于平滑的视频帧生成
+  * **LTXV Audio VAE：** 支持独立的LTXV音频VAE模型，并改进原生集成
+
+**合作伙伴节点增强**
+
+  * **视频生成：** 为ByteDance 2、Veo模型和Kling节点新增4K分辨率支持
+  * **Veo 3 Lite：** 新的轻量级Veo模型版本，用于更快的视频生成
+  * **SD2 Real Human：** 新增Stable Diffusion 2真人生成支持
+  * **GPT-Image 2：** 新版本选项，支持更多分辨率并修复价格标签
+  * **HappyHorse：** 新的模型集成，增强图像生成能力
+
+**性能优化**
+
+  * 通过针对性优化提升Ernie模型推理速度
+  * 采用更原生的实现方式改进LTXV音频VAE处理
+  * 增强ModelPatcherDynamic，为ComfyUI层提供更好的权重处理
+  * 在执行系统中添加反循环验证，提升工作流稳定性
+
+**视频处理改进**
+
+  * 支持加载更高位深度的视频，确保色彩准确性
+  * 视频加载支持透明度通道，实现透明度工作流
+  * 为ByteDance 2节点添加自动缩放功能以优化处理性能
+
+**技术更新**
+
+  * 修复SQLAlchemy版本锁定（>=2.0），改善数据库兼容性
+  * 增强ComfyUI应用文件中的日志功能，便于调试
+  * 新增OpenAPI 3.1规范，提供全面的API文档
+  * 使用textureSize改进模糊/锐化操作的着色器处理
+
+**UI和前端**
+
+  * 将ComfyUI前端更新至版本1.42.15，包含多项改进
+  * 增强Preview Any节点，显示更多张量值以便更好地调试
+  * 新增范围类型支持，改进节点参数处理
+
+
+
+​
+
+v0.20.0
+
+2026年4月27日
+
+**新模型支持**
+
+  * **SUPIR模型支持：** 新增增强型超分辨率功能，用于高质量放大工作流
+  * **RIFE和FILM帧插值：** 引入先进的帧插值模型，实现流畅的视频过渡效果
+  * **SAM 3.1支持：** 更新Segment Anything模型，提升分割精度
+  * **LTX音频VAE改进：** 增强原生音频处理功能，支持独立的LTXV音频VAE
+
+**性能优化**
+
+  * 优化Ernie推理，加快生成速度
+  * 新增反循环验证，防止工作流执行陷入循环
+  * 改进ModelPatcherDynamic权重处理，提升模型兼容性
+
+**视频处理增强**
+
+  * 支持加载更高位深度的视频，改善质量保持效果
+  * 为视频加载工作流新增alpha通道支持
+  * ByteDance 2节点新增自动降尺度功能，处理大型视频文件
+
+**合作伙伴节点更新**
+
+  * **Veo模型：** 新增4K分辨率支持和Veo 3 Lite模型
+  * **Kling节点：** 增强4K分辨率功能
+  * **GPTImage：** 新增gpt-image-2版本选项和新分辨率支持
+  * **HappyHorse模型：** 新的合作伙伴模型集成
+  * **SD2真实人像支持：** 增强逼真人像生成能力
+
+**用户界面和API改进**
+
+  * 新增OpenAPI 3.1规范，改善API文档
+  * 修复模糊/锐化着色器中的纹理尺寸处理，提升效果精度
+  * 增强Preview Any节点，显示更多张量值用于调试
+
+**错误修复**
+
+  * 通过固定版本≥2.0修复SQLAlchemy兼容性问题
+  * 解决Stable_Zero123 cc_projection权重的参数分配问题
+  * 修正LTXV Reference Audio节点功能
+  * 修复veo-3.0模型的4K分辨率限制问题
+
+
+
+​
+
+v0.19.5
+
+2026年4月17日
+
+**合作伙伴节点更新**
+
+  * 为 Stable Diffusion 2 添加了 SD2 Real Human 支持
+  * 在 Kling 节点中增加了 4K 分辨率
+  * 添加了 GPTImage 价格徽章修复和新分辨率
+
+**错误修复**
+
+  * 修复了 veo-3.0 模型的 4K 分辨率限制
+  * 修复了 Windows 上 Stable_Zero123 cc_projection 权重赋值问题（aimdo-enabled）
+
+
+
+​
+
+v0.19.4
+
+2026年4月17日
+
+**合作伙伴节点更新**
+
+  * 为 Veo 模型和 Veo 3 Lite 模型添加了 4K 分辨率支持
+  * 添加了 gpt-image-2 作为版本选项
+  * 为字节跳动 2 节点添加了自动视频降级
+  * 添加了 SD2 Real Human 支持
+
+**问题修复**
+
+  * 修复了在 Windows 上（启用 aimdo 时）Stable_Zero123 cc_projection 权重分配的问题
+  * 修复了 veo-3.0 模型的 4K 分辨率限制
+  * 修复了 GPTImage 价格徽章
+
+
+
+​
+
+v0.19.3
+
+2026年4月17日
+
+**LTX 文本生成**
+
+  * 在文本生成节点中为 LTX 模型实现了 `use_default_template` 功能
+
+**合作伙伴节点更新**
+
+  * 新增 Quiver 的 **arrow-1.1** 与 **arrow-1.1-max** SVG 模型，增强矢量图形能力
+  * 在 Hunyuan3D Text 和 Image to 3D 节点中使 “obj” 输出变为可选，以提高工作流灵活性
+  * 修正了 StabilityAI 价格标识，确保 API 节点定价信息的准确性
+
+
+
+​
+
+v0.19.2
+
+2026年4月17日
+
+**性能与内存**
+
+  * 修复了量化模型在推理过程中的内存不足（OOM）回归问题，改善了 _apply() 操作的内存使用
+
+**文本生成**
+
+  * **LTX：** 在文本生成节点中新增可禁用默认模板的选项，便于更灵活地编写提示词
+  * 引入了 JsonExtractString 节点，用于在工作流中进行 JSON 数据操作
+
+**Bug 修复**
+
+  * **Ernie Image：** 修正错误的类名，应使用 `ErnieTEModel_` 而非 `ErnieTEModel`
+
+**合作伙伴节点**
+
+  * 为 SeeDance 2.0 模型添加了 1080p 分辨率支持，实现更高质量的视频生成
+
+
+
+​
+
+v0.19.1
+
+2026年4月16日
+
+**新模型支持**
+
+  * [Erine Image 文生图](https://blog.comfy.org/p/ernie-image-day-0-support)
+  * LLM：Ministral 模型
+
+**合作伙伴节点**
+
+  * [Sonilo：为你的视频创作音乐](https://blog.comfy.org/p/comfyui-now-supports-sonilo-via-partner)
+
+**能力**
+
+  * Preview as Text 节点更新：支持将任意值转换为字符串
+
+
+
+​
+
+v0.19.0
+
+2026年4月13日
+
+**模型与生成支持**
+
+  * 增加了 LTX2 参考音频（ID-LoRA）功能支持
+  * 实现了 Qwen3.5 文本生成模型，增强了 TextGenerate 节点的 8B 模型兼容性
+  * 增加了 RT-DETRv4 检测模型支持，提升了目标检测能力
+  * 引入了 Ace Step 1.5 XL 模型支持，具备中间数据类型兼容性
+  * 增加了小型 flux.2 解码器支持，并启用了不含池化输出的 Flux 条件控制
+  * 实现了 Ernie Image 模型，扩展了生成选项
+
+**新增节点与功能**
+
+  * 新增 CURVE 节点，用于工作流中的高级曲线操作
+  * 引入了 Number Convert 节点，改进了大数字的精度处理
+  * 新增 Image Histogram 节点，提供图像分析功能
+  * 实现了 Color Adjustment 节点，使用零默认值
+  * 增强了 GLSL 着色器节点，支持曲线输入并提高了统一变量限制
+  * 为具有交互式 UI 元素的节点添加了 has_intermediate_output 标志
+
+**内存与性能**
+
+  * 集成了 RAM 缓存与模型 RAM 管理，提升了效率
+  * 增强了固定内存统计和模型内存处理
+  * 修复了模糊和锐化节点与 FP16 中间数据的兼容性
+  * 改进了 ImageUpscaleWithModel 中间设备操作的内存管理
+
+**API 与合作伙伴节点**
+
+  * 更新了 xAI Grok 节点，增强了功能
+  * 新增 Topaz 模型集成
+  * 引入了 WAN2.7 节点，扩展了工作流功能
+  * 新增 SeeDance 2.0 节点，增强了视频生成功能
+  * 更新了 Tencent3D 节点，改进了功能特性
+
+**错误修复与稳定性**
+
+  * 修复了 Train LoRA 在 training_dtype 为 “none” 和 bfloat16 LoRA 权重时的崩溃问题
+  * 解决了 LTXAV 模型的文本生成回归问题
+  * 修复了 FP8 缩放检查点兼容性问题
+  * 改进了不安全浏览器的浏览器安全处理
+  * 修复了 SVG 文件 MIME 类型注册，确保正确的文件处理
+
+**基础设施更新**
+
+  * 将管理器版本升级至 4.1，功能得到改进
+  * 将前端更新至版本 1.42.10，增强了稳定性
+  * 增加了 Intel XPU 便携版本支持
+  * 将工作流模板更新至版本 0.9.47
+  * 增强了输出文件的资源注册系统
+
+
+
+​
+
+v0.18.5
+
+2026年3月25日
+
+**稳定性**
+
+  * fp8 checkpoint 修复回滚后的额外测试
+
+
+
+​
+
+v0.18.4
+
+2026年3月25日
+
+**错误修复**
+
+  * 修复了 Windows 固定内存核算的问题，降低了 OOM 错误的风险
+  * 修复了 fp8 缩放的模型加载不正确的问题
+  * 回退了造成性能退化的 fp8 模型修复
+
+**合作节点更新**
+
+  * 新增 Wan2.7 合作节点
+
+
+
+​
+
+v0.18.3
+
+2026年3月25日
+
+**合作伙伴节点更新**
+
+  * 在 API 节点中添加了新的 Topaz 模型
+
+
+
+​
+
+v0.18.2
+
+2026年3月25日
+
+**合作伙伴节点 (API) **
+
+  * Grok 参考生视频
+  * Grok 视频扩展
+  * [相关博客](https://blog.comfy.org/p/grok-imagine-model-feature-updates)
+
+
+
+​
+
+v0.18.1
+
+2026年3月23日
+
+**FP16 支持修复**
+
+  * 修复了 Canny 节点与 FP16 精度的兼容性问题，解决了使用16位浮点运算时的工作流问题
+  * 解决了 FP16 中间结果导致生成结果不一致的采样问题
+  * 修复了 FP16 中间结果产生与预期不同结果的问题，确保跨运行的一致性输出
+
+**VAE 改进**
+
+  * 修复了 WAN VAE 处理中的光照和颜色问题，提升了输出质量和色彩准确性
+
+
+
+​
+
+v0.18.0
+
+2026年3月21日
+
+**内存与性能优化**
+
+  * 添加了`--fp16-intermediates`标志，在操作间使用FP16处理中间值，减少显存使用量
+  * 通过原地输出处理和分块编码器实现，大幅减少LTX和WAN VAE模型的显存占用
+  * 改进了分块解码的峰值内存使用，修复了视频VAE分块回退中的显存泄露
+  * 通过comfy-aimdo更新(0.2.11-0.2.12)增强了Windows下的内存压力释放策略
+  * 添加了`--enable-dynamic-vram`选项来强制启用动态显存管理
+
+**模型与硬件支持**
+
+  * 添加了对mxfp8精度格式的支持，增强模型兼容性
+  * 为AMD gfx1150 (Strix Point) GPU启用了PyTorch注意力机制
+  * 通过FP4、8、16原生数据类型支持和量化线性自动求导函数增强训练能力
+  * 修复了文本编码器兼容性问题，禁用了Hunyuan3D v2.1 DiT模型的SageAttention
+
+**节点与API增强**
+
+  * 修复了腾讯TextToModel和ImageToModel API节点
+  * 添加了Nano Banana 2的”thought_image”支持和Quiver SVG节点
+  * 将seedream-3-0-t2i和seedance-1-0-lite模型标记为已弃用
+  * 添加了slice_cond和基于模型的上下文窗口条件调整功能
+  * 增强了EmptyLatentImage和EmptyImage节点以遵循中间数据类型设置
+
+**前端与基础设施**
+
+  * 将前端包更新至版本1.41.21，改进了缓存头以防止过期块
+  * 添加了CacheProvider API以支持外部分布式缓存
+  * 实现了用户数据的原子写入以防止崩溃时的数据丢失
+  * 增强了节点和蓝图的基础分类支持
+  * 将工作流模板更新至版本0.9.26
+
+**错误修复与稳定性**
+
+  * 修复了像素空间VAE兼容性问题和退出时的模型终结器执行
+  * 改进了加载扩散模型节点中的权重数据类型处理（标记为高级输入）
+  * 增强了子类模型的延迟权重初始化
+  * 修复了罕见边缘情况下的各种内存泄露和损坏问题
+
+
+
+​
+
+v0.17.2
+
+2026年3月15日
+
+此版本专注于稳定性和错误修复。完整的技术详细信息请查看 GitHub 上的[完整更新日志](https://github.com/Comfy-Org/ComfyUI/compare/v0.17.1...v0.17.2)。
+
+​
+
+v0.17.1
+
+2026年3月13日
+
+这是一个补丁版本，包含各种错误修复和稳定性改进。有关此版本中包含的更改的完整详细信息，请查看v0.17.0和v0.17.1之间的完整更新日志对比。
+
+​
+
+v0.17.0
+
+2026年3月13日
+
+**架构与性能改进**
+
+  * 实现了模块化资产架构，采用异步两阶段扫描器和后台播种器以提升加载性能
+  * 添加了 Python 故障处理程序，改善调试和稳定性
+  * 增强了 KV 缓存模型的内存使用优化
+  * 改进了动态 VRAM 处理，提供更好的 AcceleratorError 兼容性错误管理
+
+**模型支持与增强**
+
+  * 通过 FluxKVCache 节点添加了对 Flux 2 Klein KV 缓存模型的支持
+  * 增强了模型补丁系统，为 Flux 模型提供清理函数和预注意力补丁
+  * 为 Qwen 图像模型添加了预注意力和后输入补丁
+  * 修复了包装模型的文本编码器 LoRA 加载问题
+  * 改进了批处理，修复了各种模型在 batch_size > 1 时的问题
+
+**新节点与功能**
+
+  * 添加了 Painter 节点，增强图像编辑功能
+  * 引入了 Reve Image API 节点，扩展功能范围
+  * 将工作流模板更新至版本 0.9.21
+  * 增强了渐变停靠点格式化，提升前端兼容性
+
+**错误修复与稳定性**
+
+  * 修复了音频提取和截断问题
+  * 解决了深度克隆预编辑权重的模型检测问题
+  * 改进了 ComfyUI Manager 安装指导，更新至版本 4.1b2
+  * 增强了包版本报告，便于故障排除
+
+**前端更新**
+
+  * 前端包更新至版本 1.41.18，包含各种改进和错误修复
+  * 将 comfy-kitchen 更新至版本 0.2.8，comfy-aimdo 更新至版本 0.2.10
+
+
+
+​
+
+v0.16.4
+
+2026年3月7日
+
+**新增节点和功能**
+
+  * 新增数学表达式节点，支持使用simpleeval评估进行工作流中的数学运算
+  * 引入TencentSmartTopology API节点，增强拓扑处理能力
+  * 在LLM节点中新增Gemini 3.1 Flash-Lite模型支持，扩展AI语言模型选项
+
+**错误修复和性能优化**
+
+  * 修复fp16音频编码器模型兼容性问题
+  * 解决启用动态显存时文本编码器CPU执行的问题
+  * 修复依赖版本冲突问题
+  * 通过在释放缓冲区前进行计算流同步，增强内存管理
+
+**工作流模板**
+
+  * 工作流模板更新至0.9.11版本，包含最新改进
+
+
+
+​
+
+v0.16.3
+
+2026年3月5日
+
+**LTX Audio 模型改进**
+
+  * 修复了 LTX2 vocoder conv_transpose1d 的手动类型转换问题，提高了音频处理稳定性
+  * 解决了 LTX audio VAE novram 兼容性问题，改善了音频生成过程中的内存管理
+  * 为 add_keyframe_index 和 append_keyframe 函数添加了 causal_fix 参数，增强了视频工作流中关键帧处理的精度
+
+
+
+​
+
+v0.16.2
+
+2026年3月5日
+
+**核心更新**
+
+  * 将 comfy-aimdo 更新到 0.2.7 版本，改进了 AI 模型操作
+  * 增强了 VBAR caster 中的 CPU 权重处理，在不同硬件配置下提供更好的性能
+
+**工作流模板**
+
+  * 将工作流模板更新到 0.9.10 版本，包含最新的改进和优化
+  * 代码重构改进，增强了稳定性
+
+
+
+​
+
+v0.16.1
+
+2026年3月5日
+
+**API 节点更新**
+
+  * 更新了 xAI 模型和定价，以改进成本管理和模型选择
+  * 启用了 Kling 3.0 Motion Control，增强视频生成功能
+
+**工作流模板**
+
+  * 工作流模板更新至 0.9.8 版本，包含最新改进和优化
+
+
+
+​
+
+v0.16.0
+
+2026年3月5日
+
+**新节点和功能**
+
+  * 添加了 ResolutionSelector 节点，支持宽高比预设，便于设置图像尺寸
+  * 引入了 CURVE 类型支持，用于高级参数控制
+  * 为作业 API 添加了文本预览支持，改善工作流监控
+  * 原生 LongCat-Image 实现，增强图像处理能力
+
+**模型和格式支持**
+
+  * 为 LoKR 兼容性添加了 ACE-Step 1.5 lycoris 键别名映射
+  * 支持 SDPose-OOD 模型
+  * 添加了 SCAIL WanVideo 模型支持
+  * 支持 zeta chroma 权重加载
+  * 添加了 LTXAV 2.3 模型支持
+  * Z-image 像素空间支持实现
+
+**内存和性能**
+
+  * 动态 VRAM 模式现已成为默认设置，提高内存效率
+  * 为非 QuantizedTensor fp8 实现了 LoRA 重新量化
+  * 增强了动态卸载启发式算法，提升性能
+  * 更新 comfy-aimdo 至 0.2.6 版本，改进分配器处理
+  * 修复了动态 VRAM 与权重钩子的冲突以及 WSL 兼容性问题
+
+**API 和 UI 改进**
+
+  * 在 NanoBanana2 API 节点中添加了”IMAGE+TEXT”支持
+  * 将 Mahiro CFG 重命名为 Similarity-Adaptive Guidance 以提高清晰度
+  * 修复了 GLSL 节点输入维度要求
+  * 增强了 VAEDecodeAudioTiled，正确使用 tile_size 输入
+
+**错误修复**
+
+  * 修复了 WanVAE 编码器/解码器在 feat_map 处理中的混淆问题
+  * 解决了缺少 lm_metadata 时 ACE-1.5 内存估算问题
+  * 修复了子步长 sigma 的上下文窗口步长处理
+  * 防止 VideoFromComponents 写入 BytesIO 时崩溃
+  * 限制图像瓦片重叠以防止处理问题
+
+**工作流模板**
+
+  * 工作流模板更新至 0.9.7 版本
+
+
+
+​
+
+v0.15.1
+
+2026年2月26日
+
+**错误修复与稳定性**
+
+  * 修复了当提示条目缺少 class_type 键时的 KeyError，防止工作流崩溃
+  * 解决了 GLSL 节点与 pyopengl accelerate numpy 纹理的兼容性问题
+  * 修复了 LTXAV 文本编码器最小长度和内存估算问题
+  * 在使用 torch 编译器时禁用动态 VRAM 以防止冲突
+
+**模型与 API 更新**
+
+  * 将 comfy aimdo 更新至 0.2.2 版本，改进了后备处理机制
+  * 添加了基于 WanVideo 的分割模型 FlowRVS 支持，用于高级视频处理
+  * 添加了 NanoBanana2 API 节点以扩展功能
+  * 修复了 Aimdo 后备机制以防止零拷贝 sft 问题
+
+**UI 与前端**
+
+  * 修补前端至 1.39.19 版本，修复了 API 节点中进度文本序列化问题
+  * 将 essentials_category 移至正确的替换节点以更好地组织
+
+**新功能**
+
+  * 在自注意力机制中添加了每个引导的注意力强度控制，实现精细的工作流控制
+  * 将工作流模板更新至 0.9.4 版本
+
+
+
+​
+
+v0.15.0
+
+2026年2月24日
+
+**新节点和功能**
+
+  * 添加了 BBox 小部件，用于在图像工作流中精确选择边界框
+  * 引入了 3 段均衡器节点，用于音频处理工作流
+  * 添加了基础文本生成支持，支持原生模型，最初支持 Gemma3 和 Qwen 3
+  * 新增使用 PyOpenGL 的 GLSL 着色器节点，用于高级视觉效果
+  * 添加了 ElevenLabs API 节点，实现文本转语音功能
+  * 为 FLOAT 输入新增渐变滑块显示模式，改进了用户界面
+  * 添加了 SplitImageToTileList 和 ImageMergeTileList 节点，用于分块处理工作流
+
+**API 节点**
+
+  * 为 Rodin Gen-2 节点添加了价格标签
+  * 添加了用于头像生成的 KlingAvatar 节点
+  * 添加了 ByteDance Seedream-5 模型支持
+  * 使用通配符匹配修复了 Gemini 图像 MIME 类型处理
+  * 强制 Gemini 返回未压缩图像以获得更好的质量
+
+**性能和错误修复**
+
+  * 通过限制重新量化的返回，修复了 FP8 动态 VRAM 工作流性能问题
+  * 解决了视频保存操作中非连续音频波形崩溃问题
+  * 修复了 LTXAV 模型加载问题，包括 fp8 检查点支持和嵌入连接器数据类型问题
+  * 改进了对 PyOpenGL 版本 < 3.1.4 的兼容性
+
+**界面改进**
+
+  * 将 429 个小部件标记为高级，以支持可折叠界面
+  * 添加了 essentials_category，便于节点组织
+  * 通过改进分类增强了基本子图蓝图
+  * 前端更新至版本 1.39.16
+
+**模型支持**
+
+  * 通过分词改进和最小长度强制增强了文本生成功能
+  * 更新了 LTXAV av 嵌入连接器集成
+  * 在迁移期间为 LTX 2.0 工作流提供临时兼容性修复
+
+
+
+​
+
+v0.14.2
+
+2026年2月18日
+
+**错误修复**
+
+  * 修复了 Gemini/Nano banana API 节点有时返回空白图像的问题，提高了 AI 驱动图像生成工作流的可靠性。
+
+
+
+​
+
+v0.14.1
+
+2026年2月17日
+
+**错误修复**
+
+  * 修复了手动类型转换时anima LLM适配器前向传播的问题
+
+**新模型支持**
+
+  * 在API节点中添加了”viduq3-turbo”模型支持
+  * 添加了Recraft V4节点以增强创意工作流程
+
+**更新**
+
+  * 将工作流模板更新至v0.8.43
+
+
+
+​
+
+v0.14.0
+
+2026年2月17日
+
+**新增开源模型支持**
+
+  * [**Qwen 2512 ControlNet / Fun ControlNet**](https://github.com/Comfy-Org/ComfyUI/pull/12359)：支持基于 Qwen 的 ControlNet 模型，以增强图像控制
+  * **NAG 实现** ：应用于所有基于 Flux 模型的 Nesterov 加速梯度
+
+**新增节点与 API**
+
+  * [**VideoSlice 节点**](https://github.com/Comfy-Org/ComfyUI/pull/12107)：用于精确时间控制的视频切片工具
+  * [**节点替换 API**](https://github.com/Comfy-Org/ComfyUI/pull/12014)：重大架构变更，允许在工作流中替换节点
+  * **创建列表节点** ([#12173](https://github.com/Comfy-Org/ComfyUI/pull/12173))：列表创建工具节点
+
+**性能与技术改进**
+
+  * 左填充文本编码器注意力遮罩支持
+  * 用于 Flux 模型的 Torch RMSNorm 及混元视频重构
+  * 动态显存：训练修复、原始 fp8 LoRA 质量修复
+  * ModelPatcherDynamic：强制加载非叶子权重
+  * 修复卸载 + 动态显存模式下的 LoRA 提取
+  * 为 Flux 模型使用 torch RMSNorm 并重构混元视频
+
+**合作伙伴节点更新**
+
+  * **Magnific Upscalers** API 节点已启用
+  * **腾讯 3D 节点** ：ModelTo3DUV、3DTextureEdit、3DParts
+  * **Bria RMBG** API 节点
+  * **Kling API 节点** ：V3、O3 模型
+
+**训练器改进**
+
+  * 具备适当卸载功能的训练（KohakuBlueleaf）
+  * 内建 LoRA 训练现可在 Anima 上运行
+
+
+
+​
+
+v0.13.0
+
+2026年2月10日
+
+**新模型支持与改进**
+
+  * [**EasyCache: LTX2 支持**](https://github.com/Comfy-Org/ComfyUI/pull/12231)：EasyCache 现在可与 LTX2 一起使用，加快视频生成速度
+  * **ACE Step 1.5** ([#12311](https://github.com/Comfy-Org/ComfyUI/pull/12311))：现在无需 LLM 即可工作，修复了基础模型默认工作流，改进了文本编码
+  * **Cosmos-Predict2 和 Anima 的 FP16** ([#12249](https://github.com/Comfy-Org/ComfyUI/pull/12249))：减少支持模型的内存占用
+  * **让色调映射 Latent 适配任意维度的 Latent** ([#12363](https://github.com/Comfy-Org/ComfyUI/pull/12363))：实现了更灵活的色调映射
+
+**性能与修复**
+
+  * 针对 ACE 1.5 性能的动态 VRAM 修复 + VRAM 泄漏修复
+  * 惰性缓存修复 ([#12344](https://github.com/Comfy-Org/ComfyUI/pull/12344))
+  * 禁用 LTXV2 的提示权重
+  * 前端升级至 1.38.13
+
+**合作伙伴节点更新**
+
+  * **Kling API 节点** ：新增 V3、O3 模型
+  * Moonvalley API 节点修复
+
+
+
+​
+
+v0.12.3
+
+2026年2月5日
+
+**ACE 第1.5步改进**
+
+  * [**LLM采样选项**](https://github.com/Comfy-Org/ComfyUI/pull/12295)：添加了采样选项和参考音频支持
+  * **文本编码改进** ([#12283](https://github.com/Comfy-Org/ComfyUI/pull/12283))：为ACE提供了更好的文本处理
+  * **VAE分块解码用于音频** ([#12299](https://github.com/Comfy-Org/ComfyUI/pull/12299))
+  * 禁用了ACE第1.5步的Sage注意力
+  * 修复了某些硬件/PyTorch配置上的NaN问题
+
+**3D改进**
+
+  * 在Load3D节点上增加了File3DAny输出；SaveGLB接受File3DAny输入
+
+
+
+​
+
+v0.12.2
+
+2026年2月4日
+
+**ACE Step 1.5**
+
+  * [**4B LM model support**](https://github.com/Comfy-Org/ComfyUI/pull/12257)：支持 4B ACE step 1.5 语言模型
+  * 修复动态 VRAM 模式下的 VRAM 泄漏
+
+
+
+​
+
+v0.12.1
+
+2026年2月3日
+
+**ACE步骤1.5修复**
+
+  * [**进度条**](https://github.com/Comfy-Org/ComfyUI/pull/12242)：为ACE步骤添加了进度条
+  * **基础模型 LoRAs** 支持
+  * **分块VAE修复** 适用于ACE
+  * Mac兼容性修复
+
+**3D与API**
+
+  * API中的基础3D模型文件类型
+  * LLM logits 转换为 comfy-weight
+
+
+
+​
+
+v0.12.0
+
+2026年2月3日
+
+**新模型支持**
+
+  * [**ACE Step 1.5**](https://github.com/Comfy-Org/ComfyUI/pull/12237): 对 ACE Step 1.5 音频/语音生成模型的基本支持 — 一个重要的新模型系列
+  * [**用于 LLM 文本生成的 KV 缓存**](https://github.com/Comfy-Org/ComfyUI/pull/12195): 通过缓存键值对提升运行 llama 模型的性能
+  * [**自适应模型加载**](https://github.com/Comfy-Org/ComfyUI/pull/11845): 减少内存使用，修复显存溢出，并修复 Windows 共享内存溢出
+
+**新节点**
+
+  * **颜色类型 + 颜色转 RGB 整数节点** ([#12145](https://github.com/Comfy-Org/ComfyUI/pull/12145))
+
+**API 节点**
+
+  * **HitPaw API 节点** ([#12117](https://github.com/Comfy-Org/ComfyUI/pull/12117))
+  * **Recraft** 风格节点
+  * **Vidu** : Q3 模型、扩展和多帧节点
+
+**开发者**
+
+  * 资产第二部分 - 更多端点
+  * 通过 v1/v3 schema 向发送 is_input_list 到前端
+
+
+
+​
+
+v0.11.1
+
+2026年1月29日
+
+**合作伙伴节点更新**
+
+  * [**Grok Imagine API nodes**](https://github.com/Comfy-Org/ComfyUI/pull/12136): 通过 Grok 生成图像
+  * Manager 已更新至 4.1b1
+
+**开发者**
+
+  * 开发专用节点支持
+  * Python 3.14 兼容性说明
+
+
+
+​
+
+v0.11.0
+
+2026年1月27日
+
+**新的开源模型支持**
+
+  * [**Anima 模型**](https://github.com/Comfy-Org/ComfyUI/pull/12012)：对 Anima 模型系列的支持，包含 fp16 优化
+  * [**Multi/InfiniteTalk**](https://github.com/Comfy-Org/ComfyUI/pull/10179)：针对 LTXV 的大规模多说话人支持
+  * [**Flux2 LyCORIS LoKr**](https://github.com/Comfy-Org/ComfyUI/pull/11997)：针对 Flux2 的 LoKr（基于 KronA）LoRA 支持
+  * **LTX2 Tiny VAE** (taeltx_2) 支持
+  * **Z-Image Omni** 基础模型支持
+  * Flux2 Klein 的 **ModelScope LoRA** 格式
+
+**新节点与功能**
+
+  * **Magnific API 节点** ([#11986](https://github.com/Comfy-Org/ComfyUI/pull/11986))：通过 Magnific 进行图像放大
+  * **Tencent Hunyuan3D API 节点** ([#12026](https://github.com/Comfy-Org/ComfyUI/pull/12026))
+  * **WaveSpeed API 节点** ([#11945](https://github.com/Comfy-Org/ComfyUI/pull/11945))
+  * 节点架构中的**搜索别名** 字段，以便更好地发现节点
+  * 针对前端任意输入的 **kwargs 输入**
+  * 针对小网格 IC-LoRA 的 **RoPE 位置调整**
+
+**性能**
+
+  * Qwen VAE 和 Wan 的速度/显存优化
+  * LTX2 VAE 显存减少
+  * 为提升显存效率而重构的 LTX2 前向传播
+
+**模型增强**
+
+  * 使用 SaveCheckpoint 保存的 Flux2 Klein 模型现在能正常加载
+  * Qwen 3 0.6B 模型的配置
+  * 动态检测色度辐射补丁大小
+
+
+
+​
+
+v0.10.0
+
+2026年1月21日
+
+**新功能**
+
+  * [**API节点自动发现**](https://github.com/Comfy-Org/ComfyUI/pull/11943)：所有 `nodes_*.py` 文件现在会自动被发现，简化了节点开发
+  * **高级参数支持** （[#11939](https://github.com/Comfy-Org/ComfyUI/pull/11939)）：输入类现在支持高级控件
+  * **CLIP视觉输出中添加了图像尺寸** （[#11923](https://github.com/Comfy-Org/ComfyUI/pull/11923)）
+
+**合作伙伴节点更新**
+
+  * **字节跳动 Seedance 1.5 Pro** API节点
+  * **Bria Edit** 节点（[#11978](https://github.com/Comfy-Org/ComfyUI/pull/11978)）
+  * Autogrow 验证改进
+
+**错误修复**
+
+  * 为LTXV VAE编码将单声道音频转换为伪立体声（[#11965](https://github.com/Comfy-Org/ComfyUI/pull/11965)）
+  * Flux2 Klein 内存估算调整
+  * AMD GPU张量类型修复
+
+
+
+​
+
+v0.9.2
+
+2026年1月15日
+
+**新模型支持**
+
+  * [**Flux2 Klein**](https://github.com/Comfy-Org/ComfyUI/pull/11890)：重大新模型家族支持 — Flux2 Klein 具备扩展的模型能力
+  * [**Z-Image ControlNet Lite**](https://github.com/Comfy-Org/ComfyUI/pull/11849)：阿里云-Pai Z-Image ControlNet 的轻量版本
+
+**新节点**
+
+  * **Meshy 3D API 节点** ([#11843](https://github.com/Comfy-Org/ComfyUI/pull/11843))
+  * **ResizeImageMaskNode** ：添加裁切至倍数模式
+  * **蓝图目录** 用于内置模板
+
+**性能与技术**
+
+  * NVFP4 LoRA 优化（多轮）
+  * 节流的 ProgressBar WebSocket 更新
+  * Lanczos 灰度图像放大修复
+  * VAELoader 元数据加载
+  * 仓库 URL 已更新为 Comfy-Org/ComfyUI
+
+
+
+​
+
+v0.9.1
+
+2026年1月13日
+
+**问题修复**
+
+  * 更新 LTXAV 内存估算
+
+
+
+​
+
+v0.9.0
+
+2026年1月13日
+
+**新特性**
+
+  * [**Basic Asset Support**](https://github.com/Comfy-Org/ComfyUI/pull/11315)：模型资产管理的基础——模型增删改查操作端点
+  * **NVFP4 Model LoRA** ([#11837](https://github.com/Comfy-Org/ComfyUI/pull/11837))：LoRA 支持现已兼容 NVFP4 量化模型
+  * [**SigLIP 2 NAFlex**](https://github.com/Comfy-Org/ComfyUI/pull/11831)：支持 SigLIP 2 NAFlex CLIP 视觉模型
+  * [**图像对比节点**](https://github.com/Comfy-Org/ComfyUI/pull/11343)：直观对比两个图像
+  * [**JoinAudioChannels**](https://github.com/Comfy-Org/ComfyUI/pull/11728)：音频通道合并工具
+
+**模型支持**
+
+  * Z-Image 模型的 ModelScope LoRA ([#11805](https://github.com/Comfy-Org/ComfyUI/pull/11805))
+  * 修复 Chroma 和文本编码器的 FP4/FP8 问题
+  * VAEEncodeForInpaint 现支持 Wan万相 VAE 的 tuple downscale_ratio
+  * 通过高效时间步嵌入处理降低 LTX2 显存占用
+
+**API 节点**
+
+  * **Vidu2** 节点 ([#11760](https://github.com/Comfy-Org/ComfyUI/pull/11760))
+  * **Topaz Enhance** 修复
+  * **Gemini** 安全拦截处理
+
+**技术相关**
+
+  * AMD gfx1200：默认启用 PyTorch 注意力
+  * CI 容器版本自动更新
+  * 重构模型加载以降低内存使用
+  * 前端补丁更新至 1.36.14
+
+
+
+​
+
+v0.8.1
+
+2026年1月8日
+
+**模型支持**
+
+  * 添加了Gemma 12B支持，包含量化权重
+  * 增强了LTXAV文本编码器，支持设备选择并降低了显存使用量
+  * 改进了LTXAV文本编码器的内存估算
+
+**性能改进**
+
+  * 修复了FP8MM卸载的性能问题
+  * 为过时的PyTorch版本添加了警告提示，建议升级到cu130以提升性能
+  * 更新了comfy kitchen版本要求
+
+**错误修复**
+
+  * 修复了稳定版本工作流，确保正确拉取最新的comfy kitchen更新
+  * 从模型补丁器中删除了令人困惑的加载统计信息
+  * 将工作流模板更新到v0.7.69
+
+
+
+​
+
+v0.8.0
+
+2026年1月7日
+
+**新增模型与节点**
+
+  * 新增 LTXV 2 模型支持
+  * 新增 NVFP4 检查点支持（fp4 矩阵乘法）
+  * 新增 Sage Attention 3 支持（通过 CLI 参数）
+
+**API 改进**
+
+  * V3 API：公开 DynamicCombo 和 Autogrow 功能
+  * API 节点：Kling Omni 支持 720p 分辨率、WAN2.6 ReferenceToVideo
+  * Tripo3D：优化 face_limit 参数处理
+  * 修复 Vidu API 签名 URL 编码保留问题
+
+**修复**
+
+  * 修复放大模型 CPU 卸载问题
+  * 修复 LTXV2 文本编码器 lowvram 兼容性
+  * 修复 fp8 处理问题
+  * 修复 MPO 格式图像只使用第一帧
+  * 根据 PyTorch 版本条件性支持 comfy-kitchen CUDA
+
+**其他**
+
+  * 新增 OOM 内存摘要用于调试
+  * Mahiro CFG 显示名称更新
+  * 工作流模板更新至 v0.7.67
+  * 代码重构与清理（CLIP 预处理、comfy-kitchen 集成）
+
+
+
+​
+
+v0.7.0
+
+2025年12月31日
+
+**新增节点**
+
+  * 新增 ManualSigmas 节点用于采样控制
+  * 新增 Kling Motion Control 节点
+  * ResizeByLongerSide 支持视频处理
+
+**系统要求**
+
+  * PyTorch 最低版本要求 2.4+
+
+**修复与改进**
+
+  * AMD GPU 默认启用异步内存卸载
+  * 修复 CPU 推理时祖先采样器噪声问题
+  * 改进内存管理错误处理（pin/unpin 操作）
+  * 新增上下文窗口中的 VACE 上下文处理
+
+**版本更新**
+
+  * ComfyUI Frontend 更新至 v1.35.9
+  * ComfyUI Manager 更新至 v4.0.4
+  * 工作流模板更新至 v0.7.64
+
+**API 节点**
+
+  * Gemini API：强制启用提示词增强
+  * 计费系统从美元改为积分制
+  * 弃用 “seededit”，更新 Seedream 节点显示名称
+
+**技术**
+
+  * 图像处理节点转换为 V3 架构
+  * 优化 Lumina/Z 图像模型（移除未使用组件）
+
+
+
+​
+
+v0.6.0
+
+2025年12月24日
+
+**新模型支持**
+
+  * Qwen Image Layered
+  * NewBie Image Exp0.1
+
+**新功能**
+
+  * 统一工作流队列 API，提供 /api/jobs 端点进行工作流监控
+
+**改进**
+
+  * 设置 API 节点默认禁用水印生成
+  * 重构训练器，添加分辨率分桶功能提高训练效率
+  * 增强 AMD GPU 支持
+  * 扩展 Kling O1 StartEndFrame 节点持续时间范围
+  * 更新 Topaz 4k 视频超分辨率功能
+
+**错误修复**
+
+  * 修复在 —gpu-only 模式下 ZImageFunControlNet 的掩码连接问题
+
+
+
+​
+
+v0.5.1
+
+2025年12月18日
+
+  * 新增 GPT-Image-1.5 API 节点
+  * 修复 V3 节点处理回归问题
+  * 改进 SA-Solver 准确性
+
+
+
+​
+
+v0.5.0
+
+2025年12月17日
+
+**新模型和功能**
+
+  * WanMove 高级运动处理模型
+  * Qwen Edit 2511 自动检测支持
+  * Z-Image Fun Control Union 2.0 修复功能
+
+**API 节点**
+
+  * Kling Omni Image, TextToVideoWithAudio, ImageToVideoWithAudio
+  * Wan2.6 模型集成
+  * Tripo3.0 模型生成
+
+**性能优化**
+
+  * 改进 Z-Image 和 SD3 模型内存估算
+  * 更好的 Qwen-Image VAE GPU 内存管理
+  * 前端更新至 v1.34.9
+
+
+
+​
+
+v0.4.0
+
+2025年12月10日
+
+**模型支持**
+
+  * Ovis Image 多模态图像模型
+  * Kandinsky 5.0 (文本转视频/图像转视频/文本转图像变体)
+  * Z-Image Alibaba PAI-Fun ControlNet 支持
+  * 改进的 Z-Image FP16 兼容性
+  * 为CORS标头添加PATCH方法和chroma-radiance-x0模式
+
+**工作流与API增强**
+
+  * 上下文窗口修复和增强的时序处理
+  * Kling API @image引用格式
+  * ComfyUI-Manager pip安装支持
+
+**前端改进**
+
+  * 显著改善前端加载和启动性能
+  * 恢复侧边栏设置按钮
+  * GPU加速的蒙版编辑器渲染
+  * 改进资源卡片和队列进度面板设计
+  * 为队列按钮和面包屑添加缺失节点警告UI
+  * 移动端修复和各种错误修复
+
+**主要显存优化**
+
+  * 时间滚动VAE为视频模型提供大幅显存减少（Hunyuan/Kandinsky）
+  * 减少LoRA内存预留，特别有利于Flux2工作流
+  * 修复Flux2 OOM错误，改进反量化卸载计算
+  * 通过FP16处理增强LoRA计算速度
+  * 优化文本编码器GPU使用，防止不必要的CPU回退
+
+**V3架构迁移**
+
+  * 转换3D、音频、freelunch和mask节点到V3架构
+  * 添加MatchType、DynamicCombo和Autogrow支持，提升工作流灵活性
+
+**错误修复与兼容性**
+
+  * 修复直接在GPU上加载时的文本编码器回归问题
+  * 解决Lumina模型中transformer_options清除问题
+  * 修复Qwen Image LoRA训练、HunyuanVideo 1.5 meanflow distil问题
+  * 纠正EmptyAudio节点输入类型，确保音频工作流正确集成
+  * 增强显存计算准确性，防止不必要的完全卸载
+  * 支持Z-Image工作流的”transformer.” LoRA前缀
+  * 改进scaled FP8格式与混合量化操作的兼容性
+
+**桌面用户注意事项**
+
+  * 如果您未关闭自动更新，请等待最新的桌面版本发布，它将自动更新到最新版本。
+  * 如果您正在使用桌面版本**并且关闭了自动更新** ，本次桌面版本可能无法自动更新到最新版本。
+  * 请从[这里](https://www.comfy.org/download)下载最新的桌面版本以获取最新功能。
+
+
+
+​
+
+v0.3.76
+
+2025年12月2日
+
+**前端界面与用户体验**
+
+  * 新界面：**节点 2.0** 公测版
+  * 线性模式测试版（可通过快捷键绑定设置热键启用）
+  * 子图改进和错误修复
+  * 改进缺失节点体验
+  * 新增工作流进度面板
+  * 新增资产侧边栏
+
+**3D 功能**
+
+  * 3D 节点支持全景图像
+  * 将 3D 动画节点合并到 3D 节点中
+
+**LoRA 训练器**
+
+  * ComfyUI 原生 LoRA 训练器支持多分辨率
+  * 支持 Z-Image LoRA 训练
+
+**性能与模型支持**
+
+  * 支持视频微型 VAE
+  * 支持 z-image LoRA 格式
+  * 默认在 Nvidia 上启用异步卸载
+
+**合作伙伴节点**
+
+  * Veo3 First-Last-Frame 节点
+  * 在 Kling FirstLastFrame 节点中添加 Kling v2.5 turbo
+  * Kling O1 模型支持
+
+
+
+​
+
+v0.3.75
+
+2025年11月26日
+
+**新模型支持**
+
+  * 添加 Z Image 模型支持，优化图像处理工作流性能
+
+**错误修复**
+
+  * 修复 LoRA 在混合 FP8 精度模型下的功能问题
+  * 增强 Flux2 参考图像内存估算，减少显存错误
+
+
+
+​
+
+v0.3.73
+
+2025年11月26日
+
+**错误修复**
+
+  * 修复可能中断工作流执行的关键系统崩溃问题
+  * 优化 Flux 2 文本编码器显存使用，提升性能
+
+**模板更新**
+
+  * 更新工作流模板至 v0.7.20，提供更好的入门示例
+
+
+
+​
+
+v0.3.72
+
+2025年11月25日
+
+**新模型支持**
+
+  * 新增 Flux 2 模型全面支持，包括 Flux 2 Pro API 节点
+  * 增强 HunyuanVideo 工作流，添加新变体和改进显示名称
+
+**API 和安全改进**
+
+  * 改进 API 安全性，添加内容安全策略标头
+  * 修复公共 API 访问问题和 Gemini 模型支持
+
+**视频处理**
+
+  * 添加视频处理方法：`get_frame_count` 和 `get_frame_rate`，实现更好的工作流控制
+
+**性能优化**
+
+  * 优化文本编码器量化，支持硬件感知检测
+  * 增强量化支持，改善内存管理
+
+**开发者工具**
+
+  * 为 Chroma、Qwen-Image 和 HunyuanVideo 模型添加 BlockInfo 支持
+
+**前端和依赖项**
+
+  * 更新前端至 v1.30.6 并升级 Transformers 库
+
+
+
+​
+
+v0.3.71
+
+2025年11月21日
+
+**模型兼容性与增强功能**
+
+  * **HunyuanVideo 1.5 支持** ：添加了对最新版本 HunyuanVideo 模型的兼容性，扩展了视频生成能力
+  * **LLAMA 文本编码器改进** ：在基于 LLAMA 的文本编码器模型中添加了禁用最终归一化的功能，以便更好地自定义工作流
+  * **HunyuanV3D 架构迁移** ：将 Hunyuan3D 节点更新至 V3 架构，提升性能和兼容性
+
+**API 节点扩展**
+
+  * **新增 Topaz API 节点** ：在 ComfyUI 中直接添加了对 Topaz 视频增强工作流的支持
+  * **Nano Banana Pro 集成** ：通过 Nano Banana Pro 扩展 API 节点集合，增强处理能力
+  * **Kling 唇形同步改进** ：修复了 KlingLipSyncAudioToVideoNode 中的音频格式转换问题，确保正确处理 MP3 格式
+
+**图像处理与工作流改进**
+
+  * **增强图像批处理** ：修复了 ImageBatch 节点以处理不同通道数的图像，并在需要时自动添加 alpha 通道
+  * **预览节点优化** ：将 PreviewAny 节点重命名为”Preview as Text”，使工作流组织更加清晰
+  * **工作流模板更新** ：增强服务器模板处理程序，支持多包分发，改善工作流管理
+
+**性能与系统优化**
+
+  * **CUDA 优化** ：在较新的 CUDNN 版本中禁用不必要的解决方案，提升 GPU 性能
+  * 修复了工作流命名问题，提升了复杂处理管道的整体稳定性
+
+
+
+​
+
+v0.3.70
+
+2025年11月19日
+
+**CUDA 12.6支持与分发**
+
+  * 添加了官方CUDA 12.6发布工作流程和便携式下载支持，增强GPU兼容性
+  * 更新了README文档，修正了便携式下载链接，简化安装流程
+
+**模型兼容性与修复**
+
+  * **HunYuan 3D 2.0支持** ：修复了兼容性问题，改进了3D模型生成工作流
+  * **EasyCache改进** ：解决了输入/输出通道不匹配问题，该问题影响了某些模型配置
+  * 通过移除可能有害的原生自定义节点实现，增强了block swap功能
+
+**API节点增强**
+
+  * **新增Gemini模型** ：扩展了AI模型选项，支持文本和多模态生成工作流
+  * 改进了API节点开发基础设施，更新了PR模板并将Python最低版本要求提升至3.10
+
+**开发与基础设施**
+
+  * 增强了pylint配置，提高自定义节点开发中的代码质量
+  * 改进了发布自动化和分发流程，确保更可靠的更新
+
+
+
+​
+
+v0.3.69
+
+2025年11月18日
+
+**内存与性能优化**
+
+  * **默认启用锁页内存** ，适用于NVIDIA和AMD GPU
+  * **减少VRAM使用量** ，优化Flux、Qwen和LTX-Video模型
+  * 智能模型卸载，当VRAM使用增加时自动释放内存
+  * 改进卸载流上的权重转换性能
+
+**新功能**
+
+  * **ScaleROPE节点现已支持Flux模型**
+  * 为分词器添加左填充支持
+  * 在 `/history` 和 `/queue` 端点中添加 `create_time` 字段
+  * Rodin3D节点迁移到新的API客户端架构
+
+**Bug修复**
+
+  * 修复自定义节点导入错误（SingleStreamBlock/DoubleStreamBlock，临时修复）
+  * 修复Qwen ControlNet回归问题
+  * 增强量化操作，添加offload支持和稳定性改进
+  * 统一所有模型的RoPE函数实现
+
+
+
+​
+
+v0.3.68
+
+2025年11月5日
+
+**模型支持**
+
+  * 支持 [ChronoEdit 14B](https://research.nvidia.com/labs/toronto-ai/chronoedit/) 模型
+
+**性能与内存优化**
+
+  * 引入**混合精度量化系统** ，优化模型加载
+  * 新增**RAM压力缓存模式** ，在资源受限条件下智能管理内存
+  * 使用固定内存加速模型卸载，支持自动低RAM硬件检测
+  * 增强FP8操作：减少内存使用并修复torch.compile性能回归问题
+  * 改进异步卸载速度，解决竞争条件问题
+  * 修复Windows固定内存分配问题
+
+**新节点与执行功能**
+
+  * **ScaleROPE节点** ：支持WAN和Lumina模型的rope缩放
+  * 增强子图执行功能，允许在单个工作流中多次运行
+  * 改进缓存系统，正确处理字节数据和None输出
+
+**API节点增强**
+
+  * 扩展LTXV API节点，支持12秒-20秒时长选项
+  * 修复DALL-E 2节点中的img2img操作
+  * 增强Rodin3D节点，返回正确的相对路径
+
+**更新**
+
+  * 更新核心节点文档翻译（繁体中文，阿拉伯语，土耳其语）
+  * 工作流模板更新至v0.2.11
+
+
+
+​
+
+v0.3.67
+
+2025年10月28日
+
+**API 节点**
+
+  * **LTXV API 集成** ：添加了新的 LTXV API 节点，支持 Lightricks LTX 视频生成
+  * Network Client V2 升级，支持异步操作和取消功能
+  * 将 Tripo 和 Gemini API 节点转换为 V3 架构
+
+**性能与兼容性**
+
+  * 通过仅在较新的 AMD GPU 上禁用 cudnn 来改进 AMD GPU 支持
+  * 修复了 API 节点中 Windows 特定的网络问题，改进重试处理
+
+**核心改进**
+
+  * 增强了依赖感知缓存系统，修复了 —cache-none 在循环中的行为
+  * 添加了对多维 latents 的支持
+  * 添加了自定义节点发布子图端点
+
+**其他更新**
+
+  * 前端升级到版本 1.28.8
+  * 模板更新到版本 0.2.4
+
+
+
+​
+
+v0.3.66
+
+2025年10月21日
+
+**前端更新**
+
+  * **子图组件编辑** ：可通过新的参数面板直接编辑子图组件，无需进入子图内部
+  * **模板弹窗重新设计** ：重新设计模板浏览器，支持按模型标签和分类高级筛选
+
+**性能优化**
+
+  * 提升工作流取消速度
+  * 修复在 PyTorch 2.9 及 NVIDIA 显卡下 VAE 内存占用高出 3 倍的问题
+  * 加快色度辐射处理速度并修正批量大于 1 时的问题
+
+**API 节点**
+
+  * 新增 Veo 3.1 模型支持
+  * 新增 TemporalScoreRescaling 节点，实现视频工作流高级时序控制
+
+**硬件与兼容性**
+
+  * 禁用 AMD gfx942 GPU 的 FP8 运算
+  * 优化 —fast autotune 模式下的 CUDA 内存管理
+
+**执行与架构**
+
+  * ControlNet 节点迁移至 V3 架构
+  * EasyCache 优化，支持正确的 batch_slice 处理
+  * merge_nested_dicts 功能改进，保证输入顺序正确
+  * 为未使用文件新增废弃提示
+
+
+
+​
+
+v0.3.65
+
+2025年10月14日
+
+**节点架构迁移 (V3)**
+
+  * 将核心节点迁移到 V3 架构,包括模型缩放、LoRA 提取、合成、潜在操作、SD3/SLG、Flux、放大模型和 HunyuanVideo 节点
+
+**音频和模型改进**
+
+  * 新增 MMaudio 16K VAE 支持高保真音频工作流
+  * 修复单声道音频错误保存为立体声问题
+  * 重构模型采样代码并修复 FP8 缩放 LoRA 问题
+  * 修复旧版 Stable Diffusion 检查点在新版 NumPy 上的加载问题
+
+**AMD GPU 优化**
+
+  * 改进 SD/Flux VAE 操作的内存估算
+  * 在 ROCm 7.0+ 上启用 RDNA4 PyTorch 注意力
+
+**API 节点更新**
+
+  * 新增价格提取器并改进 Kling/Pika API 节点
+  * 增强 Gemini Image API 的 aspect_ratio 支持
+
+**其他更新**
+
+  * 模板 v0.1.95,节点文档 v0.3.0
+  * 修复 WAN2.2 缓存 VRAM 泄漏
+
+
+
+​
+
+v0.3.64
+
+2025年10月8日
+
+**API 节点**
+
+  * 新增 Sora2 API 节点,支持 OpenAI 视频生成 API
+
+
+
+​
+
+v0.3.63
+
+2025年10月6日
+
+**模型兼容性增强**
+
+  * **HunyuanVAE 支持** ：新增对 HunyuanVAE 的支持，扩展了高级图像生成工作流的模型兼容性
+  * **Epsilon Scaling 节点** ：新增 Epsilon Scaling 节点，通过缩放预测噪声来减少扩散模型的曝光偏差，提升生成质量（基于论文 [Elucidating the Exposure Bias in Diffusion Models](https://arxiv.org/abs/2308.15321)）
+
+**内存和性能优化**
+
+  * **VAE 内存泄漏修复** ：修复了 VAE OOM 异常处理中 Python 调用栈持有张量引用导致的 VRAM 泄漏，显著提升低显存设备上瓦片回退的可靠性
+  * **AMD 相关支持** ：默认启用 TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL
+
+**API 节点更新**
+
+  * **Kling 2.5 Turbo** ：在 txt2video 和 img2video 节点中新增对 kling-2-5-turbo 的支持，并修复了模式配置问题
+  * **API 节点修复** ：改进了 Gemini 节点的 base64 处理，并修复了 Recraft API 节点函数中的缩进问题
+
+**节点架构迁移（V3）**
+
+  * **大规模 V3 转换** ：将众多节点类别迁移到 V3 架构，包括音频编码器、GITS、差分扩散、最优步数、PAG、LT、IP2P、形态学、torch compile、EPS、Pixverse、TomeSD、编辑模型、Rodin 和 Stable3D 节点，提高了工作流兼容性
+
+**音频系统更新**
+
+  * **依赖清理** ：移除了 soundfile 依赖并取消了 torchaudio 加载/保存操作，简化了音频处理管道
+
+**开发者体验改进**
+
+  * **代码质量** ：为 comfy_api_nodes 文件夹添加了 pylint 支持，并更新 example_node.py 使用 V3 架构，使自定义节点开发更加一致
+  * **文档更新** ：为 Windows 用户增加了 AMD 安装说明，添加了 nightly PyTorch 命令
+
+**前端更新**
+
+  * **子图发布工功能** ： 允许将子图发布到节点库
+  * **选择工具箱重设计** ：重新设计了节点选择工具箱
+
+
+
+​
+
+v0.3.62
+
+2025年9月30日
+
+  * **Rodin3D-Gen2 参数修复**
+  * **Seedance Pro 模型支持**
+
+
+
+​
+
+v0.3.61
+
+2025年9月30日
+
+**API 节点**
+
+  * **Rodin3D Gen-2** ：Rodin 最强大的图像转3D工具现已在 ComfyUI 中上线！
+  * **WAN 图生图** ：Wan2.5 图生图 API 节点，支持图像编辑。
+
+**增强音频功能**
+
+  * **新增音频节点** ：为增强音频驱动的工作流和多模态内容创作添加了新的音频节点
+
+**模型兼容性修复**
+
+  * **Qwen2.5VL 模板处理** ：改进了当提示词中已包含模板时 Qwen2.5VL 模型的模板管理
+  * **HuMo 视图操作** ：修复了 HuMo 模型中的 .view() 操作问题，提高视频生成的稳定性
+
+**内存和性能优化**
+
+  * **内存泄漏修复** ：通过显式分离模型终结器解决了内存泄漏问题，提高长时间运行工作流的稳定性
+  * **采样器 CFG 增强** ：在采样器 CFG 函数参数中添加了 ‘input_cond’ 和 ‘input_uncond’ 参数，提供更灵活的条件控制
+
+
+
+​
+
+v0.3.60
+
+2025年9月23日
+
+**新模型支持**
+
+  * **Wan2.2 Animate** ：支持具有角色替换和动作迁移功能的 Wan2.2 Animate 视频生成模型
+  * **Qwen Image Edit 2509 支持** ：支持更新的 Qwen Image Edit 2509，具有多图像编辑、更高一致性和原生 ControlNet 支持
+  * **HuMo 模型** ：添加了对 1.7B 和 17B HuMo 模型的支持，使用音频驱动视频生成并保持唇形同步
+  * **Chroma Radiance** ：一个在像素空间执行图像生成的模型，减少图像生成过程中的损失
+  * **Omnigen2 UMO LoRA** ：添加了对 Omnigen2 UMO LoRA 模型的支持
+
+**API 节点新增**
+
+  * **Kling v2.1 支持** ：在 KlingStartEndFrame 节点中添加了 kling-v2-1 模型
+  * **Seedream4 修复** ：修复了在部分成功时忽略错误的标志，使工作流更加稳健
+
+**节点架构迁移（V3）**
+
+  * **核心节点更新** ：将多个节点类别迁移到 V3 架构，包括 Minimax API、Cosmos、条件、CFG 和 Canny 节点
+
+**性能和技术改进**
+
+  * **FP8 操作** ：在 gfx1200 硬件上默认启用 FP8 操作，实现更快的处理速度
+  * **LoRA 训练器修复** ：解决了 LoRA 训练工作流中 FP8 模型兼容性的错误
+
+**前端更新**
+
+  * **前端版本更新** ：更新到版本 1.26.13
+
+
+
+​
+
+v0.3.59
+
+2025年9月10日
+
+**字节跳动 Seedream 4.0 集成**
+
+  * **新增 Seedream 节点** ：添加了 ByteDanceSeedream (4.0) 节点。
+
+
+
+​
+
+v0.3.58
+
+2025年9月6日
+
+**新模型支持**
+
+  * Hunyuan Image 2.1 常规模型
+  * Hunyuan 3D 2.1
+
+**新增 API 节点**
+
+  * Stable Audio 2.5 API
+  * Seedance Video API
+
+
+
+​
+
+v0.3.57
+
+2025年9月4日
+
+**ByteDance USO 模型支持**
+
+  * **UXO 主体身份 LoRA 支持** ：这是一个基于 FLUX 架构的主体身份 LoRA 模型
+  * **相关工作流** ：请在模板 `Flux` -> `Flux.1 Dev USO Reference Image Generation` 中查找工作流
+
+**工作流实用工具**
+
+  * **ImageScaleToMaxDimension 节点** ：用于智能图像缩放的新实用工具
+  * **SEEDS 噪声系统** ：使用改进算法更新噪声分解
+  * **增强提示控制** ：中断处理器现在接受 prompt_id 参数
+
+**性能和架构**
+
+  * **V3 架构迁移** ：将一些核心节点转换为 V3 架构
+  * **卷积自动调优** ：启用自动卷积优化
+
+**新增 API 集成**
+
+  * **ByteDance 图像节点** ：添加了对 ByteDance 图像生成服务的支持
+  * **Ideogram 角色参考** ：Ideogram v3 API 现在支持角色参考
+
+
+
+​
+
+v0.3.56
+
+2025年8月30日
+
+**性能增强**
+
+  * **减少 Windows 上的 RAM 使用量**
+
+
+
+​
+
+v0.3.55
+
+2025年8月29日
+
+**模型支持**
+
+  * Wan2.2 S2V
+  * Wan2.2 5B Fun control
+  * Wan2.2 5B Fun inpaint
+
+**高级潜在空间处理**
+
+  * **LatentCut节点** ：用于在精确点位切割潜在变量的新节点，在复杂生成工作流中实现对潜在空间操作的更精细控制。这对于批处理和时序视频工作流特别有用，比如删除视频中的某些帧。
+
+
+
+​
+
+v0.3.54
+
+2025年8月28日
+
+**节点模型补丁改进** 此次专项更新改进了支撑 ComfyUI 灵活架构的核心节点模型补丁系统：**核心基础设施增强**
+
+  * **节点模型补丁更新** ：增强了 nodes_model_patch.py，改进了底层模型补丁机制，使得 ComfyUI 对 Qwen-Image ControlNet 的扩展更为容易
+
+**工作流程优势**
+
+  * **增强的稳定性** ：核心模型补丁改进有助于在不同工作流程配置中实现更可靠的节点执行和模型处理
+
+
+
+​
+
+v0.3.53
+
+2025年8月28日
+
+**音频工作流集成与增强性能优化** 此版本增加了 ComfyUI 的音频处理能力，并包含性能改进和模型兼容性更新：**音频处理更新**
+
+  * **Wav2vec2 音频编码器** ：新增原生 wav2vec2 实现作为音频编码器模型，为多模态应用启用音频到嵌入工作流
+  * **音频编码器目录** ：新增 models/audio_encoders 目录，此为 Wan2.2 S2V 音频编码器目录
+  * **AudioEncoderOutput V3 支持** ：使 AudioEncoderOutput 与 V3 节点架构兼容，确保与现代工作流架构的无缝集成
+
+**Google Gemini API 集成**
+
+  * **Gemini Image API 节点** ： 新增全新 Google Gemini Image API 节点，即 “nano-Nano-banana” 图像编辑模型 API，具有高度的一致性
+
+**视频生成性能与内存优化**
+
+  * **WAN 2.2 S2V 模型支持** ：正在开发的 WAN 2.2 声音到视频模型实现，具有优化的内存使用和性能
+  * **增强的 S2V 性能** ：对超过120帧的视频生成进行性能改进，改善扩展视频工作流
+  * **更好的内存估算** ：改进 S2V 工作流的内存使用估算，防止长视频生成期间出现内存不足错误
+  * **负音频处理** ：修复 S2V 工作流中负音频输入处理，使用适当的零值
+
+**采样与节点增强**
+
+  * **DPM++ 2M SDE Heun (RES) 采样器** ：@Balladie 提供的全新高级采样器，为精细调节生成控制提供额外的采样选项
+  * **LatentConcat 节点** ：用于连接潜在张量的新节点，启用高级潜在空间操作工作流
+  * **EasyCache/LazyCache 稳定性** ：修复当张量属性（形状/数据类型/设备）在采样期间发生变化时的关键崩溃问题，确保工作流可靠性
+
+**模型兼容性改进**
+
+  * **ControlNet 类型模型** ：增强与 Qwen Edit 和 Kontext 工作流配合使用的 ControlNet 类型模型的兼容性修复
+  * **Flux 内存优化** ：调整 Flux 模型内存使用因子以获得更好的资源利用
+
+**基础设施与可靠性**
+
+  * **模板更新** ：更新至 0.1.66 和 0.1.68 版本
+  * **文档清理** ：从自述文件中移除未完全实现的模型，以避免用户混淆
+
+
+
+​
+
+v0.3.52
+
+2025年8月23日
+
+**增强模型支持和 Qwen Image ControlNet 集成等** 此版本显著扩展了 ControlNet 功能并改进了模型兼容性，让 ComfyUI 工作流更加多样化和可靠：**Qwen ControlNet 生态系统**
+
+  * **Diffsynth ControlNet 支持** ：新增支持 Qwen Diffsynth ControlNet 的 Canny 和深度条件控制，实现精确的边缘和基于深度的图像控制
+  * **InstantX Qwen ControlNet** ：集成 InstantX Qwen ControlNet，扩展创意控制选项
+  * **修复补丁 ControlNet/模型** ：通过专用的 Diffsynth 修复 ControlNet 支持增强修复功能
+
+**节点架构和 API 演进**
+
+  * **V3 架构迁移** ：字符串节点、Google Veo API 和 Ideogram API 节点升级到 V3 架构，提供更好的性能和一致性
+  * **增强的 API 节点** ：OpenAI Chat 节点重命名为”OpenAI ChatGPT” 提高辨识度，Gemini Chat 节点现在包含复制按钮功能
+  * **改进的可用性** ：API 节点现在通过更清晰的标签和增强的交互功能提供更好的用户体验
+
+**工作流可靠性和性能**
+
+  * **LTXV 噪声遮罩修复** ：解决了存在真实噪声遮罩时关键帧噪声遮罩维度问题，确保视频工作流执行稳定
+  * **3D 潜在条件控制** ：修复了 3D 潜在空间的条件遮罩，在高级工作流中启用适当的深度感知条件控制
+  * **无效文件名处理** ：通过正确处理无效文件名改进工作流保存功能，防止保存失败
+  * **EasyCache 和 LazyCache** ：实现高级缓存系统以改进工作流执行性能
+
+**平台和开发改进**
+
+  * **Python 3.13 支持** ：完全兼容 Python 3.13，保持 ComfyUI 与最新 Python 发展同步
+  * **前端更新** ：更新到 v1.25.10，改进导航和用户界面增强功能
+  * **逐元素融合** ：通过逐元素操作融合添加性能优化
+  * **导航模式回滚** ：回滚导航默认到传统旧版模式，避免默认启用新版标准导航模式导致用户体验问题，用户仍旧可以在设置中启用标准导航模式
+
+
+
+​
+
+v0.3.51
+
+2025年8月20日
+
+**模型支持**
+
+  * **Qwen-Image-Edit模型** ：原生支持 Qwen-Image-Edit
+  * **FluxKontextMultiReferenceLatentMethod 节点** ：用于 Flux 工作流的多图参考输入节点
+  * **WAN 2.2 Fun Camera模型支持** ：支持通过相机控制生成视频
+  * **模板更新** ：升级到版本 0.1.62，新增了 Wan2.2 Fun Camera 和 Qwen Image Edit 等模板
+
+**核心功能改进**
+
+  * **Context Windows上下文节点支持** ：增强采样代码，支持更长序列的生成任务
+  * **SDPA 后端优化** ：改进缩放点积注意力后端设置，提升性能
+
+**多媒体节点支持**
+
+  * **音频录制节点** ：新增原生音频录制节点，现在你可以直接在 ComfyUI内录制音频
+  * **音频视频集成** ：完善音频-视频依赖项集成
+
+**API节点支持更新**
+
+  * **GPT-5 系列模型** ：支持最新的 GPT-5 模型
+  * **Kling V2-1 和 V2-1-Master** ：更新视频生成模型功能
+  * **Minimax Hailuo 视频节点** ：新增视频生成节点
+  * **Vidu 视频节点** ：Vidu API 节点支持
+  * **Google 模型更新** ：新增 Google Gemini 的新模型
+  * **OpenAI API 修复** ：修复 OpenAI API 节点输入图像的 MIME 类型导致的错误
+
+**性能优化**
+
+  * **Intel GPU 兼容性** ：修复 Intel 集成 GPU 兼容性问题
+  * **PyTorch 兼容性** ：增强与旧版 PyTorch 的兼容性
+  * **Torch Compile 优化** ：改进 torch compile 行为
+  * **内存管理** ：优化安装大小和内存效率
+
+**前端变更**
+
+  * **子图支持** ：子图功能支持
+  * **快捷键面板** ： 新增底部快捷键面板
+  * **修改 UI 布局** ：修改终端入口布局，增加模板，日志面板等多个入口
+  * **新增标准画布模式** ： 新增标注画布模式，可在 lite-graph(画面) Canvas > 画布导航模式中切换
+  * **新增小地图** ： 新增工作流迷你地图
+  * **新增Tab预览** ： 新增工作流 tab 预览
+  * **调整顶部 Tab 菜单布局**
+
+
+
+​
+
+v0.3.50
+
+2025年8月13日
+
+**模型集成与性能提升** 本次更新扩展了ComfyUI的模型支持，优化了API功能，并提升了工作流程的稳定性：**Qwen模型生态**
+
+  * **Qwen图像模型支持** ：改进了LoRA加载和模型合并功能，支持更复杂的视觉工作流程
+  * **Qwen模型合并节点** ：新增节点，支持合并Qwen图像模型
+  * **SimpleTuner Lycoris LoRA支持** ：扩展了对Qwen-Image模型的Lycoris LoRA兼容性
+
+**API与性能**
+
+  * **异步API节点** ：引入异步API节点，支持非阻塞工作流程执行
+  * **内存处理优化** ：RepeatLatentBatch节点改进，能正确处理多维latent
+  * **WAN 2.2 Fun Control支持** ：新增对WAN 2.2 fun control功能的支持
+
+**硬件优化**
+
+  * **AMD GPU改进** ：提升了AMD Radeon的FP16精度处理和性能
+  * **RDNA3架构修复** ：解决了gfx1201 GPU使用Flux模型的问题
+  * **PyTorch支持更新** ：升级了CUDA和ROCM PyTorch版本
+
+**开发体验**
+
+  * **日志记录优化** ：功能标志仅在详细模式下显示
+  * **音频处理安全** ：增强了torchaudio导入安全检查
+  * **Kling API改进** ：修复了Kling Image API节点的图像类型参数
+
+
+
+​
+
+v0.3.49
+
+2025年8月5日
+
+**界面优化与模型支持** 此版本改进了用户体验，增加了前沿模型支持：**用户界面**
+
+  * **最近项目 API** ：新增跟踪最近使用项目的API
+  * **工作流导航优化** ：改进了常用元素的组织
+
+**模型集成**
+
+  * **Qwen视觉模型支持** ：初步支持Qwen图像模型
+  * **图像处理优化** ：增强了Qwen模型集成
+
+**视频生成**
+
+  * **Veo3视频生成** ：新增Veo3视频生成节点，支持音频
+  * **音视频合成** ：在单个节点中结合视频和音频生成
+
+**性能与稳定**
+
+  * **内存管理优化** ：优化了条件VRAM使用
+  * **设备一致性** ：修复了条件数据和上下文的设备问题
+  * **ControlNet稳定性** ：解决了ControlNet兼容性问题
+
+**开发与系统**
+
+  * **错误处理** ：添加了条件设备不匹配的警告
+  * **模板更新** ：更新了多个模板版本
+
+
+
+​
+
+v0.3.48
+
+2025年8月2日
+
+**API增强与性能优化** 此版本引入了后端改进和性能优化：**ComfyAPI框架**
+
+  * **ComfyAPI Core v0.0.2** ：核心API框架更新，提升了稳定性和可扩展性
+  * **部分执行支持** ：新增后端支持部分工作流执行
+
+**视频处理**
+
+  * **WAN Camera内存优化** ：改进了基于WAN的相机工作流内存管理
+  * **WanFirstLastFrameToVideo修复** ：解决了视频生成的关键问题
+
+**性能与模型**
+
+  * **VAE优化** ：在VAE操作中优化了torch.silu
+  * **WAN VAE优化** ：对WAN VAE操作进行了优化
+
+**节点架构**
+
+  * **V3节点架构** ：实现了下一代节点架构系统
+  * **模板更新** ：更新了多个模板版本
+
+
+
+​
+
+v0.3.47
+
+2025年7月30日
+
+**内存优化与大模型性能** 本次更新优化了大模型工作流的内存使用：**WAN 2.2模型**
+
+  * **内存占用减少** ：减少了WAN 2.2 VAE操作的内存使用
+  * **5B I2V模型支持** ：优化了WAN 2.2 5B图像到视频模型
+
+**VRAM管理**
+
+  * **Windows大显卡支持** ：为Windows高端显卡增加了VRAM分配
+  * **内存分配改进** ：改进了多大模型用户的内存管理
+
+
+
+​
+
+v0.3.46
+
+2025年7月28日
+
+**硬件加速和音频处理** 此版本扩展了硬件支持并增强了音频处理：**音频处理**
+
+  * **PyAV音频后端** ：用PyAV替换torchaudio.load
+  * **音频集成优化** ：增强了多媒体生成工作流的音频处理
+
+**硬件支持**
+
+  * **Iluvatar CoreX支持** ：添加了对Iluvatar CoreX加速器的支持
+  * **Intel XPU优化** ：改进了XPU支持
+  * **AMD ROCm增强** ：在Torch 2.8上为gfx1201启用了PyTorch attention
+  * **CUDA内存管理** ：修复了CUDA malloc激活问题
+
+**采样算法**
+
+  * **Euler CFG++增强** ：分离了去噪和噪声估计过程
+  * **WAN模型支持** ：添加了对WAN模型的全面支持
+
+**训练功能**
+
+  * **训练节点增强** ：添加了算法支持、梯度累积和可选梯度检查点
+  * **训练灵活性** ：提供了更好的内存管理和性能优化
+
+**节点和工作流**
+
+  * **Moonvalley V2V节点** ：添加了Moonvalley Marey V2V节点
+  * **负面提示词更新** ：改进了Moonvalley节点的负面提示词处理
+  * **历史API增强** ：向get_history API添加了map_function参数
+
+**API和系统**
+
+  * **前端版本跟踪** ：在/system_stats API响应中添加了required_frontend_version
+  * **设备信息** ：增强了XPU设备名称打印
+  * **模板更新** ：更新了多个模板版本
+
+**开发体验**
+
+  * **文档更新** ：增强了README和模型集成指南
+  * **行结束符修复** ：标准化了工作流中的行结束符
+  * **代码清理** ：移除了已弃用的代码
+
+
+
+​
+
+v0.3.45
+
+2025年7月21日
+
+**采样与训练功能改进** 本版本增强了采样算法和训练功能：**采样和生成功能**
+
+  * **SA-Solver采样器** ：新的重构SA-Solver采样算法
+  * **实验性CFGNorm节点** ：无分类器引导标准化节点
+  * **嵌套双CFG支持** ：为DualCFGGuider节点添加嵌套风格配置
+  * **SamplingPercentToSigma节点** ：用于计算sigma的新实用节点
+
+**训练功能**
+
+  * **多数据集支持** ：LoRA训练节点支持多个图像-描述数据集
+  * **训练循环优化** ：优化了训练算法
+  * **错误检测增强** ：为LoRA操作添加了模型检测错误提示
+
+**平台和性能**
+
+  * **异步节点支持** ：完全支持异步节点函数
+  * **Chroma灵活性** ：取消了Chroma中硬编码的patch_size参数
+  * **LTXV VAE解码器** ：切换到改进的默认填充模式
+  * **Safetensors内存管理** ：为mmap问题添加了解决方案
+
+**API和集成**
+
+  * **自定义提示ID** ：API允许指定提示ID
+  * **Kling API优化** ：增加了轮询超时时间
+  * **历史令牌清理** ：从历史项目中删除了敏感令牌
+  * **Python 3.9兼容性** ：修复了兼容性问题
+
+**错误修复和稳定性**
+
+  * **MaskComposite修复** ：解决了目标蒙版的错误
+  * **Fresca输入/输出** ：修正了Fresca模型工作流程的处理
+  * **引用错误修复** ：解决了Gemini节点实现中的引用问题
+  * **行结束标准化** ：自动检测和删除Windows行结束符
+
+**开发体验**
+
+  * **警告系统** ：添加了torch导入错误警告
+  * **模板更新** ：更新了多个模板版本
+  * **文档** ：增强了fast_fp16_accumulation的文档
+
+
+
+​
+
+v0.3.44
+
+2025年7月8日
+
+**采样和模型控制增强** 此版本改进了采样算法和模型控制系统：**新采样功能**
+
+  * **TCFG节点** ：增强的分类器无关引导控制
+  * **ER-SDE采样器** ：从VE迁移到VP算法
+  * **跳层引导（SLG）** ：用于推理期间精确层级控制
+
+**开发工具**
+
+  * **自定义节点管理** ：新的`--whitelist-custom-nodes`参数
+  * **性能优化** ：双CFG节点在CFG为1.0时自动优化
+  * **GitHub Actions集成** ：自动化发布webhook通知
+
+**图像处理**
+
+  * **新变换节点** ：添加了ImageRotate和ImageFlip节点
+  * **ImageColorToMask修复** ：修正了掩码值返回
+  * **3D模型支持** ：上传3D模型到自定义子文件夹
+
+**引导和条件**
+
+  * **PerpNeg引导器** ：更新了前后CFG处理
+  * **潜在条件修复** ：解决了多步骤工作流中的条件问题
+  * **去噪步骤** ：为多个采样器添加去噪步骤支持
+
+**平台稳定性**
+
+  * **PyTorch兼容性** ：修复了PyTorch nightly构建的问题
+  * **FP8回退** ：当FP8操作遇到异常时自动回退
+  * **音频处理** ：移除了已弃用的torchaudio.save函数依赖
+
+**模型集成**
+
+  * **Moonvalley节点** ：为Moonvalley模型工作流添加原生支持
+  * **调度器重新排序** ：简单调度器现在默认优先
+  * **模板更新** ：更新了多个模板版本
+
+**安全性**
+
+  * **安全加载** ：在不安全加载文件时添加警告
+  * **文件验证** ：增强检查点加载安全措施
+
+
+
+​
+
+v0.3.43
+
+2025年6月30日
+
+**模型支持与工作流可靠性** 本次更新改进了模型兼容性和工作流稳定性：**扩展模型文档** ：为Flux Kontext和Omnigen 2模型添加了支持文档 **VAE编码改进** ：移除了VAE编码过程中不必要的随机噪声注入 **内存管理修复** ：解决了影响Kontext模型使用的关键内存估算错误
+
+​
+
+v0.3.41
+
+2025年6月17日
+
+**模型支持新增**
+
+  * **Cosmos Predict2支持** ：实现文本到图像和图像到视频生成工作流
+  * **增强的Flux兼容性** ：Chroma Text Encoder能与常规Flux模型协作
+  * **LoRA训练集成** ：新增原生LoRA训练节点
+
+**性能和硬件优化**
+
+  * **AMD GPU增强** ：在AMD GPU上启用FP8操作和PyTorch注意力机制
+  * **Apple Silicon修复** ：解决了Apple设备上的FP16注意力问题
+  * **Flux模型稳定性** ：解决了特定Flux模型生成黑色图像的问题
+
+**采样改进**
+
+  * **Rectified Flow采样器** ：新增支持RF的SEEDS和多步DPM++ SDE采样器
+  * **ModelSamplingContinuousEDM** ：新增cosmos_rflow选项
+  * **内存优化** ：改进了Cosmos模型的内存估算
+
+**开发和集成功能**
+
+  * **SQLite数据库支持** ：增强自定义节点的数据管理功能
+  * **PyProject.toml集成** ：从pyproject文件自动注册web文件夹
+  * **前端灵活性** ：支持语义化版本后缀和预发布前端版本
+  * **分词器增强** ：通过tokenizer_data配置min_length设置
+
+**使用体验改进**
+
+  * **Kontext宽高比修复** ：解决了小组件限制
+  * **SaveLora一致性** ：统一了所有保存节点的文件名格式
+  * **Python版本警告** ：为过时的Python安装添加警报
+  * **WebcamCapture修复** ：修正了IS_CHANGED签名
+
+
+
+​
+
+v0.3.40
+
+2025年6月5日
+
+**工作流工具和性能优化** 本次更新带来了新的工作流工具和性能优化：**新工作流工具**
+
+  * **ImageStitch节点** ：在工作流中拼接多个图像
+  * **GetImageSize节点** ：提取图像尺寸并支持批处理
+  * **Regex Replace节点** ：高级文本处理功能
+
+**模型兼容性**
+
+  * **张量处理改进** ：简化的列表处理使多模型工作流更可靠
+  * **BFL API优化** ：完善了对Kontext模型的支持
+  * **性能提升** ：在色度处理中使用融合乘加运算
+
+**开发体验**
+
+  * **自定义节点支持** ：添加pyproject.toml支持
+  * **帮助菜单集成** ：在节点库侧边栏中新增帮助系统
+  * **API文档** ：增强API节点文档
+
+**前端和UI**
+
+  * **前端更新至v1.21.7** ：多项稳定性修复和性能改进
+  * **自定义API基础支持** ：改进了自定义部署配置的子路径处理
+  * **安全加固** ：修复XSS漏洞
+
+**错误修复和稳定性**
+
+  * **Pillow兼容性** ：更新了已弃用的API调用
+  * **ROCm支持** ：改进了AMD GPU用户的版本检测
+  * **模板更新** ：增强了自定义节点开发的项目模板
+
+
+
+此页面对您有帮助吗？
+
+是否
+
+[建议编辑](https://github.com/comfy-org/docs/edit/main/zh/changelog/index.mdx)[提出问题](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/zh/changelog)
+
+[在 ComfyUI 中使用 OpenRouter LLM：一个节点调用多种模型上一页](https://docs.comfy.org/zh/tutorials/partner-nodes/openrouter/llm)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+资源
+
+[安装](https://docs.comfy.org/zh/installation/system_requirements)[教程](https://docs.comfy.org/zh/tutorials/basic/text-to-image)[开发](https://docs.comfy.org/zh/development/overview)
+
+产品
+
+[功能](https://www.comfy.org/?utm_source=docs)[画廊](https://www.comfy.org/gallery?utm_source=docs)[下载](https://www.comfy.org/download?utm_source=docs)
+
+公司
+
+[关于](https://www.comfy.org/about?utm_source=docs)[招聘](https://www.comfy.org/careers?utm_source=docs)[服务条款](https://www.comfy.org/terms-of-service?utm_source=docs)[隐私政策](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[技术支持This documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

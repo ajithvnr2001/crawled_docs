@@ -1,0 +1,139 @@
+---
+url: https://www.comfy.org/customers/kathy-smith/
+title: Built for AI: Prof. Kathy Smith on USC's Expanded Animation program and ComfyUI - Comfy
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:53:06.365673+00:00
+---
+
+# Built for AI: Prof. Kathy Smith on USC's Expanded Animation program and ComfyUI - Comfy
+
+> Source: https://www.comfy.org/customers/kathy-smith/
+
+  1. [Home](https://www.comfy.org/)
+  2. / [Customer Stories](https://www.comfy.org/customers/)
+  3. / Built for AI: Prof. Kathy Smith on USC's Expanded Animation program and ComfyUI
+
+
+
+CREATIVE CAMPUS SHOWCASE
+
+# Built for AI: Prof. Kathy Smith on USC's Expanded Animation program and ComfyUI
+
+Inside the experimental USC MFA that put AI into animation pedagogy from day one, and the student pipelines it produced.
+
+![Built for AI: Prof. Kathy Smith on USC's Expanded Animation program and ComfyUI](https://media.comfy.org/website/customers/kathy-smith/cover.png)
+
+THE PROGRAMTEACHING WITH AIWHY COMFYUISTUDENT WORKAT A GLANCEWHAT'S NEXT
+
+###  You built the Expanded Animation program in 2022 specifically to put AI into the curriculum from day one. What did you see that other programs missed? 
+
+We created Expanded Animation: Research and Practice specifically to focus on creative process and AI as part of how animators learn to make work. The thesis at the start was that AI was going to reshape animation as a medium, and the question was not whether to teach it but how to embed it in the curriculum so students learn it as part of their creative process rather than as a separate technical specialty.
+
+USC's School of Cinematic Arts already had decades of cinematic storytelling tradition. What we did with XA was put AI inside that tradition. The conceptual thinking, the storytelling, the cinematic history come first. AI is one of the many tools available to them, sitting alongside hand-drawing, paint, 3D, and live-action footage. Students do not learn AI in one course and animation in another. They learn both side by side.
+
+The students who arrive at the program are usually self-selected for it. They show up technically fluent, with their own GPU-equipped laptops. What we offer them is the storytelling, the cinematic history, and the conceptual frame. They bring the technical nimbleness.
+
+> "They are way ahead of the curve. They are ahead of the faculty in the way they work, technically, but not so much artistically. That is what we are there to deliver." 
+
+![USC School of Cinematic Arts](https://media.comfy.org/website/customers/kathy-smith/usc-campus.png) USC School of Cinematic Arts. Source: USC Today 
+
+###  How do you actually structure an AI assignment? Walk us through one. 
+
+In my Animation, Dreams, and Consciousness class, I have the students document their dreams and then use the dream as the source. Some of them draw, some of them write. The dream becomes the prompt, and they generate the image and emotion of the dream. I love when you get six fingers and weird stuff happening in the algorithms. Our human perception in dreams is often doing the same thing. Therefore, AI is evolving and dreaming with us.
+
+That structure is deliberate. The students are not asking the model to produce work for them. They are using it as a layer of their process, alongside hand-drawing and painting and 3D rendering and live-action footage. The work that comes out is theirs because the creative decisions are theirs. The tool just gives them new ways to reach what they were trying to make.
+
+There is a fear factor around AI, and I understand it. There has been a lot of scraping of artists' work, and that conversation is real and is going to take time to resolve. But I have been working with AI conceptually since 1998, and the way I describe the data sets to my students is that they are a repository of all of our creation. It is like the collective unconscious of the human mind. Artists have always drawn from everything around them.
+
+> "What really matters is what the artist does with it, _intentionality_." 
+
+###  Why does ComfyUI specifically fit the way your students work? 
+
+It is the node-based system. Those who have done Houdini feel very at home in Comfy. You can work with the prompts, but it is very visual. That is what they are used to. They are not asking a black box for an output. They are building a workflow.
+
+And it stays in its lane. The students are not using Comfy to make AI art. They are using Comfy as one node graph alongside Blender, hand-drawn frames, paint, and live-action footage. The reason it fits is that it does not try to be the whole pipeline. It is one stage of a creative practice that still has cinema at its core.
+
+What also matters is that Comfy is open and inspectable. The students can see what the model is doing at each step, fork a workflow, swap a sampler, drop in a custom node, and share what they built with the next cohort. That is closer to how an animation studio tradition has always behaved, with techniques passed along and improved rather than hidden behind a paywall.
+
+They also work across whatever hardware they have: Comfy Cloud at home and when they are mobile, the portable version on their personal laptops, and the research computer in my office for the high-end runs. Animation students do not sit in one cubicle for a thesis project. They work everywhere.
+
+###  Tell us about the work coming out of the program. 
+
+The pattern shows up across the cohort: the AI is in service of the cinematic story, not in place of it. Three students walked us through how Comfy actually sits inside their pipelines.
+
+####  Sijia Zheng — Ori & Kiddo 
+
+![Sijia Zheng, Ori & Kiddo](https://media.comfy.org/website/customers/kathy-smith/ori-kiddo.png)
+
+**What Comfy enabled:** an oil-paint, brush-stroke dream look that "other AI tools cannot possibly make," held consistent across shots with IP-Adapter style transfer and a custom LoRA.
+
+_Ori & Kiddo_ follows two ghosts who, after the universe dies, search for old human memories, rediscover love, and reverse the universe back into being. Most of the film is hand-drawn 2D. Comfy enters in the dream sequences, where the ghost Kiddo dreams of past lives and the look had to be unlike anything else in the film. Sijia drew stylized reference images first, then used them as the style reference over video clips through an IP-Adapter workflow to produce long, oil-painted, brush-stroke sequences. The same control shows up in shots where Sijia appears on screen: real footage, masked in Comfy to change the haircut and swap the background. For a look that has to stay locked, Sijia trains a LoRA and runs it through Comfy.
+
+Sijia found Comfy in early 2025 while hunting for a style-transfer tool that Midjourney and DALL-E could not deliver, testing it on a stylized animated-film-look conversion.
+
+> "It totally broke my mind. Most of the time, I think I'll just stand on other people's shoulders. The workflows are already pretty amazing, and I'll base on the workflows and add something that I want." 
+
+Since _Ori & Kiddo_, Sijia has taken the same Comfy-anchored workflow into professional commercial video work, on deadlines as tight as four days.
+
+####  Ion Yunyang Li — L1LY 
+
+![Ion Yunyang Li, L1LY](https://media.comfy.org/website/customers/kathy-smith/l1ly.gif)
+
+**What Comfy enabled:** a repeatable multi-step pipeline that drops the filmmaker into a photorealistic world, because "a sequence of a prompt is not the only thing you need."
+
+Ion taught himself ComfyUI in early 2025, from tutorials in the generative-AI community, and built his most distinctive Comfy work in a body-and-environment project: start from 3D-model stills, convert them to a pencil-sketch style so the model would not over-study the original 3D aesthetic, generate photorealistic frames from the sketches, build character T-poses, composite himself into the scene, and animate the stills with a video model.
+
+> "A sequence of a prompt is not the only thing you need. You need many different settings, and it is very hard to redo those settings every time." 
+
+What he values as much as the pipeline is where it can run: the same Comfy setup moves across a workstation in his school cubicle, a remote session from his apartment laptop, and fully cloud-based instances, depending on where he is.
+
+####  Sihan Wu — Scary Coaster 
+
+![Sihan Wu, Scary Coaster](https://media.comfy.org/website/customers/kathy-smith/scary-coaster.gif)
+
+**What Comfy enabled:** roughly 100 hand-drawn keyframes carried through a single workflow so a two-to-three-minute film stays visually consistent, on his first-ever AI project.
+
+_Scary Coaster_ (December 2024) was Sihan's first project ever made with AI. Coming from a digital-media and game-development undergrad, Sihan joined Professor Smith's Expanded Animation class and wanted something more controllable than the prompt-only tools on offer. The workflow he built: draw roughly 100 rough keyframes by hand, run them through Comfy to find a stylized Chinese-horror look, pick the favorite, then generate the in-betweens to produce the full sequence.
+
+> "I want to have a more controllable flow. I don't want to just use prompts and generate random images. I just use one workflow to create the whole two or three minutes, and I can make everything look very consistent." 
+
+Sihan is honest that the on-ramp was steep: learning from the official ComfyUI GitHub workflows, combining them, and debugging Python environments along the way. His ask was specific: an official, beginner-to-advanced tutorial series. And his view on where AI should head next was equally specific: aim it at "the very time-consuming but not that creative process, like creating in-betweens," and leave the creative decisions to the artist.
+
+##  At a glance 
+
+Program 
+    Expanded Animation: Research + Practice (XA), USC School of Cinematic Arts
+
+Founded 
+    2022, AI embedded in the MFA curriculum from day one
+
+Setup 
+    Students' own GPU laptops + Comfy Cloud + lab research machine
+
+Core techniques 
+    IP-Adapter style transfer, custom LoRAs, masked compositing, keyframe-to-in-between pipelines
+
+Outcomes 
+    Amazing student works from Sihan, and Ion, Sijia
+
+###  What excites you about where this is going? 
+
+I have a philosophy that everyone is an artist. They just forget that they are an artist. Creativity drives everything, and the tools we are getting now make it possible for more people to find that capacity in themselves. ComfyUI, because it is node-based and visual and open, gives non-programmers a way forward that is honest about how the model works. It does not pretend the AI is doing something magical. It shows the artist what is happening at each step.
+
+The two basic rights of human life are health and education. The work Comfy is doing on the education side is touching something integral. The students who came through XA are already extending the work in directions the program did not anticipate, and the next generation of educators and students will keep doing the same.
+
+> "Everyone is an artist. They just forget that they are an artist." 
+
+![Kathy Smith](https://media.comfy.org/website/customers/kathy-smith/kathy-smith.jpg)
+
+Kathy Smith 
+
+Kathy Smith is Professor of Cinematic Arts at USC's School of Cinematic Arts and inaugural director (2022-2023) of Expanded Animation: Research + Practice (XA), the experimental MFA program she helped found in 2022 to integrate AI into animation pedagogy from the first day of the degree. To date she is the longest-serving chair of combined USC animation programs and has been exploring concepts of AI in her creative practice since 1998. 
+
+## What's next?
+
+[![Comfy and UAL's Creative Computing Institute Announce Creative Campus Partnership](https://media.comfy.org/website/customers/ual-cci/cover.png)](https://www.comfy.org/customers/ual-cci/)
+
+### Comfy and UAL's Creative Computing Institute Announce Creative Campus Partnership
+
+[›VIEW ARTICLE](https://www.comfy.org/customers/ual-cci/)

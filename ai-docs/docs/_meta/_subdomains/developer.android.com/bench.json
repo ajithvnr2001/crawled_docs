@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/bench/",
+  "file": "_subdomains/developer.android.com/bench.md",
+  "title": "Android Bench | Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:21:26.074943+00:00",
+  "html_len": 546639,
+  "md_len": 59279,
+  "depth": 2
+}

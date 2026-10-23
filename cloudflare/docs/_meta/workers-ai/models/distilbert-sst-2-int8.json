@@ -1,0 +1,7 @@
+{
+  "url": "https://developers.cloudflare.com/workers-ai/models/distilbert-sst-2-int8/",
+  "file": "workers-ai/models/distilbert-sst-2-int8.md",
+  "title": "distilbert-sst-2-int8 (HuggingFace) \u00b7 Cloudflare AI docs \u00b7 Cloudflare Workers AI docs",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-19T07:09:50.701006+00:00"
+}

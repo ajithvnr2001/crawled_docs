@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/googlebook/",
+  "file": "_subdomains/developer.android.com/googlebook.md",
+  "title": "Googlebook \u00a0|\u00a0 Multidevice \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:21:04.830444+00:00",
+  "html_len": 236847,
+  "md_len": 6583,
+  "depth": 2
+}

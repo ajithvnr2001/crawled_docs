@@ -1,0 +1,19 @@
+{
+  "phase": "update",
+  "visited": 614139,
+  "failed": 259,
+  "shards_done": 70,
+  "updated": "2026-10-23T13:20:55.820466+00:00",
+  "done": true,
+  "last_update": {
+    "date": "2026-10-23",
+    "at": "2026-10-23T13:20:55.820361+00:00",
+    "new": 0,
+    "refreshed": 4000,
+    "fetched_ok": 4000,
+    "fetched_fail": 0,
+    "stale_total": 5677,
+    "stale_backlog": 1677,
+    "visited_total": 614139
+  }
+}

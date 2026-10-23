@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/build/cxx-ninja/",
+  "file": "_subdomains/developer.android.com/build/cxx-ninja.md",
+  "title": "Integrate custom C/C++ build systems using Ninja (experimental) \u00a0|\u00a0 Android Studio \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:45:28.793254+00:00",
+  "html_len": 242233,
+  "md_len": 11659,
+  "depth": 3
+}

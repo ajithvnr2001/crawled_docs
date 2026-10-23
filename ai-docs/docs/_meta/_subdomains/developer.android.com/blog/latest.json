@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/blog/latest/",
+  "file": "_subdomains/developer.android.com/blog/latest.md",
+  "title": "Latest \u00a0|\u00a0 Android Developers' Blog",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:21:34.801488+00:00",
+  "html_len": 397200,
+  "md_len": 30811,
+  "depth": 2
+}

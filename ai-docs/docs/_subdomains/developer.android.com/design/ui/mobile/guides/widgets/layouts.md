@@ -1,0 +1,361 @@
+---
+url: https://developer.android.com/design/ui/mobile/guides/widgets/layouts/
+title: Canonical widget layouts \u00a0|\u00a0 Mobile \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:40:00.358292+00:00
+---
+
+# Canonical widget layouts  |  Mobile  |  Android Developers
+
+> Source: https://developer.android.com/design/ui/mobile/guides/widgets/layouts/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Design & Plan ](https://developer.android.com/design)
+  * [ UI Design ](https://developer.android.com/design/ui)
+  * [ Mobile ](https://developer.android.com/design/ui/mobile)
+  * [ Guides ](https://developer.android.com/design/ui/mobile/guides/foundations/accessibility)
+
+
+
+#  Canonical widget layouts Stay organized with collections  Save and categorize content based on your preferences. 
+
+Craft effective widget layouts by first identifying your core content. Your layout dictates how information and interactive elements are organized within your widget. Android offers several prebuilt layouts for toolbars, text, list and grid-type widgets to streamline this process.
+
+**Note:** View detailed layout specs in our [Figma Widget Canonical Builder](https://goo.gle/widget-canonical), and find the code samples using Jetpack Glance in the [Android Platform Samples GitHub repository](https://github.com/android/platform-samples/tree/main/samples/user-interface/appwidgets).
+
+##  Android skills 
+
+[View on GitHub open_in_new ](https://github.com/android/skills/tree/main/system/glance-canonical-layouts)
+
+###  Glance canonical widget layouts 
+
+Use the Glance canonical widget layouts [Android skill](https://developer.android.com/tools/agents/android-skills) to create home screen widgets using Jetpack Glance canonical layouts.
+
+To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+    
+    
+    android skills add glance-canonical-layouts
+
+## Text
+
+Text layouts are ideal for displaying concise information. Enhance the visual appeal of your widget by optionally including an image alongside the text.
+
+**Text only**
+
+Ideal for titles, status updates, short descriptions, or any scenario where a single line of text effectively conveys the message. 
+
+![](https://developer.android.com/static/images/design/ui/mobile/widgets/01_Text_only.jpg)
+
+**Text and image**
+
+Include an image for added visual impact. For more information, see [Breakpoints](https://developer.android.com/design/ui/mobile/guides/widgets/sizing#breakpoints) to learn how to adapt this layout for different screen sizes. 
+
+![](https://developer.android.com/static/images/design/ui/mobile/widgets/02_Text_and_Image.jpg)
+
+## Toolbars
+
+Use toolbar layouts to provide users with quick access to frequently used tasks in your app, in a flexible layout that adapts across widget sizes.
+
+**Search Toolbar**
+
+A search toolbar layout is intentionally designed to draw focus to search as a primary action in the toolbar. Additional handy buttons can provide quick access to frequently used functions. 
+
+![](https://developer.android.com/static/images/design/ui/mobile/widgets/01_Search_Toolbar.jpg)
+
+**Toolbar**
+
+Toolbars present app branding followed by buttons for the most used tasks that are ideal for toggleable settings or task links. When resizing, less commonly used options can be hidden in favor of more common actions. Use [Breakpoints](https://developer.android.com/design/ui/mobile/guides/widgets/sizing#breakpoints) to add a new minimum 48dp tappable button when there's room. 
+
+![](https://developer.android.com/static/images/design/ui/mobile/widgets/02_Toolbar.jpg)
+
+## Lists
+
+Use list layouts to organize multiple items in a clear, scannable format. This is ideal for news headlines, to-do lists or messages. Organize content into a structured, scannable list. Choose between containerized or containerless presentation based on your content needs.
+
+**Note:** Lists on Android Auto widgets don't scroll to prevent driver distraction.
+
+**Text and image list**
+
+Scannable text and image lists are perfect for showcasing multiple content types, such as news headlines, playlists with album art, or messages. 
+
+![](https://developer.android.com/static/images/design/ui/mobile/widgets/01_Text_Image.jpg)
+
+**Checklist**
+
+The checklist layout is perfect for displaying tasks, providing clear tap targets for users to quickly mark items as done. 
+
+![](https://developer.android.com/static/images/design/ui/mobile/widgets/02_Checklist.jpg)
+
+**Action list**
+
+Provide intuitive control grouping with action lists, where visual on/off states offer immediate feedback on item statuses. 
+
+![](https://developer.android.com/static/images/design/ui/mobile/widgets/03_Action_List.jpg)
+
+**Full bleed image**
+
+Ideal for showcasing immersive, full-bleed images on Android 17 and higher, this layout uses snap scrolling to ensure each child element perfectly aligns with the height of the widget container. 
+
+![](https://developer.android.com/static/images/design/ui/mobile/widgets/04_Full_Bleed.png)
+
+## Grid
+
+Present images in a compact, flexible, visually rich grid with optional labels. Use columns and rows that adapt to different screen sizes.
+
+**Image only**
+
+Create visually impactful, scrollable image galleries using image-only grids. Rows and columns automatically adapt to various screen sizes for optimal presentation. 
+
+![](https://developer.android.com/static/images/design/ui/mobile/widgets/01_Image_Only.jpg)
+
+**Image and text**
+
+You can also incorporate text labels and descriptions, enriching your image grid content with additional context and information. 
+
+![](https://developer.android.com/static/images/design/ui/mobile/widgets/02_Image_and_Text.jpg)
+
+## Code samples
+
+The following table maps each canonical layout to its corresponding Jetpack Glance implementation in the [Android Platform Samples GitHub repository](https://github.com/android/platform-samples/tree/main/samples/user-interface/appwidgets).
+
+Canonical layout | Reference files | Guidance  
+---|---|---  
+**Action List Layout** | 
+
+  * [ActionListAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/ActionListAppWidget.kt)
+  * [ActionListLayout.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/ActionListLayout.kt)
+  * [ListItem.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/ListItem.kt)
+  * [RoundedScrollingLazyColumn.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/RoundedScrollingLazyColumn.kt)
+  * [RoundedScrollingLazyVerticalGrid.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/RoundedScrollingLazyVerticalGrid.kt)
+  * [EmptyListContent.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/EmptyListContent.kt)
+  * [NoDataContent.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/NoDataContent.kt)
+  * [FakeActionListDataRepository.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/data/FakeActionListDataRepository.kt)
+  * [sample_action_list_widget_info.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/xml/sample_action_list_widget_info.xml)
+  * [dimens.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/dimens.xml)
+  * [strings.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/strings.xml)
+  * [sample_home_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_home_icon.xml)
+  * [sample_power_settings_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_power_settings_icon.xml)
+  * [sample_bulb_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_bulb_icon.xml)
+  * [sample_thermostat_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_thermostat_icon.xml)
+  * [sample_ac_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_ac_icon.xml)
+  * [sample_door_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_door_icon.xml)
+  * [sample_arrow_right_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_arrow_right_icon.xml)
+  * [sample_no_data_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_no_data_icon.xml)
+  * [sample_add_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_add_icon.xml)
+
+| 
+
+  * Handle list item actions with Glance action callbacks and ensure proper state updates.
+
+  
+**Check List Layout** | 
+
+  * [CheckListAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/CheckListAppWidget.kt)
+  * [CheckListLayout.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/CheckListLayout.kt)
+  * [ListItem.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/ListItem.kt)
+  * [RoundedScrollingLazyColumn.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/RoundedScrollingLazyColumn.kt)
+  * [EmptyListContent.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/EmptyListContent.kt)
+  * [NoDataContent.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/NoDataContent.kt)
+  * [FakeCheckListDataRepository.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/data/FakeCheckListDataRepository.kt)
+  * [sample_check_list_widget_info.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/xml/sample_check_list_widget_info.xml)
+  * [dimens.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/dimens.xml)
+  * [strings.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/strings.xml)
+  * [sample_pin_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_pin_icon.xml)
+  * [sample_checked_circle_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_checked_circle_icon.xml)
+  * [sample_circle_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_circle_icon.xml)
+  * [sample_delete_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_delete_icon.xml)
+  * [sample_edit_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_edit_icon.xml)
+  * [sample_snooze_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_snooze_icon.xml)
+  * [sample_no_data_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_no_data_icon.xml)
+  * [sample_add_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_add_icon.xml)
+
+| 
+
+  * Implement checkbox state toggling using action parameters or callbacks to update collection items.
+  * Use Glance action callbacks, such as `actionRunCallback`, `ActionCallback(actionParametersOf(...))`, or `actionStartActivity(...)`, for widget `onClick` parameters to handle click events like tapping a checkbox.
+
+  
+**Expressive Toolbar Layout** | 
+
+  * [ExpressiveToolbarAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/ExpressiveToolbarAppWidget.kt)
+  * [ExpressiveToolbarLayout.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/layout/ExpressiveToolbarLayout.kt)
+  * [sample_expressive_toolbar_widget_info.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/xml/sample_expressive_toolbar_widget_info.xml)
+  * [Buttons.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/layout/Buttons.kt)
+  * [LayoutComponents.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/layout/LayoutComponents.kt)
+  * [dimens.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/dimens.xml)
+  * [strings.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/strings.xml)
+  * [four_side_cookie_background.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/four_side_cookie_background.xml)
+  * [sample_edit_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_edit_icon.xml)
+  * [sample_share_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_share_icon.xml)
+  * [sample_delete_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_delete_icon.xml)
+  * [sample_info_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_info_icon.xml)
+  * [sample_add_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_add_icon.xml)
+  * [sample_file_upload_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_file_upload_icon.xml)
+  * [sample_mic_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_mic_icon.xml)
+  * [sample_camera_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_camera_icon.xml)
+
+| 
+
+  * Avoid `ColorProvider` import errors: import `androidx.glance.unit.ColorProvider` and use `androidx.glance.color.ColorProvider(dayColor, nightColor)`.
+  * Use `GlanceModifier.background(Color)` directly for solid background colors rather than `ColorProvider`.
+
+  
+**Image Grid Layout** | 
+
+  * [ImageGridAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/ImageGridAppWidget.kt)
+  * [ImageGridLayout.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/ImageGridLayout.kt)
+  * [RoundedScrollingLazyVerticalGrid.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/RoundedScrollingLazyVerticalGrid.kt)
+  * [EmptyListContent.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/EmptyListContent.kt)
+  * [NoDataContent.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/NoDataContent.kt)
+  * [FakeImageGridDataRepository.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/data/FakeImageGridDataRepository.kt)
+  * [sample_image_grid_widget_info.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/xml/sample_image_grid_widget_info.xml)
+  * [ImageUtils.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/utils/ImageUtils.kt)
+  * [dimens.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/dimens.xml)
+  * [strings.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/strings.xml)
+  * [sample_placeholder_image.png](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_placeholder_image.png)
+  * [sample_grid_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_grid_icon.xml)
+  * [sample_refresh_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_refresh_icon.xml)
+  * [sample_no_data_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_no_data_icon.xml)
+  * [sample_add_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_add_icon.xml)
+
+| 
+
+  * Use solid colors (`GlanceModifier.background`) or local drawables for image items unless an image loading library is configured or requested.
+
+  
+**Image Text List Layout** | 
+
+  * [ImageTextListAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/ImageTextListAppWidget.kt)
+  * [ImageTextListLayout.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/ImageTextListLayout.kt)
+  * [ListItem.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/ListItem.kt)
+  * [RoundedScrollingLazyColumn.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/RoundedScrollingLazyColumn.kt)
+  * [EmptyListContent.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/EmptyListContent.kt)
+  * [NoDataContent.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/layout/NoDataContent.kt)
+  * [FakeImageTextListDataRepository.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/data/FakeImageTextListDataRepository.kt)
+  * [sample_image_text_list_widget_info.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/xml/sample_image_text_list_widget_info.xml)
+  * [ImageUtils.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/utils/ImageUtils.kt)
+  * [dimens.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/dimens.xml)
+  * [strings.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/strings.xml)
+  * [sample_placeholder_image.png](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_placeholder_image.png)
+  * [sample_image_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_image_icon.xml)
+  * [sample_heart_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_heart_icon.xml)
+  * [sample_refresh_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_refresh_icon.xml)
+  * [sample_no_data_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_no_data_icon.xml)
+  * [sample_add_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_add_icon.xml)
+
+| 
+
+  * Common use cases: news feeds, article lists, workout histories, message feeds, and vertical thumbnail lists.
+  * Balance list row height and text clipping when combining thumbnail images with primary/secondary text.
+
+  
+**Long Text Layout** | 
+
+  * [LongTextAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/text/LongTextAppWidget.kt)
+  * [LongTextLayout.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/text/layout/LongTextLayout.kt)
+  * [FakeLongTextRepository.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/text/data/FakeLongTextRespository.kt)
+  * [sample_long_text_widget_info.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/xml/sample_long_text_widget_info.xml)
+  * [FontUtils.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/utils/FontUtils.kt)
+  * [dimens.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/dimens.xml)
+  * [strings.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/strings.xml)
+  * [sample_text_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_text_icon.xml)
+  * [sample_refresh_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_refresh_icon.xml)
+
+| 
+
+  * If you multiply `Dp` values, such as `2 * padding`, import `androidx.compose.ui.unit.times`.
+  * Follow sizing rules: ensure dimensions from `dimens.xml` are used for padding and typography scaling.
+
+  
+**Search Toolbar Layout** | 
+
+  * [SearchToolBarAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/SearchToolBarAppWidget.kt)
+  * [SearchToolBarLayout.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/layout/SearchToolBarLayout.kt)
+  * [sample_search_toolbar_widget_info.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/xml/sample_search_toolbar_widget_info.xml)
+  * [Buttons.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/layout/Buttons.kt)
+  * [LayoutComponents.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/layout/LayoutComponents.kt)
+  * [dimens.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/dimens.xml)
+  * [strings.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/strings.xml)
+  * [sample_search_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_search_icon.xml)
+  * [sample_mic_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_mic_icon.xml)
+  * [sample_camera_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_camera_icon.xml)
+  * [sample_videocam_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_videocam_icon.xml)
+  * [sample_share_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_share_icon.xml)
+
+| 
+
+  * Avoid `ColorProvider` import errors: import `androidx.glance.unit.ColorProvider` and use `androidx.glance.color.ColorProvider(dayColor, nightColor)`.
+  * Use `GlanceModifier.background(Color)` directly for solid background colors rather than ColorProvider.
+
+  
+**Full-Bleed Image Layout / Snap Scrolling** | 
+
+  * [FullBleedImageAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/text/FullBleedImageAppWidget.kt)
+  * [FullBleedImageLayout.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/text/layout/FullBleedImageLayout.kt)
+  * [sample_full_bleed_image_widget_info.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/xml/sample_full_bleed_image_widget_info.xml)
+  * [FontUtils.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/utils/FontUtils.kt)
+  * [dimens.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/dimens.xml)
+  * [strings.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/strings.xml)
+  * [sample_scrim_gradient.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_scrim_gradient.xml)
+  * [sample_placeholder_image.png](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_placeholder_image.png)
+  * [sample_app_logo.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_app_logo.xml)
+  * [sample_info_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_info_icon.xml)
+  * [sample_no_data_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_no_data_icon.xml)
+
+| 
+
+  * Set `verticalScrollMode = VerticalScrollMode.SnapScrollMatchHeight(size.height)` on LazyColumn for Snap Scrolling.
+  * If you implement snap scrolling, Glance 1.3.0-alpha02 or higher, compile SDK 37 (Baklava) or higher, and Android Gradle Plugin (AGP) 9.1.0 or higher are required.
+  * Set `override val sizeMode: SizeMode = SizeMode.Exact` in the widget provider class.
+
+  
+**Standard Toolbar Layout** | 
+
+  * [ToolBarAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/ToolBarAppWidget.kt)
+  * [ToolBarLayout.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/layout/ToolBarLayout.kt)
+  * [sample_toolbar_widget_info.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/xml/sample_toolbar_widget_info.xml)
+  * [Buttons.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/layout/Buttons.kt)
+  * [LayoutComponents.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/layout/LayoutComponents.kt)
+  * [dimens.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/dimens.xml)
+  * [strings.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/strings.xml)
+  * [sample_app_logo.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_app_logo.xml)
+  * [sample_search_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_search_icon.xml)
+  * [sample_add_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_add_icon.xml)
+  * [sample_edit_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_edit_icon.xml)
+  * [sample_share_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_share_icon.xml)
+  * [sample_mic_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_mic_icon.xml)
+  * [sample_camera_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_camera_icon.xml)
+  * [sample_videocam_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_videocam_icon.xml)
+
+| 
+
+  * See Troubleshooting to avoid `ColorProvider` import errors: use `androidx.glance.color.ColorProvider(dayColor, nightColor)`.
+  * Use `GlanceModifier.background(Color)` directly for solid background colors rather than `ColorProvider`.
+
+  
+**Text with Image Layout** | 
+
+  * [TextWithImageAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/text/TextWithImageAppWidget.kt)
+  * [TextWithImageLayout.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/text/layout/TextWithImageLayout.kt)
+  * [FakeTextWithImageRepository.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/text/data/FakeTextWithImageRepository.kt)
+  * [sample_text_with_image_widget_info.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/xml/sample_text_with_image_widget_info.xml)
+  * [FontUtils.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/utils/FontUtils.kt)
+  * [dimens.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/dimens.xml)
+  * [strings.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/values/strings.xml)
+  * [sample_text_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_text_icon.xml)
+  * [sample_refresh_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_refresh_icon.xml)
+  * [sample_placeholder_image.png](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_placeholder_image.png)
+  * [sample_info_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_info_icon.xml)
+  * [sample_no_data_icon.xml](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/res/drawable/sample_no_data_icon.xml)
+
+| 
+
+  * Follow responsive layout sizing rules to accommodate text and image side-by-side or stacked based on available widget dimensions.
+
+  
+  
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-10-15 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-15 UTC."],[],[]] 

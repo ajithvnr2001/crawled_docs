@@ -1,0 +1,43 @@
+{
+  "base": "https://docs.comfy.org",
+  "total_seeds": 1807,
+  "sitemap_count": 1806,
+  "llms_files": [
+    "https://docs.comfy.org/llms.txt",
+    "https://docs.comfy.org/llms-full.txt"
+  ],
+  "visited": 2175,
+  "failed": 7,
+  "stats": {
+    "ok": 2172,
+    "fail": 7,
+    "skipped_existing": 0,
+    "by_method": {
+      "scrapling+scrapegraph": 2106,
+      "httpx-raw-text": 1,
+      "httpx+scrapegraph": 5,
+      "crawl4ai+scrapegraph": 28
+    },
+    "by_host": {
+      "docs.comfy.org": 1916,
+      "www.comfy.org": 67,
+      "blog.comfy.org": 32,
+      "links.comfy.org": 94,
+      "cloud.comfy.org": 2,
+      "registry.comfy.org": 3,
+      "platform.comfy.org": 6,
+      "support.comfy.org": 18,
+      "ci.comfy.org": 1,
+      "forum.comfy.org": 1
+    }
+  },
+  "elapsed_sec": 416.6,
+  "out_root": "/data/opencode/comfy/docs",
+  "tools": [
+    "scrapling (Fetcher)",
+    "crawl4ai (AsyncWebCrawler fallback)",
+    "scrapegraph-ai (cleanup_html/convert_to_md)"
+  ],
+  "generated_at": "2026-10-20T12:40:22.270013+00:00",
+  "last_verified": "2026-10-20"
+}

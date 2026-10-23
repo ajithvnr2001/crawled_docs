@@ -1,0 +1,10 @@
+{
+  "url": "https://docs.comfy.org/custom-nodes/backend/tensors/",
+  "file": "custom-nodes/backend/tensors.md",
+  "title": "Working with torch.Tensor - ComfyUI",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-17T10:49:37.133459+00:00",
+  "html_len": 438071,
+  "md_len": 7427,
+  "depth": 0
+}

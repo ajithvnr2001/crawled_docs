@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/topic/libraries/architecture/coroutines/",
+  "file": "_subdomains/developer.android.com/topic/libraries/architecture/coroutines.md",
+  "title": "Use Kotlin coroutines with lifecycle-aware components \u00a0|\u00a0 App architecture \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:40:08.234979+00:00",
+  "html_len": 279113,
+  "md_len": 10913,
+  "depth": 3
+}

@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/courses/jetpack-compose/course/",
+  "file": "_subdomains/developer.android.com/courses/jetpack-compose/course.md",
+  "title": "Jetpack Compose for Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:34:38.042990+00:00",
+  "html_len": 219863,
+  "md_len": 3447,
+  "depth": 3
+}

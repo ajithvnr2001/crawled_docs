@@ -1,0 +1,10 @@
+{
+  "url": "https://aistudio.google.com/docs/tools/",
+  "file": "_subdomains/aistudio.google.com/docs/tools.md",
+  "title": "Using tools with Gemini API | Google AI Studio",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (72 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T19:34:23.774643+00:00",
+  "html_len": 440733,
+  "md_len": 16161,
+  "depth": 2
+}

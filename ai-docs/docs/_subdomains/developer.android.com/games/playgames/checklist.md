@@ -1,0 +1,114 @@
+---
+url: https://developer.android.com/games/playgames/checklist/
+title: Playability review process for Google Play Games on PC \u00a0|\u00a0 Android game development \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:42:05.900738+00:00
+---
+
+# Playability review process for Google Play Games on PC  |  Android game development  |  Android Developers
+
+> Source: https://developer.android.com/games/playgames/checklist/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Google Play ](https://developer.android.com/distribute)
+  * [ Games dev center ](https://developer.android.com/games)
+  * [ Guides ](https://developer.android.com/games/guides)
+
+
+
+Send feedback 
+
+#  Playability review process for Google Play Games on PC Stay organized with collections  Save and categorize content based on your preferences. 
+
+Your game may be badged to users as untested, playable, or optimized in Google Play Games on PC based on whether the game has been through our review process and what the outcome was.
+
+The badges describe how well a game runs on Windows PCs, ranging from _untested_ (not reviewed yet, but may work) to _playable_ (works well) to _optimized_ (designed for the best PC experience).
+
+Users find games badged as _Playable on PC_ by:
+
+  * Browsing Google Play Games on PC
+  * Text search in Google Play Games on PC
+  * Navigating to your game details page on the Play Store on mobile or web
+
+
+
+Users find and install games badged as _Untested on PC_ by:
+
+  * Text search in Google Play Games on PC
+
+
+
+## Requirements for untested games
+
+For a game to be available on Google Play Games on PC, an ARM or x86-64 build must be enabled for the "Google Play Games on PC" form factor.
+
+While your game might work well on PC, it will be badged as _untested_ in Google Play Games on PC until it goes through our playability review process. If you'd like us to test the game for playability, [contact us](https://support.google.com/googleplay/games-on-pc-developer/contact/request_updated_label).
+
+Untested games are represented to users with the following message and icon: 
+
+Message | Icon  
+---|---  
+This game is untested on Windows PCs but may still be playable. |  ![untested](https://developer.android.com/static/images/games/playgames/untested_icon.png)  
+_Icon is subject to change_  
+  
+## Requirements for playable games
+
+To be badged as playable, builds must meet these requirements:
+
+  * The game must play well: 
+    * Game is stable and does not crash
+    * Does not generate significant ANR's
+    * FPS is stable and >= 30fps
+    * Supports mouse and / or keyboard
+  * The game supports PC Compatibility by: 
+    * [Disabling unsupported Android features and permissions](https://developer.android.com/games/playgames/pc-compatibility#unsupported-android-features)
+    * [Disabling unsupported Google APIs](https://developer.android.com/games/playgames/pc-compatibility#unsupported-google-apis)
+    * [Using scoped storage for file system access](https://developer.android.com/games/playgames/pc-compatibility#scoped-storage)
+
+
+
+Games with ARM-only builds are available on machines Intel- or AMD-based CPUs. Providing an x86-64 build is strongly encouraged, but not required (See [Include x86-64 ABI architecture](https://developer.android.com/games/playgames/pc-compatibility#x86-requirement)).
+
+Playable games represented to the users with the following message and icon: 
+
+Message | Icon  
+---|---  
+This game is playable, but has not been optimized for Windows PCs. Some aspects of the experience might need improvement. |  ![playable](https://developer.android.com/static/images/games/playgames/playable_icon.png)  
+_Icon is subject to change_  
+  
+## Requirements for optimized builds
+
+The review team runs through the following requirements to ensure your game meets our quality standards for the best possible gameplay experience.
+
+  * PC Compatibility 
+    * [Support mouse and keyboard](https://developer.android.com/games/playgames/input#input-support)
+    * [Integrate the Input SDK](https://developer.android.com/games/playgames/input-sdk)
+    * [Disable unsupported Android features and permissions](https://developer.android.com/games/playgames/pc-compatibility#unsupported-android-features)
+    * [Disable unsupported Google APIs](https://developer.android.com/games/playgames/pc-compatibility#unsupported-google-apis)
+    * [Use scoped storage for file system access](https://developer.android.com/games/playgames/pc-compatibility#scoped-storage)
+  * Display and Visual Assets 
+    * [Use high resolution assets and textures on PC](https://developer.android.com/games/playgames/graphics#high-resolution-assets)
+    * [Support PC-specific aspect ratios](https://developer.android.com/games/playgames/graphics#aspect-ratios)
+    * [Scale UI elements appropriately for a larger screen](https://developer.android.com/games/playgames/graphics#ui-scaling)
+    * [Render at 60Hz](https://developer.android.com/games/playgames/graphics#increase-max-frame-rate)
+    * Audio playback is smooth and in sync
+  * Frictionless Cloud save and restore 
+    * Implement any [cloud save](https://developer.android.com/games/pgs/savedgames) solution that works across PC, Android, and iOS
+    * Support [seamless restore](https://developer.android.com/games/pgs/seamless-restore) by binding the in-game account to PGSv2
+
+
+
+Optimized games represented to the users with the following message and icon: 
+
+Message | Icon  
+---|---  
+This game was optimized by the developer to run on PCs. |  ![optimized](https://developer.android.com/static/images/games/playgames/optimized_icon.png)  
+_Icon is subject to change_  
+  
+Send feedback 
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-07-16 UTC.
+
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-07-16 UTC."],[],[]] 

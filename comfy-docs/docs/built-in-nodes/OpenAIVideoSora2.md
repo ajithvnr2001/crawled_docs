@@ -1,0 +1,98 @@
+---
+url: https://docs.comfy.org/built-in-nodes/OpenAIVideoSora2/
+title: OpenAIVideoSora2 - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:48:40.340392+00:00
+---
+
+# OpenAIVideoSora2 - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/OpenAIVideoSora2/
+
+Advanced
+
+# OpenAIVideoSora2 - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+The OpenAIVideoSora2 node generates videos with OpenAI’s Sora models.
+
+Copy pageCopy page
+
+The OpenAIVideoSora2 node generates videos with OpenAI’s Sora models. It takes a text prompt along with an optional single reference image, sends the request to OpenAI, waits for generation to finish, and returns the resulting video. Supported durations and resolutions depend on the selected model. **DEPRECATION NOTICE:** OpenAI will stop serving the Sora v2 API in September 2026. This node will be removed from ComfyUI at that time.
+
+## 
+
+​
+
+Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`model`| The OpenAI Sora model to use for video generation (default: “sora-2”)| COMBO| Yes| ”sora-2"  
+"sora-2-pro”  
+`prompt`| Guiding text; may be empty if an input image is present (default: empty string)| STRING| Yes| -  
+`size`| The resolution of the generated video (default: “1280x720”)| COMBO| Yes| ”720x1280"  
+"1280x720"  
+"1024x1792"  
+"1792x1024”  
+`duration`| The duration of the generated video in seconds (default: 8)| COMBO| Yes| 4  
+8  
+12  
+`image`| Optional input reference image used for video generation; only a single image is supported| IMAGE| No| -  
+`seed`| Seed to determine if node should re-run; actual results are nondeterministic regardless of seed (default: 0)| INT| No| 0 to 2147483647  
+  
+**Constraints and Limitations:**
+
+  * The “sora-2” model only supports the “720x1280” and “1280x720” sizes; selecting “1024x1792” or “1792x1024” with “sora-2” raises an error. The larger sizes are available only with “sora-2-pro”.
+  * When an image is connected, it must contain exactly one image; connecting more than one image raises an error.
+  * Results are nondeterministic regardless of the seed value.
+  * The displayed price estimate depends on the selected `model`, `size`, and `duration`.
+
+
+
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`output`| The generated video from OpenAI Sora| VIDEO  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/OpenAIVideoSora2/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `d19eb6b65d7f712278828e4b1f7105068cc5e7cb72813b7549ab24520e7719fc`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/OpenAIVideoSora2.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/OpenAIVideoSora2)
+
+[OpenAIDalle3 - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/OpenAIDalle3)[SeedVR2ProgressiveSampler - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/SeedVR2ProgressiveSampler)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

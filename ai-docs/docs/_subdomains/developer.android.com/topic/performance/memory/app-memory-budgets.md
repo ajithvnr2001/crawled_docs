@@ -1,0 +1,666 @@
+---
+url: https://developer.android.com/topic/performance/memory/app-memory-budgets/
+title: Set app memory budgets \u00a0|\u00a0 App quality \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:42:34.609065+00:00
+---
+
+# Set app memory budgets  |  App quality  |  Android Developers
+
+> Source: https://developer.android.com/topic/performance/memory/app-memory-budgets/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Design & Plan ](https://developer.android.com/design)
+  * [ App quality ](https://developer.android.com/quality)
+  * [ Technical quality ](https://developer.android.com/quality/technical)
+
+
+
+#  Set app memory budgets Stay organized with collections  Save and categorize content based on your preferences. 
+
+App memory budgets let apps declare a memory budget for themselves, which tells the system to trim their memory use when the app uses more than its set budget. This is especially useful for system and bundled apps or for apps targeting memory-constrained devices, where the developer knows their expected memory working set (the memory the app actively needs for what the user is currently doing) and wants to ensure their app doesn't use too much of the system's shared RAM resources.
+
+The budget is kept balanced by using [memory eviction and swap](https://developer.android.com/topic/performance/memory/guide/reclaim) to remove memory pages that weren't recently used, focusing the app's memory footprint on its current working set. When an app exceeds its declared budget, the operating system targets reclaim specifically at that app:
+
+  1. **Clean file-backed pages** (such as inactive code and mapped assets) are evicted first because they can be re-read from storage if needed.
+  2. **Dirty file-backed pages** are written back to storage and evicted.
+  3. **Anonymous memory pages** (such as heap allocations) are compressed and swapped to zRAM.
+
+
+
+As long as the working set doesn't exceed the budget, the app will work well while using no more memory than is in its set budget. The operating system evicts unused memory and compresses inactive heap pages to swap so that memory allocations remain bounded without terminating the process.
+
+**Note:** App memory budgets and `<memory-budget>` declarations are supported starting in **Android 17 QPR2 (minor SDK release, API level 37.2)**. You'll want to test this feature using the [Android 17 QPR2 Beta](https://developer.android.com/about/versions/17/qpr2) system images or the Android Emulator in Android Studio.**Note:** Apply `<memory-budget>` declarations only to release (optimized) builds. Unoptimized debug builds carry additional code instrumentation, logging, and debugger allocations that use significantly more memory, which can lead to frequent swap churn and test failures.
+
+## What happens when an app exceeds its budget
+
+Exceeding a memory budget doesn't cause the system to terminate or crash your app. Instead, when an app uses more memory than its budget allows, the OS finds memory that the app hasn't used in some time and safely puts it away until it's needed again. This makes way for new app memory allocations and keeps the overall app's memory use within budget.
+
+As long as there is headroom between what the app needs at any given time (its working set) and the set budget, the app continues to run normally. If an app sets a budget that is smaller than its working set, the app's performance at runtime can slow down as a result.
+
+To learn how the OS tracks and reclaims memory, see the [memory architecture guide](https://developer.android.com/topic/performance/memory/guide):
+
+  * [Memory reclaim and swap](https://developer.android.com/topic/performance/memory/guide/reclaim): Explains how the OS charges private anonymous heap and file-backed pages to your app and reclaims cold pages when over budget.
+  * [Fundamental concepts](https://developer.android.com/topic/performance/memory/guide/concepts): Explains why shared [Zygote memory](https://developer.android.com/topic/performance/memory/guide/concepts#zygote-process-model) is excluded from your app's budget and how resident budgets relate to [anonymous RSS + swap](https://developer.android.com/topic/performance/memory/guide/concepts#rss-pss-uss) in field telemetry.
+  * [Bitmaps and memory](https://developer.android.com/topic/performance/memory/guide/bitmaps): Explains how GPU-backed [hardware bitmaps](https://developer.android.com/topic/performance/memory/guide/bitmaps#hardware-bitmaps) and [DMA-BUF allocations](https://developer.android.com/topic/performance/memory/guide/bitmaps#system-app-challenges) are accounted outside your app's heap and memory budget.
+
+**Note:** App memory budgets are distinct from the platform's system-wide [app memory limits](https://developer.android.com/about/versions/17/behavior-changes-all#app-memory-limits) ([Memory Limiter](https://source.android.com/docs/core/perf/memory-limiter#standard-platform-limits)), which enforce much higher device-RAM ceilings (such as 2 GB in the foreground and 1 GB in the background on 4 GB devices) to terminate processes with runaway memory leaks.
+
+## Declare budgets in the Android manifest
+
+Declaring your memory budgets in your `AndroidManifest.xml` is the primary and recommended method for defining budgets. It requires no runtime code, takes effect immediately upon process startup, and provides a clear contract for the operating system.
+
+`<memory-budget>` declarations take effect on devices running Android 17 QPR2 (API level 37.2) and higher. On lower Android versions, the platform manifest parser safely ignores unrecognized XML elements, so you can adopt `<memory-budget>` without affecting backward compatibility.
+
+### Declare a baseline budget
+
+For most apps, defining a single budget for the application is all that is needed. Declare a `<memory-budget>` element directly inside the `<application>` tag:
+    
+    
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.example.simpleapp">
+    
+        <application
+            android:label="@string/app_name">
+    
+            <!-- Baseline budget for the application -->
+            <memory-budget android:maxMb="256" />
+    
+        </application>
+    </manifest>
+    
+
+This sets a 256MB resident memory budget across all processes and states for the package. When the app's memory footprint exceeds 256MB, the operating system trims inactive memory pages using eviction and swap.
+
+**Note:** A manifest budget can't exceed system memory limits. If a declared budget exceeds the device's system limit, the system limit is applied instead.
+
+### Vary budgets by process state
+
+An app requires different amounts of memory depending on its user visibility:
+
+  * **Foreground** : The process is hosting a visible Activity interacting with the user. This state typically has the largest footprint due to active UI and graphics.
+  * **Perceptible** : The process is perceptible to the user but doesn't host a visible window (for example, hosting a media playback foreground service, an active background download, turn-by-turn navigation, or an active input method).
+  * **Background** : The process is running background jobs, receivers, or data syncs. It is expected to maintain a minimal footprint.
+
+
+
+You can declare multiple `<memory-budget>` clauses to match these states:
+    
+    
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.example.simpleapp">
+    
+        <application
+            android:label="@string/app_name">
+    
+            <!-- Default budget for visible foreground UI -->
+            <memory-budget android:maxMb="200" />
+    
+            <!-- Tighter budget when playing audio in background -->
+            <memory-budget
+                android:maxMb="120"
+                android:state="perceptible" />
+    
+            <!-- Minimal budget when fully in background -->
+            <memory-budget
+                android:maxMb="48"
+                android:state="background" />
+    
+        </application>
+    </manifest>
+    
+
+A base clause without `android:state` isn't required; if you only specify state-specific clauses (for example, `android:state="background"`), other states remain unconstrained by an app budget. When included, a clause without `android:state` acts as the default fallback for unspecified states (such as foreground), which subsequent more restrictive clauses override when the app transitions into `perceptible` or `background` states.
+
+When sizing budgets for each state, target the active working set of that state rather than the peak resident memory (RSS high-water mark):
+
+  * **Size`foreground` budgets for smooth frame rendering**: Give foreground UI enough headroom for its active working set so synchronous reclaim doesn't delay frame rendering. If your app includes a memory-intensive standalone workflow (such as a high-resolution image or video editor), consider moving that activity into a [dedicated process](https://developer.android.com/guide/components/processes-and-threads#Processes) (see Multi-process apps) so its allocations are budgeted independently and torn down when the user exits.
+  * **Size`background` budgets tightly for headless work**: High background RSS in field telemetry often reflects UI allocations retained after leaving the foreground (see [Co-locating a bound service with a memory-intensive UI](https://developer.android.com/topic/performance/memory/guide/service-bindings#colocated-service-ui) and [Release memory in response to events](https://developer.android.com/topic/performance/memory/manage-app-memory#release)) or one-time file reads during background indexing and syncs. Because headless background work has no frame deadlines, evicting one-time file cache pages and swapping inactive heap pages to zRAM when a background sync briefly allocates beyond its budget causes no user-visible jank while preventing background spikes from evicting the user's foreground app.
+
+
+
+#### How budget states map to process states
+
+The platform maps manifest budget states to runtime process states based on [`RunningAppProcessInfo.importance`](https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo), which Activity Manager computes from both the process's own active components and any incoming [service bindings](https://developer.android.com/topic/performance/memory/guide/service-bindings#impact-service-bindings) or content provider queries from other apps:
+
+  * **`foreground`** : Active, visible user interactions, such as hosting a resumed Activity, maintaining the top app state when the screen turns off, or hosting a service or content provider actively bound or queried by the top foreground app.
+  * **`perceptible`** : Workloads that are perceptible to the user without a visible window, such as active media playback, turn-by-turn navigation, camera or microphone capture, active background downloads, data sync foreground services, or services bound by a foreground client using flags such as [`BIND_NOT_FOREGROUND`](https://developer.android.com/reference/android/content/Context#BIND_NOT_FOREGROUND) (see [Controlling inheritance with BIND flags](https://developer.android.com/topic/performance/memory/guide/service-bindings#controlling-inheritance-bind-flags)). While internal platform metrics might label some of these workloads `PROCESS_STATE_IMPORTANT_FOREGROUND`, that internal constant doesn't signify a visible window and is governed by the `perceptible` budget.
+  * **`background`** : Work that isn't immediately perceptible to the user, such as background jobs, alarms, broadcast receivers, or the previous Activity after the user navigates away.
+
+
+
+The following table shows how runtime importance levels map to manifest states:
+
+Manifest `android:state` | Runtime importance (`RunningAppProcessInfo`) | Typical components  
+---|---|---  
+`foreground` | `IMPORTANCE_FOREGROUND`  
+`IMPORTANCE_TOP_SLEEPING` | Resumed visible Activity, top app with screen locked, service or content provider bound by the top app  
+`perceptible` | `IMPORTANCE_FOREGROUND_SERVICE`  
+`IMPORTANCE_VISIBLE` | Active media playback, navigation, downloads, or sync foreground services; service bound with foreground-service or visible flags  
+`background` | `IMPORTANCE_PERCEPTIBLE`  
+`IMPORTANCE_CANT_SAVE_STATE`  
+`IMPORTANCE_SERVICE` | Background jobs, receivers, background sync, previous Activity or home app in background  
+  
+For details on how client bindings elevate a service or provider host process and how the process transitions back to `background` or `cached` after the client unbinds or moves off-screen, see [Service bindings and process states](https://developer.android.com/topic/performance/memory/guide/service-bindings).
+
+When a process enters a cached state (`IMPORTANCE_CACHED`) with no active components, the platform releases its active memory budget and manages its memory through standard cached-process reclamation.
+
+#### Inspect your app's process state and budget
+
+One way to inspect your app's active process state and importance during development is by querying Activity Manager using ADB:
+    
+    
+    adb shell dumpsys activity processes <package-name>
+    
+
+The following abbreviated example shows the process record and OOM control entries for an app running a foreground service:
+    
+    
+    ACTIVITY MANAGER RUNNING PROCESSES (dumpsys activity processes)
+      All known processes:
+      *APP* UID 10123 ProcessRecord{edf056c 3919:com.example.app/u0a123}
+        pid=3919
+        oom adj: max=1001 curRaw=200 setRaw=200 cur=200 set=200
+        curProcState=4 mRepProcState=4 setProcState=4 lastStateTime=-42s360ms
+        hasStartedServices=true
+        mHasForegroundServices=true forcingToImportant=null
+    ...
+      Process OOM control (48 total):
+        Proc #22: prcp  F/S/FGS  ---NFU-TI  t: 0 3919:com.example.app/u0a123 (fg-service)
+            oom: max=1001 curRaw=200 setRaw=200 cur=200 set=200
+            state: cur=FGS  set=FGS  lastRss=0.00 lastCachedRss=0.00
+    
+
+In this output:
+
+  * `curProcState=4` and `state: cur=FGS` reflect that the process is in the foreground service state. If your app is hosting an active visible activity, this appears as `TOP`. If it is running an important foreground component (such as a download or sync), it appears as `IMPF`.
+  * In the Process OOM control table, `prcp` indicates that the process is evaluated under the perceptible priority tier, which corresponds to the `perceptible` budget.
+
+
+
+To inspect the currently enforced memory budget and resident memory usage:
+    
+    
+    adb shell dumpsys meminfo <package-name>
+    
+
+Starting in Android 17 QPR2, this output includes a **Memory Budget** section that displays the active limit ceiling, the limit source (such as `AndroidManifest` or `MemoryBudgetManager`), and current resident memory.
+
+### Multi-process apps
+
+If your application divides its work across multiple processes, configure dedicated process budgets using the `<process>` tag inside `<processes>`.
+
+For example, consider a streaming music app (`com.example.radio`):
+
+  1. **Main process** : Hosts the visible UI and the audio playback engine ([`MediaSessionService`](https://developer.android.com/reference/androidx/media3/session/MediaSessionService) with a `mediaPlayback` foreground service). When visible, the process operates under the 180MB foreground budget. When the user leaves the app while music continues playing, the process enters the `perceptible` state, where a 64MB budget is sufficient for the playback engine and audio buffer.
+  2. **Sync process (`:sync`)**: Dedicated process running background metadata synchronization and download indexing. Because this process is only ever active in the background, you don't need to explicitly declare `state="background"`; a single budget applies.
+
+
+    
+    
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.example.radio">
+    
+        <application
+            android:label="@string/app_name">
+    
+            <!-- Package baseline: main process with UI and audio playback -->
+            <memory-budget android:maxMb="180" />
+    
+            <!-- Tighter budget when audio plays in the background -->
+            <memory-budget
+                android:maxMb="64"
+                android:state="perceptible" />
+    
+            <processes>
+                <!-- Default application process (uses the package baseline budgets above) -->
+                <process />
+    
+                <!-- Dedicated background sync process -->
+                <process android:process=":sync">
+                    <memory-budget android:maxMb="32" />
+                </process>
+            </processes>
+    
+            <service
+                android:name=".playback.AudioPlayerService"
+                android:foregroundServiceType="mediaPlayback"
+                android:exported="false" />
+    
+            <service
+                android:name=".sync.PlaylistSyncService"
+                android:process=":sync"
+                android:exported="false" />
+    
+        </application>
+    </manifest>
+    
+
+When you declare a `<processes>` block in your manifest, include a `<process>` entry for every process used by components in your merged manifest, including `<process />` for the default application process.
+
+Memory use in any subprocess counts against both its process budget and the enclosing package budget. A process experiences memory pressure at runtime if it breaches either its process budget or the package budget, whichever threshold is reached first.
+
+### Scale budgets for high-density displays
+
+For applications whose memory footprint scales significantly with how many pixels there are to draw on the display at once—such as a photo gallery app caching bitmaps sized to the screen—Android provides two alternative mechanisms to scale budgets dynamically with display specifications:
+
+  * **Scale by display density bucket (`android:additionalMbPerDensity`)**: Adds megabytes proportionally to the display's [density ratio](https://developer.android.com/guide/practices/screens_support#density-independence) relative to `mdpi` (1.0x / 160 dpi). This is suitable when memory use scales with UI density buckets, such as caching higher-resolution raster drawables or UI assets:
+        
+        <!-- Baseline 180MB + 16MB per 1.0x density ratio -->
+        <memory-budget
+            android:maxMb="180"
+            android:additionalMbPerDensity="16" />
+        
+
+On an `mdpi` display (1.0x), the budget is 180 + 16 × 1 = 196 MB. On an `xxhdpi` display (3.0x), the budget scales to 180 + 16 × 3 = 228 MB.
+
+  * **Scale by physical display resolution** (`android:additionalBytesPerDisplayPixel`): Adds bytes directly per physical display pixel (Width × Height). This is ideal for applications allocating full-screen graphics surfaces, render buffers, or full-resolution photo caches where memory consumption scales directly with raw display pixel count rather than UI density buckets:
+        
+        <!-- Baseline 128MB + 16 bytes per physical display pixel -->
+        <!-- For example, a 4-byte RGBA full-screen buffer with double or quadruple buffering -->
+        <memory-budget
+            android:maxMb="128"
+            android:additionalBytesPerDisplayPixel="16" />
+        
+
+On a 1080p display (1080 × 2400 ≈ 2.59M pixels), this adds ≈ 41.4 MB to the baseline budget. On a 1440p display (1440 × 3120 ≈ 4.49M pixels), it adds ≈ 71.8 MB.
+
+
+
+
+These two attributes are alternatives. Choose the attribute that matches your app's primary scaling factor, and avoid combining both in the same clause.
+
+### Specialize for device form factors
+
+When shipping an APK across phones, tablets, and Wear OS, use the `android:feature` attribute to adjust budgets for different hardware targets.
+
+On Wear OS watches, RAM is constrained, and the app's UI and feature set is much simpler. You can declare a tighter budget specialized for the `watch` feature:
+    
+    
+    <!-- General phone and tablet baseline -->
+    <memory-budget android:maxMb="180" />
+    
+    <!-- Wear OS override: simpler UI and constrained hardware -->
+    <memory-budget
+        android:maxMb="48"
+        android:feature="watch" />
+    
+
+### Resolution rule: last applicable clause takes effect
+
+When defining multiple `<memory-budget>` elements for an application or process, the system evaluates them in the order they are declared in the manifest. The **last applicable** budget clause is the one that is enforced.
+
+Because the last applicable budget wins, ordering matters. Always place the most general baseline budget first, followed by more specific overrides (such as state-specific or hardware-specific clauses).
+
+### XML attribute reference
+
+All memory size attributes are expressed in megabytes (MB) and map to Linux cgroup `memory.current` charge (which excludes shared memory like the Zygote).
+
+Attribute | Format | Default | Description  
+---|---|---|---  
+`android:maxMb` | Integer (> 0) | **Required** | The baseline resident memory budget limit in MB.  
+`android:state` | Enum | Any | The process state this budget applies to: `foreground`, `perceptible`, or `background`. If omitted, the clause acts as a fallback for any unspecified state.  
+`android:additionalMbPerDensity` | Integer (≥ 0) | `0` | Additional megabytes to add per unit of [display density ratio](https://developer.android.com/guide/practices/screens_support#density-independence) relative to `mdpi` (1.0x).  
+`android:additionalBytesPerDisplayPixel` | Integer (≥ 0) | `0` | Additional bytes allocated per physical display pixel (Width × Height), useful for surface buffers and bitmaps.  
+`android:feature` | String | Any | Restricts the clause to devices declaring specific hardware features: `watch`, `automotive`, or `leanback`.  
+  
+## Runtime APIs (secondary dynamic option)
+
+Declaring budgets statically in `AndroidManifest.xml` is the preferred solution for almost all apps. However, for applications with dynamic workloads or for runtime experimentation, Android provides runtime SDK and NDK APIs as a secondary option.
+
+The runtime API lets you:
+
+  * Query current memory usage and effective budgets.
+  * Dynamically adjust your process budget downward.
+  * Listen for over-budget events to proactively trim caches before the operating system triggers direct reclaim.
+
+
+
+### Android SDK API (`MemoryBudgetManager`)
+
+The [`MemoryBudgetManager`](https://developer.android.com/reference/android/app/MemoryBudgetManager) system service is available to apps written in Kotlin and Java starting in Android 17 QPR2 (minor SDK release, API level 37.2 / `Build.VERSION_CODES_FULL.CINNAMON_BUN_2`).
+
+#### Retrieve the service
+
+Before you access `MemoryBudgetManager`, check that the device isn't running a lower version than Android 17 QPR2 by using `SDK_INT_FULL`:
+    
+    
+    if (Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.CINNAMON_BUN_2) {
+        val budgetManager = context.getSystemService(MemoryBudgetManager::class.java)
+    }
+    
+
+#### Query usage and budgets
+    
+    
+    // Query current memory charged to this process and the package UID
+    val processUsageBytes = budgetManager.processCurrentUsageBytes
+    val packageUsageBytes = budgetManager.packageCurrentUsageBytes
+    
+    // Query effective budgets (returns LIMIT_IS_DISABLED if unconstrained)
+    val processBudgetBytes = budgetManager.processBudgetBytes
+    val packageBudgetBytes = budgetManager.packageBudgetBytes
+    
+
+#### Dynamically set or clear budgets
+
+You can set a tighter budget at runtime to constrain memory during lightweight tasks, or clear it when the task finishes:
+    
+    
+    // Set a tighter dynamic budget on the current process (e.g., 96 MB)
+    try {
+        budgetManager.processBudgetBytes = 96L * 1024L * 1024L
+    } catch (e: IllegalArgumentException) {
+        // Thrown if the budget is <= 0 or exceeds the manifest ceiling or system limit
+        Log.e(TAG, "Requested budget exceeds manifest or system ceiling", e)
+    }
+    
+    // Clear the dynamic process budget to restore the manifest limit (or unconstrained baseline)
+    budgetManager.clearProcessBudget()
+    
+
+**Note:** Declaring a budget in the manifest isn't required to use runtime budgets. However, if a manifest budget is declared, a runtime budget can only tighten (reduce) memory limits within that manifest ceiling. In all cases, a runtime budget can't exceed system memory limits. Attempting to set a budget higher than the active ceiling throws an `IllegalArgumentException`.
+
+Unlike `<memory-budget>` manifest clauses, which automatically switch budgets whenever the process transitions between `foreground`, `perceptible`, and `background` states, a dynamic budget set through `MemoryBudgetManager` applies a single ceiling until your code updates or clears it. If you use the runtime API to run field experiments or manage state-specific limits, update or clear the dynamic budget across lifecycle transitions (for example, using [`ProcessLifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/ProcessLifecycleOwner) or activity lifecycle callbacks, as shown in the Adaptive image editor example).
+
+#### Performance and idempotency
+
+When working with `MemoryBudgetManager` at runtime, keep the following characteristics in mind:
+
+  * **Idempotency** : All budget mutation APIs are idempotent. Calling `clearProcessBudget()` or `clearPackageBudget()` repeatedly or when no dynamic budget is active is a safe no-op. Similarly, setting `setProcessBudgetBytes()` or `setPackageBudgetBytes()` to the same value consecutively doesn't trigger redundant system reconfigurations.
+  * **Calling frequency** : Setting, updating, or clearing a budget makes a cross-process call to the system service to update the operating system memory controller for the process. While lightweight, it isn't completely free. Call these APIs during discrete lifecycle transitions and task milestones (such as entering or leaving an activity, starting or completing background processing, or handling speech requests), and avoid calling them in tight loops, audio processing threads, or per-frame render routines.
+  * **Query frequency** : The query properties `processCurrentUsageBytes` and `packageCurrentUsageBytes` fetch live memory usage from the system service. While fast, queries should be invoked on demand (such as during task transitions or inside `OnOverBudgetListener` callbacks) rather than polled in continuous loops.
+
+
+
+#### Listen for over-budget pressure callbacks
+
+Apps can register a listener to be notified when memory usage exceeds the budget threshold. This allows the app to perform proactive application-level cleanup (such as clearing in-memory bitmap caches) before the operating system triggers direct reclaim latency:
+    
+    
+    val listener = MemoryBudgetManager.OnOverBudgetListener { budgetBytes ->
+        Log.w(TAG, "Process exceeded memory budget of $budgetBytes bytes")
+        // Proactively evict caches to release memory
+        imageTileCache.evictAll()
+    }
+    
+    // Register on the main Looper
+    budgetManager.registerProcessOverBudgetListener(mainLooper, listener)
+    
+    // When done (e.g., in onStop)
+    budgetManager.unregisterProcessOverBudgetListener(listener)
+    
+
+**Note:** Over-budget callbacks only fire when an active budget is configured for the process or package (either declared using `<memory-budget>` in `AndroidManifest.xml` or set at runtime using `setProcessBudgetBytes()` or `setPackageBudgetBytes()`). If no manifest or runtime budget is active, `OnOverBudgetListener` won't be invoked.
+
+**Best practices for over-budget callbacks:**
+
+  * **Be quick** : Reclaim operations must offer immediate relief. Complex computations during pressure worsen performance.
+  * **Avoid allocations** : Don't allocate new objects or start new threads inside the callback, as doing so can trigger immediate operating system direct reclaim.
+  * **Focus on high-yield targets** : Evicting large Bitmaps, render buffers, or closing memory-mapped files is much more effective than releasing many small objects.
+
+
+
+### Native NDK API (`<android/memory_budget_manager.h>`)
+
+Native apps can use the C NDK API exposed by `libandroid.so` starting in Android 17 QPR2 (API level 37.2).
+
+#### CMake configuration
+    
+    
+    find_library(android-lib android)
+    target_link_libraries(my_native_engine PRIVATE ${android-lib})
+    
+
+#### Include header and query usage
+    
+    
+    #include <android/memory_budget_manager.h>
+    
+    // Query current memory usage
+    int64_t process_usage = AMemoryBudgetManager_getProcessCurrentUsageBytes();
+    int64_t package_usage = AMemoryBudgetManager_getPackageCurrentUsageBytes();
+    
+    // Query current budget
+    int64_t process_budget = 0;
+    AMemoryBudgetResult result = AMemoryBudgetManager_getProcessBudget(&process_budget);
+    if (result == AMEMORY_BUDGET_RESULT_SUCCESS) {
+        // Current budget available in process_budget
+    } else if (result == AMEMORY_BUDGET_RESULT_LIMIT_IS_DISABLED) {
+        // No budget is currently active
+    }
+    
+
+#### Dynamically configure native budget
+    
+    
+    // Set a tighter process budget (e.g. 160MB)
+    AMemoryBudgetResult result = AMemoryBudgetManager_setProcessBudget(160LL * 1024 * 1024);
+    if (result != AMEMORY_BUDGET_RESULT_SUCCESS) {
+        const char* error_msg = AMemoryBudgetManager_resultToString(result);
+        // Handle error (e.g. AMEMORY_BUDGET_RESULT_ERROR_EXCEEDS_MANIFEST_LIMIT)
+    }
+    
+    // Clear the dynamic budget to resume manifest limits (or unconstrained baseline)
+    AMemoryBudgetManager_clearProcessBudget();
+    
+
+**Note:** Like their SDK counterparts, native budget operations are idempotent and make a cross-process call to the system service. They are designed for discrete lifecycle milestones rather than high-frequency game engine render loops or audio thread callbacks.
+
+#### Monitor memory pressure events
+
+The NDK provides two ways to monitor memory events:
+
+  1. **High-Level Watcher (`AMemoryBudgetManager_Watcher_create`)**: Monitors events on an `ALooper` with automatic debouncing.
+  2. **Low-Level File Descriptor** : `AMemoryBudgetManager_getProcessMemoryPressureFd` returns a native file descriptor that can be integrated directly into a custom `epoll` engine loop.
+
+
+    
+    
+    void onMemoryPressure(int32_t event_mask, const AMemoryBudgetEvents* events, void* userdata) {
+        // High-yield eviction of unused native textures or geometry caches
+        purgeNativeTextureCaches();
+    }
+    
+    // Register watcher on an ALooper with a 1000ms debounce interval
+    AMemoryBudgetManagerWatcher* watcher = AMemoryBudgetManager_Watcher_create(
+        looper,
+        AMEMORY_BUDGET_MANAGER_EVENT_PROCESS,
+        1000 /* debounce_ms */,
+        &onMemoryPressure,
+        NULL /* userdata */
+    );
+    
+    // When done:
+    AMemoryBudgetManager_Watcher_destroy(watcher);
+    
+
+## Runtime API examples
+
+The following examples demonstrate how to implement the runtime APIs using the Android SDK API (written in Kotlin) and the Native NDK API (written in C++).
+
+### Android SDK example: Adaptive image editor
+
+This example shows an image editing app (`com.example.imageeditor`) whose manifest declares a 256MB ceiling to accommodate its multi-layer canvas:
+    
+    
+    <manifest ... >
+        <application ... >
+            <!-- Manifest ceiling accommodates the heaviest editing workload -->
+            <memory-budget android:maxMb="256" />
+        </application>
+    </manifest>
+    
+
+When the user is browsing the lightweight thumbnail gallery, the app uses the Android SDK API in Kotlin to dynamically tighten its process budget to 96MB. When the user opens the multi-layer editing canvas, the app clears the dynamic budget to restore the full 256MB manifest ceiling. It also registers an `OnOverBudgetListener` to evict cached preview bitmaps under pressure.
+    
+    
+    package com.example.imageeditor.ui
+    
+    import android.app.Activity
+    import android.app.MemoryBudgetManager
+    import android.graphics.Bitmap
+    import android.os.Bundle
+    import android.util.Log
+    import android.util.LruCache
+    
+    class ImageEditorActivity : Activity() {
+    
+        private lateinit var budgetManager: MemoryBudgetManager
+    
+        // In-memory cache for rendered preview tiles (32MB limit)
+        private val previewCache = object : LruCache<String, Bitmap>(32 * 1024 * 1024) {
+            override fun sizeOf(key: String, value: Bitmap): Int = value.byteCount
+        }
+    
+        private val overBudgetListener = MemoryBudgetManager.OnOverBudgetListener { budgetBytes ->
+            Log.w(TAG, "Process memory pressure detected (budget: ${budgetBytes / 1048576}MB). Evicting preview cache.")
+            previewCache.evictAll()
+        }
+    
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            budgetManager = getSystemService(MemoryBudgetManager::class.java)
+        }
+    
+        override fun onStart() {
+            super.onStart()
+            // Register listener for process-level memory breaches
+            budgetManager.registerProcessOverBudgetListener(mainLooper, overBudgetListener)
+            // Constrain memory during lightweight gallery browsing
+            applyGalleryBudget()
+        }
+    
+        override fun onStop() {
+            super.onStop()
+            budgetManager.unregisterProcessOverBudgetListener(overBudgetListener)
+        }
+    
+        /**
+         * Called when the user enters the high-resolution editing canvas.
+         * Clears the dynamic budget, restoring the full 256MB manifest ceiling.
+         */
+        fun enterEditingCanvas() {
+            // Clear the tighter dynamic budget to restore the full manifest ceiling (256MB)
+            budgetManager.clearProcessBudget()
+            Log.i(TAG, "Restored manifest budget ceiling (256MB) for editing canvas")
+        }
+    
+        /**
+         * Called when the user exits the editor back to the thumbnail gallery.
+         * Re-applies the tighter dynamic budget.
+         */
+        fun exitToGallery() {
+            previewCache.trimToSize(8 * 1024 * 1024)
+            applyGalleryBudget()
+        }
+    
+        private fun applyGalleryBudget() {
+            try {
+                // Dynamically tighten budget to 96MB for the lightweight gallery view
+                budgetManager.processBudgetBytes = 96L * 1024L * 1024L
+                Log.i(TAG, "Tighter dynamic budget applied for gallery: 96MB")
+            } catch (e: IllegalArgumentException) {
+                Log.e(TAG, "Could not apply dynamic budget", e)
+            }
+        }
+    
+        companion object {
+            private const val TAG = "ImageEditor"
+        }
+    }
+    
+
+### NDK C++ example: Native 3D engine
+
+This example shows a native C++ game engine managing memory budgets based on the active graphics quality level, assuming the application's manifest declares a 512MB ceiling to accommodate High quality graphics (`android:maxMb="512"`). The engine dynamically tightens the budget for lower quality presets and uses `AMemoryBudgetManager_Watcher_create` on an `ALooper` to unload texture mipmaps when over budget.
+    
+    
+    #include <android/memory_budget_manager.h>
+    #include <android/looper.h>
+    #include <android/log.h>
+    
+    #define LOG_TAG "Native3DEngineMemory"
+    #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
+    #define LOGW(...) __android_log_print(ANDROID_LOG_WARN, LOG_TAG, __VA_ARGS__)
+    
+    class MemoryGovernor {
+    public:
+        MemoryGovernor() : mWatcher(nullptr) {}
+    
+        ~MemoryGovernor() {
+            stopMonitoring();
+        }
+    
+        // Configures process budget based on user graphics quality settings
+        bool setQualityBudget(int qualityLevel) {
+            int64_t targetBytes = 0;
+            switch (qualityLevel) {
+                case 0: // Low (budget: 128MB)
+                    targetBytes = 128LL * 1024 * 1024;
+                    break;
+                case 1: // Medium (budget: 256MB)
+                    targetBytes = 256LL * 1024 * 1024;
+                    break;
+                case 2: // High (budget: 512MB)
+                    targetBytes = 512LL * 1024 * 1024;
+                    break;
+                default:
+                    // Clear dynamic override and restore manifest limit
+                    AMemoryBudgetManager_clearProcessBudget();
+                    return true;
+            }
+    
+            AMemoryBudgetResult result = AMemoryBudgetManager_setProcessBudget(targetBytes);
+            if (result != AMEMORY_BUDGET_RESULT_SUCCESS) {
+                LOGW("Could not set quality budget: %s", AMemoryBudgetManager_resultToString(result));
+                return false;
+            }
+            return true;
+        }
+    
+        bool startMonitoring(ALooper* looper) {
+            if (!looper) return false;
+    
+            // Monitor process budget events, debounced to at most once every 1000ms
+            mWatcher = AMemoryBudgetManager_Watcher_create(
+                looper,
+                AMEMORY_BUDGET_MANAGER_EVENT_PROCESS,
+                1000,
+                &MemoryGovernor::onPressureEvent,
+                this
+            );
+            return mWatcher != nullptr;
+        }
+    
+        void stopMonitoring() {
+            if (mWatcher) {
+                AMemoryBudgetManager_Watcher_destroy(mWatcher);
+                mWatcher = nullptr;
+            }
+        }
+    
+        void unloadUnusedTextures() {
+            LOGW("Memory pressure callback triggered. Purging cached texture mipmaps...");
+            // Fast, high-yield eviction without allocating memory
+        }
+    
+    private:
+        static void onPressureEvent(
+            int32_t event_mask,
+            const AMemoryBudgetEvents* events,
+            void* userdata
+        ) {
+            auto* governor = static_cast<MemoryGovernor*>(userdata);
+            governor->unloadUnusedTextures();
+        }
+    
+        AMemoryBudgetManagerWatcher* mWatcher;
+    };
+    
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-10-09 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-09 UTC."],[],[]] 

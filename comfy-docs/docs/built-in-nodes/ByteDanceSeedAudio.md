@@ -1,0 +1,116 @@
+---
+url: https://docs.comfy.org/built-in-nodes/ByteDanceSeedAudio/
+title: ByteDanceSeedAudio - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:47:30.052033+00:00
+---
+
+# ByteDanceSeedAudio - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/ByteDanceSeedAudio/
+
+Bytedance
+
+# ByteDanceSeedAudio - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+Generate speech, music, sound effects and multi-speaker dialogue from a single prompt with ByteDance Seed Audio 1.0.
+
+Copy pageCopy page
+
+Generate speech, music, sound effects and multi-speaker dialogue from a single prompt with ByteDance Seed Audio 1.0. Describe the voice(s), emotion, ambience, background music and sound effects in the prompt, and include the lines to speak. Optionally pick a built-in preset voice, clone voices from up to 3 reference clips (tagged @Audio1-3 in the prompt), or derive a voice from a character image. Up to 2 minutes of audio per run. The multilingual model supports 20 languages and timestamp-based timing control.
+
+## 
+
+​
+
+Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`text_prompt`| Describe the voice(s), emotion, pacing, ambience, background music and sound effects, and include the lines to speak (name characters inline for dialogue). In “audio reference” mode, refer to connected clips by order as @Audio1, @Audio2, @Audio3. With the multilingual model, a quoted line can start with a timestamp range that controls when and how long it is spoken, e.g. `[5.5s:8.0s] Wait for me!`. Write the prompt in the same language as the lines to speak. Minimum 1 character, maximum 3000 characters.| STRING| Yes| 1 to 3000 characters  
+`reference_mode`| How to condition the voice: “text only” (describe everything in the prompt), “audio reference” (clone up to 3 voices, tagged @Audio1-3), “image reference” (derive a voice from one character image), or “preset voice” (pick a built-in named voice that reads the prompt).| COMBO| Yes| `"text only"`  
+`"audio reference"`  
+`"image reference"`  
+`"preset voice"`  
+`reference_audio_1`| Reference clip for voice cloning, tagged @Audio1 in the prompt. Up to 30s. Available only when `reference_mode` is “audio reference”.| AUDIO| No| Up to 30 seconds  
+`reference_audio_2`| Reference clip tagged @Audio2 in the prompt. Up to 30s. Available only when `reference_mode` is “audio reference”.| AUDIO| No| Up to 30 seconds  
+`reference_audio_3`| Reference clip tagged @Audio3 in the prompt. Up to 30s. Available only when `reference_mode` is “audio reference”.| AUDIO| No| Up to 30 seconds  
+`reference_image`| A single character image; the model derives a voice from it. Cannot be combined with reference audio. Available only when `reference_mode` is “image reference”.| IMAGE| No| -  
+`preset_voice`| A built-in TTS 2.0 voice that reads the prompt. No reference clip needed, and @AudioN tags are not used in this mode. Required when `reference_mode` is “preset voice”.| COMBO| No| Multiple built-in preset voice options (first option selected by default)  
+`sample_rate`| Output sample rate in Hz. (default: “24000”)| COMBO| Yes| `"8000"`  
+`"16000"`  
+`"24000"`  
+`"32000"`  
+`"44100"`  
+`"48000"`  
+`speech_rate`| Speaking speed. 0 = normal, 100 = 2.0x, -50 = 0.5x. (default: 0)| INT| Yes| -50 to 100  
+`loudness_rate`| Loudness. 0 = normal, 100 = 2.0x, -50 = 0.5x. (default: 0)| INT| Yes| -50 to 100  
+`pitch_rate`| Pitch shift in semitones (-12 to 12). (default: 0)| INT| Yes| -12 to 12  
+`seed`| Seed controls whether the node should re-run; results are non-deterministic regardless of seed. (default: 42)| INT| Yes| 0 to 2147483647  
+`model`| Model version. `seed-audio-1.0-multilingual` supports 20 languages and per-sentence timing control via `[5.5s:8.0s]` timestamps. `seed-audio-1.0` supports English and Chinese only, without timing control. (default: “seed-audio-1.0-multilingual”)| COMBO| No| `"seed-audio-1.0-multilingual"`  
+`"seed-audio-1.0"`  
+  
+### 
+
+​
+
+Parameter Constraints
+
+  * **Reference mode dependencies** : The `reference_mode` parameter determines which other inputs are required:
+    * **“text only”** : No additional inputs required. The prompt must not contain @AudioN tags.
+    * **“audio reference”** : Requires at least one of `reference_audio_1`, `reference_audio_2`, or `reference_audio_3` to be connected. Reference clips must be connected in order without gaps. Each clip is limited to 30 seconds maximum duration. If @AudioN tags are used in the prompt, the highest tag number must not exceed the number of connected reference clips.
+    * **“image reference”** : Requires `reference_image` to be connected. @AudioN tags are not used; the prompt should contain only the text to synthesize.
+    * **“preset voice”** : Requires a preset voice to be selected. The whole prompt is read in the selected voice; @AudioN tags are not used as references, and tags such as @Audio2 or higher are rejected.
+  * **Audio reference ordering** : In “audio reference” mode, reference audio inputs must be connected sequentially starting from `reference_audio_1` without gaps. For example, you can connect `reference_audio_1` and `reference_audio_2`, but not `reference_audio_1` and `reference_audio_3` without `reference_audio_2`.
+  * **Maximum audio tags** : In “audio reference” mode, up to 3 reference clips can be connected (@Audio1, @Audio2, @Audio3), and the highest @AudioN tag in the prompt cannot exceed the number of connected reference audio inputs.
+  * **Model differences** : The `seed-audio-1.0-multilingual` model supports 20 languages (English, Chinese, Japanese, Korean, Mexican & Castilian Spanish, Indonesian, German, Brazilian Portuguese, French, Thai, Vietnamese, Malay, Filipino, Italian, Russian, Dutch, Polish, Turkish, Swedish) plus per-sentence timing control using timestamps in the format `[5.5s:8.0s]`. The `seed-audio-1.0` model supports English and Chinese only, without timing control.
+
+
+
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`AUDIO`| The generated audio output from ByteDance Seed Audio 1.0, containing speech, music, sound effects, or multi-speaker dialogue as described in the prompt.| AUDIO  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/ByteDanceSeedAudio/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `e86e4edde424b4427d864350a9d3b082e271fbd2b1e335175637a9cc3ad51163`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/ByteDanceSeedAudio.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/ByteDanceSeedAudio)
+
+[TripoTextureNodeV2 - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/TripoTextureNodeV2)[ElevenLabsAudioIsolation - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/ElevenLabsAudioIsolation)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

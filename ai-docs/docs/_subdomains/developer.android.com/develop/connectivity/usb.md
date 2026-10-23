@@ -1,0 +1,59 @@
+---
+url: https://developer.android.com/develop/connectivity/usb/
+title: USB host and accessory overview \u00a0|\u00a0 Connectivity \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:43:59.947571+00:00
+---
+
+# USB host and accessory overview  |  Connectivity  |  Android Developers
+
+> Source: https://developer.android.com/develop/connectivity/usb/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Develop ](https://developer.android.com/develop)
+  * [ Core areas ](https://developer.android.com/develop/core-areas)
+  * [ Connectivity ](https://developer.android.com/develop/connectivity)
+  * [ Guides ](https://developer.android.com/develop/connectivity/overview)
+
+
+
+#  USB host and accessory overview Stay organized with collections  Save and categorize content based on your preferences. 
+
+Android supports a variety of USB peripherals and Android USB accessories (hardware that implements the Android accessory protocol) through two modes: USB accessory and USB host. In USB accessory mode, the external USB hardware acts as the USB host. Examples of accessories might include:
+
+  * robotics controllers
+  * docking stations
+  * diagnostic and musical equipment
+  * kiosks
+  * card readers
+
+
+
+and many more. This gives Android-powered devices that don't have host capabilities the ability to interact with USB hardware. Android USB accessories must be designed to work with Android-powered devices and must adhere to the [Android accessory communication protocol](http://accessories.android.com/demokit). In USB host mode, the Android-powered device acts as the host. Examples of devices include digital cameras, keyboards, mice, and game controllers. USB devices that are designed for a wide range of applications and environments can still interact with Android applications that can correctly communicate with the device.
+
+Figure 1 shows the differences between the two modes. When the Android-powered device is in host mode, it acts as the USB host and powers the bus. When the Android-powered device is in USB accessory mode, the connected USB hardware (an Android USB accessory in this case) acts as the host and powers the bus.
+
+![Diagram showing the difference between host and accessory modes](https://developer.android.com/static/images/usb-host-accessory.png)
+
+**Figure 1.** USB Host and Accessory Modes
+
+USB accessory and host modes are directly supported in Android 3.1 (API level 12) or newer platforms. USB accessory mode is also backported to Android 2.3.4 (API level 10) as an add-on library to support a broader range of devices. Device manufacturers can choose whether or not to include the add-on library on the device\'s system image.
+
+**Note:** Support for USB host and accessory modes are ultimately dependant on the device\'s hardware, regardless of platform level. You can filter for devices that support USB host and accessory through a [`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element) element. See the USB [accessory](https://developer.android.com/develop/connectivity/usb/accessory) and [host](https://developer.android.com/develop/connectivity/usb/host) documentation for more details.
+
+## Debug considerations
+
+When debugging applications that use USB accessory or host features, you most likely have USB hardware connected to your Android-powered device. This prevents you from having an `adb` connection to the Android-powered device using USB. You can still access `adb` over a network connection. To enable `adb` over a network connection:
+
+  1. Connect the Android-powered device using USB to your computer.
+  2. From your SDK `platform-tools/` directory, enter `adb tcpip 5555` at the command prompt.
+  3. Enter `adb connect <device-ip-address>:5555` You should now be connected to the Android-powered device and can issue the usual `adb` commands like `adb logcat`.
+  4. To set your device to listen on USB, enter `adb usb`.
+
+
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-02-26 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-02-26 UTC."],[],[]] 

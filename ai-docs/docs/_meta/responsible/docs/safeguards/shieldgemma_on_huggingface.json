@@ -1,0 +1,7 @@
+{
+  "url": "https://ai.google.dev/responsible/docs/safeguards/shieldgemma_on_huggingface/",
+  "file": "responsible/docs/safeguards/shieldgemma_on_huggingface.md",
+  "title": "Evaluating content safety with ShieldGemma and Hugging Face Transformers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-23T11:46:09.514778+00:00"
+}

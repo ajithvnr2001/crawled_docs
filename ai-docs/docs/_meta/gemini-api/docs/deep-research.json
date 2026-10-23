@@ -1,0 +1,7 @@
+{
+  "url": "https://ai.google.dev/gemini-api/docs/deep-research/",
+  "file": "gemini-api/docs/deep-research.md",
+  "title": "Gemini Deep Research agent",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-23T11:43:06.769799+00:00"
+}

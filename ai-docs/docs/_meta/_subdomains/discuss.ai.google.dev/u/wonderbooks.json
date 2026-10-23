@@ -1,0 +1,10 @@
+{
+  "url": "https://discuss.ai.google.dev/u/wonderbooks/",
+  "file": "_subdomains/discuss.ai.google.dev/u/wonderbooks.md",
+  "title": "WonderBooks - Google AI Developers Forum",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (111 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T19:33:17.119631+00:00",
+  "html_len": 417528,
+  "md_len": 794,
+  "depth": 2
+}

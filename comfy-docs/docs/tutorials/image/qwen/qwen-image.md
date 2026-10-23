@@ -1,0 +1,495 @@
+---
+url: https://docs.comfy.org/tutorials/image/qwen/qwen-image/
+title: Qwen-Image ComfyUI Native Workflow Example - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:51:24.050928+00:00
+---
+
+# Qwen-Image ComfyUI Native Workflow Example - ComfyUI
+
+> Source: https://docs.comfy.org/tutorials/image/qwen/qwen-image/
+
+## On this page
+
+  * ComfyOrg Qwen-Image live stream
+  * Qwen-Image Native Workflow Example
+    * Qwen-Image: Text to Image
+    * 1\. Workflow File
+    * 2\. Model Download
+    * 3\. Workflow Instructions
+  * Qwen Image InstantX ControlNet Workflow
+    * Qwen-Image InstantX Union ControlNet
+  * 1\. Workflow and Input Images
+    * 2\. Model Links
+    * 3\. Workflow Instructions
+  * Qwen Image ControlNet DiffSynth-ControlNets Model Patches Workflow
+    * Qwen-Image ControlNet Model Patch
+    * 1\. Workflow and Input Images
+    * 2\. Model Links
+    * 3\. Workflow Usage Instructions
+  * Qwen Image Union ControlNet LoRA Workflow
+    * Qwen-Image Union Control
+    * 1\. Workflow and Input Images
+    * 2\. Model Links
+    * 3\. Workflow Instructions
+
+
+
+Qwen
+
+# Qwen-Image ComfyUI Native Workflow Example
+
+Copy pageCopy page
+
+Qwen-Image is a 20B parameter MMDiT (Multimodal Diffusion Transformer) model open-sourced under the Apache 2.0 license.
+
+Copy pageCopy page
+
+**Qwen-Image** is the first image generation foundation model released by Alibaba’s Qwen team. It’s a 20B parameter MMDiT (Multimodal Diffusion Transformer) model open-sourced under the Apache 2.0 license. The model has made significant advances in **complex text rendering** and **precise image editing** , achieving high-fidelity output for multiple languages including English and Chinese. **Model Highlights** :
+
+  * **Excellent Multilingual Text Rendering** : Supports high-precision text generation in multiple languages including English, Chinese, Korean, Japanese, maintaining font details and layout consistency
+  * **Diverse Artistic Styles** : From photorealistic scenes to impressionist paintings, from anime aesthetics to minimalist design, fluidly adapting to various creative prompts
+
+**Related Links** :
+
+  * [GitHub](https://github.com/QwenLM/Qwen-Image)
+  * [Hugging Face](https://huggingface.co/Qwen/Qwen-Image)
+  * [ModelScope](https://modelscope.cn/models/qwen/Qwen-Image)
+
+Currently Qwen-Image has multiple ControlNet support options available:
+
+  * [Qwen-Image-DiffSynth-ControlNets/model_patches](https://huggingface.co/Comfy-Org/Qwen-Image-DiffSynth-ControlNets/tree/main/split_files/model_patches): Includes canny, depth, and inpaint models
+  * [qwen_image_union_diffsynth_lora.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image-DiffSynth-ControlNets/blob/main/split_files/loras/qwen_image_union_diffsynth_lora.safetensors): Image structure control LoRA supporting canny, depth, pose, lineart, softedge, normal, openpose
+  * InstantX ControlNet: To be updated
+
+
+
+## 
+
+​
+
+ComfyOrg Qwen-Image live stream
+
+**Qwen-Image in ComfyUI - Lightning & LoRAs**
+
+**Qwen-Image ControlNet in ComfyUI - DiffSynth**
+
+## 
+
+​
+
+Qwen-Image Native Workflow Example
+
+  * Local users
+
+  * Cloud users
+
+
+
+
+Make sure your ComfyUI is updated.
+
+  * [Download ComfyUI](https://www.comfy.org/download)
+  * [Update Guide](https://docs.comfy.org/installation/update_comfyui)
+
+Workflows in this guide can be found in the [Workflow Templates](https://docs.comfy.org/interface/features/template). If you can’t find them in the template, your ComfyUI may be outdated.If nodes are missing when loading a workflow, possible reasons:
+
+  1. You are not using the latest ComfyUI version (Nightly version)
+  2. Some nodes failed to import at startup
+
+
+
+  * [Cloud](https://cloud.comfy.org) will update after ComfyUI stable release.
+
+So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
+
+### 
+
+​
+
+Qwen-Image: Text to Image
+
+Generate images with exceptional multilingual text rendering and editing capabilities using Qwen-Image’s 20B MMDiT model. ![Qwen-Image text-to-image workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_qwen_image-1.webp)
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “Qwen-Image” in Template Library
+
+**Example output** ![Qwen-Image example output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_qwen_image.png) There are three different models used in the workflow attached to this document:
+
+  1. Qwen-Image original model fp8_e4m3fn
+  2. 8-step accelerated version: Qwen-Image original model fp8_e4m3fn with lightx2v 8-step LoRA
+  3. Distilled version: Qwen-Image distilled model fp8_e4m3fn
+
+**VRAM Usage Reference** GPU: RTX4090D 24GB
+
+Model Used| VRAM Usage| First Generation| Second Generation  
+---|---|---|---  
+fp8_e4m3fn| 86%| ≈ 94s| ≈ 71s  
+fp8_e4m3fn with lightx2v 8-step LoRA| 86%| ≈ 55s| ≈ 34s  
+Distilled fp8_e4m3fn| 86%| ≈ 69s| ≈ 36s  
+  
+### 
+
+​
+
+1\. Workflow File
+
+After updating ComfyUI, you can find the workflow file in the templates, or drag the workflow below into ComfyUI to load it. ![Qwen-image Text-to-Image Workflow](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/image/qwen/qwen-image.png) Distilled version
+
+## Download Workflow for Distilled Model
+
+Download JSON workflow
+
+### 
+
+​
+
+2\. Model Download
+
+**Available Models in ComfyUI**
+
+  * Qwen-Image_bf16 (40.9 GB)
+  * Qwen-Image_fp8 (20.4 GB)
+  * Distilled versions (non-official, requires only 15 steps)
+
+All models are available at [Huggingface](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/tree/main) and [Modelscope](https://modelscope.cn/models/Comfy-Org/Qwen-Image_ComfyUI/files) **Diffusion model**
+
+  * [qwen_image_fp8_e4m3fn.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/main/split_files/diffusion_models/qwen_image_fp8_e4m3fn.safetensors)
+
+Qwen_image_distill
+
+  * [qwen_image_distill_full_fp8_e4m3fn.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/main/non_official/diffusion_models/qwen_image_distill_full_fp8_e4m3fn.safetensors)
+  * [qwen_image_distill_full_bf16.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/main/non_official/diffusion_models/qwen_image_distill_full_bf16.safetensors)
+
+
+
+  * The original author of the distilled version recommends using 15 steps with cfg 1.0.
+  * According to tests, this distilled version also performs well at 10 steps with cfg 1.0. You can choose either euler or res_multistep based on the type of image you want.
+
+
+
+**LoRA**
+
+  * [Qwen-Image-Lightning-8steps-V1.0.safetensors](https://huggingface.co/lightx2v/Qwen-Image-Lightning/blob/main/Qwen-Image-Lightning-8steps-V1.0.safetensors)
+
+**Text encoder**
+
+  * [qwen_2.5_vl_7b_fp8_scaled.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors)
+
+**VAE** [qwen_image_vae.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/main/split_files/vae/qwen_image_vae.safetensors) **Model Storage Location**
+    
+    
+    📂 ComfyUI/
+    ├── 📂 models/
+    │   ├── 📂 diffusion_models/
+    │   │   ├── qwen_image_fp8_e4m3fn.safetensors
+    │   │   └── qwen_image_distill_full_fp8_e4m3fn.safetensors ## 蒸馏版
+    │   ├── 📂 loras/
+    │   │   └── Qwen-Image-Lightning-8steps-V1.0.safetensors   ## 8步加速 LoRA 模型
+    │   ├── 📂 vae/
+    │   │   └── qwen_image_vae.safetensors
+    │   └── 📂 text_encoders/
+    │       └── qwen_2.5_vl_7b_fp8_scaled.safetensors
+    
+
+### 
+
+​
+
+3\. Workflow Instructions
+
+![Step Guide](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/image/qwen/image_qwen_image-guide.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=123e11f9be1c31a9e3a3c0ff1df299da)
+
+  1. Make sure the `Load Diffusion Model` node has loaded `qwen_image_fp8_e4m3fn.safetensors`
+  2. Make sure the `Load CLIP` node has loaded `qwen_2.5_vl_7b_fp8_scaled.safetensors`
+  3. Make sure the `Load VAE` node has loaded `qwen_image_vae.safetensors`
+  4. Make sure the `EmptySD3LatentImage` node is set with the correct image dimensions
+  5. Set your prompt in the `CLIP Text Encoder` node; currently, it supports at least English, Chinese, Korean, Japanese, Italian, etc.
+  6. If you want to enable the 8-step acceleration LoRA by lightx2v, select the node and use `Ctrl + B` to enable it, and modify the Ksampler settings as described in step 8
+  7. Click the `Queue` button, or use the shortcut `Ctrl(cmd) + Enter` to run the workflow
+  8. For different model versions and workflows, adjust the KSampler parameters accordingly
+
+
+
+The distilled model and the 8-step acceleration LoRA by lightx2v do not seem to be compatible for simultaneous use. You can experiment with different combinations to verify if they can be used together.
+
+## 
+
+​
+
+Qwen Image InstantX ControlNet Workflow
+
+This is a ControlNet model, so you can use it as normal ControlNet.
+
+### 
+
+​
+
+Qwen-Image InstantX Union ControlNet
+
+Generate images with Qwen-Image InstantX ControlNet, supporting canny, soft edge, depth, and pose. ![Qwen-Image InstantX ControlNet workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_qwen_image_instantx_controlnet-1.webp)
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “Qwen-Image InstantX ControlNet” in Template Library
+
+**Input materials** Upload this file to the matching `LoadImage` node:
+
+## image_qwen_image_instantx_controlnet_input_image.jpg
+
+`LoadImage` node 71 · `image_qwen_image_instantx_controlnet_input_image.jpg`
+
+![image_qwen_image_instantx_controlnet_input_image.jpg](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/image_qwen_image_instantx_controlnet_input_image.jpg)
+
+## 
+
+​
+
+1\. Workflow and Input Images
+
+### 
+
+​
+
+2\. Model Links
+
+  1. InstantX Controlnet
+
+Download [Qwen-Image-InstantX-ControlNet-Union.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image-InstantX-ControlNets/blob/main/split_files/controlnet/Qwen-Image-InstantX-ControlNet-Union.safetensors) and save it to the `ComfyUI/models/controlnet/` folder
+
+  2. **Lotus Depth model**
+
+We will use this model to generate the depth map of the image. The following two models need to be downloaded: **Diffusion Model**
+
+  * [lotus-depth-d-v1-1.safetensors](https://huggingface.co/Comfy-Org/lotus/blob/main/lotus-depth-d-v1-1.safetensors)
+
+**VAE Model**
+
+  * [vae-ft-mse-840000-ema-pruned.safetensors](https://huggingface.co/stabilityai/sd-vae-ft-mse-original/blob/main/vae-ft-mse-840000-ema-pruned.safetensors) or any SD1.5 VAE
+
+
+    
+    
+    ComfyUI/
+    ├── models/
+    │   ├── diffusion_models/
+    │   │   └─── lotus-depth-d-v1-1.safetensors
+    │   └── vae/
+    │       └──  lvae-ft-mse-840000-ema-pruned.safetensors
+    
+
+> You can also use custom nodes like [comfyui_controlnet_aux](https://github.com/Fannovel16/comfyui_controlnet_aux) to generate depth map.
+
+### 
+
+​
+
+3\. Workflow Instructions
+
+![Process Instructions](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/image/qwen/image_qwen_image_instantx_controlnet.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=a73a3f375691a80eb87a6cec12c48ad9)
+
+  1. Ensure that the `Load ControlNet Model` node correctly loads the `Qwen-Image-InstantX-ControlNet-Union.safetensors` model
+  2. Upload input image
+  3. This subgraph uses the Lotus Depth model. You can find it in the templates or edit the subgraph to learn more, make sure all the models are loaded correctly
+  4. Click the `Run` button, or use the shortcut `Ctrl(cmd) + Enter` to run the workflow
+
+
+
+## 
+
+​
+
+Qwen Image ControlNet DiffSynth-ControlNets Model Patches Workflow
+
+### 
+
+​
+
+Qwen-Image ControlNet Model Patch
+
+Control image generation using Qwen-Image ControlNet models. Supports canny, depth, and inpainting controls through model patching. ![Qwen-Image ControlNet model patch workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_qwen_image_controlnet_patch-1.webp)
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “Qwen-Image ControlNet Patch” in Template Library
+
+**Input materials** Upload this file to the matching `LoadImage` node:
+
+## image_qwen_image_controlnet_patch_input_image.png
+
+`LoadImage` node 71 · `image_qwen_image_controlnet_patch_input_image.png`
+
+![image_qwen_image_controlnet_patch_input_image.png](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/image_qwen_image_controlnet_patch_input_image.png)
+
+### 
+
+​
+
+1\. Workflow and Input Images
+
+After updating ComfyUI, you can find the workflow file from the templates, or drag the workflow preview above into ComfyUI to load it.
+
+### 
+
+​
+
+2\. Model Links
+
+Other models are the same as the Qwen-Image basic workflow. You only need to download the models below and save them to the `ComfyUI/models/model_patches` folder
+
+  * [qwen_image_canny_diffsynth_controlnet.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image-DiffSynth-ControlNets/blob/main/split_files/model_patches/qwen_image_canny_diffsynth_controlnet.safetensors)
+  * [qwen_image_depth_diffsynth_controlnet.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image-DiffSynth-ControlNets/blob/main/split_files/model_patches/qwen_image_depth_diffsynth_controlnet.safetensors)
+  * [qwen_image_inpaint_diffsynth_controlnet.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image-DiffSynth-ControlNets/blob/main/split_files/model_patches/qwen_image_inpaint_diffsynth_controlnet.safetensors)
+
+
+
+### 
+
+​
+
+3\. Workflow Usage Instructions
+
+Currently, diffsynth has three patch models: Canny, Depth, and Inpaint. If you’re using ControlNet-related workflows for the first time, you need to understand that control images need to be preprocessed into supported image formats before they can be used and recognized by the model. ![Input Type Diagram](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/image/qwen/controlnet_input_types.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=3459806aaf59d27e2e1554c4bd2d0de7)
+
+  * Canny: Processed canny edge, line art contours
+  * Depth: Preprocessed depth map showing spatial relationships
+  * Inpaint: Requires using Mask to mark areas that need to be repainted
+
+Since this patch model is divided into three different models, you need to select the correct preprocessing type when inputting to ensure proper image preprocessing. **Canny Model ControlNet Usage Instructions** ![Canny Workflow](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/image/qwen/image_qwen_image_controlnet_patch-canny.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=ca49f6ba72d3897cb14614314bc0d3c8)
+
+  1. Ensure that `qwen_image_canny_diffsynth_controlnet.safetensors` is loaded
+  2. Upload input image for subsequent processing
+  3. The Canny node is a native preprocessing node that will preprocess the input image according to your set parameters to control generation
+  4. If needed, you can modify the `strength` in the `QwenImageDiffsynthControlnet` node to control the intensity of line art control
+  5. Click the `Run` button, or use the shortcut `Ctrl(cmd) + Enter` to run the workflow
+
+
+
+> For using qwen_image_depth_diffsynth_controlnet.safetensors, you need to preprocess the image into a depth map and replace the `image processing` part. For this usage, please refer to the InstantX processing method in this document. Other parts are similar to using the Canny model.
+
+**Inpaint Model ControlNet Usage Instructions** ![Inpaint Workflow](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/image/qwen/image_qwen_image_controlnet_patch-inpaint.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=c3a3493ab00a11eba1e634624b40a2c1) For the Inpaint model, it requires using the [Mask Editor](https://docs.comfy.org/interface/maskeditor) to draw a mask and use it as input control condition.
+
+  1. Ensure that `ModelPatchLoader` loads the `qwen_image_inpaint_diffsynth_controlnet.safetensors` model
+  2. Upload image and use the [Mask Editor](https://docs.comfy.org/interface/maskeditor) to draw a mask. You need to connect the `mask` output of the corresponding `Load Image` node to the `mask` input of `QwenImageDiffsynthControlnet` to ensure the corresponding mask is loaded
+  3. Use the `Ctrl-B` shortcut to set the original Canny in the workflow to bypass mode, making the corresponding Canny node processing ineffective
+  4. In `CLIP Text Encoder`, input what you want to change the masked area to
+  5. If needed, you can modify the `strength` in the `QwenImageDiffsynthControlnet` node to control the corresponding control intensity
+  6. Click the `Run` button, or use the shortcut `Ctrl(cmd) + Enter` to run the workflow
+
+
+
+## 
+
+​
+
+Qwen Image Union ControlNet LoRA Workflow
+
+### 
+
+​
+
+Qwen-Image Union Control
+
+Generate images with precise structural control using Qwen-Image’s unified ControlNet LoRA. Supports multiple control types including canny, depth, lineart, softedge, normal, and openpose. ![Qwen-Image Union Control workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_qwen_image_union_control_lora-1.webp)
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “Qwen-Image Union Control” in Template Library
+
+**Input materials** Upload this file to the matching `LoadImage` node:
+
+## image_qwen_image_union_control_lora_input_image.png
+
+`LoadImage` node 73 · `image_qwen_image_union_control_lora_input_image.png`
+
+![image_qwen_image_union_control_lora_input_image.png](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/image_qwen_image_union_control_lora_input_image.png)
+
+**Example output**
+
+![Input image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/image_qwen_image_union_control_lora_input_image.png)![Qwen-Image Union Control example output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_qwen_image_union_control_lora.png)
+
+Original model address: [DiffSynth-Studio/Qwen-Image-In-Context-Control-Union](https://www.modelscope.cn/models/DiffSynth-Studio/Qwen-Image-In-Context-Control-Union/) Comfy Org rehost address: [qwen_image_union_diffsynth_lora.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image-DiffSynth-ControlNets/blob/main/split_files/loras/qwen_image_union_diffsynth_lora.safetensors): Image structure control LoRA supporting canny, depth, pose, lineart, softedge, normal, openpose
+
+### 
+
+​
+
+1\. Workflow and Input Images
+
+After updating ComfyUI, you can find the workflow file from the templates, or drag the workflow preview above into ComfyUI to load it.
+
+### 
+
+​
+
+2\. Model Links
+
+Download the model below. Since this is a LoRA model, it needs to be saved to the `ComfyUI/models/loras/` folder
+
+  * [qwen_image_union_diffsynth_lora.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image-DiffSynth-ControlNets/blob/main/split_files/loras/qwen_image_union_diffsynth_lora.safetensors): Image structure control LoRA supporting canny, depth, pose, lineart, softedge, normal, openpose
+
+
+
+### 
+
+​
+
+3\. Workflow Instructions
+
+This model is a unified control LoRA that supports canny, depth, pose, lineart, softedge, normal, openpose controls. Since many image preprocessing native nodes are not fully supported, you should use something like [comfyui_controlnet_aux](https://github.com/Fannovel16/comfyui_controlnet_aux) to complete other image preprocessing. ![Union Control LoRA](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/image/qwen/image_qwen_image_union_control_lora.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=428cafa03e7759a771c9f1e63d759dd0)
+
+  1. Ensure that `LoraLoaderModelOnly` correctly loads the `qwen_image_union_diffsynth_lora.safetensors` model
+  2. Upload input image
+  3. If needed, you can adjust the `Canny` node parameters. Since different input images require different parameter settings to get better image preprocessing results, you can try adjusting the corresponding parameter values to get more/fewer details
+  4. Click the `Run` button, or use the shortcut `Ctrl(cmd) + Enter` to run the workflow
+
+
+
+> For other types of control, you also need to replace the image processing part.
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/image/qwen/qwen-image.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/image/qwen/qwen-image)
+
+[ComfyUI Flux.1 ControlNet ExamplesPrevious](https://docs.comfy.org/tutorials/flux/flux-1-controlnet)[Qwen-Image-2512 ComfyUI Native Workflow ExampleNext](https://docs.comfy.org/tutorials/image/qwen/qwen-image-2512)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

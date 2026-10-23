@@ -1,0 +1,228 @@
+---
+url: https://docs.comfy.org/tutorials/partner-nodes/lightricks/ltx-2-5/
+title: LTX-2.5 API Video Generation in ComfyUI - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:51:32.806326+00:00
+---
+
+# LTX-2.5 API Video Generation in ComfyUI - ComfyUI
+
+> Source: https://docs.comfy.org/tutorials/partner-nodes/lightricks/ltx-2-5/
+
+## On this page
+
+  * What LTX-2.5 is good at
+  * Example outputs
+  * LTX-2.5 API workflows
+    * LTX-2.5 Text to Video
+    * Prompting tips
+    * LTX-2.5 Image to Video
+    * Prompting tips
+    * LTX-2.5 FLF2V
+    * Prompting tips
+
+
+
+Lightricks
+
+# LTX-2.5 API Video Generation in ComfyUI
+
+Copy pageCopy page
+
+Use the LTX-2.5 API nodes in ComfyUI for text-to-video, image-to-video, and first-last-frame cloud workflows, with Fast and Pro model tiers.
+
+Copy pageCopy page
+
+[LTX-2.5](https://ltx.io/model/ltx-2-5) is Lightricks’ open-weights video and world model, available in ComfyUI through the LTX-2.5 API nodes. The API workflows run generation on Lightricks’ servers, so no model downloads or local GPU is required, and each second of generated video is billed to your Comfy API account. The LTX-2.5 API offers two model tiers: **LTX-2.5 (Pro)** for maximum quality, and **LTX-2.5 (Fast)** for faster generation with the distilled model. Both tiers support synchronized audio and video generation with native multishot scenes, and output up to 4K resolution on the Fast tier.
+
+## 
+
+​
+
+What LTX-2.5 is good at
+
+  * **Synchronized audio and video** : Both tiers generate audio and video together, with native multishot scenes
+  * **Two model tiers** : LTX-2.5 (Pro) for maximum quality, LTX-2.5 (Fast) for faster generation with the distilled model
+  * **Up to 4K output** : The Fast tier outputs up to 4K resolution
+  * **No local GPU required** : Generation runs on Lightricks’ servers, with no model downloads
+  * **Multiple generation modes** : Text-to-video, image-to-video, and first-last-frame-to-video
+
+
+
+## 
+
+​
+
+Example outputs
+
+Text-to-video generation with synchronized audio: Image-to-video generation from a single start image: First-last-frame-to-video generation, blending two frames into one animated sequence:
+
+To use the Partner Nodes, you need to ensure that you are logged in properly and using a permitted network environment. Please refer to the [Partner Nodes Overview](https://docs.comfy.org/tutorials/partner-nodes/overview) section of the documentation to understand the specific requirements for using the Partner Nodes.
+
+  * Local users
+
+  * Cloud users
+
+
+
+
+Make sure your ComfyUI is updated.
+
+  * [Download ComfyUI](https://www.comfy.org/download)
+  * [Update Guide](https://docs.comfy.org/installation/update_comfyui)
+
+Workflows in this guide can be found in the [Workflow Templates](https://docs.comfy.org/interface/features/template). If you can’t find them in the template, your ComfyUI may be outdated.If nodes are missing when loading a workflow, possible reasons:
+
+  1. You are not using the latest ComfyUI version (Nightly version)
+  2. Some nodes failed to import at startup
+
+
+
+  * [Cloud](https://cloud.comfy.org) will update after ComfyUI stable release.
+
+So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
+
+## 
+
+​
+
+LTX-2.5 API workflows
+
+The template library ships with three API example workflows:
+
+  * **Text to Video** : Generate videos from text prompts
+  * **Image to Video** : Generate videos from a single start image
+  * **FLF2V** : Generate a video between a first and last frame image
+
+
+
+### 
+
+​
+
+LTX-2.5 Text to Video
+
+Generate videos from text prompts through the LTX-2.5 API, with synchronized audio.
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “LTX-2.5 T2V” in Template Library
+
+#### 
+
+​
+
+Prompting tips
+
+  1. **Model** : Choose `LTX-2.5 (Pro)` for the highest quality, or `LTX-2.5 (Fast)` for faster generation
+  2. **Duration** : Pro supports 2-10 seconds; Fast supports 2-20 seconds. Durations over 10 seconds require a 720p or 1080p resolution and 24/25 FPS
+  3. **Resolution and ratio** : Choose a resolution preset such as `1280x720` (landscape) or `720x1280` (portrait); Fast adds `2560x1440` and `3840x2160` options
+  4. **FPS** : Choose between 24, 25, 48, or 50 FPS on Fast, and 24, 25, or 50 FPS on Pro
+  5. **Audio** : Audio generation is on by default; disable it in the node’s advanced settings if you only need a silent video
+  6. **Prompt** : Describe the whole scene in one flowing paragraph, including the shot, action, characters, camera movement, and the audio you want
+
+
+
+### 
+
+​
+
+LTX-2.5 Image to Video
+
+Generate a video from a single start image through the LTX-2.5 API, with synchronized audio.
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “LTX-2.5 I2V” in Template Library
+
+## Input Image: space_battle.png
+
+Start frame for the workflow, or use your own image.
+
+#### 
+
+​
+
+Prompting tips
+
+  1. **Model** : This workflow ships with `LTX-2.5 (Fast)` selected for faster iteration; switch to `LTX-2.5 (Pro)` for maximum quality
+  2. **Single image only** : The image input accepts exactly one start image
+  3. **Prompt** : Describe what happens next: the motion, camera movement, and sounds that follow from the start image. Phrasing like “Use the provided start image as the first frame” helps anchor the generation
+  4. **Duration and resolution** : The Fast tier supports up to 20 seconds and resolutions up to 4K; durations over 10 seconds require 720p/1080p at 24/25 FPS
+
+
+
+### 
+
+​
+
+LTX-2.5 FLF2V
+
+Generate a video between a first and last frame image through the LTX-2.5 API, blending both frames into a single animated sequence.
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “LTX-2.5 FLF2V” in Template Library
+
+## First Frame: porsche_car_01.png
+
+First frame of the video.
+
+## Last Frame: porsche_car_02.png
+
+Last frame of the video, connected to the `last_frame` input of the node.
+
+#### 
+
+​
+
+Prompting tips
+
+  1. **Frames** : The workflow connects the first image to the `image` input and the second image to the `last_frame` input; the model generates the motion between them
+  2. **Keep frames aligned** : Use images with the same aspect ratio for a smooth interpolation
+  3. **Model** : This workflow ships with `LTX-2.5 (Pro)` selected; switch to `LTX-2.5 (Fast)` for faster generation
+  4. **Prompt** : Describe the transition between the frames, and the audio (dialogue, SFX, music) you want
+
+
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/lightricks/ltx-2-5.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/lightricks/ltx-2-5)
+
+[Kling Virtual Try-On in ComfyUI: Dress a Person in Any GarmentPrevious](https://docs.comfy.org/tutorials/partner-nodes/kling/kling-virtual-try-on)[Luma Text to Video (Legacy) Partner Node GuideNext](https://docs.comfy.org/tutorials/partner-nodes/luma/luma-text-to-video)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

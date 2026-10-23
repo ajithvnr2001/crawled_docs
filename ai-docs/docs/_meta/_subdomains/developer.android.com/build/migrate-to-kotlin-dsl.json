@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/build/migrate-to-kotlin-dsl/",
+  "file": "_subdomains/developer.android.com/build/migrate-to-kotlin-dsl.md",
+  "title": "Migrate your build configuration from Groovy to Kotlin \u00a0|\u00a0 Android Studio \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:45:31.656751+00:00",
+  "html_len": 269246,
+  "md_len": 17494,
+  "depth": 3
+}

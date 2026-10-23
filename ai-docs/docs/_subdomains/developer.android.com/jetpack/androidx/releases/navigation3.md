@@ -1,0 +1,892 @@
+---
+url: https://developer.android.com/jetpack/androidx/releases/navigation3/
+title: navigation3 \u00a0|\u00a0 Jetpack \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:35:35.464205+00:00
+---
+
+# navigation3  |  Jetpack  |  Android Developers
+
+> Source: https://developer.android.com/jetpack/androidx/releases/navigation3/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Get started ](https://developer.android.com/get-started/overview)
+  * [ Jetpack ](https://developer.android.com/jetpack)
+  * [ Libraries ](https://developer.android.com/jetpack/androidx/explorer)
+
+
+
+Stay organized with collections  Save and categorize content based on your preferences. 
+
+# navigation3
+
+API Reference  
+[androidx.navigation3.runtime](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary)  
+[androidx.navigation3.ui](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/package-summary)  
+
+
+Navigation 3 is a new navigation library designed to work with Compose. 
+
+Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release  
+---|---|---|---|---  
+October 07, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0) | - | - | [1.3.0-alpha02](https://developer.android.com/jetpack/androidx/releases/navigation3#1.3.0-alpha02)  
+  
+## Declaring dependencies
+
+To add a dependency on navigation3, you must add the Google Maven repository to your project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven) for more information.
+
+Add the dependencies for the artifacts you need in the `build.gradle` file for your app or module:
+
+### Groovy
+    
+    
+    dependencies {
+        implementation "androidx.navigation3:navigation3-runtime:1.3.0-alpha02"
+        implementation "androidx.navigation3:navigation3-ui:1.3.0-alpha02"
+    }
+
+### Kotlin
+    
+    
+    dependencies {
+        implementation("androidx.navigation3:navigation3-runtime:1.3.0-alpha02")
+        implementation("androidx.navigation3:navigation3-ui:1.3.0-alpha02")
+    }
+
+For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
+
+## Feedback
+
+Your feedback helps make Jetpack better. Let us know if you discover new issues or have ideas for improving this library. Please take a look at the [existing issues](https://issuetracker.google.com/issues?q=componentid:1750212%20status:open) in this library before you create a new one. You can add your vote to an existing issue by clicking the star button.
+
+[Create a new issue](https://issuetracker.google.com/issues/new?component=1750212&template=2102223)
+
+See the [Issue Tracker documentation](https://developers.google.com/issue-tracker) for more information.
+
+## Version 1.3
+
+### Version 1.3.0-alpha02
+
+October 07, 2026
+
+`androidx.navigation3:navigation3-*:1.3.0-alpha02` is released. Version 1.3.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f..988ac9734e8223273eb7f186ee1639ee68deb025/navigation3).
+
+**API Changes**
+
+  * `SceneInfo` class has added `title` and `url` properties which are automatically populated from the Scene's last `NavEntry's` metadata. Use `TitleMetadataKey` and `UrlMetadataKey` to define destination titles and URLs in the entry's metadata.. ([I78a20](https://android-review.googlesource.com/#/q/I78a209a080a2dbe0748eb1e3bf82c7a981ab4052), [b/542693522](https://issuetracker.google.com/issues/542693522))
+
+
+
+### Version 1.3.0-alpha01
+
+September 23, 2026
+
+`androidx.navigation3:navigation3-*:1.3.0-alpha01` is released. Version 1.3.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/811e8c9c37f4955d520fe0cf7e39d96866066abc..b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f/navigation3).
+
+** Bug Fixes **
+
+  * Fixed predictive back animation handoff in `NavDisplay` by migrating to `DeferredAnimatedContent` and resolving transition handoff issues. [I145eaedd](https://android-review.googlesource.com/q/I145eaedd3e2074826b14164f19369002f1cde37a) [b/430807423](https://buganizer.corp.google.com/issues/430807423)
+
+
+
+There are no release notes for this artifact.
+
+## Navigation3 Version 1.2
+
+### Version 1.2.0
+
+September 23, 2026
+
+`androidx.navigation3:navigation3-*:1.2.0` is released. Version 1.2.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4c75cb32a85803fd367372061035e6e358ad650..811e8c9c37f4955d520fe0cf7e39d96866066abc/navigation3).
+
+**1.2.0 is now stable!**
+
+**Important changes since 1.1.0**
+
+**Result API**
+
+  * This new API allows passing results between `NavEntries` using the `ResultEventBus` provided by `LocalResultEventBus` and `ResultEventBusNavEntryDecorator`.
+  * Added `rememberResultEventBus` to support hoisting a `ResultEventBus` outside `ResultEventBusNavEntryDecorator` and passing it to `rememberResultEventBusNavEntryDecorator`.
+  * Passed-in results can be accessed as state with `ResultEventBus#conflateAsState` or collected as a flow of results with `ResultEffect`.
+
+
+
+**Deep Link API**
+
+`Navigation3` now supports Kotlin Multiplatform (KMP) deep links in `androidx.navigation3.runtime.deeplink` via `DeepLinkRequest`, `DeepLinkUri`, and `DeepLinkMatcher`.
+
+  * `DeepLinkRequest` and `RequestExtras`: Represents a deep link request created from a `DeepLinkUri`, a URI string, or an Android `Intent`. Additional request metadata can be attached using the type-safe `RequestExtras` container built with the `requestExtras` DSL and `RequestExtrasKey<T>`.
+  * `DeepLinkMatcher`: Represents a deep link that can be matched with a `DeepLinkRequest`. Each matcher instance is associated with the navigation key that supports this deep link. A navigation key can be associated with multiple matchers. Calling `DeepLinkMatcher.match` will return a `MatchResult` that contains the associated navigation key if match succeeds. There are two default `DeepLinkMatcher` implementations: `UriDeepLinkMatcher` for matching deep links based on `Uri`, and `StaticKeyDeepLinkMatcher` for matching deep links with only `DeepLinkMatcher.Filter` that match by a Boolean.
+  * `BackStackMatcher`: A `DeepLinkMatcher` to construct a synthetic back stack upon a successful deep link match. `BackStackMatcher` can be created via the `DeepLinkMatcher.withBackStack` extension function.
+
+
+
+**Predictive Back Handling**
+
+  * Added `NavigationBackHandler` and `rememberNavigationEventState` to simplify connecting `SceneState` with predictive back handling (`onBackCompleted` and `onBackCancelled`). This allows custom UI components to support standard back navigation and predictive back gestures without manually calculating back stack deltas.
+  * Improved predictive back transitions, including support for predictive back gestures triggered mid-flight during forward animations.
+
+
+
+**Other Changes**
+
+  * `NavEntry.contentKey` now defaults to a composite of `key.toString()` and `key::class.toString()`, preventing key collisions between `data object` keys that share the same simple name across different interfaces.
+  * `EntryProvider` now prioritizes matching based on key instances over key types.
+  * Added a lint check to ensure `Scene` implementations are either `data class`es or implement `equals` and `hashCode`.
+
+
+
+### Version 1.2.0-rc01
+
+September 09, 2026
+
+`androidx.navigation3:navigation3-*:1.2.0-rc01` is released. Version 1.2.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea..ac5360fca92abb996fe01dcbf06db1a31227566e/navigation3).
+
+**Bug Fixes**
+
+  * Disallow duplicate placeholder names in deep link URI patterns. ([I8985c](https://android-review.googlesource.com/#/q/I8985ccc4b5235a8b301ead6bc402efaaf2457f4a), [b/522343165](https://issuetracker.google.com/issues/522343165))
+
+
+
+### Version 1.2.0-beta01
+
+August 26, 2026
+
+`androidx.navigation3:navigation3-*:1.2.0-beta01` is released. Version 1.2.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/61ee8cd421d0c0252d8db0253b739de537999371..7747cbed26ca24ff0d275c4fd6cd35316de858ae/navigation3).
+
+**API Changes**
+
+  * Refactored `DeepLinkRequest.extras` from `Map<String, Any>` to a new type safe map-like class `RequestExtras` which stores pairs of `RequestExtrasKey<T>` to `T`. `RequestExtras` can be instantiated with the `requestExtras` DSL. ([Ic929d](https://android-review.googlesource.com/#/q/Ic929ddc59d55173a6f35155a61ca336a1975658b), [b/543883369](https://issuetracker.google.com/issues/543883369))
+
+
+
+**Bug Fixes**
+
+  * Fixed an issue where predictive back gestures that are triggered during a forward transition does not animate in response to swipe progress. The predictive back will now animate and complete properly. ([Icdcb0](https://android-review.googlesource.com/#/q/Icdcb0b769208613ffd299938a892dda8f33fcc6b), [b/456218398](https://issuetracker.google.com/issues/456218398))
+  * Added a lint check for ensuring `Scene` implementations are either data classes, or implement equals and hashcode to ensure that the same `Scene` is used when appropriate. ([Ibdf0d](https://android-review.googlesource.com/#/q/Ibdf0d07a44751876faa5d65f9e44636d301a3a96), [b/542316099](https://issuetracker.google.com/issues/542316099))
+  * `NavEntry.contentKey` now defaults to a composite of `key.toString()` and `key::class.toString()`. This ensures that data objects that share the same name but implement different interfaces will no longer have the same `contentKey`. However, JS platform's `key::class` only returns simple class name instead of fully qualified name, so JS platform should still implement custom `contentKey` for data objects with duplicate names. ([I1fbbb](https://android-review.googlesource.com/#/q/I1fbbb4eabf2e1ab60a7789d8a7abb66d29d7f286), [b/512534342](https://issuetracker.google.com/issues/512534342))
+  * Fixed `IllegalArgumentException` thrown by `SaveableStateProvider` for duplicate keys used during rapid back navigation when multiple pop transitions are in-flight. ([I4d728](https://android-review.googlesource.com/#/q/I4d728a85e74fdc35e26ea621b809c03813f0806d), [b/516312097](https://issuetracker.google.com/issues/516312097))
+
+
+
+### Version 1.2.0-alpha07
+
+July 29, 2026
+
+`androidx.navigation3:navigation3-*:1.2.0-alpha07` is released. Version 1.2.0-alpha07 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e37cf4eae99bdc35def1209921d658612e2edbc3..61ee8cd421d0c0252d8db0253b739de537999371/navigation3).
+
+**API Changes**
+
+  * Added an abstract `WrappedMatchResult` class to wrap another `DeepLinkMatcher.MatchResult`. This allows customized match results layered on top of another one. ([I7d4dc](https://android-review.googlesource.com/#/q/I7d4dc9e3d7318c7786cbc5e9627ccc491dbca3a7), [b/470282247](https://issuetracker.google.com/issues/470282247))
+  * Added new `BackStackMatcher` class which takes two parameters: a matcher instance, and a builder lambda that provides the input matcher's match result and returns a back stack. Upon a successful match, `BackStackMatcher` returns a `BackStackMatchResult` which extends `WrappedMatchResult` containing the original match result along with the back stack built with the lambda. The `BackStackMatcher` can only be created with the new `DeepLinkMatcher.withBackStack` extension function. ([Ibf987](https://android-review.googlesource.com/#/q/Ibf987fa512a042479cbc09a74bd371e6b461b83b), [b/470282247](https://issuetracker.google.com/issues/470282247))
+
+  * Added an abstract `DeepLinkSerializer` class that extends `KSerializer` to encode and decode `value : T` as a `String`. `DeepLinkSerializer` can be used to serialize non-primitive deep link arguments. Compatible with `rememberSaveable` and `rememberNavBackStack`. ([Id3c9f](https://android-review.googlesource.com/#/q/Id3c9f3195b5a99051308467d4ec94262a9fba687), [b/470282247](https://issuetracker.google.com/issues/470282247))
+
+  * `DeepLinkMatcher` has added a second type parameter `out R : DeepLinkMatcher.MatchResult<T>` so that developers can access the properties of the subclassed `MatchResult` returned by `DeepLinkMatcher.match()` without type casting. ([I693d3](https://android-review.googlesource.com/#/q/I693d30f4aa653e2e8d42e2a401381adb945147c4), [b/470282247](https://issuetracker.google.com/issues/470282247))
+
+  * `DeepLinkMatcher.MatchResult's` T upper bound has changed from `Any?` to `Any`. ([I6bf1a](https://android-review.googlesource.com/#/q/I6bf1a88e3c3e9dd4b8026806772199c919a3732c))
+
+  * `DeepLinkRequest` constructor field `uri` now defaults to null. The secondary constructor's `uriString` has been renamed to `uri`. ([Ia0f14](https://android-review.googlesource.com/#/q/Ia0f140a9c8def67c5fd3ae6563f906db7cb03795), [b/522194187](https://issuetracker.google.com/issues/522194187))
+
+
+
+
+**Bug Fixes**
+
+  * `ResultEffect` now uses `rememberUpdatedState` to capture the latest `onResult` lambda. ([I7d2a3](https://android-review.googlesource.com/#/q/I7d2a3ac4ba979af2b85b988cf1cbaeb4126b495e), [b/531709234](https://issuetracker.google.com/issues/531709234))
+  * Fixed deep link matching for empty path segments. If the argument type is String, the empty path will be treated as an empty string value. Otherwise, the empty path is treated as no value provided and will fall back to defautl value. If there is no defautl value, matching will fail. ([I56575](https://android-review.googlesource.com/#/q/I56575a2c29a14f20449c0a6650e50d44f5cec4d0), [b/535298128](https://issuetracker.google.com/issues/535298128))
+  * Added support for empty query values in `DeepLinkRequest.uri`. If the argument is of String type, the empty value will be treated as a literal empty string. Otherwise, the empty value is treated as no value provided and matching will attempt to fallback to default value. If there is no default value, matching will fail. ([I30343](https://android-review.googlesource.com/#/q/I303438db4b503b050981e4256fe2815fb6f07768), [b/535127459](https://issuetracker.google.com/issues/535127459))
+  * `EntryProvider` now prioritizes matching based on key instances over key types. ([Ib5ec9](https://android-review.googlesource.com/#/q/Ib5ec9345e801b63cb67ecfac821428163b1b0f13), [b/533331924](https://issuetracker.google.com/issues/533331924))
+  * `SceneState` now correctly calculates previous scenes starting from the top-most non-overlay scene. ([I91915](https://android-review.googlesource.com/#/q/I91915d482b60246e978ac8b71c9696e98e57439f), [b/513630541](https://issuetracker.google.com/issues/513630541))
+
+
+
+### Version 1.2.0-alpha06
+
+July 15, 2026
+
+`androidx.navigation3:navigation3-*:1.2.0-alpha06` is released. Version 1.2.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/98641569d70837298aa655adb1e99af419b8702a..083bec4c4e0404ace62367346eec383b0a460a7d/navigation3).
+
+**Bug Fixes**
+
+  * Fixed `UriDeepLinkMatcher` documentation on uri fragments to clarify that fragments with wildcards will match any input but the input does not get extracted as arguments. ([I5ad9b](https://android-review.googlesource.com/#/q/I5ad9bd2e6ac24be88f9274c8803a2fe8067c86df), [b/524677091](https://issuetracker.google.com/issues/524677091))
+  * Fixed `UriDeepLinkMatcher` failing to match with a request if the uri pattern does not contain a scheme or does not start with double slash. For example, `www.example.com/home` will now match with `http://www.example.com/home`. ([Ia6b65](https://android-review.googlesource.com/#/q/Ia6b6533f33b430a691508affbcc466d8ef28ff68), [b/522791926](https://issuetracker.google.com/issues/522791926))
+
+
+
+### Version 1.2.0-alpha05
+
+July 01, 2026
+
+`androidx.navigation3:navigation3-*:1.2.0-alpha05` is released. Version 1.2.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d0d5e8b902b1ded8854df7d27fa1d1ee14e3bb4c..98641569d70837298aa655adb1e99af419b8702a/navigation3).
+
+**New API**
+
+  * Added a `rememberResultEventBus` api which returns a `ResultEventBus` that can be passed to `rememberResultEventBusNavEntryDecorator`. This allows hoisting a `ResultEventBus` outside the `ResultEventBusNavEntryDecorator`. ([Ia655b](https://android-review.googlesource.com/#/q/Ia655ba3cd739841eb0820db60d089c951ba3b621), [b/516995400](https://issuetracker.google.com/issues/516995400))
+
+
+
+DeepLinkRequest
+
+  * Added two KMP-compatible constructors - one that takes a DeepLinkUri and one that takes a raw string uri. ([I3c088](https://android-review.googlesource.com/#/q/I3c088a7b0b9c7e33368a38aef4def31583cb4a22), [b/513200887](https://issuetracker.google.com/issues/513200887), [b/522194187](https://issuetracker.google.com/issues/522194187))
+  * (Android only) Added a constructor that takes an `Intent`. ([Ia0498](https://android-review.googlesource.com/#/q/Ia0498ab9209688ccaeb28ebbf8b3da8ef2a9255e), [b/513200887](https://issuetracker.google.com/issues/513200887), [b/522194187](https://issuetracker.google.com/issues/522194187))
+  * All constructors have an additional `extras` field for a `Map<String, Any>` to attach additional request information. ([If81d5](https://android-review.googlesource.com/#/q/If81d5766720fd14676d03a817f47a5a91be13260), [b/513200887](https://issuetracker.google.com/issues/513200887))
+  * A new `requestExtras` dsl is added as a type safe way to build a map of extras. The dsl provides a `put` function to store pairs of `RequestExtrasKey` to `Any`. The `Map<String, Any>.get(key)` extension function can be used to read from the map with a `RequestExtrasKey`([I5091c](https://android-review.googlesource.com/#/q/I5091c3821acb4fab2b8d908741522a246501fbe8), [b/513200887](https://issuetracker.google.com/issues/513200887))
+  * (Android only) Added an `ActionExtrasKey` and `actionExtra` function to create an extras map with `ActionExtrasKey`. ([Id0c90](https://android-review.googlesource.com/#/q/Id0c902d432be2e7f4fd6e23f49ea87444815994e), [b/513200887]
+  * Added a `MimeTypeExtrasKey` and `mimeTypeExtra` function to create an extras map with `MimeTypeExtrasKey`. ([I85131](https://android-review.googlesource.com/#/q/I85131ce001439654dba5859909bb7b00dfb04b09), [b/513200887](https://issuetracker.google.com/issues/513200887))
+
+
+
+DeepLinkMatcher
+
+  * Added `DeepLinkMatcher.mimeTypeFilter` and `DeepLinkMatcher.actionFilter` functions to create `DeepLinkMatcher.Filters` that filter `DeepLinkRequest` by `mimeType` or `action` (Android only). Both filters match by string equality and is case-insensitive. ([Ie7e67](https://android-review.googlesource.com/#/q/Ie7e67577a5be205ed0ed369622afc8231f3ef658), [b/513191950](https://issuetracker.google.com/issues/513191950))
+
+
+
+**API Changes**
+
+DeepLinkRequest
+
+  * Remove `fromAction` factory function. To create a request associated with an Action, use the new `DeepLinkRequest.extras` field.([Id0c90](https://android-review.googlesource.com/#/q/Id0c902d432be2e7f4fd6e23f49ea87444815994e), [b/513200887](https://issuetracker.google.com/issues/513200887))
+  * Removed `fromMimeType` factory function. To create a request associated with a mimeType, use the new `DeepLinkRequest.extras` field. ([I85131](https://android-review.googlesource.com/#/q/I85131ce001439654dba5859909bb7b00dfb04b09), [b/513200887](https://issuetracker.google.com/issues/513200887))
+  * (Android-only) Removed `fromIntent` factory function. Replaced by a new constructor that takes an Intent and extras map. ([Ia0498](https://android-review.googlesource.com/#/q/Ia0498ab9209688ccaeb28ebbf8b3da8ef2a9255e), [b/513200887](https://issuetracker.google.com/issues/513200887), [b/522194187](https://issuetracker.google.com/issues/522194187))
+  * Removed factory functions `fromUri` and `fromUriString`. Replaced by new constructors that either take a `DeepLinkUri` or a raw string uri. ([Id5b6f](https://android-review.googlesource.com/#/q/Id5b6ff02d270b377f2c7dc5abd35633ed371d19e), [b/522194187](https://issuetracker.google.com/issues/522194187))
+  * `DeepLinkMatcher`, `DeepLinkMatcher.MatchResult` and their subclasses now take a covariant T (out T) so that hierarchical keys will not need type casting with used with Matchers. ([I1e453](https://android-review.googlesource.com/#/q/I1e45364f85d56731a1e11b8975932845f00f03d8), [b/525094876](https://issuetracker.google.com/issues/525094876))
+  * The `UriMatchResult` constructor param for arguments map now defaults to an empty map. ([I3acdd](https://android-review.googlesource.com/#/q/I3acdd8c52f289a08dcc980f7ba8bb04fff6b1b21))
+  * `DeepLinkMatcher.Filter` abstract class is now a functional interface. The `filter` constructor field is removed and instead should be passed directly in the subclass. ([I9eb7d](https://android-review.googlesource.com/#/q/I9eb7dca74c96b799e4357766434205c5fec1f4c8), [b/522194187](https://issuetracker.google.com/issues/522194187))
+
+
+
+**Bug Fixes**
+
+  * Fixed popped entry disappearing immediately when popping to an entry that has a nested metadata containing lambda values. ([Idb872](https://android-review.googlesource.com/#/q/Idb872842a3aa174716e063fb9dd16506b41a031e), [b/520494430](https://issuetracker.google.com/issues/520494430))
+  * Fixed `UriDeepLinkMatcher` so that it will return a null `UriMatchResult` instead of throwing `MissingFieldException` when required arguments are missing during matching. ([I5322f](https://android-review.googlesource.com/#/q/I5322fc616c79d5d5f07c7805de49a3e599b31b3d), [b/524663005](https://issuetracker.google.com/issues/524663005))
+  * A `UriDeeplinkMatcher` containing uri with https scheme can only be matched with requests that also have https scheme. ([Ibfe22](https://android-review.googlesource.com/#/q/Ibfe229d8d1f87a78bc20a61f636fd2d8546fde40), [b/522304329](https://issuetracker.google.com/issues/522304329))
+  * Fix `UriDeepLinkMatcher` to correctly identify `http` scheme as a positive match with `https` when matching a `DeepLinkRequest` to a `UriDeepLinkMatcher`. ([I3a62b](https://android-review.googlesource.com/#/q/I3a62b073c8f0b7011b8d273108c37be619b253b9), [b/518804264](https://issuetracker.google.com/issues/518804264))
+  * `DeepLinkMatcher.MatchResult` comparator now returns 0 by default when two results are equal. ([I48ddb](https://android-review.googlesource.com/#/q/I48ddb462bd2cc20c8a5873cd197510544ae20f4c), [b/518841353](https://issuetracker.google.com/issues/518841353))
+  * `UriDeepLinkMatcher` will now return a null `UriMatchResult` instead of throwing an exception when match request fails due to missing required arguments. ([I669a7](https://android-review.googlesource.com/#/q/I669a7c413950739664300f55ba3540c79c9e8888), [b/470282247](https://issuetracker.google.com/issues/470282247), [b/512923412](https://issuetracker.google.com/issues/512923412))
+
+
+
+### Version 1.2.0-alpha04
+
+June 03, 2026
+
+`androidx.navigation3:navigation3-*:1.2.0-alpha04` is released. Version 1.2.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ed0627453f51baab21d30d8ca8f74a50ff1cfa7a..d0d5e8b902b1ded8854df7d27fa1d1ee14e3bb4c/navigation3).
+
+**Bug Fixes**
+
+  * Fixed overlay animation issue where nested overlays such as `ModalBottomSheet` are re-aniamting unexpectedly when the overlays above it are popped. ([Ia2b9e](https://android-review.googlesource.com/#/q/Ia2b9e35ce6873dce20a8c9c8c7a51fa549174c9e), [b/502624496](https://issuetracker.google.com/issues/502624496))
+
+
+
+### Version 1.2.0-alpha03
+
+May 19, 2026
+
+`androidx.navigation3:navigation3-*:1.2.0-alpha03` is released. Version 1.2.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/26c899ea5b979b9ccfa4661a8e5482de3f13bcab..ed0627453f51baab21d30d8ca8f74a50ff1cfa7a/navigation3).
+
+**New Features**
+
+Navigation 3 now supports deep links with `DeepLinkRequest` and `DeepLinkMatcher`:
+
+  * `DeepLinkRequest` a requested deep link containing a `DeepLinkUri` and an optional mimeType or action(Android only). Along with the new class are companion functions to create an instance with either a `uri`, a `mimeType`, or an `action`. The android platform also has a helper to build a request from an Intent. ([Iaaac9](https://android-review.googlesource.com/#/q/Iaaac9c02bc9ae16b5127256ad4ef2910c93f84b5), [b/470282247](https://issuetracker.google.com/issues/470282247))
+        
+        val uriOnlyRequest = DeepLinkRequest.fromUriString("https://sampledeeplink.com/home")
+        val uriAndMimeRequest = DeepLinkRequest.fromUriString(
+          "https://sampledeeplink.com/user/profile?id=123",
+          "image/png"
+        )
+        
+
+  * `DeepLinkMatcher` represents a deep link that can be matched with a `DeepLinkRequest`. Each matcher instance is associated with the navigation key that supports this deep link. A navigation key can be associated with multiple matchers. Calling `DeepLinkMatcher.match` will return a `MatchResult` that contains the associated navigation key if match succeeds. There are two default `DeepLinkMatcher` implementations: `UriDeepLinkMatcher` for matching deep links based on Uri, and `StaticKeyDeepLinkMatcher` for matching deep links with only `DeepLinkMatcher.Filter` that match by a `Boolean`. ([I3798e](https://android-review.googlesource.com/#/q/I3798e89108f17fcde2ff80be6bed9fc4e7a039ef), [b/470282247](https://issuetracker.google.com/issues/470282247))
+
+  * `UriDeepLinkMatcher` an opinionated implementation of `DeepLinkMatcher` that handles deep link by matching `DeepLinkUri` to a Serializable navigation key. It supports deep link arguments of Primitive types or Collection of primitives such as Lists, Arrays, and Sets. ([I1520b](https://android-review.googlesource.com/#/q/I1520b129d23f79f51843501a0468c02dc453b566), [b/470282247](https://issuetracker.google.com/issues/470282247))
+        
+        @Serializable
+        data class UserKey(val id: Int): NavKey
+        
+        // declare a deep link supported by UserKey
+        val userMatcher = UriDeepLinkMatcher(
+          uriPattern = "www.sampledeeplink.com/user?userId={id}",
+          serializer = serializer<UserKey>()
+        )
+        
+        // handle a requested deep link with fallback key
+        val key = userMatcher.match(deepLinkRequest)?.key ?: HomeKey
+        
+
+  * Added `DeepLinkUri` which is a kotlin-multiplatform version of `android.net.Uri` ([Id4725](https://android-review.googlesource.com/#/q/Id47259e21dafd72dd7ef127cc75713a886a93844), [b/470282247](https://issuetracker.google.com/issues/470282247))
+
+
+
+
+**Api Changes**
+
+  * Bumped to `compileSdk 37` to match Compose's compileSdk
+
+
+
+**Bug Fixes**
+
+  * Fixed `AnimatedBottomSheetSample`'s `IllegalArgumentException` when displaying multiple overlays. The sample `SceneStrategy` will now correctly calculate the last non-`OverlayScene` and display it under all the overlay scenes. ([If2281](https://android-review.googlesource.com/#/q/If2281f0e4b7f1d5995dc49fa08a76f38b96fcdd3), [b/506733412](https://issuetracker.google.com/issues/506733412))
+  * Bumped `NavigationEvent` dependency to 1.1.1 which removes the no-op NavigationEventHandler when in inspection mode to enable Predictive Back in Android Studio Previews. ([I487fd](https://android-review.googlesource.com/c/platform/frameworks/support/+/4064962))
+
+
+
+### Version 1.2.0-alpha02
+
+April 22, 2026
+
+`androidx.navigation3:navigation3-*:1.2.0-alpha02` is released. Version 1.2.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/08c0997a220e855b5c82a220cf3cc68ce0ff144b..7804308bb549f1108db1aa9904c26730ee84b34b/navigation3).
+
+**API Changes**
+
+  * Rename `onBack` to `onBackCompleted` and add `onBackCancelled` to NavigationBackHandler to support handling cancelled back gestures. ([I92741](https://android-review.googlesource.com/#/q/I927415da0ce7df0b288658fba54d7141e0aa0b11))
+  * Add `NavigationBackHandler` to simplify handling back gestures and predictive back when using `SceneState`. This allows developers to more easily create custom UI components that support standard back navigation and predictive gestures without manually calculating back stack deltas. ([I6a055](https://android-review.googlesource.com/#/q/I6a0550626b92ac59b23a6fd143489c5e249340b6))
+  * Add `rememberNavigationEventState` to simplify connecting `SceneState` with predictive back handling. ([Iae49c](https://android-review.googlesource.com/#/q/Iae49c95601b58c8bc5752335cf0254d7e0805fb1))
+
+
+
+**New Features**
+
+  * Added a `ResultEventBus` API to allow for passing results between NavEntries with the `LocalResultEventBus` provided by the new `ResultEventBusNavEntryDecorator`. Passed in results can be assessed as a state with `ResultEventBus#conflateAsState` or as a flow of results with `ResultEffect`.
+
+
+
+### Version 1.2.0-alpha01
+
+April 08, 2026
+
+`androidx.navigation3:navigation3-*:1.2.0-alpha01` is released. Version 1.2.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/65530abc6f586edfe303825bb9b94c9fb64c4a0f..08c0997a220e855b5c82a220cf3cc68ce0ff144b/navigation3).
+
+**Bug Fixes**
+
+  * Accessing `LocalNavAnimatedContentScope` from an `OverlayScene` will no longer cause an `IllegalStateException` as `OverlayScenes` are now provided with a no-op `LocalAnimatedContentScope`. ([I2f00c](https://android-review.googlesource.com/#/q/I2f00c9c916cb77cfb85bb736ed8efc9ccedbd512), [b/486067688](https://issuetracker.google.com/issues/486067688))
+
+
+
+## Navigation3 Version 1.1
+
+### Version 1.1.7
+
+August 26, 2026
+
+`androidx.navigation3:navigation3-*:1.1.7` is released. Version 1.1.7 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/bc33726aa2025e67bbf11ac9142b3e33e29596a3..e4c75cb32a85803fd367372061035e6e358ad650/navigation3).
+
+**Bug Fixes**
+
+  * Fixed an issue where predictive back gestures that are triggered during a forward transition does not animate in response to swipe progress. The predictive back will now animate and complete properly. ([Icdcb0](https://android-review.googlesource.com/#/q/Icdcb0b769208613ffd299938a892dda8f33fcc6b), [b/456218398](https://issuetracker.google.com/issues/456218398))
+
+
+
+### Version 1.1.6
+
+August 12, 2026
+
+`androidx.navigation3:navigation3-*:1.1.6` is released. Version 1.1.6 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5ff1c339d0aff2ca5a06b8ee0de282ba9cd95268..bc33726aa2025e67bbf11ac9142b3e33e29596a3/navigation3).
+
+**Bug Fixes**
+
+  * `NavEntry.contentKey` now defaults to a composite of `key.toString()` and `key::class.toString()`. This ensures that data objects that share the same name but implement different interfaces will no longer have the same `contentKey`. However, JS platform's `key::class` only returns simple class name instead of fully qualified name, so JS platform should still implement custom `contentKey` for data objects with duplicate names. ([I1fbbb](https://android-review.googlesource.com/#/q/I1fbbb4eabf2e1ab60a7789d8a7abb66d29d7f286), [b/512534342](https://issuetracker.google.com/issues/512534342))
+  * Fixed `IllegalArgumentException` thrown by `SaveableStateHolder` for key reuse when multiple pop transitions are in-flight simulatenously due to rapid popping from the back stack. ([I4d728](https://android-review.googlesource.com/#/q/I4d728a85e74fdc35e26ea621b809c03813f0806d), [b/516312097](https://issuetracker.google.com/issues/516312097))
+
+
+
+### Version 1.1.5
+
+July 29, 2026
+
+`androidx.navigation3:navigation3-*:1.1.5` is released. Version 1.1.5 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a93f4841a72f48f4d873afc522c7f2678e6316ba..5ff1c339d0aff2ca5a06b8ee0de282ba9cd95268/navigation3).
+
+**Bug Fixes**
+
+  * The `entryProvider` DSL now prioritizes `NavEntry` built with a key instance, for example `entry(key = userKey) { ... }` over `NavEntry` built with a key class such as `entry<UserKey>{ ... }`.([Ib5ec9](https://android-review.googlesource.com/#/q/Ib5ec9345e801b63cb67ecfac821428163b1b0f13), [b/533331924](https://issuetracker.google.com/issues/533331924))
+
+
+
+### Version 1.1.4
+
+July 01, 2026
+
+`androidx.navigation3:navigation3-*:1.1.4` is released. Version 1.1.4 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/258497755004be3f071eb9572543a052b665b407..a93f4841a72f48f4d873afc522c7f2678e6316ba/navigation3).
+
+**Bug Fixes**
+
+  * Fixed popped entry disappearing immediately when popping to an entry that has a nested metadata containing lambda values. ([Idb872](https://android-review.googlesource.com/#/q/Idb872842a3aa174716e063fb9dd16506b41a031e), [b/520494430](https://issuetracker.google.com/issues/520494430))
+
+
+
+### Version 1.1.3
+
+June 17, 2026
+
+`androidx.navigation3:navigation3-*:1.1.3` is released. Version 1.1.3 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/de2178359512aff61888c40fa499bbf88d5593eb..258497755004be3f071eb9572543a052b665b407/navigation3).
+
+**Bug Fixes**
+
+  * Fixed overlay animation issue where nested overlays such as `ModalBottomSheet` are re-aniamting unexpectedly when the overlays above it are popped. ([Ia2b9e](https://android-review.googlesource.com/#/q/Ia2b9e35ce6873dce20a8c9c8c7a51fa549174c9e), [b/502624496](https://issuetracker.google.com/issues/502624496))
+
+  * Bumped `NavigationEvent` dependency to 1.1.2 which removed the no-op `NavigationEventHandler` when in inspection mode to enable Predictive Back in Android Studio Previews.
+
+
+
+
+### Version 1.1.2
+
+May 19, 2026
+
+`androidx.navigation3:navigation3-*:1.1.2` is released. Version 1.1.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9bf9572b7c334c003a7a83981bdb2f8f6b7825ce..de2178359512aff61888c40fa499bbf88d5593eb/navigation3).
+
+**Bug Fixes**
+
+  * Bumped `NavigationEvent` dependency to 1.1.1 which removed the no-op `NavigationEventHandler` when in inspection mode to enable Predictive Back in Android Studio Previews.
+
+
+
+### Version 1.1.1
+
+April 22, 2026
+
+`androidx.navigation3:navigation3-*:1.1.1` is released. Version 1.1.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/65530abc6f586edfe303825bb9b94c9fb64c4a0f..9bf9572b7c334c003a7a83981bdb2f8f6b7825ce/navigation3).
+
+**Bug Fixes**
+
+  * Accessing `LocalNavAnimatedContentScope` from an `OverlayScene` will no longer cause an `IllegalStateException` as `OverlayScenes` are now provided with a no-op `LocalAnimatedContentScope`. ([I2f00c](https://android-review.googlesource.com/#/q/I2f00c9c916cb77cfb85bb736ed8efc9ccedbd512), [b/486067688](https://issuetracker.google.com/issues/486067688))
+
+
+
+### Version 1.1.0
+
+April 08, 2026
+
+`androidx.navigation3:navigation3-*:1.1.0` is released. Version 1.1.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/add6a0ae146bc8a21394e7a83e0fea2e8dc31b5a..65530abc6f586edfe303825bb9b94c9fb64c4a0f/navigation3).
+
+**1.1.0 is now stable!**
+
+**Important changes since 1.0.0**
+
+**Shared Elements between Scenes** \- Navigation3 now supports treating scenes as shared element object. This means that when the scenes change, it is possible to ensure they have a smooth transition. You can enable this by passing a `SharedTransitionScope` to either the `NavDisplay` or to `rememberSceneState`.
+
+**SceneDecoratorStrategy** \- Introduction of `SceneDecoratorStrategy` to support uses cases such as decorating scenes with common UI components or sharing state across scenes.
+
+**NavMetadata DSL** \- Navigation3 now provides a new type-safe metadata DSL. The DSL uses a new `MetadataKey` interface that allows for defining the key and value types that they wish to provide to the metadata map. This also added new `NavMetadataKeys` for `NavDisplay` transitions so that they can be used with the new metadata DSL to add transitions to `NavDisplay`.
+
+**OverlayScene Animations** \- The `OverlayScene` interface has a new `onRemoved` suspending callback. This callback is invoked after a key associated with the scene is removed from the backstack, but before it leaves composition. This allows exit animations called within `onRemoved`to complete before the overlay scene is removed from composition.
+
+**Other Changes** \- `NavDisplay` and `rememberSceneState` now take a `List<SceneStrategy>` instead of the previous single `SceneStrategy` parameter that was chained by the `then` infix. \- You can now dynamically add metadata with consideration for the entry key via the `EntryProvider` DSL.
+
+### Version 1.1.0-rc01
+
+March 25, 2026
+
+`androidx.navigation3:navigation3-*:1.1.0-rc01` is released. Version 1.1.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3722e3daaddb618f2b0e21170f3a0dc441509696..b339de0fdb19def23789c373c5f8ab239e179099/navigation3).
+
+**Bug Fixes**
+
+  * `NavDisplay` now ensures that entries that are displayed underneath overlays have their `Lifecycle` capped at `STARTED`. This ensures APIs like `dropUnlessResumed` continue to work when using dialogs. ([If209f](https://android-review.googlesource.com/#/q/If209fac7b1228a008aa238a43ea108191c89fe6c), [b/483966071](https://issuetracker.google.com/issues/483966071))
+  * Fixed an issue in `NavDisplay` where navigating back and forth between the same screens and interrupting the animations between the two could cause the z-order of the screens to be incorrect. ([I4d491](https://android-review.googlesource.com/#/q/I4d491182a42a2f3ce12748f81c54cdbf25e995a8), [b/459419800](https://issuetracker.google.com/issues/459419800))
+
+
+
+### Version 1.1.0-beta01
+
+March 11, 2026
+
+`androidx.navigation3:navigation3-*:1.1.0-beta01` is released. Version 1.1.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c640b9aa8e30b5db9ee258561ad1fc4bc947e69d..3722e3daaddb618f2b0e21170f3a0dc441509696/navigation3).
+
+### Version 1.1.0-alpha05
+
+February 25, 2026
+
+`androidx.navigation3:navigation3-*:1.1.0-alpha05` is released. Version 1.1.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..c640b9aa8e30b5db9ee258561ad1fc4bc947e69d/navigation3).
+
+**API Changes**
+
+  * `NavDisplay` and `rememberSceneState` now take a `List<SceneStrategy>` instead of the previous single `SceneStrategy` parameter that was chained by the `then` infix. This more closely aligns with the `List<SceneDecoratorStrategy<T>>` that both of these APIs already take. The previous APIs have been deprecated. ([I78b2c](https://android-review.googlesource.com/#/q/I78b2c1c393a72b3f9fea3b615a0f23559e66809b), [b/482108465](https://issuetracker.google.com/issues/482108465))
+  * Added a metadata #contains operator to check if the metadata map contains the given `NavMetadataKey`. ([Ic30db](https://android-review.googlesource.com/#/q/Ic30dbb34dba4d45f54868e40bd57edeb9f44668d), [b/485311895](https://issuetracker.google.com/issues/485311895))
+  * Added `NavMetadataKey` `DialogKey` for `DialogSceneStrategy` to use with Metadata DSL. ([Ic7a26](https://android-review.googlesource.com/#/q/Ic7a2685dd0882e1e66e8416de3fc8063de301ba6), [b/483388817](https://issuetracker.google.com/issues/483388817))
+
+
+
+### Version 1.1.0-alpha04
+
+February 11, 2026
+
+`androidx.navigation3:navigation3-*:1.1.0-alpha04` is released. Version 1.1.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c26c6f088b95903b7b9cd5e6f2092988f1e64dc3..cdf076c6abd0f3125cb0302756fcb77fe981ab7c/navigation3).
+
+**New Features**
+
+  * Navigation3 now provides a new type-safe metadata DSL. The DSL uses a new `MetadataKey` interface that allows for defining the key and value types that they wish to provide to the metadata map. This also added new `NavMetadataKey`s for `NavDisplay` transitions so that they can be used with the new `metadata` DSL to add transitions to `NavDisplay`. ([Ic10ef](https://android-review.googlesource.com/#/q/Ic10ef1857ca440f4579a81995897f677cd664674), [Ic049c](https://android-review.googlesource.com/#/q/Ic049c029a3aff96319dcacb506efebd44b1bd097),[b/476213928](https://issuetracker.google.com/issues/476213928))
+
+
+
+**API Changes**
+
+  * The `OverlayScene` interface has a new `onRemoved` suspending callback. This callback is invoked after a key associated with the scene is removed from the backstack, but before it leaves composition. This allows exit animations called within `onRemoved` to complete before the overlay scene is removed from composition. ([I29a72](https://android-review.googlesource.com/#/q/I29a728f2bc10ff4c0126ddf912907140a49676f9), [b/440558061](https://issuetracker.google.com/issues/440558061))
+  * `SceneStrategy` has separated the decoration function into a new `SceneDecoratorStrategy`. This new interface is what is should be used to decorate scenes. There are new APIs for `NavDisplay` and `rememberSceneState` to allow the addition of `SceneDecoratorStrategies`. ([If9385](https://android-review.googlesource.com/#/q/If938555c2a8ac67748ff9d2d1106853badb946ae), [b/477669607](https://issuetracker.google.com/issues/477669607), [b/477670333](https://issuetracker.google.com/issues/477670333))
+
+
+
+**Bug Fixes**
+
+  * Fixed an error where passing a `SharedTransitionLayout` into either the `NavDisplay` or `rememberSceneState` and using any `OverlayScene` would cause a crash because using `SharedTransitionLayout` only works with `NavEntries` that are rendered as part of the `AnimatedContent` and `OverlayScene` are rendered in their own windows separately. ([I1bb76](https://android-review.googlesource.com/#/q/I1bb76dd63bc11f84eaeffb3bcb61cd3e8cb795e8), [b/478664101](https://issuetracker.google.com/issues/478664101))
+
+
+
+**Dependency Update**
+
+  * From `Navigation3` 1.0.1: `Navigation3` now depends on `NavigationEvent` 1.0.2. This fixes an `IllegalStateException` caused by using `NavDisplay` during `AndroidStudio` Previews. ([Id7212](https://android-review.googlesource.com/#/q/Id72127281dd27ad9d53d2fc38704ea81c9a05b20), [b/477149762](https://issuetracker.google.com/issues/477149762))
+
+
+
+### Version 1.1.0-alpha03
+
+January 28, 2026
+
+`androidx.navigation3:navigation3-*:1.1.0-alpha03` is released. Version 1.1.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d4384815af3bab6af755069a70ea0c492e015e9f..b0ea337f3538c22dae2295d6a9265ab0c753e301/navigation3).
+
+**New Features**
+
+  * You can now dynamically add metadata with consideration for the entry key via the `EntryProvider` DSL. ([I942fb](https://android-review.googlesource.com/#/q/I942fb23e416c3b8c79ef5422ead6ce738200cbb0), [b/474416976](https://issuetracker.google.com/issues/474416976))
+
+
+
+### Version 1.1.0-alpha02
+
+January 14, 2026
+
+`androidx.navigation3:navigation3-*:1.1.0-alpha02` is released. Version 1.1.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/deb96499dfe95073f5c1215c1287787683cb1e92..adeb519268e4eeff7d0a5a9d024dbe26d88bb6ad/navigation3).
+
+**New Features**
+
+  * `SceneStrategy` now supports nesting scenes via a new `calculatedScene(Scene)` function. This means that `SceneStrategy`’s can be customized to provide additional functionality to other scenes. ([I5df7c](https://android-review.googlesource.com/#/q/I5df7c23d70804a0b817d333fa54a9f1fe465b612),[b/440333896](https://issuetracker.google.com/issues/440333896))
+
+
+
+### Version 1.1.0-alpha01
+
+December 03, 2025
+
+`androidx.navigation3:navigation3-*:1.1.0-alpha01` is released. Version 1.1.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7eee8c24b22a08646c79f7457d72a760c36ccc25..deb96499dfe95073f5c1215c1287787683cb1e92/navigation3).
+
+**API Changes**
+
+  * `Navigation3` now supports treating scenes as shared element object. This means that when the scenes change, it is possible to ensure they have a smooth transition. You can enable this by passing a `SharedTransitionScope` to either the `NavDisplay` or to `rememberSceneState`. ([I15868](https://android-review.googlesource.com/#/q/I1586863735423ff93fced01a20048f66bebc3eee))
+
+
+
+## Version 1.0
+
+### Version 1.0.1
+
+February 11, 2026
+
+`androidx.navigation3:navigation3-*:1.0.1` is released. Version 1.0.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7eee8c24b22a08646c79f7457d72a760c36ccc25..add6a0ae146bc8a21394e7a83e0fea2e8dc31b5a/navigation3).
+
+**Dependency Update**
+
+  * `Navigation3` now depends on `NavigationEvent` 1.0.2. This fixes an `IllegalStateException` caused by using `NavDisplay` during `AndroidStudio` Previews. ([Id7212](https://android-review.googlesource.com/#/q/Id72127281dd27ad9d53d2fc38704ea81c9a05b20), [b/477149762](https://issuetracker.google.com/issues/477149762))
+
+
+
+### Version 1.0.0
+
+November 19, 2025
+
+`androidx.navigation3:navigation3-*:1.0.0` is released. Version 1.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1c211305886d70caa42620facce1b97ed7e47bf5..7eee8c24b22a08646c79f7457d72a760c36ccc25/navigation3).
+
+**Introducing Navigation3!**
+
+  * The Navigation3 library is now stable! Navigation3 is the AndroidX Compose first approach to navigation.
+  * For more information, see our [announcement blog post](https://android-developers.googleblog.com/2025/05/announcing-jetpack-navigation-3-for-compose.html), visit the [resources](https://goo.gle/nav3), and try [the recipes](https://github.com/android/nav3-recipes).
+
+
+
+### Version 1.0.0-rc01
+
+November 05, 2025
+
+`androidx.navigation3:navigation3-*:1.0.0-rc01` is released. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/46bcdef6281ae0f03c3a2bb2812edfc2c0e66d05..ebd829d61998c48ea35b0e2adbc801d9c5ae36cc/navigation3).
+
+**Bug Fixes**
+
+  * `NavDisplay` now sets a `LocalLifecycleOwner` at the `Scene` level that allows scene authors to determine whether all transitions have finished by checking that the `Lifecycle.State` is `RESUMED`. The behavior of the `LocalLifecycleOwner` at the `NavEntry` level is unchanged: it also remains capped at `STARTED` if a transition is in progress and is additionally capped at `CREATED` if that `NavEntry` has been popped from the back stack and is in the process of animating out. ([I03113](https://android-review.googlesource.com/#/q/I03113a4729d59a9d2bc09d4422d41615f60ab935), [b/454045829](https://issuetracker.google.com/issues/454045829))
+
+
+
+### Version 1.0.0-beta01
+
+October 22, 2025
+
+`androidx.navigation3:navigation3-*:1.0.0-beta01` is released. Version 1.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7b8a27d59a3cd5d0aa8259755193aadbd5c119da..46bcdef6281ae0f03c3a2bb2812edfc2c0e66d05/navigation3).
+
+**API Changes**
+
+  * `SceneStrategyScope` now only has a no argument public constructor, suitable for testing your `SceneStrategy` and the returned `Scene` in isolation. For more complex use cases, please use `rememberSceneState()`. ([I8440c](https://android-review.googlesource.com/#/q/I8440ca6a5d4c86aa24ffb7646a8d3b9e85ca3db0), [b/451679047](https://issuetracker.google.com/issues/451679047))
+
+
+
+**Bug Fixes**
+
+  * Fixed infinite loop when chaining `SceneStrategy` with `then`. ([Iba3f0](https://android-review.googlesource.com/#/q/Iba3f0efce620b1cf0afce7c448d72838ce274eab), [b/450323470](https://issuetracker.google.com/issues/450323470))
+  * Fixed screen flicker when swapping the `backStack` passed to `NavDisplay` and using animations. ([Ief7b5](https://android-review.googlesource.com/#/q/Ief7b5f0a334f15f51fd6ee0d81b0af39c46198f2), [b/450967248](https://issuetracker.google.com/issues/450967248))
+
+
+
+### Version 1.0.0-alpha11
+
+October 08, 2025
+
+`androidx.navigation3:navigation3-*:1.0.0-alpha11` is released. Version 1.0.0-alpha11 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/eda15c8d8b0e8a4cdb256c81b44499364dbf0fcd..7b8a27d59a3cd5d0aa8259755193aadbd5c119da/navigation3).
+
+**API Changes**
+
+  * The `calculateScene` method on `SceneStrategy` is no longer `@Composable`. Instead, consider moving this work to the construction of your `SceneStrategy` method (i.e., in a `rememberMySceneStrategy()` method) that fully allows you to define the lifetime of any `rememberSaveable` values or key `remember` statements off of the correct values. ([If1733](https://android-review.googlesource.com/#/q/If17337d860c1d3a8b048639f2c929e8d4f9a2b10), [b/448709506](https://issuetracker.google.com/issues/448709506))
+  * The `onBack` parameter for `SceneStrategy.calculateScene` has been moved into the new receiver scope of `SceneStrategyScope` to make it more clear that this is an optional parameter and provide an extension point for future Navigation3 features. ([I3aea3](https://android-review.googlesource.com/#/q/I3aea32521ce10121fbe931885bd9d2f04a75c389), [b/448460407](https://issuetracker.google.com/issues/448460407))
+  * The `onBack` lambda passed into `NavDisplay` and to your `SceneStrategy` no longer provides a `count: Int` parameter to indicate when multiple entries should be popped. Instead, the `() -> Unit` lambda will now be called multiple times in a row in the rare case where your Scene requests popping multiple entries. ([Idedb5](https://android-review.googlesource.com/#/q/Idedb5b579a9589523bedad8d7ed687ac224d09d1), [b/446989346](https://issuetracker.google.com/issues/446989346))
+  * Remove the `NavEntryWrapper` class and replace its functionality with a final `NavEntry` class with a new secondary constructor that takes a `NavEntry` with new content. This will allow continued support for wrapping an entry with new content. ([I7da2a](https://android-review.googlesource.com/#/q/I7da2aa71f3dad927b964b9fd34e59d8eb7e252ab), [b/444447130](https://issuetracker.google.com/issues/444447130))
+  * The `navEntryDecorator` function which creates and returns a `NavEntryDecorator` has been removed and replaced by the `NavEntryDecorator` class which is now made public and open for subclassing. ([If81f8](https://android-review.googlesource.com/#/q/If81f85846a52e8f70708e51932b4ff132ec6222b), [b/444447434](https://issuetracker.google.com/issues/444447434), [b/447381176](https://issuetracker.google.com/issues/447381176))
+  * `SavedStateNavEntryDecorator` has been renamed to `SaveableStateHolderNavEntryDecorator` since it decorates entries with a `SaveableStateHolder`. The decorator has also been refactored from a function to a class since it is functionally a factory for `NavEntryDecorator`. ([Ie6013](https://android-review.googlesource.com/#/q/Ie60132e292e0d8ffb4c0c7b5ac219c37822e2028), [b/447381176](https://issuetracker.google.com/issues/447381176))
+  * Custom displays using `SceneState` as an alternative to using `NavDisplay` no longer are required to use the `LocalEntriesToRenderInCurrentScene` composition local, which is now internal. ([Ic40ef](https://android-review.googlesource.com/#/q/Ic40ef603fd633af7aca1a4f3ec945f12764b09cf), [b/414668196](https://issuetracker.google.com/issues/414668196))
+  * Removed `SceneSetupNavEntryDecorator` and `rememberSceneSetupNavEntryDecorator()` from the public API surface. This functionality now is included by default without requiring you to manually include it. ([Ieae42](https://android-review.googlesource.com/#/q/Ieae4287893db27dbec2fdb463775af35886c010a), [b/444479133](https://issuetracker.google.com/issues/444479133))
+  * `NavEntry`, `DialogScene`, `SinglePaneScene`, and `SceneState` now all implement equals. ([I96121](https://android-review.googlesource.com/#/q/I96121c5865c3484f00aaf09d4b74a07be90b720a))
+  * Scene interface has a new metadata field to attach scene-specific metadata for NavDisplay. This allows a Scene to override the metadata on the `NavDisplay`, for instance with transitions. ([I1fd96](https://android-review.googlesource.com/#/q/I1fd96ad077055e27e5b090f3ae948b402902140b), [b/443955625](https://issuetracker.google.com/issues/443955625))
+  * Simplify `rememberNavBackStack` signature by removing the redundant generic type parameter. The function now accepts `vararg elements: NavKey`. ([I03e45](https://android-review.googlesource.com/#/q/I03e45a8cfbb0bb90671bd12c4efc3520ff20ae7e))
+  * The default animations for `NavDisplay` are now part of the common API which allows them to be called from all platforms. ([I71af9](https://android-review.googlesource.com/#/q/I71af90046145cb574e65063dd0167b93f5509d2f), [b/447147159](https://issuetracker.google.com/issues/447147159))
+  * Rename `EntryProviderBuilder` to `EntryProviderScope` to accurately reflect that the class is a Kotlin DSL providing a scope to build `NavEntries`. ([Ia7465](https://android-review.googlesource.com/#/q/Ia74653a4a69625b92621534ca30cf284ec01b9a0))
+
+
+
+**Bug Fixes**
+
+  * `rememberNavBackStack()` now enforces polymorphic serialization for NavKey and requires a custom `SavedStateConfiguration` that is configured to ensure correct state restoration. KDoc have been updated to reflect the requirement that all NavKey subtypes must be registered in the provided SerializersModule. ([I6de37](https://android-review.googlesource.com/#/q/I6de3767a8052e15bca9fe68d3bd794decb997f77),[I782f2](https://android-review.googlesource.com/#/q/I782f2734974d9c959501654a9c50d0c363b5d9dd), [b/446664383](https://issuetracker.google.com/issues/446664383))
+
+
+
+### Version 1.0.0-alpha10
+
+September 24, 2025
+
+`androidx.navigation3:navigation3-*:1.0.0-alpha10` is released. Version 1.0.0-alpha10 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cf4bc156e75473f159aa2536c8948d273ac67d97..eda15c8d8b0e8a4cdb256c81b44499364dbf0fcd/navigation3).
+
+**API Changes**
+
+  * Add new `NavDisplay` overload that takes a list of `NavEntry<T>` that has been decorated by `rememberDecoratedNavEntries`. ([I4025b](https://android-review.googlesource.com/#/q/I4025be493bd837d96a56894370b4f4eb0227143a), [b/441940314](https://issuetracker.google.com/issues/441940314))
+  * Moved `DialogScene` to a new package. ([Ia5840](https://android-review.googlesource.com/#/q/Ia58400aa23e85e37872e3f2cdce661b52379d2a8))
+  * Remove public API `DecorateNavEntry`. Instead use `rememberDecoratedNavEntries` to wrap a NavEntry with a list of decorators. ([Id8c09](https://android-review.googlesource.com/#/q/Id8c099a0b03f9da15a3f0ef3c49308e45e35aaae))
+  * Navigation3 UI now provides new default `transitionSpec` properties. ([Ibcabd](https://android-review.googlesource.com/#/q/Ibcabd125b19ad4ecb7044b23cbcf80c714cf2094))
+  * Added a new `SceneState` object to help manage scenes. This also provides a new `NavDisplay` overload that takes the `SceneState` and the `NavigationEventState`. ([Idfb46](https://android-review.googlesource.com/#/q/Idfb4648b798e71000277448e355a00e0fb1e4fd1), [b/444479133](https://issuetracker.google.com/issues/444479133))
+  * `NavDisplay` now allows you to customize the transitions based on what `Scene` you are going to and from by looking at the `Transition`'s `currentState` and `targetState`. ([I906cc](https://android-review.googlesource.com/#/q/I906cc1a8305e1d6cabfdfe8a4ac555e330863fbf), [b/443872322](https://issuetracker.google.com/issues/443872322))
+  * `NavigationEventInfo` is now an `abstract class` instead of an `interface`. Update all custom implementations to inherit from the class (e..g, `data class MyInfo : NavigationEventInfo()`). ([I1e59c](https://android-review.googlesource.com/#/q/I1e59c844ec7c68a2824d0215af228e47fa6bc4e1), [b/444734264](https://issuetracker.google.com/issues/444734264))
+  * The `navigationevent-compose` handler APIs are updated. `NavigationEventHandler` and `NavigationBackHandler` (and variants) now support a new overload that accepts a hoisted `NavigationEventState`s. The simple overloads (taking `currentInfo`) are preserved and now use this new state model internally. ([Ic3251](https://android-review.googlesource.com/#/q/Ic32511e845d8b2ca72f9d97aa01d1a3c319f5705), [b/444734264](https://issuetracker.google.com/issues/444734264))
+  * All of the Scene APIs have been moved out of navigation3-ui to navigation3-runtime. This means they are now available on all platforms supported by navigation3-runtime. ([I431d0](https://android-review.googlesource.com/#/q/I431d043c8b1fd6cc52f86e7747093b78f285e2d2), [b/444449993](https://issuetracker.google.com/issues/444449993))
+  * Added new `rememberDecoratedNavEntries` overload that takes a list of `NavEntry` to decorate. The input entries can be already decorated with other entry decorators. ([I5a034](https://android-review.googlesource.com/#/q/I5a034a05db2f4c5e5510e21711a66f2cbe693a40), [b/444230270](https://issuetracker.google.com/issues/444230270))
+  * Remove navigation3 wildcard type parameters ([I02540](https://android-review.googlesource.com/#/q/I0254058ade649e023bd4c68e1067cbf8e5c31b09))
+  * Improved the handling of generics for the `entryProvider` DSL. If you were previously importing `androidx.navigation3.runtime.entry`, this is no longer required. ([I299fc](https://android-review.googlesource.com/#/q/I299fc79a5e1ade5136d8ff6e1184adb1820851fe))
+  * Restrict the reflection-based `NavBackStackSerializer` overload to Android. This prevents implicit runtime serialization failures on non-Android platforms by enforcing the use of the explicit `SavedStateConfiguration` overload in multiplatform code. ([I73313](https://android-review.googlesource.com/#/q/I733133f455bb8244d5df78f845b74d54fdcb8ad7), [b/420443609](https://issuetracker.google.com/issues/420443609))
+  * Make `NavigationEvent`'s `swipeEdge` an `@IntDef` ([Icee54](https://android-review.googlesource.com/#/q/Icee542915f6b4c5a37bd663caaec983417498349), [b/443950342](https://issuetracker.google.com/issues/443950342))
+  * Restrict `NavBackStack` serialization to Android. This prevents runtime failures on non-Android platforms. For multiplatform state saving, use the `rememberNavBackStack` overload with an explicit `SavedStateConfiguration`. ([I1e418](https://android-review.googlesource.com/#/q/I1e4183622beb615f3e2ad0a7b87ef2f42e127f62), [b/420443609](https://issuetracker.google.com/issues/420443609))
+
+
+
+**Bug Fixes**
+
+  * Fix crash during predictive back when nested `NavDisplay` has a single child entry. ([I2cdc0](https://android-review.googlesource.com/#/q/I2cdc01c8f7fa73b96833520173cb618dfffac819), [b/441933162](https://issuetracker.google.com/issues/441933162))
+
+
+
+### Version 1.0.0-alpha09
+
+September 10, 2025
+
+`androidx.navigation3:navigation3-*:1.0.0-alpha09` is released. Version 1.0.0-alpha09 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cd8ce2bdb21194a81a76325a8e65dad5d7e28681..cf4bc156e75473f159aa2536c8948d273ac67d97/navigation3).
+
+**API Changes**
+
+  * The `DecoratedNavEntryProvider` has been replaced with `rememberDecoratedNavEntries` that creates and return NavEntries decorated with the list of provided decorators ([I0fe1c](https://android-review.googlesource.com/#/q/I0fe1ce4618e337102a3daa01b5bca94a592dd6f8), [b/441328236](https://issuetracker.google.com/issues/441328236))
+  * `NavBackStack` is now generic over the `NavKey` type. This allows apps and libraries to define custom key types for their back stacks, rather than being restricted to `NavKey`. ([I4d190](https://android-review.googlesource.com/#/q/I4d19087dadab3a6796d15a067cac907597c76e11),[Iad2f4](https://android-review.googlesource.com/#/q/Iad2f46e30ac62e5367304cec20fa5ae3a657402e), [b/420443609](https://issuetracker.google.com/issues/420443609))
+  * `NavBackStack` is now `@kotlinx.serialization.Serializable`, making it possible to save and restore navigation state across process death and configuration changes without extra boilerplate. ([I2c3cf](https://android-review.googlesource.com/#/q/I2c3cfd6c6af1a7e46233e703ba86629bf5271634), [b/420443609](https://issuetracker.google.com/issues/420443609))
+  * `RememberNavBackStack` has been moved to `commonMain` to ensure it is provided on all platform targets. ([Id69e7](https://android-review.googlesource.com/#/q/Id69e75758ff2d6078dbd06cdecb1621b42607630), [b/420443609](https://issuetracker.google.com/issues/420443609))
+
+
+
+**Bug Fixes**
+
+  * `NavDisplay` now correctly moves each individual `NavEntry` to the correct `Lifecycle.State`. ([I30aac](https://android-review.googlesource.com/#/q/I30aac4627d43c1a85f580887a4c36f1543a97e2c), [b/440145700](https://issuetracker.google.com/issues/440145700))
+  * Fixed an issue where `NavDisplay` would ignore any nested `NavigationEventDispatcherOwner` set via the `NavigationEvent` library's `LocalNavigationEventDispatcherOwner`. ([I6224a](https://android-review.googlesource.com/#/q/I6224a3448b71d2532bf5692e520ccaf540824b8f))
+
+
+
+**Dependency Changes**
+
+  * Navigation3 now depends on [NavigationEvent Alpha08](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.0.0-alpha08).
+
+
+
+### Version 1.0.0-alpha08
+
+August 27, 2025
+
+`androidx.navigation3:navigation3-*:1.0.0-alpha08` is released. Version 1.0.0-alpha08 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c359e97fece91f3767a7d017e9def23c7caf1f53..cd8ce2bdb21194a81a76325a8e65dad5d7e28681/navigation3).
+
+**New Features**
+
+  * Added new Kotlin MultiPlatform (KMP) targets to `Navigation3 Runtime` artifacts. `Navigation3 Runtime` now supports the following platforms in total: JVM (Android and Desktop), Native (Linux, iOS, watchOS, macOS, MinGW), and Web (JavaScript, WasmJS). ([I55078](https://android-review.googlesource.com/#/q/I550788ff38851e1fec7f44a687a1a69734374e4f), [b/424410398](https://issuetracker.google.com/issues/424410398), [b/419294028](https://issuetracker.google.com/issues/419294028), [b/419046226](https://issuetracker.google.com/issues/419046226)). Note: This does not provide KMP targets for `Navigation3 UI` artifact. On other platforms, you will need to implement your own custom `NavDisplay`. If you would like to see it supported, please vote on the Jetbrains issue [here](https://youtrack.jetbrains.com/issue/CMP-7646) and track the progress for additional support there.
+  * The `NavDisplayInfo` object is now public and can be used to retrieve the list of visible entries from the `NavDisplay`. ([Ibc91f](https://android-review.googlesource.com/#/q/Ibc91ff7504b0e26f9a1ccf43000b786cbf48b74d))
+
+
+
+**API Changes**
+
+  * Added a new `NavBackStackSerializer` to be used in conjunction with `rememberNavBackStack` to perform state restoration. `rememberNavBackStack()` now also takes a [`SavedStateConfiguration`](https://developer.android.com/reference/androidx/savedstate/serialization/SavedStateConfiguration) that can be used to provide your own configuration. ([I2f4d2](https://android-review.googlesource.com/#/q/I2f4d2073eff82f88b476a9765a0e69729e77179e), [I4cd58](https://android-review.googlesource.com/#/q/I4cd58dca08625e7ecafac9f0a1e479e558604b7e), [b/420443609](https://issuetracker.google.com/issues/420443609))
+
+
+
+**Bug Fixes**
+
+  * Fixed an issue where navigating would cause incorrect Lifecycle events to fire. ([I8bf6d](https://android-review.googlesource.com/#/q/I8bf6d9491c1bb242a8c2f195204a174f310b7f03), [b/425901162](https://issuetracker.google.com/issues/425901162), [b/434109022](https://issuetracker.google.com/issues/434109022))
+
+
+
+**Known Issues**
+
+  * There was a bug introduced by [I8bf6d](https://android-review.googlesource.com/#/q/I8bf6d9491c1bb242a8c2f195204a174f310b7f03) that caused Lifecycles to be based on scenes instead of individual entries, which broke Lifecycle for any cases where the `key` provided to the `NavEntry` is not a `String` or your `NavEntry` has not overridden the `contentKey` and set it equal to the `key` (note that doing this enforces that your key can be saved into a `Bundle`). This has been fixed for the next release. ([b/440145700](https://issuetracker.google.com/issues/440145700))
+
+
+
+### Version 1.0.0-alpha07
+
+August 13, 2025
+
+`androidx.navigation3:navigation3-*:1.0.0-alpha07` is released. Version 1.0.0-alpha07 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b4562c71af5649ad7262ba4c7925899e6e93bdff..c359e97fece91f3767a7d017e9def23c7caf1f53/navigation3).
+
+**MinSdk Update**
+
+  * The default minSdk for the AndroidX has been moved from API 21 to API 23 ([Ibdfca](https://android-review.googlesource.com/#/q/Ibdfca5942dbb414ca07594ba240093db14aad4df), [b/380448311](https://issuetracker.google.com/issues/380448311), [b/435705964](https://issuetracker.google.com/issues/435705964), [b/435705223](https://issuetracker.google.com/issues/435705223))
+
+
+
+**API Changes**
+
+  * `SavedStateNavEntryDecorator` now uses the `SaveableStateRegistry` built into `SaveableStateProvider` to save and restore states. ([If8d9a](https://android-review.googlesource.com/#/q/If8d9aebde301f51faa78d4b1f471cf9f7d87f9cb))
+  * The `predictivePopTransitionSpec` is now provided the swipe edge as a parameter, allowing you to customize the transition based on what edge the user started the Predictive Back gesture from. ([I753a8](https://android-review.googlesource.com/#/q/I753a8ba909347f89506006f66aca23298b2e3237))
+
+
+
+**Bug Fixes**
+
+  * Fixed an issue that would cause custom scenes to be infinitely recalculated because the most recent scene was not being remembered. ([I7ba84](https://android-review.googlesource.com/#/q/I7ba84a56fe1cfd4f006c9b6c4c3e91b44a2bb2a5), [b/418153031](https://issuetracker.google.com/issues/418153031))
+
+
+
+**Dependency update**
+
+  * Navigation3 now depends on [Navigation Event `1.0.0-alpha06`](https://developer.android.com/jetpack/androidx/releases/jetpack/androidx/releases/navigationevent#1.0.0-alpha06).
+
+
+
+### Version 1.0.0-alpha06
+
+July 30, 2025
+
+`androidx.navigation3:navigation3-*:1.0.0-alpha06` is released. Version 1.0.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c920d69612c07600c8d244ef8fe3df5ec775da88..b4562c71af5649ad7262ba4c7925899e6e93bdff/navigation3).
+
+**Dependency Update**
+
+  * Navigation3 now depends on [Navigation Event `1.0.0-alpha05`](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.0.0-alpha05).
+
+
+
+### Version 1.0.0-alpha05
+
+July 2, 2025
+
+`androidx.navigation3:navigation3-*:1.0.0-alpha05` is released. Version 1.0.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3a0aa7a0552da83ba3994838f5db40d0d7a6196f..c920d69612c07600c8d244ef8fe3df5ec775da88/navigation3).
+
+**Behavior Changes**
+
+  * The `NavEntry`'s state is now strictly based on the current list of decorators passed to the `NavDisplay`. This means that decorators should be swapped along your back stacks in the case of multiple back stacks in order to preserve the state of the NavEntries on the back stack. Otherwise, the states will be cleared as if the entries were popped (instead of a swap). ([I7a759](https://android-review.googlesource.com/#/q/I7a759e37580404cf9c3a35b1c2a8f18b3d20646e), [b/428033667](https://issuetracker.google.com/issues/428033667))
+
+
+
+### Version 1.0.0-alpha04
+
+June 18, 2025
+
+`androidx.navigation3:navigation3-*:1.0.0-alpha04` is released. Version 1.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4fb12d1b1dc4dcae8ca603c7a5db938cc1abe39c..b454ea392cd18cccb078ef60a3221719164f7bbc/navigation3).
+
+**API Changes**
+
+  * `NavEntry.content` is now private. To invoke `NavEntry` content, call the new `NavEntry.Content()` api which no longer requires a `key` parameter to invoke. ([Icd0fd](https://android-review.googlesource.com/#/q/Icd0fd2244c3d29557b0803ef2abb199c18cbdbdc), [b/420991203](https://issuetracker.google.com/issues/420991203))
+  * `NavEntry.key` is now a private field. The `NavEntry` and its relevant states should be identified by the new `contentKey` field which is generated from the new `contentKeyFactory` lambda and defaults to a saveable hash generated from `NavEntry.key` ([I81a6c](https://android-review.googlesource.com/#/q/I81a6ced3a7bebf561c7206fcdf9402bc80c12752), [b/422001357](https://issuetracker.google.com/issues/422001357), [b/420991203](https://issuetracker.google.com/issues/420991203) [I2d7d4](https://android-review.googlesource.com/#/q/I2d7d4daba257e19bc9abe5ea64540126af18adf0), [b/420991203](https://issuetracker.google.com/issues/420991203), [b/422841812](https://issuetracker.google.com/issues/422841812))
+
+
+
+**Dependency Changes**
+
+  * Navigation3 now depends on the new `androidx.navigationevent.compose` artifact.
+
+
+
+### Version 1.0.0-alpha03
+
+June 4, 2025
+
+`androidx.navigation3:navigation3-*:1.0.0-alpha03` is released. Version 1.0.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3db836162afb266b54eb37d28c7c12231755fc9b..4fb12d1b1dc4dcae8ca603c7a5db938cc1abe39c/navigation3).
+
+**Bug Fixes**
+
+  * `Navigation3` will no longer clear decorator states for `backStacks` that have been swapped out and replaced with another `backStack` instance. ([I28a42](https://android-review.googlesource.com/#/q/I28a42b98cc811be99d8380b1cfceee02b42608ab), [b/415076044](https://issuetracker.google.com/issues/415076044))
+
+
+
+### Version 1.0.0-alpha02
+
+May 23, 2025
+
+`androidx.navigation3:navigation3-*:1.0.0-alpha02` is released. Version 1.0.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1c211305886d70caa42620facce1b97ed7e47bf5..3db836162afb266b54eb37d28c7c12231755fc9b/navigation3).
+
+**Bug Fixes**
+
+  * Fixed an issue with the `SavedStateNavEntryDecorator` which caused collisions for different data classes with the same property values. ([b/418070648](https://issuetracker.google.com/418070648), [Iff4775](https://android-review.googlesource.com/#/q/Iff47751d5de26bfee744069461cee38419988699))
+  * Fixed a missing class issue that would cause crashes when running without declaring explicit dependencies. ([b/419049149](https://issuetracker.google.com/419049149), [I4b4ed](https://android-review.googlesource.com/#/q/I4b4edbf046a62164e56e1871ca9918d9683a2abf))
+
+
+
+### Version 1.0.0-alpha01
+
+May 20, 2025
+
+`androidx.navigation3:navigation3-*:1.0.0-alpha01` is released. Version 1.0.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1c211305886d70caa42620facce1b97ed7e47bf5/navigation3).
+
+**New Features**
+
+[Navigation3](https://developer.android.com/guide/navigation/navigation-3) is a new navigation library built specifically to handle Jetpack Compose in-app navigation. The `androidx.navigation3.runtime` artifact provides the building blocks, while the `androidx.navigation3.ui` artifact provides the UI layer via the `NavDisplay` API. Developers can provide their own state directly to the `NavDisplay` composable function, which changes the content based on changes in the developer state.
+    
+    
+    @Serialiable object Home : NavKey
+    @Serialiable object Chat : NavKey
+    
+    val backStack = rememberNavBackStack(Home)
+    
+    NavDisplay(backStack, entryProvider = entryProvider {
+      entry<Home> {
+        Column {
+          Text(“Home”)
+          Button(onClick = { backStack.add(Chat) } ) {
+            Text(“Go to Chat”)
+          } 
+        }
+      }
+      entry<Chat> { /* My Composable Content */ }
+    })
+    
+
+For more information, see the [Navigation3 guide](http://goo.gle/nav3).
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-10-09 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-09 UTC."],[],[]] 

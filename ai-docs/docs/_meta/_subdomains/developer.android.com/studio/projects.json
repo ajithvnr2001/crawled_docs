@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/studio/projects/",
+  "file": "_subdomains/developer.android.com/studio/projects.md",
+  "title": "Projects overview \u00a0|\u00a0 Android Studio \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:44:32.844056+00:00",
+  "html_len": 260737,
+  "md_len": 14235,
+  "depth": 3
+}

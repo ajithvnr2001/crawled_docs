@@ -1,0 +1,156 @@
+---
+url: https://developer.android.com/training/cars/apps/library/set-up-project/
+title: Set up your project \u00a0|\u00a0 Android for Cars \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:46:04.871469+00:00
+---
+
+# Set up your project  |  Android for Cars  |  Android Developers
+
+> Source: https://developer.android.com/training/cars/apps/library/set-up-project/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Develop ](https://developer.android.com/develop)
+  * [ Devices ](https://developer.android.com/develop/devices)
+  * [ Android for Cars ](https://developer.android.com/training/cars)
+
+
+
+#  Set up your project Stay organized with collections  Save and categorize content based on your preferences. 
+
+This page describes how to install the Car App library and how to configure the manifest file for your app.
+
+## Install the Car App library
+
+To add the library to your app, see the Jetpack library [release page](https://developer.android.com/jetpack/androidx/releases/car-app#declaring_dependencies).
+
+**Important:** When depending on alpha and beta releases of the library, take extra caution when using newly introduced or experimental APIs. Specifically, new APIs in alpha releases and APIs that are annotated as experimental can change—and potentially break—your app when the hosts are updated. **We strongly recommend that you don't refer to these categories of APIs in your production APKs.**
+
+## Configure your app's manifest files
+
+Before you can create your car app, you must configure your app's [manifest files](https://developer.android.com/guide/topics/manifest/manifest-intro).
+
+### Declare your CarAppService
+
+The host connects to your app through your [`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService) implementation. You declare this service in your manifest to let the host discover and connect to your app.
+
+You must also declare your app's category in the [`<category>`](https://developer.android.com/guide/topics/manifest/category-element) element of your app's intent filter. See the list of supported app categories for the values allowed for this element.
+
+The following code snippet shows how to declare a car app service for a point of interest app in your manifest:
+    
+    
+    <application>
+        ...
+       <service
+           ...
+            android:name=".MyCarAppService"
+            android:exported="true">
+          <intent-filter>
+            <action android:name="androidx.car.app.CarAppService"/>
+            <category android:name="androidx.car.app.category.POI"/>
+          </intent-filter>
+        </service>
+    
+        ...
+    <application>
+    
+
+**Caution:** You might see a lint warning because the service is exported, but doesn't require a [permission](https://developer.android.com/guide/topics/manifest/service-element#prmsn). It's generally safe to ignore this warning because you must override the [`createHostValidator`](https://developer.android.com/reference/androidx/car/app/CarAppService#createHostValidator\(\)) method, which gives you more granular control over which host apps can connect to your app.
+
+### Supported app categories
+
+When you declare your `CarAppService` as described in Declare your CarAppService, you must also declare your app's category by adding one or more of these values in the intent filter.
+
+  * `androidx.car.app.category.NAVIGATION`: Provides turn-by-turn navigation instructions. See [Build navigation apps for cars](https://developer.android.com/training/cars/apps/navigation).
+
+  * `androidx.car.app.category.POI`: Provides functionality relevant to finding points of interest such as parking spots, charging stations, and gas stations. See [Build point of interest apps for cars](https://developer.android.com/training/cars/apps/poi).
+
+  * `androidx.car.app.category.IOT`: Enables users to take relevant actions on connected devices from within the car. See [Build internet of things apps for cars](https://developer.android.com/training/cars/apps/iot).
+
+  * `androidx.car.app.category.WEATHER`: Lets users see relevant weather information related to their current location or along their route. See [Build weather apps for cars](https://developer.android.com/training/cars/apps/weather).
+
+  * `androidx.car.app.category.MEDIA`: Lets users browse and play music, radio, audiobooks, and other audio content in the car. See [Build templated media apps for cars](https://developer.android.com/training/cars/apps/media).
+
+  * `androidx.car.app.category.MESSAGING`: Lets users communicate with short-form text messages. See [Build templated messaging experiences for Android Auto](https://developer.android.com/training/cars/communication/templated-messaging).
+
+  * `androidx.car.app.category.CALLING`: Lets users communicate with voice calling. See [Build calling experiences for Android Auto](https://developer.android.com/training/cars/communication/calling).
+
+
+**Important:** The categories listed here are those that are built using the Car App Library. For a complete list of app categories supported in cars, see the [Android for Cars Overview](https://developer.android.com/training/cars#supported-app-categories).
+
+For detailed descriptions of each category and the criteria required to qualify for a category, see [Android app quality for cars](https://developer.android.com/docs/quality-guidelines/car-app-quality).
+
+**Note:** The car app category isn't tied to the [category you choose for listing your app in Google Play](https://support.google.com/googleplay/android-developer/answer/9859673), which is used to help users discover the most relevant apps in the Play Store.
+
+### Specify the app name and icon
+
+To represent your app in the system UI, `carPermissionActivityLayout` must specify an app name and an icon for the host. Use the [`label`](https://developer.android.com/guide/topics/manifest/service-element#label) and [`icon`](https://developer.android.com/guide/topics/manifest/service-element#icon) attributes of your [`CarAppService`](https://developer.android.com/guide/topics/manifest/manifest-intro) to specify the app name and icon used by the host to represent your app:
+    
+    
+    ...
+    <service
+       android:name=".MyCarAppService"
+       android:exported="true"
+       android:label="@string/my_app_name"
+       android:icon="@drawable/my_app_icon">
+       ...
+    </service>
+    ...
+    
+
+If you don't declare a label or icon in the [`<service>`](https://developer.android.com/guide/topics/manifest/service-element) element, the host falls back to values specified by the [`<application>`](https://developer.android.com/guide/topics/manifest/application-element) element.
+
+### Set a custom theme
+
+To set a custom theme for your car app:
+
+  1. Add a [`<meta-data>`](https://developer.android.com/guide/topics/manifest/meta-data-element) element in your manifest file:
+         
+         <meta-data
+             android:name="androidx.car.app.theme"
+             android:resource="@style/MyCarAppTheme />
+         
+
+  2. Declare your [style resource](https://developer.android.com/guide/topics/resources/style-resource) to set the attributes for your custom car app theme:
+         
+         <resources>
+           <style name="MyCarAppTheme">
+             <item name="carColorPrimary">@color/my_primary_car_color</item>
+             <item name="carColorPrimaryDark">@color/my_primary_dark_car_color</item>
+             <item name="carColorSecondary">@color/my_secondary_car_color</item>
+             <item name="carColorSecondaryDark">@color/my_secondary_dark_car_color</item>
+             <item name="carPermissionActivityLayout">@layout/my_custom_background</item>
+           </style>
+         </resources>
+         
+
+
+
+
+### Car App API level
+
+The Car App Library defines its own API levels so that you can know which library features are supported by the template host on a vehicle. To retrieve the highest Car App API level supported by a host, use the [`getCarAppApiLevel`](https://developer.android.com/reference/androidx/car/app/CarContext#getCarAppApiLevel\(\)) method.
+
+Declare the minimum Car App API level supported by your app in your `AndroidManifest.xml` file:
+    
+    
+    <manifest ...>
+        <application ...>
+            <meta-data
+                android:name="androidx.car.app.minCarApiLevel"
+                android:value="1"/>
+        </application>
+    </manifest>
+    
+
+For details about maintaining backward compatibility and declaring the minimum API level required to use a feature, see the documentation for the [`RequiresCarApi`](https://developer.android.com/reference/androidx/car/app/annotations/RequiresCarApi) annotation. For a definition of which API level is required to use a certain feature of the Car App Library, check the reference documentation for [`CarAppApiLevels`](https://developer.android.com/reference/androidx/car/app/versioning/CarAppApiLevels).
+
+[ Previous arrow_back  Install the Car App library  ](https://developer.android.com/training/cars/apps/library/install)
+
+[ Next Create your CarAppService and session  arrow_forward  ](https://developer.android.com/training/cars/apps/library/carappservice-session)
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-06-18 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]] 

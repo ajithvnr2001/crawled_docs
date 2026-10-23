@@ -1,0 +1,10 @@
+{
+  "url": "https://discuss.ai.google.dev/u/askie_app/",
+  "file": "_subdomains/discuss.ai.google.dev/u/askie_app.md",
+  "title": "Askie_App - Google AI Developers Forum",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (107 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T19:28:27.987681+00:00",
+  "html_len": 417532,
+  "md_len": 804,
+  "depth": 2
+}

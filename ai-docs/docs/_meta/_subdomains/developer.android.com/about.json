@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/about/",
+  "file": "_subdomains/developer.android.com/about.md",
+  "title": "Android platform \u00a0|\u00a0 Platform \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:34:26.183202+00:00",
+  "html_len": 227758,
+  "md_len": 5482,
+  "depth": 3
+}

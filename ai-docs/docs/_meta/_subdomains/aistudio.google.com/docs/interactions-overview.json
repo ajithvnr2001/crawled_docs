@@ -1,0 +1,10 @@
+{
+  "url": "https://aistudio.google.com/docs/interactions-overview/",
+  "file": "_subdomains/aistudio.google.com/docs/interactions-overview.md",
+  "title": "Interactions API | Google AI Studio",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (88 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T19:34:21.122743+00:00",
+  "html_len": 682285,
+  "md_len": 22477,
+  "depth": 2
+}

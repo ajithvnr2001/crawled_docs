@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/guide/",
+  "file": "_subdomains/developer.android.com/guide.md",
+  "title": "Build your first app \u00a0|\u00a0 Get started \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:21:49.462913+00:00",
+  "html_len": 255356,
+  "md_len": 10758,
+  "depth": 2
+}

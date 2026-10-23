@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/samples/",
+  "file": "_subdomains/developer.android.com/samples.md",
+  "title": "Samples \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:21:20.488779+00:00",
+  "html_len": 206102,
+  "md_len": 1560,
+  "depth": 2
+}

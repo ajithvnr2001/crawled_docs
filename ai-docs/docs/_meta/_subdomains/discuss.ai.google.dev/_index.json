@@ -1,0 +1,10 @@
+{
+  "url": "https://discuss.ai.google.dev/",
+  "file": "_subdomains/discuss.ai.google.dev/_index.md",
+  "title": "Google AI Developers Forum",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (73 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T19:20:27.231445+00:00",
+  "html_len": 493092,
+  "md_len": 4922,
+  "depth": 1
+}

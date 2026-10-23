@@ -1,0 +1,63 @@
+---
+url: https://developers.cloudflare.com/realtime/realtimekit/humans/ui-kit/api-reference/angular/rtk-idle-screen/
+title: rtk-idle-screen \u00b7 Cloudflare Realtime docs
+method: scrapling+scrapegraph
+fetched_at: 2026-10-20T06:56:56.431064+00:00
+---
+
+# rtk-idle-screen · Cloudflare Realtime docs
+
+> Source: https://developers.cloudflare.com/realtime/realtimekit/humans/ui-kit/api-reference/angular/rtk-idle-screen/
+
+  1. [Home](https://developers.cloudflare.com/)
+  2. /[Realtime](https://developers.cloudflare.com/realtime/)
+  3. /…
+
+[RealtimeKit](https://developers.cloudflare.com/realtime/realtimekit/)Build for humans[Build using UI Kit](https://developers.cloudflare.com/realtime/realtimekit/humans/ui-kit/)Component Reference
+
+  4. /Angular
+  5. /rtk-idle-screen
+
+
+
+# rtk-idle-screen
+
+Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+
+OverviewPropertiesUsage Examples Basic Usage With Properties
+
+A screen that handles the idle state, i.e; when you are waiting for data about the meeting, specifically the `meeting` object.
+
+## Properties
+
+Property | Type | Required | Default | Description  
+---|---|---|---|---  
+`config` | `UIConfig` | ❌ | `createDefaultConfig()` | Config object  
+`iconPack` | `IconPack` | ❌ | `defaultIconPack` | Icon pack  
+`meeting` | `Meeting` | ✅ | - | Meeting  
+`states` | `States` | ✅ | - | States object  
+`t` | `RtkI18n` | ❌ | `useLanguage()` | Language  
+  
+## Usage Examples
+
+### Basic Usage
+    
+    
+    <!-- component.html -->
+    <rtk-idle-screen></rtk-idle-screen>
+
+### With Properties
+    
+    
+    <!-- component.html -->
+    <rtk-idle-screen
+     [meeting]="meeting">
+    </rtk-idle-screen>
+
+[Previousrtk-icon](https://developers.cloudflare.com/realtime/realtimekit/humans/ui-kit/api-reference/angular/rtk-icon/)[Nextrtk-image-message](https://developers.cloudflare.com/realtime/realtimekit/humans/ui-kit/api-reference/angular/rtk-image-message/)
+
+Was this helpful?
+
+YesNo
+
+[Edit page](https://github.com/cloudflare/cloudflare-docs/edit/production/src/content/docs/realtime/realtimekit/humans/ui-kit/api-reference/angular/rtk-idle-screen.mdx)[Report issue](https://github.com/cloudflare/cloudflare-docs/issues/new/choose)

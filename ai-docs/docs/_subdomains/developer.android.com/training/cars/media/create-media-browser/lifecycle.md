@@ -1,0 +1,48 @@
+---
+url: https://developer.android.com/training/cars/media/create-media-browser/lifecycle/
+title: Media browser service lifecycle \u00a0|\u00a0 Android for Cars \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:45:57.127468+00:00
+---
+
+# Media browser service lifecycle  |  Android for Cars  |  Android Developers
+
+> Source: https://developer.android.com/training/cars/media/create-media-browser/lifecycle/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Develop ](https://developer.android.com/develop)
+  * [ Devices ](https://developer.android.com/develop/devices)
+  * [ Android for Cars ](https://developer.android.com/training/cars)
+
+
+
+#  Media browser service lifecycle Stay organized with collections  Save and categorize content based on your preferences. 
+
+This section describes how Android Automotive OS (AAOS) and Android Auto interact with your media browser service during a typical user workflow:
+
+  1. The user launches your app on AAOS or Android Auto.
+
+  2. The host app binds to your media browser service, which the OS starts if it isn't already running. In your implementation of the `onCreate()` method, you must create and register a [`MediaSessionCompat`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat) object and its callback object. To learn more, see [Register a media session](https://developer.android.com/training/cars/media/enable-playback#registering_mediasession).
+
+  3. AAOS or Android Auto calls your service's [`onGetRoot`](https://developer.android.com/training/cars/media/create-media-browser/content-hierarchy#onGetRoot) method to retrieve the root in your content hierarchy. The root is not displayed. Instead, it retrieves more content from your app in subsequent steps.
+
+  4. AAOS or Android Auto calls your service's [`onLoadChildren()`](https://developer.android.com/reference/android/support/v4-media/MediaBrowserServiceCompat#onLoadChildren\(java.lang.String,%20android.support.v4.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E\)) method to retrieve the descendants of the root media item. AAOS and Android Auto display these media items as the top level of content items. See [Structure the root menu](https://developer.android.com/training/cars/media/create-media-browser/content-hierarchy#root-menu-structure) to learn more about what the system expects.
+
+  5. When the user selects a **browsable** media item, your service's `onLoadChildren()` method is called again.
+
+  6. If the user selects a **playable** media item, AAOS or Android Auto calls the appropriate media session callback method to perform the action.
+
+  7. If supported by your app, the user can also search your content. In this case, AAOS or Android Auto call your service's [`onSearch()`](https://developer.android.com/reference/android/support/v4-media/MediaBrowserServiceCompat#onsearch) method. To learn more, see [Display browsable search results](https://developer.android.com/training/cars/media/create-media-browser/browsable-search).
+
+
+
+
+[ Previous arrow_back  Overview  ](https://developer.android.com/training/cars/media/create-media-browser)
+
+[ Next Build content hierarchy  arrow_forward  ](https://developer.android.com/training/cars/media/create-media-browser/content-hierarchy)
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-09-15 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-15 UTC."],[],[]] 

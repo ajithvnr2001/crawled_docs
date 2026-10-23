@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/studio/",
+  "file": "_subdomains/developer.android.com/studio.md",
+  "title": "Download Android Studio & App Tools - Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:21:03.986445+00:00",
+  "html_len": 491906,
+  "md_len": 203147,
+  "depth": 2
+}

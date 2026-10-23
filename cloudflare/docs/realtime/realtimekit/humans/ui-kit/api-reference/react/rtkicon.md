@@ -1,0 +1,71 @@
+---
+url: https://developers.cloudflare.com/realtime/realtimekit/humans/ui-kit/api-reference/react/rtkicon/
+title: RtkIcon \u00b7 Cloudflare Realtime docs
+method: scrapling+scrapegraph
+fetched_at: 2026-10-20T06:57:33.398789+00:00
+---
+
+# RtkIcon · Cloudflare Realtime docs
+
+> Source: https://developers.cloudflare.com/realtime/realtimekit/humans/ui-kit/api-reference/react/rtkicon/
+
+  1. [Home](https://developers.cloudflare.com/)
+  2. /[Realtime](https://developers.cloudflare.com/realtime/)
+  3. /…
+
+[RealtimeKit](https://developers.cloudflare.com/realtime/realtimekit/)Build for humans[Build using UI Kit](https://developers.cloudflare.com/realtime/realtimekit/humans/ui-kit/)Component Reference
+
+  4. /React
+  5. /RtkIcon
+
+
+
+# RtkIcon
+
+Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+
+OverviewPropertiesUsage Examples Basic Usage With Properties
+
+An icon component which accepts an svg string and renders it.
+
+## Properties
+
+Property | Type | Required | Default | Description  
+---|---|---|---|---  
+`icon` | `string` | ✅ | - | Icon  
+`size` | `Size1` | ✅ | - | Size  
+`variant` | `IconVariant` | ✅ | - | Icon variant  
+  
+## Usage Examples
+
+### Basic Usage
+    
+    
+    import { RtkIcon } from '@cloudflare/realtimekit-react-ui';
+    
+    function MyComponent() {
+      return <RtkIcon />;
+    }
+
+### With Properties
+    
+    
+    import { RtkIcon } from '@cloudflare/realtimekit-react-ui';
+    
+    function MyComponent() {
+      return (
+        <RtkIcon
+          icon="example"
+          size="md"
+          variant="primary"
+        />
+      );
+    }
+
+[PreviousRtkHeader](https://developers.cloudflare.com/realtime/realtimekit/humans/ui-kit/api-reference/react/rtkheader/)[NextRtkIdleScreen](https://developers.cloudflare.com/realtime/realtimekit/humans/ui-kit/api-reference/react/rtkidlescreen/)
+
+Was this helpful?
+
+YesNo
+
+[Edit page](https://github.com/cloudflare/cloudflare-docs/edit/production/src/content/docs/realtime/realtimekit/humans/ui-kit/api-reference/react/RtkIcon.mdx)[Report issue](https://github.com/cloudflare/cloudflare-docs/issues/new/choose)

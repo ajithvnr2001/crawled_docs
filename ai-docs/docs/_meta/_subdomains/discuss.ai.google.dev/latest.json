@@ -1,0 +1,10 @@
+{
+  "url": "https://discuss.ai.google.dev/latest/",
+  "file": "_subdomains/discuss.ai.google.dev/latest.md",
+  "title": "Latest topics - Google AI Developers Forum",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (80 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T19:23:27.269832+00:00",
+  "html_len": 580741,
+  "md_len": 32402,
+  "depth": 2
+}

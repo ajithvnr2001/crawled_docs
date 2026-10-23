@@ -1,0 +1,7 @@
+{
+  "url": "https://developers.cloudflare.com/workers/ci-cd/builds/automatic-prs/",
+  "file": "workers/ci-cd/builds/automatic-prs.md",
+  "title": "Automatic pull requests \u00b7 Cloudflare Workers docs",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-13T08:48:36.582874+00:00"
+}

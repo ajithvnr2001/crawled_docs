@@ -1,0 +1,244 @@
+---
+url: https://docs.comfy.org/ja/agent-tools/in-app-agent/
+title: Comfy Agent - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:52:26.376454+00:00
+---
+
+# Comfy Agent - ComfyUI
+
+> Source: https://docs.comfy.org/ja/agent-tools/in-app-agent/
+
+## このページの内容
+
+  * できること
+  * どこで使用できるか
+  * 料金について
+    * トークンごとの料金
+  * ローカル版は近日公開
+  * 編集するワークフローを選択
+  * ワークフローの構築と編集
+  * 実行前の検証
+  * メディアを扱う
+  * 実行権限
+  * エージェントが利用できるもの
+  * 停止またはキャンセル
+  * 次のステップ
+  * フィードバック
+
+
+
+Agent Tools / MCP
+
+# Comfy Agent
+
+ページをコピーページをコピー
+
+Comfy Agent を使用して ComfyUI ワークフローを理解、構築、編集、実行できます。Comfy Cloud では一般提供されています。Comfy Desktop のローカル対応は近日公開予定です。
+
+ページをコピーページをコピー
+
+**Comfy Agent は Comfy Cloud で一般提供されています** 。ローカルの Comfy Desktop 内の Agent は近日公開予定です。通知を受け取るには[ウェイトリストに参加してください](https://links.comfy.org/agentalpha)。
+
+ComfyUI の中でそのまま、やりたいことを記述するだけです。ワークフローの計画、構築、実行を行います。あなたが作業している間もキャンバスを編集しながら、あなたと並んで一緒に作り上げます。
+
+## 
+
+​
+
+できること
+
+  * ComfyUI 環境で利用可能なテンプレート、モデル、ノードを検索します。
+  * テンプレートからワークフローを構築し、プロンプトや設定をカスタマイズします。
+  * 残りの部分を再構築せずに、現在のワークフローの一部を変更します。
+  * ノードの追加、接続、設定、削除を行います。
+  * 実行前にワークフローを検証します。
+  * 画像を検査し、ビデオやオーディオのプロパティを読み取ります。
+  * ワークフローを実行し、その出力を返します。
+  * Agent が応答している間もキャンバスで作業を続けられます。完了を待つ必要はなく、現在開いている内容を基に動作します。
+  * 平易な言葉でスキルを作成したり、自分自身のスキルだけでなく Comfy の公開スキルの使用を Agent に依頼したりできます。詳しくは [Agent スキル](https://docs.comfy.org/ja/agent-tools/in-app-agent-skills) を参照してください。
+  * 複数のチャットを同時に開けます。各チャットは独自の履歴とコンテキストを持つ独立したセッションです。
+
+
+
+## 
+
+​
+
+どこで使用できるか
+
+Comfy Agent を使用する場所| 期待されること  
+---|---  
+**Comfy Cloud**|  一般提供されています。Agent、ワークフロー、アセットは Comfy Cloud アカウントを使用します。インストールするローカルパッケージはありません。  
+**Comfy Desktop**| **近日公開。** ローカルの ComfyUI（独自のモデルやカスタムノードを含む）で Comfy Agent が利用可能になったときに通知を受け取るには、[ウェイトリストに参加してください](https://links.comfy.org/agentalpha)。  
+  
+いずれの場合も、Agent のリクエストはネットワーク経由で Comfy サービスを使用します。[データとプライバシー](https://docs.comfy.org/ja/agent-tools/in-app-agent-data-privacy)を参照してください。 Comfy Agent は [Comfy MCP](https://docs.comfy.org/ja/agent-tools/mcp) および [Comfy CLI](https://docs.comfy.org/ja/agent-tools/cli) とは別のものです。MCP は外部の AI クライアントを Comfy に接続します。CLI はターミナルおよびスクリプトのワークフロー向けです。Comfy Agent は ComfyUI インターフェース内で動作します。 最初の画像を作成するには、[Comfy Agent をはじめる](https://docs.comfy.org/ja/agent-tools/in-app-agent-installation#%E6%9C%80%E5%88%9D%E3%81%AE%E7%94%BB%E5%83%8F%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B)に従ってください。
+
+## 
+
+​
+
+料金について
+
+無料の初期トークンが現在すべての方に提供されており、Comfy Agent チャットをいくつかお試しいただけます。その後、Comfy Agent は生成にすでにお使いのものと同じ Comfy Credits プールから課金されます。Agent を実行し続けるには Comfy Credits の残高がプラスである必要がありますが、必ずしもサブスクリプションプランが必要なわけではありません。プランの詳細は[サブスクリプションとトップアッププラン](https://www.comfy.org/cloud/pricing?utm_source=docs&utm_campaign=agent)をご覧ください。
+
+### 
+
+​
+
+トークンごとの料金
+
+モデル| 入力クレジット / 1K| 5分キャッシュ書き込みクレジット / 1K| 1時間キャッシュ書き込みクレジット / 1K| キャッシュヒットクレジット / 1K| 出力クレジット / 1K  
+---|---|---|---|---|---  
+Opus 4.8| 1.055| 1.319| 2.110| 0.106| 5.275  
+  
+## 
+
+​
+
+ローカル版は近日公開
+
+Comfy Agent が Comfy Desktop に対応すると、ご自身の GPU、モデル、カスタムノードで動作し、セットアップを順を追って案内します。さらに、現在クラウドで提供されている内容を超えて、あなたのためにキャンバス上に直接カスタム編集ツールを構築します。たとえば、インストール不要の一度きりのマスキングツールや合成ツールなどです。
+
+## ウェイトリストに参加する
+
+Comfy Agent が Comfy Desktop で利用可能になったときに通知を受け取れます。
+
+## 
+
+​
+
+編集するワークフローを選択
+
+Agentパネルのワークフローセレクターを使って編集するワークフローを選択し、メッセージを送信します。Agentが応答している間に別のタブへ切り替えても、その編集内容がそちらにリダイレクトされることはありません。 Agentは自身でタブを作成したり切り替えたりすることはできません。別の場所で作業するには、他のワークフローを開き、Agentパネルでそれを選択して、新しいメッセージを送信します。 Agentは、別の開いているワークフローや保存済みのワークフローを、現在のタブに読み込むことなく比較のために読み取ることができます。例えば:
+
+> このワークフローを私のポートレートワークフローと比較して、ここで同じサンプラー設定を使用してください。
+
+## 
+
+​
+
+ワークフローの構築と編集
+
+新しいワークフローの場合は、空白のワークフロータブを開き、Agent パネルでそれを選択します。Agent は、個々のノードから構築する前に、一致するテンプレートを検索します。テンプレートには、接続されたグラフと出力ノードが含まれます。 既存のワークフローを変更する場合は、変更したい部分と、そのまま維持する部分を指定します。
+
+  * 「プロンプトを水彩画の風景に変更して。モデルとサンプラーの設定はそのままにして。」
+  * 「画像生成の後にアップスケーリングのステージを追加して。」
+  * 「ここにインストール済みのモデルを使って、このワークフローを Flux に切り替えて。」
+
+Agent はキャンバス上でリアルタイムに構築し、その間もあなたはキャンバスの編集を続けられます。
+
+## 
+
+​
+
+実行前の検証
+
+Agent は実行前に、ノードの接続、モデル名、必須の値、出力ノードを確認します。ワークフローのエラーと、あなたにしか指定できない入力を切り分けます。 ワークフローが有効でも、画像、ビデオ、その他の入力がまだ必要な場合は、ファイルを添付して Agent に続けるよう依頼します。
+
+## 
+
+​
+
+メディアを扱う
+
+エージェントは、静止画像の表示内容と寸法を検査できます。ビデオについては、再生時間、寸法、フレームレート、形式を読み取ることができます。オーディオについては、再生時間、形式、オーディオトラックを読み取ることができます。 メッセージボックスの **Attach a file** を使用して、画像やファイルを追加します。メディアを会話にドラッグすることもできます。
+
+会話に追加| 質問| 結果  
+---|---|---  
+画像| 「この画像のライティングについて説明してください。」| プロンプトを改善するために使える説明。  
+ビデオ| 「これを最初の5秒にトリムしてください。」| 短くしたビデオファイル。  
+2つのビデオクリップ| 「クリップAの後にクリップBを連結してください。」| その順序で両方のクリップを含む1つのビデオ。  
+ビデオとオーディオファイル| 「このオーディオをビデオに追加してください。」| 指定したオーディオ付きのビデオ。  
+  
+メディアの編集には、お使いのインストール環境でメディアツールが利用可能である必要があります。クラウドでは、編集したファイルはアセットライブラリに保存されます。エージェントは会話内でプレビューまたはファイルリンクを返します。
+
+## 
+
+​
+
+実行権限
+
+メッセージボックスの横で実行権限を選択します。
+
+  * **Ask** は各ワークフローの実行前に承認を求めます。
+  * **Auto** は毎回確認せずにワークフローを実行します。
+
+**Save changes** を選択すると設定が適用されます。Ask モードでは、承認メッセージ内の **Run** を選択するとワークフローが開始され、**Cancel** を選択するとその実行を拒否できます。 Ask と Auto はワークフローの実行を制御します。どちらのモードでも、Agent は選択済みのワークフローを編集できます。
+
+## 
+
+​
+
+エージェントが利用できるもの
+
+通常、チャットセッションでは、エージェントはあなたのメッセージ、選択済みのワークフロー、選択済みのノード、添付ファイル、ワークフローのエラーを使用します。設定を比較または再利用するよう依頼すると、別のワークフローを読み取ることもできます。 さらに、エージェントは現在のワークスペースにある保存済みのワークフロー、利用可能なモデル、利用可能なノードにアクセスできるほか、公開テンプレートワークフローや公開/非公開のスキルも利用でき、これらは必要に応じて使用されます。 クラウドとローカルのデータフロー、チャット履歴、プライバシー管理については、[Comfy Agent のデータとプライバシー](https://docs.comfy.org/ja/agent-tools/in-app-agent-data-privacy)を参照してください。
+
+## 
+
+​
+
+停止またはキャンセル
+
+メッセージボックスで **停止** を選択すると、Agent の現在の応答を停止できます。ワークフローの実行には、[実行とキューのエリア](https://docs.comfy.org/ja/interface/overview)に別のコントロールがあります。すでに送信されたワークフローを管理するには、そちらを使用してください。
+
+## 
+
+​
+
+次のステップ
+
+## 最初の画像を作成する
+
+画像ワークフローを構築し、実行し、修正します。
+
+## Agent スキル
+
+再利用可能な Agent 指示を作成して使用します。
+
+## 
+
+​
+
+フィードバック
+
+Comfy Agent は現在ベータ版です。私たちは新機能の開発と問題の修正を積極的に進めています。何がうまくいき、何がうまくいかないかを教えていただくことが、適切なものを優先して開発するための最善の方法です。
+
+  * フィードバック: <https://links.comfy.org/agentfeedback>
+  * Discord: [サーバー](https://discord.com/invite/comfyorg) に参加して、#comfy-agent チャンネルで私たちを見つけてください
+
+
+
+## フィードバックを送る
+
+バグを報告したり、感想を共有したりしてください。
+
+このページは役に立ちましたか？
+
+はいいいえ
+
+[編集を提案](https://github.com/comfy-org/docs/edit/main/ja/agent-tools/in-app-agent.mdx)[問題を報告](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/ja/agent-tools/in-app-agent)
+
+[Comfy CLI：ターミナルから ComfyUI を実行前へ](https://docs.comfy.org/ja/agent-tools/cli)[Comfy Agent をはじめる次へ](https://docs.comfy.org/ja/agent-tools/in-app-agent-installation)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+リソース
+
+[インストール](https://docs.comfy.org/ja/installation/system_requirements)[チュートリアル](https://docs.comfy.org/ja/tutorials/basic/text-to-image)[開発](https://docs.comfy.org/ja/development/overview)
+
+プロダクト
+
+[機能](https://www.comfy.org/?utm_source=docs)[ギャラリー](https://www.comfy.org/gallery?utm_source=docs)[ダウンロード](https://www.comfy.org/download?utm_source=docs)
+
+会社情報
+
+[概要](https://www.comfy.org/about?utm_source=docs)[採用情報](https://www.comfy.org/careers?utm_source=docs)[利用規約](https://www.comfy.org/terms-of-service?utm_source=docs)[プライバシーポリシー](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

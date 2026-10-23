@@ -1,0 +1,153 @@
+---
+url: https://developer.android.com/jetpack/androidx/releases/loader/
+title: Loader \u00a0|\u00a0 Jetpack \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:36:30.404466+00:00
+---
+
+# Loader  |  Jetpack  |  Android Developers
+
+> Source: https://developer.android.com/jetpack/androidx/releases/loader/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Get started ](https://developer.android.com/get-started/overview)
+  * [ Jetpack ](https://developer.android.com/jetpack)
+  * [ Libraries ](https://developer.android.com/jetpack/androidx/explorer)
+
+
+
+Stay organized with collections  Save and categorize content based on your preferences. 
+
+# Loader
+
+[User Guide](https://developer.android.com/guide/components/loaders) [Code Sample](https://github.com/android/architecture-components-samples/blob/master/PersistenceContentProviderSample/app/src/main/java/com/example/android/contentprovidersample/MainActivity.java)
+
+API Reference  
+[androidx.loader.app](https://developer.android.com/reference/kotlin/androidx/loader/app/package-summary)  
+[androidx.loader.content](https://developer.android.com/reference/kotlin/androidx/loader/content/package-summary)  
+
+
+Load data for your UI that survives configuration changes. 
+
+**Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release  
+---|---|---|---|---  
+July 29, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/loader#1.2.0) | - | - | -  
+  
+## Declaring dependencies
+
+To add a dependency on Loader, you must add the Google Maven repository to your project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven) for more information.
+
+Add the dependencies for the artifacts you need in the `build.gradle` file for your app or module:
+
+### Groovy
+    
+    
+    dependencies {
+        implementation "androidx.loader:loader:1.2.0"
+    }
+
+### Kotlin
+    
+    
+    dependencies {
+        implementation("androidx.loader:loader:1.2.0")
+    }
+
+For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
+
+## Feedback
+
+Your feedback helps make Jetpack better. Let us know if you discover new issues or have ideas for improving this library. Please take a look at the [existing issues](https://issuetracker.google.com/issues?q=componentid:460551%20status:open) in this library before you create a new one. You can add your vote to an existing issue by clicking the star button.
+
+[Create a new issue](https://issuetracker.google.com/issues/new?component=460551&template=1182829)
+
+See the [Issue Tracker documentation](https://developers.google.com/issue-tracker) for more information.
+
+## Version 1.2
+
+### Version 1.2.0
+
+July 29, 2026
+
+`androidx.loader:loader:1.2.0` is released. Version 1.2.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7308ad68d2572be8ec5b7f1abb514312af9e1f86..94465bb306685652a581ae32fc580d7e6f71c435/loader/loader).
+
+**Important changes since 1.1.0:**
+
+  * Started using jspecify nullability annotations.
+  * Added Kotlin extension functions for `LoaderManager` to make the library easier to use from Kotlin.
+
+
+
+### Version 1.2.0-rc01
+
+July 15, 2026
+
+`androidx.loader:loader:1.2.0-rc01` is released. Version 1.2.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f9158f48961e6c6fcc619334eb9790561a5d9cdb..7308ad68d2572be8ec5b7f1abb514312af9e1f86/loader/loader).
+
+### Version 1.2.0-alpha01
+
+July 01, 2026
+
+`androidx.loader:loader:1.2.0-alpha01` is released. Version 1.2.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f9158f48961e6c6fcc619334eb9790561a5d9cdb/loader/loader).
+
+**Bug Fixes**
+
+  * This library now uses [JSpecify nullness annotations](https://jspecify.dev/), which are type-use. Kotlin developers should use the following compiler arguments to enforce correct usage: -Xjspecify-annotations=strict, -Xtype-enhancement-improvements-strict-mode ([Ib5eb3](https://android-review.googlesource.com/#/q/Ib5eb3626c41d53cac5bd4175b5c5da6e05f91250), [b/326456246](https://issuetracker.google.com/issues/326456246))
+  * Deprecated `androidx.core.os.CancellationSignal`. Usages should be replaced with the platform-provided `android.os.CancellationSignal`. ([Id45f6](https://android-review.googlesource.com/#/q/Id45f69a0b9cee7515d3f5b35dde3b3b037f8bd3a), [b/309499026](https://issuetracker.google.com/issues/309499026), [b/309054079](https://issuetracker.google.com/issues/309054079))
+
+
+
+## Version 1.1.0
+
+### Version 1.1.0
+
+October 9, 2019
+
+`androidx.loader:loader:1.1.0` is released. [Version 1.1.0 contains these commits](https://android.googlesource.com/platform/frameworks/support/+log/5201bd4b76d8abd612c147be0b4993f15ee133e3..5b6a7fdfd9ce612fa52f3fe95a9f9cb84fe9364c/loader).
+
+**Important changes since 1.0.0**
+
+  * **Default Executor Change** : The default Executor for `AsyncTaskLoader` (and, by extension, `CursorLoader`) is now `AsyncTask.THREAD_POOL_EXECUTOR` rather than a custom Executor.
+  * **Setting a custom Executor** : custom implementations of `AsyncTaskLoader` or its subclasses can now override `getExecutor()` to set a custom Executor.
+
+
+
+### Version 1.1.0-rc01
+
+June 5, 2019
+
+`androidx.loader:loader:1.1.0-rc01` is released with no changes from `1.1.0-beta01`.
+
+### Version 1.1.0-beta01
+
+March 13, 2019
+
+`androidx.loader:loader:1.1.0-beta01` is released. The full list of commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/b93a1415db20e4d3789c0f3a116f3d556ee6b603..79285e90f077844e4b3b1a72a4a051389e3c190a/loader).
+
+**Bug fixes**
+
+  * Fixed an issue which would cause a `StaleDataException` when restarting loader from `onLoadFinished` ([b/123922776](https://issuetracker.google.com/issues/123922776))
+
+
+
+### Version 1.1.0-alpha01
+
+December 3, 2018
+
+**New features**
+
+  * Added a `getExecutor()` method to `AsyncTaskLoader` to allow you to set a custom Executor ([aosp/810773](https://android-review.googlesource.com/c/platform/frameworks/support/+/810773))
+
+
+
+**Behavior changes**
+
+  * The default Executor for `AsyncTaskLoader` is now `AsyncTask.THREAD_POOL_EXECUTOR` rather than a custom Executor.
+
+
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-07-29 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-07-29 UTC."],[],[]] 

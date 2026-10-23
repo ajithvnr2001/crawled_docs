@@ -1,0 +1,10 @@
+{
+  "url": "https://www.comfy.org/agent/",
+  "file": "_subdomains/www.comfy.org/agent.md",
+  "title": "Comfy Agent \u2014 The first agent for craft",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-17T10:52:56.293096+00:00",
+  "html_len": 139137,
+  "md_len": 10102,
+  "depth": 2
+}

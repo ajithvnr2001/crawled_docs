@@ -1,0 +1,193 @@
+---
+url: https://developer.android.com/blog/posts/kakao-mobility-uses-gemini-nano-on-device-to-reduce-costs-and-boost-call-conversion-by-45/
+title: Kakao Mobility uses Gemini Nano on-device to reduce costs and boost call conversion by 45% \u00a0|\u00a0 Android Developers' Blog
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:34:35.499666+00:00
+---
+
+# Kakao Mobility uses Gemini Nano on-device to reduce costs and boost call conversion by 45%  |  Android Developers' Blog
+
+> Source: https://developer.android.com/blog/posts/kakao-mobility-uses-gemini-nano-on-device-to-reduce-costs-and-boost-call-conversion-by-45/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Android Developers' Blog ](https://developer.android.com/)
+  * [ Blog ](https://developer.android.com/blog)
+
+
+
+Stay organized with collections  Save and categorize content based on your preferences. 
+
+[ Case Studies ](https://developer.android.com/blog/categories/case-studies)
+
+#  Kakao Mobility uses Gemini Nano on-device to reduce costs and boost call conversion by 45% 
+
+3 min read 
+
+![](https://developer.android.com/static/blog/assets/kakao_Mobility_fa49c20743_ciMAI.webp)
+
+30 Oct 2025
+
+3 Authors
+
+[ Sa-ryong Kang,  ](https://developer.android.com/blog/authors/sa-ryong-kang) [ Caren Chang,  ](https://developer.android.com/blog/authors/caren-chang) [ Tracy Agyemang  ](https://developer.android.com/blog/authors/tracy-agyemang)
+
+[Kakao Mobility](https://www.kakaocorp.com/page/service/service/KakaoT?lang=en) is South Korea's leading mobility business, offering a range of transportation and delivery services, including taxi-hailing, navigation, bike and scooter-sharing, parking, and parcel delivery, through its [Kakao T](https://play.google.com/store/apps/details?id=com.kakao.taxi) app. The team at [Kakao Mobility utilized Gemini Nano](https://android-developers.googleblog.com/2025/10/ml-kit-genai-prompt-api-alpha-release.html) via [ML Kit’s GenAI Prompt API](https://developers.google.com/ml-kit/genai) to offer parking assistance for its bike-sharing service and an improved address entry experience for its navigation and delivery services.
+
+The Kakao T app serves over 30 million total users, and its bike-sharing service is one of its most popular services. But unfortunately, many users were improperly parking the bikes or scooters when not in use. This behavior led to an influx of parking violations and safety concerns, resulting in public complaints, fines, and towing. These issues began to negatively affect public perception of both Kakao Mobility and its bike-sharing services.
+
+![wisuk.png](https://developer.android.com/static/blog/assets/wisuk_3b441cbbfd_F98y9.webp)
+
+_“By leveraging the ML Kit’s GenAI Prompt API and Gemini Nano, we were able to quickly implement features that improve social value without compromising user experience. Kakao Mobility will continue to actively adopt on-device AI to provide safer and more convenient mobility services.”_ — Wisuk Ryu, Head of Client Development Div
+
+To address these concerns, the team initially designed an image recognition model to notify users if their bike or scooter was parked correctly according to local laws and safety standards. Running this model through the cloud would have incurred significant server costs. In addition, the users’ uploaded photos contained information about their parking location, so the team wanted to avoid any privacy or security concerns. The team needed to find a more reliable and cost-effective solution.
+
+The team also wanted to improve the entity extraction experience for the parcel delivery service within the Kakao T app. Previously, users were able to easily order parcel delivery on a chat interface, but drivers needed to enter the address into an order form manually to initiate the delivery order—a process which was cumbersome and prone to human error. The team sought to streamline this process, making order forms faster and less frustrating for delivery personnel.
+
+**Enhancing the user experience with ML Kit’s GenAI Prompt API**
+
+The team tested and compared cloud-based Gemini models against Gemini Nano, accessed via ML Kit’s GenAI Prompt API. “After reviewing privacy, cost, accuracy, and response speed, ML Kit’s GenAI Prompt API was clearly the optimal choice,” said Jinwoo Park, Android application developer at Kakao Mobility. 
+
+To address the issue of improperly parked bikes or scooters, the team used Gemini Nano's multimodal capability via the ML Kit GenAI API SDK to detect when a bike or scooter violates local regulations by parking on yellow tactile paving. With a carefully crafted prompt, they were able to evaluate more than 200 labeled images of parking photos while continually refining the inputs. This evaluation, measured through well-known metrics like accuracy, precision, recall, and the F1 score, ensured the feature met production-level quality and reliability standards.
+
+Now users can take a photo of their parked bike or scooter, and the app will inform them if it is parked properly, or provide guidance if it is not. The entire process happens in seconds on the device, protecting the user’s location and information. 
+
+![bike.jpg](https://developer.android.com/static/blog/assets/bike_540326a218_ecVB6.webp)
+
+To create a streamlined entity extraction feature, the team again used ML Kit's GenAI Prompt API to process users' delivery orders written in natural language. If they had employed traditional machine learning, it would have required a large learning dataset and special expertise in machine learning. Instead, they could simply start with a prompt like, "Extract the recipient's name, address, and phone number from the message." The team prepared around 200 high-quality evaluation examples, and evaluated their prompt through many rounds of iteration to get the best result. The most effective method employed was a technique called few-shot prompting, and the results were carefully analyzed to ensure the output contained minimal hallucinations.
+
+![jinwoo.png](https://developer.android.com/static/blog/assets/jinwoo_74aef50dca_Vggko.webp)
+
+  
+_“ML Kit’s Prompt API reduces developer overhead while offering strong security and reliability on-device. It enables rapid prototyping, lowers infrastructure dependency, and incurs no additional cost. There is no reason not to recommend it.”_ — Jinwoo Park, Android application developer at Kakao Mobility
+
+**Delivering big results with ML Kit’s GenAI Prompt API**
+
+As a result, the entity extraction feature correctly identifies the necessary details of each order, even when multiple names and addresses are entered. To maximize the feature's reach and provide a robust fallback, the team also implemented a cloud-based path using Gemini Flash.
+
+Implementing ML Kit’s GenAI Prompt API has yielded a significant amount of cost savings for the Kakao Mobility team by shifting to on-device AI. While the bike parking analysis feature has not yet launched, the address entry improvement has already delivered excellent results: 
+
+  * Order completion time for delivery orders has been reduced by 24%.
+  * The conversion rate has increased by 45% for new users and 6% for existing users.
+  * During peak seasons, AI-powered orders increase by over 200%. 
+
+
+
+“Small business owners in particular have shared very positive feedback, saying the feature has made their work much more efficient and significantly reduced stress,” Wisuk added.
+
+After the image recognition feature for bike and scooter parking launches, the Kakao Mobility team is eager to improve it further. Urban parking environments can be challenging, and the team is exploring ways to filter out unnecessary regions from images. 
+
+“ML Kit’s GenAI Prompt API offers high-quality features without additional overhead,” said Jinwoo. “This reduced developer effort, shortened overall development time, and allowed us to focus on prompt tuning for higher-quality results.”
+
+**Try ML Kit’s GenAI Prompt API for yourself**
+
+Build and deploy on-device AI in your app with [ML Kit’s GenAI Prompt API](https://developers.google.com/ml-kit/genai) to harness the capabilities of Gemini Nano.
+
+
+
+
+Written by: 
+
+  * ##  [ Sa-ryong Kang ](https://developer.android.com/blog/authors/sa-ryong-kang)
+
+######  Developer Relations Engineer 
+
+[ read_more  View profile ](https://developer.android.com/blog/authors/sa-ryong-kang)
+
+![View Sa-ryong Kang's profile](https://developer.android.com/static/blog/assets/Sa_ryong_Kang_34a2e9f899_Z1YhOMI.webp)
+
+![View Sa-ryong Kang's profile](https://developer.android.com/static/blog/assets/Sa_ryong_Kang_34a2e9f899_Z1YhOMI.webp)
+
+  * ##  [ Caren Chang ](https://developer.android.com/blog/authors/caren-chang)
+
+######  Developer Relations Engineer 
+
+[ read_more  View profile ](https://developer.android.com/blog/authors/caren-chang)
+
+![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)
+
+![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)
+
+  * ##  [ Tracy Agyemang ](https://developer.android.com/blog/authors/tracy-agyemang)
+
+######  Product Marketing Manager 
+
+[ read_more  View profile ](https://developer.android.com/blog/authors/tracy-agyemang)
+
+![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
+
+![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
+
+
+
+
+Continue reading 
+
+  * 3 Authors
+
+27 Aug 2026
+
+27 Aug 2026
+
+![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp)
+
+[ Case Studies ](https://developer.android.com/blog/categories/case-studies)
+
+##  [ How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys ](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
+
+WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
+
+[Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read 
+    * [ #Passkeys ](https://developer.android.com/blog/topics/passkeys)
+
+  * 3 Authors
+
+18 Aug 2026
+
+18 Aug 2026
+
+![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp)
+
+[ Case Studies ](https://developer.android.com/blog/categories/case-studies)
+
+##  [ Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer ](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
+
+Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles. 
+
+[Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [ Ulises Uriel Verduzco Díaz ](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read 
+    * [ #Adaptive & Differentiated ](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+
+  * [ ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan)[ ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang)
+
+04 May 2026
+
+04 May 2026
+
+![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_276PBK.webp)
+
+[ Case Studies ](https://developer.android.com/blog/categories/case-studies)
+
+##  [ Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks ](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature)
+
+[ arrow_forward  ](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature)
+
+Karrot is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users. 
+
+[Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 2 min read 
+    * [ #Android ](https://developer.android.com/blog/topics/android)
+
+
+
+
+Stay in the loop
+
+Get the latest Android development insights delivered to your inbox weekly. 
+
+[ mail  Subscribe ](https://developer.android.com/subscribe)
+
+![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]] 

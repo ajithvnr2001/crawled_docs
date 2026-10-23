@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/blog/categories/product-news/",
+  "file": "_subdomains/developer.android.com/blog/categories/product-news.md",
+  "title": "Product News \u00a0|\u00a0 Android Developers' Blog",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:21:35.472391+00:00",
+  "html_len": 298395,
+  "md_len": 7431,
+  "depth": 2
+}

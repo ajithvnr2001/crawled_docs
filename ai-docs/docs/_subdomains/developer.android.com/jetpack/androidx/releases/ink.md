@@ -1,0 +1,494 @@
+---
+url: https://developer.android.com/jetpack/androidx/releases/ink/
+title: ink \u00a0|\u00a0 Jetpack \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:36:32.379976+00:00
+---
+
+# ink  |  Jetpack  |  Android Developers
+
+> Source: https://developer.android.com/jetpack/androidx/releases/ink/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Get started ](https://developer.android.com/get-started/overview)
+  * [ Jetpack ](https://developer.android.com/jetpack)
+  * [ Libraries ](https://developer.android.com/jetpack/androidx/explorer)
+
+
+
+Stay organized with collections  Save and categorize content based on your preferences. 
+
+# ink
+
+API Reference  
+[ androidx.ink.authoring](https://developer.android.com/reference/kotlin/androidx/ink/authoring/package-summary)  
+[ androidx.ink.authoring.compose](https://developer.android.com/reference/kotlin/androidx/ink/authoring/compose/package-summary)  
+[androidx.ink.brush](https://developer.android.com/reference/kotlin/androidx/ink/brush/package-summary)  
+[androidx.ink.brush.compose](https://developer.android.com/reference/kotlin/androidx/ink/brush/compose/package-summary)  
+[androidx.ink.geometry](https://developer.android.com/reference/kotlin/androidx/ink/geometry/package-summary)  
+[androidx.ink.geometry.compose](https://developer.android.com/reference/kotlin/androidx/ink/geometry/compose/package-summary)  
+[androidx.ink.rendering.android.canvas](https://developer.android.com/reference/kotlin/androidx/ink/rendering/android/canvas/package-summary)  
+[androidx.ink.rendering.android.view](https://developer.android.com/reference/kotlin/androidx/ink/rendering/android/view/package-summary)  
+[androidx.ink.storage](https://developer.android.com/reference/kotlin/androidx/ink/storage/package-summary)  
+[androidx.ink.strokes](https://developer.android.com/reference/kotlin/androidx/ink/strokes/package-summary)  
+
+
+Inspire best-in-class pen apps. Lower the developer barrier to entry for high performance, beautiful inking experiences. Supports Inking on Android and server-side JVM (currently supported on Linux for x86_64). 
+
+Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release  
+---|---|---|---|---  
+September 23, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha09](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha09)  
+  
+## Declaring dependencies
+
+To add a dependency on Ink, you must add the Google Maven repository to your project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven) for more information.
+
+Add the dependencies for the artifacts you need in the `build.gradle` file for your app or module:
+
+### Groovy
+    
+    
+    dependencies {
+      
+        implementation "androidx.ink:ink-authoring:1.1.0-alpha09"
+        implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha09"
+        implementation "androidx.ink:ink-brush:1.1.0-alpha09"
+        implementation "androidx.ink:ink-brush-compose:1.1.0-alpha09"
+        implementation "androidx.ink:ink-geometry:1.1.0-alpha09"
+        implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha09"
+        implementation "androidx.ink:ink-nativeloader:1.1.0-alpha09"
+        implementation "androidx.ink:ink-rendering:1.1.0-alpha09"
+        implementation "androidx.ink:ink-storage:1.1.0-alpha09"
+        implementation "androidx.ink:ink-strokes:1.1.0-alpha09"
+        
+    }
+
+### Kotlin
+    
+    
+    dependencies {
+    
+    
+        implementation("androidx.ink:ink-authoring:1.1.0-alpha09")
+        implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha09")
+        implementation("androidx.ink:ink-brush:1.1.0-alpha09")
+        implementation("androidx.ink:ink-brush-compose:1.1.0-alpha09")
+        implementation("androidx.ink:ink-geometry:1.1.0-alpha09")
+        implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha09")
+        implementation("androidx.ink:ink-nativeloader:1.1.0-alpha09")
+        implementation("androidx.ink:ink-rendering:1.1.0-alpha09")
+        implementation("androidx.ink:ink-storage:1.1.0-alpha09")
+        implementation("androidx.ink:ink-strokes:1.1.0-alpha09")
+    }
+
+For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
+
+Because Ink's C++ dependencies are loaded with JNI, Ink on JVM generates the following warning when run using JDK 24 or higher:
+
+`java.lang.System::load has been called by androidx.ink.nativeloader.NativeLoader in an unnamed module`
+
+unless Ink is run with `--enable-native-access=ALL-UNNAMED` (since Jetpack builds don't use Java modules) or `--illegal-native-access=allow`. This warning might become an error in some future Java release (see [JEP 472](https://openjdk.org/jeps/472)).
+
+## Feedback
+
+Your feedback helps make Jetpack better. Let us know if you discover new issues or have ideas for improving this library. Please take a look at the [existing issues](https://issuetracker.google.com/issues?q=componentid:1662443%20status:open) in this library before you create a new one. You can add your vote to an existing issue by clicking the star button.
+
+[Create a new issue](https://issuetracker.google.com/issues/new?component=1662443&template=2055047)
+
+See the [Issue Tracker documentation](https://developers.google.com/issue-tracker) for more information.
+
+## Ink Version 1.1
+
+### Version 1.1.0-alpha09
+
+September 23, 2026
+
+`androidx.ink:ink-*:1.1.0-alpha09` is released. Version 1.1.0-alpha09 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..9ffbd68e415c0ab0e5ba565835e1080ad40f1b16/ink).
+
+**API Changes**
+
+  * Change Brush color shift to operate in Oklab color space, which better preserves perceived lightness in hue shifts. Renamed `SATURATION` and `LUMINOSITY` shift Brush Target APIs to `CHROMA` and `LIGHTNESS` accordingly. ([I0ed42](https://android-review.googlesource.com/#/q/I0ed42fb8b3e258b46a2e7f0d53390afa7dc45efd))
+
+
+
+**Bug Fixes**
+
+  * `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
+
+
+
+### Version 1.1.0-alpha08
+
+September 09, 2026
+
+`androidx.ink:ink-*:1.1.0-alpha08` is released. Version 1.1.0-alpha08 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/384f3c27346bf5812f359330dc2310f0cbb66402..e4bd62f853853bf3522ed15681c58ef28b09ed44/ink).
+
+**API Changes**
+
+  * Add rendering support for KMP iOS via `MetalRenderer`, under the opt-in annotation `ExperimentalInkCrossPlatformRenderingApi`, based on KMP common APIs for core functionality
+  * Rename `Target.TEXTURE_ANIMATION_PROGRESS_OFFSET` to `Target.PAINT_ANIMATION_PROGRESS_OFFSET`. ([I8809f](https://android-review.googlesource.com/#/q/I8809f4d5ba68a0b9d4705145f9f90016a9541edf))
+  * Add overloads `ImmutableAffineTransform.translate(float x, float, y)` and `MutableAffineTransform populateFromTranslation(float x, float y)` ([I8809f](https://android-review.googlesource.com/#/q/I8809f4d5ba68a0b9d4705145f9f90016a9541edf))
+  * Rename `DampingNode` property from `dampingSource` to `dampOver` ([Id3178](https://android-review.googlesource.com/#/q/Id3178a364e9d348e17fb3e2dbf38f59a82b97eb3))
+  * Rename `DampingNode` property from `dampingGap` to `strength` ([I69432](https://android-review.googlesource.com/#/q/I69432e055764302d7c1db27bb6cf38d355604698))
+  * Use `Vec` type when defining `EasingFunction.CubicBezier` instead of `Float`s ([I69432](https://android-review.googlesource.com/#/q/I69432e055764302d7c1db27bb6cf38d355604698))
+  * Add `WorkerThread` annotation to mesh-editing eraser functions `Stroke.subtract` and `Stroke.split` ([I69432](https://android-review.googlesource.com/#/q/I69432e055764302d7c1db27bb6cf38d355604698))
+
+
+
+**Bug Fixes**
+
+  * Make `Brush` samples KMP-compatible ([I77125](https://android-review.googlesource.com/#/q/I77125151c77513f139bd74b084d96865f3491df4))
+
+
+
+### Version 1.1.0-alpha07
+
+August 12, 2026
+
+`androidx.ink:ink-*:1.1.0-alpha07` is released. Version 1.1.0-alpha07 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/61ee8cd421d0c0252d8db0253b739de537999371..384f3c27346bf5812f359330dc2310f0cbb66402/ink).
+
+**API Changes**
+
+  * Fix performance regression affecting dense particle brushes, update Brush.Version constants based on API feedback ([I87f0f](https://android-review.googlesource.com/#/q/I87f0f66b89510cd90229f2c0ca5904e3c8f872cc))
+
+
+
+### Version 1.1.0-alpha06
+
+July 29, 2026
+
+`androidx.ink:ink-*:1.1.0-alpha06` is released. Version 1.1.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e37cf4eae99bdc35def1209921d658612e2edbc3..61ee8cd421d0c0252d8db0253b739de537999371/ink).
+
+**API Changes**
+
+  * Added `calculateMinimumRequiredVersion` methods to the API for `BrushFamily` subtypes. ([I338c9](https://android-review.googlesource.com/#/q/I338c949db3ed98acf3396e949b04d694b506c0e7))
+  * Expose `AffineTransform` component fields ([Ic2ec3](https://android-review.googlesource.com/#/q/Ic2ec3db51ee6519bdcc02f17708a283e7017b2df))
+  * Fix memory leak in `InProgressStrokesView`, improved experimental partial stroke eraser visual artifacts, improved protobuf representation for custom brush texture layers ([I6ff86](https://android-review.googlesource.com/#/q/I6ff86baa0134008d35829d8af33accc7338fb1ee))
+  * Add initializing constructor for `MutableAffineTransform` (to match `ImmutableAffineTransform`) ([I96ec7](https://android-review.googlesource.com/#/q/I96ec7e2217911506a1e002248f1faca168a1b4ac))
+  * Add `InProgressStroke.clear` ([Ie0032](https://android-review.googlesource.com/#/q/Ie0032dc8ba11c56f0222cda0daa1f8748607bdf9))
+  * Add `toImmutable` methods to data-structures with mutable and immutable subclasses ([I53835](https://android-review.googlesource.com/#/q/I538354a1a2a21334e044b74ca38f6f207cc94e71))
+  * KMP migration ([Icbf38](https://android-review.googlesource.com/#/q/Icbf382b8f2dacbdea84f03019dcb06a8d280a4a0), [b/521850119](https://issuetracker.google.com/issues/521850119), [b/534309122](https://issuetracker.google.com/issues/534309122))
+
+
+
+**Bug Fixes**
+
+  * Adding further support for brush versioning and texture animations. ([Iea9ba](https://android-review.googlesource.com/#/q/Iea9ba137c199f51e57f43a8e9e36cc66d32e0abb))
+
+
+
+### Version 1.1.0-alpha05
+
+July 15, 2026
+
+`androidx.ink:ink-*:1.1.0-alpha05` is released. Version 1.1.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/54300995fb997ea31a64ab9de0daf6580692612d..e37cf4eae99bdc35def1209921d658612e2edbc3/ink).
+
+**API Changes**
+
+  * Experimental release of new eraser type, known as "partial stroke", "mesh editing", or "pixel" eraser, that edits stroke geometry and splits strokes rather than deleting entire strokes or masking them with the background color. Known issues include a lack of anti-aliasing on the cut edges, and no serialization APIs to save the erased `PartitionedMesh` results, which will both come in future releases.
+  * Add missing Throws annotation to `StrokeInputBatchSerialization.decode`, requiring update from Java consumers of that method. ([I83473](https://android-review.googlesource.com/#/q/I83473b1537aafad235707c9c69b2525e08edeb99), [b/522256938](https://issuetracker.google.com/issues/522256938))
+
+
+
+**Bug Fixes**
+
+  * Fix native crash from numerical precision issue ([I2e1f0](https://android-review.googlesource.com/#/q/I2e1f0cdab93b829f755580d00d811f953201009b), [6618e69](https://github.com/google/ink/commit/6618e6957ebb7ef764ac58a746671f176f08549d), [b/523190724](https://issuetracker.google.com/issues/523190724))
+  * Discard degenerate extrusions in `BrushTipExtruder` ([469b629](https://github.com/google/ink/commit/469b629913e2828aa8ac123e90d3a90a6eb0941b))
+  * Fix `RejectedExecutionException` in `InProgressStrokesView` ([b/526696762](https://issuetracker.google.com/526696762))
+
+
+
+### Version 1.1.0-alpha04
+
+June 17, 2026
+
+`androidx.ink:ink-*:1.1.0-alpha04` is released. Version 1.1.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe..54300995fb997ea31a64ab9de0daf6580692612d/ink).
+
+**API Changes**
+
+  * Fix floating point precision issues leading to visual artifacts in finished strokes, affecting certain devices after OS upgrades
+
+  * Add KMP-common API for storage module (going to/from `ByteArray` instead of Java `InputStream`/`OutputStream`).
+
+  * Add a `BrushBehavior.developerComment` property to hold metadata explaining a custom brush family's design. This is intended to support Brush Designer UI.
+
+  * Fix a bug in threading consistency checks in `CanvasInProgressStrokesRenderHelperV33`.
+
+  * Fix some bugs in handling of `MotionEvent` optional fields (e.g. tilt, pressure).
+
+  * Improve documentation for custom brush API.
+
+  * Add new `BrushPaint.ColorFunction` types.
+
+
+
+
+### Version 1.1.0-alpha03
+
+May 19, 2026
+
+`androidx.ink:ink-*:1.1.0-alpha03` is released. Version 1.1.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..e8de700385d9ab9cdeb458e7ff3867b6a03d869e/ink).
+
+**API Changes**
+
+  * Make programmatic Ink brush customization API public ([I8e2e1](https://android-review.googlesource.com/#/q/I8e2e12a3f449ce9b553ced187ea8b7c32a47e902))
+  * Split `BrushPaint.TextureLayer` into more specific subclasses ([I8848a](https://android-review.googlesource.com/#/q/I8848ae547b17614a567bc5478e2b0aaf7a0729f8))
+
+
+
+### Version 1.1.0-alpha02
+
+April 22, 2026
+
+`androidx.ink:ink-*:1.1.0-alpha02` is released. Version 1.1.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..f99a4088c23a06cb8f2e113e607ef12853d95f09/ink).
+
+**API Changes**
+
+  * Expose an overload of `BrushFamily.decode` that specifies max version compatibility ([I1c7bc](https://android-review.googlesource.com/#/q/I1c7bc469cc79fa4ead6bcf605e2891e456c63b23))
+  * Graduate `BrushFamily` serialization API from experimental ([Idd16e](https://android-review.googlesource.com/#/q/Idd16ea9454d944d8daaf3ad719592c9e654df43b))
+
+
+
+**Bug Fixes**
+
+  * Fix flicker when using `InProgressStrokesView.maskPath` on certain devices ([I1c7bc](https://android-review.googlesource.com/#/q/I1c7bc469cc79fa4ead6bcf605e2891e456c63b23), [b/496920044](https://issuetracker.google.com/issues/496920044))
+
+
+
+### Version 1.1.0-alpha01
+
+March 11, 2026
+
+`androidx.ink:ink-*:1.1.0-alpha01` is released. Version 1.1.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/8bf058367eab7e1352e81f61606d663ed7b3cd1d..1a508f033de883ba2853b9f9ae1853eec7010638/ink).
+
+**New Features**
+
+  * Assorted small bug fixes
+
+
+
+**API Changes**
+
+  * Add `InProgressShape.isCanceled`, fix concurrency issues in authoring module. ([Ibfd32](https://android-review.googlesource.com/#/q/Ibfd32ed6aa398653461d9e86d247f09c57caa53d), [b/474385518](https://issuetracker.google.com/issues/474385518), [b/470695777](https://issuetracker.google.com/issues/470695777))
+  * Expose zero-argument version of `CanvasStrokeRenderer.create` and `InProgressStroke.updateShape` to Java ([Id80a1](https://android-review.googlesource.com/#/q/Id80a171f1c2c71f3ef7fa309c4aad44c4300867d), [b/457715938](https://issuetracker.google.com/issues/457715938))
+
+
+
+**Bug Fixes**
+
+  * Fix a bug causing crashes in `InProgressStrokesView` after detach/reattach from window for API 29-32, allow Vec operations to take same `MutableVec` as input and output, merge Proguard configs into one file. ([Ia4da0](https://android-review.googlesource.com/#/q/Ia4da08aa4ed8b5b428a19ef8b00c63ef544e62ff))
+  * Increase dependency on graphics-core to 1.0.4 ([Ibfa18](https://android-review.googlesource.com/#/q/Ibfa187a40ab55711f8eca9ae0ae53c181086db23))
+
+
+
+## Version 1.0
+
+### Version 1.0.0
+
+December 17, 2025
+
+`androidx.ink:ink-*:1.0.0` is released. Version 1.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b6ae8d0a0e8cd803f7b84f30101eda1af4f1d6b6..8bf058367eab7e1352e81f61606d663ed7b3cd1d/ink).
+
+**Bug Fixes**
+
+  * Increase dependency on `graphics-core` to 1.0.4 ([Ibfa18](https://android-review.googlesource.com/#/q/Ibfa187a40ab55711f8eca9ae0ae53c181086db23))
+
+
+
+### Version 1.0.0-rc01
+
+December 03, 2025
+
+`androidx.ink:ink-*:1.0.0-rc01` is released. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4d752a0684fb1bf991cd0d15ebd3649ee8684ca1..7a31b848f1d509fe53e220229333c573be219d10/ink).
+
+**Bug Fixes**
+
+  * Update dependency version. ([Iecd04](https://android-review.googlesource.com/#/q/Iecd04ee1ecca5aa981c756e246e11535455a898c))
+
+
+
+### Version 1.0.0-beta02
+
+November 19, 2025
+
+`androidx.ink:ink-*:1.0.0-beta02` is released. Version 1.0.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/46bcdef6281ae0f03c3a2bb2812edfc2c0e66d05..4d752a0684fb1bf991cd0d15ebd3649ee8684ca1/ink).
+
+**API Changes**
+
+  * Experimental custom low latency shape APIs, assorted bug fixes ([Ib8d2f](https://android-review.googlesource.com/#/q/Ib8d2fe54389b3a2a9f5d305343878dd766d02527))
+
+
+
+**Bug Fixes**
+
+  * Improve floating point precision on `StrokeInputBatch` serialization, fixing a drift in the values from repeated encoding and decoding
+  * More robust system input sanitization.
+  * Fix brush texture support in `InProgressStrokes` composable
+
+
+
+### Version 1.0.0-beta01
+
+October 22, 2025
+
+`androidx.ink:ink-*:1.0.0-beta01` is released. Version 1.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4350deab5806bf95370a4d012d7eeaa70a10be44..46bcdef6281ae0f03c3a2bb2812edfc2c0e66d05/ink).
+
+**Bug Fixes**
+
+  * Bug fixes in preparation for beta01 release ([I9900e](https://android-review.googlesource.com/#/q/I9900e364054c1873f97e1e60193e92cf01d4c9ab))
+  * Reduce rendering artifacts in strokes due to too many modeled inputs too close to each other.
+  * Fix a rare crash in input modeling.
+
+
+
+### Version 1.0.0-alpha07
+
+October 08, 2025
+
+`androidx.ink:ink-*:1.0.0-alpha07` is released. Version 1.0.0-alpha07 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c359e97fece91f3767a7d017e9def23c7caf1f53..4350deab5806bf95370a4d012d7eeaa70a10be44/ink).
+
+**New Features**
+
+  * `SelfOverlap` parameter for `StockBrushes` `highlighter` and `emojiHighlighter`, which replaces `InProgressStrokesView` `rendererFactory`
+  * Improved implementation of stroke input smoothing, which eliminates device measurement noise but which more accurately reflects user input than the previous stroke input smoothing implementation
+  * Improved consistency with other Android/Jetpack APIs for angle units (degrees vs. radians), transforms (skew vs. shear), and more
+
+
+
+**API Changes**
+
+  * Change angle-related API to use degrees and include unit in names, be clear about units in Angle conversion utilities and support both degrees and radians, change `StockBrushes` API to take stock brush version as a factory function parameter and expose self-overlap behavior control for highlighter brushes, rename `MutableAffineTransform.populateFromTranslate` to `populateFromTranslation`, remove `InProgressStrokesView.setRenderFactory/getRenderFactory`. ([Id9eab](https://android-review.googlesource.com/#/q/Id9eab6301d2ca1803452cd8a1eb2dcf0a3cd357d), [b/436656418](https://issuetracker.google.com/issues/436656418))
+  * Rename shear to skew, clarify some documentation, remove `CanvasStrokeRenderer.strokeModifiedRegionOutsetPx`, add `InProgressStroke.changesWithTime` ([Ia5e70](https://android-review.googlesource.com/#/q/Ia5e70048d15787a54bf4c848b715484366e5c629), [b/436656418](https://issuetracker.google.com/issues/436656418))
+
+
+
+**Bug Fixes**
+
+  * Improve input modeling to make strokes more accurately reflect input. ([I93097](https://android-review.googlesource.com/#/q/I9309760022de0c30a0bc5e960da4c2467f663e9f))
+
+
+
+### Version 1.0.0-alpha06
+
+August 13, 2025
+
+`androidx.ink:ink-*:1.0.0-alpha06` is released. Version 1.0.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e8af6ab7417811bf386c52a59ab5d0b94d194eeb..c359e97fece91f3767a7d017e9def23c7caf1f53/ink).
+
+**New Features**
+
+  * Emoji highlighter stock brush: Highlight parts of a document with any emoji you choose, to add a fun flair and help stay organized.
+  * More helper APIs for geometry module primitive shapes
+  * Improve device compatibility and performance
+
+
+
+**API Changes**
+
+  * Simplified API for `InProgressStrokesView`, finish geometry APIs, emoji highlighter, remove factory functions from `MutableParallelogram` in favor of populate methods, support seed for randomized brush behaviors. ([I38280](https://android-review.googlesource.com/#/q/I38280146fca9a55b06d87a835670efdd012990e7))
+
+
+
+**Bug Fixes**
+
+  * Fix a performance issue and a wet/dry color consistency issue. ([Ifcd1d](https://android-review.googlesource.com/#/q/Ifcd1da4081a01ba8165b4e8624219b1bd26bd248))
+
+
+
+### Version 1.0.0-alpha05
+
+June 18, 2025
+
+`androidx.ink:ink-*:1.0.0-alpha05` is released. Version 1.0.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4c37298a97c16270c139eb812ddadaba03e23a52..e8af6ab7417811bf386c52a59ab5d0b94d194eeb/ink).
+
+**New Features**
+
+  * Compose interoperability modules for authoring, brush, and geometry modules
+
+
+
+**API Changes**
+
+  * New Compose interoperability modules and APIs, API cleanup ([I0e464](https://android-review.googlesource.com/#/q/I0e4641822d568573fc8c7b3955a007a8ac9cd1c5))
+  * `InProgressStroke.enqueueInputs/updateShape` methods which returned `kotlin.Result` are removed, clients should use e.g. `enqueueInputsOrThrow` or `enqueueInputsOrIgnore` instead. `InProgressStroke.getNeedsUpdate` is renamed to `isUpdateNeeded`. `InProgressStroke.populateOutlinePosition` now returns its output parameter to allow call chaining, consistent with other methods in Ink. The `TextureBitmapStore` interface is moved from the rendering module to the brush module. `BoxAccumulator.populateFrom` is made to take a nullable immutable Box instead of a mutable `BoxAccumulator`, to make it clearer what is mutated, callers should change `boxAccumulator.add(other)` to `boxAccumulator.add(other.box)`. `BrushUtil.toBuilderWithAndroidColor/createBuilderWithAndroidColor` are removed, use the `setAndroidColor` of `Brush.Builder` after constructing instead. ([Ia7155](https://android-review.googlesource.com/#/q/Ia7155560602b8319183aa12671d7f1d925873448))
+  * Previously experimental property `InProgressStrokesView.textureBitmapStore` is now private. There are still public accessors for this property. ([I1d706](https://android-review.googlesource.com/#/q/I1d7064ff25c953066a4b43a6c30a4b3aa0b145d5))
+
+
+
+**Bug Fixes**
+
+  * Improved performance for custom brushes containing many particles.
+
+
+
+### Version 1.0.0-alpha04
+
+April 9, 2025
+
+`androidx.ink:ink-*:1.0.0-alpha04` is released. Version 1.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/24c00eb294d9cda579d8d6e48a29497fe0f8d3f7..4c37298a97c16270c139eb812ddadaba03e23a52/ink).
+
+**New Features**
+
+  * Introduces new experimental APIs for custom `BrushFamily` objects, enabling new brushes like Pencil and Laser Pointer. The API allows for loading brushes defined by this proto. ([I8809a](https://android-review.googlesource.com/#/q/I8809a675a5527c1a7bc2f519e041a8af1ed693b3))
+
+
+
+### Version 1.0.0-alpha03
+
+February 12, 2025
+
+`androidx.ink:ink-*:1.0.0-alpha03` is released. Version 1.0.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/46295bc0b75a16f452e8e0090e8de41073d4dbb6..24c00eb294d9cda579d8d6e48a29497fe0f8d3f7/ink).
+
+**New Features**
+
+  * Disk and network size savings: Serialization of `StrokeInputBatch`, saving many lines of code, with the resulting objects a tiny fraction of the size of traditionally stored strokes. ([Ie898d](https://android-review.googlesource.com/#/q/Ie898d91e3c77eccbf26e9ee6d7f384a3a57b974f))
+  * Lasso selection: dashed line brush to draw a selection stroke, and a function to turn the selection stroke into a `PartitionedMesh` for geometry queries. ([Ia38a0](https://android-review.googlesource.com/#/q/Ia38a0e3e7a2da344d978bdfd5b8db8210a753e74))
+
+
+
+### Version 1.0.0-alpha02
+
+December 11, 2024
+
+`androidx.ink:ink-*:1.0.0-alpha02` is released. Version 1.0.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b6ae8d0a0e8cd803f7b84f30101eda1af4f1d6b6..46295bc0b75a16f452e8e0090e8de41073d4dbb6/ink).
+
+**API Changes**
+
+  * Assorted bug fixes. ([I05dd8](https://android-review.googlesource.com/#/q/I05dd84cb83c29b6f8af876164c426fee57f6f932))
+
+
+
+**External Contribution**
+
+  * Deprecate `BuildCompat.isAtLeastV`. Callers should check SDK_INT against 35 directly instead. ([I294d1](https://android-review.googlesource.com/#/q/I294d117a8fea924e7f1b739d52268a9a54be6db7))
+
+
+
+### Version 1.0.0-alpha01
+
+October 2, 2024
+
+`androidx.ink:ink-*:1.0.0-alpha01` is released. Version 1.0.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b6ae8d0a0e8cd803f7b84f30101eda1af4f1d6b6/ink).
+
+**New Features**
+
+  * A modular and configurable library to make it easy to create, render, and manipulate beautiful ink strokes authored in your application.
+
+
+
+**API Changes**
+
+New modules to help developers build rich inking experiences:
+
+  * Authoring: Use `InProgressStrokesView` for high-performance, low latency rendering of strokes in real time as inputs are received.
+  * Rendering: Use `CanvasStrokeRenderer` and `ViewStrokeRenderer` to draw the finished ink strokes as part of an app’s user interface.
+  * Strokes: Core data types used for inking features.
+  * Brush: Configurable specification of how strokes will look and act in response to user input.
+  * Geometry: Geometric operations like intersection and coverage to power tools like selection and erasing.
+
+
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-09-23 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-23 UTC."],[],[]] 

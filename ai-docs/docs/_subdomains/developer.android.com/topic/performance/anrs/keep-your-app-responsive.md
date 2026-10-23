@@ -1,0 +1,92 @@
+---
+url: https://developer.android.com/topic/performance/anrs/keep-your-app-responsive/
+title: Keep your app responsive \u00a0|\u00a0 App quality \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:43:08.659827+00:00
+---
+
+# Keep your app responsive  |  App quality  |  Android Developers
+
+> Source: https://developer.android.com/topic/performance/anrs/keep-your-app-responsive/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Design & Plan ](https://developer.android.com/design)
+  * [ App quality ](https://developer.android.com/quality)
+  * [ Technical quality ](https://developer.android.com/quality/technical)
+
+
+
+#  Keep your app responsive Stay organized with collections  Save and categorize content based on your preferences. 
+
+![](https://developer.android.com/static/topic/performance/images/anr-example-framed-rev.png)
+
+**Figure 1.** An ANR dialog displayed to the user.
+
+This document describes how the Android system determines whether an app isn't responding and shows how to keep your app responsive.
+
+No matter how well-written your code is, it's possible for your app to still feel sluggish, hang, freeze for significant periods, or take too long to process input. If your app is in the foreground and is unresponsive, the user gets an Application Not Responding (ANR) dialog, as shown in figure 1. The ANR dialog lets the user force quit the app. If the app isn't in the foreground, then it's silently stopped. It's critical to design responsiveness into your app to minimize ANR dialogs.
+
+## ANR triggers
+
+Generally, the system displays an ANR if an app can't respond to user input on the main thread—also known as the UI thread—preventing the system from processing incoming user input events.
+
+For example, an ANR can occur if an app performs a blocking I/O operation, such as network access, on the UI thread. Another example is when an app spends too much time building an elaborate in-memory structure or computing the next move in a game on the UI thread.
+
+In Android, app responsiveness is monitored by the [`ActivityManager`](https://developer.android.com/reference/kotlin/android/app/ActivityManager) and [`WindowManager`](https://developer.android.com/reference/kotlin/android/view/WindowManager) system services. Android displays the ANR dialog for an app when it detects one of the following conditions:
+
+  * No response to an input event—such as key press or screen tap events—within 5 seconds.
+  * A [`BroadcastReceiver`](https://developer.android.com/reference/kotlin/android/content/BroadcastReceiver) doesn't finish executing within 10 to 20 seconds, for foreground intents. For more information, see [Broadcast receiver timeout](https://developer.android.com/topic/performance/anrs/diagnose-and-fix-anrs#broadcast-receiver-anr).
+
+
+
+## Avoid ANRs
+
+The following are general tips to avoid ANRs. For more details about diagnosing and debugging different types of ANRs, see the other pages in this section.
+
+  * Keep the main thread unblocked at all times, and use threads strategically.
+
+    * Don't perform blocking or long-running operations on the app's main thread. Instead, use Kotlin coroutines to offload the work to background dispatchers (such as `Dispatchers.IO` or `Dispatchers.Default`). Use mechanisms like `viewModelScope` to safely launch these background tasks, or `LaunchedEffect` to trigger them in response to Compose state changes.
+
+    * Try to minimize any lock contention between the main thread and other threads.
+
+    * Minimize any non-UI related work on the main thread, such as when handling broadcasts or running services. Any method or function that runs in the UI thread must do as little work as possible. In particular, activities must do as little as possible to set up in key lifecycle methods, such as `onCreate` and `onResume`. Never perform I/O or heavy, blocking calculations directly inside a composable function. This blocks the UI thread during composition and recomposition. See [Background tasks overview](https://developer.android.com/guide/background) for more information about available solutions for scheduling work on a background thread and communicating back with the UI.
+
+    * Be careful when sharing thread pools between components. Don't use the same threads for potentially long-blocking operations and time-sensitive tasks such as broadcast receiving.
+
+**Note:** Because such threading usually is accomplished at the class level, you can think of responsiveness as a class problem. Compare this with basic code performance, which is a method-level concern.
+  * Keep app startup fast. Minimize slow or blocking operations in the app's startup code, such as methods run during dependency injection setup (like with [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)) or components initialized using the [Jetpack App Startup library](https://developer.android.com/topic/libraries/app-startup). You can further optimize app startup using [Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview), [Startup Profiles](https://developer.android.com/topic/performance/startupprofiles/overview), and [R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization).
+
+  * If you're using `BroadcastReceiver`, consider running broadcast receivers in a non-main thread using [`Context.registerReceiver`](https://developer.android.com/reference/kotlin/android/content/Context#registerreceiver_2). For more information, see ANRs in BroadcastReceiver.
+
+    * If you use [`goAsync`](https://developer.android.com/reference/kotlin/android/content/BroadcastReceiver#goAsync\(\)), make sure [`PendingResult.finish`](https://developer.android.com/reference/kotlin/android/content/BroadcastReceiver.PendingResult#finish) is called quickly before the ANR timeout.
+
+
+
+## ANRs in BroadcastReceiver
+
+`BroadcastReceiver` execution time is constrained because broadcast receivers are meant to do small, discrete amounts of work in the background, such as saving a setting or registering a [`Notification`](https://developer.android.com/reference/kotlin/android/app/Notification). So, as with other methods called in the UI thread, apps must avoid potentially long-running operations or calculations in a broadcast receiver. Instead of performing long-running tasks via the UI thread, perform them in the background for later execution. See [Background tasks overview](https://developer.android.com/guide/background) for more information about possible solutions.
+
+Another common issue with `BroadcastReceiver` objects occurs when they execute too frequently. Frequent background execution can reduce the amount of memory available to other apps. For more information about how to enable and disable `BroadcastReceiver` objects efficiently, see [Broadcasts overview](https://developer.android.com/guide/components/broadcasts).
+
+**Tip:** You can use [`StrictMode`](https://developer.android.com/reference/kotlin/android/os/StrictMode) to help find potentially lengthy operations such as network or database operations that you might accidentally be doing on your main thread.
+
+## Reinforce responsiveness
+
+Generally, 100 to 200ms is the threshold beyond which users perceive slowness in an app. Here are additional tips for making your app seem responsive to users:
+
+  * If your app is doing work in the background in response to user input, show that progress is being made, such as with a [`CircularProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CircularProgressIndicator.composable) or [`LinearProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LinearProgressIndicator.composable) in your UI.
+
+  * For games specifically, do calculations for moves in a background coroutine or worker thread.
+
+  * If your app has a time-consuming initial setup phase, consider showing a [splash screen](https://developer.android.com/develop/ui/views/launch/splash-screen) or rendering your initial composition as quickly as possible. Indicate that loading is in progress and fill the UI state asynchronously. In either case, we recommend indicating somehow that progress is being made, so that the user doesn't perceive that the app is frozen.
+
+  * Use performance tools such as [Perfetto](https://developer.android.com/topic/performance/tracing) and [CPU Profiler](https://developer.android.com/studio/profile/cpu-profiler) to determine bottlenecks in your app's responsiveness.
+
+
+
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-08-18 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-18 UTC."],[],[]] 

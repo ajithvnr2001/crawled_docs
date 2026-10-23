@@ -1,0 +1,20 @@
+# output + runtime (regenerate via scripts)
+*.log
+crawl_state.json
+__pycache__/
+*.pyc
+.venv/
+# large optional source clones (reinstall per README)
+tools/
+# secrets / local
+.env
+.api_keys.env
+# non-doc media + RAG/TTS training assets (kept on the VM, not in the docs repo)
+*.mp3
+*_chunks/
+sfx/
+rag-embeddinggemma2-course/
+generate_*.py
+ai_podcast_*.txt
+tamil_thriller_*.txt
+story_*.txt

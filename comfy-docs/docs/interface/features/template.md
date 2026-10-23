@@ -1,0 +1,228 @@
+---
+url: https://docs.comfy.org/interface/features/template/
+title: Templates - ComfyUI Built-in Workflow Templates - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:51:01.583356+00:00
+---
+
+# Templates - ComfyUI Built-in Workflow Templates - ComfyUI
+
+> Source: https://docs.comfy.org/interface/features/template/
+
+## On this page
+
+  * How to open Templates in ComfyUI
+  * How to use templates
+    * Model storage location
+  * How to update templates?
+  * How to contribute templates to the ComfyUI repository?
+  * Custom node templates
+  * How to add templates for custom nodes?
+
+
+
+Feature components
+
+# Templates - ComfyUI Built-in Workflow Templates
+
+Copy pageCopy page
+
+Browse ComfyUI Workflow Templates: natively supported model workflows and custom node examples, plus how to open, load, and download required models.
+
+Copy pageCopy page
+
+Workflow Templates is the browser for ComfyUI’s natively supported model workflows and also some example workflows from custom nodes. In ComfyUI’s Workflow Templates, you can find:
+
+  * Natively supported model workflows
+  * Example workflows from custom nodes
+
+![Template](https://mintcdn.com/dripart/EeFKEryMLH5667kk/images/interface/features/template/template_library.png?fit=max&auto=format&n=EeFKEryMLH5667kk&q=85&s=666049389fbe24cda29d1231ae6e4510)
+
+## 
+
+​
+
+How to open Templates in ComfyUI
+
+Click the **Templates** icon in the sidebar to open Workflow Templates. You can also open it from the menu **Workflow** → **Browse Workflow Templates**. ![Template](https://mintcdn.com/dripart/7m9lukFrTCZs7Mhj/images/interface/features/template/template.png?fit=max&auto=format&n=7m9lukFrTCZs7Mhj&q=85&s=36d5b46c782c6235ec56bfba9d1ff346)
+
+## 
+
+​
+
+How to use templates
+
+  1. Load a template: Click any template you want to load its workflow.
+  2. Download models: When loading a template, ComfyUI automatically checks whether all required model files exist. If anything is missing, it will prompt you to download the models.
+  3. Run the workflow: Once all requirements—such as models, input images, and prompts—are ready, click the Run button to start using the workflow.
+
+
+
+### 
+
+​
+
+Model storage location
+
+Each workflow template embeds links to the required models. On first use, if those files are missing, ComfyUI does not show a separate modal. Instead it:
+
+  1. Highlights the affected loader nodes in red on the canvas.
+  2. Shows a small banner such as **N errors found** with **View details**.
+  3. Opens the details in the [Right Side Panel](https://docs.comfy.org/interface/right-side-panel) **Errors** tab under **Setup required** / **Missing Models**.
+
+![Missing models for a template: Setup required lists each file with folder and size, Download per row, and Download all](https://mintcdn.com/dripart/cWths51SAUr51YVL/images/interface/features/template/missing_models.jpg?fit=max&auto=format&n=cWths51SAUr51YVL&q=85&s=f10eb949eacf08ae5b6c08307df3c8b0) In that list you can **Download** one file, **Download all** , **Refresh** , or use the locate control to jump to the node that needs the model. The same **Missing models** group stays available in the Errors tab while you work.
+
+  1. **Desktop** : **Download** / **Download all** saves files into the matching `ComfyUI/models/…` folders.
+  2. **Self-hosted browser** : the same actions start a browser download when a URL is available. Place each file under the matching folder. Example for the Qwen Image template in the screenshot:
+
+
+    
+    
+    📂 ComfyUI/
+    ├── 📂 models/
+    │   ├── 📂 loras/
+    │   │   └── Qwen-Image-Lightning-8steps-V1.0.safetensors
+    │   ├── 📂 diffusion_models/
+    │   │   └── qwen_image_fp8_e4m3fn.safetensors
+    │   ├── 📂 vae/
+    │   │   └── qwen_image_vae.safetensors
+    │   └── 📂 text_encoders/
+    │       └── qwen_2.5_vl_7b_fp8_scaled.safetensors
+    
+
+Missing-file detection currently checks for a same-named file in the corresponding top-level directory (for example directly under `ComfyUI/models/diffusion_models`). If the model already lives in a subfolder such as `ComfyUI/models/diffusion_models/wan_video`, you can dismiss the prompt and select that file in the loader node instead. If you’re curious how model links are embedded, we add a `models` field under the node’s `properties`. Below is a complete snippet of a `DualCLIPLoader` node with embedded model information:
+    
+    
+        {
+          "id": 40,
+          "type": "DualCLIPLoader",
+          "pos": [
+            -320,
+            290
+          ],
+          "size": [
+            270,
+            130
+          ],
+          "flags": {},
+          "order": 0,
+          "mode": 0,
+          "inputs": [],
+          "outputs": [
+            {
+              "name": "CLIP",
+              "type": "CLIP",
+              "links": [
+                64
+              ]
+            }
+          ],
+          "properties": {
+            "Node name for S&R": "DualCLIPLoader",
+            "cnr_id": "comfy-core",
+            "ver": "0.3.40",
+            "models": [
+              {
+                "name": "clip_l.safetensors",
+                "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors",
+                "directory": "text_encoders"
+              },
+              {
+                "name": "t5xxl_fp16.safetensors",
+                "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors",
+                "directory": "text_encoders"
+              }
+            ]
+          },
+          "widgets_values": [
+            "clip_l.safetensors",
+            "t5xxl_fp16.safetensors",
+            "flux",
+            "default"
+          ]
+        }
+    
+
+The `models` field inside `properties` includes `name`, `url`, and `directory`.
+
+  * `name`: the model file name
+  * `url`: a direct download link to the file (not a repository page)
+  * `directory`: which subfolder under `ComfyUI/models` to store the file, e.g. `vae` means `ComfyUI/models/vae`
+
+Currently, only links from Hugging Face and Civitai are supported. The model format must be a safe format such as `.safetensors` or `.sft`. Formats like `.gguf` are considered unsafe; when embedded they will be flagged as unsafe and the link will not be shown. You can use [this tool](https://comfyui-wiki.github.io/ComfyUI-Workflow-JSON-Editor/) to edit the model information in workflow templates. At the moment, [@ComfyUI-Wiki](https://github.com/ComfyUI-Wiki) only adds support for native nodes.
+
+## 
+
+​
+
+How to update templates?
+
+Templates are managed and updated as a separate dependency: [`comfyui-workflow-templates`](https://pypi.org/project/comfyui-workflow-templates/). If, after updating ComfyUI, you don’t see the documentation or newly announced templates, you may need to update the corresponding dependency. You can check versions in [`ComfyUI/requirements.txt`](https://github.com/Comfy-Org/ComfyUI/blob/master/requirements.txt). Typically, the following three dependencies may be upgraded together when ComfyUI is updated:
+    
+    
+    comfyui-frontend-package==1.24.4
+    comfyui-workflow-templates==0.1.52
+    comfyui-embedded-docs==0.2.4
+    
+
+If you’re not sure how to update correctly, see [Update ComfyUI](https://docs.comfy.org/installation/update_comfyui) for how to update ComfyUI and its dependencies.
+
+## 
+
+​
+
+How to contribute templates to the ComfyUI repository?
+
+All templates are hosted in the [workflow_templates](https://github.com/Comfy-Org/workflow_templates/) repository. You can contribute templates by submitting a PR. For official templates, we require the following:
+
+  1. Do not use any third-party nodes (to avoid extra installations for users who lack those nodes).
+  2. The template must not duplicate existing ones and should target supported model capabilities.
+  3. You may open an issue in the repository to ask questions.
+
+
+
+## 
+
+​
+
+Custom node templates
+
+If a custom node author provides templates and example workflows, you can also find them in the Templates browser. Usually, you can locate all templates by finding the category named after the node. If you are a custom node author, note that we currently only support a single directory level under the `templates` folder (no nested subdirectories), and only JSON-format templates are supported.
+
+## 
+
+​
+
+How to add templates for custom nodes?
+
+See [Custom Node Templates](https://docs.comfy.org/custom-nodes/workflow_templates) for how to add workflow templates for your custom nodes.
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/interface/features/template.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/interface/features/template)
+
+[ComfyUI Help Center: Release Notes, Support, and FeedbackPrevious](https://docs.comfy.org/interface/help-center)[ComfyUI APP mode guideNext](https://docs.comfy.org/interface/app-mode)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

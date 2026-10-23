@@ -1,0 +1,114 @@
+---
+url: https://developer.android.com/training/testing/espresso/accessibility-checking/
+title: Accessibility checking \u00a0|\u00a0 Test your app on Android \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:42:00.387067+00:00
+---
+
+# Accessibility checking  |  Test your app on Android  |  Android Developers
+
+> Source: https://developer.android.com/training/testing/espresso/accessibility-checking/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Develop ](https://developer.android.com/develop)
+  * [ Test your app on Android ](https://developer.android.com/training/testing)
+
+
+
+#  Accessibility checking Stay organized with collections  Save and categorize content based on your preferences. 
+
+Testing for accessibility lets you experience your app from the perspective of your entire user base, including users with accessibility needs. This form of testing can reveal opportunities to make your app more powerful and versatile.
+
+This page describes how to add accessibility checks to your existing Espresso tests. For more information about accessibility, see the [Accessibility guides](https://developer.android.com/guide/topics/ui/accessibility).
+
+## Enable checks
+
+You can enable and configure accessibility testing using the [`AccessibilityChecks`](https://developer.android.com/reference/androidx/test/espresso/accessibility/AccessibilityChecks) class:
+
+### Kotlin
+    
+    
+    import androidx.test.espresso.accessibility.AccessibilityChecks
+    
+    @RunWith(AndroidJUnit4::class)
+    @LargeTest
+    class MyWelcomeWorkflowIntegrationTest {
+        init {
+            **AccessibilityChecks.enable()**
+        }
+    }
+    
+
+### Java
+    
+    
+    import androidx.test.espresso.accessibility.AccessibilityChecks;
+    
+    @RunWith(AndroidJUnit4.class)
+    @LargeTest
+    public class MyWelcomeWorkflowIntegrationTest {
+        @BeforeClass
+        public void enableAccessibilityChecks() {
+            **AccessibilityChecks.enable();**
+        }
+    }
+    
+
+By default, the checks run when you perform any view action defined in [`ViewActions`](https://developer.android.com/reference/androidx/test/espresso/action/ViewActions). Each check includes the view on which the action is performed as well as all descendant views. You can evaluate the entire view hierarchy of a screen during each check by passing `true` into [`setRunChecksFromRootView()`](https://github.com/google/Accessibility-Test-Framework-for-Android/blob/a6117fe0059c82dd764fa628d3817d724570f69e/src/main/java/com/google/android/apps/common/testing/accessibility/framework/integrations/espresso/AccessibilityValidator.java#L82), as shown in the following code snippet:
+
+### Kotlin
+    
+    
+    AccessibilityChecks.enable().setRunChecksFromRootView(true)
+    
+
+### Java
+    
+    
+    AccessibilityChecks.enable().setRunChecksFromRootView(true);
+    
+
+## Suppress subsets of results
+
+After Espresso runs accessibility checks on your app, you might find several opportunities to improve your app's accessibility that you cannot address immediately. In order to stop Espresso tests from continually failing because of these results, you can ignore them temporarily. The Accessibility Test Framework (ATF) provides this functionality using the [`setSuppressingResultMatcher()`](https://github.com/google/Accessibility-Test-Framework-for-Android/blob/a6117fe0059c82dd764fa628d3817d724570f69e/src/main/java/com/google/android/apps/common/testing/accessibility/framework/integrations/espresso/AccessibilityValidator.java#L95) method, which instructs Espresso to suppress all results that satisfy the given matcher expression.
+
+When you make changes to your app that address one aspect of accessibility, it's beneficial for Espresso to show results for as many other aspects of accessibility as possible. For this reason, it's best to suppress only specific known opportunities for improvement.
+
+When you temporarily suppress accessibility test findings that you plan to address later, it's important to not accidentally suppress similar findings. For this reason, use matchers that are narrowly scoped. To do so, choose a [matcher](http://hamcrest.org/JavaHamcrest/tutorial#a-tour-of-common-matchers) so that Espresso suppresses a given result only if it satisfies **each** of the following accessibility checks:
+
+  1. Accessibility checks of a certain type, such as those that check for touch target size.
+  2. Accessibility checks that evaluate a particular UI element, such as a button.
+
+
+
+The [ATF defines several matchers](https://github.com/google/Accessibility-Test-Framework-for-Android/blob/a6117fe0059c82dd764fa628d3817d724570f69e/src/main/java/com/google/android/apps/common/testing/accessibility/framework/AccessibilityCheckResultUtils.java) to help you define which results to show in your Espresso tests. The following example suppresses the results of checks that relate to a single `TextView` element's color contrast. The element's ID is `countTV`.
+
+### Kotlin
+    
+    
+    AccessibilityChecks.enable().apply {
+            setSuppressingResultMatcher(
+                    allOf(
+                        matchesCheck(TextContrastCheck::class.java),
+                        matchesViews(withId(R.id.countTV))
+                    )
+            )
+    }
+    
+
+### Java
+    
+    
+    AccessibilityValidator myChecksValidator =
+        AccessibilityChecks.enable()
+            .setSuppressingResultMatcher(
+                allOf(
+                    matchesCheck(TextContrastCheck.class),
+                    matchesViews(withId(R.id.countTV))));
+    
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-04-16 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-04-16 UTC."],[],[]] 

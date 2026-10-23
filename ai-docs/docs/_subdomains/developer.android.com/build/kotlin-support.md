@@ -1,0 +1,62 @@
+---
+url: https://developer.android.com/build/kotlin-support/
+title: AGP, D8, and R8 versions required for Kotlin versions \u00a0|\u00a0 Android Studio \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:45:21.113086+00:00
+---
+
+# AGP, D8, and R8 versions required for Kotlin versions  |  Android Studio  |  Android Developers
+
+> Source: https://developer.android.com/build/kotlin-support/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Develop ](https://developer.android.com/develop)
+  * [ Android Studio ](https://developer.android.com/studio)
+  * [ Gradle build guides ](https://developer.android.com/build/gradle-build-overview)
+
+
+
+#  AGP, D8, and R8 versions required for Kotlin versions Stay organized with collections  Save and categorize content based on your preferences. 
+
+The Android Gradle plugin (AGP) and the D8 and R8 compilers are compatible with class files from Kotlin version 1.3 and higher.
+
+The D8 and R8 compilers support class files from Kotlin version 1.3 starting from version 2.1.86 (included in AGP 4.1). For class files from Kotlin version 1.4 and higher there is a minimum required AGP, D8, and R8 version for each Kotlin version.
+
+The following table shows the minimum required versions of AGP, D8 and R8 for each Kotlin version. Note that AGP comes bundled with D8 and R8, so the required D8 and R8 version is only relevant when using D8 and R8 outside of AGP or if overriding the bundled version.
+
+Kotlin version | Required AGP version | Required R8 version  
+---|---|---  
+2.4 | 8.5.2+ | 9.1.29  
+2.3 | 8.2.2-8.13 | 8.13.191  
+2.2 | 7.3.1-8.10 | 8.10.21  
+2.1 | 7.4.2-8.7.2 | 8.6.17  
+2.0 | 7.4.2-8.3 | 8.5.10  
+1.9 | 7.4.2-8.2 | 8.0.27  
+1.8 | 4.1.3-7.4 | 4.0.48  
+  
+#### Previous Kotlin versions
+
+Kotlin version| Required AGP version| Required R8 version  
+---|---|---  
+1.7| 7.2| 3.2.47  
+1.6| 7.1| 3.1.51  
+1.5| 7.0| 3.0.77  
+1.4| 7.0| 3.0.76  
+1.3| 4.1| 2.1.86  
+  
+The AGP versions listed in the table automatically use the specified D8 and R8 compiler versions.
+
+When using [Java 8+ API desugaring](https://developer.android.com/studio/build/library-desugaring) AGP version 7.0 (and D8 and R8 version 3.0.76) is required. R8 can only emit Kotlin metadata of version 1.4 and newer. When using R8 to shrink a Kotlin library with metadata from Kotlin version 1.3 the metadata is converted to the Kotlin 1.4 format. For Kotlin version 1.4 and newer R8 preserves the version.
+
+* * *
+
+  1. 9.x versions before 9.0.28 don't support Kotlin 2.3. ↩
+
+
+
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-07-06 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-07-06 UTC."],[],[]] 

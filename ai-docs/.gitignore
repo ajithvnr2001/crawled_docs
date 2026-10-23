@@ -1,0 +1,11 @@
+# runtime (not content)
+*.log
+crawl_state.json
+__pycache__/
+*.pyc
+.venv/
+# large optional source clones (reinstall per README)
+tools/
+# secrets / local
+.env
+.api_keys.env

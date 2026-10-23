@@ -1,0 +1,10 @@
+{
+  "url": "https://discuss.ai.google.dev/u/ctz/",
+  "file": "_subdomains/discuss.ai.google.dev/u/ctz.md",
+  "title": "Ctz - Google AI Developers Forum",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (95 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T19:27:24.283919+00:00",
+  "html_len": 417432,
+  "md_len": 768,
+  "depth": 2
+}

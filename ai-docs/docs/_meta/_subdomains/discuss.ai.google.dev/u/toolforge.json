@@ -1,0 +1,10 @@
+{
+  "url": "https://discuss.ai.google.dev/u/toolforge/",
+  "file": "_subdomains/discuss.ai.google.dev/u/toolforge.md",
+  "title": "toolforge - Google AI Developers Forum",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (107 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T19:30:33.731456+00:00",
+  "html_len": 417522,
+  "md_len": 798,
+  "depth": 2
+}

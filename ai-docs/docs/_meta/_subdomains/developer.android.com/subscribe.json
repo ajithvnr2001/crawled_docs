@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/subscribe/",
+  "file": "_subdomains/developer.android.com/subscribe.md",
+  "title": "Subscribe to Android developers updates \u00a0|\u00a0 Android Developers",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (710 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T19:35:19.568616+00:00",
+  "html_len": 218508,
+  "md_len": 2555,
+  "depth": 3
+}

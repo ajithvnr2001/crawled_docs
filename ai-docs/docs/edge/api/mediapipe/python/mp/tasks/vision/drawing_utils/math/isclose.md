@@ -1,0 +1,32 @@
+---
+url: https://ai.google.dev/edge/api/mediapipe/python/mp/tasks/vision/drawing_utils/math/isclose/
+title: mp.tasks.vision.drawing_utils.math.isclose
+method: scrapling+scrapegraph
+fetched_at: 2026-10-23T11:42:00.928880+00:00
+---
+
+# mp.tasks.vision.drawing_utils.math.isclose
+
+> Source: https://ai.google.dev/edge/api/mediapipe/python/mp/tasks/vision/drawing_utils/math/isclose/
+
+Determine whether two floating point numbers are close in value.
+
+#### View aliases
+
+**Main aliases**
+
+[`mp.tasks.vision.drawing_styles.drawing_utils.math.isclose`](https://ai.google.dev/edge/api/mediapipe/python/edge/api/mediapipe/python/mp/tasks/vision/drawing_utils/math/isclose)
+    
+    
+    mp.tasks.vision.drawing_utils.math.isclose(
+        a, b, *, rel_tol=1e-09, abs_tol=0.0
+    )
+    
+
+rel_tol maximum difference for being considered "close", relative to the magnitude of the input values abs_tol maximum difference for being considered "close", regardless of the magnitude of the input values
+
+Return True if a is close in value to b, and False otherwise.
+
+For the values to be considered close, the difference between them must be smaller than at least one of the tolerances.
+
+-inf, inf and NaN behave similarly to the IEEE 754 Standard. That is, NaN is not close to anything, even itself. inf and -inf are only close to themselves.

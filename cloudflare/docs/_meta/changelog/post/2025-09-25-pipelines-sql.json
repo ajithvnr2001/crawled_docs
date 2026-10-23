@@ -1,0 +1,7 @@
+{
+  "url": "https://developers.cloudflare.com/changelog/post/2025-09-25-pipelines-sql/",
+  "file": "changelog/post/2025-09-25-pipelines-sql.md",
+  "title": "Pipelines now supports SQL transformations and Apache Iceberg \u00b7 Changelog",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-19T07:10:47.601132+00:00"
+}

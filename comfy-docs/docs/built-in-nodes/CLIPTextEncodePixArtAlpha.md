@@ -1,0 +1,81 @@
+---
+url: https://docs.comfy.org/built-in-nodes/CLIPTextEncodePixArtAlpha/
+title: CLIPTextEncodePixArtAlpha - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:47:33.705452+00:00
+---
+
+# CLIPTextEncodePixArtAlpha - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/CLIPTextEncodePixArtAlpha/
+
+Pixart
+
+# CLIPTextEncodePixArtAlpha - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+Encodes text and sets the resolution conditioning for PixArt Alpha.
+
+Copy pageCopy page
+
+Encodes text and sets the resolution conditioning for PixArt Alpha. This node processes text input and adds width and height information to create conditioning data specifically for PixArt Alpha models. It does not apply to PixArt Sigma models.
+
+## 
+
+​
+
+Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`width`| The width dimension for resolution conditioning (default: 1024)| INT| Yes| 0 to MAX_RESOLUTION  
+`height`| The height dimension for resolution conditioning (default: 1024)| INT| Yes| 0 to MAX_RESOLUTION  
+`text`| Text input to be encoded. Supports multiline input and dynamic prompts.| STRING| Yes| -  
+`clip`| CLIP model used for tokenization and encoding| CLIP| Yes| -  
+  
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`CONDITIONING`| Encoded conditioning data with text tokens and resolution information| CONDITIONING  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/CLIPTextEncodePixArtAlpha/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `d25a4117d39e3528cd0f64bc34462cd7b4076c67cb4e454c77fcc66490f89be6`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/CLIPTextEncodePixArtAlpha.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/CLIPTextEncodePixArtAlpha)
+
+[PhotoMakerEncode - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/PhotoMakerEncode)[QwenImage21Cache - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/QwenImage21Cache)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

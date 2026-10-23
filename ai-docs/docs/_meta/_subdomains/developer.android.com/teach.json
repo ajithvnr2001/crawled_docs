@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/teach/",
+  "file": "_subdomains/developer.android.com/teach.md",
+  "title": "Teach Android Development \u00a0|\u00a0 Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:34:43.080379+00:00",
+  "html_len": 233723,
+  "md_len": 9475,
+  "depth": 3
+}

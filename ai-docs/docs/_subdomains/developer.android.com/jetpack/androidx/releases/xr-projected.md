@@ -1,0 +1,240 @@
+---
+url: https://developer.android.com/jetpack/androidx/releases/xr-projected/
+title: XR Projected \u00a0|\u00a0 Jetpack \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:36:47.844981+00:00
+---
+
+# XR Projected  |  Jetpack  |  Android Developers
+
+> Source: https://developer.android.com/jetpack/androidx/releases/xr-projected/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Get started ](https://developer.android.com/get-started/overview)
+  * [ Jetpack ](https://developer.android.com/jetpack)
+  * [ Libraries ](https://developer.android.com/jetpack/androidx/explorer)
+
+
+
+Stay organized with collections  Save and categorize content based on your preferences. 
+
+# XR Projected
+
+API Reference  
+[androidx.xr.projected](https://developer.android.com/reference/kotlin/androidx/xr/projected/package-summary)  
+
+
+Build experiences that leverage the unique capabilities of connected XR devices. 
+
+Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release  
+---|---|---|---|---  
+September 23, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha13)  
+  
+## Declaring dependencies
+
+To add a dependency on xr projected, you must add the Google Maven repository to your project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven) for more information.
+
+Add the dependencies for the artifacts you need in the `build.gradle` file for your app or module:
+
+### Groovy
+    
+    
+    dependencies {
+        // Use to implement xr projecteds
+        implementation "androidx.xr.projected:projected:1.0.0-alpha13"
+    }
+
+### Kotlin
+    
+    
+    dependencies {
+        // Use to implement xr projecteds
+        implementation("androidx.xr.projected:projected:1.0.0-alpha13")
+    
+        // Use to implement xr projected complications
+        implementation "androidx.xr.projected:projected-complications-data-source:1.0.0-alpha13"
+        // (Kotlin-specific extensions)
+        implementation "androidx.xr.projected:projected-complications-data-source-ktx:1.0.0-alpha13"
+    
+        // Use to implement a projected style and complication editor
+        implementation("androidx.xr.projected:projected-editor:1.0.0-alpha13")
+    
+        // Can use to render complications.
+        // This library is optional and projecteds may have custom implementation for rendering
+        // complications.
+        implementation "androidx.xr.projected:projected-complications-rendering:1.0.0-alpha13"
+    }
+
+For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
+
+## Feedback
+
+Your feedback helps make Jetpack better. Let us know if you discover new issues or have ideas for improving this library. Please take a look at the [existing issues](https://issuetracker.google.com/issues?q=componentid:1689664%20status:open) in this library before you create a new one. You can add your vote to an existing issue by clicking the star button.
+
+[Create a new issue](https://issuetracker.google.com/issues/new?component=1689664&template=2070825)
+
+See the [Issue Tracker documentation](https://developers.google.com/issue-tracker) for more information.
+
+## Version 1.0
+
+### Version 1.0.0-alpha13
+
+September 23, 2026
+
+`androidx.xr.projected:projected:1.0.0-alpha13`, `androidx.xr.projected:projected-binding:1.0.0-alpha13`, and `androidx.xr.projected:projected-testing:1.0.0-alpha13` are released. Version 1.0.0-alpha13 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7f25ba0f3473985c25494700a2dec2e4cfe5e31d..4f7372e20767a86bc5f09610ba831c35d53fc8d8/xr/projected).
+
+**API Changes**
+
+  * Added `ProjectedActivityCompat.setActivityAsInputReceiver` and `clearActivityAsInputReceiver` to allow apps to specify exactly which component should be relaunched and receive input focus when system-initiated focus shifts occur on displayless devices. ([Id21e5](https://android-review.googlesource.com/#/q/Id21e5399f86bc19058af5c33b6e674cb0bb4bfd3))
+
+
+
+### Version 1.0.0-alpha12
+
+September 09, 2026
+
+`androidx.xr.projected:projected:1.0.0-alpha12`, `androidx.xr.projected:projected-binding:1.0.0-alpha12`, and `androidx.xr.projected:projected-testing:1.0.0-alpha12` are released. Version 1.0.0-alpha12 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b9148c106d667c75e08ea1e8666069ae39384931..7f25ba0f3473985c25494700a2dec2e4cfe5e31d/xr/projected).
+
+**Bug fixes**
+
+  * Addressed an issue with `ProjectedTestRule` that prevented it from processing calls to `ProjectedActivity.requestPermissions` ([I3923f](https://android-review.googlesource.com/#/q/I3923f3c9b702e3a1cb96fd2d2e8d22afe01af42d), [I25f36](https://android-review.googlesource.com/#/q/I25f36cc731243e523ac9a7ea566ad194734d2208))
+
+
+
+### Version 1.0.0-alpha11
+
+August 12, 2026
+
+`androidx.xr.projected:projected:1.0.0-alpha11`, `androidx.xr.projected:projected-binding:1.0.0-alpha11`, and `androidx.xr.projected:projected-testing:1.0.0-alpha11` are released. Version 1.0.0-alpha11 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6846fc6cf86033f3401fbf98388cccda57243c54..b9148c106d667c75e08ea1e8666069ae39384931/xr/projected).
+
+**API Changes**
+
+  * Removed deprecated `androidx.xr.projected.permissions.*` APIs ([I77f8b](https://android-review.googlesource.com/#/q/I77f8b86a1fe71ad2b40dc99bcc0b26283f718422))
+
+
+
+**Bug Fixes**
+
+  * Fixed ANRs and service unbind crashes when resuming applications after sleep or standby mode. ([Idac0c](https://android-review.googlesource.com/#/q/Idac0c45bc0f6765d4a0f20966fbda024c11fb220))
+
+
+
+### Version 1.0.0-alpha10
+
+July 15, 2026
+
+`androidx.xr.projected:projected:1.0.0-alpha10`, `androidx.xr.projected:projected-binding:1.0.0-alpha10`, and `androidx.xr.projected:projected-testing:1.0.0-alpha10` are released. Version 1.0.0-alpha10 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/dd34e9d11afb54183d16f86d530f3775b4caeb0d..3bb7062224bc3aafaa5b8ff46cd3c4d740dde289/xr/projected).
+
+**API Changes**
+
+  * Deprecated the `ProjectedPermissionsResultContract`. Use `ProjectedActivityCompat.requestPermissions()` instead. ([I141d5](https://android-review.googlesource.com/#/q/I141d5713b3a0c26606f85815111fa7af88f63269), [b/515699436](https://issuetracker.google.com/issues/515699436))
+  * Added the `requestPermissions()` API to the `ProjectedActivityCompat` ([I2edb5](https://android-review.googlesource.com/#/q/I2edb5fa7b1a1d00764b0faa8be587178698eb1f7), [b/433523713](https://issuetracker.google.com/issues/433523713), [b/508189550](https://issuetracker.google.com/issues/508189550))
+
+
+
+### Version 1.0.0-alpha09
+
+June 17, 2026
+
+`androidx.xr.projected:projected:1.0.0-alpha09`, `androidx.xr.projected:projected-binding:1.0.0-alpha09`, and `androidx.xr.projected:projected-testing:1.0.0-alpha09` are released. Version 1.0.0-alpha09 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/326d73f28026a67b1a67b91d525146cb1128068f..dd34e9d11afb54183d16f86d530f3775b4caeb0d/xr/projected).
+
+**API Changes**
+
+  * Added support for battery state to `ProjectedTestRule` ([I6b28e](https://android-review.googlesource.com/#/q/I6b28efb2f85e3fa7e7e57adc07cbf676ead9398a))
+  * Added listening to battery state changes to the `ProjectedDeviceController` ([If8966](https://android-review.googlesource.com/#/q/If89664837057f6fbca0f32c1d9c130644b3c4c35))
+  * Added support for audio devices to `ProjectedTestRule` ([I5d1c9](https://android-review.googlesource.com/#/q/I5d1c916e167672ce7f4ac895b35e9082d1a36a04))
+  * Added support for audio devices to the `ProjectedDeviceController` ([I7681d](https://android-review.googlesource.com/#/q/I7681d1db5ed8a7fdc2213ff91cd6445735411b78))
+
+
+
+### Version 1.0.0-alpha08
+
+May 19, 2026
+
+`androidx.xr.projected:projected:1.0.0-alpha08`, `androidx.xr.projected:projected-binding:1.0.0-alpha08`, and `androidx.xr.projected:projected-testing:1.0.0-alpha08` are released. Version 1.0.0-alpha08 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7e145b73c783ec04028705f50e32995be9407cef..326d73f28026a67b1a67b91d525146cb1128068f/xr/projected).
+
+**API Changes**
+
+  * Added `ProjectedTestRule` to support unit testing. ([I69db5](https://android-review.googlesource.com/#/q/I69db588cc6c62d97f7b59118ef40ff0bb2c52d04))
+
+
+
+**Known Issues**
+
+  * Erroneously bumped `compileSdk` to API 37. This means that a minimum AGP version of 9.2.0 is required for this release. It will be reduced to 36 in the next release. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492))
+
+
+
+### Version 1.0.0-alpha07
+
+May 06, 2026
+
+`androidx.xr.projected:projected:1.0.0-alpha07`, `androidx.xr.projected:projected-binding:1.0.0-alpha07`, and `androidx.xr.projected:projected-testing:1.0.0-alpha07` are released. Version 1.0.0-alpha07 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9c7d19e26a25f01d06a79709097a11943f562613..7e145b73c783ec04028705f50e32995be9407cef/xr/projected).
+
+### Version 1.0.0-alpha06
+
+March 25, 2026
+
+`androidx.xr.projected:projected:1.0.0-alpha06`, `androidx.xr.projected:projected-binding:1.0.0-alpha06`, and `androidx.xr.projected:projected-testing:1.0.0-alpha06` are released. Version 1.0.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/855e9d89b825c1acd405c8aeb81dab7792e61dbc..9c7d19e26a25f01d06a79709097a11943f562613/xr/projected).
+
+**API Changes**
+
+  * Added a new `create(activity: Activity)` method to the `ProjectedActivityCompat` ([If4773](https://android-review.googlesource.com/#/q/If4773d4a30b80572b08a10ee622f4be3dd751e0c), [b/479214966](https://issuetracker.google.com/issues/479214966))
+
+
+
+### Version 1.0.0-alpha05
+
+February 25, 2026
+
+`androidx.xr.projected:projected:1.0.0-alpha05`, `androidx.xr.projected:projected-binding:1.0.0-alpha05`, and `androidx.xr.projected:projected-testing:1.0.0-alpha05` are released. Version 1.0.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5dd0fe5f4702e29b6874a10d29459dc59f0d8502..855e9d89b825c1acd405c8aeb81dab7792e61dbc/xr/projected).
+
+### Version 1.0.0-alpha04
+
+January 28, 2026
+
+`androidx.xr.projected:projected:1.0.0-alpha04` and `androidx.xr.projected:projected-binding:1.0.0-alpha04` are released. Version 1.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9750bafc0c1ba237e91ada68cd21a7de0a4b4676..5dd0fe5f4702e29b6874a10d29459dc59f0d8502/xr/projected/projected).
+
+### Version 1.0.0-alpha03
+
+December 03, 2025
+
+`androidx.xr.projected:projected:1.0.0-alpha03` is released. Version 1.0.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/64e40d162445a8c6c0f233dfc6f8890c439b5d6e..9750bafc0c1ba237e91ada68cd21a7de0a4b4676/xr/projected/projected).
+
+**API Changes**
+
+  * Added the experimental API for getting the `PresentationMode` ([I2dc0b](https://android-review.googlesource.com/#/q/I2dc0b6ae70e60d2768c03c7ba70920a146609760))
+  * Added the experimental API for collecting `ProjectedInputEvent`s ([I78ef8](https://android-review.googlesource.com/#/q/I78ef8007c242f6d78844a75f424de437a37d4486))
+  * Added `ProjectedDeviceController` and capabilities API ([If7d2d](https://android-review.googlesource.com/#/q/If7d2ddff2404eb4ef28e19c5358aaa8f7cf1e690))
+
+
+
+### Version 1.0.0-alpha02
+
+November 19, 2025
+
+`androidx.xr.projected:projected:1.0.0-alpha02` is released. Version 1.0.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/03fefa290d190d39c7e47025f76847d7b8baaf1c..64e40d162445a8c6c0f233dfc6f8890c439b5d6e/xr/projected/projected).
+
+**New Features**
+
+  * Initial alpha release of the Projected library.
+
+
+
+### Version 1.0.0-alpha01
+
+October 22, 2025
+
+`androidx.xr.projected:projected:1.0.0-alpha01` is released. Version 1.0.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/03fefa290d190d39c7e47025f76847d7b8baaf1c/xr/projected/projected).
+
+**New Features**
+
+  * Adds Projected XR library ([Ieedea7](https://android-review.googlesource.com/#/q/Ieedea759434c0dd59976d5e56f1d3e47f597d402))
+
+
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-09-23 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-23 UTC."],[],[]] 

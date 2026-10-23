@@ -1,0 +1,10 @@
+{
+  "url": "https://docs.comfy.org/tutorials/controlnet/controlnet/",
+  "file": "tutorials/controlnet/controlnet.md",
+  "title": "ControlNet in ComfyUI: Preprocessors, Models, and Workflows - ComfyUI",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-17T10:51:18.477329+00:00",
+  "html_len": 547235,
+  "md_len": 12091,
+  "depth": 0
+}

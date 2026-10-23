@@ -1,0 +1,10 @@
+{
+  "url": "https://developer.android.com/compose/",
+  "file": "_subdomains/developer.android.com/compose.md",
+  "title": "Jetpack Compose UI App Development Toolkit - Android Developers",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-15T19:21:02.735928+00:00",
+  "html_len": 263952,
+  "md_len": 16659,
+  "depth": 2
+}

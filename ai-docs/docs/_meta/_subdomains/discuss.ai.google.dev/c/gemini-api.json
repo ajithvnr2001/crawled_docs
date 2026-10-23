@@ -1,0 +1,10 @@
+{
+  "url": "https://discuss.ai.google.dev/c/gemini-api/",
+  "file": "_subdomains/discuss.ai.google.dev/c/gemini-api.md",
+  "title": "Latest Gemini API topics - Google AI Developers Forum",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (99 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T19:20:21.646482+00:00",
+  "html_len": 573235,
+  "md_len": 29870,
+  "depth": 1
+}

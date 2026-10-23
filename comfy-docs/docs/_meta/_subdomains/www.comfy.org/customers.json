@@ -1,0 +1,10 @@
+{
+  "url": "https://www.comfy.org/customers/",
+  "file": "_subdomains/www.comfy.org/customers.md",
+  "title": "ComfyUI Customer Stories: Studios, Brands, and Artists",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-17T10:52:59.584615+00:00",
+  "html_len": 84080,
+  "md_len": 7283,
+  "depth": 2
+}

@@ -1,0 +1,18 @@
+[Unit]
+Description=AI Studio docs end-to-end crawler (resume-safe)
+Wants=network-online.target
+After=network-online.target
+RequiresMountsFor=/data
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/data/opencode/comfy
+ExecStart=/usr/bin/python3 /data/opencode/comfy/crawl_comfy.py --max-pages 8000 --concurrency 15
+Restart=on-failure
+RestartSec=60
+StandardOutput=append:/data/opencode/comfy/crawl.log
+StandardError=append:/data/opencode/comfy/crawl.log
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,186 @@
+---
+url: https://docs.comfy.org/built-in-nodes/IdeogramV3/
+title: IdeogramV3 - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:48:07.167295+00:00
+---
+
+# IdeogramV3 - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/IdeogramV3/
+
+Ideogram
+
+# IdeogramV3 - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+The Ideogram V3 node generates images using the Ideogram V3 model.
+
+Copy pageCopy page
+
+The Ideogram V3 node generates images using the Ideogram V3 model. It supports both regular image generation from text prompts and image editing when both an image and mask are provided. The node offers various controls for aspect ratio, resolution, generation speed, and optional character reference images.
+
+## 
+
+​
+
+Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`prompt`| Prompt for the image generation or editing (default: empty)| STRING| Yes| -  
+`image`| Optional reference image for image editing| IMAGE| No| -  
+`mask`| Optional mask for inpainting (white areas will be replaced)| MASK| No| -  
+`aspect_ratio`| The aspect ratio for image generation. Ignored if resolution is not set to Auto (default: “1:1”)| COMBO| No| ”1:1"  
+"1:3"  
+"3:1"  
+"1:2"  
+"2:1"  
+"9:16"  
+"16:9"  
+"10:16"  
+"16:10"  
+"2:3"  
+"3:2"  
+"3:4"  
+"4:3"  
+"4:5"  
+"5:4”  
+`resolution`| The resolution for image generation. If not set to Auto, this overrides the aspect_ratio setting (default: “Auto”)| COMBO| No| ”Auto"  
+"512x1536"  
+"576x1408"  
+"576x1472"  
+"576x1536"  
+"640x1344"  
+"640x1408"  
+"640x1472"  
+"640x1536"  
+"704x1152"  
+"704x1216"  
+"704x1280"  
+"704x1344"  
+"704x1408"  
+"704x1472"  
+"736x1312"  
+"768x1088"  
+"768x1216"  
+"768x1280"  
+"768x1344"  
+"800x1280"  
+"832x960"  
+"832x1024"  
+"832x1088"  
+"832x1152"  
+"832x1216"  
+"832x1248"  
+"864x1152"  
+"896x960"  
+"896x1024"  
+"896x1088"  
+"896x1120"  
+"896x1152"  
+"960x832"  
+"960x896"  
+"960x1024"  
+"960x1088"  
+"1024x832"  
+"1024x896"  
+"1024x960"  
+"1024x1024"  
+"1088x768"  
+"1088x832"  
+"1088x896"  
+"1088x960"  
+"1120x896"  
+"1152x704"  
+"1152x832"  
+"1152x864"  
+"1152x896"  
+"1216x704"  
+"1216x768"  
+"1216x832"  
+"1248x832"  
+"1280x704"  
+"1280x768"  
+"1280x800"  
+"1312x736"  
+"1344x640"  
+"1344x704"  
+"1344x768"  
+"1408x576"  
+"1408x640"  
+"1408x704"  
+"1472x576"  
+"1472x640"  
+"1472x704"  
+"1536x512"  
+"1536x576"  
+"1536x640”  
+`magic_prompt_option`| Determine if MagicPrompt should be used in generation (default: “AUTO”)| COMBO| No| ”AUTO"  
+"ON"  
+"OFF”  
+`seed`| Random seed for generation (default: 0)| INT| No| 0-2147483647  
+`num_images`| Number of images to generate (default: 1)| INT| No| 1-8  
+`rendering_speed`| Controls the trade-off between generation speed and quality (default: “DEFAULT”)| COMBO| No| ”DEFAULT"  
+"TURBO"  
+"QUALITY”  
+`character_image`| Image to use as character reference| IMAGE| No| -  
+`character_mask`| Optional mask for character reference image| MASK| No| -  
+  
+**Parameter Constraints:**
+
+  * When both `image` and `mask` are provided, the node switches to editing mode
+  * If only one of `image` or `mask` is provided, an error will occur
+  * `character_mask` requires `character_image` to be present
+  * The `aspect_ratio` parameter is ignored when `resolution` is not set to “Auto”
+  * White areas in the mask will be replaced during inpainting
+  * Character mask and character image must be the same size
+
+
+
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`output`| The generated or edited image(s)| IMAGE  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/IdeogramV3/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `d5005a9cdbdad79762dfd24eaa73e6c293d28b72813e96883ecdfccb8339ca75`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/IdeogramV3.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/IdeogramV3)
+
+[IdeogramTextToImageApi - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/IdeogramTextToImageApi)[IdeogramV4 - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/IdeogramV4)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

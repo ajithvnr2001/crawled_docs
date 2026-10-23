@@ -1,0 +1,712 @@
+---
+url: https://developer.android.com/jetpack/androidx/releases/room3/
+title: Room 3.0 \u00a0|\u00a0 Jetpack \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:35:37.549754+00:00
+---
+
+# Room 3.0  |  Jetpack  |  Android Developers
+
+> Source: https://developer.android.com/jetpack/androidx/releases/room3/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Get started ](https://developer.android.com/get-started/overview)
+  * [ Jetpack ](https://developer.android.com/jetpack)
+  * [ Libraries ](https://developer.android.com/jetpack/androidx/explorer)
+
+
+
+Stay organized with collections  Save and categorize content based on your preferences. 
+
+# Room 3.0
+
+The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite. 
+
+Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release  
+---|---|---|---|---  
+September 09, 2026 | [3.0.3](https://developer.android.com/jetpack/androidx/releases/room3#3.0.3) | - | - | [3.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/room3#3.1.0-alpha01)  
+  
+## Declaring dependencies
+
+To add a dependency on Room3, you must add the Google Maven repository to your project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven) for more information.
+
+Add the dependencies for the artifacts you need in the `build.gradle` file for your app or module:
+
+### Kotlin
+    
+    
+    dependencies {
+        val room_version = "3.0.3"
+    
+        implementation("androidx.room3:room3-runtime:$room_version")
+        ksp("androidx.room3:room3-compiler:$room_version")
+    }
+
+### Groovy
+    
+    
+    dependencies {
+        def room_version = "3.0.3"
+    
+        implementation "androidx.room3:room3-runtime:$room_version"
+    
+        ksp "androidx.room3:room3-compiler:$room_version"
+    }
+
+For information on using the KSP plugin, see the [KSP quick-start documentation](https://kotlinlang.org/docs/ksp-quickstart.html).
+
+For more information about dependencies, see [Add Build Dependencies](https://developer.android.com/studio/build/dependencies).
+
+### Use the Room Gradle Plugin
+
+You can use the Room Gradle Plugin to configure options for the Room compiler. The plugin configures the project such that generated schemas (which are an output of the compile tasks and are consumed for auto-migrations) are correctly configured to have reproducible and cacheable builds.
+
+To add the plugin, in your top-level Gradle build file, define the plugin and its version.
+
+### Groovy
+    
+    
+    plugins {
+        id 'androidx.room3' version "$room_version" apply false
+    }
+
+### Kotlin
+    
+    
+    plugins {
+        id("androidx.room3") version "$room_version" apply false
+    }
+
+In the module-level Gradle build file, apply the plugin and use the `room3` extension.
+
+### Groovy
+    
+    
+    plugins {
+        id 'androidx.room3'
+    }
+    
+    room3 {
+        schemaDirectory "$projectDir/schemas"
+    }
+
+### Kotlin
+    
+    
+    plugins {
+        id("androidx.room3")
+    }
+    
+    room3 {
+        schemaDirectory("$projectDir/schemas")
+    }
+
+Setting a `schemaDirectory` is required when using the Room Gradle Plugin. This will configure the Room compiler and the various compile tasks and its backends (kotlinc, KSP) to output schema files into flavored folders, for example `schemas/flavorOneDebug/com.package.MyDatabase/1.json`. These files should be checked into the repository to be used for validation and auto-migrations.
+
+## Feedback
+
+Your feedback helps make Jetpack better. Let us know if you discover new issues or have ideas for improving this library. Please take a look at the [existing issues](https://issuetracker.google.com/issues?q=componentid:413107%20status:open) in this library before you create a new one. You can add your vote to an existing issue by clicking the star button.
+
+[Create a new issue](https://issuetracker.google.com/issues/new?component=413107&template=1096568)
+
+See the [Issue Tracker documentation](https://developers.google.com/issue-tracker) for more information.
+
+## Version 3.1
+
+### Version 3.1.0-alpha01
+
+September 09, 2026
+
+`androidx.room3:room3-*:3.1.0-alpha01` is released. Version 3.1.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1ffbca32bd9efa4727ee1633c90a05f0bc7a6990..6df99b9068ac1d061afccde6e6045553b4752cdc/room3).
+
+**API Changes**
+
+  * Added `setConnectionPoolTimeout(timeout: Duration)` to `RoomDatabase.Builder` to allow configuring the connection pool timeout. ([I24d07](https://android-review.googlesource.com/#/q/I24d073422ee59c2fb4759098eccbba61239a18f7), [b/404380974](https://issuetracker.google.com/issues/404380974))
+  * The following Room annotations now have `AnnotationTarget.PROPERTY`: `@ColumnInfo`, `@PrimaryKey`, `@Relation`, `@Embedded`, `@Ignore` and `@ColumnTypeConverters`. This API changes make Room be 'property-centric' instead of the 'field-centric'. Meaning Room can now use properties without backing fields as representation of entity columns or query data class result columns. The properties must still have a usable getter and either a usable setter or be part of the primary constructor so that Room can use them for DAO functions. ([I72058](https://android-review.googlesource.com/#/q/I7205849c94e6ff910b4e4a7fb1656d199bc0b89d), [b/438041176](https://issuetracker.google.com/issues/438041176), [b/521861812](https://issuetracker.google.com/issues/521861812))
+
+
+
+**Bug Fixes**
+
+  * Fixed an issue on web and suspending drivers where cancelling a coroutine during a transaction could cause the database and connection to get into a bad state, preventing further usages. ([If75c0](https://android-review.googlesource.com/#/q/If75c07cef62bd9b2c2f8bb56c95b6183b04fc9f2), [b/549860940](https://issuetracker.google.com/issues/549860940))
+  * Support Kotlin `object` implementing `AutoMigrationSpec`. ([Id4077](https://android-review.googlesource.com/#/q/Id4077d3f7708ed1dfc4bad2fdc47ed78deac74af), [b/215012591](https://issuetracker.google.com/issues/215012591))
+  * Fix a regression that would cause Room to throw an `IllegalMonitorStateException` when using `@Transaction` wrapper DAO functions. ([I996d9](https://android-review.googlesource.com/#/q/I996d95c6a7f9392b8d073027c8d970a607f78870), [b/543285472](https://issuetracker.google.com/issues/543285472), [b/553140228](https://issuetracker.google.com/issues/553140228))
+  * Added built-in column type converter support for `kotlin.uuid.Uuid` in `Room`. ([Icca77](https://android-review.googlesource.com/#/q/Icca77c14af461585c35862ef88374230f849be4b), [b/525093264](https://issuetracker.google.com/issues/525093264))
+  * Room's Kotlin code generator now suppresses `OPT_IN_USAGE_ERROR` and `OPT_IN_USAGE` on generated `_Impl` classes, allowing DAOs and Entities to use `@RequiresOptIn`-annotated types (such as `kotlin.uuid.Uuid`) without requiring `-opt-in` in `freeCompilerArgs`. ([I013bf](https://android-review.googlesource.com/#/q/I013bf0d18dbf6b9ad65f1deca59a5ce0e9431a68), [b/410607888](https://issuetracker.google.com/issues/410607888))
+  * Room suspending queries and invalidation tracker operations will now throw an `IllegalStateException` when called after the database has been closed. ([I5755a](https://android-review.googlesource.com/#/q/I5755a9a565d0589a39c0b0c9137880730ce29fff), [b/543076356](https://issuetracker.google.com/issues/543076356))
+  * Fix a deadlock that can occur on `@Transaction` DAO wrapper suspend functions that would do a context switch and had the `AndroidSQLiteDriver` configured. ([886ac5](https://android-review.googlesource.com/#/q/886ac5a0761e7dfb83b79e3519a6408e11aaa9ca), [b/543285472](https://issuetracker.google.com/issues/543285472))
+  * Fix an unnecessary `println()` during processing. Thanks to Simon Marquis! ([b/532893031](https://issuetracker.google.com/issues/532893031))
+  * Fix an issue regarding other database usages within another database's transaction mixing in leading undefined behaviour. ([b/437068912](https://issuetracker.google.com/issues/437068912))
+
+
+
+## Version 3.0
+
+### Version 3.0.3
+
+September 09, 2026
+
+`androidx.room3:room3-*:3.0.3` is released. Version 3.0.3 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1ffbca32bd9efa4727ee1633c90a05f0bc7a6990..8d7131f5c528528bee5dc6942aebc7fe90463551/room3).
+
+**Bug Fixes**
+
+  * Fix a regression that would cause Room to throw an `IllegalMonitorStateException` when using `@Transaction` wrapper DAO functions. ([I996d9](https://android-review.googlesource.com/#/q/I996d95c6a7f9392b8d073027c8d970a607f78870), [b/543285472](https://issuetracker.google.com/issues/543285472), [b/553140228](https://issuetracker.google.com/issues/553140228))
+  * Fixed an issue on web and suspending drivers where cancelling a coroutine during a transaction could cause the database and connection to get into a bad state, preventing further usages. ([If75c0](https://android-review.googlesource.com/#/q/If75c07cef62bd9b2c2f8bb56c95b6183b04fc9f2), [b/549860940](https://issuetracker.google.com/issues/549860940))
+
+
+
+### Version 3.0.2
+
+August 26, 2026
+
+`androidx.room3:room3-*:3.0.2` is released. Version 3.0.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4762f876f4d43c4c8853d8887f9b110fe25777e6..1ffbca32bd9efa4727ee1633c90a05f0bc7a6990/room3).
+
+**Bug Fixes**
+
+  * Room suspending queries and invalidation tracker operations will now throw an `IllegalStateException` when called after the database has been closed. ([I5755a](https://android-review.googlesource.com/#/q/I5755a9a565d0589a39c0b0c9137880730ce29fff), [b/543076356](https://issuetracker.google.com/issues/543076356))
+  * Fix a deadlock that can occur on `@Transaction` DAO wrapper suspend functions that would do a context switch and had the `AndroidSQLiteDriver` configured. ([886ac5](https://android-review.googlesource.com/#/q/886ac5a0761e7dfb83b79e3519a6408e11aaa9ca), [b/543285472](https://issuetracker.google.com/issues/543285472))
+
+
+
+### Version 3.0.1
+
+July 29, 2026
+
+`androidx.room3:room3-*:3.0.1` is released. Version 3.0.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7fac77ef3619a0ad0872dbab2d86247263ebf2ab..4762f876f4d43c4c8853d8887f9b110fe25777e6/room3).
+
+**Bug Fixes**
+
+  * Fix an unnecessary `println()` during processing. Thanks to Simon Marquis! ([b/532893031](https://issuetracker.google.com/issues/532893031))
+  * Fix an issue regarding other database usages within another database's transaction mixing in leading undefined behaviour. ([b/437068912](https://issuetracker.google.com/issues/437068912))
+
+
+
+### Version 3.0.0
+
+July 01, 2026
+
+`androidx.room3:room3-*:3.0.0` is released. Version 3.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..7fac77ef3619a0ad0872dbab2d86247263ebf2ab/room3).
+
+**Major features of 3.0.0:**
+
+Room 3.0 (package `androidx.room3`) is a major version update of Room 2.x package (`androidx.room`) that focuses on Kotlin Multiplatform (KMP).
+
+The core annotation APIs are kept the same along with the main components:
+
+  * An abstract class that extends `androidx.room3.RoomDatabase` and is annotated with `@Database` is the entry point for Room's annotation processor.
+  * The database declaration has one or more data classes describing the database schema and are annotated with `@Entity`.
+  * Database operations are defined in `@Dao` declarations that contains query functions whose SQL statements are defined via the `@Query` annotation.
+  * At runtime, the database implementation can be obtained via a `RoomDatabase.Builder` which is also used to configure the database.
+
+
+
+Most of the documentation in the [Save data in a local database using Room](https://developer.android.com/training/data-storage/room) guide is still relevant to Room 3.0.
+
+The major breaking differences between Room 2.x are as follows:
+
+  * New package, `androidx.room3`.
+  * SupportSQLite APIs are no longer supported, unless you are using the `androidx.room3:room3-sqlite-wrapper`.
+  * All database operations are now Coroutine APIs based.
+  * Kotlin code generation only.
+  * Kotlin Symbol Processing (KSP) is required.
+
+
+
+Along with breaking changes, Room 3.0 brings in new functionality compared to 2.x:
+
+  * JS and WasmJS Support
+  * Custom DAO Return Types
+  * FTS5 support via `@Fts5` annotation
+  * Kotlin default parameter value support
+  * `PrimaryKey.algorihtm` property to specify the primary key generating algorithm
+  * Ability to create tables 'WITHOUT ROWID'
+  * Composite relationship column with `@Relation`
+
+
+
+**New Package**
+
+To prevent compatibility issues with existing Room 2.x implementations and for libraries with transitive dependencies to Room (for example, WorkManager), Room 3.0 resides in a new package, which means it also has a new maven group and artifact ids. For example, `androidx.room:room-runtime` has become `androidx.room3:room3-runtime` and classes such as `androidx.room.RoomDatabase` will now be located at `androidx.room3.RoomDatabase`.
+
+**No SupportSQLite APIs**
+
+Room 3.0 is fully backed by the [SQLiteDriver APIs](https://developer.android.com/kotlin/multiplatform/sqlite#sqlite-driver) and no longer references `SupportSQLite` types such as `SupportSQLiteDatabase` or Android types such as `Cursor`. This is the most significant change between Room 3.0 and 2.x since the `RoomDatabase` APIs that mirrored `SupportSQLiteDatabase` along with the API to get a `SupportSQLiteOpenHelper` have been removed. A `SQLiteDriver` is now _required_ to build a `RoomDatabase`.
+
+For example, APIs for direct database operations are replaced by driver equivalents:
+    
+    
+    // Room 2.x
+    roomDatabase.runInTransaction { ... }
+    
+    // Room 3.x
+    roomDatabase.withWriteTransaction { ... }
+    
+    
+    
+    // Room 2.x
+    roomDatabase.query("SELECT * FROM Song").use { cursor -> ... }
+    
+    // Room 3.x
+    roomDatabase.useReaderConnection { connection ->
+      connection.usePrepared("SELECT * FROM Song") { stmt -> ... }
+    }
+    
+
+Callback APIs that had as argument a `SupportSQLiteDatabase` have also been replaced by their equivalent API that has a `SQLiteConnection` as argument. These are migrations callback functions such as `Migration.onMigrate()` and `AutoMigrationSpec.onPostMigrate()` along with database callbacks such as `RoomDatabase.Callback.onCreate()`, `RoomDatabase.Callback.onOpen()`, etc.
+
+If Room was being used in a KMP project, then migrating to 3.0 is simpler as it mostly involves updating import references, otherwise the same migration strategy from Room in Android-only to KMP applies, see the [Room KMP Migration Guide](https://developer.android.com/kotlin/multiplatform/room#migrate).
+
+**SupportSQLite Wrapper**
+
+Room 3.x preserves the SupportSQLite wrapper created in 2.x to ease migrations and is now located in a new artifact `androidx.room3:room3-sqlite-wrapper`. The compatibility API allows you to convert a `RoomDatabase` into a `SupportSQLiteDatabase`. Invocations of `roomDatabase.openHelper.writableDatabase` can be replaced by `roomDatabase.getSupportWrapper()`.
+
+**Kotlin and Coroutines First**
+
+To better evolve the library, Room 3.0 only generates Kotlin code and is only a Kotlin Symbol Processor (KSP). Compared to Room 2.x there is no Java code generation and configuration of annotation processor via KAPT or JavaAP is no longer possible in Room 3.0. Note that KSP is able to process Java sources and the Room compiler will generate code for database, entities or DAOs whose source declarations are in Java. It is recommended to have a multi-module project where Room usage is concentrated and the Kotlin Gradle Plugin and KSP can be applied without affecting the rest of the codebase.
+
+Room 3.0 also requires the use of Coroutines, and more specifically DAO functions have to be suspending unless they are returning a reactive type, such as a `Flow` or a custom DAO return type. Room APIs to perform database operations are also suspend functions, such as `RoomDatabase.useReaderConnection` and `RoomDatabase.useWriterConnection`.
+
+As opposed to Room 2.x it is no longer possible to configure a `RoomDatabase` with an `Executor`, instead a `CoroutineContext` along with a dispatcher can be provided via the database's builder.
+
+`InvalidationTracker` APIs in Room 3.0 are `Flow` based, `InvalidationTracker.Observer` is removed along with its relevant APIs `addObserver` and `removeObserver`. The mechanism to react to database operation is through Coroutine Flows that can be created via the `createFlow()` API in the `InvalidationTracker`.
+
+Example usage:
+    
+    
+    fun getArtistTours(from: Date, to: Date): Flow<Map<Artist, TourState>> {
+        return db.invalidationTracker.createFlow("Artist").map { _ ->
+            val artists = artistsDao.getAllArtists()
+            val tours = tourService.fetchStates(artists.map { it.id })
+            associateTours(artists, tours, from, to)
+        }
+    }
+    
+
+**Web Support**
+
+The Room 3.0 release adds JavaScript and WasmJs as KMP targets. Combined with the release of the `SQLiteDriver` interfaces (`androidx.sqlite:sqlite`) that also target JavaScript and WasmJs and a new driver `WebWorkerSQLiteDriver` located in the new artifact `androidx.sqlite:sqlite-web`, it is possible to use Room in common code that targets all major KMP platforms.
+
+Due to the asynchronous nature of the web platforms, Room APIs that took `SQLiteStatement` as argument are now suspend functions. Example of these functions are `Migration.onMigrate()`, `RoomDatabase.Callback.onCreate()`, `PooledConnection.usePrepared()` and others. In the driver APIs the asynchronous APIs are common on all platforms and the synchronous are common for non-web targets. Therefore a project that does not target web can continue to use the synchronous APIs (`SQLiteDriver.open()`, `SQLiteConnection.prepare()` and `SQLiteStatement.step()`) in common code. Meanwhile a project that only targets web must use the asynchronous APIs (`SQLiteDriver.openAsync()`, `SQLiteConnection.prepareAsync()` and `SQLiteStatement.stepAsync()`).
+
+For convenience the `androidx.sqlite` package also added suspend extension functions with the synchronous names of the mentioned APIs (with the addition of `SQLiteConnection.executeSQL`), these APIs are recommended when the project targets both web and non-web platforms since the APIs are expect / actual declarations that will call the right variant based on the platforms. These are the APIs Room's runtime use and enable driver usage in common code for all supported platforms.
+
+Example usage:
+    
+    
+    import androidx.sqlite.executeSQL
+    import androidx.sqlite.step
+    
+    roomDatabase.useWriterConnection { connection ->
+        val deletedSongs = connection.usePrepared(
+            "SELECT count(*) FROM Song"
+        ) { stmt ->
+            stmt.step()
+            stmt.getLong(0)
+        }
+        connection.executeSQL("DELETE FROM Song")
+        deletedSongs
+    }
+    
+
+The `WebWorkerSQLiteDriver` is an implementation of a `SQLiteDriver` that communicates with a [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) for performing database operation off the main thread and enables storing the database in the Origin Private File System (OPFS). To instantiate the driver a worker that implements a simple communication protocol is required, the protocol is described in the [WebWorkerSQLiteDriver KDoc](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:sqlite/sqlite-web/src/commonMain/kotlin/androidx/sqlite/driver/web/WebWorkerSQLiteDriver.kt).
+
+Currently the `WebWorkerSQLiteDriver` does not ship with a default worker that implements the communication protocol, but as an example, the androidx codebase contains a [worker implementation](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:sqlite/sqlite-web-worker-test/web-worker/worker.js) that can be used in your project. It uses [SQLite's WASM](https://sqlite.org/wasm/doc/trunk/index.md) and stores the database in OPFS. The example worker is published as a local NPM package and thanks to [Kotlin's support for NPM dependencies](https://kotlinlang.org/docs/using-packages-from-npm.html), a small KMP module can be created to serve the worker.
+
+See the following [GitHub project](https://github.com/danysantiago/room-web-demo/) demonstrating the usage of a local web worker for Room.
+
+Once a worker is set up in the project, then configuring Room for the Web is similar to other platforms:
+    
+    
+    fun createDatabase(): MusicDatabase {
+        return Room.databaseBuilder<MusicDatabase>("music.db")
+            .setDriver(WebWorkerSQLiteDriver(createWorker()))
+            .build()
+    }
+    
+    fun createWorker() =
+        Worker(js("""new URL("sqlite-web-worker/worker.js", import.meta.url)"""))
+    
+
+A future version of the Web driver might contain a default worker published in NPM, making the web setup simpler.
+
+**Custom DAO Return Types**
+
+Various DAO return type integrations such as those for RxJava and Paging have been transformed to use a new API in Room 3.0 called DAO return type converters. A DAO return type converter function (`@DaoReturnTypeConverter`) enables transforming the result of a DAO function into a custom type defined by the annotated function. These functions enable participating in Room's generated code that transforms query results into data objects. Classes that contain DAO return type converters have to be registered via the `@DaoReturnTypeConverters` annotations in the `@Database` or `@Dao` declarations.
+
+For example, to have a DAO query return a `PagingSource`, the converter class located in `androidx.room3:room3-paging` must now be registered:
+    
+    
+    @Dao
+    @DaoReturnTypeConverters(PagingSourceDaoReturnTypeConverter::class)
+    interface MusicDao {
+        @Query("SELECT * FROM Song)
+        fun getSongsPaginated(): PagingSource<Int, Song>
+    }
+    
+
+Existing integrations have been moved to DAO return type converters: 
+
+Return Type | Converter class | Artifact  
+---|---|---  
+PagingSource | PagingSourceDaoReturnTypeConverter | androidx.room3:room3-paging  
+Observable, Flowable, Completable, Single, Maybe | RxDaoReturnTypeConverters | androidx.room3:room3-rxjava3  
+ListenableFuture | GuavaDaoReturnTypeConverter | androidx.room3:room3-guava  
+LiveData | LiveDataDaoReturnTypeConverter | androidx.room3:room3-livedata  
+  
+Like column type converters, DAO return type converters can be defined by the application. For example, an application could declare a `@DaoReturnTypeConverter` for the web type `kotlin.js.Promise`.
+    
+    
+    object PromiseDaoReturnTypeConverter {
+        @DaoReturnTypeConverter([OperationType.READ, OperationType.WRITE])
+        fun <T> convert(
+            db: RoomDatabase,
+            executeAndConvert: suspend () -> T
+        ): Promise<T> {
+            return db.getCoroutineScope().promise { executeAndConvert() }
+        }
+    }
+    
+
+The above converter then allows DAO query functions to return `Promise`:
+    
+    
+    @Dao
+    @DaoReturnTypeConverters(PromiseDaoReturnTypeConverter::class)
+    interface MusicDao {
+        @Query("SELECT * FROM Song")
+        fun getAllSongs(): Promise<List<Song>>
+    }
+    
+
+A `@DaoReturnTypeConverter` function has a few requirements in the amount of parameter it must have and its types. The possible parameters are:
+
+  * `db: RoomDatabase`: (Optional) Provides access to the `RoomDatabase` instance, which can be useful for performing additional database operations or accessing the coroutine scope.
+  * `tableNames: Array<String>`: (Optional) Contains the accessed tables of the query, useful for supporting observable / reactive types when combined with Room's `InvalidationTracker.createFlow()` API.
+  * `rawQuery: RoomRawQuery`: (Optional) Contains at runtime an instance of the query, enabling transformations such as the `LIMIT` / `OFFSET` strategy implemented by the `PagingSourceDaoReturnTypeConverter`.
+  * `executeAndConvert: suspend () -> T`: (Required) The Room generated function that will execute the query and parse its result into data objects.
+
+
+
+For more information about the requirements for creating a DAO return type converter, see the [KDoc on the `@DaoReturnTypeConverter` API](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:room3/room3-common/src/commonMain/kotlin/androidx/room3/DaoReturnTypeConverter.kt).
+
+### Version 3.0.0-rc01
+
+June 17, 2026
+
+`androidx.room3:room3-*:3.0.0-rc01` is released. Version 3.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d0d5e8b902b1ded8854df7d27fa1d1ee14e3bb4c..640800e451c095d1f2a2542027735e19aa8b8ae4/room3).
+
+**New Features**
+
+  * Added support for parameters with default values in data classes used in DAO query results. A property that represents a column and is part of a constructor with a default value will be considered optional and a column in the result won't be required for it. ([34279a](https://android-review.googlesource.com/#/q/34279ac0537b29f0be6c73ee5d4c5c8d973c8ea7), [b/70762008](https://issuetracker.google.com/issues/70762008), [b/193531601](https://issuetracker.google.com/issues/193531601))
+
+
+
+**API Changes**
+
+  * Rename `@TypeConverter` to `@ColumnTypeConverter` to better distinguish the scope of the conversion and to have symmetry with `@DaoReturnTypeConverter`. ([I24420](https://android-review.googlesource.com/#/q/I24420e0c78a8a928dd148071185ade700e1ac8b2), [b/438041176](https://issuetracker.google.com/issues/438041176))
+  * Added an API for provided custom DAO return types `@ProvidedDaoReturnTypeConveter`. ([I2a8ad](https://android-review.googlesource.com/#/q/I2a8ad54ddf5cb1adccb41dcd64fbfc57786ff7e7), [b/517485682](https://issuetracker.google.com/issues/517485682))
+  * Added the `PrimaryKey.algorihtm` property to specify the primary key generating algorithm when `PrimaryKey.autoGenerate` is set to true. ([I57944](https://android-review.googlesource.com/#/q/I57944a499ed7d66dc6eac4616039e1989b5254b0), [b/70053837](https://issuetracker.google.com/issues/70053837))
+
+
+
+### Version 3.0.0-alpha06
+
+June 03, 2026
+
+`androidx.room3:room3-*:3.0.0-alpha06` is released. Version 3.0.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3301965961089ff8ab504bdda95cc8992393d5d0..40de3d755751fba59277168d32c60d70350ea98d/room3).
+
+**API Changes**
+
+  * Add a new annotation property in `@Entity` called `withoutRowId` that when set to true will create the backing SQLite table using the `WITHOUT ROWID` option. ([Idb48e](https://android-review.googlesource.com/#/q/Idb48efe8710d42bb2d9e225c693af92280973421), [b/472790803](https://issuetracker.google.com/issues/472790803))
+
+
+
+### Version 3.0.0-alpha05
+
+May 19, 2026
+
+`androidx.room3:room3-*:3.0.0-alpha05` is released. Version 3.0.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0c82232cfb54d1dcc3ad73598fcc81ceff9b88d6..3301965961089ff8ab504bdda95cc8992393d5d0/room3).
+
+**API Changes**
+
+  * Updates `@Relation` and `@Junction` such that `parentColumns` and `entityColumns` properties are an array of column names to be used as keys for solving relationships, in turn supporting composite relationship keys. ([I92196](https://android-review.googlesource.com/#/q/I92196913553b083ba9d8b4180dccef79603e8d19), [b/64247765](https://issuetracker.google.com/issues/64247765))
+
+
+
+### Version 3.0.0-alpha04
+
+May 06, 2026
+
+`androidx.room3:room3-*:3.0.0-alpha04` is released. Version 3.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ec20b1544fe91db83862ce16c68a099d18d31b10..2108adaf188c53e47ffad4cbc8d66d865191e950/room3).
+
+**API Changes**
+
+  * Add APIs to configure Room's connection pool. The builder functions `setSingleConnectionPool()` and `setMultipleConnectionPool()` can be used to control the maximum amount of connection Room will open to the database. ([I9700d](https://android-review.googlesource.com/#/q/I9700d1d245a112116b1e237011a94e57d1477c1b), [b/438041176](https://issuetracker.google.com/issues/438041176), [b/432820350](https://issuetracker.google.com/issues/432820350))
+  * Remove Room's `DatabaseConfiguration` from public API since no other public API referenced the config. ([I5f1e9](https://android-review.googlesource.com/#/q/I5f1e9d384206a2ee87197ae5b94d0b96b75809b5), [b/438041176](https://issuetracker.google.com/issues/438041176))
+
+
+
+**Bug Fixes**
+
+  * Restrict Web targets to use a single connection pool to avoid 'database locked' issues that arise with OPFS ([b/496255935](https://issuetracker.google.com/issues/496255935)).
+  * Attempt to fix (again) a 'Method too large' error that occurs due to Room generating a `onValidateSchema` that is too large. The function is split based on the amount of statements, but the measuring is not precise. If you still encounter this error you can adjust the amount of statements Room will count towards a split via the annotation processor option `room.validationSplitSize`. The default value is currently set to 300 statements, therefore use a lower number if the issue is still present ([b/493708172](https://issuetracker.google.com/issues/493708172)).
+
+
+
+### Version 3.0.0-alpha03
+
+April 08, 2026
+
+`androidx.room3:room3-*:3.0.0-alpha03` is released. Version 3.0.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a..ec20b1544fe91db83862ce16c68a099d18d31b10/room3).
+
+**API Changes**
+
+  * Make `RoomDatabase`'s no-arg constructor public to avoid a Lint warning when the constructor is referenced in the @Database declaration. ([I9bac2](https://android-review.googlesource.com/#/q/I9bac2bbc467fb02362ce52711299c45062ebb214), [b/494722261](https://issuetracker.google.com/issues/494722261))
+  * Add a version of `Room.inMemoryDatabaseBuilder` and `Room.databaseBuilder` that doesn't take in an Android Context. The need for a Context has been greatly reduced in Room 3.0 and therefore making it an optional value for the Builder allows creating in-memory databases in common code more easily. ([I5d502](https://android-review.googlesource.com/#/q/I5d50201b8470fa7473fb59008542994b33075001), [b/438041176](https://issuetracker.google.com/issues/438041176))
+
+
+
+**Bug Fixes**
+
+  * Fix a 'code too large' error on JVM and Android generated code when the `onValidateSchema` function's body was too big ([b/493708172](https://issuetracker.google.com/issues/493708172)).
+
+
+
+### Version 3.0.0-alpha02
+
+**March 25, 2026**
+
+`androidx.room3:room3-*:3.0.0-alpha02` is released. Version 3.0.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..4f1927c2c3b66d0c3a6b9118974d818d2dc5a06a/room3).
+
+**New Features**
+
+  * **FTS5 Support:** Added FTS5 support to Room via the `@Fts5` annotation. This includes new constants for FTS5 tokenizers (`TOKENIZER_ASCII` and `TOKENIZER_TRIGRAM`) and an enum for the 'detail' FTS option (`FULL`, `COLUMN`, and `NONE`). ([I90934](https://android-review.googlesource.com/#/q/I9093495ed7cd148547a9c4e8dae40aa7e970cc09), [b/146824830](https://issuetracker.google.com/issues/146824830))
+  * **Room Paging Targets:** Added `js`, `wasmJs`, `tvOS`, and `watchOS` targets to `room3-paging`. ([Icffd3](https://android-review.googlesource.com/#/q/Icffd3956badc794581ef484bef64440e5d73c230), [b/432783733](https://issuetracker.google.com/issues/432783733))
+
+
+
+**API Changes**
+
+  * **Multi-platform`clearAllTables()`:** Commonized `clearAllTables()`, making it available across all platforms. It has also been converted into a `suspend` function. ([I434ae](https://android-review.googlesource.com/#/q/I434aed65dabee6ce969ee9b3cdc39fd514368b66), [b/322846465](https://issuetracker.google.com/issues/322846465))
+  * **Destructive Migration:** Added a default parameter value to `dropAllTables` in the `fallbackToDestructiveMigration` APIs. ([Ica88b](https://android-review.googlesource.com/#/q/Ica88b160bd3977d90a4f6317f93045088cf9075c), [b/438041176](https://issuetracker.google.com/issues/438041176))
+  * **Experimental API Changes:**
+
+    1. Moved `@ExperimentalRoomApi` to `room-common` to allow annotation-based APIs to be marked as experimental.
+
+    2. Added an experimental `RoomWarning` to suppress the requirement for `@ConstructedBy` in a Room database declaration. In this case, `DatabaseConstructor` will not be generated, and a factory implementation must be provided via `DatabaseBuilder`. ([If5443](https://android-review.googlesource.com/#/q/If5443fde88d9055be41d97de769b3187877c0ec1))
+
+
+
+
+**Bug Fixes**
+
+  * **Paging Source:** Updated `PagingSourceDaoReturnTypeConverter` to correctly indicate that its convert function is intended for READ queries. ([I3b067](https://android-review.googlesource.com/#/q/I3b0675860f6d5d40dc6aa0ce0eff86ce8b970c08), [b/139872302](https://issuetracker.google.com/issues/139872302))
+
+
+
+### Version 3.0.0-alpha01
+
+March 11, 2026
+
+`androidx.room3:room3-*:3.0.0-alpha01` is released.
+
+Room 3.0 (package `androidx.room3`) is a major version update of Room 2.x package (`androidx.room`) that focuses on Kotlin Multiplatform (KMP).
+
+The core annotation APIs are kept the same along with the main components:
+
+  * An abstract class that extends `androidx.room3.RoomDatabase` and is annotated with `@Database` is the entry point for Room's annotation processor.
+  * The database declaration has one or more data classes describing the database schema and are annotated with `@Entity`.
+  * Database operations are defined in `@Dao` declarations that contains query functions whose SQL statements are defined via the `@Query` annotation.
+  * At runtime, the database implementation can be obtained via a `RoomDatabase.Builder` which is also used to configure the database.
+
+
+
+Most of the documentation in the [Save data in a local database using Room](https://developer.android.com/training/data-storage/room) guide is still relevant to Room 3.0.
+
+The major breaking differences between Room 2.x are as follows:
+
+  * New package, `androidx.room3`.
+  * SupportSQLite APIs are no longer supported, unless you are using the `androidx.room3:room3-sqlite-wrapper`.
+  * All database operations are now Coroutine APIs based.
+  * Kotlin code generation only.
+  * Kotlin Symbol Processing (KSP) is required.
+
+
+
+Along with breaking changes, Room 3.0 brings in new functionality compared to 2.x:
+
+  * JS and WasmJS Support
+  * Custom DAO Return Types
+
+
+
+**New Package**
+
+To prevent compatibility issues with existing Room 2.x implementations and for libraries with transitive dependencies to Room (for example, WorkManager), Room 3.0 resides in a new package, which means it also has a new maven group and artifact ids. For example, `androidx.room:room-runtime` has become `androidx.room3:room3-runtime` and classes such as `androidx.room.RoomDatabase` will now be located at `androidx.room3.RoomDatabase`.
+
+**No SupportSQLite APIs**
+
+Room 3.0 is fully backed by the [SQLiteDriver APIs](https://developer.android.com/kotlin/multiplatform/sqlite#sqlite-driver) and no longer references `SupportSQLite` types such as `SupportSQLiteDatabase` or Android types such as `Cursor`. This is the most significant change between Room 3.0 and 2.x since the `RoomDatabase` APIs that mirrored `SupportSQLiteDatabase` along with the API to get a `SupportSQLiteOpenHelper` have been removed. A `SQLiteDriver` is now _required_ to build a `RoomDatabase`.
+
+For example, APIs for direct database operations are replaced by driver equivalents:
+    
+    
+    // Room 2.x
+    roomDatabase.runInTransaction { ... }
+    
+    // Room 3.x
+    roomDatabase.withWriteTransaction { ... }
+    
+    
+    
+    // Room 2.x
+    roomDatabase.query("SELECT * FROM Song").use { cursor -> ... }
+    
+    // Room 3.x
+    roomDatabase.useReaderConnection { connection ->
+      connection.usePrepared("SELECT * FROM Song") { stmt -> ... }
+    }
+    
+
+Callback APIs that had as argument a `SupportSQLiteDatabase` have also been replaced by their equivalent API that has a `SQLiteConnection` as argument. These are migrations callback functions such as `Migration.onMigrate()` and `AutoMigrationSpec.onPostMigrate()` along with database callbacks such as `RoomDatabase.Callback.onCreate()`, `RoomDatabase.Callback.onOpen()`, etc.
+
+If Room was being used in a KMP project, then migrating to 3.0 is simpler as it mostly involves updating import references, otherwise the same migration strategy from Room in Android-only to KMP applies, see the [Room KMP Migration Guide](https://developer.android.com/kotlin/multiplatform/room#migrate).
+
+**SupportSQLite Wrapper**
+
+Room 3.x preserves the SupportSQLite wrapper created in 2.x to ease migrations and is now located in a new artifact `androidx.room3:room3-sqlite-wrapper`. The compatibility API allows you to convert a `RoomDatabase` into a `SupportSQLiteDatabase`. Invocations of `roomDatabase.openHelper.writableDatabase` can be replaced by `roomDatabase.getSupportWrapper()`.
+
+**Kotlin and Coroutines First**
+
+To better evolve the library, Room 3.0 only generates Kotlin code and is only a Kotlin Symbol Processor (KSP). Compared to Room 2.x there is no Java code generation and configuration of annotation processor via KAPT or JavaAP is no longer possible in Room 3.0. Note that KSP is able to process Java sources and the Room compiler will generate code for database, entities or DAOs whose source declarations are in Java. It is recommended to have a multi-module project where Room usage is concentrated and the Kotlin Gradle Plugin and KSP can be applied without affecting the rest of the codebase.
+
+Room 3.0 also requires the use of Coroutines, and more specifically DAO functions have to be suspending unless they are returning a reactive type, such as a `Flow` or a custom DAO return type. Room APIs to perform database operations are also suspend functions, such as `RoomDatabase.useReaderConnection` and `RoomDatabase.useWriterConnection`.
+
+As opposed to Room 2.x it is no longer possible to configure a `RoomDatabase` with an `Executor`, instead a `CoroutineContext` along with a dispatcher can be provided via the database's builder.
+
+`InvalidationTracker` APIs in Room 3.0 are `Flow` based, `InvalidationTracker.Observer` is removed along with its relevant APIs `addObserver` and `removeObserver`. The mechanism to react to database operation is through Coroutine Flows that can be created via the `createFlow()` API in the `InvalidationTracker`.
+
+Example usage:
+    
+    
+    fun getArtistTours(from: Date, to: Date): Flow<Map<Artist, TourState>> {
+        return db.invalidationTracker.createFlow("Artist").map { _ ->
+            val artists = artistsDao.getAllArtists()
+            val tours = tourService.fetchStates(artists.map { it.id })
+            associateTours(artists, tours, from, to)
+        }
+    }
+    
+
+**Web Support**
+
+The Room 3.0 release adds JavaScript and WasmJs as KMP targets. Combined with the release of the `SQLiteDriver` interfaces (`androidx.sqlite:sqlite`) that also target JavaScript and WasmJs and a new driver `WebWorkerSQLiteDriver` located in the new artifact `androidx.sqlite:sqlite-web`, it is possible to use Room in common code that targets all major KMP platforms.
+
+Due to the asynchronous nature of the web platforms, Room APIs that took `SQLiteStatement` as argument are now suspend functions. Example of these functions are `Migration.onMigrate()`, `RoomDatabase.Callback.onCreate()`, `PooledConnection.usePrepared()` and others. In the driver APIs the asynchronous APIs are common on all platforms and the synchronous are common for non-web targets. Therefore a project that does not target web can continue to use the synchronous APIs (`SQLiteDriver.open()`, `SQLiteConnection.prepare()` and `SQLiteStatement.step()`) in common code. Meanwhile a project that only targets web must use the asynchronous APIs (`SQLiteDriver.openAsync()`, `SQLiteConnection.prepareAsync()` and `SQLiteStatement.stepAsync()`).
+
+For convenience the `androidx.sqlite` package also added suspend extension functions with the synchronous names of the mentioned APIs (with the addition of `SQLiteConnection.executeSQL`), these APIs are recommended when the project targets both web and non-web platforms since the APIs are expect / actual declarations that will call the right variant based on the platforms. These are the APIs Room's runtime use and enable driver usage in common code for all supported platforms.
+
+Example usage:
+    
+    
+    import androidx.sqlite.executeSQL
+    import androidx.sqlite.step
+    
+    roomDatabase.useWriterConnection { connection ->
+        val deletedSongs = connection.usePrepared(
+            "SELECT count(*) FROM Song"
+        ) { stmt ->
+            stmt.step()
+            stmt.getLong(0)
+        }
+        connection.executeSQL("DELETE FROM Song")
+        deletedSongs
+    }
+    
+
+The `WebWorkerSQLiteDriver` is an implementation of a `SQLiteDriver` that communicates with a [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) for performing database operation off the main thread and enables storing the database in the Origin Private File System (OPFS). To instantiate the driver a worker that implements a simple communication protocol is required, the protocol is described in the [WebWorkerSQLiteDriver KDoc](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:sqlite/sqlite-web/src/commonMain/kotlin/androidx/sqlite/driver/web/WebWorkerSQLiteDriver.kt).
+
+Currently the `WebWorkerSQLiteDriver` does not ship with a default worker that implements the communication protocol, but as an example, the androidx codebase contains a [worker implementation](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:sqlite/sqlite-web-worker-test/web-worker/worker.js) that can be used in your project. It uses [SQLite's WASM](https://sqlite.org/wasm/doc/trunk/index.md) and stores the database in OPFS. The example worker is published as a local NPM package and thanks to [Kotlin's support for NPM dependencies](https://kotlinlang.org/docs/using-packages-from-npm.html), a small KMP module can be created to serve the worker.
+
+See the following [GitHub project](https://github.com/danysantiago/room-web-demo/) demonstrating the usage of a local web worker for Room.
+
+Once a worker is set up in the project, then configuring Room for the Web is similar to other platforms:
+    
+    
+    fun createDatabase(): MusicDatabase {
+        return Room.databaseBuilder<MusicDatabase>("music.db")
+            .setDriver(WebWorkerSQLiteDriver(createWorker()))
+            .build()
+    }
+    
+    fun createWorker() =
+        Worker(js("""new URL("sqlite-web-worker/worker.js", import.meta.url)"""))
+    
+
+A future version of the Web driver might contain a default worker published in NPM, making the web setup simpler.
+
+**Custom DAO Return Types**
+
+Various DAO return type integrations such as those for RxJava and Paging have been transformed to use a new API in Room 3.0 called DAO return type converters. A DAO return type converter function (`@DaoReturnTypeConverter`) enables transforming the result of a DAO function into a custom type defined by the annotated function. These functions enable participating in Room's generated code that transforms query results into data objects. Classes that contain DAO return type converters have to be registered via the `@DaoReturnTypeConverters` annotations in the `@Database` or `@Dao` declarations.
+
+For example, to have a DAO query return a `PagingSource`, the converter class located in `androidx.room3:room3-paging` must now be registered:
+    
+    
+    @Dao
+    @DaoReturnTypeConverters(PagingSourceDaoReturnTypeConverter::class)
+    interface MusicDao {
+        @Query("SELECT * FROM Song)
+        fun getSongsPaginated(): PagingSource<Int, Song>
+    }
+    
+
+Existing integrations have been moved to DAO return type converters: 
+
+Return Type | Converter class | Artifact  
+---|---|---  
+PagingSource | PagingSourceDaoReturnTypeConverter | androidx.room3:room3-paging  
+Observable, Flowable, Completable, Single, Maybe | RxDaoReturnTypeConverters | androidx.room3:room3-rxjava3  
+ListenableFuture | GuavaDaoReturnTypeConverter | androidx.room3:room3-guava  
+LiveData | LiveDataDaoReturnTypeConverter | androidx.room3:room3-livedata  
+  
+Like column type converters, DAO return type converters can be defined by the application. For example, an application could declare a `@DaoReturnTypeConverter` for the web type `kotlin.js.Promise`.
+    
+    
+    object PromiseDaoReturnTypeConverter {
+        @DaoReturnTypeConverter([OperationType.READ, OperationType.WRITE])
+        fun <T> convert(
+            db: RoomDatabase,
+            executeAndConvert: suspend () -> T
+        ): Promise<T> {
+            return db.getCoroutineScope().promise { executeAndConvert() }
+        }
+    }
+    
+
+The above converter then allows DAO query functions to return `Promise`:
+    
+    
+    @Dao
+    @DaoReturnTypeConverters(PromiseDaoReturnTypeConverter::class)
+    interface MusicDao {
+        @Query("SELECT * FROM Song")
+        fun getAllSongs(): Promise<List<Song>>
+    }
+    
+
+A `@DaoReturnTypeConverter` function has a few requirements in the amount of parameter it must have and its types. The possible parameters are:
+
+  * `db: RoomDatabase`: (Optional) Provides access to the `RoomDatabase` instance, which can be useful for performing additional database operations or accessing the coroutine scope.
+  * `tableNames: Array<String>`: (Optional) Contains the accessed tables of the query, useful for supporting observable / reactive types when combined with Room's `InvalidationTracker.createFlow()` API.
+  * `rawQuery: RoomRawQuery`: (Optional) Contains at runtime an instance of the query, enabling transformations such as the `LIMIT` / `OFFSET` strategy implemented by the `PagingSourceDaoReturnTypeConverter`.
+  * `executeAndConvert: suspend () -> T`: (Required) The Room generated function that will execute the query and parse its result into data objects.
+
+
+
+For more information about the requirements for creating a DAO return type converter, see the [KDoc on the `@DaoReturnTypeConverter` API](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:room3/room3-common/src/commonMain/kotlin/androidx/room3/DaoReturnTypeConverter.kt).
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-09-09 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-09 UTC."],[],[]] 

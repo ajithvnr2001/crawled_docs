@@ -1,0 +1,7 @@
+{
+  "url": "https://developers.cloudflare.com/changelog/post/2026-07-07-warning-attributes/",
+  "file": "changelog/post/2026-07-07-warning-attributes.md",
+  "title": "Workers Observability now surfaces warning attributes on spans for non-fatal errors \u00b7 Changelog",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-19T07:10:39.624942+00:00"
+}

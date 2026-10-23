@@ -1,0 +1,356 @@
+---
+url: https://docs.comfy.org/tutorials/video/minimax/minimax-h3-native/
+title: ComfyUI MiniMax H3 Text-to-Video, Image-to-Video, and Reference-to-Video Workflows - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-19T14:35:07.158287+00:00
+---
+
+# ComfyUI MiniMax H3 Text-to-Video, Image-to-Video, and Reference-to-Video Workflows - ComfyUI
+
+> Source: https://docs.comfy.org/tutorials/video/minimax/minimax-h3-native/
+
+## On this page
+
+  * MiniMax H3 Text to Video (T2V)
+    * Model downloads
+    * Model storage
+    * Prompting tips
+  * MiniMax H3 Image to Video (I2V)
+    * Model downloads
+    * Model storage
+    * Prompting tips
+  * MiniMax H3 Reference to Video (R2V)
+    * Model downloads
+    * Model storage
+    * Prompting tips
+  * Advanced workflows with the native nodes
+    * Anchoring guides at any frame (#15439)
+    * Inpainting and extension with latent noise masks (#15375)
+
+
+
+MiniMax H3
+
+# ComfyUI MiniMax H3 Text-to-Video, Image-to-Video, and Reference-to-Video Workflows
+
+Copy pageCopy page
+
+Step-by-step MiniMax H3 native workflow examples in ComfyUI, including guide anchoring and latent noise masks for finer control over video generation.
+
+Copy pageCopy page
+
+This page covers the three base MiniMax H3 templates plus advanced native-node techniques. For capabilities, tuning, and speedups, see the [MiniMax H3 overview](https://docs.comfy.org/tutorials/video/minimax/minimax-h3).
+
+## 
+
+​
+
+MiniMax H3 Text to Video (T2V)
+
+Generate videos from text prompts with native stereo audio.
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “MiniMax H3 T2V” in Template Library
+
+### 
+
+​
+
+Model downloads
+
+## Diffusion Model: minimax_h3_fl2va_pruned_int8_convrot
+
+Place in `ComfyUI/models/diffusion_models/`
+
+## Text Encoder: qwen3vl_32b_minimax_h3_nvfp4_awq
+
+Place in `ComfyUI/models/text_encoders/`
+
+## VAE: minimax_h3_video_vae_int8_convrot
+
+Place in `ComfyUI/models/vae/`
+
+## VAE: minimax_h3_audio_vae_fp32
+
+Place in `ComfyUI/models/vae/`
+
+## LoRA: minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16
+
+Required by the workflow’s model scan; powers the optional Lightning LoRA turbo mode. Place in `ComfyUI/models/loras/`
+
+### 
+
+​
+
+Model storage
+    
+    
+    ComfyUI/
+    ├── 📂 models/
+    │   ├── 📂 diffusion_models/
+    │   │   └── minimax_h3_fl2va_pruned_int8_convrot.safetensors
+    │   ├── 📂 text_encoders/
+    │   │   └── qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors
+    │   ├── 📂 vae/
+    │   │   ├── minimax_h3_video_vae_int8_convrot.safetensors
+    │   │   └── minimax_h3_audio_vae_fp32.safetensors
+    │   ├── 📂 loras/
+    │   │   └── minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors
+    │   └── 📂 embeddings/
+    │       └── minimaxh3_art_is_explosion.safetensors
+    
+
+### 
+
+​
+
+Prompting tips
+
+  1. **Scene first** : Overall scene, then timed shots
+  2. **One block** : Shots, camera, dialogue, SFX, and music together
+  3. **Resolution** : Native 16:9 is **1344×768** (768px short edge); round to multiples of **32**
+  4. **Duration** : Snaps to **17k+5** frames at 24fps
+  5. **First/last frame** : Wire images to `first_frame` / `last_frame` on `MiniMaxH3ImageToVideo` for FL2VA
+  6. **Turbo** : Default **20** steps; enable `turbo_mode` for **8** -step Lightning LoRA (faster, slightly softer motion/audio). Raise steps (e.g. **25**) for motion quality
+
+Official base guide: [prompt guide](https://docs.comfy.org/tutorials/video/minimax/minimax-h3-prompt-guide).
+
+## 
+
+​
+
+MiniMax H3 Image to Video (I2V)
+
+Generate videos from an input image, with optional first/last-frame keyframes.
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “MiniMax H3 I2V” in Template Library
+
+## Input Image: transparent_rgb_gaming_mouse.png
+
+Download the default input image, or use your own image.
+
+### 
+
+​
+
+Model downloads
+
+## Diffusion Model: minimax_h3_fl2va_pruned_int8_convrot
+
+Place in `ComfyUI/models/diffusion_models/`
+
+## Text Encoder: qwen3vl_32b_minimax_h3_nvfp4_awq
+
+Place in `ComfyUI/models/text_encoders/`
+
+## VAE: minimax_h3_video_vae_int8_convrot
+
+Place in `ComfyUI/models/vae/`
+
+## VAE: minimax_h3_audio_vae_fp32
+
+Place in `ComfyUI/models/vae/`
+
+## Turbo LoRA: minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16
+
+Place in `ComfyUI/models/loras/`. Used when `turbo_mode` is enabled.
+
+### 
+
+​
+
+Model storage
+    
+    
+    ComfyUI/
+    ├── 📂 models/
+    │   ├── 📂 diffusion_models/
+    │   │   └── minimax_h3_fl2va_pruned_int8_convrot.safetensors
+    │   ├── 📂 text_encoders/
+    │   │   └── qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors
+    │   ├── 📂 loras/
+    │   │   └── minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors
+    │   ├── 📂 vae/
+    │   │   ├── minimax_h3_video_vae_int8_convrot.safetensors
+    │   │   └── minimax_h3_audio_vae_fp32.safetensors
+    │   └── 📂 embeddings/
+    │       └── minimaxh3_art_is_explosion.safetensors
+    
+
+### 
+
+​
+
+Prompting tips
+
+  1. **Keyframes** : Optional `first_frame` / `last_frame`; motion is generated between them
+  2. **Prompt** : Shots, motion, and audio in one block
+  3. **Resolution / duration** : the same rules as T2V (**1344×768** native target, **17k+5** grid)
+  4. **Turbo** : `turbo_mode` uses `turbo_steps` (default **8**) and `turbo_model_strength` (default **1.0**) instead of 20 steps
+
+`first_frame` is resized to the canvas without keeping its aspect ratio, so an off-aspect image comes out stretched. `last_frame` is center-cropped instead. The I2V template opens at **1:1** and **0.4** MP (**640×640**), so set the aspect ratio to your image and raise Megapixels for a final render. Official base guide: [prompt guide](https://docs.comfy.org/tutorials/video/minimax/minimax-h3-prompt-guide).
+
+## 
+
+​
+
+MiniMax H3 Reference to Video (R2V)
+
+Lock character, style, motion, camera, or voice from reference images, videos, and audio.
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “MiniMax H3 R2V” in Template Library
+
+## Reference Image: red_superboy_on_city_roof.png
+
+Character reference for the workflow, or use your own images.
+
+## Reference Image: mecha_dragon_lightning.png
+
+Style and subject reference for the workflow, or use your own images.
+
+### 
+
+​
+
+Model downloads
+
+## Diffusion Model: minimax_h3_ref2va_pruned_int8_convrot
+
+Place in `ComfyUI/models/diffusion_models/`
+
+## Text Encoder: qwen3vl_32b_minimax_h3_nvfp4_awq
+
+Place in `ComfyUI/models/text_encoders/`
+
+## VAE: minimax_h3_video_vae_int8_convrot
+
+Place in `ComfyUI/models/vae/`
+
+## VAE: minimax_h3_audio_vae_fp32
+
+Place in `ComfyUI/models/vae/`
+
+## LoRA: minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16
+
+Required by the workflow’s model scan; powers the optional Lightning LoRA turbo mode. Place in `ComfyUI/models/loras/`
+
+### 
+
+​
+
+Model storage
+    
+    
+    ComfyUI/
+    ├── 📂 models/
+    │   ├── 📂 diffusion_models/
+    │   │   └── minimax_h3_ref2va_pruned_int8_convrot.safetensors
+    │   ├── 📂 text_encoders/
+    │   │   └── qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors
+    │   ├── 📂 vae/
+    │   │   ├── minimax_h3_video_vae_int8_convrot.safetensors
+    │   │   └── minimax_h3_audio_vae_fp32.safetensors
+    │   ├── 📂 loras/
+    │   │   └── minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors
+    │   └── 📂 embeddings/
+    │       └── minimaxh3_art_is_explosion.safetensors
+    
+
+### 
+
+​
+
+Prompting tips
+
+  1. **Tags** : Reference inputs as `<Picture 1>`, `<Video 1>`, `<Audio 1>` (`ref_image_0` → `<Picture 1>`). Node order: images, then videos, then audio
+  2. **Assign roles** : Say which reference drives identity, style, motion, camera, or voice
+  3. **Limits** : Up to **9** images, **3** videos, **3** standalone audio clips
+  4. **Video FPS** : Reference video is read as **24fps** with no metadata. Convert other frame rates to 24fps before load
+  5. **Video sound** : Picture and soundtrack are separate references. Wire `ref_video_audio_N` to match `ref_video_N` or the file’s audio is not used as `<Audio N>`
+  6. **Audio numbering** : Video soundtracks get `<Audio N>` first (video order), then standalone clips. Video and picture indices are independent
+  7. **VAE wiring** : Video soundtrack needs `vae` \+ `audio_vae`; standalone audio needs `audio_vae` only
+  8. **Audio roles** : e.g. `use <Audio 1> exactly as it is` vs `follow the timbre of <Audio 2>`
+  9. **Voice** : Audio carries timbre, not words. Specify delivery; one audio ref per speaker when assignment must be exact
+  10. **`ref_image_size`** : Default **`match`** (fit to canvas). **`max`** keeps 2048px short edge and is much slower; it does not upscale small files (round sides to 32). Pre-scale to 2048 short edge when needed
+  11. **Weights** : R2V uses **`ref2va`** , not the T2V/I2V **`fl2va`** model
+  12. **Turbo** : Optional **4** -step Lightning LoRA (faster, weaker reference/audio). Prefer **20–25** steps when references must hold
+  13. **Style LoRAs** : Compete with references; use low strength (~**0.5**) on base schedule when adherence matters
+
+Official ref guide: [prompt guide](https://docs.comfy.org/tutorials/video/minimax/minimax-h3-prompt-guide).
+
+## 
+
+​
+
+Advanced workflows with the native nodes
+
+Requires a recent ComfyUI build for the features below.
+
+### 
+
+​
+
+Anchoring guides at any frame (#15439)
+
+[`MiniMaxH3AddGuide`](https://github.com/Comfy-Org/ComfyUI/pull/15439) anchors a guide at any `frame_idx` (negative = from end), not only first/last frame. Wire `positive` and latent from an H3 node into `MiniMaxH3AddGuide`. Inputs:
+
+  * **image** : Still or clip (multi-frame batches crop to valid **17k+5** lengths; <5 frames uses first image only)
+  * **audio** : Soundtrack at the same frame index, cropped to remaining duration
+  * **frame_idx** : Anchor position
+
+Connect `vae` for image guides and `audio_vae` for audio. Chain nodes for multiple anchors. Example: first **22** frames of a clip at frame **0** continues both streams; a still at frame **60** forces the shot through that pose. This is conditioning, not video-to-video: sampling still starts from the workflow empty latent. `denoise` does not scale guide strength like V2V. To restyle a whole clip, use R2V; to edit regions, use [Fun ControlNet Union](https://docs.comfy.org/tutorials/video/minimax/minimax-h3-fun-controlnet) masks. See the [Multiframe Reference](https://docs.comfy.org/tutorials/video/minimax/minimax-h3-multiframe) template.
+
+### 
+
+​
+
+Inpainting and extension with latent noise masks (#15375)
+
+[Per-token noise masks](https://github.com/Comfy-Org/ComfyUI/pull/15375) on video and audio latents let you regenerate part of a clip. Connect a mask to the sampler `denoise_mask`: **0** = keep, **1** = regenerate. Video masks snap to the 2×2 latent patch grid; audio masks to whole latent frames. Use for inpainting, removal, or extension while holding the rest stable.
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/video/minimax/minimax-h3-native.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/video/minimax/minimax-h3-native)
+
+[FastVideo FastH3: ComfyUI Workflow ExamplesPrevious](https://docs.comfy.org/tutorials/video/minimax/minimax-h3-fastvideo)[ComfyUI MiniMax H3 Multiframe Reference WorkflowNext](https://docs.comfy.org/tutorials/video/minimax/minimax-h3-multiframe)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

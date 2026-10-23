@@ -1,0 +1,86 @@
+---
+url: https://docs.comfy.org/built-in-nodes/BakeAmbientOcclusion/
+title: BakeAmbientOcclusion - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:47:23.791659+00:00
+---
+
+# BakeAmbientOcclusion - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/BakeAmbientOcclusion/
+
+Texturing
+
+# BakeAmbientOcclusion - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+Bakes an ambient-occlusion map from a high-poly mesh into the UV layout of a low-poly mesh.
+
+Copy pageCopy page
+
+Bakes an ambient-occlusion map from a high-poly mesh into the UV layout of a low-poly mesh. The output is a grayscale image in which white texels are open and dark texels are in crevices; it is meant for the Apply Texture To Mesh node’s occlusion input. Connect the UV-unwrapped low-poly mesh and the high-poly mesh it was decimated from.
+
+## 
+
+​
+
+Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`low_poly`| The UV-unwrapped low-poly mesh to bake into. Must have UVs; the node raises an error if they are missing.| MESH| Yes| -  
+`high_poly`| The high-poly mesh that the low-poly was decimated from, used as the source geometry for occlusion.| MESH| Yes| -  
+`resolution`| Texture resolution in pixels; each texel receives an occlusion value. Default: 1024.| INT| Yes| 64 to 8192 (step 64)  
+`samples`| Rays per texel. More = smoother, slower. Raise if grainy. Default: 64.| INT| Yes| 4 to 1024 (step 4)  
+`max_distance`| Ray length, as a fraction of the bounding box diagonal. Smaller = tighter, more local occlusion. Default: 0.5.| FLOAT| Yes| 0.01 to 2.0 (step 0.01)  
+`strength`| Scales the occlusion. >1 darkens, <1 lightens. Default: 1.0.| FLOAT| Yes| 0.0 to 2.0 (step 0.05)  
+`bias`| Ray origin lift off the surface, as a fraction of the bounding box diagonal. Raise if even surfaces show dark blotches/holes. Default: 0.01.| FLOAT| Yes| 0.0001 to 0.2 (step 0.0005)  
+  
+Note: `low_poly` must have UV coordinates — this node never unwraps the mesh. If `high_poly` contains only one batch item, it is reused for every batch item of `low_poly`; batch items of `low_poly` with no faces are skipped and replaced with an all-white image, with a warning logged. If the UVs of `low_poly` spill outside the 0-1 range, they are uniformly fitted back into it, and a warning is logged when a tiled/UDIM-style layout is detected.
+
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`occlusion`| Grayscale ambient-occlusion image with values in [0,1] (white = open, dark = crevices), one image per batch item of `low_poly`. Intended for the Apply Texture To Mesh node’s occlusion input (packed into the ORM map / occlusionTexture).| IMAGE  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/BakeAmbientOcclusion/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `63ea6ce5289728d351fdd7d722e9a299ebb1283e1128262a817466ec6d23786a`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/BakeAmbientOcclusion.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/BakeAmbientOcclusion)
+
+[ApplyTextureToMesh - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/ApplyTextureToMesh)[BakeNormalMapFromMesh - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/BakeNormalMapFromMesh)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

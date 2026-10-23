@@ -1,0 +1,603 @@
+---
+url: https://developer.android.com/jetpack/androidx/releases/xr-compose/
+title: XR Compose \u00a0|\u00a0 Jetpack \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:35:36.061108+00:00
+---
+
+# XR Compose  |  Jetpack  |  Android Developers
+
+> Source: https://developer.android.com/jetpack/androidx/releases/xr-compose/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Get started ](https://developer.android.com/get-started/overview)
+  * [ Jetpack ](https://developer.android.com/jetpack)
+  * [ Libraries ](https://developer.android.com/jetpack/androidx/explorer)
+
+
+
+Stay organized with collections  Save and categorize content based on your preferences. 
+
+# Jetpack Compose for XR
+
+[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose) [Code Sample](https://github.com/android/xr-samples) [Codelab](https://github.com/android/xr-codelabs)
+
+API Reference  
+[androidx.xr.compose.platform](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/package-summary)  
+[androidx.xr.compose.spatial](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary)  
+[androidx.xr.compose.subspace](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary)  
+[androidx.xr.compose.subspace.layout](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/package-summary)  
+[ androidx.xr.compose.subspace.node](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/node/package-summary)  
+[androidx.xr.compose.unit](https://developer.android.com/reference/kotlin/androidx/xr/compose/unit/package-summary)  
+
+
+Declaratively build spatial UI layouts that take advantage of Android XR’s spatial capabilities. 
+
+Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release  
+---|---|---|---|---  
+September 23, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-beta01) | -  
+  
+## Declaring dependencies
+
+To add a dependency on XR compose, you must add the Google Maven repository to your project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven) for more information.
+
+Add the dependencies for the artifacts you need in the `build.gradle` file for your app or module:
+
+### Groovy
+    
+    
+    dependencies {
+        implementation "androidx.xr.compose:compose:1.0.0-beta01"
+    
+        // Use to write unit tests
+        testImplementation "androidx.xr.compose:compose-testing:1.0.0-beta01"
+    }
+
+### Kotlin
+    
+    
+    dependencies {
+        implementation("androidx.xr.compose:compose:1.0.0-beta01")
+    
+        // Use to write unit tests
+        testImplementation("androidx.xr.compose:compose-testing:1.0.0-beta01")
+    }
+
+For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
+
+## Feedback
+
+Your feedback helps make Jetpack better. Let us know if you discover new issues or have ideas for improving this library. Please take a look at the [existing issues](https://issuetracker.google.com/issues?q=componentid:1689664%20status:open) in this library before you create a new one. You can add your vote to an existing issue by clicking the star button.
+
+[Create a new issue](https://issuetracker.google.com/issues/new?component=1689664&template=2070825)
+
+See the [Issue Tracker documentation](https://developers.google.com/issue-tracker) for more information.
+
+## Version 1.0
+
+### Version 1.0.0-beta01
+
+September 23, 2026
+
+`androidx.xr.compose:compose:1.0.0-beta01` and `androidx.xr.compose:compose-testing:1.0.0-beta01` are released. Version 1.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/21d3a25e98cb0aafed30e30d4e1d89bba15ed1d7..bc67eb1589ba68a62d1d7b5fa7c920116520b682/xr/compose).
+
+**API Changes**
+
+  * Removed deprecated `DragPolicy`. Use `SubspaceModifier.movable()` instead. ([I108d4](https://android-review.googlesource.com/#/q/I108d4df07a11b4020070c9218f7999a7171f7260))
+  * Removed the deprecated `ResizePolicy` and its usages in `SpatialPanel` and `SpatialExternalSurface`. Remove a deprecated `SubspaceModifier.resizable` function. Use the new `SubspaceModifier.resizable` with a new `ResizePolicy` instead. ([I59e6b](https://android-review.googlesource.com/#/q/I59e6b80b3ee2cc7e50076e37c9a2e126fd4c0ed4))
+  * Added `isPitchUpdateEnabled` parameter to allow enabling or disabling pitch tracking independently. ([Ie9e86](https://android-review.googlesource.com/#/q/Ie9e86bc714cc38b1998baafb421b4a55bbfe5e53))
+  * Removed nullability of `pitchLimits` and renamed `PitchLimits.UNCONSTRAINED` to `PitchLimits.FullRange`. ([I0154f](https://android-review.googlesource.com/#/q/I0154f92547a4af8218fc3a942370c8aa65c24076))
+  * `ExposedDropdownMenu` is now an extension function on `ExposedDropdownMenuBoxScope` instead of a member. You may need to update your code with a new import. ([Ie8a65](https://android-review.googlesource.com/#/q/Ie8a65e982bcc6ee222ce0a84ed63ad9445760f6d))
+  * Removed deprecated `SurfaceProtection` class. Use `SpatialExternalSurfaceProtection` instead. ([Iab2c6](https://android-review.googlesource.com/#/q/Iab2c6a066c4a807f909c59fa692bed9fb05676d7))
+  * The Orbiter function that takes an `OrbiterPoseProvider` has been deprecated in favor of the one that uses `SpatialAlignment`. ([I4d12b](https://android-review.googlesource.com/#/q/I4d12b1e15213ec2b5ea91241ac0295dbacb0cb48))
+  * `SpatialActivityPanel` now requires a `SpatialActivityPanelController` (instantiated using `rememberSpatialActivityPanelController`) to launch and manage embedded activities. ([Id25c6](https://android-review.googlesource.com/#/q/Id25c6ca2933a01f1174f30ebd62c550680805bd7))
+  * Removed the `upDirection` parameter from `rotateToLookAtUser` and added rotation constraints parameters (`isYawUpdateEnabled` and `pitchLimits`). ([I1370a](https://android-review.googlesource.com/#/q/I1370a2cf7213c6a510cc0a99f2a3ae9566dee1da))
+
+
+
+**Bug Fixes**
+
+  * Fixed various `InteractionPolicy` issues. A crash occurred if an input event occurred right as the Composable or child (for instance an Orbiter) initiated a disposal sequence. Also fixes an issue where a child would receive hover events. ([Ifc477](https://android-review.googlesource.com/#/q/Ifc4776ee8d89072be3331d35e621740d8ea56f3b))
+  * Reduced panel size in `RotateToLookAtUserActivity` to prevent clipping on smaller FOV devices. ([I8d672](https://android-review.googlesource.com/q/I8d6729960d2128d748d197cc65a231d81eb9f28f))
+
+
+
+**Known Issues**
+
+  * There is an issue with Compose XR panels where creating many panels in a single Activity may cause some corruption on what is being viewed even after the panels are destroyed.
+
+
+
+### Version 1.0.0-alpha17
+
+August 12, 2026
+
+`androidx.xr.compose:compose:1.0.0-alpha17` and `androidx.xr.compose:compose-testing:1.0.0-alpha17` are released. Version 1.0.0-alpha17 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/acddfd8ada1ae0da79f5ae0f95f5c07e79c6d4e1..21d3a25e98cb0aafed30e30d4e1d89bba15ed1d7/xr/compose).
+
+**API Changes**
+
+  * Remove the `Meter` value class, it is replaced by `virtualPixelDensity` in `Scenecore`. ([I690ee](https://android-review.googlesource.com/#/q/I690ee091ef7f69e60d2de1564a87ba7da59291fb))
+  * The `SpatialGltfModel` API is now experimental and must be opted in for use. ([I4557e](https://android-review.googlesource.com/#/q/I4557e117894af094e08343c84ecfdde25a089376))
+  * Make `system` resizable nullable ([Ib0093](https://android-review.googlesource.com/#/q/Ib00930218f248f77b701cd9e09d4fc216a7984e8))
+  * Exposed `Density` in `SubspaceSemanticsInfo` for testing. ([I2e826](https://android-review.googlesource.com/#/q/I2e826dfca3b87f7202aa3bd0370e25f70d66704f))
+  * Rename `ResizePolicy` default option to `system` and add a new `Default` option without parameters ([Ic8b16](https://android-review.googlesource.com/#/q/Ic8b1609787fd568af045f9ce96d38881e3bdbe38))
+  * Mark `FollowTarget` experimental. The whole `FollowingSubspace` API is now experimental. ([Id4ee3](https://android-review.googlesource.com/#/q/Id4ee3f8ac3b0452edfb8b32bcaf75fe6cc5f699a))
+  * Remove `GltfAnimation` APIs ([Ic2894](https://android-review.googlesource.com/#/q/Ic28943cb8bed77701fa7880b079b6bea75df1b52))
+  * Renamed the parameterized `MovePolicy.default()` method to `MovePolicy.system()`. Introduced a `val MovePolicy.Default` property to represent the standard default movement behavior. ([Iedcc9](https://android-review.googlesource.com/#/q/Iedcc9c9b99fead311db82c6d4598323a52400699))
+  * Expand `ExperimentalMoveAnchorPolicy` opt in requirements to `PlaneSemantic` and `PlaneOrientation` ([Ief927](https://android-review.googlesource.com/#/q/Ief9272baf58da98a77520837aee05a8f20da5683))
+  * Remove `resetMins` from `VolumeConstraints.offset` ([Ib2f2f](https://android-review.googlesource.com/#/q/Ib2f2f9080b33c6d4ca3a2a469504e4be2e8b30cc))
+  * Removed deprecated `SceneCoreEntitySizeAdapter` function. ([Ib6722](https://android-review.googlesource.com/#/q/Ib6722ad2823b518b1596615f882bb2d9b870a1af))
+  * Removed deprecated `Subspace` overload with `allowUnboundedSubspace`. ([I8e97f](https://android-review.googlesource.com/#/q/I8e97fef7f94c7335869aa6342d04d85231092a97))
+  * Removed deprecated semantics modifier overload. ([I4ac10](https://android-review.googlesource.com/#/q/I4ac105d7bba51cc5ce34489e1e228201fb8c2fb1))
+
+
+
+**Bug Fixes**
+
+  * Fixed issue where children of a `Composable` with an `InteractionPolicy` attached trigger input events ([Icdba6](https://android-review.googlesource.com/#/q/Icdba6b5a89559fc521beba2c14e8ef2e30f42f21))
+
+
+
+### Version 1.0.0-alpha16
+
+July 15, 2026
+
+`androidx.xr.compose:compose:1.0.0-alpha16` and `androidx.xr.compose:compose-testing:1.0.0-alpha16` are released. Version 1.0.0-alpha16 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6843009ab4a83565ff22c97fa2b27471b6c5c5d7..427389dd0c83c185068abb457041c78de4699495/xr/compose).
+
+**API Changes**
+
+  * Remove `ComponentOverride` APIs ([I820c4](https://android-review.googlesource.com/#/q/I820c4aec6fad21ed544189b2dfbaeb6d6a6a6964))
+  * `GltfAnimation` and `SpatialGltfModelAnimation` APIs have been marked as experimental. Some properties were turned into getters. ([I8d689](https://android-review.googlesource.com/#/q/I8d689ae01daec91cf15291fa37dcf279bb5555c7), [b/524771027](https://issuetracker.google.com/issues/524771027))
+  * Fixed overall density behavior by establishing the conversion between Meter and pixels to be constant. Deprecated Meter.kt, `Session.scene.virtualPixelDensity` can now be used as an alternative. ([I122ff](https://android-review.googlesource.com/#/q/I122ff0865850ecd7ec33282f77f3e8e0bf75f22c), [b/430097855](https://issuetracker.google.com/issues/430097855), [b/474168798](https://issuetracker.google.com/issues/474168798))
+  * Update resizable modifier to use a `ResizePolicy` instead of two modifiers ([I7fb0f](https://android-review.googlesource.com/#/q/I7fb0fff7c7abe5ab3cffe2a118fec42cf61f4684), [b/496257436](https://issuetracker.google.com/issues/496257436), [b/519672992](https://issuetracker.google.com/issues/519672992))
+  * Added a tolerance: `Dp = Dp(0.5f)` parameter to all public floating-point dimension and position equality assertions in `SubspaceAssertions.kt`. The default tolerance behavior (`0.5.dp`) is fully documented. ([I266cb](https://android-review.googlesource.com/#/q/I266cbf4d1cc817e2159490f05d1995285fde3709), [b/521491915](https://issuetracker.google.com/issues/521491915))
+  * Added movable overload with `movePolicy` param and deprecate `transformingMovable` and `movable` ([Ic88c1](https://android-review.googlesource.com/#/q/Ic88c1d6acf919b741f6f50bca3f61da958caab70), [b/481781189](https://issuetracker.google.com/issues/481781189))
+  * Added new non-interactive variants of standard list item and segmented list item which follow Material Expressive specifications. The non-expressive version has been deprecated. ([Ide4de](https://android-review.googlesource.com/#/q/Ide4de27c32c25243b6b0a7d38cabce1a582bc56f), [b/491994186](https://issuetracker.google.com/issues/491994186))
+  * For Subspace, the `allowUnboundedSubspace` parameter is now deprecated and hidden. Unbounded behavior should now be achieved by using `SubspaceModifier.requiredSizeIn`(`maxWidth` = `Dp.Infinity`, `maxHeight` = `Dp.Infinity`, `maxDepth` = `Dp.Infinity`) on the Subspace modifier. The `allowUnboundedSubspace` parameter has been removed from `FollowingSubspace`. ([Ia72ae](https://android-review.googlesource.com/#/q/Ia72aee259147a9aa88fbe7e251b02d4dc1d214aa), [b/433624021](https://issuetracker.google.com/issues/433624021))
+  * Converted `Session.create` to a suspend function. ([I5d27f](https://android-review.googlesource.com/#/q/I5d27fd6399fc5fe35f28ddf9c0c488a12eb23115))
+  * Added `SubspaceModifier.spatializedAudioOutput` which allows spatializing audio playback through `ExoPlayer` or through a `SoundEffectPlayer` ([I46697](https://android-review.googlesource.com/#/q/I46697a674a84645a44d1bf6b148e68f99ca6c149), [b/489421980](https://issuetracker.google.com/issues/489421980), [b/497867019](https://issuetracker.google.com/issues/497867019))
+  * Updated `ComponentActivity.requestHomeSpace()` and `requestFullSpace()` to return `SpaceRequestResult` for status verification. ([If1672](https://android-review.googlesource.com/#/q/If167217054f3aba0b37533a427c7e5a9aa6a7944))
+  * Updated `AnchorEntity` to be called `AnchorSpace` ([Ifa95e](https://android-review.googlesource.com/#/q/Ifa95ebf5c1da2b4413723835db4c0e5f9a2e52fb), [b/513619219](https://issuetracker.google.com/issues/513619219))
+  * Unrestricted `fromResource` method from `SpatialGltfModelSource` ([I1f5a1](https://android-review.googlesource.com/#/q/I1f5a134ee2e9c0b9a271bb255f4792c463f410e1), [b/503047416](https://issuetracker.google.com/issues/503047416))
+  * `SubspaceSemanticsMatcher` members are public: the `description` property, companion factory methods (`expectValue`, `keyIsDefined`, `keyNotDefined`), member functions (`matches`, `matchesAny`), and operators (`and`, `or`, `not`). ([I972a4](https://android-review.googlesource.com/#/q/I972a4c5e7bd2142fd1d0de379517d4c15f40cf3f), [b/460427288](https://issuetracker.google.com/issues/460427288))
+  * Updated `SubspaceModifier.semantics`, `SubspaceModifier.testTag`, `SubspaceSemanticsInfo`, `SubspaceSemanticsModifierNode` to use curated spatial semantics types. ([I80dea](https://android-review.googlesource.com/#/q/I80dea0efd484aeeca0564b423c771ed7633aaffe), [b/460427288](https://issuetracker.google.com/issues/460427288))
+  * Renamed `position` to `align` in `SpatialAlignment` and removed individual directional offset methods in favor of a unified `align` API. ([I9bdb2](https://android-review.googlesource.com/#/q/I9bdb2a69f416f28ad2390151a97e5ff7fee97c0a), [b/479805937](https://issuetracker.google.com/issues/479805937))
+  * Removed Deprecated Space Mode APIs from `SpatialConfiguration`. ([I1ef5c](https://android-review.googlesource.com/#/q/I1ef5cb8200ee2450136d5347b5f07a79bfb0c55e), [b/458712461](https://issuetracker.google.com/issues/458712461))
+  * Introduced `SubspaceSemanticsConfiguration`. This is a configuration of semantics properties for a Spatial node. This class safely exposes query methods for 3D semantics without leaking foundational 2D semantic capabilities to external consumers. ([Id025e](https://android-review.googlesource.com/#/q/Id025e31885a84d762a1b2d6c493c2892cf2138d6), [b/460427288](https://issuetracker.google.com/issues/460427288))
+  * Introduced `SubspaceSemanticsPropertyReceiver`: a dedicated wrapper that limits 3D layout container properties to valid fields (initially `testTag` and `contentDescription`). ([I5cf5c](https://android-review.googlesource.com/#/q/I5cf5cbf8dd1ca4a2d25b8c4e1fbf2b3a2bad8973), [b/460427288](https://issuetracker.google.com/issues/460427288))
+
+
+
+**Bug Fixes**
+
+  * Updated the Semantic modifier's `hasContentDescription` to default to substring matching. ([I08214](https://android-review.googlesource.com/#/q/I082143ce42e8ae505e08216d5e9013cbd5a0abd6))
+  * Added restricted `FollowBehavior.ExponentialDecay()` which provides a soft follow behavior guided by elastic physics. ([I7449c](https://android-review.googlesource.com/#/q/I7449c781d97e7438f01561ce7f7bbfceec769e80), [b/485639909](https://issuetracker.google.com/issues/485639909), [b/500493335](https://issuetracker.google.com/issues/500493335))
+
+
+
+Most APIs will be affected by this. Specifically, the `LocalSession` `CompositionLocal` and all `CompositionLocals` that are dependent on `LocalSession` (e.g. `LocalSpatialConfiguration`, `LocalSpatialCapabilities`, etc.) will now resolve to `null` or its non-XR versions before the `Session` is initialized.
+
+Once the `Session` is available, recomposition will be triggered with the correct state. ([I0cfa4](https://android-review.googlesource.com/#/q/I0cfa4a85834c911ef3d8fb76d5074c45fdefb0ca), [b/514712835](https://issuetracker.google.com/issues/514712835), [b/514712835](https://issuetracker.google.com/issues/514712835))
+
+  * Clarified documentation for `ComponentActivity.requestHomeSpace` and `ComponentActivity.requestFullSpace` regarding suspend behavior, cancellation, and concurrency. Updated tests to verify `CancellationException` propagation. ([I22f75](https://android-review.googlesource.com/#/q/I22f75c130494bb346e29bec67b1e23c63fffe3ac), [b/493289528](https://issuetracker.google.com/issues/493289528))
+
+
+
+### Version 1.0.0-alpha15
+
+June 17, 2026
+
+`androidx.xr.compose:compose:1.0.0-alpha15` and `androidx.xr.compose:compose-testing:1.0.0-alpha15` are released. Version 1.0.0-alpha15 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/618d7807a412756a751a7ad875c655a3bd51b9cc..6843009ab4a83565ff22c97fa2b27471b6c5c5d7/xr/compose).
+
+**API Changes**
+
+  * Deprecated `ResizePolicy` and the old resizable modifier, replacing it with a new `SubspaceModifier.resizable` overload and `SubspaceModifier.transformingResizable`. ([I9e4bc](https://android-review.googlesource.com/#/q/I9e4bc9d09bfe3403584598201b1ca06169553660))
+  * Updated `SpatialGltfModel` APIs: Added support for loading models from resources via `SpatialGltfModelSource`.`fromResource`. Renamed speed to `playbackSpeed` in `SpatialGltfModelAnimation` and added a resume() method. `SpatialGltfModelStatus`.Loaded and Loading are now objects. ([I523de](https://android-review.googlesource.com/#/q/I523de803df338f924f9d9f06da14daee6aca9d2b))
+  * Marked `rotateToLookAtUser` as an experimental API. ([I86c16](https://android-review.googlesource.com/#/q/I86c16750ea50dbb1ef9444b7f7f0511c7fb0281a))
+  * Moved and renamed protected variable `targetCurrentPose` to local variable `currentTargetPoseMeter`. ([Ia557c](https://android-review.googlesource.com/#/q/Ia557c44db6ce1a619b9fcde6ea38d64dfabcf9e2))
+  * Update `SpatialPanel` and `SpatialExternalSurface` kdocs to include where the object is rendered within its layout size ([I72104](https://android-review.googlesource.com/#/q/I72104f8e1043bf5f9331e9957595e754efc9a05f))
+  * Encapsulated `SpatialGltfModel` loading logic within `SpatialGltfModelState` and clarified failure behavior. ([Ibe98b](https://android-review.googlesource.com/#/q/Ibe98bb04b109f5b415ca129bf29e260191b30205))
+  * Clarified `depth` in `SubspaceModifer.size` kdocs ([I0f84f](https://android-review.googlesource.com/#/q/I0f84f1a3b39c1594e85afebf76d2872041e54dc3))
+
+
+
+### Version 1.0.0-alpha14
+
+May 19, 2026
+
+`androidx.xr.compose:compose:1.0.0-alpha14` and `androidx.xr.compose:compose-testing:1.0.0-alpha14` are released. Version 1.0.0-alpha14 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/27d0d096d63fb669b5bb4658ca4ce53ecb44e8d5..618d7807a412756a751a7ad875c655a3bd51b9cc/xr/compose).
+
+**API Changes**
+
+  * Introduced `transformingMovable` for default system-handled 3D movement and introduced a new overload for `movable` to handle custom movement behaviors. ([I50960](https://android-review.googlesource.com/#/q/I50960f49e700b093b0ab4a7b6986f68b9f2822fe)) 
+  * `SpatialGltfModel.fromData()` was removed. ([I4d083](https://android-review.googlesource.com/#/q/I4d0834d0a80879ca0e5a8b672451a0dd6f25bf6a))
+  * Added a new modifier node interface, `SubspaceMeasuredSizeAwareModifierNode`, which provides an `onRemeasured` callback after the measure pass. `SubspaceLayoutAwareModifierNode` now extends this new interface. The `onSizeChanged` modifier has been updated to use `onRemeasured`, ensuring the callback is triggered right after measurement, not after placement. ([Iafbae](https://android-review.googlesource.com/#/q/Iafbaee534960c2d6556ccc12aeccc86fc6836fcb))
+  * Updated `InteractionPolicy` to an `Interface` ([I0ff30](https://android-review.googlesource.com/#/q/I0ff30555d2835d29ce75cd7d729dd5b936bf6631))
+  * Updated Compose `compileSdk` to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492))
+  * Updated `Size` kdocs ([Iefa9a](https://android-review.googlesource.com/#/q/Iefa9aea16f0719e66dab6146de3790d106476896))
+
+
+
+### Version 1.0.0-alpha13
+
+May 06, 2026
+
+`androidx.xr.compose:compose:1.0.0-alpha13` and `androidx.xr.compose:compose-testing:1.0.0-alpha13` are released. Version 1.0.0-alpha13 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0121e6a2cc0e61e205e8b6dd6cbf762caa1dcb86..27d0d096d63fb669b5bb4658ca4ce53ecb44e8d5/xr/compose).
+
+**API Changes**
+
+  * The Orbiter API is pending additional changes, we recommend suppressing the deprecation notices for Orbiters and keeping an eye out for Orbiter changes in upcoming releases.
+  * Those using `SceneCoreEntity` to render glTFs should ensure that they are passing `session.scene.activitySpace` to the `parent` parameter of their `GltfModel.create` call to ensure that their glTFs will render.
+  * Adding `SpatialGltfModel` API to allow developers to add Gltfs to their Compose For XR apps. Developers can also query animations and nodes inside their Gltf models. ([I8b542](https://android-review.googlesource.com/#/q/I8b542678d5e78770f43b72d417853d5930600dbe), [b/495422586](https://issuetracker.google.com/issues/495422586))
+  * Changes `SceneCoreEntitySizeAdapter` from class to interface ([I5a784](https://android-review.googlesource.com/#/q/I5a784b24f9610a0009fe7b9c6a8040cf19462998), [b/475292310](https://issuetracker.google.com/issues/475292310))
+  * Renamed `SurfaceProtection` to `SpatialExternalSurfaceProtection`. Updated `SpatialExternalSurface` kdocs ([Ifad0a](https://android-review.googlesource.com/#/q/Ifad0a1acb4cadf408f6ecdfc3686523181704a85), [b/485231082](https://issuetracker.google.com/issues/485231082))
+  * Deprecate `currentWindowAdaptiveInfo` and introduce V2 of it ([I40ecf](https://android-review.googlesource.com/#/q/I40ecff8c40e9de56cc15c1787c2ba958bfe6ee79), [b/424442112](https://issuetracker.google.com/issues/424442112))
+  * The `resizable` modifier is now public and applicable to groups (e.g. `SpatialRow`). ([I2bcf6](https://android-review.googlesource.com/#/q/I2bcf61d71d78a18495ed0ae986c3aff086a440f6), [b/348483527](https://issuetracker.google.com/issues/348483527), [b/489753178](https://issuetracker.google.com/issues/489753178), [b/479530787](https://issuetracker.google.com/issues/479530787))
+  * The `movable` modifier is now public. This modifier work well, right now, for `SpatialPanels` and `SpatialExternalSurface`; however, the intention is to have these supported well for all `SubspaceComposables`. ([I9a3cd](https://android-review.googlesource.com/#/q/I9a3cd5a7989887a09282207629cd4a6dd39dfae7), [b/479530787](https://issuetracker.google.com/issues/479530787), [b/478935063](https://issuetracker.google.com/issues/478935063), [b/478935063](https://issuetracker.google.com/issues/478935063))
+  * `SpatialEnterTransition` and `SpatialExitTransition` marked as `@Immutable` ([If1710](https://android-review.googlesource.com/#/q/If17108c900a075d2daec0030172d1e806a6a6964), [b/487757837](https://issuetracker.google.com/issues/487757837))
+  * The `SpatialGltfModel` API is marked as restricted for this release pending additional testing. ([Ibf003](https://android-review.googlesource.com/#/q/Ibf003499d9a4c284ad6ad1abe3bff58e428ff87e), [b/466090694](https://issuetracker.google.com/issues/466090694))
+  * Renamed `DeviceTrackingMode.LAST_KNOWN` to `SPATIAL_LAST_KNOWN` (with a deprecated fallback), added `INERTIAL_LAST_KNOWN` for 3DoF tracking, and added `TRACKING_DEGRADED` to `TrackingState`. ([Ie661c](https://android-review.googlesource.com/#/q/Ie661cfd441521987dcebd7e1fd1e7cfc3ef5ab9d), [b/445466590](https://issuetracker.google.com/issues/445466590))
+  * Removing deprecated `SpatialLayoutSpacer` ([I7b36c](https://android-review.googlesource.com/#/q/I7b36c46ce60e5912b984395d66f55352caf1bee3))
+  * Removing deprecated padding API ([If1886](https://android-review.googlesource.com/#/q/If188618e37aa061f8bdb9f9cc5d8292e4e8db40e))
+  * Added `floatRange` to bias values. Removed default value for `LayoutDirection` ([I9d74e](https://android-review.googlesource.com/#/q/I9d74e5d03cdc41a6ac09a2e4a7a25d1fbfb76946))
+
+
+
+**Bug Fixes**
+
+  * Added code samples and KDoc documentation for `SpatialColumn`, `SpatialRow`, and `SpatialCurvedRow`. ([Iaf54f](https://android-review.googlesource.com/#/q/Iaf54f15ccd39fd6ac5f5ac3304f3eee968ec6a2a), [b/495777633](https://issuetracker.google.com/issues/495777633))
+
+
+
+### Version 1.0.0-alpha12
+
+March 25, 2026
+
+`androidx.xr.compose:compose:1.0.0-alpha12` and `androidx.xr.compose:compose-testing:1.0.0-alpha12` are released. Version 1.0.0-alpha12 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a34b6c25f6fbb862348d1696a3ac8806f66842c5..0121e6a2cc0e61e205e8b6dd6cbf762caa1dcb86/xr/compose).
+
+**API Changes**
+
+  * Add the `SpatialGltfModel` API and the `SpatialGltfModelAnimation` APIs to render glTFs and control animations. Changed `SpatialGltfModelState` to be `AutoCloseable`, it will now need to be closed to free its resources. ([I11fde](https://android-review.googlesource.com/#/q/I11fde1dc7fbb60dc4929bf7f66358085b73d9853), [b/466065486](https://issuetracker.google.com/issues/466065486), [b/481379924](https://issuetracker.google.com/issues/481379924)). However, the `SpatialGltfModel` API is marked as restricted for this release pending additional testing. ([Ibf003](https://android-review.googlesource.com/#/q/Ibf003499d9a4c284ad6ad1abe3bff58e428ff87e), [b/466090694](https://issuetracker.google.com/issues/466090694))
+  * Added a deprecated empty overload for `SubspaceModifier.rotate`. ([Idceb6](https://android-review.googlesource.com/#/q/Idceb66c6c14ec3525cdbb777325cee010f23de06))
+  * Renamed `SpatialSmoothFeatheringEffect` function to `spatialSmoothFeatheringEffect` and moved it to a draw module. Updated `SpatialExternalSurface` default feathering value to null, which mimics the old ZeroFeatheringEffect functionality. ([I5fdaa](https://android-review.googlesource.com/#/q/I5fdaaf4c09671ad5443a7d51cf68307548547b91), [b/460426800](https://issuetracker.google.com/issues/460426800))
+  * Removed `onPointSourceParamsAvailable`. A different audio spatialization API will be available in the near future. ([I86507](https://android-review.googlesource.com/#/q/I8650740c0468b4ce5a83f681d0b58cc91b48ad8a), [b/458513439](https://issuetracker.google.com/issues/458513439))
+  * Added RTL behavior for offset subspace modifiers. Also added `absoluteOffset` to ignore layout direction. ([I30e4b](https://android-review.googlesource.com/#/q/I30e4b9dbabd510c8505de14621bc7b9a838dbe6f), [b/474409165](https://issuetracker.google.com/issues/474409165))
+
+
+
+### Version 1.0.0-alpha11
+
+February 25, 2026
+
+`androidx.xr.compose:compose:1.0.0-alpha11` and `androidx.xr.compose:compose-testing:1.0.0-alpha11` are released. Version 1.0.0-alpha11 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0da43ebb1f8dc8fba8df8f2cf05d8164688aa0ab..a34b6c25f6fbb862348d1696a3ac8806f66842c5/xr/compose).
+
+**New Features**
+
+  * Adding `SuperSampling` parameter to `SpatialExternalSurfaces` ([Icd4d1](https://android-review.googlesource.com/#/q/Icd4d18c137960ab4c84f03ce97e3ada0c7dc4cb6))
+
+
+
+**Known Issues**
+
+  * An issue with `SurfaceEntity` in SceneCore can cause apps to crash when creating instances of `SpatialExternalSurface`. This issue is resolved in `androidx.xr.scenecore:scenecore-*:1.0.0-alpha13`, `androidx.xr.compose:compose:1.0.0-alpha12`, and their subsequent releases. Affected apps should update to the latest versions.
+
+
+
+**API Changes**
+
+  * Subspace modifier padding changes for layout direction awareness. ([I53e25](https://android-review.googlesource.com/#/q/I53e25bced4273331204eac3910dd285c16b9c394))
+  * `SpatialCapabilities` is now sealed and cannot be extended. ([I07aef](https://android-review.googlesource.com/#/q/I07aef87e644421fb5ac63464d88b76a094c5215f))
+  * The `SpatialRow` and `SpatialColumn` APIs that accept a generic `SpatialAlignment` parameter are deprecated; instead, use the APIs that accept either `verticalAlignment` or `horizontalAlignment` for `SpatialRow` and `SpatialColumn`, respectively. ([Iec390](https://android-review.googlesource.com/#/q/Iec390d2f302fe756f7c112ff30e877f74c36589b))
+  * Combining overloading `SubspaceLayout` function APIs ([Idd30a](https://android-review.googlesource.com/#/q/Idd30a865bf5ff5249be94abae6b5ba2da847450c))
+  * Renamed `SubspaceModifier.lookAtUser` to `rotateToLookAtUser` and the `up` parameter to `upDirection`. ([Icafb8](https://android-review.googlesource.com/#/q/Icafb85196f75e75e8530eb658981f26141abb6e3))
+  * Making `SpatialRow` an inline function ([Ia2f20](https://android-review.googlesource.com/#/q/Ia2f20b8af183cf5064676fb597ed587cba240266))
+  * Making `SpatialColumn` an inline function ([I681be](https://android-review.googlesource.com/#/q/I681be0b9b5263f0a2b54eac21d54c81c502b02ce))
+  * Removed billboard API ([Ib76cd](https://android-review.googlesource.com/#/q/Ib76cd43fe8338322d20b062ef937538a8c7fd04d))
+
+
+
+### Version 1.0.0-alpha10
+
+January 28, 2026
+
+`androidx.xr.compose:compose:1.0.0-alpha10` and `androidx.xr.compose:compose-testing:1.0.0-alpha10` are released. Version 1.0.0-alpha10 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7e4042dc841f56cd0fc47060f4a1efbf76486ca2..0da43ebb1f8dc8fba8df8f2cf05d8164688aa0ab/xr/compose).
+
+**API Changes**
+
+  * Removing deprecated API - `ApplicationSubspace` ([Ia6596](https://android-review.googlesource.com/#/q/Ia6596f3badd4d09cc25cfd4006ad9ccf946b28c2), [b/468345186](https://issuetracker.google.com/issues/468345186))
+  * Updated `SpatialShape` to a sealed interface ([I7e3f5](https://android-review.googlesource.com/#/q/I7e3f54b3057ab2ce8d59c0e6de42eb9fa6166aa1), [b/460426800](https://issuetracker.google.com/issues/460426800))
+  * Removing Deprecated APIs in `SpatialAlignment`. ([Ib0b61](https://android-review.googlesource.com/#/q/Ib0b61182a03595362e8275dbee9b8a85da966970), [b/468011887](https://issuetracker.google.com/issues/468011887))
+  * Deprecating `SpatialLayoutSpacer` and introducing `SpatialSpacer`. ([I2ebf3](https://android-review.googlesource.com/#/q/I2ebf3c6229719e75b9832090197eaed37c772e23), [b/466071383](https://issuetracker.google.com/issues/466071383))
+  * Updated `UserSubspace` API to replace "lazy locking" terminology with "soft locking". ([I9ded1](https://android-review.googlesource.com/#/q/I9ded16a27b9b634d1e9b8698722db43ffbc8e3a9), [b/464035984](https://issuetracker.google.com/issues/464035984))
+
+
+
+### Version 1.0.0-alpha09
+
+December 03, 2025
+
+`androidx.xr.compose:compose:1.0.0-alpha09` and `androidx.xr.compose:compose-testing:1.0.0-alpha09` are released. Version 1.0.0-alpha09 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/91b842c20be0cfd3185e2953615ea38c4707bf34..7e4042dc841f56cd0fc47060f4a1efbf76486ca2/xr/compose).
+
+**API Changes**
+
+  * Adding `LookAtUser` and Billboard modifiers which allows content to always face the user. ([I49b99](https://android-review.googlesource.com/#/q/I49b995ac13d1a33c83da7b24bccc0e825da8e8bb))
+  * Adds the ability to set an `InteractionPolicy` to `SpatialExternalSurfaces` and `SpatialPanels`, allowing the detection of clicks and other 3D input events. ([Iae155](https://android-review.googlesource.com/#/q/Iae15522cfe9f52dece5adeb87696dc8fdffba6bb))
+  * Added size and `requiredSize` modifier overload with width, height, and depth as Dp values. ([I92f79](https://android-review.googlesource.com/#/q/I92f79139e762989340bbf53c7150d00466ea7d78))
+  * `ParentLayoutParamsModifier` interface now extends `DelegatableSubspaceNode`. ([I1a6d4](https://android-review.googlesource.com/#/q/I1a6d4ef5caa69dce5173b6d65a534bb333972ad4))
+  * `ApplicationSubspace` is deprecated in favor of the Subspace API. 
+    * Subspace API behavior is changed to only provide an application-wide subspace at the recommended pose and scale.
+    * `PlanarEmbeddedSubspace` API is introduced to provide embedded subspaces in 2D contexts. ([Id3343](https://android-review.googlesource.com/#/q/Id3343f593b0d32c447d5f51d4c75044928621216))
+  * Added `shouldAutoInvalidate` flag to `SubspaceModifier.Node` API. ([I93902](https://android-review.googlesource.com/#/q/I9390208186737d34d042ec1c7ae7ce6b270a064c))
+  * Added `required(Size|Width|Depth|Height)`In APIs that allow developers to constrain a `@SubspaceComposable`'s size to a specific range, disregarding the parent's incoming measurement constraints. ([Ifaa78](https://android-review.googlesource.com/#/q/Ifaa78911b26c5bc2eecfbb31ab5e8b531da42270))
+  * Added `SubspaceModifier.onSizeChanged` that provides a simple, focused callback for developers to react when a `@SubspaceComposable`'s size changes. ([I994f9](https://android-review.googlesource.com/#/q/I994f926cd7189e37ab37aac2a38430052922ec07))
+  * Removed the Volume API. The `SceneCoreEntity` API should be used instead of the Volume API. ([I4162b](https://android-review.googlesource.com/#/q/I4162b33bd22244d38e9593a658127a6aa5f2047a))
+  * Split `SubspaceLayoutModifierNode.requestRelayout` into `invalidateMeasurement/invalidatePlacement`. ([I14805](https://android-review.googlesource.com/#/q/I14805caba6baa1f4055aacc8c1c47015f8b14d78))
+  * Added the `SpatialGltfModel` API that allows developers to render glTFs in compose. ([Icc91f](https://android-review.googlesource.com/#/q/Icc91f672f13622c9c136d41bad9f9b09b055b541))
+  * Introduced the `SpatialGltfModel` composable API for easily rendering glTFs ([Iade67](https://android-review.googlesource.com/#/q/Iade67a7e07440f85c62779b6a75ce9be07f5754c))
+
+
+
+**Bug Fixes**
+
+  * Fixed a layout bug in `SceneCoreEntity`. It should now properly respect its constraints. ([I11bb8](https://android-review.googlesource.com/#/q/I11bb838de7fd357f09febfa63a743bf78aa78a2e))
+  * Lower jxr-compose modules to `Compile sdk = 34` ([I2d5db](https://android-review.googlesource.com/#/q/I2d5db3bfc2acd903fbd76d7fb677170aa3de84ee))
+
+
+
+### Version 1.0.0-alpha08
+
+October 22, 2025
+
+`androidx.xr.compose:compose:1.0.0-alpha08` and `androidx.xr.compose:compose-testing:1.0.0-alpha08` are released. Version 1.0.0-alpha08 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5e032601bca53b499bd4725e4cdb975643bc3c2a..91b842c20be0cfd3185e2953615ea38c4707bf34/xr/compose).
+
+**API Changes**
+
+  * Changed `ResizePolicy` to accept `onResizeStart`, `onResizeUpdate`, and `onResizeEnd`. ([I7e21f](https://android-review.googlesource.com/#/q/I7e21f8ed412b2f46fd8d6f3ddd1f3a67cd8ea54a))
+
+
+
+**Bug Fixes**
+
+  * Prevent crash when destroying an Activity with a Subspace. ([I595a1](https://android-review.googlesource.com/#/q/I595a1aee4a52f322c36c98625d689b38d8017e3f))
+
+
+
+### Version 1.0.0-alpha07
+
+September 24, 2025
+
+`androidx.xr.compose:compose:1.0.0-alpha07` and `androidx.xr.compose:compose-testing:1.0.0-alpha07` are released. Version 1.0.0-alpha07 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e21507177b82f0dd17c8323b7362ac89fede28ce..5e032601bca53b499bd4725e4cdb975643bc3c2a/xr/compose).
+
+**API Changes**
+
+  * Improved KDocs for `SpatialMainPanel`. ([I27b70](https://android-review.googlesource.com/#/q/I27b70fac09898875d52441edfab06cf14137fcd7), [b/444467891](https://issuetracker.google.com/issues/444467891))
+  * Introduced `SpatialArrangement` for arranging children along the main axis in 3D layouts like `SpatialRow` and `SpatialColumn`. This new API provides familiar arrangement options from 2D Compose, including `Start`, `End`, `Center`, `SpaceBetween`, `SpaceAround`, and `SpaceEvenly`, with full support for both LTR and RTL layout directions. ([I7db38](https://android-review.googlesource.com/#/q/I7db38a094fa3fb7d5920e3a17d14e19f4d9eb38d), [b/436289959](https://issuetracker.google.com/issues/436289959))
+  * Added a base interface for `SubspaceModifier.Node` to improve type safety and usability of extension interfaces; such as 
+    * `CompositionLocalConsumerSubspaceModifierNode`
+    * `LayoutCoordinatesAwareModifierNode`
+    * `SubspaceLayoutModifierNode`
+    * `CoreEntityNode` (internal) ([Iede00](https://android-review.googlesource.com/#/q/Iede00f60a7bdf6cfec12a6d60c806431a119de58), [b/440599394](https://issuetracker.google.com/issues/440599394), [b/440599394](https://issuetracker.google.com/issues/440599394))
+  * Unrestrict `SpatialExternalSurface` ([I33315](https://android-review.googlesource.com/#/q/I33315c3dd13629c3e3695423412b821ad2f22f9e), [b/439646773](https://issuetracker.google.com/issues/439646773))
+  * Introduce `SubspaceModifier` to Subspace composables and replace constraints parameter with `SubspaceModifier` with size-related `SubspaceModifiers`. If `allowUnboundedSubspace` is true, Subspaces can still have unbounded constraints. ([Ib06e6](https://android-review.googlesource.com/#/q/Ib06e6d268a161e8e132766668df5a48c9659bd6b), [b/433331675](https://issuetracker.google.com/issues/433331675))
+  * Deprecating movable and resizable `SubspaceModifiers` now that `DragPolicy()` and `ResizePolicy()` are a part of the `SpatialPanel` and `SpatialExternalSurface` API ([I397bf](https://android-review.googlesource.com/#/q/I397bfdf44df081865b27b7aeb67e278ea3d025ac), [b/437924639](https://issuetracker.google.com/issues/437924639))
+  * Added support for `LayoutDirection` in spatial layouts. Composable using `SpatialAlignment` will now correctly position elements in both LTR and RTL contexts. ([I964bb](https://android-review.googlesource.com/#/q/I964bb0096283b2ab16b69d3b5d51453eb9c6523d), [b/436300273](https://issuetracker.google.com/issues/436300273))
+  * Add Resizable and Movable parameters to the `Panel` APIs to ensure that these behaviors can only be applied to supported containers. ([Id491c](https://android-review.googlesource.com/#/q/Id491cf18ef769997914f493dcfa8ce8bcd146c03))
+  * Added `sizeIn`, `widthIn`, `heightIn`, `depthIn` `SubspaceModifiers` that let you set exact minimum and maximum constraints for width, height and depth. ([I1af09](https://android-review.googlesource.com/#/q/I1af0960b4a616d3144773df278c6db2c8de27b2e), [b/433330761](https://issuetracker.google.com/issues/433330761))
+
+
+
+### Version 1.0.0-alpha06
+
+August 13, 2025
+
+`androidx.xr.compose:compose:1.0.0-alpha06` and `androidx.xr.compose:compose-testing:1.0.0-alpha06` are released. Version 1.0.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/102c5e13657cf0731ff209d71be7248a2aec274d..e21507177b82f0dd17c8323b7362ac89fede28ce/xr/compose).
+
+**Bug Fixes**
+
+  * Recreate the `ComposeXrOwnerLocals` when the lifecycle owner is destroyed. ([9123ce1](http://android.googlesource.com/platform/frameworks/support/+/9123ce11474ab7e5016dcbdaa094f1ae8f485607))
+
+
+
+### Version 1.0.0-alpha05
+
+July 30, 2025
+
+`androidx.xr.compose:compose:1.0.0-alpha05` and `androidx.xr.compose:compose-testing:1.0.0-alpha05` are released. Version 1.0.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b6c541571b9fb5471f965fc52612cb280713e5e4..102c5e13657cf0731ff209d71be7248a2aec274d/xr/compose).
+
+**New Features**
+
+  * Made `SubspaceComposable` annotation class public. ([Ic2a34](https://android-review.googlesource.com/#/q/Ic2a34011e1f648b62102ad117b673858d10c16fa), [b/399432430](https://issuetracker.google.com/issues/399432430))
+  * Two new `SpatialExternalSurface` Composables representing 180 and 360 degree spheres. ([I40ef2](https://android-review.googlesource.com/#/q/I40ef2b289ec1e956e2979e37ca17b7bdbf999f18), [b/391705799](https://issuetracker.google.com/issues/391705799))
+  * Added `SubspaceModifier.aspectRatio` ([Ide5ab](https://android-review.googlesource.com/#/q/Ide5abb4689db0ad03abe5de42f97357788f6c5a4), [b/399729509](https://issuetracker.google.com/issues/399729509), [b/414762147](https://issuetracker.google.com/issues/414762147))
+  * Added the `SceneCoreEntity` API to improve interoperability between `SceneCore` and Compose for XR. ([I50bb3](https://android-review.googlesource.com/#/q/I50bb3781c764042066f95c7c11f15be6456ad48b), [b/423020989](https://issuetracker.google.com/issues/423020989))
+  * Provided `GravityAlignedsubspace` API to support the unscaled And `GravityAligned` feature ([I07359](https://android-review.googlesource.com/#/q/I073595e109e3f3bbd88fef8872c4f7d0c654fe3c))
+
+
+
+**API Changes**
+
+  * `SpatialDialog()` will follow `SpatialDialogProperties.dismissOnBack` press configuration. ([Ib453b](https://android-review.googlesource.com/#/q/Ib453b669d962f0d1287249b497dbf6a9e65f84ce), [b/416797132](https://issuetracker.google.com/issues/416797132))
+  * Update `minimumPanelDimension` to a new default Dimension size of `Dimensions(0.1f, 0.1f, 0.1f)` due its representation in Meters. ([Ib852a](https://android-review.googlesource.com/#/q/Ib852a9a946e2fdc0168cea12d8e1f9039bdc31cc))
+  * Subspaces and Orbiters will now retain their internal state in home space and when the app is in the background. In home space mode, Subspace will still set up its scene in preparation for the switch to full space mode. ([I40317](https://android-review.googlesource.com/#/q/I403176b040bbeb62ea0c4ab098992a6232da1c1d), [b/416037751](https://issuetracker.google.com/issues/416037751))
+  * `SpatialDialogs` will now retain their state when the app is in the background. ([I6aa56](https://android-review.googlesource.com/#/q/I6aa56cb52092904678ad6bfea68e2002a09fe5ce))
+  * `ApplicationSubspace` will now inherit its recommended scale and position from the system. ([I4565f](https://android-review.googlesource.com/#/q/I4565f833ebba43fd643af2c5c0ae18f80a62fe0d), [b/418834194](https://issuetracker.google.com/issues/418834194))
+  * Added a better error message and trigger the error earlier when a `SubspaceComposable` is used in a non-`SubspaceComposable` context. ([Iee2ae](https://android-review.googlesource.com/#/q/Iee2ae9bb02fca1f14e52238871663ce709fa9bc4), [b/416484684](https://issuetracker.google.com/issues/416484684))
+  * Updating `ExperimentalSubspaceVolumeApi` from Warning to Error because warnings are often overlooked when misusing composable APIs. ([I427aa](https://android-review.googlesource.com/#/q/I427aad29f283d9df21cd6f2582f78bd3024f90f6), [b/424864286](https://issuetracker.google.com/issues/424864286))
+  * Subspace and `ApplicationSubspace` are now constrained by `recommendedContentBoxInFullSpace`. Previously it was constrained by `SpatialUser`'s Field of View. ([I41015](https://android-review.googlesource.com/#/q/I410151b4d76b8485e9e1ec276e0f32b9a2cd9680), [b/423074142](https://issuetracker.google.com/issues/423074142))
+  * Update `SpatialElevation` to use min size to no longer use hard coded size ([I2dbe6](https://android-review.googlesource.com/#/q/I2dbe6650fa3a8f4e0e023e5d742140767903de11), [b/427785338](https://issuetracker.google.com/issues/427785338))
+  * Update how we scrim the `SpatialAcitivityPanel` to update when a key variable is modified. ([I0f64d](https://android-review.googlesource.com/#/q/I0f64d7b9885283db7a5a320785e586f1afd73405), [b/427999029](https://issuetracker.google.com/issues/427999029))
+  * Remove `VolumeConstraints.Unbounded` in favor of setting the default constraint values to the equivalent. ([Ie24ec](https://android-review.googlesource.com/#/q/Ie24ec47de60979cdf5375325fb13bb8b2db36294), [b/407938414](https://issuetracker.google.com/issues/407938414))
+  * `SpatialFeatheringSize` is no longer public ([I1c15b](https://android-review.googlesource.com/#/q/I1c15bd5ec258ad5f45490dd786ded7f80f00ac8a), [b/399432430](https://issuetracker.google.com/issues/399432430))
+  * Renamed the XR `Placeable` to `SubspacePlaceable` to distinguish it from Compose's `Placeable`. ([I74874](https://android-review.googlesource.com/#/q/I748741bebe814381cc90cdace5f2dfcb4234572e))
+  * Removing Orbiter settings and adding `shouldRenderInNonSpatial` as a new param. In addition, removing class `EdgeOffset` and adding `orbiterOffsetType` as a new param to consolidate `Orbiter()` Functions. As well as renaming `OrbiterEdge` to `ContentEdge`. ([Iebf3d](https://android-review.googlesource.com/#/q/Iebf3d87a149f8a8b691758ca86da2b51ebcb480b))
+  * Renamed `Measurable` to `SubspaceMeasurable` to differentiate the type from Compose's `Measurable` type. ([I9726c](https://android-review.googlesource.com/#/q/I9726cb6ab1f7fe925296e5f0a4be383ddd1c8d19))
+  * Rename `MeasureResult` to `SubspaceMeasureResult` ([I9f34d](https://android-review.googlesource.com/#/q/I9f34d7542efa8941c050933ddf64e905cf830f52))
+  * Removed the `setSubspaceContent` API in favor of using Compose's `setContent` with a `Subspace` composable. ([Ifff4c](https://android-review.googlesource.com/#/q/Ifff4ccd5e05510e9d7966a5b9a3d3ea98926ff09), [b/421427391](https://issuetracker.google.com/issues/421427391), [b/421427391](https://issuetracker.google.com/issues/421427391))
+  * `MeasurePolicy` is renamed to `SubspaceMeasurePolicy`. ([I37a9b](https://android-review.googlesource.com/#/q/I37a9b4e5ff3fbaca78888adbd1a3ca6b2f202c86), [b/422553904](https://issuetracker.google.com/issues/422553904))
+  * Turn `SubspaceSemanticsInfo` into a sealed interface because we won't be able to add members without the defaults. ([I372f9](https://android-review.googlesource.com/#/q/I372f989d2fa779aa304d354bcd2d53a39d3a267c), [b/423704068](https://issuetracker.google.com/issues/423704068))
+  * Updated `SpatialExternalSurface` documentation, renamed `ContentSecurityLevel` to `SurfaceProtection` ([I3c460](https://android-review.googlesource.com/#/q/I3c4602fe56b8a88c8c1398354517c7ee04287a95), [b/420982808](https://issuetracker.google.com/issues/420982808))
+  * Provided overloaded constructor for movable modifier which allows anchoring. ([Ic0c70](https://android-review.googlesource.com/#/q/Ic0c70e86c0be734b7f8bdda14f5501a4a57cd5e4))
+  * Add more position provider for tooltips so now developers can control if the tooltip is placed above, below, left, or right of the anchor. Add an API that takes in a Shape for carets, so more custom shapes can be provided. ([Ie513c](https://android-review.googlesource.com/#/q/Ie513c947d881a2afc8dea1f09929dc58bacf29d5), [b/374766087](https://issuetracker.google.com/issues/374766087), [b/418854637](https://issuetracker.google.com/issues/418854637))
+  * Removed `CoreEntity` as a `PublishedApi` ([Ifee05](https://android-review.googlesource.com/#/q/Ifee0510597f39cad2b21f781c1965aa8f138b15a))
+
+
+
+**Bug Fixes**
+
+  * Fixed issue where `SpatialDialog` would flash when being rendered. ([Ife73c](https://android-review.googlesource.com/#/q/Ife73c018a39141e0d1d524709d4577b1372c09e3), [b/401619909](https://issuetracker.google.com/issues/401619909))
+  * Fixes issue where `SpatialDialog` could not scrim the Activity Panel. ([I8ca6c](https://android-review.googlesource.com/#/q/I8ca6cdec18e09dad6b93dcdc4c730e722c789594),[ b/367442109](https://issuetracker.google.com/issues/367442109))
+  * Fix XR dialog not showing some content ([I17cd5](https://android-review.googlesource.com/#/q/I17cd55c3a6d6dd5b36efb7b3f893b684701cd262), [b/418062437](https://issuetracker.google.com/issues/418062437))
+  * Fixed issue where `SpatialPopup` was being dismissed when clicked inside of the content. ([If262c](https://android-review.googlesource.com/#/q/If262c68747574f6cc986f23189ee2f67ad779af2), [b/417245722](https://issuetracker.google.com/issues/417245722))
+  * Fixed the issue where when chaining `resizable().movable()` the SpatialPanel failed to resize correctly to the new size. ([I02ee3](https://android-review.googlesource.com/#/q/I02ee3379dbc0632c22635f2511e6416593c66e8c), [b/422264230](https://issuetracker.google.com/issues/422264230))
+  * Fixed `topBar` overlapping with menu in `SpatialComposeVideoPlayer` ([Id33bc](https://android-review.googlesource.com/#/q/Id33bca8c50ddf46a49030de88b8367dd82c5e8a6), [b/427168167](https://issuetracker.google.com/issues/427168167))
+  * Fixed corner radius not rendering ([I975fe](https://android-review.googlesource.com/#/q/I975fe535847f49784982cc0483720df778f185dd), [b/428261830](https://issuetracker.google.com/issues/428261830))
+
+
+
+### Version 1.0.0-alpha04
+
+May 7, 2025
+
+`androidx.xr.compose:compose:1.0.0-alpha04` and `androidx.xr.compose:compose-testing:1.0.0-alpha04` are released. Version 1.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/043342a8810f3356110a0afce48c662e841c428f..b6c541571b9fb5471f965fc52612cb280713e5e4/xr/compose).
+
+**Note:** You'll need Android Emulator version 35.6.7 or later to use this version of the library.
+
+**New Features**
+
+  * Added `CompositionLocalConsumerSubspaceModifierNode` interface to allow custom `SubspaceModifier` types to access composition local values.
+  * Added a new `SpatialPanel` API that follows the compose `AndroidView` implementation style and deprecates the previous `ViewBased SpatialPanel`.
+  * Added `VolumeConstraints.Unbounded` companion object which represents unbounded constraints.
+  * Added `SubspaceModifier.onPointSourceParams` to allow a spatialized audio source.
+  * A public `ApplicationSubspace` has been added, offering optional `VolumeConstraints` to define a 3D area where the app can render spatial content. By default, if no constraints are specified, the Subspace will be bounded by the `SpatialUser`'s current field of view in width and height. Users can provide constraints to be used if the field of view cannot be determined. Otherwise, the default field of view width and height values are used.
+  * Added `SpatialExternalSurface`, which can be used to render stereoscopic content. `SpatialExternalSurface` is customizable with modifiers (except alpha), and an edge feathering effect.
+  * Added a new `pointerHoverIcon` Subspace Modifier that allows users to set the icon for the spatial pointer.
+
+
+
+**API Changes**
+
+  * Removed `RequiresApi(34)` restriction on all Jetpack XR packages. This restriction was redundant as Jetpack XR is currently only available on devices with API level 34+. ([Iae0f8](https://android-review.googlesource.com/#/q/Iae0f8f1c0de1d62609ed0dcad6cf2731756054dd))
+  * Projects released with Kotlin 2.0 require KGP 2.0.0 or newer to be consumed. ([Idb6b5](https://android-review.googlesource.com/#/q/Idb6b5d6ae1625ab870ffe74f9790ffabc82a63b4))
+  * Back handling will now work on spatial panels without embedded activities. For back handling to work you need to specify `android:enableOnBackInvokedCallback="true"` in the android manifest.
+  * Backhandling will now work on spatial dialogs. For backhandling to work you need to specify `android:enableOnBackInvokedCallback="true"` in the android manifest.
+  * Compose-based and View-based `SpatialPanel`s can now size themselves based on their contents.
+  * Developers may now set their own custom `SpatialElevationLevel` values and are not limited to the predefined levels.
+  * Orbiter elevation level may now be customized via the `elevation` parameter.
+  * Subspace can now be bounded by the `SpatialUser`'s field of view in width and height by default. If the field of view cannot be determined, the default field of view width and height values are used.
+  * Added new callbacks `onMoveStart` and `onMoveEnd` to the `Movable` modifier. The `onMoveStart` and `onMoveEnd` callbacks are called when the user starts and ends moving a subspace composable with the movable modifier.
+  * The `name` parameter has been removed from spatial APIs such as `SpatialRow` and `SpatialPanel`. For debugging spatial compose trees use `SubspaceModifier.testTag` instead.
+  * Removed an unsupported overload of `SpatialPopup` that only has `spatialElevationLevel` and `content`. Please use the interface that supports `onDimissRequest`.
+  * The `onPoseChange` callback from the Movable modifier has been removed. Use `onMove` instead.
+  * `SubspaceModifiers` will no longer apply their effects if they are detached or currently detaching.
+  * The existing `SpatialRow` API has been split into `SpatialRow` and `SpatialCurvedRow`. If previously using `SpatialRow`'s `curveRadius` parameter, use `SpatialCurvedRow` now instead which offers the same behavior.
+  * `MainPanel` and `ActivityPanel` no longer have title bars when run on a similarly recent system image.
+  * Alpha and scale modifiers are now stackable and will multiply their values for the final applied alpha or scale value.
+  * The `onPoseChange` callback from the Movable modifier has been optimized to perform smoother pose movement.
+  * The movable and resizable modifiers will now perform their callbacks on the main thread to ensure that state changes will trigger recomposition.
+  * Added state observation to the layout and measure phases to ensure that state changes in `SubspaceLayout` will trigger relayout.
+  * Optimized modifier chain updates to better reuse existing modifiers.
+
+
+
+**Bug Fixes**
+
+  * Stopped scrimming when a `SpatialDialog` is shown. ([Ic4594](https://android-review.googlesource.com/#/q/Ic4594fc7a668877b4c32652f2929962c3512cc64))
+  * Relayout requests made while modifier nodes are detached will now be ignored.
+  * Removed relayout phases triggered by Movable and Resizable modifiers.
+  * Fixed a crash in `MainPanel()` composable that occurred when either dimension was set to zero, either directly or during a layout calculation, e.g., a `SpatialRow/SpatialColumn` calculation. The panel will now be hidden instead. Note that this fix specifically addresses crashes during the layout phase; resizing the panel to zero via user interaction will be handled separately. The hidden panel lacks UI affordances.
+  * Fixed issue with `maintainAspectRatio` from the resizable modifier. The aspect ratio should be kept now.
+  * Fixed an issue with nested Subspaces where they would be incorrectly positioned for a single frame.
+  * Fixed issue where rounded corners were sometimes not applied when they should be.
+  * `NestedSubspaces` will no longer appear for one frame in the wrong location.
+
+
+
+### Version 1.0.0-alpha03
+
+February 26, 2025
+
+`androidx.xr.compose:compose:1.0.0-alpha03` and `androidx.xr.compose:compose-testing:1.0.0-alpha03` are released with no notable changes since the last alpha. Version 1.0.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a96c4899cab90642c7b1d722dc1f3b45f56e7b82..043342a8810f3356110a0afce48c662e841c428f/xr/compose)
+
+### Version 1.0.0-alpha02
+
+February 12, 2025
+
+`androidx.xr.compose:compose:1.0.0-alpha02` and `androidx.xr.compose:compose-testing:1.0.0-alpha02` are released. Version 1.0.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e2e2729abc59df52d40af80a8bbfe010c02455c6..a96c4899cab90642c7b1d722dc1f3b45f56e7b82/xr/compose).
+
+**New Features**
+
+  * The Activity Panel can now scrim its content when a Spatial Dialog is activated.
+  * The `Orbiter` API is now usable in `SubspaceComposable` contexts and will attach Orbiters to their nearest `SubspaceLayout`-based composable parent.
+  * Introduced `LayoutCoordinatesAwareModifierNode` to allow custom positioning-based modifiers.
+  * Added attach/detach lifecycle methods to `SubspaceModifier.Node`.
+  * Added `scaleWithDistance` to the movable modifier. When `scaleWithDistance` is enabled, the subspace element moved will grow or shrink. It will also maintain any explicit scale that it had before movement.
+
+
+
+**API Changes**
+
+  * Removed `SessionCallbackProvider` in favor of `SpatialCapabilities`.
+
+
+
+**Other changes**
+
+  * Reduced `minSDK` to 24. All Jetpack XR APIs continue to require API 34 at runtime.
+  * `Orbiter` `EdgeOffset.inner`, `EdgeOffset.outer`, and `EdgeOffset.overlap` constructors are no longer `@Composable` methods, which allows them to be used in non-composable contexts.
+  * Update Spatial Elevation Levels to match the latest UX spec.
+  * Implement `SubspaceSemanticsInfo` interface into `MeasurableLayout`.
+  * Renamed `SubspaceModifierElement` to `SubspaceModifierNodeElement`.
+
+
+
+**Bug fixes**
+
+  * Fixes to stabilize `SubspaceModifier` ordering. `SubspaceModifier` should behave more reliably. Offset, rotate, scale, movable, and resizable modifier should now be usable in any order.
+
+
+
+### Version 1.0.0-alpha01
+
+December 12, 2024
+
+`androidx.xr.compose:compose-*1.0.0-alpha01` is released.
+
+**Features of Initial Release**
+
+  * Initial developer release of Jetpack Compose for XR. Use familiar Compose concepts such as rows and columns to create spatial UI layouts in XR, whether you're porting an existing 2D app to XR or creating a new XR app from scratch. This library provides subspace and spatial composables: such as spatial panels and orbiters, which let you place your existing 2D Compose or Views-based UI in a spatial layout. It introduces the Volume subspace composable, which allows you to place SceneCore entities, such as 3D models, relative to your UI. Learn more in this [developer guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose):
+
+    * [`Subspace`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#Subspace\(kotlin.Function1\)): This composable can be placed anywhere within your app’s UI hierarchy, allowing you to maintain layouts for 2D and spatial UI without losing context between files. This makes it easier to share things like existing app architecture between XR and other form factors without needing to hoist state through your whole UI tree or re-architect your app.
+
+    * [SpatialPanel](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialPanel\(android.content.Intent,androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.String,androidx.xr.compose.subspace.layout.SpatialShape\)): A spatial panel is a subspace composable that lets you display app content–for example, you could display video playback, still images, or any other content in a spatial panel.
+
+    * [Orbiter](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#Orbiter\(androidx.xr.compose.spatial.OrbiterEdge.Horizontal,androidx.compose.ui.unit.Dp,androidx.compose.ui.Alignment.Horizontal,androidx.xr.compose.spatial.OrbiterSettings,androidx.xr.compose.subspace.layout.SpatialShape,kotlin.Function0\)): An orbiter is a spatial UI component. It's designed to be attached to a corresponding spatial panel, and contains navigation and contextual action items related to that spatial panel. For example, if you've created a spatial panel to display video content, you could add video playback controls inside an orbiter.
+
+    * [Volume](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#Volume\(androidx.xr.compose.subspace.layout.SubspaceModifier,kotlin.String,kotlin.Function1\)): Place SceneCore entities, such as 3D models, relative to your UI.
+
+  * Spatial Layout: You can create multiple spatial panels and place them within a Spatial Layout using [`SpatialRow`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialRow\(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,androidx.compose.ui.unit.Dp,kotlin.String,kotlin.Function1\)), [`SpatialColumn`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialColumn\(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.String,kotlin.Function1\)), [`SpatialBox`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/package-summary#SpatialBox\(androidx.xr.compose.subspace.layout.SubspaceModifier,androidx.xr.compose.subspace.layout.SpatialAlignment,kotlin.Boolean,kotlin.String,kotlin.Function1\)), and [`SpatialLayoutSpacer`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/SpatialLayoutSpacer.composable#SpatialLayoutSpacer\(androidx.xr.compose.subspace.layout.SubspaceModifier\)). Use `SubspaceModifier`s to customize your layout.
+
+  * Spatial UI components: These elements can be reused in your 2D UI, and their spatial attributes will only be visible when spatial capabilities are enabled.
+
+    * [`SpatialDialog`](https://developer.android.com/kotlin/androidx/xr/compose/spatial/package-summary#SpatialDialog\(kotlin.Function0,androidx.xr.compose.spatial.SpatialDialogProperties,kotlin.Function0\)): Panel will push slightly back in z-depth to display an elevated dialog. 
+    * [`SpatialPopUp`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialPopup\(androidx.xr.compose.spatial.SpatialElevationLevel,kotlin.Function1\)): Panel will push slightly back in z-depth to display an elevated popup
+    * [`SpatialElevation`](https://developer.android.com/reference/kotlin/androidx/xr/compose/spatial/package-summary#SpatialElevation\(androidx.xr.compose.spatial.SpatialElevationLevel,kotlin.Function0\)): `SpatialElevationLevel` can be set to add elevation.
+  * SpatialCapabilities: Spatial capabilities can change as users interact with your app or the system, or can even be changed by your app itself—for example, moving into Home Space or Full Space. To avoid issues, your app needs to check for [`LocalSpatialCapabilities.current`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/package-summary#LocalSpatialCapabilities\(\)) to determine which APIs are supported in the current environment. [`isSpatialUiEnabled`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/SpatialCapabilities#isSpatialUiEnabled\(\)): [Spatial UI elements](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose) (e.g. SpatialPanel) [`isContent3dEnabled`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/SpatialCapabilities#isContent3dEnabled\(\)): [3D objects](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models) [`isAppEnvironmentEnabled`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/SpatialCapabilities#isAppEnvironmentEnabled\(\)): The [environment](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-environments) [`isPassthroughControlEnabled`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/SpatialCapabilities#isPassthroughControlEnabled\(\)): Whether or not the application can control the passthrough state [`isSpatialAudioEnabled`](https://developer.android.com/reference/kotlin/androidx/xr/compose/platform/SpatialCapabilities#isSpatialAudioEnabled\(\)): [Spatial audio](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-spatial-audio)
+
+
+
+
+**Known Issues**
+
+  * Currently a minSDK of 30 is required to use Jetpack Compose for XR. As a workaround you may add the following manifest entry `<uses-sdk tools:overrideLibrary="androidx.xr.scenecore, androidx.xr.compose"/>` to be able to build and run with a minSDK of 23.
+  * Jetpack XR apps currently require requesting `android.permission.SCENE_UNDERSTANDING` permission in the AndroidManifest.
+  * When an app launches directly into Full Space using the `PROPERTY_XR_ACTIVITY_START_MODE` property in their manifest, Activities/Applications are initially opened in Home Space before transitioning into Full Space.
+  * glTFs in Volume Composables may initially flicker at the wrong location.
+  * Using a SpatialDialog in a panel that has been moved significantly will push the content in the wrong direction.
+
+
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-09-23 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-23 UTC."],[],[]] 

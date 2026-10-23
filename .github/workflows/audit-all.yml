@@ -1,0 +1,36 @@
+name: audit-all-corpus
+on:
+  schedule:
+    - cron: "30 10 * * *"   # 10:30 UTC — after every runner has had its window
+  workflow_dispatch: {}
+permissions:
+  contents: read
+concurrency:
+  group: monorepo-audit-all
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Audit all corpora (block/404/relative images/index)
+        run: |
+          fail=0
+          run_one() {
+            name="$1"; root="$2"; shift 2
+            echo "──── $name"
+            python3 shared/audit_corpus.py --name "$name" --root "$root" "$@" || fail=1
+          }
+          run_one ai-docs          ai-docs/docs
+          run_one canva-docs       canva-docs/docs
+          run_one cloudflare       cloudflare/docs
+          run_one comfy-docs       comfy-docs/docs
+          run_one copilotkit-docs  copilotkit-docs/docs
+          run_one fish-audio-docs  fish-audio-docs/docs
+          run_one sarvam-docs      sarvam-docs/docs
+          run_one gcpdocs          gcpdocs/docs --skip-index --skip-subdomains
+          exit $fail

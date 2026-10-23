@@ -1,0 +1,10 @@
+{
+  "url": "https://discuss.ai.google.dev/u/football_clips/",
+  "file": "_subdomains/discuss.ai.google.dev/u/football_clips.md",
+  "title": "Football_Clips - Google AI Developers Forum",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (117 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T19:29:27.700508+00:00",
+  "html_len": 417595,
+  "md_len": 822,
+  "depth": 2
+}

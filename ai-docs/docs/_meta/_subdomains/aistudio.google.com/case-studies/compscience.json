@@ -1,0 +1,10 @@
+{
+  "url": "https://aistudio.google.com/case-studies/compscience/",
+  "file": "_subdomains/aistudio.google.com/case-studies/compscience.md",
+  "title": "CompScience | Google AI Studio",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (86 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-15T19:34:25.087055+00:00",
+  "html_len": 349033,
+  "md_len": 5122,
+  "depth": 2
+}

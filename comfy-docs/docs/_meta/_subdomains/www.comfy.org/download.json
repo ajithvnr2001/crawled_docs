@@ -1,0 +1,10 @@
+{
+  "url": "https://www.comfy.org/download/",
+  "file": "_subdomains/www.comfy.org/download.md",
+  "title": "Download Comfy Desktop - Run AI on Your Hardware",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-17T10:51:48.955365+00:00",
+  "html_len": 78539,
+  "md_len": 4271,
+  "depth": 1
+}

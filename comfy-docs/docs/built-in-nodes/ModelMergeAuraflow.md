@@ -1,0 +1,124 @@
+---
+url: https://docs.comfy.org/built-in-nodes/ModelMergeAuraflow/
+title: ModelMergeAuraflow - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-17T10:48:35.064330+00:00
+---
+
+# ModelMergeAuraflow - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/ModelMergeAuraflow/
+
+Model Specific
+
+# ModelMergeAuraflow - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+The ModelMergeAuraflow node blends two Auraflow models together by assigning a separate blending weight to each part of the model
+
+Copy pageCopy page
+
+The ModelMergeAuraflow node blends two Auraflow models together by assigning a separate blending weight to each part of the model, from the initial layers down to the final output. Each weight controls how much of the second model is mixed into the first model at that specific component, giving precise control over the merge.
+
+## 
+
+​
+
+Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`model1`| The first model to be merged| MODEL| Yes| -  
+`model2`| The second model to be merged| MODEL| Yes| -  
+`init_x_linear.`| Blending weight for the initial linear transformation (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`positional_encoding`| Blending weight for positional encoding components (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`cond_seq_linear.`| Blending weight for conditional sequence linear layers (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`register_tokens`| Blending weight for token registration components (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`t_embedder.`| Blending weight for time embedding components (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`double_layers.0.`| Blending weight for double layer group 0 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`double_layers.1.`| Blending weight for double layer group 1 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`double_layers.2.`| Blending weight for double layer group 2 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`double_layers.3.`| Blending weight for double layer group 3 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.0.`| Blending weight for single layer 0 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.1.`| Blending weight for single layer 1 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.2.`| Blending weight for single layer 2 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.3.`| Blending weight for single layer 3 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.4.`| Blending weight for single layer 4 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.5.`| Blending weight for single layer 5 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.6.`| Blending weight for single layer 6 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.7.`| Blending weight for single layer 7 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.8.`| Blending weight for single layer 8 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.9.`| Blending weight for single layer 9 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.10.`| Blending weight for single layer 10 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.11.`| Blending weight for single layer 11 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.12.`| Blending weight for single layer 12 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.13.`| Blending weight for single layer 13 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.14.`| Blending weight for single layer 14 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.15.`| Blending weight for single layer 15 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.16.`| Blending weight for single layer 16 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.17.`| Blending weight for single layer 17 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.18.`| Blending weight for single layer 18 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.19.`| Blending weight for single layer 19 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.20.`| Blending weight for single layer 20 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.21.`| Blending weight for single layer 21 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.22.`| Blending weight for single layer 22 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.23.`| Blending weight for single layer 23 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.24.`| Blending weight for single layer 24 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.25.`| Blending weight for single layer 25 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.26.`| Blending weight for single layer 26 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.27.`| Blending weight for single layer 27 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.28.`| Blending weight for single layer 28 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.29.`| Blending weight for single layer 29 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.30.`| Blending weight for single layer 30 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`single_layers.31.`| Blending weight for single layer 31 (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`modF.`| Blending weight for modF components (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+`final_linear.`| Blending weight for final linear transformation (default: 1.0)| FLOAT| Yes| 0.0 - 1.0  
+  
+All blending weights are FLOAT values with a default of 1.0, a minimum of 0.0, a maximum of 1.0, and a step of 0.01.
+
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`model`| The merged model combining features from both input models according to the specified blending weights| MODEL  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/ModelMergeAuraflow/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `e9d3d81b2a3f81b082f9dc9f662f4e51df66f1f077e2899a1fea9a7061c4a97b`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/ModelMergeAuraflow.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/ModelMergeAuraflow)
+
+[VAELoader - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/VAELoader)[ModelMergeCosmos14B - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/ModelMergeCosmos14B)
+
+⌘I
+
+[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+Resources
+
+[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
+
+Products
+
+[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
+
+Company
+
+[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
+
+[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
+
+[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)

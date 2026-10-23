@@ -1,0 +1,7 @@
+{
+  "url": "https://ai.google.dev/gemma/docs/recurrentgemma/recurrentgemma_jax_finetune/",
+  "file": "gemma/docs/recurrentgemma/recurrentgemma_jax_finetune.md",
+  "title": "Fine-tuning RecurrentGemma using JAX and Flax",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-10-23T11:46:01.776918+00:00"
+}

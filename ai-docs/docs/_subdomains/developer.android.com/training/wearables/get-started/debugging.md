@@ -1,0 +1,80 @@
+---
+url: https://developer.android.com/training/wearables/get-started/debugging/
+title: Debug a Wear OS app \u00a0|\u00a0 Android Developers
+method: scrapling+scrapegraph
+fetched_at: 2026-10-15T19:37:04.073882+00:00
+---
+
+# Debug a Wear OS app  |  Android Developers
+
+> Source: https://developer.android.com/training/wearables/get-started/debugging/
+
+  * [ Android Developers ](https://developer.android.com/)
+  * [ Develop ](https://developer.android.com/develop)
+  * [ Devices ](https://developer.android.com/develop/devices)
+  * [ Wear OS ](https://developer.android.com/training/wearables)
+
+
+
+#  Debug a Wear OS app Stay organized with collections  Save and categorize content based on your preferences. 
+
+Debugging on Wear OS uses the same standard tools and processes as [debugging on other Android-powered form factors](https://developer.android.com/studio/debug).
+
+This page contains instructions and links to help you debug your Wear OS apps.
+
+## Debug targets
+
+You can debug your Wear OS app using either the [Android Emulator](https://developer.android.com/studio/run/emulator) or a physical device.
+
+### Android emulator
+
+The [Android Emulator](https://developer.android.com/studio/run/emulator) lets you test your app on various virtual watch configurations directly from Android Studio.
+
+  1. **Set up an emulator:** If you haven't already, follow the steps to [configure an emulator](https://developer.android.com/training/wearables/get-started/creating#configure-emulator).
+  2. **Select the emulator:** In the Android Studio toolbar, choose the Wear OS virtual device you want to run your app on from the target device drop-down menu.
+  3. **Run your app:** Click **Run** ![Run
+icon](https://developer.android.com/static/studio/images/buttons/toolbar-run.png). Android Studio installs the app on the emulator and starts it.
+
+
+
+For more details on emulator features specific to Wear OS, see [The Wear OS Emulator](https://developer.android.com/training/wearables/get-started/emulator).
+
+### Physical watch
+
+Debugging on a physical watch helps evaluate the real-world user experience and test hardware-specific features like sensors.
+
+**Note:** Debugging over Bluetooth is no longer supported as of Wear OS 3.
+
+#### Connect over Wi-Fi
+
+Wear OS supports wireless debugging, which lets you debug your app over a Wi-Fi network. To use wireless debugging, enable developer options and wireless debugging on the watch, pair your development computer using a pairing code, and then connect to the watch.
+
+For detailed, step-by-step instructions, see [Debug Wear OS over Wi-Fi](https://developer.android.com/training/wearables/get-started/debug-wifi).
+
+#### Connect over USB
+
+On supported watches that have a USB connection, such as a charging cradle that supports data transfer, you can connect using a physical USB cable.
+
+To connect over USB, follow the detailed instructions in [Run apps on a hardware device](https://developer.android.com/studio/run/device).
+
+## Additional debugging and setup
+
+While most debugging tools work the same as on other Android devices, some aspects are specific to Wear OS.
+
+### Install a specific OS version
+
+If your testing requires a specific version of Wear OS, you can flash a software image directly onto watches that support a USB data connection. For example, you can flash a [factory image](https://developers.google.com/android/images-watch) or a [full OTA image](https://developers.google.com/android/ota-watch) onto a Google Pixel Watch.
+
+### Test watch–phone connections
+
+If your app's functionality spans both a watch and a phone, and you are testing on an emulated watch, you can use [Android Studio's Wear OS pairing assistant](https://developer.android.com/training/wearables/get-started/connect-phone) to pair your test device with a physical or virtual phone.
+
+### Capture screenshots and videos
+
+Capturing screenshots and videos using the Android Studio interface works the same for Wear OS as it does for [other devices](https://developer.android.com/training/wearables/get-started/screenshots). However, if you use `adb` from the command line, the process can differ, as you may need to specify particular codecs. For more information, see [Capture Wear OS screenshots](https://developer.android.com/training/wearables/get-started/screenshots).
+
+Content and code samples on this page are subject to the licenses described in the [Content License](https://developer.android.com/license). Java and OpenJDK are trademarks or registered trademarks of Oracle and/or its affiliates.
+
+Last updated 2026-08-25 UTC.
+
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-25 UTC."],[],[]] 

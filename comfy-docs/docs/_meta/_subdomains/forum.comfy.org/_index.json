@@ -1,0 +1,10 @@
+{
+  "url": "https://forum.comfy.org/",
+  "file": "_subdomains/forum.comfy.org/_index.md",
+  "title": "ComfyUI",
+  "method": "crawl4ai+scrapegraph (scrapling: scrapling thin content (48 chars), fallback to crawl4ai)",
+  "fetched_at": "2026-10-17T10:53:09.367177+00:00",
+  "html_len": 460355,
+  "md_len": 6738,
+  "depth": 1
+}
