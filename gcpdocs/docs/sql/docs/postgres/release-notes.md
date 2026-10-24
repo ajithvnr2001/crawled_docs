@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/release-notes/
 title: Cloud SQL for PostgreSQL release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:51:09.685842+00:00
+fetched_at: 2026-10-24T11:10:22.427511+00:00
 ---
 
 # Cloud SQL for PostgreSQL release notes  |  Google Cloud Documentation
@@ -27,6 +27,23 @@ This page documents production updates to Cloud SQL for PostgreSQL. You can chec
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/cloud-sql-postgres-release-notes.xml) directly. 
+
+## October 23, 2026
+
+Security
+
+In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071), Google is updating Cloud SQL's managed components. No manual updates to the certificate store are required for Cloud SQL-managed instances. The fix is shipping in a new maintenance version that will be applied during [scheduled maintenance](https://docs.cloud.google.com/sql/docs/postgres/maintenance). You can also apply the fix by [performing self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance). An announcement will be published when the self-service maintenance fix is available.
+
+**What should I do?**
+
+  * If you use the Cloud SQL Auth Proxy, then upgrade the Cloud SQL Auth Proxy to [2.26.3 or later](https://docs.cloud.google.com/sql/docs/postgres/sql-proxy#install) and the Cloud SQL Proxy Operator to [1.8.4 or later](https://docs.cloud.google.com/sql/docs/postgres/connect-proxy-operator). If you run the standalone proxy binary, then also update the host's certificate authority (CA) certificates.
+
+  * If you use a Cloud SQL Language Connector, then update the language runtime and operating system CA certificates used with the [Cloud SQL Language Connector](https://docs.cloud.google.com/sql/docs/postgres/connect-connectors) (for example, Go 1.26.10 or 1.27.3 or later, certifi 2026.10.19 or later).
+
+  * If you're using the gcloud CLI to install the Cloud SQL Auth Proxy, then update the gcloud CLI to [590.0.1](https://docs.cloud.google.com/sdk/gcloud#download_and_install_the).
+
+
+
 
 ## October 16, 2026
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/transcoding/
 title: Transcoding of gzip-compressed files \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:09.409029+00:00
+fetched_at: 2026-10-24T11:10:29.669240+00:00
 ---
 
 # Transcoding of gzip-compressed files  |  Cloud Storage  |  Google Cloud Documentation
@@ -21,17 +21,15 @@ Send feedback
 
 #  Transcoding of gzip-compressed files Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page discusses the conversion of files to and from a _gzip_ -compressed state. The page includes an overview of transcoding, best practices for working with associated metadata, and compressed file behavior in Cloud Storage.
+You can reduce your at-rest storage costs by storing gzip-compressed versions of files in Cloud Storage. When a requester downloads an eligible object, Cloud Storage uses decompressive transcoding to decompress the object and serve the uncompressed file. You can control whether decompression occurs by setting object metadata and request headers.
 
-## Transcoding and gzip
+## About transcoding and gzip
 
 gzip is a form of data compression: it typically reduces the size of a file. This allows the file to be transferred faster and stored using less space than if it were not compressed. Compressing a file can reduce both cost and transfer time. _Transcoding_ , in Cloud Storage, is the automatic changing of a file's compression before it's served to a requester. When transcoding results in a file becoming gzip-compressed, it can be considered _compressive_ , whereas when the result is a file that is no longer gzip-compressed, it can be considered _decompressive_. Cloud Storage supports the decompressive form of transcoding.
 
 Cloud Storage does not support decompressive transcoding for Brotli-compressed objects.
 
 ## Decompressive transcoding
-
-Decompressive transcoding allows you to store compressed versions of files in Cloud Storage, which reduces at-rest storage costs, while still serving the file itself to the requester, without any compression. This is useful, for example, when serving files to customers.
 
 In order for decompressive transcoding to occur, an object must meet two criteria:
 
@@ -88,7 +86,7 @@ indicates that the uploaded object is a plain-text file. While there is no check
 
 indicates that the uploaded object is gzip-compressed. As with `Content-Type`, there is no check to guarantee the specified `Content-Encoding` is actually applied to the uploaded object, and incorrectly specifying an object's encoding could lead to unintended behavior on subsequent download requests.
 
-#### Good practices
+### Good practices
 
   * When uploading a gzip-compressed object, the recommended way to set your metadata is to specify both the `Content-Type` and `Content-Encoding`. For example, for a compressed, plain-text file:
         
@@ -109,7 +107,7 @@ However, in this case the only thing immediately known about the object is that 
 
 
 
-#### Discouraged practices
+### Discouraged practices
 
   * While it is possible to do so, a file that is gzip-compressed should not be uploaded with the compressed nature of the file omitted. For example, for a gzip-compressed plain-text file, you should avoid only setting `Content-Type: text/plain`. Doing so misrepresents the state of the object as it will be delivered to a requester.
 
@@ -118,7 +116,7 @@ However, in this case the only thing immediately known about the object is that 
 
 
 
-#### Incorrect practices
+### Incorrect practices
 
   * You **should not** set your metadata to redundantly report the compression of the object:
         
@@ -158,6 +156,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

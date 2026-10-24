@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/create-table/
 title: Create a table \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:59.673534+00:00
+fetched_at: 2026-10-24T10:00:10.295827+00:00
 ---
 
 # Create a table  |  Lakehouse  |  Google Cloud Documentation
@@ -41,7 +41,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 [Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=biglake.googleapis.com)
 
-  3. [Set up the Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/lakehouse-iceberg-rest-catalog) with the Apache Iceberg REST catalog endpoint.
+  3. [Set up the Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog) with the Apache Iceberg REST catalog endpoint.
 
 
 
@@ -115,7 +115,7 @@ Your table appears on the **Namespace details** page.
 
 Replace the following values:
 
-  * `NAMESPACE_NAME`: the name of your [namespace](https://docs.cloud.google.com/lakehouse/docs/lakehouse-iceberg-rest-catalog#create_a_namespace_or_schema).
+  * `NAMESPACE_NAME`: the name of your [namespace](https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog#create_a_namespace_or_schema).
   * `TABLE_NAME`: a name for your table.
 
 
@@ -137,7 +137,7 @@ To enable [read/write interoperability and table management](https://docs.cloud.
 
 Replace the following values:
 
-  * `SCHEMA_NAME`: the name of your [schema](https://docs.cloud.google.com/lakehouse/docs/lakehouse-iceberg-rest-catalog#create_a_namespace_or_schema).
+  * `SCHEMA_NAME`: the name of your [schema](https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog#create_a_namespace_or_schema).
   * `TABLE_NAME`: a name for your table.
 
 
@@ -222,6 +222,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

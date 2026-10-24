@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/concepts/
 title: Key concepts \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:16.729051+00:00
+fetched_at: 2026-10-24T08:50:59.612062+00:00
 ---
 
 # Key concepts  |  Agent Registry  |  Google Cloud Documentation

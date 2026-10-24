@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/migrate-dataproc-metastore/
 title: Migrate metadata from Dataproc Metastore to Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:34.085077+00:00
+fetched_at: 2026-10-24T10:00:13.138317+00:00
 ---
 
 # Migrate metadata from Dataproc Metastore to Lakehouse  |  Google Cloud Documentation
@@ -23,15 +23,15 @@ Send feedback
 
 #  Migrate metadata from Dataproc Metastore to Lakehouse Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains how to migrate metadata from a Dataproc Metastore service to an [Apache Iceberg REST catalog](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint) endpoint or a [Hive catalog](https://docs.cloud.google.com/lakehouse/docs/about-spark-hive-metastore) endpoint, built on borderless Lakehouse.
+You can migrate metadata from a Dataproc Metastore service to an [Apache Iceberg REST catalog endpoint](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint) or a [Hive catalog endpoint](https://docs.cloud.google.com/lakehouse/docs/about-spark-hive-metastore), built on borderless Lakehouse. This migration helps you modernize to open table formats and unify catalog access across multiple analytics engines.
 
-#### Use cases
+## Use cases
 
-  * **Serverless Modernization:** Transition from a conventional Hive Metastore (HMS) to an automatically scaling, fully managed catalog, which eliminates the operational overhead of metastore management.
-  * **Multi-Engine Collaboration:** Enable data sharing across engines—including Apache Spark, Apache Flink, Apache Hive, and BigQuery—so data scientists and analysts can work on the same tables simultaneously without file duplication.
-  * **Direct BigQuery Integration:** Query open-source tables directly from BigQuery with high-performance execution.
-  * **Unified Governance:** Consolidate metadata into a single source of truth for simplified data discovery and consistent policy enforcement.
-  * **Modern Table Formats:** Seamlessly adopt advanced open formats like Apache Iceberg while maintaining full compatibility with your existing Hive workloads.
+  * **Serverless modernization:** Transition from a conventional Hive Metastore (HMS) to an automatically scaling, managed catalog, which helps eliminate metastore management overhead.
+  * **Multi-engine collaboration:** Share data across engines—including Apache Spark, Apache Flink, Apache Hive, and BigQuery—so data scientists and analysts can work on the same tables simultaneously without file duplication.
+  * **Direct BigQuery integration:** Query open source tables directly from BigQuery.
+  * **Unified governance:** Consolidate metadata into a single source of truth for data discovery and consistent policy enforcement.
+  * **Modern table formats:** Adopt open formats such as Apache Iceberg while maintaining compatibility with your existing Hive workloads.
 
 
 
@@ -299,6 +299,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

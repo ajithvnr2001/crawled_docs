@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-1/upgrade-environments/
 title: Upgrade environments \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:07:50.009036+00:00
+fetched_at: 2026-10-24T08:32:56.387943+00:00
 ---
 
 # Upgrade environments  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -229,20 +229,20 @@ To run an upgrade check for your environment:
 
 ###  gcloud 
 
-To run an upgrade check for your environment, run the [`environments check-upgrade`](https://docs.cloud.google.com/sdk/gcloud/reference/composer/environments/check-upgrade) command with the Managed Airflow image version. that you want to upgrade to.
+To run an upgrade check for your environment, run the [`environments check-upgrade`](https://docs.cloud.google.com/sdk/gcloud/reference/composer/environments/check-upgrade) command with the Managed Airflow image version that you want to upgrade to:
     
     
     gcloud composer environments check-upgrade \
       ENVIRONMENT_NAME \
       --location LOCATION \
-      --image-version VERSION
+      --image-version IMAGE_VERSION
     
 
 Replace:
 
   * `ENVIRONMENT_NAME` with the name of the environment.
   * `LOCATION` with the region where the environment is located.
-  * `VERSION` with the new [Managed Airflow image version](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to upgrade to, in the `composer-a.b.c-airflow-x.y.z` format. You can use all [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases).
+  * `IMAGE_VERSION` with the [Managed Airflow image version](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to upgrade to, in the `composer-a.b.c-airflow-x.y.z` format. You can also use [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases). 
 
 
 
@@ -285,11 +285,11 @@ Specify the image version in the `imageVersion` field:
     
     
     {
-      "imageVersion": "VERSION"
+      "imageVersion": "IMAGE_VERSION"
     }
     
 
-Replace `VERSION` with the new version that you want to upgrade to, in the `composer-a.b.c-airflow-x.y.z` format. 
+Replace `IMAGE_VERSION` with the [Managed Airflow image version](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to upgrade to, in the `composer-a.b.c-airflow-x.y.z` format. You can also use [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases).
 
 ## Upgrade your environment
 
@@ -322,14 +322,14 @@ To upgrade your environment to a later version of Managed Airflow or Airflow:
     gcloud composer environments update \
       ENVIRONMENT_NAME \
       --location LOCATION \
-      --image-version VERSION
+      --image-version IMAGE_VERSION
     
 
 Replace:
 
   * `ENVIRONMENT_NAME` with the name of the environment.
   * `LOCATION` with the region where the environment is located.
-  * `VERSION` with the new [Managed Airflow image version](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to upgrade to, in the `composer-a.b.c-airflow-x.y.z` format. You can also use all [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases).
+  * `IMAGE_VERSION` with the [Managed Airflow image version](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to upgrade to, in the `composer-a.b.c-airflow-x.y.z` format. You can also use [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases). 
 
 
 
@@ -362,30 +362,30 @@ For example:
     // locations/us-central1/environments/example-environment?updateMask=
     // config.softwareConfig.imageVersion
     
-      {
-        "config": {
-          "softwareConfig": {
-            "imageVersion": "composer-1.20.12-airflow-1.10.15"
-          }
+    {
+      "config": {
+        "softwareConfig": {
+          "imageVersion": "composer-1.20.12-airflow-1.10.15"
         }
       }
+    }
     
 
 ###  Terraform 
 
 **Warning:** If you specify a different major version of Airflow or Managed Airflow, Terraform **deletes your environment and creates a new one**. You can upgrade only within minor versions of Airflow or Managed Airflow.
 
-The `image_version` field in the `config.software_config` block controls the Managed Airflow image of your environment. In this field, specify a new Managed Airflow image. 
+The `image_version` field in the `config.software_config` block controls the Managed Airflow image version of your environment. In this field, specify a new Managed Airflow image version in the `composer-a.b.c-airflow-x.y.z` format. 
     
     
-      resource "google_composer_environment" "example" {
+    resource "google_composer_environment" "example" {
       provider = google-beta
       name = "ENVIRONMENT_NAME"
       region = "LOCATION"
     
       config {
         software_config {
-          image_version = "VERSION"
+          image_version = "IMAGE_VERSION"
         }
       }
     }
@@ -394,7 +394,8 @@ The `image_version` field in the `config.software_config` block controls the Man
 Replace:
 
   * `ENVIRONMENT_NAME` with the name of the environment.
-  * `LOCATION` with the region where the environment is located. the new [Managed Airflow image version](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to upgrade to, in the `composer-a.b.c-airflow-x.y.z` format. You can also use all [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases).
+  * `LOCATION` with the region where the environment is located.
+  * `IMAGE_VERSION` with the [Managed Airflow image version](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to upgrade to, in the `composer-a.b.c-airflow-x.y.z` format. You can also use all [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases).
 
 
 
@@ -427,6 +428,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-22 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 

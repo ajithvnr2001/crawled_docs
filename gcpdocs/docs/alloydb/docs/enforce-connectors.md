@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/enforce-connectors/
 title: Control connector enforcement \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:09.882135+00:00
+fetched_at: 2026-10-24T11:25:50.026482+00:00
 ---
 
 # Control connector enforcement  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -67,14 +67,18 @@ Use the [`gcloud alloydb instances update`](https://docs.cloud.google.com/sdk/gc
 
 Replace the following:
 
-  * `INSTANCE_ID`: the ID of the instance that you are updating.
-  * `REGION_ID`: the region where the instance is placed.
-  * `CLUSTER_ID`: the ID of the cluster where the instance is placed.
-  * `PROJECT_ID`: the ID of the project where the cluster is placed.
+  * `INSTANCE_ID`: the ID of the instance that you're updating.
+
+  * `REGION_ID`: the region where the instance is located.
+
+  * `CLUSTER_ID`: the ID of the cluster where the instance is located.
+
+  * `PROJECT_ID`: the ID of the project where the cluster is located.
 
 
 
-If the command returns an error message that includes the phrase `invalid cluster state MAINTENANCE`, then the cluster is undergoing routine maintenance. This state temporarily disallows instance reconfiguration. Run the command again after the cluster returns to a `READY` state. To check the cluster's status, see [View cluster details](https://docs.cloud.google.com/alloydb/docs/cluster-view).
+
+If the command returns an error message that includes the phrase `invalid cluster state MAINTENANCE`, then the cluster is undergoing routine maintenance. This state temporarily disallows instance reconfiguration. After the cluster returns to a `READY` state, run the command again. To check the cluster's status, see [View cluster details](https://docs.cloud.google.com/alloydb/docs/cluster-view).
 
 ## Disable connector enforcement on an instance
 
@@ -107,17 +111,23 @@ Use the [`gcloud alloydb instances update`](https://docs.cloud.google.com/sdk/gc
 
 Replace the following:
 
-  * `INSTANCE_ID`: the ID of the instance that you are updating.
-  * `REGION_ID`: the region where the instance is placed.
-  * `CLUSTER_ID`: the ID of the cluster where the instance is placed.
-  * `PROJECT_ID`: the ID of the project where the cluster is placed.
+  * `INSTANCE_ID`: the ID of the instance that you're updating.
+
+  * `REGION_ID`: the region where the instance is located.
+
+  * `CLUSTER_ID`: the ID of the cluster where the instance is located.
+
+  * `PROJECT_ID`: the ID of the project where the cluster is located.
+
 
 
 
 ## What's next
 
   * [AlloyDB Auth Proxy overview](https://docs.cloud.google.com/alloydb/docs/auth-proxy/overview)
+
   * [AlloyDB Language Connectors overview](https://docs.cloud.google.com/alloydb/docs/language-connectors-overview)
+
 
 
 

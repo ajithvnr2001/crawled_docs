@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ruby/docs/reference/
 title: Ruby Cloud Client Libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:52:26.467488+00:00
+fetched_at: 2026-10-24T11:25:33.023627+00:00
 ---
 
 # Ruby Cloud Client Libraries  |  Google Cloud Documentation
@@ -471,6 +471,7 @@ Managed Service for Microsoft Active Directory |  [ google-cloud-managed_identit
   
 Media CDN |  [ google-cloud-network_services ](https://cloud.google.com/ruby/docs/reference/google-cloud-network_services/latest)   
 [ google-cloud-network_services-v1 ](https://cloud.google.com/ruby/docs/reference/google-cloud-network_services-v1/latest)   
+[ google-cloud-network_services-v1beta1 ](https://cloud.google.com/ruby/docs/reference/google-cloud-network_services-v1beta1/latest)   
   
 Media Translation |  [ google-cloud-media_translation ](https://cloud.google.com/ruby/docs/reference/google-cloud-media_translation/latest)   
 [ google-cloud-media_translation-v1beta1 ](https://cloud.google.com/ruby/docs/reference/google-cloud-media_translation-v1beta1/latest)   

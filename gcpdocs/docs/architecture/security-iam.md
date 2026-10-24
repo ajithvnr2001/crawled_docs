@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/security-iam/
 title: Security and IAM resources \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:19:22.238861+00:00
+fetched_at: 2026-10-24T08:35:54.860673+00:00
 ---
 
 # Security and IAM resources  |  Cloud Architecture Center  |  Google Cloud Documentation

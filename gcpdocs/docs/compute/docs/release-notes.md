@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/release-notes/
 title: Compute Engine release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:02:44.041121+00:00
+fetched_at: 2026-10-24T09:25:30.092016+00:00
 ---
 
 # Compute Engine release notes  |  Google Cloud Documentation
@@ -41,6 +41,10 @@ Feature
 You can view how a managed instance group (MIG) distributes its instances across zones and machine types, directly from the MIG's **Monitoring** tab in the Google Cloud console.
 
 For more information, see [Monitor instance distribution in MIGs](https://docs.cloud.google.com/compute/docs/instance-groups/monitor-instance-distribution).
+
+Feature
+
+**Generally available** : Resource-based committed use discounts (CUDs) are available for block storage resources like Google Cloud Hyperdisk Balanced and Google Cloud Hyperdisk Throughput Exapool capacity. You can purchase 1-year and 3-year block storage commitments for Hyperdisk Balanced and Hyperdisk Throughput Exapool capacity and receive discounted rates for the capacity units that you consume as part of applicable Google Cloud Hyperdisk Exapools. For more information, see [Block storage commitments](https://docs.cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts#block_storage_commitments) and [Purchase block storage commitments for Exapools](https://docs.cloud.google.com/compute/docs/committed-use-discounts/purchase-block-storage-commitments).
 
 ## October 19, 2026
 
@@ -2651,6 +2655,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-22 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 

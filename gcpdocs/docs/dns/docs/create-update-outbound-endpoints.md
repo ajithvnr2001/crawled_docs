@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/create-update-outbound-endpoints/
 title: Create and update Outbound Endpoints \u00a0|\u00a0 Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:42:30.130627+00:00
+fetched_at: 2026-10-24T11:25:29.319618+00:00
 ---
 
 # Create and update Outbound Endpoints  |  Cloud DNS  |  Google Cloud Documentation
@@ -78,7 +78,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 
 
-Make sure you have a VPC network with connectivity to your on-premises or external DNS name servers. In each region where you plan to deploy an Outbound Endpoint, your VPC network must have a regular and proxy-only subnet in the target region. For more information, see [Create and manage VPC networks](https://docs.cloud.google.com/vpc/docs/create-modify-vpc-networks).
+Make sure you have a VPC network with connectivity to your on-premises or external DNS name servers. In each region where you plan to deploy an Outbound Endpoint, your VPC network must have a regular subnet and an active regional proxy-only subnet (`--purpose=REGIONAL_MANAGED_PROXY` and `--role=ACTIVE` with a minimum size of `/26` or 64 addresses) in the target region. For more information, see [Create and manage VPC networks](https://docs.cloud.google.com/vpc/docs/create-modify-vpc-networks).
 
 Also ensure your on-premises network has a return route for the regional proxy-only subnet IP address range and configure on-premises firewall rules to allow inbound DNS queries (UDP and TCP port 53) from the regional proxy-only subnet IP address range.
 
@@ -132,7 +132,7 @@ Replace the following:
 
   * `ENDPOINT_NAME`: name of the Outbound Endpoint
   * `PROJECT_ID`: your project ID
-  * `VPC_NETWORK`: VPC network associated with the Outbound Endpoint, for example, `projects/PROJECT_ID/global/networks/NETWORK_NAME` or just `NETWORK_NAME`
+  * `VPC_NETWORK`: VPC network associated with the Outbound Endpoint, for example, `projects/PROJECT_ID/global/networks/VPC_NETWORK_NAME` or just `VPC_NETWORK_NAME`
   * `REGULAR_SUBNET`: the regular subnet from which the endpoint's internal listening IP address is allocated, for example, `projects/PROJECT_ID/regions/REGION/subnetworks/SUBNET_NAME` or just `SUBNET_NAME`
   * `REGION`: region where the endpoint is deployed
   * `IP_ADDRESS`: an available internal IPv4 address from the regular subnet's primary IP address range
@@ -287,6 +287,11 @@ Run the [`managedZones.patch`](https://docs.cloud.google.com/dns/docs/reference/
         "description": "DESCRIPTION",
         "visibility": "private",
         "forwardingConfig": {
+            "targetNameServers": [
+                  {
+                     "ipv4Address": "TARGET_IP_ADDRESS"
+                  }
+            ],
             "outboundEndpoints": [
                   {
                      "name": "projects/PROJECT_ID/locations/REGION_1/outboundEndpoints/ENDPOINT_NAME_1"
@@ -305,6 +310,7 @@ Replace the following:
   * `ZONE_NAME`: name of the forwarding zone to be updated
   * `DNS_NAME`: DNS name for the forwarding zone
   * `DESCRIPTION`: (optional) updated description of the forwarding zone
+  * `TARGET_IP_ADDRESS`: target IPv4 address (or `domainName: TARGET_FQDN`) of your external or on-premises DNS name server
   * `REGION_1` and `REGION_2`: regions where the endpoints are deployed (all listed Outbound Endpoints in `forwardingConfig` must belong to the same VPC network)
   * `ENDPOINT_NAME_1`: name of the first endpoint to be associated with the forwarding zone
   * `ENDPOINT_NAME_2`: name of the second endpoint to be associated with the forwarding zone
@@ -371,6 +377,9 @@ Run the [`policies.patch`](https://docs.cloud.google.com/dns/docs/reference/rest
     PATCH https://dns.googleapis.com/dns/v1beta2/projects/PROJECT_ID/policies/POLICY_NAME
     {
         "alternativeNameServerConfig": {
+            "targetNameServers": [
+                {"ipv4Address": "TARGET_IP_ADDRESS"}
+            ],
             "outboundEndpoints": [
                 {"name": "projects/PROJECT_ID/locations/REGION_1/outboundEndpoints/ENDPOINT_NAME_1"},
                 {"name": "projects/PROJECT_ID/locations/REGION_2/outboundEndpoints/ENDPOINT_NAME_2"}
@@ -383,6 +392,7 @@ Replace the following:
 
   * `PROJECT_ID`: your project ID
   * `POLICY_NAME`: name of the DNS server policy to be updated
+  * `TARGET_IP_ADDRESS`: target IPv4 address of your external or on-premises alternative name server
   * `REGION_1` and `REGION_2`: regions where the endpoints are deployed
   * `ENDPOINT_NAME_1`: name of the first endpoint to be associated with the DNS server policy
   * `ENDPOINT_NAME_2`: name of the second endpoint to be associated with the DNS server policy
@@ -399,7 +409,7 @@ To list or describe Outbound Endpoints in a region, follow these steps:
 
 [Go to Cloud DNS](https://console.cloud.google.com/net-services/dns/)
 
-  2. Go to the **Outbound endpoints** tab to view all Outbound Endpoints in your project, their regions, networks, subnets, IP addresses, and health status.
+  2. Go to the **Outbound endpoints** tab to view all Outbound Endpoints in your project, their regions, networks, subnets, IP addresses, and health status. Click the name of an Outbound Endpoint to view that specific endpoint's details, such as its description, regular subnet, endpoint IP address, and regional proxy-only subnet.
 
 
 
@@ -533,6 +543,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

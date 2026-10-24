@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatatransfer-delete-transfer/
 title: Delete a data transfer configuration \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:46:02.660230+00:00
+fetched_at: 2026-10-24T09:33:19.652144+00:00
 ---
 
 # Delete a data transfer configuration  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/pgaudit/disable-audit/
 title: Disable pgAudit \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:29.021470+00:00
+fetched_at: 2026-10-24T11:25:52.872946+00:00
 ---
 
 # Disable pgAudit  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,21 +21,15 @@ Send feedback
 
 #  Disable pgAudit Stay organized with collections  Save and categorize content based on your preferences. 
 
-To disable pgAudit on an AlloyDB instance, set the value of the `alloydb.enable_pgaudit` flag to `off`. You can change the value of the `alloydb.enable_pgaudit` flag through the Google Cloud console or the gcloud command.
+To disable pgAudit on an AlloyDB for PostgreSQL instance, set the value of the `alloydb.enable_pgaudit` flag to `off`. You can change the value of the `alloydb.enable_pgaudit` flag through the Google Cloud console or the Google Cloud CLI.
 
 To disable the `alloydb.enable_pgaudit` flag, use the standard instructions as described in [Configure an instance's database flags](https://docs.cloud.google.com/alloydb/docs/instance-configure-database-flags).
 
-When you disable the `alloydb.enable_pgaudit` flag, audit logging stops immediately. However, it saves the applied pgAudit settings such as the pgaudit.log parameter settings.
+When you disable the `alloydb.enable_pgaudit` flag, audit logging stops after the instance restarts. However, AlloyDB saves the applied pgAudit settings, such as the `pgaudit.log` parameter settings.
 
 **Note:** The instance automatically restarts when you update the `alloydb.enable_pgaudit` flag. 
 
-Additionally, run the `DROP EXTENSION` command by using a compatible `psql` client to remove the extension state.
-
-You disable an extension by reversing the procedure used to enable it.
-
-### gcloud
-
-To use the gcloud CLI, you can [install and initialize](https://docs.cloud.google.com/sdk/docs/install-sdk) the Google Cloud CLI, or you can use [Cloud Shell](https://docs.cloud.google.com/shell/docs/using-cloud-shell).
+Additionally, run the `DROP EXTENSION` command by using a compatible `psql` client to remove the extension state:
 
   1. Connect a `psql` client to the cluster's primary instance, as described in [Connect a psql client to an instance](https://docs.cloud.google.com/alloydb/docs/connect-psql). 
   2. At the `psql` command prompt, connect to the database that has the extension enabled and drop the extension: 
@@ -44,7 +38,9 @@ To use the gcloud CLI, you can [install and initialize](https://docs.cloud.googl
              DROP EXTENSION pgaudit;
              
 
-  3. Repeat the previous two steps to connect to other databases and create the extension in each one of them. 
+Replace `DB_NAME` with the name of the database.
+
+  3. Repeat the previous two steps to connect to other databases and drop the extension in each one of them. 
 
 
 

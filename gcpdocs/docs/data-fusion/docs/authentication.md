@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/authentication/
 title: Authenticate to Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:39.689512+00:00
+fetched_at: 2026-10-24T08:21:20.317510+00:00
 ---
 
 # Authenticate to Cloud Data Fusion  |  Google Cloud Documentation

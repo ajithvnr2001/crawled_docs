@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/v3/filters/
 title: Monitoring filters \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:57:34.920739+00:00
+fetched_at: 2026-10-24T11:25:23.209269+00:00
 ---
 
 # Monitoring filters  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Monitoring filters Stay organized with collections  Save and categorize content based on your preferences. 
 
-This guide describes how to configure filters when you use the [Monitoring API](https://docs.cloud.google.com/monitoring/api/ref_v3/rest). You use filters to specify monitored resources, metric types, group definitions, and time series. You can also use a filter to configure an alerting policy that monitors processes running on your systems. For information about those filters, see [Process-health filters](https://docs.cloud.google.com/monitoring/api/v3/process-health-filters).
+Filters in the [Cloud Monitoring API](https://docs.cloud.google.com/monitoring/api/ref_v3/rest) let you select specific time series, metric types, monitored resources, and resource groups in API requests, charts, and alerting policies. To count processes running on your virtual machines in an alerting policy or chart, use [process-health filters](https://docs.cloud.google.com/monitoring/api/v3/process-health-filters) instead.
 
 ## Before you begin
 
@@ -80,7 +80,7 @@ The following filter matches the group with the identifier `group-id`:
           
           resource.labels.zone = starts_with("europe-")
 
-  * `metric`: Matches a particular [ metric type](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors#MetricDescriptor) or [time series](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/TimeSeries) with with a particular label that matches a specific value.
+  * `metric`: Matches a particular [ metric type](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors#MetricDescriptor) or [time series](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/TimeSeries) with a particular label that matches a specific value.
 
     * The following filter matches a specific metric type:
           
@@ -122,12 +122,12 @@ A time series is a list of time-stamped data points of a metric type from a spec
 
 The filter specified to the `timeSeries.list` method must include a `metric` selector, and that selector must specify exactly one metric type:
 
-  * To return all time series for a particular metric type: 
+  * To return all time series for a particular metric type, use the following filter: 
         
         metric.type = "compute.googleapis.com/instance/cpu/usage_time"
         
 
-  * To return all time series for a specific group. The `group` selector only works with aligned time series data; see Group selector for more information:
+  * To return all time series for a specific group, use the following filter. The `group` selector only works with aligned time series data; see Group selector for more information:
         
         metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
         group.id = "2468013579"
@@ -139,13 +139,13 @@ The filter specified to the `timeSeries.list` method must include a `metric` sel
         metric.labels.instance_name = "my-instance-name"
         
 
-  * Return all time series from Compute Engine instances whose names start with `frontend-`, use the following filter: 
+  * To return all time series from Compute Engine instances whose names start with `frontend-`, use the following filter: 
         
         metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
         metric.labels.instance_name = starts_with("frontend-")
         
 
-  * Return all time series from Compute Engine instances whose names start with `gke-hipster` or `gke-nginx`, use the following filter: 
+  * To return all time series from Compute Engine instances whose names start with `gke-hipster` or `gke-nginx`, use the following filter: 
         
         metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
         metric.labels.instance_name = monitoring.regex.full_match("^gke-(hipster|nginx).*")
@@ -167,7 +167,7 @@ For example, to create a group that includes only Compute Engine virtual machine
     resource.type = "gce_instance" AND resource.labels.zone = starts_with("europe-")
     
 
-For information about API methods that you can use to delete, update, or list groups, see [`projects.groups`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.groups#Group) API reference page.
+For information about API methods that you can use to delete, update, or list groups, see the [`projects.groups`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.groups#Group) API reference page.
 
 ### Listing group members
 
@@ -176,7 +176,7 @@ For information about API methods that you can use to delete, update, or list gr
 
 The `name` parameter specifies a [scoping project of a metrics scope](https://docs.cloud.google.com/monitoring/settings#data-model) and a group defined in that project. If you don't specify a filter, then `projects.groups.members.list` returns a list of the membership of the group.
 
-You can use a filter to limit which group members you retrieve. If the filter includes a `project` selector, then the selectors value must specify a project whose metrics are visible to the scoping project. If an invalid value is specified, then the `project` selector is ignored.
+You can use a filter to limit which group members you retrieve. If the filter includes a `project` selector, then the selector's value must specify a project whose metrics are visible to the scoping project. If an invalid value is specified, then the `project` selector is ignored.
 
 For example, suppose that you create a group that includes all resources whose name contains `test`. To list only the group members that are Pub/Sub topics, use the following filter:
     
@@ -220,17 +220,17 @@ In the filtering examples, we use the following metric descriptor, monitored res
     
     
         # Metric descriptor:
-        { "name": "projects/my-project-id/metricDescriptors/compute.googleapis.com%2Finstance%2Fdisk%2Fread_bytes_count"
+        { "name": "projects/my-project-id/metricDescriptors/compute.googleapis.com%2Finstance%2Fdisk%2Fread_bytes_count",
           "type": "compute.googleapis.com/instance/disk/read_bytes_count",
           "labels": [ { "key": "device_name",
                         "description": "The name of the disk device." } ] }
     
         # Monitored resource descriptor:
-        {  "name": "monitoredResourceDescriptors/gce_instance"
+        {  "name": "monitoredResourceDescriptors/gce_instance",
            "type": "gce_instance",
            "labels": [
              { "key": "instance_id",
-               "description": "The instance ID provide by Google Compute Engine." },
+               "description": "The instance ID provided by Google Compute Engine." },
              { "key": "zone",
                "description": "The Google Cloud Platform zone hosting the instance."
              } ] }
@@ -325,7 +325,7 @@ Filters and their selectors are built from comparisons. Each **comparison** has 
 
 [KEY] is a name, such as `zone` or `instance_id`.
 
-[KEYSTRING] can be name, but if it contains special characters, then it must be quoted with quotation marks (`"`).
+[KEYSTRING] can be a name, but if it contains special characters, then it must be quoted with quotation marks (`"`).
 
   * **[OPERATOR]** : a comparison operator; one of the following:
         
@@ -361,7 +361,7 @@ The `monitoring.regex.full_match` filter takes a regular-expression string in [R
 
 
 
-You can use the following operators to group or modify comparisons. `OR` has higher precedence than `AND`. The operators must be written in upper case:
+You can use the following operators to group or modify comparisons. `OR` has higher precedence than `AND`. The operators must be written in uppercase:
     
     
     (...)        # grouping comparisons
@@ -417,7 +417,7 @@ A group selector limits the filter selection to items belonging to a single grou
     <group_selector> ::= group.id '=' <string>
     
 
-For example, the following filter can be used to retrieve a time seriess from each of the VM instances in a group:
+For example, the following filter can be used to retrieve a time series from each of the VM instances in a group:
     
     
     group.id = 12345 AND
@@ -438,7 +438,7 @@ A resource selector limits the filter selection to resources—or items associat
     
     <resource_type_expression> ::= resource.type '=' <string>
                                  | resource.type ':' <string>
-                                 | resource.type '=' starts_with '(' <string>')'
+                                 | resource.type '=' starts_with '(' <string> ')'
                                  | resource.type '=' ends_with '(' <string> ')'
     
     <r_label_comparison> ::= resource.labels.[KEY] '=' (<string> | <bool>)
@@ -450,7 +450,7 @@ A resource selector limits the filter selection to resources—or items associat
                                   | <r_label_comparison> {OR <r_label_comparison>}
     
 
-If you use more than one `<r_label_comparison>` in your selector, then enclose them all in parentheses for better readability. For example, the following filter could be used to define a group that includes all Compute Engine VM instances in the USA and Europe.
+If you use more than one `<r_label_comparison>` in your selector, then enclose them all in parentheses for better readability. For example, the following filter could be used to define a group that includes all Compute Engine VM instances in the USA and Europe:
     
     
     resource.type = "gce_instance" AND
@@ -461,7 +461,7 @@ If you use more than one `<r_label_comparison>` in your selector, then enclose t
 
 Resource selectors used to define group membership use extensions to the `<resource_selector>` syntax:
 
-  * You include filters based on the value of metadata system labels, `metadata.system_labels.[KEY]`, and metadata user labels, `metadata.user_labels.[KEYSTRING]`. We recommend quoting the keys for `metadata.user_labels` because they can contain special characters such as hyphens.
+  * You can include filters based on the value of metadata system labels, `metadata.system_labels.[KEY]`, and metadata user labels, `metadata.user_labels.[KEYSTRING]`. We recommend quoting the keys for `metadata.user_labels` because they can contain special characters such as hyphens.
 
 When a selector contains a metadata filter and a resource filter, you must combine them with `AND`; you can't use `OR`. For example, a chart with the following selector displays the CPU utilization for all VM instances with a machine type of `e2-medium` or `e2-micro`:
         
@@ -520,6 +520,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

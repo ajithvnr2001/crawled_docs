@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:26:42.943925+00:00
+fetched_at: 2026-10-24T10:00:06.953986+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -23,6 +23,14 @@ The following release notes cover the most recent changes over the last 60 days.
 You can also see and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) or you can programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table).
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gcp-release-notes.xml) directly. 
+
+## October 23, 2026
+
+**Cloud Monitoring**
+
+Fixed
+
+Ops Agent version 2.73.0 includes patches for a Go vulnerability involving system root certificates, [CVE-2026-111943](https://www.cve.org/CVERecord?id=CVE-2026-111943). For more information, see [Ops Agent 2.73.0 notes](https://github.com/GoogleCloudPlatform/ops-agent/releases/tag/2.73.0).
 
 ## October 22, 2026
 
@@ -461,6 +469,18 @@ This feature is generally available (GA). For more information, see:
   * [Configure overages](https://docs.cloud.google.com/gemini/enterprise/docs/configure-overages#configure-single-user-quota-limit)
 
 
+
+Announcement
+
+**Gemini Enterprise: Gemini 4 Argon becomes the default model for AlphaEvolve on October 26, 2026**
+
+On October 26, 2026, Gemini 4 Argon will replace Gemini 3.8 Flash as the default model for new AlphaEvolve experiments. AlphaEvolve uses the default model when you don't specify a model in the `models` field of `generationSettings`.
+
+From that date, new experiments that use the default model are billed at Gemini 4 Argon token prices instead of Gemini 3.8 Flash token prices. To keep using Gemini 3.8 Flash, specify `gemini-3.8-flash` in the `models` field.
+
+Experiments created before October 26, 2026 keep the model recorded in their configuration.
+
+For more information, see [Default model](https://docs.cloud.google.com/gemini/enterprise/docs/alphaevolve/reference-guide/api-reference#default-model).
 
 **Google Cloud Contact Center as a Service**
 
@@ -1313,6 +1333,20 @@ This issue has been resolved. You can upgrade your cluster control plane to the 
 
 
 
+**Looker**
+
+Announcement
+
+The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
+
+  * Latest version in the Regular channel: **Looker 26.20**
+
+
+
+The latest version in the Rapid and No Channel channels remains **Looker 26.20**.
+
+**Note:** This item was added on October 23, 2026.
+
 **Spanner**
 
 Feature
@@ -1376,6 +1410,10 @@ The following resource types are publicly available through the [ExportAssets](h
 
 
 **Cloud Service Mesh**
+
+Announcement
+
+In-cluster Cloud Service Mesh 1.28 is no longer supported. For more information and to view the earliest end-of-life dates for other versions, see [Supported versions](https://docs.cloud.google.com/service-mesh/docs/supported-features-in-cluster#supported_versions).
 
 Announcement
 
@@ -2233,6 +2271,19 @@ Administrators can make Anthropic models—Claude Opus 5.5 and Claude Sonnet 5.5
 This feature is generally available. For more information, see [Enable third-party models](https://docs.cloud.google.com/gemini/enterprise/docs/manage-web-app-features#enable-third-party-models).
 
 **Looker**
+
+Announcement
+
+The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
+
+  * Latest version in the Rapid channel: **Looker 26.20**
+  * Latest version in the No Channel channel: **Looker 26.20**
+
+
+
+The latest version in the Regular channel remains **Looker 26.18**.
+
+**Note:** This item was added on October 23, 2026.
 
 Feature
 
@@ -7952,6 +8003,10 @@ This feature is available in **Preview**.
 For more information, see [Zonal network endpoint groups overview](https://docs.cloud.google.com/load-balancing/docs/negs/zonal-neg-concepts).
 
 **Cloud Logging**
+
+Fixed
+
+Ops Agent version 2.73.0 includes patches for a Go vulnerability involving system root certificates, [CVE-2026-111943](https://www.cve.org/CVERecord?id=CVE-2026-111943). For more information, see [Ops Agent 2.73.0 notes](https://github.com/GoogleCloudPlatform/ops-agent/releases/tag/2.73.0).
 
 Deprecated
 
@@ -18998,99 +19053,10 @@ Fraud Defense Mobile SDK v18.10.0-beta01 is available for iOS. This version incl
 
 
 
-## August 24, 2026
-
-**BigQuery**
-
-Feature
-
-You can now [monitor](https://docs.cloud.google.com/bigquery/docs/create-data-agents#monitor_agents_and_conversations) the performance, adoption, latency, and costs of your data agents and their conversations by using Google Cloud Observability in BigQuery. This feature is in [Preview](https://cloud.google.com/products#product-launch-stages).
-
-**Cloud Key Management Service**
-
-Feature
-
-Cloud KMS supports deleting key rings in General Availability.
-
-For more information about deleting Cloud KMS resources, see [Delete Cloud KMS resources](https://docs.cloud.google.com/kms/docs/delete-kms-resources).
-
-**Gemini Enterprise**
-
-Feature
-
-**Gemini Enterprise: D &B Commercial Graph data store (Preview)**
-
-The D&B Commercial Graph data store is available in Public Preview in Gemini Enterprise. You can connect D&B Commercial Graph to search and import company data using natural language.
-
-For more information, see [Connect D&B Commercial Graph](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/d-and-b-commercial-graph).
-
-Feature
-
-**Gemini Enterprise: Cloud Monitoring observability for data connectors**
-
-Cloud Monitoring telemetry for Gemini Enterprise data connectors (also referred to as data stores) has been updated with support for new metric dimensions and a new latency metric:
-
-  * The `discoveryengine.googleapis.com/dataconnector/request_count` count metric has been updated to include three new dimensions: `tool_id` (the identifier of the connector tool invoked), `engine_id` (the Gemini Enterprise app identifier), and `response_code` (the gRPC response status). The existing `status` dimension remains supported.
-  * A new latency metric, `discoveryengine.googleapis.com/dataconnector/request_latencies` (Beta), is available to monitor the distribution of tool invocation latency in milliseconds. It includes the dimensions `status`, `response_code`, `tool_id`, and `engine_id`.
-
-
-
-For more information, see [Access metrics](https://docs.cloud.google.com/gemini/enterprise/docs/access-metrics).
-
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**GLM 5.2 is available in Public Preview**
-
-GLM 5.2 from Z.ai is available as a fully managed model (MaaS) in Model Garden. The model targets long-horizon agentic and coding tasks and supports a 1M-token context window.
-
-For more information, see [GLM 5.2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/zaiorg/glm-52).
-
-**Google Cloud VMware Engine**
-
-Announcement
-
-**VMware component updates:** The VMware Engine operations team is updating vCenter Server and ESXi to version 8.0 Update 3k to address security vulnerabilities described in Broadcom Security Advisory [VMSA-2026-0006](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/38017). For details about the update and schedule, see the [Latest service announcements](https://docs.cloud.google.com/vmware-engine/docs/service-announcements#2026-08-24).
-
-**Google SecOps**
-
-Feature
-
-**Unroll Processor for Data Processing Pipelines**
-
-Google SecOps data processing pipelines now support the **Unroll processor** (event breaking). This processor allows you to split log entries containing arrays or slices of events into multiple individual log events prior to parsing and ingestion.
-
-Key details:
-
-  * **Event Breaking Capability:** Automatically expands log arrays into discrete log events.
-  * **Pre-parsing Requirement:** The Unroll processor requires structured data inputs. Raw string payloads must first be parsed using a Transform processor (e.g., `set(body, ParseJSON(body))`) positioned prior to the Unroll processor in the pipeline execution sequence.
-
-
-
-For details on configuring data processing pipelines and processors, see [Set up and manage data processing pipelines](https://docs.cloud.google.com/chronicle/docs/ingestion/data-processing-pipeline#configure-processors).
-
-**Google SecOps SIEM**
-
-Feature
-
-**Unroll Processor for Data Processing Pipelines**
-
-Google SecOps data processing pipelines now support the **Unroll processor** (event breaking). This processor allows you to split log entries containing arrays or slices of events into multiple individual log events prior to parsing and ingestion.
-
-Key details:
-
-  * **Event Breaking Capability:** Automatically expands log arrays into discrete log events.
-  * **Pre-parsing Requirement:** The Unroll processor requires structured data inputs. Raw string payloads must first be parsed using a Transform processor (e.g., `set(body, ParseJSON(body))`) positioned prior to the Unroll processor in the pipeline execution sequence.
-
-
-
-For details on configuring data processing pipelines and processors, see [Set up and manage data processing pipelines](https://docs.cloud.google.com/chronicle/docs/ingestion/data-processing-pipeline#configure-processors).
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

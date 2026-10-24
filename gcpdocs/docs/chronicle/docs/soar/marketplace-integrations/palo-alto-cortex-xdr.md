@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/palo-alto-cortex-xdr/
 title: Integrate Palo Alto Cortex XDR with Google SecOps \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:42:29.687906+00:00
+fetched_at: 2026-10-24T08:32:59.401299+00:00
 ---
 
 # Integrate Palo Alto Cortex XDR with Google SecOps  |  Google Security Operations  |  Google Cloud Documentation

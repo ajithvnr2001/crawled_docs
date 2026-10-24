@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-admin-entities-export/
 title: Export a copy of all or a subset of entities \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:53:54.577697+00:00
+fetched_at: 2026-10-24T08:24:34.946915+00:00
 ---
 
 # Export a copy of all or a subset of entities  |  Firestore in Datastore mode  |  Google Cloud Documentation

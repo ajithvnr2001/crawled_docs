@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/security-privacy-compliance/
 title: Security, privacy, risk, and compliance for AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:38.643499+00:00
+fetched_at: 2026-10-24T11:25:52.788804+00:00
 ---
 
 # Security, privacy, risk, and compliance for AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Security, privacy, risk, and compliance for AlloyDB for PostgreSQL Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document provides an overview of various controls that support the security of AlloyDB for PostgreSQL on Google Cloud and links to further information on how to configure the controls. Security controls such as network security options, policies, and access management can also help you address your business risks and meet the privacy and regulatory requirements that apply to your business.
+To protect your AlloyDB for PostgreSQL workloads on Google Cloud, address business risks, and help meet privacy and regulatory compliance requirements, you can configure network security controls, organization policies, encryption, and identity and access management.
 
-The security, privacy, risk, and compliance for AlloyDB for PostgreSQL use a [shared responsibility](https://docs.cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate) model. For example, Google secures the infrastructure that AlloyDB for PostgreSQL and other Google Cloud services run on, and provides you with the capabilities that help you manage access to your services and resources. For more information about how we secure the infrastructure, see the [Google infrastructure security design overview](https://docs.cloud.google.com/docs/security/infrastructure/design).
+The security, privacy, risk, and compliance for AlloyDB use a [shared responsibility](https://docs.cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate) model. For example, Google secures the infrastructure that AlloyDB and other Google Cloud services run on, and provides you with the capabilities that help you manage access to your services and resources. For more information about how Google secures the infrastructure, see the [Google infrastructure security design overview](https://docs.cloud.google.com/docs/security/infrastructure/design).
 
 ## AlloyDB architecture
 
@@ -40,7 +40,7 @@ The components include the following:
 
 
 
-For information about the AlloyDB endpoint, see [AlloyDB API](https://docs.cloud.google.com/alloydb/docs/reference/rest). By default, this endpoint is not a publicly routable endpoint and can't receive inbound traffic from public networks. To enable AlloyDB instances to receive inbound traffic over public networks, see [Connect using public IP](https://docs.cloud.google.com/alloydb/docs/connect-public-ip).
+For information about the AlloyDB endpoint, see [AlloyDB API](https://docs.cloud.google.com/alloydb/docs/reference/rest). By default, this endpoint isn't a publicly routable endpoint and can't receive inbound traffic from public networks. To enable AlloyDB instances to receive inbound traffic over public networks, see [Connect using public IP](https://docs.cloud.google.com/alloydb/docs/connect-public-ip).
 
 For information about AlloyDB connectors, see Application connectivity.
 
@@ -71,11 +71,11 @@ For more information about setting up IAM, see [IAM overview](https://docs.cloud
 
 When clients use IAM database authentication to access AlloyDB, you can also use IAM to control their access to AlloyDB. For more information about the IAM roles that are required for AlloyDB, see [IAM roles and permissions for AlloyDB](https://docs.cloud.google.com/alloydb/docs/reference/iam-roles-permissions).
 
-If you use the Auth Proxy or the Language Connectors (as described in Application connectivity), you can use IAM to control which application workloads can connect to AlloyDB. For more information about using IAM with the Auth Proxy, see [Choose the IAM principal and prepare it for authorization](https://docs.cloud.google.com/alloydb/docs/auth-proxy/connect#iam-principal). To use automatic IAM authentication with the AlloyDB Language Connectors, see [Manage IAM authentication](https://docs.cloud.google.com/alloydb/docs/manage-iam-authn).
+If you use the AlloyDB Auth Proxy or the AlloyDB Language Connectors (as described in Application connectivity), you can use IAM to control which application workloads can connect to AlloyDB. For more information about using IAM with the Auth Proxy, see [Choose the IAM principal and prepare it for authorization](https://docs.cloud.google.com/alloydb/docs/auth-proxy/connect#iam-principal). To use automatic IAM authentication with the Language Connectors, see [Manage IAM authentication](https://docs.cloud.google.com/alloydb/docs/database-users/manage-iam-auth).
 
 ## Default service accounts and service agents
 
-A [service account](https://docs.cloud.google.com/iam/docs/service-account-overview) is a special type of non-interactive Google Account intended to represent a non-human user that needs to authenticate and be authorized to access data in Google APIs. Because AlloyDB is a fully-managed service, Google manages your AlloyDB service account on your behalf. When you enable AlloyDB, an AlloyDB service account is created for your project (`service-PROJECT_NUMBER-gcp-sa-alloydb-iam.gserviceaccount.com`). AlloyDB resources such as the PostgreSQL server use this service account to run.
+A [service account](https://docs.cloud.google.com/iam/docs/service-account-overview) is a special type of non-interactive Google Account intended to represent a non-human user that needs to authenticate and be authorized to access data in Google APIs. Because AlloyDB is a fully managed service, Google manages your AlloyDB service agent on your behalf. When you enable AlloyDB, an AlloyDB service agent is created for your project (`service-PROJECT_NUMBER@gcp-sa-alloydb.iam.gserviceaccount.com`). AlloyDB resources such as the PostgreSQL server use this service agent to run.
 
 [Service agents](https://docs.cloud.google.com/iam/docs/service-account-types#service-agents) are the IAM roles and permissions that some Google Cloud services use so that they can access your resources and act on your behalf. The managed AlloyDB service account uses the IAM privileges of the [AlloyDB service agent](https://docs.cloud.google.com/iam/docs/service-agents).
 
@@ -84,25 +84,28 @@ A [service account](https://docs.cloud.google.com/iam/docs/service-account-overv
 The predefined organization policies that apply to AlloyDB define whether AlloyDB can use [customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/alloydb/docs/cmek) to encrypt your data. Configure AlloyDB to use CMEK if your regulatory obligations require you to have greater control over the keys used to encrypt AlloyDB data at rest. The policies include the following:
 
   * Restrict which services can create resources without CMEK (`constraints/gcp.restrictNonCmekServices`)
-  * Restrict which projects can supply Cloud KMS CryptoKeys for CMEK (`constraints/gcp.restrictCmekCryptoKeyProjects`)
+
+  * Restrict which projects can supply Cloud Key Management Service (Cloud KMS) CryptoKeys for CMEK (`constraints/gcp.restrictCmekCryptoKeyProjects`)
+
 
 
 
 For more information, see [Use predefined organization policies](https://docs.cloud.google.com/alloydb/docs/alloydb-predefined-constraints).
 
-You can use custom organization policies to configure restrictions on AlloyDB at a project, folder, or organization level. If you enable public IP addresses, we recommend that you configure a custom policy constraint to enforce who can use the public IP address. To refine your policies, you can add AlloyDB instance fields (for example, enable public IP address or enable outbound public IP address) to the policy. For more information, see [Use custom organization policies](https://docs.cloud.google.com/alloydb/docs/alloydb-custom-constraints).
+You can use custom organization policies to configure restrictions on AlloyDB at a project, folder, or organization level. If you enable public IP addresses, Google recommends that you configure a custom policy constraint to enforce who can use the public IP address. To refine your policies, you can add AlloyDB instance fields (for example, enable public IP address or enable outbound public IP address) to the policy. For more information, see [Use custom organization policies](https://docs.cloud.google.com/alloydb/docs/alloydb-custom-constraints).
 
 ## Network security
 
 By default, Google applies default protections to data in transit for all Google Cloud services, including AlloyDB instances that are running on Google Cloud. For more information about default network protections, see [Encryption in transit](https://docs.cloud.google.com/docs/security/encryption-in-transit).
 
-AlloyDB supports TLS 1.3 encryption for communication between the database instance and clients. AlloyDB automatically generates the server certificate for this connection. To use client certificates for mutual authentication, you must configure an AlloyDB Language Connector (which uses mTLS authentication) or the AlloyDB Auth Proxy.
+AlloyDB supports TLS 1.3 encryption for communication between the database instance and clients. AlloyDB automatically generates the server certificate for this connection. To use client certificates for mutual authentication, you must configure the AlloyDB Language Connectors (which use mTLS authentication) or the AlloyDB Auth Proxy.
 
 If required by your organization, you can configure additional security controls to further protect traffic on the Google Cloud network and traffic between the Google Cloud network and your corporate network. Consider the following:
 
-  * AlloyDB supports [VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview). VPC Service Controls let you control the movement of data in Google services and set up context-based perimeter security. For more information on setting up VPC Service Controls, see [Configure VPC Service Controls](https://docs.cloud.google.com/alloydb/docs/vpc-sc/configure-vpc-service-controls).
+  * AlloyDB supports [VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview). VPC Service Controls lets you control the movement of data in Google services and set up context-based perimeter security. For more information on setting up VPC Service Controls, see [Configure VPC Service Controls](https://docs.cloud.google.com/alloydb/docs/vpc-sc/configure-vpc-service-controls).
 
-    * If you enable public IP addresses, use AlloyDB Language Connectors and a custom organization policy to control who has access to AlloyDB instances.
+  * If you enable public IP addresses, use the AlloyDB Language Connectors and a custom organization policy to control who has access to AlloyDB instances.
+
   * In Google Cloud, consider [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) as your network topology. Shared VPC provides centralized network configuration management while maintaining separation of environments.
 
   * Use Cloud VPN or Cloud Interconnect to maximize security and reliability for the connection between your corporate network and Google Cloud. For more information, see [Choosing a Network Connectivity product](https://docs.cloud.google.com/network-connectivity/docs/how-to/choose-product).
@@ -116,7 +119,7 @@ For more information about network security best practices, see [Implement zero 
 
 You can secure the connection between applications and AlloyDB using the following methods:
 
-  * The [AlloyDB Auth Proxy](https://docs.cloud.google.com/alloydb/docs/auth-proxy/overview) or the [AlloyDB Language Connector](https://docs.cloud.google.com/alloydb/docs/language-connectors-overview), to configure a secure TCP tunnel to the AlloyDB instance.
+  * The [AlloyDB Auth Proxy](https://docs.cloud.google.com/alloydb/docs/auth-proxy/overview) or the [AlloyDB Language Connectors](https://docs.cloud.google.com/alloydb/docs/language-connectors-overview), to configure a secure TCP tunnel to the AlloyDB instance.
   * Database authentication.
   * [Serverless VPC Access](https://docs.cloud.google.com/vpc/docs/serverless-vpc-access) to connect AlloyDB directly with Cloud Run.
   * [Private Service Connect](https://docs.cloud.google.com/vpc/docs/private-service-connect) or [private services access](https://docs.cloud.google.com/alloydb/docs/about-private-services-access) to connect to an application in another VPC on Google Cloud using the AlloyDB private IP address. Use this method to keep traffic in Google Cloud. If you want to use Private Service Connect, you must configure Private Service Connect when you create the AlloyDB database cluster.
@@ -133,7 +136,7 @@ For more information about options for setting up connections to services withou
 
 AlloyDB provides the following authentication methods for database clients:
 
-  * Built-in database authentication using a username and password. Authorization is determined using `GRANT` or `REVOKE` statements. For more information, see [Manage AlloyDB user roles](https://docs.cloud.google.com/alloydb/docs/database-users/about).
+  * Built-in database authentication using a username and password. Authorization is determined using `GRANT` or `REVOKE` statements. For more information, see [Manage AlloyDB user roles](https://docs.cloud.google.com/alloydb/docs/database-users/manage-roles).
   * IAM authentication using IAM principals such as users and service accounts. The AlloyDB Language Connectors can automate the process for IAM authentication. For more information, see the [AlloyDB Language Connectors overview](https://docs.cloud.google.com/alloydb/docs/language-connectors-overview). IAM authentication has the following benefits: 
     * **Unified access control** : IAM centralizes access control across all Google Cloud resources, including databases. Unified access control means consistent policies and easier user and role management.
     * **Reduced credential management** : Users don't need separate database passwords. IAM authentication uses their existing Google Account credentials.
@@ -143,7 +146,7 @@ AlloyDB provides the following authentication methods for database clients:
 
 ### Connectors
 
-You can use the [AlloyDB Auth Proxy](https://docs.cloud.google.com/alloydb/docs/auth-proxy/overview) or an [AlloyDB Language Connector](https://docs.cloud.google.com/alloydb/docs/language-connectors-overview) to configure an encrypted connection to the database client. The AlloyDB Auth Proxy is a client-side proxy that transparently upgrades non-TLS connections to TLS 1.3 connections. The Language Connectors are client libraries that connect to a proxy server on the AlloyDB cluster. Both connectors use IAM to authorize the connection and protect the connection using mTLS. Optionally, you can configure passwordless authentication instead of IAM authentication.
+You can use the [AlloyDB Auth Proxy](https://docs.cloud.google.com/alloydb/docs/auth-proxy/overview) or the [AlloyDB Language Connectors](https://docs.cloud.google.com/alloydb/docs/language-connectors-overview) to configure an encrypted connection to the database client. The AlloyDB Auth Proxy is a client-side proxy that transparently upgrades non-TLS connections to TLS 1.3 connections. The Language Connectors are client libraries that connect to a proxy server on the AlloyDB cluster. Both connectors use IAM to authorize the connection and protect the connection using mTLS. Optionally, you can configure passwordless authentication instead of IAM authentication.
 
 If you use the Auth Proxy, review the [Best practices for using the AlloyDB Auth Proxy](https://docs.cloud.google.com/alloydb/docs/auth-proxy/best-practices).
 
@@ -151,15 +154,15 @@ If you use the Auth Proxy, review the [Best practices for using the AlloyDB Auth
 
 This section describes how AlloyDB protects your data and privacy of that data.
 
-AlloyDB encrypts your data that is stored in your cluster (for example, the instance name, instance configuration, table contents, row names, and custom functions) using [default encryption](https://docs.cloud.google.com/docs/security/encryption/default-encryption). This data can only be accessed by AlloyDB instances.
+AlloyDB encrypts your data that is stored in your cluster (for example, the instance name, instance configuration, table contents, row names, and custom functions) using [default encryption](https://docs.cloud.google.com/docs/security/encryption/default-encryption). Only AlloyDB instances can access this data.
 
-You can enable [customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/alloydb/docs/cmek) to encrypt your cluster data at rest. With CMEK, keys are stored in Cloud KMS as software-protected keys or hardware-protected keys (with Cloud HSM), but they are managed by you. To provision encryption keys automatically, you can enable [Cloud KMS Autokey](https://docs.cloud.google.com/kms/docs/autokey-overview). When you enable Autokey, a developer can request a key from Cloud KMS, and the service agent provisions a key that matches the developer's intent. With Cloud KMS Autokey, keys are available on demand, are consistent, and follow industry-standard practices.
+You can enable [customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/alloydb/docs/cmek) to encrypt your cluster data at rest. With CMEK, keys are stored in Cloud KMS as software-protected keys or hardware-protected keys (with Cloud HSM), but they are managed by you. To provision encryption keys automatically, you can enable [Cloud KMS Autokey](https://docs.cloud.google.com/kms/docs/autokey-overview). When you enable Cloud KMS Autokey, a developer can request a key from Cloud KMS, and the service agent provisions a key that matches the developer's intent. With Cloud KMS Autokey, keys are available on demand, are consistent, and follow industry-standard practices.
 
 In addition, AlloyDB supports [Cloud External Key Manager (Cloud EKM)](https://docs.cloud.google.com/alloydb/docs/cmek#ekm), which lets you store your keys in an external key manager outside of Google Cloud. If you are using Cloud EKM, [Key Access Justifications](https://docs.cloud.google.com/assured-workloads/key-access-justifications/docs/overview) adds a field to your Cloud EKM requests that lets you view the reason for each request. With select external key management partners, you can automatically approve or deny these requests, based on the justification.
 
 ### Where data is processed
 
-AlloyDB supports [data residency](https://cloud.google.com/terms/data-residency) for that data that is stored in your cluster. Data residency lets you choose the regions that you want your data to be stored in using the [Resource Location Restriction policy constraint](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations). You can use [Cloud Asset Inventory](https://docs.cloud.google.com/asset-inventory/docs/asset-inventory-overview) to verify the location of AlloyDB resources.
+AlloyDB supports [data residency](https://cloud.google.com/terms/data-residency) for the data that is stored in your cluster. Data residency lets you choose the regions that you want your data to be stored in using the [Resource Location Restriction policy constraint](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations). You can use [Cloud Asset Inventory](https://docs.cloud.google.com/asset-inventory/docs/asset-inventory-overview) to verify the location of AlloyDB resources.
 
 If you require data residency for data in use, you can configure Assured Workloads. For more information, see [Assured Workloads and data residency](https://docs.cloud.google.com/assured-workloads/docs/data-residency).
 
@@ -179,7 +182,7 @@ AlloyDB writes the following types of audit logs:
 
 
 
-For more information, see [AlloyDB audit logging](https://docs.cloud.google.com/alloydb/docs/audit-logging).
+For more information about audit logs in AlloyDB, see [AlloyDB audit logging](https://docs.cloud.google.com/alloydb/docs/audit-logging).
 
 In addition, to meet regulatory requirements, you can use the [pgAudit extension](https://docs.cloud.google.com/alloydb/docs/pgaudit/about) to enable an audit trail of database commands. pgAudit extension logs include details on what commands were performed, when the commands were performed, and who performed the commands.
 

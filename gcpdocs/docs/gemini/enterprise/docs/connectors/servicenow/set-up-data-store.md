@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/servicenow/set-up-data-store/
 title: Set up a ServiceNow data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:53:58.033677+00:00
+fetched_at: 2026-10-24T08:56:22.377661+00:00
 ---
 
 # Set up a ServiceNow data store  |  Gemini Enterprise  |  Google Cloud Documentation

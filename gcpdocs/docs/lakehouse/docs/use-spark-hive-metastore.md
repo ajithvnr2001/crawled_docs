@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/use-spark-hive-metastore/
 title: Set up Spark and Hive with the Lakehouse runtime catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:40.901098+00:00
+fetched_at: 2026-10-24T08:23:11.758715+00:00
 ---
 
 # Set up Spark and Hive with the Lakehouse runtime catalog  |  Google Cloud Documentation
@@ -34,7 +34,7 @@ The Lakehouse runtime catalog lets you run Apache Spark and Apache Hive workload
   4. Sign in to your Google Cloud account. If you're new to Google Cloud, [ create an account](https://console.cloud.google.com/freetrial) to evaluate how our products perform in real-world scenarios. New customers also get $300 in free credits to run, test, and deploy workloads. 
   5. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
 
-  6. Enable the Lakehouse, Managed Service for Apache Spark APIs, if any are not already enabled. 
+  6. Enable the BigLake, Managed Service for Apache Spark APIs, if any are not already enabled. 
 
 **Roles required to enable APIs**
 
@@ -44,7 +44,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
   7. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
 
-  8. Enable the Lakehouse, Managed Service for Apache Spark APIs, if any are not already enabled. 
+  8. Enable the BigLake, Managed Service for Apache Spark APIs, if any are not already enabled. 
 
 **Roles required to enable APIs**
 
@@ -91,7 +91,7 @@ To use the Lakehouse runtime catalog with Spark and Hive, you follow this genera
 
 To use the Lakehouse runtime catalog with Spark and Hive, you must first create a Hive catalog.
 
-A Lakehouse Hive catalog is a collection of Hive databases. Before you run Spark jobs, create a catalog to register it with Lakehouse Metastore. The catalog has a name and a Cloud Storage location where the Hive data resides.
+A Lakehouse Hive catalog is a collection of Hive databases. Before you run Spark jobs, create a catalog to register it with the Lakehouse runtime catalog. The catalog has a name and a Cloud Storage location where the Hive data resides.
 
 ###  Console 
 
@@ -517,6 +517,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

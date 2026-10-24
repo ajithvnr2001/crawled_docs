@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/call-session-metadata/
 title: Call session metadata \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:30.870432+00:00
+fetched_at: 2026-10-24T11:10:27.538670+00:00
 ---
 
 # Call session metadata  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Call session metadata Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document provides the schema of the **call session metadata** record — the JSON document UJET emits at the end of every voice call. UJET delivers the record to your CRM integration as the body of the session-end command and writes the record to your external-storage configuration as a `metadata.json` file. Each call produces exactly one record. The top-level `id` uniquely identifies each record. Use this schema to ingest records into downstream systems, validate received payloads, or map fields onto data-warehouse columns.
+This document provides the schema of the **call session metadata** record — the JSON document CCAI Platform emits at the end of every voice call. CCAI Platform delivers the record to your CRM integration as the body of the session-end command and writes the record to your external-storage configuration as a `metadata.json` file. Each call produces exactly one record. The top-level `id` uniquely identifies each record. Use this schema to ingest records into downstream systems, validate received payloads, or map fields onto data-warehouse columns.
 
 ## Schema root
 
@@ -29,20 +29,22 @@ The call session metadata record is a single JSON object that represents a voice
 
 **Primary key —`id` (integer)**
 
-The top-level `id` uniquely identifies the call session within your tenant. One record exists per call. All other top-level fields, arrays, and nested objects describe attributes of the call that this `id` identifies.
+The top-level `id` uniquely identifies the call session within your instance. One record exists per call. All other top-level fields, arrays, and nested objects describe attributes of the call that this `id` identifies.
 
 **Handler discriminator —`agent_info` (object, oneOf)**
 
-A single object whose shape varies depending on the call's last handler. The two variants are mutually exclusive — the record contains only one variant:
+A single object whose shape varies depending on the call's last handler. The two variants are mutually exclusive, and the key can also be absent altogether — so a record carries at most one of three cases:
 
-  * Human-agent variant — present if a human agent handled the call last. Carries `email`, `first_name`, `last_name`, and `agent_number` in addition to the shared `id`, `name`, and `avatar_url` fields.
+  * **Human-agent variant** — present when the call had a human agent and no virtual agent. Carries `email`, `first_name`, `last_name`, and `agent_number` in addition to the shared `id`, `name`, and `avatar_url` fields.
 
-  * Virtual-agent variant — present if a virtual agent handled the call last. Carries `va_alias` and omits `email`, `first_name`, `last_name`, and `agent_number`.
+  * **Virtual-agent variant** — present when the call had a virtual agent and no human agent. Carries `va_alias` and omits `email`, `first_name`, `last_name`, and `agent_number`.
+
+  * **Key absent** — the `agent_info` key is omitted in two cases: when the call had neither a human agent nor a virtual agent, and when it had both. A call carries both when a virtual agent is preserved across an escalation to a human agent, so a fully handled call can arrive with the key absent.
 
 
 
 
-To detect which variant a record carries, check for the presence of a variant-specific field — typically `agent_info.email` for the human-agent variant or `agent_info.va_alias` for the virtual-agent variant. For the full shape of each variant, see agent and virtual_agent.
+To detect which variant a record carries, first check whether the `agent_info` key is present at all, then check for a variant-specific field — typically `agent_info.email` for the human-agent variant or `agent_info.va_alias` for the virtual-agent variant. Don't infer the handler from `agent_info` alone; for a call that had both, read the human agent from `participants[]` and the virtual agent from `virtual_agent_handle_durations[]` or the `from_virtual_agent` and `to_virtual_agent` fields on `transfers[]` and `escalations[]`. For the full shape of each variant, see agent and virtual_agent.
 
 **Call-shape discriminators —`call_type`, `session_type`, `session_type_v2` (string)**
 
@@ -50,9 +52,9 @@ Three parallel views of the same underlying call type. They never disagree on wh
 
   * `call_type` uses the legacy enum vocabulary (for example, `Voice Inbound (App)`, `Voice Outbound`, or `Voice Internal`).
 
-  * `session_type` always returns the same string as `call_type`. UJET provides this field for backward compatibility with integrations that key on this field; treat it as a deprecated alias of `call_type`. See Versioning and deprecations.
+  * `session_type` always returns the same string as `call_type`. CCAI Platform provides this field for backward compatibility with integrations that key on this field; treat it as a deprecated alias of `call_type`. See Versioning and deprecations.
 
-  * `session_type_v2` uses the current enum vocabulary. This vocabulary extends the `call_type` vocabulary with finer-grained inbound distinctions — for example, `Voice Inbound (Mobile)` and `Voice Inbound (IVR using Mobile)` in place of the broader `Voice Inbound (App)` and `Voice Inbound (IVR using App)`. For call types that don't have a v2-specific value, `session_type_v2` returns the same string as `call_type`. New integrations should parse `session_type_v2`.
+  * `session_type_v2` uses the current enum vocabulary. This vocabulary extends the `call_type` vocabulary with finer-grained inbound distinctions — for example, `Voice Inbound (Mobile)` and `Voice Inbound (IVR via Mobile)` in place of the broader `Voice Inbound (App)` and `Voice Inbound (IVR via App)`. For call types that don't have a v2-specific value, `session_type_v2` returns the same string as `call_type`. New integrations should parse `session_type_v2`.
 
 
 
@@ -65,33 +67,48 @@ These properties capture the core information of the call:
 
   * `id` (integer): A unique identifier for each call session. This is the primary key that distinguishes one call from another.
 
-  * `call_uuid` (string or null): A unique identifier that correlates a call across origin and receiving tenants in dynamic call routing (DCR) interactions. Both legs of a DCR call share the same `call_uuid` value, allowing customers to bridge data between environments. The field is null or empty for any call that isn't a DCR interaction, and for calls that occurred before UJET added the field.
+  * `call_uuid` (string or null): A unique identifier that correlates a call across origin and receiving instances in dynamic call routing (DCR) interactions. Both legs of a DCR call share the same `call_uuid` value, allowing customers to bridge data between environments. The field is null or empty for any call that isn't a DCR interaction, and for calls that occurred before CCAI Platform added the field.
 
   * `lang` (string): The ISO 639 language code for the call (for example, "en" for English or "es" for Spanish). This code helps you perform language-specific analysis and reporting.
 
-  * `call_type` (string): The type of call, using the legacy type vocabulary. Values include "Voice Inbound (App)", "Voice Inbound (Web)", "Voice Inbound (IVR)", "Voice Inbound (IVR using App)", "Voice Inbound (API)", "Voice Inbound (Direct)", "Voice Inbound (Extension)", "Voice Scheduled (App)", "Voice Scheduled (Web)", "Voice Scheduled (API)", "Voice Callback", "Voice Callback (Web)", "Voice Outbound", "Voice Outbound (API)", "Voice Outbound (Direct)", "Voice Outbound (UCaaS)", "Voice Internal", "Voice Campaign (Acqueon)", "Voice Campaign (<your brand name>)", and "Agent Scheduled Call".
+  * `call_type` (string): The type of call, using the legacy type vocabulary. Values include "Voice Inbound (App)", "Voice Inbound (Web)", "Voice Inbound (IVR)", "Voice Inbound (IVR via App)", "Voice Inbound (API)", "Voice Inbound (Direct)", "Voice Inbound (Extension)", "Voice Scheduled (App)", "Voice Scheduled (Web)", "Voice Scheduled (API)", "Voice Callback", "Voice Callback (Web)", "Voice Outbound", "Voice Outbound (API)", "Voice Outbound (Direct)", "Voice Outbound (UCaaS)", "Voice Internal", "Voice Campaign (Acqueon)", "Voice Campaign (<your brand name>)", and "Agent Scheduled Call".
 
-  * `session_type` (string): A duplicate of `call_type` (same values) that UJET retains for backward compatibility. See Versioning and deprecations: Legacy duplicates.
+  * `session_type` (string): A duplicate of `call_type` (same values) that CCAI Platform retains for backward compatibility. See Versioning and deprecations: Legacy duplicates.
 
-  * `session_type_v2` (string): The type of call, using the current type vocabulary. It refines the `call_type` values with finer-grained inbound distinctions (for example, "Voice Inbound (Mobile)" and "Voice Inbound (IVR using Mobile)" in place of "Voice Inbound (App)" and "Voice Inbound (IVR using App)"). Values include "Voice Inbound (Mobile)", "Voice Inbound (Web)", "Voice Inbound (IVR)", "Voice Inbound (IVR using Mobile)", "Voice Inbound (API)", "Voice Inbound (Direct)", "Voice Inbound (Extension)", "Voice Scheduled (Mobile)", "Voice Scheduled (Web)", "Voice Scheduled (API)", "Voice Callback", "Voice Callback (Web)", "Voice Outbound", "Voice Outbound (API)", "Voice Outbound (Direct)", "Voice Outbound (UCaaS)", "Voice Internal", "Voice Campaign (Acqueon)", "Voice Campaign (<your brand name>)", and "Agent Scheduled Call".
+  * `session_type_v2` (string): The type of call, using the current type vocabulary. It refines the `call_type` values with finer-grained inbound distinctions (for example, "Voice Inbound (Mobile)" and "Voice Inbound (IVR via Mobile)" in place of "Voice Inbound (App)" and "Voice Inbound (IVR via App)"). Values include "Voice Inbound (Mobile)", "Voice Inbound (Web)", "Voice Inbound (IVR)", "Voice Inbound (IVR via Mobile)", "Voice Inbound (API)", "Voice Inbound (Direct)", "Voice Inbound (Extension)", "Voice Scheduled (Mobile)", "Voice Scheduled (Web)", "Voice Scheduled (API)", "Voice Callback", "Voice Callback (Web)", "Voice Outbound", "Voice Outbound (API)", "Voice Outbound (Direct)", "Voice Outbound (UCaaS)", "Voice Internal", "Voice Campaign (Acqueon)", "Voice Campaign (<your brand name>)", and "Agent Scheduled Call".
 
-  * `status` (string): The current status of the call. Possible values include "scheduled", "queued", "connected", "finished", "failed", and "deflected". This tracks the call's progression through its lifecycle.
+  * `status` (string): The status of the call, tracking its progression through the call lifecycle. Possible values, grouped by lifecycle phase:
 
-  * `created_at` (string, date-time): The precise timestamp when UJET created the call record.
+    * **Pre-connection** : `"scheduled"`, `"selecting"`, `"queued"`, `"assigned"`, `"connecting"`, `"switching"`, `"requeued"`, `"requeued_detection_missed"`.
+
+    * **Connected** : `"connected"`.
+
+    * **Virtual agent** : `"va_assigned"`, `"va_connected"`.
+
+    * **Campaign** : `"preview_pending"`, `"preview_ready"`, `"preview_waiting"`, `"predictive_waiting"`, `"progressive_waiting"`, `"campaign_dialing"`, `"campaign_connecting"`, `"campaign_connected"`.
+
+    * **Action-only** : `"action_only"`, `"action_only_finished"`.
+
+    * **Voicemail** : `"voicemail"`, `"voicemail_received"`, `"voicemail_read"`, `"voicemail_forwarded"`.
+
+    * **Terminal** : `"finished"`, `"failed"`, `"recovered"`, `"deflected"`.
+
+**Note:** `"recovered"` means a previously failed call has been retried and successfully completed.
+  * `created_at` (string, date-time): The precise timestamp when CCAI Platform created the call record.
 
   * `queued_at` (string, date-time, or null): The timestamp when the call entered the queue, or null if the call didn't enter the queue.
 
-  * `assigned_at` (string, date-time, or null): The timestamp when UJET assigned the call to an agent, or null if UJET didn't assign the call.
+  * `assigned_at` (string, date-time, or null): The timestamp when CCAI Platform assigned the call to an agent, or null if CCAI Platform didn't assign the call.
 
   * `connected_at` (string, date-time, or null): The timestamp when the call connected.
 
   * `ends_at` (string, date-time, or null): The timestamp when the call ended.
 
-  * `scheduled_at` (string, date-time, or null): The timestamp when UJET scheduled the call, or null if the call was immediate.
+  * `scheduled_at` (string, date-time, or null): The timestamp when CCAI Platform scheduled the call, or null if the call was immediate.
 
-  * `updated_at` (string, date-time): The timestamp when UJET last updated the call data.
+  * `updated_at` (string, date-time): The timestamp when CCAI Platform last updated the call data.
 
-  * `wait_duration` (integer or null): The total time the consumer spent in queue across the entire call, in seconds, or null if UJET didn't record any queue time. For queue time broken down by individual segment, see the `queue_durations` array (Queue durations). See Versioning and deprecations: Wait-time field nomenclature.
+  * `wait_duration` (integer or null): The total time the consumer spent in queue across the entire call, in seconds, or null if CCAI Platform didn't record any queue time. For queue time broken down by individual segment, see the `queue_durations` array (Queue durations). See Versioning and deprecations: Wait-time field nomenclature.
 
   * `call_duration` (integer or null): The total duration of the call, in seconds.
 
@@ -103,7 +120,7 @@ These properties capture the core information of the call:
 
   * `voip_provider` (string): The VoIP provider for the call. (Note: this field is deprecated and always returns "deprecated".)
 
-  * `out_ticket_id` (string or null): The ID of the ticket that UJET created in the external CRM system.
+  * `out_ticket_id` (string or null): The ID of the ticket that CCAI Platform created in the external CRM system.
 
   * `out_ticket_url` (string, uri, or null): The URL of the CRM ticket.
 
@@ -115,12 +132,33 @@ These properties capture the core information of the call:
 
   * `recording_permission` (string or null): The status of the consumer's recording permission. Possible values: "not_asked", "granted", "denied".
 
-  * `voicemail_reason` (string): The reason for a voicemail, if applicable. Options include "not_voicemail", "temporary_redirection", and "after_hour_deflection".
+  * `voicemail_reason` (string): The reason a voicemail was left, or `"not_voicemail"` when the call did not go to voicemail. Possible values: `"not_voicemail"`, `"temporary_redirection"`, `"after_hour_deflection"`, `"over_capacity_deflection"`, `"no_input"`, and `"no_agent"`.
 
   * `disconnected_by` (string or null): Indicates which party ended the call. Possible values: `disconnected_by_unknown`, `disconnected_by_agent`, `disconnected_by_end_user`, `disconnected_by_virtual_agent`, `disconnected_by_system`.
 
-  * `fail_reason` (string or null): The reason a call failed, or "nothing" for calls that didn't fail. Possible values include `nothing`, `unknown`, `expired`, `eu_canceled`, `eu_rejected`, `eu_abandoned`, `eu_in_menu_abandoned`, `eu_busy`, `eu_wrong_number`, `eu_no_answer`, `eu_noti_failed`, `ag_canceled`, `ag_ignored`, `ag_mic_no_device`, `ag_mic_denied`, `voip_twilio_error`, `voip_tokbox_error`, `voip_invalid_token`, `voip_conn_general`, `voip_conn_timeout`, `voip_conn_signal`.
+  * `fail_reason` (string or null): The reason a call failed, or `"nothing"` for calls that did not fail. Possible values, grouped by the party or subsystem the failure is attributed to:
 
+    * **No failure** : `nothing`
+
+    * **General** : `unknown`, `expired`, `transfer_expired`, `canceled_outside_fulfillment_hours`
+
+    * **End user** : `eu_canceled`, `eu_rejected`, `eu_abandoned`, `eu_in_menu_abandoned`, `eu_repeated_voicemail`, `eu_repeated_callback`, `eu_dcr_abandoned_on_receiving`, `eu_busy`, `eu_wrong_number`, `eu_no_answer`, `eu_noti_failed`, `eu_phone_denied`
+
+    * **Agent** : `ag_canceled`, `ag_ignored`, `ag_declined`, `ag_mic_no_device`, `ag_mic_denied`, `ag_invalid_outbound_num`, `ag_called_blocked_num`
+
+    * **Connection** : `conn_decline`
+
+    * **VoIP** : `voip_twilio_error`, `voip_tokbox_error`, `voip_invalid_token`, `voip_conn_general`, `voip_conn_timeout`, `voip_conn_signal`, `voip_conn_codec`, `voip_nexmo_error`, `voip_telnyx_error`
+
+    * **Audio** : `audio_not_received_by_carrier`, `audio_device_unable_to_start`
+
+    * **Stuck or unresolvable state** : `stuck_due_to_api_error`, `group_deleted_no_substitute`, `menu_deleted`, `direct_pstn_call_to_fallback_number`
+
+    * **Campaign** : `campaign_paused`, `campaign_queue_reassigned`, `campaign_no_incoming_contacts`, `campaign_call_canceled`
+
+    * **Force-ended** : `force_ended`, `force_failed_call_stuck`
+
+**Note:** `voip_tokbox_error` appears on historical records only.
   * `fail_details` (string or null): Additional human-readable detail accompanying `fail_reason`, when available.
 
   * `adapter_fail_code` (integer or null): Numeric code corresponding to `fail_reason` at the call level. Null when the call didn't fail. The same enumeration is used on per-participant `adapter_fail_code` in §17.
@@ -229,7 +267,7 @@ These sections explain who or what handled the call:
 
   * `customer_flag` (object; present only when website passed custom authentication data): authentication-related custom data attributes that the consumer's app or website passed at the start of the session. The payload includes only the subset that you designate as authentication parameters.
 
-  * `api_dap_request` (object; present only when you enable data parameters and configure them for inclusion in session metadata): A snapshot of the call's data parameter values, as you configure them on your account's external API settings. Keys and value types depend on your data parameter configuration.
+  * `api_dap_request` (object; present only when you enable data parameters and include them in metadata): A snapshot of the call's data parameter values. Keys and value types depend on your data parameter configuration.
 
   * `form_responses` (array; present only when the consumer submitted at least one form response): Responses that in-call SDK forms collected during the session. Each entry contains:
 
@@ -273,7 +311,7 @@ These sections explain who or what handled the call:
 
 ### Call deflection
 
-  * `deflection` (string): Indicates if and how the call deflected (for example, "no_deflection", "over_cap_phone", or "after_hours_voicemail").
+  * `deflection` (string): Indicates if and how the call deflected (for example, `"no_deflection"`, `"over_cap_phone"`, or `"after_hours_voicemail"`).
 
   * `deflection_details` (array): Provides a detailed log of deflections during the call. The deflection field within each entry uses the enumeration defined in _Definitions: deflection_. Each entry includes:
 
@@ -289,11 +327,11 @@ These sections explain who or what handled the call:
 
     * `from_menu_path` (object or null): Menu path from which the deflection started.
 
-    * `to_menu_path` (object or null): Menu path to which UJET deflected the call.
+    * `to_menu_path` (object or null): Menu path to which CCAI Platform deflected the call.
 
-    * `to_sip_uri` (string; present only when UJET deflected the call to a SIP destination): SIP URI to which UJET deflected the call, if applicable.
+    * `to_sip_uri` (string; present only when CCAI Platform deflected the call to a SIP destination): SIP URI to which CCAI Platform deflected the call, if applicable.
 
-    * `to_sip_headers` (object; present only when UJET deflected the call to a SIP destination): SIP headers that UJET deflected the call with, if applicable.
+    * `to_sip_headers` (object; present only when CCAI Platform deflected the call to a SIP destination): SIP headers that CCAI Platform deflected the call with, if applicable.
 
 
 
@@ -310,11 +348,11 @@ These sections explain who or what handled the call:
 
     * `created_at` (string, date-time): When the transfer started.
 
-    * `assigned_at` (string, date-time, or null): When UJET assigned the transfer to the receiving party.
+    * `assigned_at` (string, date-time, or null): When CCAI Platform assigned the transfer to the receiving party.
 
     * `connected_at` (string, date-time, or null): When the transfer connected.
 
-    * `updated_at` (string, date-time): When UJET last updated the transfer record.
+    * `updated_at` (string, date-time): When CCAI Platform last updated the transfer record.
 
     * `call_duration` (integer): Call duration of the transferred segment, in seconds.
 
@@ -621,9 +659,9 @@ The unsuffixed `over_cap`, `after_hours`, and `temp_redirection` values are reco
 
     * `virtual_agent` (object; present only on virtual-agent participants): Details of the virtual agent that serves as this participant — distinct from the top-level `agent_info` and from `virtual_agent_params`.
 
-    * `caller_id` (string; present only when you enable SIP-header caller-ID on your account, and only on consumer participants): Caller ID that UJET extracts from inbound SIP headers for this consumer participant.
+    * `caller_id` (string; present only when you enable SIP-header caller-ID on your account, and only on consumer participants): Caller ID that CCAI Platform extracts from inbound SIP headers for this consumer participant.
 
-    * `sip_headers` (object or null): SIP headers associated with this participant. Always present in the payload; null when UJET doesn't capture headers.
+    * `sip_headers` (object or null): SIP headers associated with this participant. Always present in the payload; null when CCAI Platform doesn't capture headers.
 
     * `location` (string or null; present only on agent participants): The agent's location.
 
@@ -721,13 +759,13 @@ The unsuffixed `over_cap`, `after_hours`, and `temp_redirection` values are reco
 
 ### Offer events
 
-  * `offer_type` (string or null): How UJET offered the call to the agent.
+  * `offer_type` (string or null): How CCAI Platform offered the call to the agent.
 
-  * `offer_events` (array): Events when UJET offered the call to agents.
+  * `offer_events` (array): Events when CCAI Platform offered the call to agents.
 
-    * `casting_time` (string, date-time): Time UJET offered the call.
+    * `casting_time` (string, date-time): Time CCAI Platform offered the call.
 
-    * `group` (string): Group to which UJET offered the call.
+    * `group` (string): Group to which CCAI Platform offered the call.
 
 
 
@@ -738,7 +776,7 @@ The unsuffixed `over_cap`, `after_hours`, and `temp_redirection` values are reco
 
   * `outbound_number` (string or null): Outbound phone number used.
 
-  * `wait_time_sms` (array; present only when wait-time SMS interactions occurred on this call): SMS interactions UJET sent to the consumer about expected wait time. Each entry contains:
+  * `wait_time_sms` (array; present only when wait-time SMS interactions occurred on this call): SMS interactions CCAI Platform sent to the consumer about expected wait time. Each entry contains:
 
     * `transfer_id` (integer or null): Transfer event identifier, if associated with a transfer.
 
@@ -750,11 +788,11 @@ The unsuffixed `over_cap`, `after_hours`, and `temp_redirection` values are reco
 
     * `transfer_id` (integer or null): Transfer event identifier, if associated with a transfer.
 
-    * `preset_sent` (boolean): Whether UJET sent a preset message.
+    * `preset_sent` (boolean): Whether CCAI Platform sent a preset message.
 
     * `custom_sent` (boolean): Whether the agent sent a custom (free-text) message.
 
-    * `received` (boolean): Whether UJET received an SMS from the consumer.
+    * `received` (boolean): Whether CCAI Platform received an SMS from the consumer.
 
   * `dispositions` (array; present only when you enable wrap-up codes or notes on your account): Wrap-up codes and notes that agents recorded. Each entry includes dynamically rendered fields based on your wrap-up configuration:
 
@@ -770,13 +808,13 @@ The unsuffixed `over_cap`, `after_hours`, and `temp_redirection` values are reco
 
     * `code` (string): Disposition code name.
 
-    * `ujet_code_id` (integer or empty string): The UJET ID of the disposition code — a stable key for the code (the code display name can change). Empty string when unavailable.
+    * `ujet_code_id` (integer or empty string): The CCAI Platform ID of the disposition code — a stable key for the code (the code display name can change). Empty string when unavailable.
 
     * `list` (string): Name of the list the code belongs to.
 
     * `list_path` (string): Slash-separated path of the code's list.
 
-    * `ujet_list_id` (integer or empty string): The UJET ID of the list the disposition code belongs to — a stable key for the list. Empty string when unavailable.
+    * `ujet_list_id` (integer or empty string): The CCAI Platform ID of the list the disposition code belongs to — a stable key for the list. Empty string when unavailable.
 
     * `custom_list_id` (string or integer): Customer-defined list identifier, if mapped.
 
@@ -792,7 +830,7 @@ The unsuffixed `over_cap`, `after_hours`, and `temp_redirection` values are reco
 
   * `custom_data_not_secured` (object or null): Custom, non-securely signed data.
 
-  * `in_queue_wait_time_va` (array; present only when you enable in-queue wait-time tracking for virtual agents on your account, and only when at least one preserved-VA escalation occurred): Time intervals when the consumer waited in queue while UJET preserved a virtual agent for them after escalation. Each entry contains:
+  * `in_queue_wait_time_va` (array; present only when you enable in-queue wait-time tracking for virtual agents on your account, and only when at least one preserved-virtual agent escalation occurred): Time intervals when the consumer waited in queue while CCAI Platform preserved a virtual agent for them after escalation. Each entry contains:
 
     * `start` (string, date-time): When the queue wait began.
 
@@ -800,7 +838,7 @@ The unsuffixed `over_cap`, `after_hours`, and `temp_redirection` values are reco
 
     * `duration` (integer or null): Wait duration in seconds; null when `end` is null.
 
-  * `auto_session_summaries` (array; present only when you enable conversation summarization on your account and UJET successfully generated a summary): AI-generated session summaries that UJET saves to the CRM record. Each entry contains:
+  * `auto_session_summaries` (array; present only when you enable conversation summarization on your account and CCAI Platform successfully generated a summary): AI-generated session summaries that CCAI Platform saves to the CRM record. Each entry contains:
 
     * `user_id` (integer): Identifier of the agent participant the summary is associated with.
 
@@ -810,7 +848,7 @@ The unsuffixed `over_cap`, `after_hours`, and `temp_redirection` values are reco
 
     * `session_summary_sections` (array or object): The summary in structured sections, if available.
 
-  * `sip_headers` (object; present only when you enable SIP header capture on your account and configure it for inclusion in session metadata): Inbound SIP headers that UJET captured for the call. Keys and values reflect the SIP headers received from the upstream telephony provider.
+  * `sip_headers` (object; present only when you enable SIP header capture on your account and configure it for inclusion in session metadata): Inbound SIP headers that CCAI Platform captured for the call. Keys and values reflect the SIP headers received from the upstream telephony provider.
 
 
 
@@ -870,7 +908,9 @@ The deflection state of a call or call segment. Values follow a `&lt;trigger&gt;
 
   * No deflection: `no_deflection`, `deflecting`.
 
-  * Over-capacity — when the queue was over its capacity threshold: `over_cap_phone`, `over_cap_voicemail`, `over_cap_callback`, `over_cap_wait`, `over_cap_queue`, `over_cap_message`, `over_cap_sip`, `over_cap_extension`, `over_cap_phone_with_extension`.
+  * Over-capacity — when the queue was over its capacity threshold: `over_cap_phone`, `over_cap_voicemail`, `over_cap_callback`, `over_cap_wait`, `over_cap_queue`, `over_cap_message`, `over_cap_ewt_only`, `over_cap_sip`, `over_cap_extension`, `over_cap_phone_with_extension`.
+
+  * Abandoned deflection — when a transfer or call concluded before its pending deflection resolved: `deflection_abandoned`.
 
   * After-hours — when the call arrived outside the menu's configured operating hours: `after_hours_voicemail`, `after_hours_phone`, `after_hours_message_only`, `after_hours_queue`, `after_hours_message`, `after_hours_sip`, `after_hours_extension`, `after_hours_phone_with_extension`.
 
@@ -899,31 +939,38 @@ The deflection state of a call or call segment. Values follow a `&lt;trigger&gt;
 
 
 
-**Referenced from** : the top-level `deflection` field; each `deflection_details[].deflection`; each `transfers[].deflection`.
+**Referenced from** : each `deflection_details[].deflection`, which uses this vocabulary in full. Two other fields each draw on a subset of it:
+
+  * The top-level `deflection` field uses every value except `over_cap_ewt_only` and `temp_redirection_url`.
+
+  * Each `transfers[].deflection` uses a smaller transfer-scoped subset: `no_deflection`, `deflecting`, `deflection_abandoned`, the ten `over_cap_*` values, the eight `after_hours_*` values, the seven `temp_redirection_*` values other than `temp_redirection_url`, `ivr_presession_deflection`, `va_redirection_phone`, and `va_redirection_sip`. The `internal_call_*`, `call_transfer_*`, `emergency_shutdown_*`, `dcr_*`, and `va_third_party_*` families never appear on a transfer.
+
+
+
 
 ## Versioning and deprecations
 
-The call session metadata schema supports backward-compatible evolution. UJET may add new fields and arrays at any time. Integrations should ignore unrecognized keys to ensure continued functionality. The fields in this section are deprecated, legacy, or soft-superseded. They remain in the payload for backward compatibility, but new integrations must follow the guidance for each field.
+The call session metadata schema supports backward-compatible evolution. CCAI Platform may add new fields and arrays at any time. Integrations should ignore unrecognized keys to ensure continued functionality. The fields in this section are deprecated, legacy, or soft-superseded. They remain in the payload for backward compatibility, but new integrations must follow the guidance for each field.
 
 ### Deprecated fields
 
-  * `voip_provider` (string) — Deprecated. Always returns the literal string "deprecated". UJET no longer surfaces provider information to integrations through this document. There is no replacement field; if your integration needs to identify the upstream telephony provider, contact your account team.
+  * `voip_provider` (string) — Deprecated. Always returns the literal string "deprecated". CCAI Platform no longer surfaces provider information to integrations through this document. There is no replacement field; if your integration needs to identify the upstream telephony provider, contact your account team.
 
 
 
 ### Legacy duplicates
 
-  * `session_type` (string) — Legacy alias of `call_type`. Always returns the same value as `call_type` and uses the same legacy enum vocabulary. UJET retains this field for backward compatibility with integrations that key on `session_type`. New integrations should parse `call_type` directly, or — for finer-grained inbound distinctions — `session_type_v2` (see Vocabulary evolution below).
+  * `session_type` (string) — Legacy alias of `call_type`. Always returns the same value as `call_type` and uses the same legacy enum vocabulary. CCAI Platform retains this field for backward compatibility with integrations that key on `session_type`. New integrations should parse `call_type` directly, or — for finer-grained inbound distinctions — `session_type_v2` (see Vocabulary evolution below).
 
 
 
 ### Vocabulary evolution
 
-`call_type` and `session_type_v2` describe the same underlying call type using two different vocabularies. UJET emits both fields on every record; they aren't duplicates of each other:
+`call_type` and `session_type_v2` describe the same underlying call type using two different vocabularies. CCAI Platform emits both fields on every record; they aren't duplicates of each other:
 
-  * `call_type` uses the legacy enum vocabulary. Values such as `Voice Inbound (App)` and `Voice Inbound (IVR using App)` cover all inbound mobile and in-app SDK origins under a single label. `call_type` isn't deprecated. UJET will continue to emit this field, but its vocabulary won't gain new fine-grained values.
+  * `call_type` uses the legacy enum vocabulary. Values such as `Voice Inbound (App)` and `Voice Inbound (IVR via App)` cover all inbound mobile and in-app SDK origins under a single label. `call_type` isn't deprecated. CCAI Platform will continue to emit this field, but its vocabulary won't gain new fine-grained values.
 
-  * `session_type_v2` uses the current enum vocabulary. It introduces finer-grained inbound distinctions — for example, `Voice Inbound (Mobile)` and `Voice Inbound (IVR using Mobile)` — for the call types that have v2-specific values. For call types that don't have a v2-specific value, `session_type_v2` returns the same string as `call_type`.
+  * `session_type_v2` uses the current enum vocabulary. It introduces finer-grained inbound distinctions — for example, `Voice Inbound (Mobile)` and `Voice Inbound (IVR via Mobile)` — for the call types that have v2-specific values. For call types that don't have a v2-specific value, `session_type_v2` returns the same string as `call_type`.
 
 
 
@@ -947,6 +994,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

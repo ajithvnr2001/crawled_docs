@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/trace/docs/setup/java-ot/
 title: Java instrumentation sample \u00a0|\u00a0 Cloud Trace \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:57:57.221649+00:00
+fetched_at: 2026-10-24T11:25:19.346247+00:00
 ---
 
 # Java instrumentation sample  |  Cloud Trace  |  Google Cloud Documentation
@@ -217,7 +217,7 @@ The OpenTelemetry Java Agent automatically populates SLF4J's Mapped Diagnostic C
 
 ## Run a sample app configured to collect telemetry
 
-The instrumentation in the sample app uses vendor-neutral formats, like JSON for log data and OTLP for metric and trace data. The app also uses the [Spring Boot Framework](https://spring.io/projects/spring-boot/). The OpenTelemetry `Collector` sends log and metric data to your project by using Google exporters. It sends your trace data to your project by using the Telemetry API, which uses OTLP.
+The instrumentation in the sample app uses vendor-neutral formats, like JSON for log data and OTLP for metric and trace data. The app also uses the [Spring Boot Framework](https://spring.io/projects/spring-boot/). The OpenTelemetry `Collector` sends log, metric, and trace data to your project by using the Telemetry API, which uses OTLP.
 
 The app has two endpoints:
 
@@ -407,6 +407,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

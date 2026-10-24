@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/samples/genappbuilder-grounded-generation-google-search/
 title: Grounded Generation with Google Search \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:10:51.316210+00:00
+fetched_at: 2026-10-24T08:50:19.679816+00:00
 ---
 
 # Grounded Generation with Google Search  |  Agent Search  |  Google Cloud Documentation

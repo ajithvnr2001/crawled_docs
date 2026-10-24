@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/genai/genai-models/
 title: Available Generative AI models \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:25.137076+00:00
+fetched_at: 2026-10-24T08:20:39.414220+00:00
 ---
 
 # Available Generative AI models  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

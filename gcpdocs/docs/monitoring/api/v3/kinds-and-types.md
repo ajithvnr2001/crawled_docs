@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/v3/kinds-and-types/
 title: Value types and metric kinds \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:59:49.510915+00:00
+fetched_at: 2026-10-24T11:25:22.894702+00:00
 ---
 
 # Value types and metric kinds  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -21,12 +21,7 @@ Send feedback
 
 #  Value types and metric kinds Stay organized with collections  Save and categorize content based on your preferences. 
 
-In the discussion of the metric model, the section [Metric types](https://docs.cloud.google.com/monitoring/api/v3/metric-model#metric_types) provides a general discussion of the attributes that describe a metric type. This section provides a more detailed discussion of two of those attributes:
-
-  * Value type
-  * Metric kind
-
-
+Every metric in Cloud Monitoring has a _value type_ and a _metric kind_ that define the data format of each point and how consecutive points relate over time. Understanding these two attributes helps you interpret built-in metrics, aggregate time series accurately, and choose valid combinations when you design custom metrics. For an overview of all metric-type attributes, see [Metric types](https://docs.cloud.google.com/monitoring/api/v3/metric-model#metric_types).
 
 ### Value type
 
@@ -53,7 +48,7 @@ Each time series includes the metric kind (type [`MetricKind`](https://docs.clou
 
   * A _gauge_ metric, in which the value measures a specific instant in time. For example, metrics measuring CPU utilization are gauge metrics; each point records the CPU utilization at the time of measurement. Another example of a gauge metric is the current temperature.
 
-  * A _delta_ metric, in which the value measures the change in a time interval. For reads, the time interval is half-open, it excludes the start time but includes the end time: `(startTime, endTime]`. For example, metrics measuring request counts are delta metrics; each value records how many requests were received after the start time, up to and including the end time.
+  * A _delta_ metric, in which the value measures the change in a time interval. For reads, the time interval is half-open: it excludes the start time but includes the end time, `(startTime, endTime]`. For example, metrics measuring request counts are delta metrics; each value records how many requests were received after the start time, up to and including the end time.
 
 **Note:** All metrics that count discrete items over a time interval are delta metrics. It is reasonable to expect such values to be integers, but for historical implementation reasons, they are reported as floating-point numbers. 
   * A _cumulative_ metric, in which the value constantly increases over time. For example, a metric for “sent bytes” might be cumulative; each value records the total number of bytes sent by a service at that time.
@@ -97,6 +92,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

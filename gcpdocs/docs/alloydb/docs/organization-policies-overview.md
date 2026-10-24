@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/organization-policies-overview/
 title: AlloyDB organization policies overview \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:27.350127+00:00
+fetched_at: 2026-10-24T11:25:52.628799+00:00
 ---
 
 # AlloyDB organization policies overview  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,11 +21,11 @@ Send feedback
 
 #  AlloyDB organization policies overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes AlloyDB for PostgreSQL organization policies, which organization administrators use to set restrictions on how users configure clusters and backups under that organization.
+To enforce consistent security and governance restrictions on how users configure AlloyDB for PostgreSQL clusters, instances, and backups across your organization, you can configure organization policies.
 
 Projects, folders, and organizations are container resources organized in a parent-child resource hierarchy. An _organization_ is the root node in that hierarchy. For more information, see [Resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy).
 
-Organization policies contain rules, called _constraints_ , that the organization administrator places on a project, folder, or organization. Constraints enforce a policy across all clusters and backups. For example, if you try to create a cluster or backup in an entity that has an organization policy, the constraint runs a check to ensure that the cluster or backup configuration follows the requirements of the constraint. If the check fails, AlloyDB doesn't create the cluster or backup resource.
+Organization policies contain rules, called _constraints_ , that the organization administrator places on a project, folder, or organization. Constraints enforce a policy across all clusters and backups. For example, if you try to create a cluster or backup in an entity that has an organization policy, the constraint runs a check to verify that the cluster or backup configuration follows the requirements of the constraint. If the check fails, AlloyDB doesn't create the cluster or backup resource.
 
 When you add projects to an organization or folder that uses an organization policy, the projects inherit the constraints of that policy.
 
@@ -40,18 +40,20 @@ The following organization policies are specific to AlloyDB:
 
 ## Predefined organization policies
 
-To get started, you can use Customer Managed Encryption Key (CMEK) settings of AlloyDB clusters and backups. For more details, see [Use predefined organization policies](https://docs.cloud.google.com/alloydb/docs/alloydb-predefined-constraints). For granular, customizable control over other supported settings, use custom constraints. For more information, see [Use custom organization policies](https://docs.cloud.google.com/alloydb/docs/alloydb-custom-constraints).
+To get started, you can use customer-managed encryption keys (CMEK) settings on AlloyDB clusters and backups. For more details, see [Use predefined organization policies](https://docs.cloud.google.com/alloydb/docs/alloydb-predefined-constraints). For granular, customizable control over other supported settings, use custom constraints. For more information, see [Use custom organization policies](https://docs.cloud.google.com/alloydb/docs/alloydb-custom-constraints).
 
 ### Customer-managed encryption keys (CMEK) organization policies
 
 AlloyDB supports the following organization policy constraints:
 
   * `constraints/gcp.restrictNonCmekServices`: requires CMEK protection for the `alloydb.googleapis.com` API. When you add this constraint and `alloydb.googleapis.com` to the `Deny` policy list of services, AlloyDB refuses to create a new cluster or a backup resource unless the new cluster or backup resource is enabled with CMEK.
-  * `constraints/gcp.restrictCmekCryptoKeyProjects`: limits which [Cloud KMS CryptoKeys](https://docs.cloud.google.com/kms/docs/resource-hierarchy#keys) to use for CMEK protection in AlloyDB clusters and backups. When AlloyDB creates a new cluster or backup using CMEK and this constraint, the CryptoKey must come from an allowed project, folder, or organization.
+
+  * `constraints/gcp.restrictCmekCryptoKeyProjects`: limits which [Cloud Key Management Service (Cloud KMS) CryptoKeys](https://docs.cloud.google.com/kms/docs/resource-hierarchy#keys) to use for CMEK protection in AlloyDB clusters and backups. When AlloyDB creates a new cluster or backup using CMEK and this constraint, the CryptoKey must come from an allowed project, folder, or organization.
 
 
 
-These constraints help ensure CMEK protection across an organization, and are only enforced on newly created AlloyDB clusters and backups. For more information, see [CMEK organization policies](https://docs.cloud.google.com/kms/docs/cmek-org-policy) and [Organization policy constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/org-policy-constraints).
+
+These constraints help enforce CMEK protection across an organization, and are only enforced on newly created AlloyDB clusters and backups. For more information, see [CMEK organization policies](https://docs.cloud.google.com/kms/docs/cmek-org-policy) and [Organization policy constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/org-policy-constraints).
 
 ## Custom organization policies
 
@@ -64,16 +66,22 @@ To learn how to create custom organization policies, see [Use custom organizatio
 AlloyDB enforces the organization policy for the following operations:
 
   * Instance creation
+
   * Instance update
+
   * Cluster creation
+
+  * Cluster update
+
   * Backup creation
+
 
 
 
 Like all [organization policy constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/org-policy-constraints), policy changes don't apply retroactively to existing clusters and backups. The following are examples:
 
   * A new policy has no effect on existing instances, clusters, or backups.
-  * Unless a user changes the instance, cluster, or backup configuration from a compliance to non-compliance state using the Google Cloud console, [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud), or RPC, an existing instance, cluster, or backup configuration remains valid.
+  * Unless a user changes the instance, cluster, or backup configuration from a compliance to non-compliance state using the Google Cloud console, [Google Cloud CLI](https://docs.cloud.google.com/sdk/gcloud), or RPC, an existing instance, cluster, or backup configuration remains valid.
   * A scheduled maintenance update doesn't cause policy enforcement because maintenance doesn't change the configuration of instances, clusters, or backups.
 
 

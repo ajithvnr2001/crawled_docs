@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/troubleshooting/
 title: Troubleshoot Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:51.192625+00:00
+fetched_at: 2026-10-24T11:25:27.299109+00:00
 ---
 
 # Troubleshoot Cloud DNS  |  Google Cloud Documentation
@@ -468,7 +468,7 @@ Check the latency between your VPC network and target DNS servers. Moving the ta
 
 #### Proxy-only subnet exhaustion
 
-Check the IP address utilization of the proxy-only subnet in the region where queries are failing with Monitoring. If the subnet is almost exhausted, migrate to a larger proxy-only subnet using the steps in [Subnet modification](https://docs.cloud.google.com/dns/docs/outbound-endpoints-overview#subnet-modification).
+Check the [IP address utilization of the proxy-only subnet](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets#load_balancer_swp_proxies) in the region where queries are failing with Monitoring. If the subnet is almost exhausted, migrate to a larger proxy-only subnet using the steps in [Subnet modification](https://docs.cloud.google.com/dns/docs/outbound-endpoints-overview#subnet-modification).
 
 #### Geolocation policy misconfiguration
 
@@ -477,6 +477,10 @@ Verify your Geolocation routing policy contains an entry for the region where th
 ### Can't create an Outbound Endpoint
 
 The following sections describe why you might be unable to create an Outbound Endpoint.
+
+#### Required APIs aren't enabled
+
+Verify that the Cloud DNS API (`dns.googleapis.com`), Compute Engine API (`compute.googleapis.com`) and Network Services API (`networkservices.googleapis.com`) are enabled in your project.
 
 #### IAM permission issue
 
@@ -514,6 +518,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

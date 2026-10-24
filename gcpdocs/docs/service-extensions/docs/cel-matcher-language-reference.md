@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-extensions/docs/cel-matcher-language-reference/
 title: CEL matcher language reference \u00a0|\u00a0 Service Extensions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:32:49.996044+00:00
+fetched_at: 2026-10-24T11:25:13.374223+00:00
 ---
 
 # CEL matcher language reference  |  Service Extensions  |  Google Cloud Documentation
@@ -25,34 +25,35 @@ Send feedback
 
 ## Attributes
 
-For any given connection request, the proxy extracts attributes, which are a set of contextual information. Attributes have a fixed type (such as `string` or `int`), and might be absent or present, depending on the context. Attributes are exposed to the CEL runtime during match condition processing. Attributes are not available to be sent to an extension service.
+For any given connection request, the proxy extracts attributes, which are a set of contextual information. Attributes have a fixed type (such as `string` or `int`), and might be absent or present, depending on the context. Attributes are exposed to the CEL runtime during match condition processing. To forward specific attributes to your extension service or plugin, use the `forwardAttributes` field. For more information, see [Supported attributes](https://docs.cloud.google.com/service-extensions/docs/attributes).
 
 ### Request attributes
 
-The following attributes can be extracted from requests:
+You can extract the following attributes from requests:
 
-Attribute | Attribute type | Description  
----|---|---  
-`request.headers` | map{string,string} | A string-to-string map of the HTTP request headers. If a header contains multiple values, the value in this map is a comma-separated string of all values of the header. The keys in this map are in lowercase.  
-`request.method` | string | The HTTP request method, such as `GET` or `POST`.  
-`request.host` | string | Convenience equivalent to `request.headers['host']`.   
-`request.path` | string | The requested HTTP URL path.  
-`request.query` | string | The HTTP URL query in the format of `name1=value&name2=value2`, as it appears in the first line of the HTTP request. No decoding is performed.  
-`request.scheme` | string | The HTTP URL scheme, such as HTTP or HTTPS. Values for this attribute are in lowercase.  
-`request.backend_service_name` | string | The backend service to which the request is forwarded. Not applicable for edge extensions.  
-`request.backend_service_project_number` | int | When using Shared VPC, the project number of the backend service to which the request is forwarded. Not applicable for edge extensions.  
+Attribute | Type | `LbEdge` | `LbRoute` | `LbTraffic` | `Authz` | `CdnEdge` | Description  
+---|---|---|---|---|---|---|---  
+`request.headers` | map | ✓ | ✓ | ✓ | ✓ | ✓ | A string-to-string map of HTTP request headers, where all keys are in lowercase.  
+`request.method` | string | ✓ | ✓ | ✓ | ✓ | ✓ | The HTTP request method (for example, `GET`, `POST`).  
+`request.host` | string | ✓ | ✓ | ✓ | ✓ | ✓ | Convenience equivalent to `request.headers['host']`.  
+`request.path` | string | ✓ | ✓ | ✓ | ✓ | ✓ | The requested HTTP URL path.  
+`request.query` | string | ✓ | ✓ | ✓ | ✓ | ✓ | The URL query string (`name1=value&name2=value2`).  
+`request.scheme` | string | ✓ | ✓ | ✓ | ✓ | ✓ | The URL scheme (`http` or `https`).  
+`request.backend_service_name` | string | — | ✓ | ✓ | — | — | The backend service name.  
+`request.backend_service_project_number` | int | — | ✓ | ✓ | — | — | Backend service project number.  
   
 ### Connection attributes
 
-The following attributes can be extracted from connections:
+You can extract the following attributes from connections:
 
-Attribute | Attribute type | Description  
----|---|---  
-`source.ip` | string | The source IP address of the request.  
-`source.port` | int | The connection port of the downstream client.  
-`connection.sni` | string | The requested server name of the downstream TLS connection.  
-`connection.tls_version` | string | The TLS version of the downstream TLS connection. Valid values: `TLSv1`, `TLSv1.1`, `TLSv1.2`, and `TLSv1.3`.   
-`connection.sha256_peer_certificate_digest` | string | The hexadecimal-encoded SHA256 hash of the peer certificate in the downstream TLS connection, if present.  
+Attribute | Type | `LbEdge` | `LbRoute` | `LbTraffic` | `Authz` | `CdnEdge` | Description  
+---|---|---|---|---|---|---|---  
+`source.ip` | string | ✓ | ✓ | ✓ | ✓ | — | Client IP address.  
+`source.port` | int | ✓ | ✓ | ✓ | ✓ | ✓ | Client connection port number.  
+`source.client_region` | string | ✓ | — | ✓ | — | ✓ | Two-letter client country or region code.  
+`connection.sni` | string | ✓ | — | ✓ | ✓ | ✓ | Downstream TLS Server Name Indication.  
+`connection.tls_version` | string | ✓ | — | ✓ | ✓ | ✓ | Downstream TLS version (for example, `TLSv1.2`, `TLSv1.3`).  
+`connection.sha256_peer_certificate_digest` | string | ✓ | — | ✓ | ✓ | — | Peer certificate SHA-256 digest.  
   
 ## Operators
 
@@ -121,6 +122,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

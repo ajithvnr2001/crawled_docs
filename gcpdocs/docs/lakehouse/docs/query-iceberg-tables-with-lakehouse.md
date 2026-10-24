@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/query-iceberg-tables-with-lakehouse/
 title: Quickstart: Create and query an Iceberg table in Lakehouse using the Google Cloud CLI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:36.320910+00:00
+fetched_at: 2026-10-24T10:00:13.672751+00:00
 ---
 
 # Quickstart: Create and query an Iceberg table in Lakehouse using the Google Cloud CLI  |  Google Cloud Documentation
@@ -23,12 +23,12 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Create and query an Iceberg table in Lakehouse using the Google Cloud CLI
 
-In this quickstart, you learn how borderless Lakehouse lets you share Apache Iceberg tables between open-source engines and Google Cloud by managing table metadata, including schemas, snapshots, and storage locations, in the Lakehouse runtime catalog.
+Borderless Lakehouse lets you share Apache Iceberg tables between open source engines and Google Cloud by managing table metadata, including schemas, snapshots, and storage locations, in the Lakehouse runtime catalog.
 
-To complete this quickstart, you perform the following steps:
+In this quickstart, you use the Google Cloud CLI to complete the following steps:
 
   1. **Create a catalog** : Create a multiple-bucket catalog in the Lakehouse runtime catalog backed by Cloud Storage.
-  2. **Create an Iceberg table with Spark** : Run a PySpark script on Managed Service for Apache Spark to try out an open-source workload without setting up your own cluster. Spark connects through the Apache Iceberg REST catalog endpoint, which also works with any Iceberg-compatible engine like self-managed Spark, Trino, or Apache Flink.
+  2. **Create an Iceberg table with Apache Spark** : Run a PySpark script on Managed Service for Apache Spark to try out an open source workload without setting up your own cluster. Spark connects through the Apache Iceberg REST catalog endpoint, which also works with any Iceberg-compatible engine, such as self-managed Spark, Trino, or Apache Flink.
   3. **Query the table in BigQuery** : Query that same table in BigQuery using the 4-part **P.C.N.T** (**Project.Catalog.Namespace.Table**) syntax, with no ETL or manual table registration needed.
 
 
@@ -161,7 +161,7 @@ Open Cloud Shell and create a Cloud Storage bucket to hold a PySpark script and 
 
 ### Grant permissions to the Spark service account
 
-By default, Managed Service for Apache Spark runs batch jobs using your project's [Compute Engine default service account](https://docs.cloud.google.com/iam/docs/service-accounts#default-service-accounts). Grant this service account the following IAM roles so it can read your PySpark script from Cloud Storage and interact with the Lakehouse runtime catalog and BigQuery:
+By default, Managed Service for Apache Spark runs batch jobs using your project's [Compute Engine default service account](https://docs.cloud.google.com/iam/docs/service-account-types#default). Grant this service account the following IAM roles so it can read your PySpark script from Cloud Storage and interact with the Lakehouse runtime catalog and BigQuery:
 
 Role | Resource | Purpose  
 ---|---|---  
@@ -393,6 +393,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

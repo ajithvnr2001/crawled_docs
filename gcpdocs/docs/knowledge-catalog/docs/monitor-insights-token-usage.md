@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/monitor-insights-token-usage/
 title: Monitor data insights token usage \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:40:47.817819+00:00
+fetched_at: 2026-10-24T08:41:31.820188+00:00
 ---
 
 # Monitor data insights token usage  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,7 +23,9 @@ Send feedback
 
 #  Monitor data insights token usage Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains how to monitor token consumption for Knowledge Catalog (formerly Dataplex Universal Catalog) data insights scans using Cloud Logging and Cloud Monitoring. Tracking token usage per scan and per job lets you understand model usage trends and estimate billing costs across your project.
+Cloud Logging and Cloud Monitoring let you track billable token consumption for Knowledge Catalog (formerly Dataplex Universal Catalog) data insights scans. By querying scan job logs in Logs Explorer and Observability Analytics, you can analyze model usage trends per scan and per job and estimate billing costs across your project.
+
+For more information about data insights scans, see [About data insights for structured data](https://docs.cloud.google.com/knowledge-catalog/docs/data-insights-structured-data) and [Use data insights for structured data](https://docs.cloud.google.com/knowledge-catalog/docs/use-data-insights-structured-data).
 
 ## How token usage logging works
 
@@ -88,9 +90,9 @@ Before you query data insights token logs or create a monitoring dashboard, comp
 
 To get the permissions that you need to monitor data insights token usage, ask your administrator to grant you the following IAM roles on your project: 
 
-  * View data scan logs and run Observability Analytics queries: [Logs Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.viewer) (`roles/logging.viewer`) 
-  * Create custom dashboards in Monitoring: [Monitoring Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/monitoring#monitoring.editor) (`roles/monitoring.editor`) 
-  * View custom dashboards in Monitoring: [Monitoring Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/monitoring#monitoring.viewer) (`roles/monitoring.viewer`) 
+  * View data scan logs and run Observability Analytics queries: [**Logs Viewer** ](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.viewer) (`roles/logging.viewer`) 
+  * Create custom dashboards in Monitoring: [**Monitoring Editor** ](https://docs.cloud.google.com/iam/docs/roles-permissions/monitoring#monitoring.editor) (`roles/monitoring.editor`) 
+  * View custom dashboards in Monitoring: [**Monitoring Viewer** ](https://docs.cloud.google.com/iam/docs/roles-permissions/monitoring#monitoring.viewer) (`roles/monitoring.viewer`) 
 
 
 
@@ -558,8 +560,6 @@ To create the dashboard, expand the following section and copy the JSON definiti
 
 ## What's next
 
-  * Learn more about [data insights for structured data](https://docs.cloud.google.com/knowledge-catalog/docs/data-insights-structured-data).
-  * Learn how to [use data insights for structured data](https://docs.cloud.google.com/knowledge-catalog/docs/use-data-insights-structured-data).
   * Learn how to [monitor Knowledge Catalog logs](https://docs.cloud.google.com/knowledge-catalog/docs/logging).
   * Learn how to [monitor Knowledge Catalog metrics](https://docs.cloud.google.com/knowledge-catalog/docs/monitoring).
 
@@ -569,6 +569,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

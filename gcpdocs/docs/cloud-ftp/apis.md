@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cloud-ftp/apis/
 title: APIs and reference \u00a0|\u00a0 Cloud FTP \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:02:26.376979+00:00
+fetched_at: 2026-10-24T08:36:30.146507+00:00
 ---
 
 # APIs and reference  |  Cloud FTP  |  Google Cloud Documentation

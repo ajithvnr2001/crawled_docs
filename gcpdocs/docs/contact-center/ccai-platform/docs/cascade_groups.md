@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/cascade_groups/
 title: Cascade groups \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:22.232632+00:00
+fetched_at: 2026-10-24T08:42:17.626371+00:00
 ---
 
 # Cascade groups  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/write-api-grpc/
 title: Introduction to the Storage Write API (gRPC) \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:38:55.769984+00:00
+fetched_at: 2026-10-24T08:25:00.300387+00:00
 ---
 
 # Introduction to the Storage Write API (gRPC)  |  BigQuery  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Introduction to the Storage Write API (gRPC)
 
-You can use the [BigQuery Storage Write API (gRPC)](https://docs.cloud.google.com/bigquery/docs/reference/storage/rpc) to stream data into BigQuery. This document describes the architecture, capabilities, and use cases of the Storage Write API (gRPC).
+The [BigQuery Storage Write API (gRPC)](https://docs.cloud.google.com/bigquery/docs/reference/storage/rpc) lets you stream and batch load records into BigQuery over bidirectional gRPC connections.
 
-For new projects, we recommend using the Storage Write API (gRPC) instead of the Storage Write API (REST). The Storage Write API (gRPC) has lower pricing and more robust features, including exactly-once delivery semantics.
+For new projects, we recommend using the Storage Write API (gRPC) instead of the Storage Write API (REST). The Storage Write API (gRPC) has lower ingestion pricing and more robust features, including stream-level transactions and exactly-once delivery semantics.
 
 ## Required permissions
 
@@ -345,6 +345,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-22 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 

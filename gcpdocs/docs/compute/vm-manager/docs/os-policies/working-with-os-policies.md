@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/vm-manager/docs/os-policies/working-with-os-policies/
 title: OS policy and OS policy assignment \u00a0|\u00a0 VM Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:42:45.234514+00:00
+fetched_at: 2026-10-24T08:43:27.514332+00:00
 ---
 
 # OS policy and OS policy assignment  |  VM Manager  |  Google Cloud Documentation

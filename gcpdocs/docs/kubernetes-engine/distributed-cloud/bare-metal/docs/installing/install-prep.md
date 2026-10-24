@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/install-prep/
 title: Choose a deployment model \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:23.662377+00:00
+fetched_at: 2026-10-24T11:18:53.058557+00:00
 ---
 
 # Choose a deployment model  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,11 +22,7 @@ Send feedback
 
 #  Choose a deployment model Stay organized with collections  Save and categorize content based on your preferences. 
 
-Google Distributed Cloud supports multiple deployment models to meet different availability, isolation, and resource footprint needs. This page defines the concepts all deployment models share, and describes each deployment model.
-
-This page is for Admins and architects and Operators who define IT solutions and system architecture in accordance with company strategy in coordination with key stakeholders. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
-
-**Note:** With Google Distributed Cloud, you can specify one of four types of clusters: admin, user, standalone, or hybrid. These cluster types are key in shaping different deployment models. The cluster type is specified with the [`spec.type`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/reference/cluster-config-ref#type) field in the cluster configuration file. This field is immutable. Once you create a cluster, you can't change the type.
+Google Distributed Cloud deployment models let you tailor your infrastructure to specific availability, isolation, and resource footprint requirements. To implement the deployment model that best supports your operational needs, you choose from four cluster types: admin, user, hybrid, or standalone.
 
 ## User clusters
 
@@ -70,7 +66,7 @@ Google Distributed Cloud supports the following deployment models to meet differ
   * Hybrid cluster deployment
   * Standalone cluster deployment
 
-
+**Note:** The cluster type is specified with the [`spec.type`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/reference/cluster-config-ref#type) field in the cluster configuration file. This field is immutable. After you create a cluster, you can't change the type.
 
 ### Admin and user cluster deployment
 

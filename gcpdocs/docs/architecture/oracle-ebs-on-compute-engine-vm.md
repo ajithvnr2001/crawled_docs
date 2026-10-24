@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/oracle-ebs-on-compute-engine-vm/
 title: Oracle E-Business Suite with Oracle Database on Compute Engine \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:44:53.989515+00:00
+fetched_at: 2026-10-24T09:47:13.463808+00:00
 ---
 
 # Oracle E-Business Suite with Oracle Database on Compute Engine  |  Cloud Architecture Center  |  Google Cloud Documentation

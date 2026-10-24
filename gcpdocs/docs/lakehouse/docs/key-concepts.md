@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/key-concepts/
 title: Key concepts \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:08.967384+00:00
+fetched_at: 2026-10-24T08:23:15.558995+00:00
 ---
 
 # Key concepts  |  Lakehouse  |  Google Cloud Documentation
@@ -23,9 +23,9 @@ Send feedback
 
 #  Key concepts Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document defines the key terms and concepts for _borderless Lakehouse_.
+A _borderless Lakehouse_ architecture lets you unify data analytics across distributed environments and open-format storage systems on Google Cloud. Understanding these foundational concepts helps you evaluate architectures and configure unified catalogs, multi-engine compute, and governance across your _Lakehouse_ workloads.
 
-This page is not an exhaustive list of features, but instead a general reference of terms and concepts used throughout Google Cloud's _Lakehouse_ documentation.
+Rather than providing an exhaustive feature list, this reference outlines the core terminology used throughout the Lakehouse documentation.
 
 ## Core Concepts
 
@@ -65,7 +65,7 @@ This is a catalog based on the Apache Iceberg REST catalog endpoint. It provides
 
 When creating an Apache Iceberg REST catalog endpoint, you can choose between two storage models:
 
-  * **Multiple-bucket catalog (recommended):** Lets you name your catalog independently and configure up to 15 Cloud Storage buckets (`default_location` and `restricted_locations`). When configuring client query engines (such as Spark or Trino), set the warehouse path to `bl://projects/PROJECT_ID/catalogs/CATALOG_ID`.
+  * **Multiple-bucket catalog (recommended):** Lets you name your catalog independently and configure up to 128 Cloud Storage buckets (`default_location` and `restricted_locations`). When configuring client query engines (such as Spark or Trino), set the warehouse path to `bl://projects/PROJECT_ID/catalogs/CATALOG_ID`.
   * **Single-bucket catalog:** A legacy configuration where the catalog is locked to a single Cloud Storage bucket and inherits the bucket's name. When configuring client query engines, set the warehouse path to `gs://CLOUD_STORAGE_BUCKET_NAME`.
 
 
@@ -84,7 +84,7 @@ Google Cloud's Lakehouse supports several table formats, depending on the engine
 
 ### Apache Iceberg tables
 
-These are Apache Iceberg tables that you create from open source engines and store in Cloud Storage. The Lakehouse runtime catalog manages these tables and provides access to them through the Apache Iceberg REST catalog endpoint. Open source engines have read and write access to these tables, while BigQuery has read access and write access ([Preview](https://cloud.google.com/products/lakehouse/docs/preview)). This option is best if you want your ETL workflow to be managed by open source engines.
+These are Apache Iceberg tables that you create from open source engines and store in Cloud Storage. The Lakehouse runtime catalog manages these tables and provides access to them through the Apache Iceberg REST catalog endpoint. Open source engines have read and write access to these tables, while BigQuery has read access and write access ([Preview](https://docs.cloud.google.com/products#product-launch-stages)). This option is best if you want your ETL workflow to be managed by open source engines.
 
 ### BigQuery tables
 
@@ -122,13 +122,13 @@ Google Cloud's Lakehouse table management simplifies lakehouse maintenance by au
 
 ## Interoperability Concepts
 
-### Borderless Lakehouse
+### Cross-cloud data access
 
-Borderless Lakehouse extends Google Cloud's Lakehouse, letting you connect to remote external catalogs (such as Databricks Unity Catalog, AWS Glue, Snowflake Horizon Catalog, Workday Data Lake, or SAP BDC). It synchronizes metadata from other cloud providers, letting you query data with BigQuery or external open source engines through the Apache Iceberg REST catalog endpoint, without migrating the data.
+Cross-cloud data access in borderless Lakehouse lets you connect to remote external catalogs (such as Databricks Unity Catalog, AWS Glue, Snowflake Horizon Catalog, Workday Data Lake, or SAP BDC). It synchronizes metadata from other cloud providers, letting you query data with BigQuery or external open source engines through the Apache Iceberg REST catalog endpoint, without migrating the data.
 
 ### Public datasets
 
-Google Cloud's Lakehouse hosts high-quality public datasets served through the Apache Iceberg REST catalog, providing read-only access for exploration and testing without managing infrastructure.
+Borderless Lakehouse hosts high-quality public datasets served through the Apache Iceberg REST catalog endpoint, providing read-only access for exploration and testing without managing infrastructure.
 
 ### P.C.N.T. naming structure
 
@@ -161,7 +161,7 @@ Google Cloud's Lakehouse decouples storage from compute, allowing various analyt
 
 ### Managed Service for Apache Spark
 
-Managed Service for Apache Spark (formerly Managed Service for Apache Spark) provides a fully managed runtime for processing open table formats like Apache Iceberg. It supports two primary modes of execution:
+Managed Service for Apache Spark (formerly Dataproc Serverless) provides a fully managed runtime for processing open table formats like Apache Iceberg. It supports two primary modes of execution:
 
   * **Serverless batches:** Designed for automated, non-interactive data processing pipelines and ETL workloads. This pay-per-execution model eliminates cluster management, removes resource contention between jobs, and automates infrastructure maintenance.
   * **Serverless interactive sessions:** Designed for exploratory data analysis, data engineering, and data science experimentation. Interactive sessions power Apache Spark notebooks under the hood using Spark Connect or remote Spark kernels, providing an auto-scaling environment with no infrastructure setup.
@@ -195,6 +195,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/query-and-view-alerts/
 title: Query and view open alerts \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:12.787477+00:00
+fetched_at: 2026-10-24T09:39:00.667668+00:00
 ---
 
 # Query and view open alerts  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

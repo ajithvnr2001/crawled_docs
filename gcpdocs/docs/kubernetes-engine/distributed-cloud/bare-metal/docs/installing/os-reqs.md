@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/os-reqs/
 title: Select your operating system \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:47:36.514929+00:00
+fetched_at: 2026-10-24T11:18:54.787324+00:00
 ---
 
 # Select your operating system  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,15 +22,15 @@ Send feedback
 
 #  Select your operating system Stay organized with collections  Save and categorize content based on your preferences. 
 
-Google Distributed Cloud runs on Linux. Google Distributed Cloud version 1.36.0 and subsequent patch releases support the following Linux distributions and versions.
+Google Distributed Cloud version 1.36.0 and subsequent patch releases run on the Linux distributions and versions listed in this document.
 
-**Important:** To be eligible for assistance from Cloud Customer Care, your Google Distributed Cloud environment must run on one of the supported operating system versions listed on this page. It must also use the original kernel supplied with that distribution. Environments running on unsupported OS versions, or on supported OS versions with custom or third-party kernels, are not eligible for support from Cloud Customer Care.
+**Important:** To be eligible for assistance from Cloud Customer Care, your Google Distributed Cloud environment must run on one of the supported operating system versions listed in this document. Your environment must also use the original kernel supplied with that distribution. Environments running on unsupported OS versions, or on supported OS versions with custom or third-party kernels, are not eligible for support from Cloud Customer Care.
 
-This document is for Admins and architects and Operators who define IT solutions and system architecture in accordance with company strategy. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
+## Before you begin
 
 Starting in version 1.35, Google Distributed Cloud requires `cgroupsv2`. Google Distributed Cloud prevents creating or upgrading clusters during preflight checks if `cgroupsv1` is detected. For instructions on how to migrate your operating system to `cgroupsv2`, see [Migrating to cgroup v2](https://kubernetes.io/docs/concepts/architecture/cgroups/#migrating-cgroupv2) in the Kubernetes documentation.
 
-Starting in 1.36, If you use RHEL 8 or Rocky Linux, you must install Python 3.9 or later on your target nodes before you upgrade. To find and update your Python version, see [Validate the Python version](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/configure-os/rhel#update-python).
+Starting in 1.36, if you use RHEL 8 or Rocky Linux, you must install Python 3.9 or later on your target nodes before you upgrade. To find and update your Python version, see [Validate the Python version](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/configure-os/rhel#update-python).
 
 ## Red Hat Enterprise Linux (RHEL)
 

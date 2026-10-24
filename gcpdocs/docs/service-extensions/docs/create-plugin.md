@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-extensions/docs/create-plugin/
 title: Create a plugin \u00a0|\u00a0 Service Extensions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:34:05.466392+00:00
+fetched_at: 2026-10-24T11:25:14.328498+00:00
 ---
 
 # Create a plugin  |  Service Extensions  |  Google Cloud Documentation
@@ -214,7 +214,7 @@ Replace `PROJECT_NUMBER` with your [project number](https://docs.cloud.google.co
 
   * See [supported Application Load Balancers](https://docs.cloud.google.com/service-extensions/docs/lb-extensions-overview#supported-lbs) for Cloud Load Balancing plugins.
   * Learn how to configure Cloud Load Balancing [edge extensions](https://docs.cloud.google.com/service-extensions/docs/configure-edge-extensions#configure-edge-plugins), [route extensions](https://docs.cloud.google.com/service-extensions/docs/configure-route-extensions#configure-route-plugins), and [traffic extensions](https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions#configure-traffic-plugins) by using plugins.
-  * Learn how to [attach Media CDN plugins to routes](https://docs.cloud.google.com/service-extensions/docs/attach-plugins-to-routes).
+  * Learn how to configure [Media CDN edge extensions](https://docs.cloud.google.com/service-extensions/docs/configure-media-cdn-edge-extensions).
   * Learn how to [manage plugins](https://docs.cloud.google.com/service-extensions/docs/manage-plugins).
   * See the [Service Extensions overview](https://docs.cloud.google.com/service-extensions/docs/overview).
 
@@ -224,6 +224,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

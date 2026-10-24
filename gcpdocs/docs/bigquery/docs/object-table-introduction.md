@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/object-table-introduction/
 title: Introduction to object tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:45.497284+00:00
+fetched_at: 2026-10-24T08:25:49.815650+00:00
 ---
 
 # Introduction to object tables  |  BigQuery  |  Google Cloud Documentation

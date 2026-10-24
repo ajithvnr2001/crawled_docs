@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/metrics-serverless/
 title: Spark metrics \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:45:19.832250+00:00
+fetched_at: 2026-10-24T11:25:17.034698+00:00
 ---
 
 # Spark metrics  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -23,9 +23,9 @@ Send feedback
 
 #  Spark metrics Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document provides information about Spark metrics. By default, Managed Service for Apache Spark enables the collection of available Spark metrics, unless you use Spark metrics collection properties to disable or override the collection of one or more Spark metrics.
+Spark metrics let you monitor batch workload performance and track resource utilization. This visibility helps you diagnose execution bottlenecks across your drivers and executors. By default, Managed Service for Apache Spark collects [available Spark metrics](https://docs.cloud.google.com/managed-spark/docs/concepts/metrics-serverless#available_spark_metrics), unless you use [Spark metrics collection properties](https://docs.cloud.google.com/managed-spark/docs/concepts/metrics-serverless#spark_metrics_collection_properties) to disable or override specific metrics.
 
-For additional properties that you can set when you submit a Managed Service for Apache Spark batch workload, see [Spark properties](https://docs.cloud.google.com/managed-spark/docs/concepts/properties)
+For additional properties that you can set when you submit a Managed Service for Apache Spark batch workload, see [Spark properties](https://docs.cloud.google.com/managed-spark/docs/concepts/properties).
 
 ## Spark metrics collection properties
 
@@ -131,6 +131,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

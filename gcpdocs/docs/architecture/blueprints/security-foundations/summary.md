@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/blueprints/security-foundations/summary/
 title: Deploy the blueprint \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:17:34.706248+00:00
+fetched_at: 2026-10-24T09:40:57.922804+00:00
 ---
 
 # Deploy the blueprint  |  Cloud Architecture Center  |  Google Cloud Documentation

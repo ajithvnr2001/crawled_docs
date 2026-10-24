@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/system-rule-templates-list/
 title: System rule templates list \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:54.356630+00:00
+fetched_at: 2026-10-24T08:36:50.576500+00:00
 ---
 
 # System rule templates list  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,11 +23,11 @@ Send feedback
 
 #  System rule templates list Stay organized with collections  Save and categorize content based on your preferences. 
 
-Knowledge Catalog (formerly Dataplex Universal Catalog) supports a range of rule templates that you can use to define and automate data quality and data validation processes. Implementing these templates is a key part of data governance, ensuring that datasets remain accurate and consistent.
+Knowledge Catalog (formerly Dataplex Universal Catalog) provides predefined system rule templates in any region for common row-level and aggregate data validation checks. You can reuse these templates to automate data quality validation and help maintain accurate, consistent datasets across your data governance workflows.
 
-To identify which of these templates to use, you can perform [data profiling](https://docs.cloud.google.com/knowledge-catalog/docs/data-profiling-overview) on your resources to identify potential quality issues. After identifying the required quality checks, you can select the appropriate templates from this page to define rules for your resources.
+## Available system rule templates
 
-This page lists the available system rule templates that you can use in any region.
+To determine which templates fit your resources, you can run [data profiling](https://docs.cloud.google.com/knowledge-catalog/docs/data-profiling-overview) to analyze table statistics, spot potential quality issues, and generate rule recommendations. After choosing the checks you need, select templates from the following categories to [define rules](https://docs.cloud.google.com/knowledge-catalog/docs/reuse-data-quality-rules#system-templates) for your resources.
 
 ### Table shape
 
@@ -146,6 +146,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

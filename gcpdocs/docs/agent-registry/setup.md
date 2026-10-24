@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/setup/
 title: Set up Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:16.675615+00:00
+fetched_at: 2026-10-24T08:50:56.712386+00:00
 ---
 
 # Set up Agent Registry  |  Google Cloud Documentation

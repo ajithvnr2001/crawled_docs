@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/database-users/manage-password-policy/
 title: Manage built-in authentication using password policies \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:26.820785+00:00
+fetched_at: 2026-10-24T11:25:49.060623+00:00
 ---
 
 # Manage built-in authentication using password policies  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Manage built-in authentication using password policies Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can set and manage password policies for database users of your AlloyDB for PostgreSQL instances.
+To strengthen security for built-in database authentication, you can set and manage password policies for database users on your AlloyDB for PostgreSQL instances.
 
 For an overview of authentication methods available in AlloyDB, see [Authentication](https://docs.cloud.google.com/alloydb/docs/connection-overview#authn).
 
@@ -29,11 +29,13 @@ For an overview of authentication methods available in AlloyDB, see [Authenticat
 
 If your application's database users authenticate with your AlloyDB instances using the built-in, password-based method, then you can make authentication more secure by enforcing strong passwords. You can define and enable password enforcement by setting a password policy on your instances.
 
-**Note:** As a secure and reliable alternative to password-based authentication, consider using authentication based on Identity and Access Management (IAM). For more information, see [Manage IAM authentication](https://docs.cloud.google.com/alloydb/docs/manage-iam-authn).
+**Note:** As a secure and reliable alternative to password-based authentication, consider using authentication based on Identity and Access Management (IAM). For more information, see [Manage IAM authentication](https://docs.cloud.google.com/alloydb/docs/database-users/manage-iam-auth).
 
 ### Limitations of password policies
 
 AlloyDB password policies have the following limitations:
+
+  * Password policies apply only to built-in (`BUILT_IN`) database users. IAM-based (`IAM_BASED`) database users are excluded from instance password policies.
 
   * Password policies apply to passwords created only after you set the policies. Existing user passwords aren't affected by a change in password policy.
 
@@ -50,7 +52,7 @@ You can set a password policy on an instance by [configuring password flags on a
 
   * **Password complexity** : check if the password contains the allowed number of lowercase, uppercase, numeric, and non-alphanumeric characters. Also check if the password length is valid.
 
-  * **Password expiry** : make sure that passwords are rotated periodically.
+  * **Password expiry** : require periodic password rotation.
 
 
 
@@ -71,17 +73,21 @@ If you set any of these three flags to `OFF` or omit them, the security recommen
 
 To enforce a password-complexity policy, do the following:
 
-  1. Set the [`password.enforce_complexity`](https://docs.cloud.google.com/alloydb/docs/reference/password-policy-flags#enforce_complexity) flag to `ON`.
+  1. Set the [`password.enforce_complexity`](https://docs.cloud.google.com/alloydb/docs/reference/password-policy-flags#enforce-complexity) flag to `ON`.
   2. Use [password policy flags](https://docs.cloud.google.com/alloydb/docs/reference/password-policy-flags) to define your password policy.
 
 
 
 For example, to enforce a password policy that states a password must contain at least one uppercase letter, one number, and be at least 10 characters long, you must set the following flags:
 
-  * `password.enforce_complexity` to `ON`
+  * `password.enforce_complexity` flag to `ON`
+
   * `password.min_uppercase_letters` flag to `1`
+
   * `password.min_numerical_chars` flag to `1`
+
   * `password.min_pass_length` flag to `10`
+
 
 
 
@@ -95,36 +101,45 @@ After these flags are set, an attempt to set a database user password that doesn
 
 To enforce the password expiration policy, do the following:
 
-  1. Set the [`password.enforce_expiration`](https://docs.cloud.google.com/alloydb/docs/reference/password-policy-flags#enforce_expiration) flag to `ON`.
+  1. Set the [`password.enforce_expiration`](https://docs.cloud.google.com/alloydb/docs/reference/password-policy-flags#enforce-expiration) flag to `ON`.
 
-  2. Set the [`password.expiration_in_days`](https://docs.cloud.google.com/alloydb/docs/reference/password-policy-flags#expiration_in_days) flag to the number of days after a password is set that it expires.
+  2. Set the [`password.expiration_in_days`](https://docs.cloud.google.com/alloydb/docs/reference/password-policy-flags#expiration-in-days) flag to the number of days after a password is set that it expires.
 
-  3. Set the [`password.notify_expiration_in_days`](https://docs.cloud.google.com/alloydb/docs/reference/password-policy-flags#notify_expiration_in_days) flag to the number of days before a password expires that a user starts receiving password expiration notifications.
+  3. Set the [`password.notify_expiration_in_days`](https://docs.cloud.google.com/alloydb/docs/reference/password-policy-flags#notify-expiration-in-days) flag to the number of days before a password expires that a user starts receiving password expiration notifications.
 
 
 
 
 For example, to enforce a password policy that states passwords expire after 30 days and that users are notified 15 days before their password expires, you set the following:
 
-  * `password.enforce_expiration` to `ON`
+  * `password.enforce_expiration` flag to `ON`
+
   * `password.expiration_in_days` flag to `30`
+
   * `password.notify_expiration_in_days` flag to `15`
 
 
 
-If the password of a user expires, that user can't connect to the AlloyDB instance. To reset the password of a user, see [Change the password of a database user](https://docs.cloud.google.com/alloydb/docs/database-users/about#change-password).
+
+When a user connects during the notification period before their password expires, AlloyDB displays the following message in the client connection and writes it to `postgres.log`:
+    
+    
+    Caution: Password is set to expire soon. Be sure to update the password before the expiration time.
+    
+
+If the password of a user expires, that user can't connect to the AlloyDB instance. To reset the password of a user, see [Change the password of a database user](https://docs.cloud.google.com/alloydb/docs/database-users/manage-roles#change-password).
 
 ### Don't allow usernames in passwords
 
 To enforce the policy that prevents a password from containing a username, do the following:
 
-  * Set the [`password.enforce_password_does_not_contain_username`](https://docs.cloud.google.com/alloydb/docs/reference/password-policy-flags#enforce-password-does-not-contain-username) to `ON`.
+  * Set the [`password.enforce_password_does_not_contain_username`](https://docs.cloud.google.com/alloydb/docs/reference/password-policy-flags#enforce-password-does-not-contain-username) flag to `ON`.
 
 
 
-For example, to ensure that a password doesn't contain a username as a substring, you set the following:
+For example, to prevent a password from containing a username as a substring, you set the following:
 
-  * `password.enforce_password_does_not_contain_username` to `ON`
+  * `password.enforce_password_does_not_contain_username` flag to `ON`
 
 
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/access-control/iam/
 title: Identity and Access Management \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:33.871333+00:00
+fetched_at: 2026-10-24T11:25:36.922865+00:00
 ---
 
 # Identity and Access Management  |  Cloud Storage  |  Google Cloud Documentation
@@ -27,14 +27,14 @@ This page provides an overview of Identity and Access Management (IAM) and its u
 
   * To learn about other ways of controlling access in Cloud Storage, see [Overview of Access Control](https://docs.cloud.google.com/storage/docs/access-control).
 
-  * For a detailed discussion of IAM and its features generally, see [Identity and Access Management](https://docs.cloud.google.com/iam).
+  * For a detailed discussion of IAM and its features generally, see [Identity and Access Management](https://docs.cloud.google.com/iam/docs).
 
 
 
 
 ## Overview
 
-IAM allows you to control who has access to the _resources_ in your Google Cloud project. Resources include Cloud Storage buckets, the managed folders within buckets, and objects stored within buckets, as well as other Google Cloud entities such as [Compute Engine instances](https://docs.cloud.google.com/compute).
+IAM allows you to control who has access to the _resources_ in your Google Cloud project. Resources include Cloud Storage buckets, the managed folders within buckets, and objects stored within buckets, as well as other Google Cloud entities such as [Compute Engine instances](https://docs.cloud.google.com/compute/docs).
 
 _Principals_ are the "who" of IAM. Principals can be individual users, groups, domains, or even the public as a whole. Principals are granted _roles_, which give them the ability to perform actions in Cloud Storage as well as Google Cloud more generally. Each role is a collection of one or more _permissions_. Permissions are the basic units of IAM: each permission lets you perform a certain action.
 
@@ -68,7 +68,7 @@ Some roles can be used at all levels of the resource hierarchy. When used at the
 
 Some roles can only be applied at one level. For example, you can only apply the Storage Legacy Object Owner (`roles/storage.legacyObjectOwner`) role at the bucket level or at the managed folder level. The [IAM roles](https://docs.cloud.google.com/iam/docs/deny-access#required-roles) that allow you to control IAM deny policies can only be applied at the [organization](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) level.
 
-**Caution:** Setting IAM policies at project, bucket, and managed folder levels potentially allow users access to objects that they did not have previously. Carefully evaluate your policies before setting them.**Note:** When you view the IAM policy for a project, you don't see the IAM policies that exist for individual buckets. If you view the IAM policy for an individual bucket using the [Google Cloud console](https://docs.cloud.google.com/storage/docs/cloud-console), you do see project-level permissions that apply to that bucket; however, other Cloud Storage tools, such as [`gcloud storage`](https://docs.cloud.google.com/sdk/gcloud/reference/storage) and the [Client Libraries](https://docs.cloud.google.com/storage/docs/reference/libraries) only return the policy of the bucket and don't include information inherited from the project-level policy. Be sure to consult both project and bucket policies when evaluating access levels for principals.
+**Caution:** Setting IAM policies at project, bucket, and managed folder levels potentially allow users access to objects that they did not have previously. Carefully evaluate your policies before setting them.**Note:** When you view the IAM policy for a project, you don't see the IAM policies that exist for individual buckets. If you view the IAM policy for an individual bucket using the [Google Cloud console](https://docs.cloud.google.com/storage/docs/cloud-console), you do see project-level permissions that apply to that bucket; however, other Cloud Storage tools, such as [`gcloud storage`](https://docs.cloud.google.com/sdk/gcloud/reference/storage) and the [Client Libraries](https://docs.cloud.google.com/storage/docs/apis) only return the policy of the bucket and don't include information inherited from the project-level policy. Be sure to consult both project and bucket policies when evaluating access levels for principals.
 
 ### Relation to ACLs
 
@@ -146,7 +146,7 @@ Keep these restrictions in mind:
   * You must enable [uniform bucket-level access](https://docs.cloud.google.com/storage/docs/uniform-bucket-level-access) on a bucket before adding conditions at the bucket level. Although conditions are allowed at the project level, you should migrate all buckets in the project to uniform bucket-level access to prevent Cloud Storage ACLs from overriding project-level IAM conditions. You can apply a [uniform bucket-level access constraint](https://docs.cloud.google.com/storage/docs/org-policy-constraints#uniform-access) to enable uniform bucket-level access for all new buckets in your project.
   * Managed folders can be specified as a resource in IAM allow policy conditions. Managed folders can't be specified as a resource in IAM deny policy conditions. IAM deny policy conditions can only be set by using tags, and tags don't support managed folders.
   * IAM deny policies can only be applied to project, folder, and organization resources. They can't be applied to buckets or managed folders.
-  * When using the JSON API to call [`getIamPolicy`](https://docs.cloud.google.com/storage/docs/json_api/v1/buckets/getIamPolicy) and [`setIamPolicy`](https://docs.cloud.google.com/storage/docs/json_api/v1/buckets/setIamPolicy) on buckets with conditions, you must set the [IAM policy version](https://docs.cloud.google.com/iam/docs/policies#versions) to 3.
+  * When using the JSON API to call [`getIamPolicy`](https://docs.cloud.google.com/storage/docs/json_api/v1/buckets/getIamPolicy) and [`setIamPolicy`](https://docs.cloud.google.com/storage/docs/json_api/v1/buckets/setIamPolicy) on buckets with conditions, you must set the [IAM policy version](https://docs.cloud.google.com/iam/docs/allow-policies#versions) to 3.
   * Since the `storage.objects.list` permission is granted at the bucket level, you cannot use the `resource.name` condition attribute to restrict object listing access to a subset of objects in the bucket.
   * Expired conditions remain in your IAM policy until you remove them.
 
@@ -171,6 +171,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

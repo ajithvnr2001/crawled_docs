@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/release-notes/
 title: Contact Center AI Platform release notes \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:28:05.874886+00:00
+fetched_at: 2026-10-24T11:25:57.546738+00:00
 ---
 
 # Contact Center AI Platform release notes  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -26,6 +26,146 @@ This page documents production updates to Contact Center AI Platform. Check this
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/ccai-platform-release-notes.xml) directly. 
+
+## October 23, 2026
+
+Announcement
+
+**Google Cloud CCaaS prerelease notes 6.26**
+
+Here are the prerelease notes for the next version of Google Cloud CCaaS. When we release this version, we expect the new capabilities to be as shown here.
+
+Feature
+
+**Scheduled callback for IVR overcapacity**
+
+Scheduled callback is now available as an overcapacity deflection option for IVR queues. When a queue is over capacity, callers can choose to schedule a callback. Google Cloud CCaaS then hands the call to your configured virtual agent, which books the callback through the Callback call API. Administrators choose the virtual agent, an optional greeting, and the data parameters to pass at the global or queue level. Reporting shows whether each caller submitted a callback or left without one.
+
+Administrators: You can configure scheduled callback for overcapacity deflection globally at **Settings > Call > Overcapacity Deflection**, or per queue at **Settings > Queue > IVR (Interactive Voice Response) > Edit / View > [QUEUE] > Overcapacity Deflection > Configure**.
+
+For more information, see [Overcapacity deflection per-queue](https://docs.cloud.google.com/contact-center/ccai-platform/docs/overcapacity-deflection-per-queue) and [Callback call API](https://docs.cloud.google.com/contact-center/ccai-platform/docs/callback-call-api).
+
+By default, this capability is inactive. Contact Google Cloud Support to turn it on for your instance.
+
+Feature
+
+**Salesforce: PKCE and refresh token rotation support**
+
+You can now connect Google Cloud CCaaS to Salesforce apps that require Proof Key for Code Exchange (PKCE) and refresh token rotation. Salesforce turns both settings on automatically for newly created connected apps and external client apps. Google Cloud CCaaS uses PKCE when authorizing Salesforce administrator and agent connections. It also saves replacement refresh tokens returned by Salesforce, keeping connections working across subsequent token refreshes. Salesforce apps that don't use these settings keep working as before. This update adds no new configuration steps in Google Cloud CCaaS.
+
+For more information, see [Salesforce integration guide](https://docs.cloud.google.com/contact-center/ccai-platform/docs/salesforce-integration-guide).
+
+By default, this capability is inactive. Contact Google Cloud Support to turn it on for your instance.
+
+Fixed
+
+This release addresses the following issues:
+
+  * Fixed an issue where the **Branded caller ID** label was truncated in the **Outbound Number** selector when the agent application language was set to French Canadian.
+
+  * Fixed an issue where inbound calls experienced significant delays in connecting after being assigned to an agent.
+
+  * Fixed an issue where whisper announcements played more than once and the call panel was slow to load in the agent desktop.
+
+  * Fixed an issue where Salesforce case creation was delayed until the end of a call for inbound callers without a matching contact record.
+
+  * Fixed an issue where callbacks to Norwegian, Danish, and Swedish landline numbers were incorrectly dialed with a +1 prefix, causing the calls to fail.
+
+  * Fixed an issue where merged call recordings incorrectly reported only the duration of the first segment in the Calls API.
+
+  * Salesforce account linking now completes only in the browser that started it. An authorization link opened in another browser or an incognito window is refused and can't be reused afterwards, and an administrator's **Link New User** action must be finished by the same signed-in administrator. Android and iOS agent apps link as before. This behavior is off by default and can be enabled per instance.
+
+  * Fixed an issue that affected call connection stability during active calls for instances using Agent Assist.
+
+  * Fixed an issue where virtual agent callback calls incorrectly required manual acceptance even when queues were configured for **Auto-Answer**.
+
+  * Fixed an issue where Telnyx and Twilio virtual agent calls remained stuck in a connected state for an extended period if the carrier didn't send a terminal status callback.
+
+  * Fixed an issue where SMS replies to auto-dismissed chats were incorrectly recorded as an agent timeout instead of an end-user timeout.
+
+  * Fixed an issue where the **Unanswered Transferred Call Expiration** setting wasn't enforced for calls parked in an overcapacity deflection state.
+
+  * Fixed an issue that affected connection stability and prevented calls from being accurately recorded as end-user hangups when callers hung up while waiting in a queue.
+
+  * Fixed an issue where the external Dynamic Contact Routing (DCR) new call event payload was missing the queue service level field.
+
+  * Fixed an issue where callers were disconnected when an agent finished their wrap-up following a queue transfer to a virtual agent.
+
+  * Fixed an issue where voice calls escalated from a virtual agent to a human agent reported inaccurate call-level queue and wait durations in reporting and data exports.
+
+  * Fixed an issue where unrecorded voicemails incorrectly created Salesforce cases even when the **Create CRM records for abandoned calls** setting was disabled.
+
+  * Fixed an issue where activating a new language in the CCaaS portal caused the **Languages & Messages** page to crash or display an infinite loading spinner.
+
+  * Fixed an issue where session metadata files were duplicated across different day folders in external storage when re-uploads occurred after midnight.
+
+  * Fixed an issue where voice calls became permanently stuck in a queued status without reaching a terminal state.
+
+  * Fixed an issue where active agents were incorrectly signed out due to inactivity because the system didn't recognize activity outside the embedded call panel.
+
+  * Fixed an issue where a permanent loading spinner appeared in the agent desktop top bar for instances with the email channel disabled.
+
+  * Fixed an issue where inbound keypad (DTMF) entries didn't reach the virtual agent during periods of stream instability or reconnection.
+
+  * Fixed an issue where the external Dynamic Contact Routing (DCR) new call event payload was missing required parameters.
+
+  * Fixed an issue where inbound calls involving a virtual agent didn't record an end time and duration when deflected to an overcapacity queue.
+
+  * Fixed an issue where call recordings weren't fetched or saved when CRM ticket creation failed.
+
+  * Fixed an issue where after-hours phone deflections didn't appear in the **Deflections** dashboard if the outbound dial timed out or failed.
+
+  * Fixed an issue where scheduled phone number obfuscation caused degraded performance for live calls.
+
+  * Fixed an issue where CRM ticket assignees weren't consistently updated following an agent's pickup of a chat.
+
+  * Fixed an issue where voice calls became stuck in a queued state after a caller selected a callback during a cold transfer to a specific agent.
+
+  * Fixed an issue where Smart Disposition suggestions weren't pre-selected on the wrap-up screen, causing the disposition field to remain empty after a call ended.
+
+  * Fixed an issue where calls were incorrectly routed to agents even when the minimum available agent floor wasn't met.
+
+  * Fixed an issue where cold transfers to a direct agent extension didn't trigger overcapacity deflection, leaving callers on hold until they disconnected.
+
+  * Fixed an issue where virtual agent replies were cut off or silenced when using bidirectional streaming with barge-in disabled.
+
+  * Fixed an issue where JSON chat transcripts in external storage contained unredacted message text even when the setting to store unredacted transcripts was disabled.
+
+  * Fixed an issue where the **Keep Waiting** label in the overcapacity deflection screen displayed an inconsistent font style compared to other menu options.
+
+
+
+
+## October 22, 2026
+
+Announcement
+
+**Advanced reporting dashboards prerelease notes 6.24**
+
+Here are the pre-release notes for updates to the advanced reporting dashboards and other reporting in CCAI Platform. When we release these updates, we expect the new capabilities to be as shown here.
+
+**Important:** The next version of the advanced reporting dashboards could be greater than 6.24.
+
+Fixed
+
+This release addresses the following issues:
+
+  * Fixed an issue where call and chat type names were cut off in the **Dashboard Reports** selector on wide-screen displays.
+
+  * Fixed an issue where the **Individual Call History** and **Individual Chat History** reports, run for all agents, left out calls and chats that were never assigned to an agent (for example, abandoned, deflected, or expired calls) when only one agent or no agents had activity in the selected period. The **All Call History** and **All Chat History** files are now always included.
+
+  * Fixed an issue where the **Interactions Detail by Agent** report omitted outbound calls placed without a queue when generated for all agents.
+
+  * Fixed an issue where the **Real-time Queue Monitoring** and **Campaign** dashboards incorrectly displayed English queue names for French and Spanish interactions.
+
+  * Fixed an issue where "wrap-up" and "hold" metrics in advanced reporting were displayed with inconsistent and inaccurate French Canadian (`fr_CA`) translations.
+
+  * Fixed an issue where Spanish chat queues incorrectly displayed English names in **Real-time Queue Monitoring** and advanced reporting dashboards.
+
+  * Fixed an issue where call disposition fields appeared blank on dashboards when viewing date ranges between 46 and 365 days.
+
+
+
 
 ## October 19, 2026
 
@@ -7958,6 +8098,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-22 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 

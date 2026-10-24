@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-batch-upsert/
 title: Batch upsert \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:53:21.789328+00:00
+fetched_at: 2026-10-24T09:12:02.884168+00:00
 ---
 
 # Batch upsert  |  Firestore in Datastore mode  |  Google Cloud Documentation

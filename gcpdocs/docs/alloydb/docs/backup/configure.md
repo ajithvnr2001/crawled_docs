@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/backup/configure/
 title: Configure backup plans \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:14.009760+00:00
+fetched_at: 2026-10-24T10:31:54.387131+00:00
 ---
 
 # Configure backup plans  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -249,7 +249,7 @@ Backups older than the retention policy are subject to automated deletion. For m
 
   * The amount of time that AlloyDB waits before canceling an incomplete attempt to take a new automated backup. AlloyDB uses a default timeout of one hour.
 
-  * A data-encryption preference: either the default Google-managed encryption or a [customer-managed encryption key (CMEK)](https://docs.cloud.google.com/alloydb/docs/cmek) that you provide.
+  * A data-encryption preference: either the cluster's encryption configuration (Google-managed encryption or the cluster's [customer-managed encryption key (CMEK)](https://docs.cloud.google.com/alloydb/docs/cmek)), or a specific CMEK that you provide.
 
 
 
@@ -260,7 +260,7 @@ Backups older than the retention policy are subject to automated deletion. For m
 
 The Google Cloud console lets you enable and disable automated backups, but it does not let you specify a backup schedule or other configuration. To do that, use the gcloud CLI instead.
 
-If you enable automated backups on a cluster where you have not configured this feature, AlloyDB applies a default configuration that schedules one automated backup per day, with a 14-day retention window, using Google-managed encryption.
+If you enable automated backups on a cluster where you haven't configured this feature, AlloyDB uses the cluster's encryption configuration to apply a default configuration that schedules one automated backup per day, with a 14-day retention window.
 
   1. Go to the **Clusters** page.
 
@@ -322,7 +322,7 @@ This example sets a cluster to take an automated backup at midnight UTC on every
         --region=us-central1 \
         --project=my-project
 
-To encrypt scheduled backups using a CMEK key instead of the default Google-managed encryption, provide these additional arguments:
+To encrypt scheduled backups using a specific CMEK instead of the cluster's encryption configuration, provide these additional arguments:
 
   * `--automated-backup-encryption-key=KEY_ID`: the ID of the CMEK key to use.
 
@@ -464,6 +464,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

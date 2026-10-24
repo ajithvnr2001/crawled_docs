@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/dml-best-practices/
 title: Data Manipulation Language best practices \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:31:58.129327+00:00
+fetched_at: 2026-10-24T11:25:24.988837+00:00
 ---
 
 # Data Manipulation Language best practices  |  Spanner  |  Google Cloud Documentation
@@ -68,8 +68,6 @@ The `SingerId` column is the only primary key column for the `Singers` table. To
 Spanner buffers insertions, updates, and deletions performed using DML statements on the server-side, and the results are visible to subsequent SQL and DML statements within the same transaction. This behavior is different from the [Mutation API](https://docs.cloud.google.com/spanner/docs/modify-mutation-api), where Spanner buffers the mutations on the client-side and sends the mutations server-side as part of the commit operation. As a result, mutations in the commit request aren't visible to SQL or DML statements within the same transaction.
 
 Avoid using both DML statements and mutations in the same transaction. If you use both in the same transaction, you need to account for the order of execution in your client library code. If a transaction contains both DML statements and mutations in the same request, Spanner executes the DML statements before the mutations.
-
-For operations that are only supported using mutations, you might want to combine DML statements and mutations in the same transaction—for example, [`insert_or_update`](https://docs.cloud.google.com/spanner/docs/reference/rpc/google.spanner.v1#google.spanner.v1.Mutation).
 
 If you use both, the buffer writes only at the very end of the transaction.
 
@@ -354,6 +352,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

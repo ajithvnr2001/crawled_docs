@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/iam-and-access-control/
 title: Borderless Lakehouse: Access control with IAM \u00a0|\u00a0 BigLake API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:24:50.220605+00:00
+fetched_at: 2026-10-24T08:23:15.872775+00:00
 ---
 
 # Borderless Lakehouse: Access control with IAM  |  BigLake API  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Managing access control for _borderless Lakehouse_ requires adding users to a Go
 
 ## What is IAM?
 
-Google Cloud offers [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam), which lets you grant more granular access to specific Google Cloud resources and prevents unwanted access to other resources. IAM lets you adopt the [security principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), so you grant only the necessary access to your resources within _Lakehouse_.
+Google Cloud offers [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs), which lets you grant more granular access to specific Google Cloud resources and prevents unwanted access to other resources. IAM lets you adopt the [security principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), so you grant only the necessary access to your resources within _Lakehouse_.
 
 IAM also lets you control who (an identity) has what permissions (roles) for which resources by setting IAM policies. IAM policies grant specific roles to a project member, which gives the identity certain permissions. For example, for a given resource, such as a project, you can assign the `roles/biglake.admin` role to a Google Account and that account can control Lakehouse resources in the project, but cannot manage other resources. You can also use IAM to manage the basic roles granted to project team members.
 
@@ -31,7 +31,7 @@ IAM also lets you control who (an identity) has what permissions (roles) for whi
 
 To let users create and manage your Lakehouse resources, you can add them as _team members_ to your project or to specific resources and grant them permissions using IAM _roles_.
 
-A team member can be an individual user with a valid Google Account, a Google Group, a service account, or a Google Workspace domain. When you add a team member to a project or to a resource, you specify which roles to grant them. IAM provides three types of roles: [predefined roles](https://docs.cloud.google.com/iam/docs/overview#roles), [basic roles](https://docs.cloud.google.com/iam/docs/overview#roles), and [custom roles](https://docs.cloud.google.com/iam/docs/understanding-custom-roles).
+A team member can be an individual user with a valid Google Account, a Google Group, a service account, or a Google Workspace domain. When you add a team member to a project or to a resource, you specify which roles to grant them. IAM provides three types of roles: [predefined roles](https://docs.cloud.google.com/iam/docs/overview#roles), [basic roles](https://docs.cloud.google.com/iam/docs/overview#roles), and [custom roles](https://docs.cloud.google.com/iam/docs/roles-overview#custom).
 
 To see a list of the capabilities of each Lakehouse role and the API methods that a specific role grants permission to, see [borderless Lakehouse IAM roles](https://docs.cloud.google.com/lakehouse/docs/iam-roles).
 
@@ -39,7 +39,7 @@ For other member types, such as service accounts and groups, see the [Policy bin
 
 ## Service accounts
 
-When you call Lakehouse APIs to perform certain actions in a project where your service is located, Lakehouse performs these actions on your behalf by using a per-catalog [Service Agent service account](https://docs.cloud.google.com/iam/docs/service-agents#biglake-iceberg-rest-catalog-api-service-agent). Examples include accessing Cloud Storage buckets for [credential vending](https://docs.cloud.google.com/lakehouse/docs/credential-vending) and retrieving secret data from Secret Manager for [cross-cloud data access](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access).
+When you call the BigLake API to perform certain actions in a project where your service is located, Lakehouse performs these actions on your behalf by using a per-catalog [Service Agent service account](https://docs.cloud.google.com/iam/docs/service-agents#biglake-iceberg-rest-catalog-api-service-agent). Examples include accessing Cloud Storage buckets for [credential vending](https://docs.cloud.google.com/lakehouse/docs/credential-vending) and retrieving secret data from Secret Manager for [cross-cloud data access](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access).
 
 ## IAM policies for resources
 
@@ -58,12 +58,12 @@ You can get and set IAM policies using the Google Cloud console, the Identity an
 ## What's next
 
   * Learn more about [Lakehouse IAM roles](https://docs.cloud.google.com/lakehouse/docs/iam-roles).
-  * Learn how to set [policies at a project level](https://docs.cloud.google.com/iam/docs/managing-policies).
+  * Learn how to set [policies at a project level](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access).
 
 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

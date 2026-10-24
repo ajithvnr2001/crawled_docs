@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/database-users/manage-roles/
 title: Manage PostgreSQL users with built-in authentication \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:19.566037+00:00
+fetched_at: 2026-10-24T11:25:51.930965+00:00
 ---
 
 # Manage PostgreSQL users with built-in authentication  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Manage PostgreSQL users with built-in authentication Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to create, manage, and remove both PostgreSQL and AlloyDB for PostgreSQL roles, users, and groups using the password-based PostgreSQL built-in authentication methods.
+To control database access with password-based credentials, you can create, manage, and remove PostgreSQL and AlloyDB for PostgreSQL roles, users, and groups by using built-in authentication.
 
 ## Create PostgreSQL users in AlloyDB
 
@@ -38,7 +38,7 @@ You can create and manage AlloyDB users with the Google Cloud CLI, or by using P
 To use PostgreSQL commands to manage users on a cluster, you need the following:
 
   * Access to [the `psql` client](https://docs.cloud.google.com/alloydb/docs/connect-psql)
-  * Access to `postgres` database user, or another user role with the appropriate administrative privileges
+  * Access to the `postgres` database user, or another user role with the appropriate administrative privileges
 
 
 
@@ -64,7 +64,7 @@ To instead create a database user that uses Identity and Access Management (IAM)
 
   5. Leave **Built-in authentication** selected.
 
-If you want to use IAM to authenticate and sign into your database clusters, you must complete additional steps to prepare your project and grant appropriate permissions to your new user. For more information, see [Manage IAM authentication](https://docs.cloud.google.com/alloydb/docs/database-users/manage-iam-auth).
+If you want to use IAM to authenticate and sign in to your database clusters, you must complete additional steps to prepare your project and grant appropriate permissions to your new user. For more information, see [Manage IAM authentication](https://docs.cloud.google.com/alloydb/docs/database-users/manage-iam-auth).
 
   6. Enter a username and password for the new user.
 
@@ -82,10 +82,21 @@ For more information, see [Predefined roles](https://docs.cloud.google.com/alloy
 
 
 ### psql
+
+Run the following `CREATE USER` statement:
     
     
-    CREATE USER USERNAME WITH PASSWORD PASSWORD;
+    CREATE USER USERNAME WITH PASSWORD 'PASSWORD';
     
+
+Replace the following:
+
+  * `USERNAME`: the username of the database user.
+
+  * `PASSWORD`: the password to assign to the user.
+
+
+
 
 For more information about how to create and define database users, see [`CREATE USER`](https://www.postgresql.org/docs/17/sql-createuser.html).
 
@@ -101,15 +112,15 @@ Use the following [`gcloud alloydb users create`](https://docs.cloud.google.com/
     --cluster=CLUSTER_ID \
     --region=REGION_ID
 
-Replace the following variables:
+Replace the following:
 
-  * `USERNAME`: User's username. `USERNAME` must follow the rules for SQL identifiers: without any special characters, or wrapped in double quotes. For example, `db_user_1`.
+  * `USERNAME`: the username of the database user. `USERNAME` must follow the rules for SQL identifiers: without any special characters, or wrapped in double quotes. For example, `db_user_1`.
 
-  * `PASSWORD`: User's password. To create the user without a password, omit this argument.
+  * `PASSWORD`: the password of the database user. To create the user without a password, omit this argument.
 
-  * `CLUSTER_ID`: ID of the cluster to add the user to.
+  * `CLUSTER_ID`: the ID of the cluster to add the user to.
 
-  * `REGION_ID`: ID of the region where the cluster resides. For example, `us-central1`.
+  * `REGION_ID`: the ID of the region where the cluster resides. For example, `us-central1`.
 
 
 
@@ -122,18 +133,33 @@ Additionally, you can grant roles or superuser privileges to a user while you cr
 
 ### Console
 
-To grant roles to a database user, use `psql` or the gcloud CLI, instead of the Google Cloud console.
+To grant roles to an existing database user in the Google Cloud console, connect to your database by using [AlloyDB Studio](https://docs.cloud.google.com/alloydb/docs/quickstart/create-and-connect) and run the following `GRANT` statement:
+    
+    
+    GRANT ROLE TO USERNAME;
+    
+
+Replace the following:
+
+  * `USERNAME`: the username of the database user.
+
+  * `ROLE`: the role to grant the user. For example, to give the user superuser privileges, grant them the `alloydbsuperuser` role.
+
+
+
 
 ### psql
     
     
-    GRANT ROLE to USERNAME;
+    GRANT ROLE TO USERNAME;
     
 
-Replace the following variables:
+Replace the following:
 
-  * `USERNAME`: User's username.
-  * `ROLE`: Role to grant the user. For example, to give the user superuser privileges, grant them `alloydbsuperuser`.
+  * `USERNAME`: the username of the database user.
+
+  * `ROLE`: the role to grant the user. For example, to give the user superuser privileges, grant them the `alloydbsuperuser` role.
+
 
 **Note:** You can't use this method to grant users the `alloydbiamuser` role. For more information, see [About database user management in AlloyDB for PostgreSQL](https://docs.cloud.google.com/alloydb/docs/database-users/overview#alloydbiamuser).
 
@@ -147,21 +173,21 @@ Use the following [`gcloud alloydb users set-roles`](https://docs.cloud.google.c
     --cluster=CLUSTER_ID \
     --region=REGION_ID
 
-Replace the following variables:
+Replace the following:
 
-  * `USERNAME`: User's username.
+  * `USERNAME`: the username of the database user.
 
-  * `ROLES`: Comma-separated list of all the roles you want the user to possess. Make sure that you list all roles, which includes existing and new roles.
+  * `ROLES`: a comma-separated list of all the roles you want the user to possess. List all roles, which includes existing and new roles.
 
 To find the list of existing roles assigned to the user, run the following command:
         
         gcloud alloydb users list --cluster=CLUSTER_ID --region=REGION_ID
 
-Replace the following variables:
+Replace the following:
 
-    * `CLUSTER_ID`: ID of the cluster containing the user.
+    * `CLUSTER_ID`: the ID of the cluster containing the user.
 
-    * `REGION_ID`: ID of the region where the cluster resides. For example, `us-central1`.
+    * `REGION_ID`: the ID of the region where the cluster resides. For example, `us-central1`.
 
 To give a user superuser privileges, you can either manually grant that user the `alloydbsuperuser` role using `psql`, or you can run the [`gcloud alloydb users set-superuser`](https://docs.cloud.google.com/sdk/gcloud/reference/alloydb/users/set-superuser) command with the `--superuser=true` argument:
     
@@ -170,11 +196,13 @@ To give a user superuser privileges, you can either manually grant that user the
     --cluster=CLUSTER_ID \
     --region=REGION_ID
 
-Replace the following variables:
+Replace the following:
 
-    * `CLUSTER_ID`: ID of the cluster containing the user.
+    * `USERNAME`: the username of the database user.
 
-    * `REGION_ID`: ID of the region where the cluster resides. For example, `us-central1`.
+    * `CLUSTER_ID`: the ID of the cluster containing the user.
+
+    * `REGION_ID`: the ID of the region where the cluster resides. For example, `us-central1`.
 
 
 
@@ -201,7 +229,7 @@ You can't change or set the password of an IAM-based user because IAM users don'
 
   6. Specify a password:
 
-     * To set a new password for this user, type the password into the **Password** field.
+     * To set a new password for this user, enter the password in the **Password** field.
 
      * To set no password for this user, select the **No password** checkbox.
 
@@ -213,7 +241,7 @@ You can't change or set the password of an IAM-based user because IAM users don'
 ### psql
     
     
-    ALTER USER USERNAME WITH PASSWORD PASSWORD;
+    ALTER USER USERNAME WITH PASSWORD 'PASSWORD';
     
 
 For more information about how to change a user's password, see [`ALTER ROLE`](https://www.postgresql.org/docs/17/sql-alterrole.html).
@@ -228,15 +256,15 @@ Use the following [`gcloud alloydb users set-password`](https://docs.cloud.googl
     --cluster=CLUSTER_ID \
     --region=REGION_ID
 
-Replace the following variables:
+Replace the following:
 
-  * `USERNAME`: User's username.
+  * `USERNAME`: the username of the database user.
 
-  * `PASSWORD`: New password to assign to the user.
+  * `PASSWORD`: the new password to assign to the user.
 
-  * `CLUSTER_ID`: ID of the cluster that the user belongs to.
+  * `CLUSTER_ID`: the ID of the cluster that the user belongs to.
 
-  * `REGION_ID`: ID of the region where the cluster resides. For example, `us-central1`.
+  * `REGION_ID`: the ID of the region where the cluster resides. For example, `us-central1`.
 
 
 
@@ -245,7 +273,20 @@ Replace the following variables:
 
 ### Console
 
-To revoke roles from a user, use `psql` or the gcloud CLI, instead of the Google Cloud console.
+To revoke roles from a user in the Google Cloud console, connect to your database by using [AlloyDB Studio](https://docs.cloud.google.com/alloydb/docs/quickstart/create-and-connect) and run the following `REVOKE` statement:
+    
+    
+    REVOKE ROLE FROM USERNAME;
+    
+
+Replace the following:
+
+  * `ROLE`: the role to revoke from the user. To remove a user's superuser privileges, revoke the `alloydbsuperuser` role from that user.
+
+  * `USERNAME`: the username of the database user.
+
+
+
 
 ### psql
 
@@ -267,19 +308,19 @@ To revoke a role with the Google Cloud CLI, use the following [`gcloud alloydb u
     --cluster=CLUSTER_ID \
     --region=REGION_ID
 
-Replace the following variables:
+Replace the following:
 
-  * `USERNAME`: User's username.
+  * `USERNAME`: the username of the database user.
 
-  * `ROLES`: Comma-separated list of all the roles you want the user to possess. Make sure that you list all roles, including existing and new roles.
+  * `ROLES`: a comma-separated list of all the roles you want the user to possess. List all roles, including existing and new roles.
 
 To find the list of existing roles assigned to the user, run the following command:
         
         gcloud alloydb users list --cluster=CLUSTER_ID --region=REGION_ID
 
-  * `CLUSTER_ID`: ID of the cluster containing the user.
+  * `CLUSTER_ID`: the ID of the cluster containing the user.
 
-  * `REGION_ID`: ID of the region where the cluster resides. For example, `us-central1`.
+  * `REGION_ID`: the ID of the region where the cluster resides. For example, `us-central1`.
 
 
 
@@ -288,7 +329,7 @@ To revoke superuser privileges, you can either manually remove a user's `alloydb
 
 ### View a list of database users
 
-**Note:** When listing users using the Google Cloud console or gcloud CLI, users or roles configured with `NOLOGIN` are filtered out of the returned list. If you temporarily disable a user using `ALTER ROLE ... NOLOGIN`, they get hidden from these control plane listings. To view all roles, [connect to your instance using `psql`](https://docs.cloud.google.com/alloydb/docs/connect-psql) and query [`pg_roles`](https://www.postgresql.org/docs/18/view-pg-roles.html) directly.
+**Note:** When listing users by using the Google Cloud console or gcloud CLI, users or roles configured with `NOLOGIN` are filtered out of the returned list. If you temporarily disable a user by using `ALTER ROLE ... NOLOGIN`, the user is hidden from these control plane listings. To view all roles, [connect to your instance using `psql`](https://docs.cloud.google.com/alloydb/docs/connect-psql) and query [`pg_roles`](https://www.postgresql.org/docs/17/view-pg-roles.html) directly.
 
 ### Console
 
@@ -322,9 +363,9 @@ Use the following [`gcloud alloydb users list`](https://docs.cloud.google.com/sd
 
 Replace the following:
 
-  * `CLUSTER_ID`: ID of the cluster containing the users.
+  * `CLUSTER_ID`: the ID of the cluster containing the users.
 
-  * `REGION_ID`: ID of the region where the cluster resides. For example, `us-central1`.
+  * `REGION_ID`: the ID of the region where the cluster resides. For example, `us-central1`.
 
 
 
@@ -333,7 +374,7 @@ Replace the following:
 
 Before you can delete a database user, you must remove all database objects owned by that user and revoke any privileges granted to them. Otherwise, the deletion attempt fails with an error (for example, `ERROR: role "username" cannot be dropped because some objects depend on it`).
 
-To identify and remove these dependencies, connect to your database using the `psql` client as the `postgres` user or any account with `alloydbsuperuser` role, and perform the following steps for each database in your cluster:
+To identify and remove these dependencies, connect to your database using the `psql` client as the `postgres` user or any account with the `alloydbsuperuser` role, and perform the following steps for each database in your cluster:
 
   1. Run the following query to list the objects, such as tables, views, schemas, and databases owned by the user you want to delete:
          
@@ -369,11 +410,22 @@ Replace `USERNAME` with the name of the user you want to delete.
 
 Replace the following:
 
-       * `NEW_OWNER`: username of the user whom you want to grant ownership to.
+       * `SCHEMA_NAME`: the name of the schema that contains the table or view.
+
+       * `OBJECT_NAME`: the name of the table or view.
+
+       * `NEW_OWNER`: the username of the user whom you want to grant ownership to.
+
      * To change the owner of a database:
            
            ALTER DATABASE DATABASE_NAME OWNER TO NEW_OWNER;
            
+
+Replace the following:
+
+       * `DATABASE_NAME`: the name of the database.
+
+       * `NEW_OWNER`: the username of the user whom you want to grant ownership to.
 
   3. Identify and revoke privileges. The user might also have privileges granted on other objects, or role memberships that prevent deletion.
 
@@ -387,7 +439,7 @@ Replace the following:
                JOIN pg_auth_members m ON m.member = cte.oid where d<15
            )
            SELECT
-           DISTINCT pg_get_userbyid(member_of)::varchar as USERNAME,
+           DISTINCT pg_get_userbyid(member_of)::varchar AS username,
            pg_get_userbyid(oid)::varchar as parent_role,
            d::int as depth, substr(path::text||'->'||pg_get_userbyid(oid),3) as path
            FROM cte
@@ -400,7 +452,11 @@ Replace the following:
            REVOKE ROLE_NAME FROM USERNAME;
            
 
-Replace ROLE_NAME with the role membership you want to revoke.
+Replace the following:
+
+       * `ROLE_NAME`: the role membership that you want to revoke.
+
+       * `USERNAME`: the name of the user whose role membership you want to revoke.
 
      * To revoke privileges on a table:
 
@@ -411,8 +467,10 @@ Replace ROLE_NAME with the role membership you want to revoke.
 
 Replace the following:
 
-          * `TABLE_OWNER`: username or role that owns the table.
-          * `EXECUTOR_USER`: username of the executing user—for example, `postgres`.
+          * `TABLE_OWNER`: the username or role that owns the table.
+
+          * `EXECUTOR_USER`: the username of the executing user—for example, `postgres`.
+
        2. Revoke privileges on the table:
               
               REVOKE ALL PRIVILEGES ON TABLE SCHEMA_NAME.TABLE_NAME FROM USERNAME;
@@ -420,9 +478,12 @@ Replace the following:
 
 Replace the following:
 
-          * `SCHEMA_NAME`: name of the schema containing the table.
-          * `TABLE_NAME`: name of the table.
-          * `USERNAME`: name of the user whose privileges you want to revoke.
+          * `SCHEMA_NAME`: the name of the schema containing the table.
+
+          * `TABLE_NAME`: the name of the table.
+
+          * `USERNAME`: the name of the user whose privileges you want to revoke.
+
 
 
 
@@ -468,11 +529,11 @@ Use the following [`gcloud alloydb users delete`](https://docs.cloud.google.com/
 
 Replace the following:
 
-  * `USERNAME`: User's username.
+  * `USERNAME`: the username of the database user.
 
-  * `CLUSTER_ID`: ID of the cluster that the user belongs to.
+  * `CLUSTER_ID`: the ID of the cluster that the user belongs to.
 
-  * `REGION_ID`: ID of the region where the cluster resides. For example, `us-central1`.
+  * `REGION_ID`: the ID of the region where the cluster resides. For example, `us-central1`.
 
 
 

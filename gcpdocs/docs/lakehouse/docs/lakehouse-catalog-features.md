@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/lakehouse-catalog-features/
 title: Additional Lakehouse runtime catalog features \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:48.103122+00:00
+fetched_at: 2026-10-24T08:23:15.452732+00:00
 ---
 
 # Additional Lakehouse runtime catalog features  |  Google Cloud Documentation
@@ -34,7 +34,7 @@ To customize your _Lakehouse runtime catalog_ configuration, you can use the fol
 
 ## Use Apache Iceberg Spark procedures
 
-To use [Apache Spark procedures](https://iceberg.apache.org/docs/1.5.1/spark-procedures/), you must include [Apache Iceberg SQL extensions](https://iceberg.apache.org/docs/1.5.1/spark-configuration/#sql-extensions) in your Apache Spark configuration. For example, you can create a procedure to roll back to a previous state.
+To use [Apache Spark procedures](https://iceberg.apache.org/docs/latest/spark-procedures/), you must include [Apache Iceberg SQL extensions](https://iceberg.apache.org/docs/latest/spark-configuration/#sql-extensions) in your Apache Spark configuration. For example, you can create a procedure to roll back to a previous state.
 
 #### Use interactive Apache Spark SQL to roll back to a previous state
 
@@ -212,6 +212,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

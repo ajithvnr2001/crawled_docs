@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/best-practices-performance-compute/
 title: Optimize query computation \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:58:10.102043+00:00
+fetched_at: 2026-10-24T09:32:04.228498+00:00
 ---
 
 # Optimize query computation  |  BigQuery  |  Google Cloud Documentation

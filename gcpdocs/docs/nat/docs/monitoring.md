@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/nat/docs/monitoring/
 title: Logs and metrics \u00a0|\u00a0 Cloud NAT \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:56:05.983380+00:00
+fetched_at: 2026-10-24T11:10:32.334391+00:00
 ---
 
 # Logs and metrics  |  Cloud NAT  |  Google Cloud Documentation
@@ -619,99 +619,99 @@ By default, the dashboard provides data analysis for the past hour (`1h`). You c
 
 ### VM instance metrics
 
-The "metric type" strings in this table must be prefixed with `compute.googleapis.com/`. That prefix has been omitted from the entries in the table.
+The "metric type" strings in this table must be prefixed with `compute.googleapis.com/`. That prefix has been omitted from the entries in the table. For a full list of `compute.googleapis.com` metrics, see [Compute Engine metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_c#gcp-compute).
 
-Metric type Launch stage  
+Metric type Launch stage  _(Resource hierarchy levels)_  
 Display name  
 ---  
 Kind, Type, Unit  
 Monitored resources | _Description_  
 Labels  
-`nat/allocated_ports` GA  
+`nat/allocated_ports` GA ** _(project)_**   
 Allocated ports   
-`GAUGE`, `INT64`, `{port}`  
-**gce_instance** |  _Number of ports allocated to a VM by the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 165 seconds._   
+`GAUGE`, `INT64`, `{port}`   
+**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _Number of ports allocated to a VM by the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `nat_project_number`: The project number to which the NAT gateway belongs.   
 `router_id`: The Cloud Router ID to which the NAT gateway belongs.   
 `nat_gateway_name`: The name of the NAT gateway.   
 `nat_ip`: The NAT IP allocated to the NAT gateway.   
-`nat/closed_connections_count` GA  
+`nat/closed_connections_count` GA ** _(project)_**   
 Closed connections count   
-`DELTA`, `INT64`, `{connection}`  
-**gce_instance** |  _Count of connections closed over the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 165 seconds._   
+`DELTA`, `INT64`, `{connection}`   
+**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _Count of connections closed over the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `nat_project_number`: The project number to which the NAT gateway belongs.   
 `router_id`: The Cloud Router ID to which the NAT gateway belongs.   
 `nat_gateway_name`: The name of the NAT gateway.   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
-`nat/dropped_received_packets_count` GA  
+`nat/dropped_received_packets_count` GA ** _(project)_**   
 Received packets dropped count   
-`DELTA`, `INT64`, `{packet}`  
-**gce_instance** |  _Count of received packets dropped by the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 165 seconds._   
+`DELTA`, `INT64`, `{packet}`   
+**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _Count of received packets dropped by the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `nat_project_number`: The project number to which the NAT gateway belongs.   
 `router_id`: The Cloud Router ID to which the NAT gateway belongs.   
 `nat_gateway_name`: The name of the NAT gateway.   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
-`nat/dropped_sent_packets_count` GA  
+`nat/dropped_sent_packets_count` GA ** _(project)_**   
 Sent packets dropped count   
-`DELTA`, `INT64`, `{packet}`  
-**gce_instance** |  _Count of sent packets dropped by the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 165 seconds._   
+`DELTA`, `INT64`, `{packet}`   
+**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _Count of sent packets dropped by the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `nat_project_number`: The project number to which the NAT gateway belongs.   
 `router_id`: The Cloud Router ID to which the NAT gateway belongs.   
 `nat_gateway_name`: The name of the NAT gateway.   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
 `reason`: The reason for the packet drop. Possible values are OUT_OF_RESOURCES, ENDPOINT_INDEPENDENCE_CONFLICT.   
-`nat/new_connections_count` GA  
+`nat/new_connections_count` GA ** _(project)_**   
 New connections count   
-`DELTA`, `INT64`, `{connection}`  
-**gce_instance** |  _Count of new connections created over the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 165 seconds._   
+`DELTA`, `INT64`, `{connection}`   
+**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _Count of new connections created over the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `nat_project_number`: The project number to which the NAT gateway belongs.   
 `router_id`: The Cloud Router ID to which the NAT gateway belongs.   
 `nat_gateway_name`: The name of the NAT gateway.   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
-`nat/open_connections` GA  
+`nat/open_connections` GA ** _(project)_**   
 Open connections   
-`GAUGE`, `INT64`, `{connection}`  
-**gce_instance** |  _Number of connections open on the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 165 seconds._   
+`GAUGE`, `INT64`, `{connection}`   
+**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _Number of connections currently open on the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `nat_project_number`: The project number to which the NAT gateway belongs.   
 `router_id`: The Cloud Router ID to which the NAT gateway belongs.   
 `nat_gateway_name`: The name of the NAT gateway.   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
-`nat/port_usage` GA  
+`nat/port_usage` GA ** _(project)_**   
 Port usage   
-`GAUGE`, `INT64`, `{port}`  
-**gce_instance** |  _Maximum number of connections from a VM to a single destination endpoint (IP:port). Sampled every 60 seconds. After sampling, data isn't visible for up to 165 seconds._   
+`GAUGE`, `INT64`, `{port}`   
+**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _Maximum number of connections from a VM to a single internet endpoint (IP:port). Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `nat_project_number`: The project number to which the NAT gateway belongs.   
 `router_id`: The Cloud Router ID to which the NAT gateway belongs.   
 `nat_gateway_name`: The name of the NAT gateway.   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
-`nat/received_bytes_count` GA  
+`nat/received_bytes_count` GA ** _(project)_**   
 Received bytes count   
-`DELTA`, `INT64`, `By`  
-**gce_instance** |  _Count of bytes received (destination - > source) through the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 165 seconds._   
+`DELTA`, `INT64`, `By`   
+**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _Count of bytes received (destination - > VM) via the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `nat_project_number`: The project number to which the NAT gateway belongs.   
 `router_id`: The Cloud Router ID to which the NAT gateway belongs.   
 `nat_gateway_name`: The name of the NAT gateway.   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
-`nat/received_packets_count` GA  
+`nat/received_packets_count` GA ** _(project)_**   
 Received packets count   
-`DELTA`, `INT64`, `{packet}`  
-**gce_instance** |  _Count of packets received (destination - > source) through the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 165 seconds._   
+`DELTA`, `INT64`, `{packet}`   
+**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _Count of packets received (destination - > VM) via the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `nat_project_number`: The project number to which the NAT gateway belongs.   
 `router_id`: The Cloud Router ID to which the NAT gateway belongs.   
 `nat_gateway_name`: The name of the NAT gateway.   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
-`nat/sent_bytes_count` GA  
+`nat/sent_bytes_count` GA ** _(project)_**   
 Sent bytes count   
-`DELTA`, `INT64`, `By`  
-**gce_instance** |  _Count of bytes sent (source - > destination) over the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 165 seconds._   
+`DELTA`, `INT64`, `By`   
+**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _Count of bytes sent (VM - > destination) over the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `nat_project_number`: The project number to which the NAT gateway belongs.   
 `router_id`: The Cloud Router ID to which the NAT gateway belongs.   
 `nat_gateway_name`: The name of the NAT gateway.   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
-`nat/sent_packets_count` GA  
+`nat/sent_packets_count` GA ** _(project)_**   
 Sent packets count   
-`DELTA`, `INT64`, `{packet}`  
-**gce_instance** |  _Count of packets sent (source - > destination) over the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 165 seconds._   
+`DELTA`, `INT64`, `{packet}`   
+**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _Count of packets sent (VM - > destination) over the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `nat_project_number`: The project number to which the NAT gateway belongs.   
 `router_id`: The Cloud Router ID to which the NAT gateway belongs.   
 `nat_gateway_name`: The name of the NAT gateway.   
@@ -727,84 +727,89 @@ label_key | Type | Description
 `nat_project_number` | STRING | The project number to which the NAT gateway belongs.  
 `router_id` | STRING | The Cloud Router ID to which the NAT gateway belongs.  
 `nat_gateway_name` | STRING | The name of the NAT gateway.  
-`nat_ip` | STRING | The NAT IP address allocated to the NAT gateway. Valid for metrics `allocated_ports`.  
+`nat_ip` | STRING | The NAT IP address allocated to the NAT gateway. Valid for the `allocated_ports` metric.  
 `ip_protocol` | STRING | The protocol of the connection. Can be `TCP`, `UDP` or `ICMP`. Valid for all metrics except `allocated_ports`.  
 `reason` | STRING | The reason for the packet drop. Possible values are:
 
   * `OUT_OF_RESOURCES`, if Cloud NAT runs out of NAT IP addresses or ports.
   * `ENDPOINT_INDEPENDENCE_CONFLICT`, when an [endpoint independent conflict](https://docs.cloud.google.com/nat/docs/ports-and-addresses#ports-reuse-endpoints) arises.
 
-Valid for metrics `dropped_sent_packets_count`.  
+Valid for the `dropped_sent_packets_count` metric.  
   
 ### NAT gateway metrics
 
-The "metric type" strings in this table must be prefixed with `router.googleapis.com/`. That prefix has been omitted from the entries in the table.
+The "metric type" strings in this table must be prefixed with `router.googleapis.com/`. That prefix has been omitted from the entries in the table. For a full list of `router.googleapis.com` metrics, see [Cloud Router metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_p_z#gcp-router).
 
-Metric type Launch stage  
+Metric type Launch stage  _(Resource hierarchy levels)_  
 Display name  
 ---  
 Kind, Type, Unit  
 Monitored resources | _Description_  
 Labels  
-`nat/allocated_ports` GA  
+`nat/allocated_ports` GA ** _(project)_**   
 Allocated ports   
-`GAUGE`, `INT64`, `{port}`  
-**nat_gateway** |  _Number of ports allocated to all VMs by the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 225 seconds._   
+`GAUGE`, `INT64`, `{port}`   
+**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Number of ports allocated to all VMs by the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 225 seconds._   
 `nat_ip`: NAT IP of the ports.   
-`nat/closed_connections_count` GA  
+`nat/closed_connections_count` GA ** _(project)_**   
 Closed connections count   
-`DELTA`, `INT64`, `{connection}`  
-**nat_gateway** |  _Count of connections closed over the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 225 seconds._   
+`DELTA`, `INT64`, `{connection}`   
+**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Count of connections closed over the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 225 seconds._   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
-`nat/dropped_received_packets_count` GA  
+`nat/dropped_received_packets_count` GA ** _(project)_**   
 Received packets dropped count   
-`DELTA`, `INT64`, `{packet}`  
-**nat_gateway** |  _Count of received packets dropped by the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 225 seconds._   
+`DELTA`, `INT64`, `{packet}`   
+**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Count of received packets dropped by the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 225 seconds._   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
-`nat/dropped_sent_packets_count` GA  
+`nat/dropped_sent_packets_count` GA ** _(project)_**   
 Sent packets dropped count   
-`DELTA`, `INT64`, `{packet}`  
-**nat_gateway** |  _Count of sent packets dropped by the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 225 seconds._   
+`DELTA`, `INT64`, `{packet}`   
+**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Count of sent packets dropped by the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 225 seconds._   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
 `reason`: The reason for the packet drop. Possible values are OUT_OF_RESOURCES, ENDPOINT_INDEPENDENCE_CONFLICT.   
-`nat/nat_allocation_failed` GA  
+`nat/nat_allocation_failed` GA ** _(project)_**   
 NAT allocation failed   
-`GAUGE`, `BOOL`, ``  
-**nat_gateway** |  _Indicates if there is a failure in allocating NAT IPs to any VM in the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 120 seconds._  
-`nat/new_connections_count` GA  
+`GAUGE`, `BOOL`, ``   
+**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Indicates if there is a failure in allocating NAT IPs to any VM in the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._  
+`nat/new_connections_count` GA ** _(project)_**   
 New connections count   
-`DELTA`, `INT64`, `{connection}`  
-**nat_gateway** |  _Count of new connections created over the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 225 seconds._   
+`DELTA`, `INT64`, `{connection}`   
+**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Count of new connections created over the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 225 seconds._   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
-`nat/open_connections` GA  
+`nat/open_connections` GA ** _(project)_**   
 Open connections   
-`GAUGE`, `INT64`, `{connection}`  
-**nat_gateway** |  _Number of connections open on the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 225 seconds._   
+`GAUGE`, `INT64`, `{connection}`   
+**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Number of connections currently open on the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 225 seconds._   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
-`nat/port_usage` GA  
+`nat/port_usage` GA ** _(project)_**   
 Port usage   
-`GAUGE`, `INT64`, `{port}`  
-**nat_gateway** |  _Maximum number of connections from a VM to a single destination endpoint (IP:port). Sampled every 60 seconds. After sampling, data isn't visible for up to 225 seconds._   
+`GAUGE`, `INT64`, `{port}`   
+**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Maximum number of connections from VM to a single internet endpoint (IP:port). Sampled every 60 seconds. After sampling, data is not visible for up to 225 seconds._   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
-`nat/received_bytes_count` GA  
+`nat/received_bytes_count` GA ** _(project)_**   
 Received bytes count   
-`DELTA`, `INT64`, `By`  
-**nat_gateway** |  _Count of bytes received (destination - > source) through the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 225 seconds._   
+`DELTA`, `INT64`, `By`   
+**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Count of bytes received (destination - > VMs) via the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 225 seconds._   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
-`nat/received_packets_count` GA  
+`nat/received_packets_count` GA ** _(project)_**   
 Received packets count   
-`DELTA`, `INT64`, `{packet}`  
-**nat_gateway** |  _Count of packets received (destination - > source) through the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 225 seconds._   
+`DELTA`, `INT64`, `{packet}`   
+**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Count of packets received (destination - > VMs) via the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 225 seconds._   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
-`nat/sent_bytes_count` GA  
+`nat/rule/nat_allocation_failed` GA ** _(project)_**   
+NAT allocation failed per rule   
+`GAUGE`, `BOOL`, ``   
+**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Indicates if there is a failure in allocating NAT IPs to any VM in the NAT gateway for a specific NAT rule. Sampled every 60 seconds. After sampling, data is not visible for up to 120 seconds._   
+`nat_rule_priority`: The priority number of the NAT rule associated with the error.   
+`nat/sent_bytes_count` GA ** _(project)_**   
 Sent bytes count   
-`DELTA`, `INT64`, `By`  
-**nat_gateway** |  _Count of bytes sent (source - > destination) over the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 225 seconds._   
+`DELTA`, `INT64`, `By`   
+**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Count of bytes sent (VMs - > destination) over the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 225 seconds._   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
-`nat/sent_packets_count` GA  
+`nat/sent_packets_count` GA ** _(project)_**   
 Sent packets count   
-`DELTA`, `INT64`, `{packet}`  
-**nat_gateway** |  _Count of packets sent (source - > destination) over the NAT gateway. Sampled every 60 seconds. After sampling, data isn't visible for up to 225 seconds._   
+`DELTA`, `INT64`, `{packet}`   
+**[nat_gateway](https://docs.cloud.google.com/monitoring/api/resources#tag_nat_gateway)** |  _Count of packets sent (VMs - > destination) over the NAT gateway. Sampled every 60 seconds. After sampling, data is not visible for up to 225 seconds._   
 `ip_protocol`: The protocol of the connection. Can be TCP, UDP or ICMP.   
   
 #### Gateway filtering dimensions
@@ -816,13 +821,14 @@ label_key | Type | Description
 `router_id` | STRING | The Cloud Router ID to which the NAT gateway belongs.  
 `gateway_name` | STRING | The name of the NAT gateway.  
 `ip_protocol` | STRING | The protocol of the connection. Can be `TCP`, `UDP` or `ICMP`. Valid for all metrics except `allocated_ports`.  
-`nat_ip` | STRING | The NAT IP address allocated to the NAT gateway. Valid for metrics `allocated_ports`.  
+`nat_ip` | STRING | The NAT IP address allocated to the NAT gateway. Valid for the `allocated_ports` metric.  
+`nat_rule_priority` | STRING | The priority number of the NAT rule associated with the error. Valid for the `rule/nat_allocation_failed` metric.  
 `reason` | STRING | The reason for the packet drop. Possible values are:
 
   * `OUT_OF_RESOURCES`, if Cloud NAT runs out of NAT IP addresses or ports.
   * `ENDPOINT_INDEPENDENCE_CONFLICT`, when an [endpoint independent conflict](https://docs.cloud.google.com/nat/docs/ports-and-addresses#ports-reuse-endpoints) arises.
 
-Valid for metrics `dropped_sent_packets_count`.  
+Valid for the `dropped_sent_packets_count` metric.  
   
 ### Query metrics using the Monitoring API
 
@@ -894,6 +900,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

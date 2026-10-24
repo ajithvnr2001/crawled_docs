@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/build-policy-as-code-data-quality-workflow/
 title: Build a policy-as-code data quality workflow \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:52.648049+00:00
+fetched_at: 2026-10-24T08:27:37.616979+00:00
 ---
 
 # Build a policy-as-code data quality workflow  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,13 +23,9 @@ Send feedback
 
 #  Build a policy-as-code data quality workflow Stay organized with collections  Save and categorize content based on your preferences. 
 
-Build a policy-as-code data quality and metadata enrichment workflow. This tutorial covers how to move beyond manual processes by defining data quality expectations in declarative, version-controlled files. 
+Auto data quality in Knowledge Catalog (formerly Dataplex Universal Catalog) lets you define validation rules in declarative, version-controlled YAML files rather than managing them manually. Automating data profiling and quality checks helps you enrich catalog metadata with trust signals and business context. In this tutorial, you profile a nested BigQuery table, draft and validate rules with the Antigravity CLI, and deploy a Knowledge Catalog data quality scan. For more information, see [Auto data quality overview](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview).
 
-By establishing automated profiling and data quality rules, you enrich your metadata with trust signals and business context.
-
-Using a **Human-in-the-Loop** approach, where AI drafts the initial rules and you review, refine, and validate them, you can quickly translate profile statistics into a data quality framework.
-
-### Objectives
+## Objectives
 
   * Flatten nested BigQuery data with materialized views to enable Knowledge Catalog profiling.
   * Run Knowledge Catalog profile scans using the Python client library.
@@ -209,9 +205,9 @@ When the script finishes, it creates a `dq_profile_results.json` file in the dir
 
 ## Generate data quality rules with the Antigravity CLI
 
-Now you can use the Antigravity CLI to read the local profile scan results. 
+Now you can use the Antigravity CLI to read the local profile scan results.
 
-Manually writing data quality specifications for complex datasets is time-consuming and error-prone. Using a generative AI agent accelerates this workflow by drafting an initial declarative configuration in seconds. This allows data teams to shift from manual syntax drafting to high-level, business-aligned Human-in-the-Loop (HITL) oversight.
+Manually writing data quality specifications for complex datasets is time-consuming and error-prone. Using a Human-in-the-Loop (HITL) approach, where a generative AI agent drafts the initial declarative rules and you review, refine, and validate them, lets you quickly translate profile statistics into a data quality framework. This shifts your focus from manual syntax drafting to high-level, business-aligned oversight.
 
 To start the Antigravity CLI, use the following command:
     
@@ -493,6 +489,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

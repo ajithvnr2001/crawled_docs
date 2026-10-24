@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy/
 title: SanitizeUserPrompt policy \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:57:24.560525+00:00
+fetched_at: 2026-10-24T10:26:51.944057+00:00
 ---
 
 # SanitizeUserPrompt policy  |  Apigee  |  Google Cloud Documentation
@@ -81,8 +81,9 @@ Defines a SanitizeUserPrompt policy.
 **Parent Element** |  N/A   
 **Child Elements** |  [`<DisplayName>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy#displayname)  
 [`<IgnoreUnresolvedVariables>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy#ignoreunresolvedvariables)  
-[`<TemplateName>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy#templatename)  
+[`<ModelArmor>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy#modelarmor)  
 [`<UserPromptSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy#userpromptsource)  
+[`<FunctionResponseSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy#functionresponsesource)  
   
   
 The [`<SanitizeUserPrompt>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy#name) element uses the following syntax:
@@ -96,8 +97,8 @@ The [`<SanitizeUserPrompt>`](https://docs.cloud.google.com/apigee/docs/api-platf
       <ModelArmor>
         <TemplateName>projects/{project}/locations/{location}/templates/{template-name}</TemplateName>
       </ModelArmor>
-      <UserPromptSource>{jsonPath('$.contents[-1].parts[-1].text',request.content,true)}</UserPromptSource>
-      <FunctionResponseSource>{jsonPath('$.contents[-1].parts[-1].functionResponse.response',request.content,true)}</FunctionResponseSource>
+      <UserPromptSource>{jsonPath('$.contents[-1].parts[-1].text',request.content)}</UserPromptSource>
+      <FunctionResponseSource>{jsonPath('$.contents[-1].parts[-1].functionResponse.response',request.content)}</FunctionResponseSource>
     </SanitizeUserPrompt>
 
 ### Default Policy
@@ -111,8 +112,8 @@ The following example shows the default settings when you add a SanitizeUserProm
       <ModelArmor>
         <TemplateName>projects/{project}/locations/{location}/templates/{template-name}</TemplateName>
       </ModelArmor>
-      <UserPromptSource>{jsonPath('$.contents[-1].parts[-1].text',request.content,true)}</UserPromptSource>
-      <FunctionResponseSource>{jsonPath('$.contents[-1].parts[-1].functionResponse.response',request.content,true)}</FunctionResponseSource>
+      <UserPromptSource>{jsonPath('$.contents[-1].parts[-1].text',request.content)}</UserPromptSource>
+      <FunctionResponseSource>{jsonPath('$.contents[-1].parts[-1].functionResponse.response',request.content)}</FunctionResponseSource>
     </SanitizeUserPrompt>
 
 When you insert a new SanitizeUserPrompt policy using the Apigee UI, the template contains stubs for all possible operations. See below for information on required elements.
@@ -143,7 +144,7 @@ Child Element | Required? | Description
     
     {jsonpath('$.input.prompt.text',request.content,false)}  
   
-`<FunctionResponseSource>` | Optional | The location of the function/tool response data to extract. Used as a fallback when `<UserPromptSource>` returns empty on function calling turns. Default: `{jsonPath('$.contents[-1].parts[-1].functionResponse.response',request.content,true)}`  
+[`<FunctionResponseSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy#functionresponsesource) | Optional | The location of the function or tool response data to extract. The policy uses this element as a fallback when [`<UserPromptSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy#userpromptsource) returns empty on function-calling turns. Default: `{jsonPath('$.contents[-1].parts[-1].functionResponse.response',request.content)}`  
   
 ## Example
 
@@ -196,7 +197,7 @@ The `<DisplayName>` element uses the following syntax:
 
 The `<DisplayName>` element has no attributes or child elements.
 
-### <IgnoreUnresolvedVariables>
+### `<IgnoreUnresolvedVariables>`
 
 Determines whether processing stops when a variable is unresolved. Set to `true` to ignore unresolved variables and continue processing.
 
@@ -252,20 +253,20 @@ The location of the payload for the user prompt text to be extracted. This field
     
     {jsonpath('$.input.prompt.text',request.content,false)}
 
-**Default Value** | {jsonPath('$.contents[-1].parts[-1].text',request.content,true)}  
+**Default Value** | {jsonPath('$.contents[-1].parts[-1].text',request.content)}  
 ---|---  
 **Required?** | Optional  
 **Type** | String  
 **Parent Element** |  [`<SanitizeUserPrompt>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy#name)  
 **Child Elements** |  None   
   
-### <FunctionResponseSource>
+### `<FunctionResponseSource>`
 
-The location of the function or tool response data to extract from the request. This element is used as a fallback when `<UserPromptSource>` returns empty, which occurs on function calling turns where the last content entry contains a function response instead of text. Function response data must be sanitized because it contains untrusted external data from APIs and databases.
+The location of the function or tool response data to extract from the request. The policy uses this element as a fallback when [`<UserPromptSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy#userpromptsource) returns empty, which occurs on function-calling turns where the last content entry contains a function response instead of text. You must sanitize function response data because it contains untrusted external data from APIs and databases.
 
 This field supports message template syntax, including JSON Path functions.
 
-**Default Value** | {jsonPath('$.contents[-1].parts[-1].functionResponse.response',request.content,true)}  
+**Default Value** | {jsonPath('$.contents[-1].parts[-1].functionResponse.response',request.content)}  
 ---|---  
 **Required?** | Optional  
 **Type** | String  
@@ -406,6 +407,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

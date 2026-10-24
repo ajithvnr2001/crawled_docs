@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/storage-options-overview/
 title: Choose a storage option \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:18:32.305701+00:00
+fetched_at: 2026-10-24T11:25:22.679283+00:00
 ---
 
 # Choose a storage option  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ Cloud SQL storage options let you match your instance's IOPS, throughput, and co
 
 ## Google Cloud Hyperdisk Balanced
 
-Cloud SQL uses the Hyperdisk Balanced storage option for the [N4](https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview#n4) machine series. This storage type is an Google Cloud Hyperdisk offering. Hyperdisk is the latest generation of network block storage. It offers scalable, high-performance storage with comprehensive data persistence and management capabilities. You can also enable [automatic storage increase](https://docs.cloud.google.com/sql/docs/sqlserver/instance-settings#automatic-storage-increase-2ndgen) with this storage option to have Cloud SQL automatically increase the storage for your instance when it falls below the threshold size.
+Cloud SQL uses the Hyperdisk Balanced storage option for the [N4](https://docs.cloud.google.com/sql/docs/sqlserver/machine-series-overview#n4) machine series. This storage type is a Google Cloud Hyperdisk offering. Hyperdisk is the latest generation of network block storage. It offers scalable, high-performance storage with comprehensive data persistence and management capabilities. You can also enable [automatic storage increase](https://docs.cloud.google.com/sql/docs/sqlserver/instance-settings#automatic-storage-increase-2ndgen) with this storage option to have Cloud SQL automatically increase the storage for your instance when it falls below the threshold size.
 
 Hyperdisk Balanced provides customizable throughput and IOPS. For more information, see [About Hyperdisk Balanced](https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-balanced).
 
@@ -168,6 +168,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

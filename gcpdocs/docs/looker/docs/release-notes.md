@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/release-notes/
 title: Looker release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:45.494731+00:00
+fetched_at: 2026-10-24T11:25:24.373165+00:00
 ---
 
 # Looker release notes  |  Google Cloud Documentation
@@ -108,7 +108,38 @@ Feature
 
 The [data lineage integration](https://docs.cloud.google.com/looker/docs/looker-core-lineage) remains in Preview.
 
+## October 20, 2026
+
+Looker (Google Cloud core) only changes
+
+Announcement
+
+The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
+
+  * Latest version in the Regular channel: **Looker 26.20**
+
+
+
+The latest version in the Rapid and No Channel channels remains **Looker 26.20**.
+
+**Note:** This item was added on October 23, 2026.
+
 ## October 15, 2026
+
+Looker (Google Cloud core) only changes
+
+Announcement
+
+The latest versions in the Looker (Google Cloud core) [release channels](https://docs.cloud.google.com/looker/docs/looker-core-release-process#release_channels) are beginning deployment as follows:
+
+  * Latest version in the Rapid channel: **Looker 26.20**
+  * Latest version in the No Channel channel: **Looker 26.20**
+
+
+
+The latest version in the Regular channel remains **Looker 26.18**.
+
+**Note:** This item was added on October 23, 2026.
 
 Looker (Google Cloud core) only changes
 

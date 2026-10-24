@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/data-profiling-overview/
 title: About data profiling \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:47.775905+00:00
+fetched_at: 2026-10-24T08:23:55.671084+00:00
 ---
 
 # About data profiling  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,21 +23,17 @@ Send feedback
 
 #  About data profiling Stay organized with collections  Save and categorize content based on your preferences. 
 
-Knowledge Catalog (formerly Dataplex Universal Catalog) makes it easier to understand and analyze your data by automatically profiling your BigQuery, Google Cloud Lakehouse Iceberg REST Catalog, SAP Business Data Cloud (BDC) Delta Lake, and Hive tables.
-
-Profiling is like getting a detailed health report for your data. It gives you key statistics, such as common values, how the data is spread out (distribution), and how many entries are missing (null counts). This information speeds up your analysis.
-
-Data profiling [recommends data quality check rules](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview) to ensure your data stays reliable.
+Data profiling in Knowledge Catalog (formerly Dataplex Universal Catalog) lets you calculate column-level statistics for your BigQuery tables, and for Apache Iceberg, Apache Hive, and SAP Business Data Cloud (BDC) Delta Lake tables managed by Google Cloud Lakehouse. Profile scans report key metrics, such as common values, data distributions, and null percentages, to help you understand and analyze your data. You can also use profiling results to generate [auto data quality](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview) rule recommendations that help keep your data reliable.
 
 ## Conceptual model
 
-Knowledge Catalog lets you better understand the profile of your data by creating a data profile scan. A data profile scan is a type of [Knowledge Catalog data scan](https://docs.cloud.google.com/knowledge-catalog/docs/reference/rest/v1/projects.locations.dataScans) that analyzes a BigQuery, Google Cloud Lakehouse Iceberg REST Catalog, SAP BDC Delta Lake, or a Hive table to generate statistical insights.
+Knowledge Catalog lets you better understand the profile of your data by creating a data profile scan. A data profile scan is a type of [Knowledge Catalog data scan](https://docs.cloud.google.com/knowledge-catalog/docs/reference/rest/v1/projects.locations.dataScans) that analyzes a BigQuery table, or an Apache Iceberg, Apache Hive, or SAP BDC Delta Lake table managed by Google Cloud Lakehouse, to generate statistical insights.
 
 The following diagram shows how Knowledge Catalog scans data to report on statistical characteristics.
 
 ![A data profile scan analyzes table data to report on statistical characteristics.](https://docs.cloud.google.com/static/knowledge-catalog/images/data-profile-scan.png)
 
-A data profile scan is associated with one BigQuery, Google Cloud Lakehouse Iceberg REST Catalog, SAP BDC Delta Lake, or a Hive table and scans the table to generate the data profiling results. A data profile scan supports several configuration options.
+A data profile scan is associated with one BigQuery table, or one Apache Iceberg, Apache Hive, or SAP BDC Delta Lake table managed by Google Cloud Lakehouse, and scans the table to generate the data profiling results. A data profile scan supports several configuration options, and you can use the scan results to generate recommended validation rules for [auto data quality](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview) scans.
 
 **Note:** Knowledge Catalog runs scans on resources in a Google tenant project, so you don't need to set up your own infrastructure.
 
@@ -66,7 +62,7 @@ The lightweight mode has the following limitations:
 
 ### Scheduling options
 
-You can schedule a data profile scan with a defined frequency, or run the scan on demand. If a scan job is running longer than expected, you can [cancel the job](https://docs.cloud.google.com/knowledge-catalog/docs/use-data-profiling#cancel-job).
+You can schedule a data profile scan with a defined frequency to profile tables automatically, or run the scan on demand. If a scan job is running longer than expected, you can [cancel the job](https://docs.cloud.google.com/knowledge-catalog/docs/use-data-profiling#cancel-job).
 
 ### Execution identity
 
@@ -123,7 +119,7 @@ You can export the data profile scan results to a BigQuery table for further ana
 
 ## Data profiling results
 
-The data profiling results include the following values:
+Data profiling results summarize each scanned column, including common values, how values are distributed, and the percentage of null and unique values. Depending on the column type, the results include the following values:
 
 Column type | Data profiling results  
 ---|---  
@@ -195,7 +191,7 @@ Data profiling scan compute runs on serverless infrastructure and does not emit 
 
 ## Limitations
 
-  * You can run data profile scans only on BigQuery, Google Cloud Lakehouse Iceberg REST Catalog, SAP BDC Delta Lake, and Hive tables.
+  * You can run data profile scans only on BigQuery tables, and on Apache Iceberg, Apache Hive, and SAP BDC Delta Lake tables managed by Google Cloud Lakehouse.
   * Data profiling is supported for BigQuery tables with all column types except `BIGNUMERIC`. A scan created for a table with a `BIGNUMERIC` column results in a validation error and isn't successfully created.
   * Multiple data profile scans aren't supported for Lakehouse tables.
 
@@ -224,6 +220,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

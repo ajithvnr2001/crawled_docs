@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/glossary/
 title: App Lifecycle Manager glossary \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:09:32.512886+00:00
+fetched_at: 2026-10-24T08:41:57.947840+00:00
 ---
 
 # App Lifecycle Manager glossary  |  Google Cloud Documentation
@@ -45,7 +45,7 @@ A _release_ represents a specific, deployable snapshot of a unit kind. Releases 
 
 ## Rollout
 
-A _rollout_ is the process of updating units with a new release. A rollout process follows the rules defined in the rollout kind.
+A _rollout_ is the process of updating units with a new release. A rollout follows the rules defined in the rollout kind.
 
 ## Rollout kind
 
@@ -63,6 +63,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

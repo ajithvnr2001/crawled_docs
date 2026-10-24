@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-1/configure-shared-vpc/
 title: Configure Shared VPC networking \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:41:43.253635+00:00
+fetched_at: 2026-10-24T08:42:48.457196+00:00
 ---
 
 # Configure Shared VPC networking  |  Managed Service for Apache Airflow  |  Google Cloud Documentation

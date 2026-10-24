@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/app-lifecycle-manager/update-saas-offering/
-title: Rollout a release \u00a0|\u00a0 App Lifecycle Manager \u00a0|\u00a0 Google Cloud Documentation
+title: Update a SaaS offering \u00a0|\u00a0 App Lifecycle Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:09:17.838570+00:00
+fetched_at: 2026-10-24T11:10:24.293147+00:00
 ---
 
-# Rollout a release  |  App Lifecycle Manager  |  Google Cloud Documentation
+# Update a SaaS offering  |  App Lifecycle Manager  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/app-lifecycle-manager/update-saas-offering/
 
@@ -21,13 +21,13 @@ We are looking for your feedback on our feature flags capabilities and user expe
 
 Send feedback 
 
-#  Rollout a release Stay organized with collections  Save and categorize content based on your preferences. 
+#  Update a SaaS offering Stay organized with collections  Save and categorize content based on your preferences. 
 
 **Preview**
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This document describes how to roll out a release using App Lifecycle Manager.
+This document describes how to update a SaaS offering using App Lifecycle Manager.
 
 App Lifecycle Manager enables updates across multiple provisioned units using rollouts. Rollouts target units based on their `UnitKind` and can optionally apply filters (`unit_filter`) to target a specific subset of units using the Google Cloud CLI . This allows for managed updates across your deployed base. A _rollback_ can be performed by upgrading units to a previous release.
 
@@ -127,12 +127,12 @@ Before you can create a _rollout_ , you need to create a _rollout kind_ that ser
   4. On the **Create a rollout kind** page:
 
      1. In the **Rollout kind name** box, enter a name for your rollout kind.
-     2. In the **Unit kind** box, select the unit kind detailing the type of unit you want the release to rollout.
+     2. In the **Unit kind** box, select the unit kind detailing the type of unit you want to update with the release.
      3. In the **Rollout strategy** drop-down, select the strategy you would like to use to deploy the release to your units:
 
         * **One location at a time (simple)** : Updates one location at a time (without soak times). Updates up to 5% of units concurrently.
-        * **All at once (simple)** : All locations begin rolling out simultaneously (ideal for development environments and emergency scenarios).
-        * **Progressive (gradual)** : Gradually rolls out updates in percentage batches exponentially across multiple locations (with soak times).
+        * **All at once (simple)** : All locations begin updating simultaneously (ideal for development environments and emergency scenarios).
+        * **Progressive (gradual)** : Gradually deploys updates in percentage batches exponentially across multiple locations (with soak times).
         * **Progressive (single location)** : Updates units in percentage batches with extended soak times to detect issues within a single location.
 
 For more information about rollout strategies, see [Rollout strategies](https://docs.cloud.google.com/app-lifecycle-manager/overview#rollout_strategies).
@@ -160,8 +160,8 @@ Replace:
   * `ROLLOUT_STRATEGY`: Defines the rollout strategy for your rollout kind. Possible values include:
 
     * `Google.Cloud.Simple.OneLocationAtATime`: Updates one location at a time (without soak times). Updates up to 5% of units concurrently.
-    * `Google.Cloud.Simple.AllAtOnce`: All locations begin rolling out simultaneously (ideal for development environments and emergency scenarios).
-    * `Google.Cloud.Progressive.Gradual.v1`: Gradually rolls out updates in percentage batches exponentially across multiple locations (with soak times).
+    * `Google.Cloud.Simple.AllAtOnce`: All locations begin updating simultaneously (ideal for development environments and emergency scenarios).
+    * `Google.Cloud.Progressive.Gradual.v1`: Gradually deploys updates in percentage batches exponentially across multiple locations (with soak times).
     * `Google.Cloud.Progressive.SingleLocation.v1`: Updates units in percentage batches with extended soak times to detect issues within a single location.
 
 For more information about rollout strategies, see [Rollout strategies](https://docs.cloud.google.com/app-lifecycle-manager/overview#rollout_strategies).
@@ -202,7 +202,7 @@ Once the rollout is created, App Lifecycle Manager updates your units according 
 
   4. On the **Create a rollout** page:
 
-     1. In the **Rollout Kind** box, select the rollout kind detailing how to rollout your release to the specified units.
+     1. In the **Rollout Kind** box, select the rollout kind detailing how to deploy your release to the specified units.
      2. In the **Release** box, specify the release to update the units with.
      3. In the **Rollout Name** box, enter a name for your rollout.
   5. Click **Create**.
@@ -245,6 +245,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

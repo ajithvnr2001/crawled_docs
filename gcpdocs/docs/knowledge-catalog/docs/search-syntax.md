@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/search-syntax/
 title: Search syntax for Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:54.468348+00:00
+fetched_at: 2026-10-24T11:10:27.087392+00:00
 ---
 
 # Search syntax for Knowledge Catalog  |  Google Cloud Documentation
@@ -23,15 +23,19 @@ Send feedback
 
 #  Search syntax for Knowledge Catalog Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** Knowledge Catalog search supports both semantic and keyword matching. It also supports keyword-only search mode for backward compatibility. For information about keyword-only search, its filters, and how to use it, see [Keyword-only search](https://docs.cloud.google.com/knowledge-catalog/docs/keyword-search).
+Search queries in Knowledge Catalog let you find specific data assets across your catalog using both semantic and keyword matching. By combining natural language, metadata filters, and logical operators, you can locate relevant entries to discover, manage, and understand your organization's data.
 
-Knowledge Catalog lets you discover, centrally catalog, manage, and understand your organization's data. To efficiently find specific data assets within your data catalog, you can use powerful search queries. The syntax for search queries includes:
+Knowledge Catalog also supports a keyword-only search mode for backward compatibility. For more information about this mode, its filters, and how to use it, see [Keyword-only search](https://docs.cloud.google.com/knowledge-catalog/docs/keyword-search).
 
-  * **Simple search** : Finding data assets using a single search term.
-  * **Free-text search** : Finding data assets using natural language phrases or keywords.
-  * **Qualified predicates** : Refining your search using specific metadata fields like name, location, system, or type.
-  * **Aspect search** : Searching for entries based on their attached business and technical metadata.
-  * **Logical operators** : Combining multiple search criteria using `AND`, `OR`, or `NOT` operators to create complex queries. By understanding this syntax, you can quickly locate the data you need.
+## Query syntax overview
+
+You can construct Knowledge Catalog search queries using the following components:
+
+  * **Simple search** : Find data assets using a single search term.
+  * **Free-text search** : Find data assets using natural language phrases or keywords.
+  * **Qualified predicates** : Refine your search using specific metadata fields, such as name, location, system, or type.
+  * **Aspect search** : Search for entries based on their attached business and technical metadata.
+  * **Logical operators** : Combine multiple search criteria using `AND`, `OR`, or `NOT` operators to create complex queries.
 
 
 
@@ -474,6 +478,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

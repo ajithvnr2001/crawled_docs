@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/use-iceberg-v3-binary-deletion-vectors/
 title: Use binary deletion vectors in Iceberg V3 tables \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:36.928592+00:00
+fetched_at: 2026-10-24T10:00:07.811263+00:00
 ---
 
 # Use binary deletion vectors in Iceberg V3 tables  |  Lakehouse  |  Google Cloud Documentation
@@ -27,16 +27,9 @@ Send feedback
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-The Lakehouse runtime catalog supports Apache Iceberg V3 tables. A core feature of the Apache Iceberg V3 specification is binary deletion vectors. This optimization stores row-level deletions in `.puffin` files. Instead of performing expensive joins at query time, BigQuery and open-source engines (such as Apache Spark, Apache Flink, and Trino) use these vectors to quickly identify and skip deleted rows.
+Binary deletion vectors in Apache Iceberg V3 tables let you record row-level deletions in `.puffin` files without rewriting entire data files. Instead of performing expensive query-time joins, engines such as BigQuery, Managed Service for Apache Spark, Apache Flink, and Trino use these vectors to identify and skip deleted rows during reads.
 
-Using binary deletion vectors can improve performance in the following ways:
-
-  * **High-volume writes:** Improves write performance for tables with high-volume writes.
-  * **Efficient reads:** Improves query speeds by allowing BigQuery and open-source engines to identify and skip deleted rows.
-
-
-
-This is particularly useful for handling high-volume updates and deletes in Change Data Capture (CDC) pipelines, or for meeting regulatory requirements like GDPR (Right to be Forgotten) by deleting specific rows without the overhead of rewriting entire data files.
+Supported in the Lakehouse runtime catalog, this optimization can improve write and read performance for high-volume Change Data Capture (CDC) pipelines. It also helps you satisfy regulatory requirements such as GDPR (Right to be Forgotten) by purging individual records without the overhead of rewriting data files.
 
 ## Before you begin
 
@@ -69,7 +62,7 @@ You might also be able to get the required permissions through [custom roles](ht
 
 ### Set up the Iceberg REST catalog
 
-Before creating an Iceberg V3 table, you must [set up the Iceberg REST catalog](https://docs.cloud.google.com/lakehouse/docs/lakehouse-iceberg-rest-catalog), which includes creating a namespace and a catalog.
+Before creating an Iceberg V3 table, you must [set up the Iceberg REST catalog](https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog), which includes creating a namespace and a catalog.
 
 Setting up the Iceberg REST catalog can take some time to complete. Ensure that you successfully create both the namespace and the catalog before continuing.
 
@@ -257,6 +250,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

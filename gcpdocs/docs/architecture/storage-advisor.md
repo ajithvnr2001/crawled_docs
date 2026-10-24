@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/storage-advisor/
 title: Design an optimal storage strategy for your cloud workload \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:44:54.734612+00:00
+fetched_at: 2026-10-24T09:40:53.751984+00:00
 ---
 
 # Design an optimal storage strategy for your cloud workload  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/docs/
 title: Google Distributed Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:33:43.492200+00:00
+fetched_at: 2026-10-24T11:10:32.463221+00:00
 ---
 
 # Google Distributed Cloud  |  Google Cloud Documentation
@@ -16,19 +16,19 @@ fetched_at: 2026-10-22T08:33:43.492200+00:00
 
 
 
-![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/distributed-cloud-color.svg)
-
 # Google Distributed Cloud
 
-Google Distributed Cloud extends Google Cloud infrastructure, services, and Kubernetes to your data centers and edge locations. Depending on your regulatory, latency, and infrastructure requirements, you can deploy Google Distributed Cloud in the following ways:
+![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/distributed-cloud-color.svg)
 
-  * **Google Distributed Cloud air-gapped**: Fully disconnected hardware and software for complete sovereignty and strict compliance.
-  * **Google Distributed Cloud connected**: Google-managed hardware deployed on site and connected to Google Cloud for unified operations.
-  * **Google Distributed Cloud software only**: Enterprise Kubernetes running on your own bare metal servers or existing VMware infrastructure.
+Google Distributed Cloud extends Google Cloud infrastructure, services, and Kubernetes to your data centers and edge locations. Depending on your regulatory, latency, and infrastructure requirements, you can deploy Google Distributed Cloud in the following ways: 
+
+  * **Air-gapped**: Fully disconnected hardware and software for complete sovereignty and strict compliance.
+  * **Connected**: Google-managed hardware deployed on site and connected to Google Cloud for unified operations.
+  * **Software only (on-premises)**: Enterprise Kubernetes running on your own bare metal servers or existing VMware infrastructure.
 
 
 
-Go to the [Distributed Cloud portfolio page ](https://cloud.google.com/distributed-cloud) for more overview information.
+Go to the [Distributed Cloud portfolio page](https://cloud.google.com/distributed-cloud) for more overview information.
 
 [Get started for free](https://console.cloud.google.com/freetrial)
 
@@ -46,7 +46,7 @@ Go to the [Distributed Cloud portfolio page ](https://cloud.google.com/distribut
 
 Access 20+ free products for common use cases, including AI APIs, VMs, data warehouses, and more. 
 
-##  Distributed Cloud air-gapped 
+##  Air-gapped 
 
 Operate sovereign cloud workloads in environments completely disconnected from the public internet and Google Cloud. Distributed Cloud air-gapped provides Google-engineered hardware and software operated entirely within your sovereign perimeter to meet strict regulatory, national security, and data sovereignty mandates. It's available as full data center racks, ruggedized tactical appliances, or local validation sandboxes. 
 
@@ -62,19 +62,19 @@ Deploy a fully disconnected hardware and software environment to operate soverei
 
 Run node-scale AI, container, and VM workloads on ruggedized, portable hardware in remote or field locations. 
 
-[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/hybrid-multicloud-color.svg) ](https://docs.cloud.google.com/distributed-cloud/sandbox/latest/overview)
+[ science  ](https://docs.cloud.google.com/distributed-cloud/sandbox/latest/overview)
 
 ###  [ Distributed Cloud air-gapped sandbox ](https://docs.cloud.google.com/distributed-cloud/sandbox/latest/overview)
 
 Build and validate applications in a simulated Google Distributed Cloud air-gapped environment without requiring physical hardware. 
 
-[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/vertex-ai-color.svg) ](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-overview)
+[ description  ](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-overview)
 
 ###  [ Gemini Enterprise Agent Platform on Distributed Cloud air-gapped ](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-overview)
 
 Build, deploy, and manage machine learning applications and pretrained generative AI models in a secure, fully air-gapped environment. 
 
-##  Distributed Cloud connected 
+##  Connected 
 
 Run low-latency container and virtual machine workloads on Google-managed hardware installed in your data center. Distributed Cloud connected lets you bring Google Cloud services and private generative AI models to your local network perimeter without having to manage the underlying physical hardware. 
 
@@ -84,13 +84,13 @@ Run low-latency container and virtual machine workloads on Google-managed hardwa
 
 Run latency-sensitive container and VM workloads on Google-managed dedicated hardware deployed on site. 
 
-[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/gemini-color.svg) ](https://docs.cloud.google.com/distributed-cloud/gemini-on-gdcc/latest/docs)
+[ api  ](https://docs.cloud.google.com/distributed-cloud/gemini-on-gdcc/latest/docs/overview)
 
-###  [ Gemini on Distributed Cloud connected API ](https://docs.cloud.google.com/distributed-cloud/gemini-on-gdcc/latest/docs)
+###  [ Gemini on Distributed Cloud connected API ](https://docs.cloud.google.com/distributed-cloud/gemini-on-gdcc/latest/docs/overview)
 
 Deploy turnkey Gemini generative AI models securely on private, Google-connected hardware within your network perimeter. 
 
-##  Distributed Cloud software only (on-premises) 
+##  Software only (on-premises) 
 
 Deploy enterprise Kubernetes on your existing infrastructure without purchasing dedicated Google hardware. Create, scale, and operate production Kubernetes clusters on your physical bare-metal servers or existing VMware infrastructure. 
 
@@ -106,7 +106,7 @@ Deploy and operate enterprise Kubernetes clusters directly on your physical hard
 
 Create, manage, and scale enterprise Kubernetes clusters on your existing VMware infrastructure using Google Cloud features. 
 
-[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/ai-and-machine-learning-color.svg) ](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/serve-3p-llms)
+[ description  ](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/serve-3p-llms)
 
 ###  [ Serve open LLMs on bare metal ](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/serve-3p-llms)
 
@@ -136,6 +136,6 @@ Study designing, building, analyzing, and maintaining cloud-native applications.
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/object-tables/
 title: Create object tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:43.414704+00:00
+fetched_at: 2026-10-24T08:26:58.408447+00:00
 ---
 
 # Create object tables  |  BigQuery  |  Google Cloud Documentation

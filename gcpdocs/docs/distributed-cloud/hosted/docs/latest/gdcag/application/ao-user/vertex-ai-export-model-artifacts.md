@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-export-model-artifacts/
 title: Export model artifacts for prediction \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:23.831495+00:00
+fetched_at: 2026-10-24T08:20:19.348758+00:00
 ---
 
 # Export model artifacts for prediction  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

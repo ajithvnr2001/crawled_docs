@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/configure-sa/
 title: Set up Google Cloud resources \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:32.606267+00:00
+fetched_at: 2026-10-24T11:18:54.297904+00:00
 ---
 
 # Set up Google Cloud resources  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Set up Google Cloud resources Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes the Google Cloud resources that you need to create and configure prior to creating clusters.
+You can prepare your environment for cluster creation by configuring the necessary Google Cloud resources. This setup establishes the required service accounts, IAM roles, and APIs before you deploy clusters.
 
 ## Before you begin
 

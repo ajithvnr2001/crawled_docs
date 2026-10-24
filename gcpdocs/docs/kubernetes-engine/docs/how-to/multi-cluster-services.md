@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/multi-cluster-services/
 title: Configuring multi-cluster Services \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:22:53.699776+00:00
+fetched_at: 2026-10-24T10:00:02.049764+00:00
 ---
 
 # Configuring multi-cluster Services  |  GKE networking  |  Google Cloud Documentation
@@ -686,12 +686,6 @@ For a cross-project fleet, you have to create additional IAM bindings. Follow th
 
 ## Known issues
 
-### MCS Services with multiple ports
-
-There is a known issue with multi-cluster Services with multiple (TCP/UDP) ports on GKE Dataplane V2 where some endpoints are not programmed in the dataplane. This issue impacts GKE versions earlier than 1.26.3-gke.400.
-
-As a workaround, when using GKE Dataplane V2, use multiple MCS with a single port instead of one MCS with multiple ports.
-
 ### Port number reused within one MCS Service
 
 You can't reuse the same port number within an MCS Service even if the protocols are different.
@@ -724,6 +718,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/check-data-quality/
 title: Use data quality tasks \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:47.311476+00:00
+fetched_at: 2026-10-24T08:27:12.047300+00:00
 ---
 
 # Use data quality tasks  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,11 +23,9 @@ Send feedback
 
 #  Use data quality tasks Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Caution:** Knowledge Catalog (formerly Dataplex Universal Catalog) data quality tasks is a legacy offering based on open source software. We recommend that you start using the latest built-in [Automatic data quality](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview) offering.
+**Caution:** Knowledge Catalog (formerly Dataplex Universal Catalog) data quality tasks is a legacy offering based on open source software. We recommend that you start using the latest built-in [Auto data quality](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview) offering.
 
-This document shows you how to create Knowledge Catalog data quality tasks that let you schedule and run data quality checks for your built-in and external BigQuery tables.
-
-For more information, see [Data quality tasks overview](https://docs.cloud.google.com/knowledge-catalog/docs/data-quality-tasks-overview).
+Knowledge Catalog data quality tasks let you schedule and run validation checks on built-in and external BigQuery tables to verify that records meet your expectations. You can configure predefined or custom SQL rules in a CloudDQ YAML specification, store summary results in BigQuery, and troubleshoot failed rows. For more information, see [Data quality tasks overview](https://docs.cloud.google.com/knowledge-catalog/docs/data-quality-tasks-overview).
 
 ## Before you begin
 
@@ -852,6 +850,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

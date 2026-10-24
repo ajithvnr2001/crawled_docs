@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/data-residency/
 title: Enforce data residency requirements \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:55.480152+00:00
+fetched_at: 2026-10-24T11:25:51.284913+00:00
 ---
 
 # Enforce data residency requirements  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,19 +21,22 @@ Send feedback
 
 #  Enforce data residency requirements Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page explains how to configure AlloyDB for PostgreSQL to enforce data residency requirements.
+To meet local legal and regulatory requirements that govern where your database data is stored, you can select specific Google Cloud regions for your AlloyDB for PostgreSQL clusters and enforce resource location organization policy constraints.
 
 ## Overview of data residency
 
 _Data residency_ refers to the physical location of data, and the local regulations that govern how you store, encrypt, and access that data. As countries' data protections and privacy regulations evolve, it's increasingly important that you understand how to follow local data residency requirements and protect your users' data.
 
-In a traditional on-premises environment, you configure various components to handle data residency. For example, a company can host a tokenization gateway as a cloud access security broker (CASB) to secure application data before it's transmitted overseas.
+In an on-premises environment, you configure various components to handle data residency. For example, a company can host a tokenization gateway as a cloud access security broker (CASB) to secure application data before it's transmitted overseas.
 
 Because a cloud computing service stores your data off-premises, cloud computing introduces its own data residency issues and questions. These include the following:
 
   * If a company's cloud administrators don't know the physical location of the data, then they don't know the local regulations. To research the data residency policies for each location, administrators need to know where the data centers are.
+
   * A company's cloud administrators and providers might use service-level agreements (SLAs) that establish allowed locations, requiring restrictions on the range of regions that the cloud service can use for data storage.
-  * Users must ensure that their data, and all of the services and resources that they use in their cloud projects, follow the data residency regulations of the host country.
+
+  * Organizations must verify that their data, and all of the services and resources that they use in their cloud projects, follow the data residency regulations of the host country.
+
 
 
 
@@ -43,17 +46,17 @@ Data residency involves storing personally identifiable information (PII) or oth
 
 To store data, you must meet a country's legal and regulatory demands, such as data locality laws. For example, a country might mandate that any government-related data be stored in that country. Or, a company might be contractually obligated to store data for some of their customers in a different country. Therefore, a company has to meet the data residency requirements of the country where the data is stored.
 
-You can use the [Cloud Asset Inventory (CAI)](https://docs.cloud.google.com/asset-inventory) service to view and monitor the locations of resources across [services supported by it](https://docs.cloud.google.com/asset-inventory/docs/supported-asset-types), which includes AlloyDB.
+You can use the [Cloud Asset Inventory](https://docs.cloud.google.com/asset-inventory/docs/overview) service to view and monitor the locations of resources across [services supported by it](https://docs.cloud.google.com/asset-inventory/docs/supported-asset-types), which includes AlloyDB.
 
 AlloyDB helps you with your data residency requirements by letting you specify the location of your data, and constrain which locations that AlloyDB makes available.
 
 ### Location selection
 
-With Google Cloud, you choose where your data is stored. This includes letting you choose the [regions](https://docs.cloud.google.com/alloydb/docs/locations) where you store your data. When you configure AlloyDB resources in these regions, Google stores your data at rest only in these regions, according to our [Service Specific Terms](https://cloud.google.com/terms/service-terms). You can select the region when you create your cluster. Any instances and backups created against a cluster is stored in the same region as the cluster.
+With Google Cloud, you choose where your data is stored. This includes letting you choose the [regions](https://docs.cloud.google.com/alloydb/docs/locations) where you store your data. When you configure AlloyDB resources in these regions, Google stores your data at rest only in these regions, according to the Google Cloud [Service Specific Terms](https://cloud.google.com/terms/service-terms). You can select the region when you create your cluster. Any instances and backups created against a cluster are stored in the same region as the cluster.
 
 ### Resource locations constraint
 
-You can use organizational policy constraints to enforce data residency requirements at the organization, project, or folder level. These constraints let you define the Google Cloud locations where users can create resources for supported services. For data residency, you can use the [resource locations constraint](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations) to limit the physical location of new [supported AlloyDB resources](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations-supported-services#AlloyDB). You can also fine-tune policies for a constraint to specify regions, such as `us-east1` or `europe-west1`, as allowed or denied locations. Existing location violations can be [discovered using Security Health Analytics](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations#vulnerability_findings_and_remediation) and then remediated.
+You can use organizational policy constraints to enforce data residency requirements at the organization, project, or folder level. These constraints let you define the Google Cloud locations where users can create resources for supported services. For data residency, you can use the [resource locations constraint](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations) to limit the physical location of new [supported AlloyDB resources](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations-supported-services#AlloyDB). You can also fine-tune policies for a constraint to specify regions, such as `us-east1` or `europe-west1`, as allowed or denied locations. Existing location violations can be [discovered using Security Health Analytics](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations#vulnerability-findings) and then remediated.
 
 ## What's next
 

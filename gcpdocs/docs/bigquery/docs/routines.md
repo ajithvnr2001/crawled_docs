@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/routines/
 title: Manage routines \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:01:17.215448+00:00
+fetched_at: 2026-10-24T11:25:45.366309+00:00
 ---
 
 # Manage routines  |  BigQuery  |  Google Cloud Documentation
@@ -21,15 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Manage routines
 
-In BigQuery, _routines_ are a resource type that includes the following:
-
-  * [Stored procedures](https://docs.cloud.google.com/bigquery/docs/procedures#writing_a_procedure).
-  * [User-defined functions](https://docs.cloud.google.com/bigquery/docs/user-defined-functions) (UDFs), including [remote functions](https://docs.cloud.google.com/bigquery/docs/remote-functions) and [user-defined aggregate functions](https://docs.cloud.google.com/bigquery/docs/user-defined-aggregates).
-  * [Table functions](https://docs.cloud.google.com/bigquery/docs/table-functions).
-
-
-
-This document describes tasks that are common to all routine types in BigQuery.
+Managing routines in BigQuery lets you organize, maintain, and reuse your custom logic across your data warehouse. Understanding how to create, view, and delete these resources lets you effectively administer your [stored procedures](https://docs.cloud.google.com/bigquery/docs/procedures#writing_a_procedure), [user-defined functions](https://docs.cloud.google.com/bigquery/docs/user-defined-functions) (UDFs), and [table functions](https://docs.cloud.google.com/bigquery/docs/table-functions).
 
 ## Permissions
 
@@ -330,6 +322,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

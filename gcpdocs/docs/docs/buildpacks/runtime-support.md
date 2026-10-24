@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/buildpacks/runtime-support/
 title: Google Cloud's buildpacks runtime lifecycle \u00a0|\u00a0 Buildpacks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:44.115007+00:00
+fetched_at: 2026-10-24T08:20:33.439205+00:00
 ---
 
 # Google Cloud's buildpacks runtime lifecycle  |  Buildpacks  |  Google Cloud Documentation

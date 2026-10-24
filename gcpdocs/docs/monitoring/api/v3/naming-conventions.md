@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/v3/naming-conventions/
 title: Metric naming conventions \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:59:50.233031+00:00
+fetched_at: 2026-10-24T11:25:22.769542+00:00
 ---
 
 # Metric naming conventions  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -21,11 +21,11 @@ Send feedback
 
 #  Metric naming conventions Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes the naming conventions Cloud Monitoring enforces for metrics.
+Standardized resource names, domain prefixes, and label keys in Cloud Monitoring let you identify metric sources and define custom metrics. You can apply these formatting rules to create valid metric types and `LabelDescriptor` keys for the Cloud Monitoring API.
 
 ## Metric resource name
 
-The _resource name_ for a metric type consists of a string with three primary sub-structures:
+The _resource name_ for a metric type consists of a string with three primary substructures:
 
   * An identifier for a specific project.
   * A marker, which is always set to `metricDescriptors`, to indicate that the string represents a metric descriptor.
@@ -39,7 +39,7 @@ Resource names for metric types follow this pattern:
     projects/PROJECT_ID/metricDescriptors/METRIC_TYPE
     
 
-The sub-string `METRIC_TYPE` is an identifier that represents the metric type. It comes in a variety of formats, for example:
+The substring `METRIC_TYPE` is an identifier that represents the metric type. It comes in a variety of formats. For example:
     
     
     agent.googleapis.com/agent/api_request_count
@@ -48,9 +48,9 @@ The sub-string `METRIC_TYPE` is an identifier that represents the metric type. I
     kubernetes.io/anthos/APIServiceOpenAPIAggregationControllerQueue1_adds
     
 
-In the metric descriptor, the `name` field stores the metric type's resource name, and the `type` field stores the `METRIC_TYPE` sub-string.
+In the metric descriptor, the `name` field stores the metric type's resource name, and the `type` field stores the `METRIC_TYPE` substring.
 
-The following table shows how to parse the `METRIC_TYPE` sub-strings contained in a resource name:
+The following table shows how to parse the `METRIC_TYPE` substrings contained in a resource name:
 
 Possible structures | Description  
 ---|---  
@@ -65,7 +65,7 @@ Possible structures | Description
 `external.googleapis.com/prometheus/PATH` 2 | Third-party custom metrics such as [Prometheus](https://prometheus.io/). This open-source monitoring tool is often used with Kubernetes. For more information about these metrics, see [External metrics](https://docs.cloud.google.com/monitoring/api/metrics_other). You can use these metric types only in the projects that define them.   
 `custom.googleapis.com/PATH` 2  
 `external.googleapis.com/user/PATH` 2 | [User-defined metrics](https://docs.cloud.google.com/monitoring/custom-metrics). You can use these metric types only in the projects where you define them.  
-`logging.googleapis.com/PATH` 2 | [Logs-based metrics](https://docs.cloud.google.com/logging/docs/logs-based-metrics) from Cloud Logging. You can use [predefined metrics](https://docs.cloud.google.com/logging/docs/logs-based-metrics#system_logs-based_metrics) or you can create custom metrics. Custom metrics can only be used in projects where you define them.   
+`logging.googleapis.com/PATH` 2 | [Logs-based metrics](https://docs.cloud.google.com/logging/docs/logs-based-metrics) from Cloud Logging. You can use [predefined metrics](https://docs.cloud.google.com/logging/docs/logs-based-metrics#system_logs-based_metrics), or you can create custom metrics. Custom metrics can only be used in projects where you define them.   
   
 1`SERVICE_NAME` identifies a Google Cloud product, such as `compute` for Compute Engine.  
 2`PATH` identifies the metric within the product, such as `instance/cpu/utilization`.
@@ -76,13 +76,13 @@ This list contains rules to follow when you create custom metric types. Labels a
 
   * **Metric types**
 
-    * Use upper and lower-case letters (`A-Z`, `a-z`), digits (`0-9`), periods (`.`), underscores (`_`), colons (`:`), and hyphens (`-`) in the string.
+    * Use uppercase and lowercase letters (`A-Z`, `a-z`), digits (`0-9`), periods (`.`), underscores (`_`), colons (`:`), and hyphens (`-`) in the string.
     * Use forward slashes (`/`) to separate path elements.
     * You must start each path element with a letter or digit.
     * The maximum length of a metric-type string is 200 characters.
   * **Label keys**
 
-    * Use lower-case letters (`a-z`), digits (`0-9`), underscores (`_`), and dots (`.`) in a label key.
+    * Use lowercase letters (`a-z`), digits (`0-9`), underscores (`_`), and dots (`.`) in a label key.
     * You must start label keys with a letter.
     * The maximum length of a label key is 100 characters.
     * Each key must be unique within the metric type.
@@ -94,6 +94,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

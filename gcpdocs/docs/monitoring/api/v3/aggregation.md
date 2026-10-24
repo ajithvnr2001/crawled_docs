@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/v3/aggregation/
 title: Filtering and aggregation: manipulating time series \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:56:23.630470+00:00
+fetched_at: 2026-10-24T11:25:22.578687+00:00
 ---
 
 # Filtering and aggregation: manipulating time series  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -21,28 +21,19 @@ Send feedback
 
 #  Filtering and aggregation: manipulating time series Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes the techniques used to manipulate time-series data. This content builds on the concepts and discussion in [Metrics, time series, and resources](https://docs.cloud.google.com/monitoring/api/v3/metrics).
+Filtering and aggregation in Cloud Monitoring let you refine large volumes of raw time-series data so you can identify patterns, trends, and outliers. _Filtering_ removes data that you don't want to analyze, while _aggregation_ combines data points across time and dimensions into a smaller summary set.
 
-Raw time-series data must be manipulated before it can be analyzed, and analysis often involves filtering some data out and aggregating some together. This page describes two primary techniques for refining raw data:
-
-  * **Filtering** , which removes some of the data from consideration.
-  * **Aggregation** , which combines multiple pieces of data into a smaller set along dimensions you specify.
-
-
-
-Filtering and aggregation are powerful tools to help identify interesting patterns and highlight trends or outliers in the data, among other things.
-
-This page describes the concepts behind filtering and aggregation. It doesn't cover how to apply them directly. To apply filtering or aggregation to your time-series data, use the Cloud Monitoring API or the charting and alerting tools in the Google Cloud console. For examples, see [API sample policies](https://docs.cloud.google.com/monitoring/alerts/policies-in-json) and [Monitoring Query Language examples](https://docs.cloud.google.com/monitoring/mql/examples). 
+These operations build on the data model described in [Metrics, time series, and resources](https://docs.cloud.google.com/monitoring/api/v3/metrics). To apply these techniques, use the Cloud Monitoring API or the charting and alerting tools in the Google Cloud console. For examples, see [API sample policies](https://docs.cloud.google.com/monitoring/alerts/policies-in-json) and [Monitoring Query Language examples](https://docs.cloud.google.com/monitoring/mql/examples).
 
 ## Raw time-series data
 
 The amount of raw metric data in a single time series can be enormous, and there are usually many time series associated with a metric type. To analyze the whole set of data for commonalities, trends, or outliers, you must do some processing on the time series in the set. Otherwise, there is too much data to consider.
 
-To introduce filtering and aggregation the examples on this page use a small number of hypothetical time series. For example, the following illustration shows a few hours worth of raw data from three time series:
+To introduce filtering and aggregation, the examples on this page use a small number of hypothetical time series. For example, the following illustration shows a few hours' worth of raw data from three time series:
 
 ![Graph showing three raw time series: red, blue, and green.](https://docs.cloud.google.com/static/monitoring/images/ts-three-raw-series.png)**Figure 1: Three raw time series**
 
-Each time series is colored, red, blue, or green, to reflect the value of a hypothetical `color` label. There is one time series for each value of the label. Notice that the values don't line up neatly, since they were recorded at different times.
+Each time series is colored red, blue, or green to reflect the value of a hypothetical `color` label. There is one time series for each value of the label. Notice that the values don't line up neatly, since they were recorded at different times.
 
 ## Filtering
 
@@ -59,7 +50,7 @@ The following illustration shows the result of filtering to show only the red ti
 
 ![Graph showing one of the raw time series: red.](https://docs.cloud.google.com/static/monitoring/images/ts-one-raw-series.png)**Figure 2: After filtering, one raw time series**
 
-This time series, selected by filtering, is used in the next section, to demonstrate alignment.
+This time series, selected by filtering, is used in the next section to demonstrate alignment.
 
 ## Aggregation
 
@@ -142,7 +133,7 @@ When choosing an alignment period, make it longer than the sampling period, but 
 
 After the data is broken into alignment periods, you select a function, the aligner, to be applied to the data points in that period. The aligner produces a single value placed at the end of each alignment period.
 
-Alignment options include summing the values, or finding the max, min, or mean of the values, finding a chosen percentile value, counting the values, and others. The Cloud Monitoring API supports a large set of alignment functions, many more than the set illustrated here; see [`Aligner`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.alertPolicies#Aligner) for the full list. For a description of rate and delta aligners, which transform time series data, see [Kinds, types, and conversions](https://docs.cloud.google.com/monitoring/api/v3/aggregation#ts-conversion).
+Alignment options include summing the values, finding the max, min, or mean of the values, finding a chosen percentile value, counting the values, and others. The Cloud Monitoring API supports a large set of alignment functions, many more than the set illustrated here; see [`Aligner`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.alertPolicies#Aligner) for the full list. For a description of rate and delta aligners, which transform time series data, see [Kinds, types, and conversions](https://docs.cloud.google.com/monitoring/api/v3/aggregation#ts-conversion).
 
 For example, taking the bucketed data from the raw time series (illustrated in [Figure 1](https://docs.cloud.google.com/monitoring/api/v3/aggregation#id-three-raw-series)), choose an aligner and apply it to the data in each bucket. The following table shows the raw values and the results of three different aligners, _max_ , _mean_ , and _min_ :
 
@@ -180,9 +171,9 @@ The next step in the process, _reduction_ , is the process of combining multiple
 
 A _reducer_ is a function that is applied to the values across a set of time series to produce a single value.
 
-Reducer options include summing the aligned values, or finding the max, min, or mean of the values. The Cloud Monitoring API supports a large set of reduction functions; see [`Reducer`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.alertPolicies#Reducer) for the full list. The list of reducers parallels the list of aligners.
+Reducer options include summing the aligned values or finding the max, min, or mean of the values. The Cloud Monitoring API supports a large set of reduction functions; see [`Reducer`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.alertPolicies#Reducer) for the full list. The list of reducers parallels the list of aligners.
 
-Time series must be aligned before they can be reduced. The following illustration shows the results aligning all three of the raw time series (from [Figure 1](https://docs.cloud.google.com/monitoring/api/v3/aggregation#id-three-raw-series)) into 1-hour periods with the _mean_ aligner:
+Time series must be aligned before they can be reduced. The following illustration shows the results of aligning all three of the raw time series (from [Figure 1](https://docs.cloud.google.com/monitoring/api/v3/aggregation#id-three-raw-series)) into 1-hour periods with the _mean_ aligner:
 
 ![Graph showing three mean-aligned time series.](https://docs.cloud.google.com/static/monitoring/images/ts-three-series-mean-aligner.png)**Figure 4: Three time series,_mean_ aligned**
 
@@ -224,7 +215,7 @@ The example does not specify the aligner or reducer used; the point here is that
 
 Cloud Monitoring performs two aggregation steps.
 
-  * _Primary_ aggregation regularizes the measured data and then combines the regularized time series by using a reducer. When you use grouping, more than one time series might result from the reduction performed as part of the this step.
+  * _Primary_ aggregation regularizes the measured data and then combines the regularized time series by using a reducer. When you use grouping, more than one time series might result from the reduction performed as part of this step.
 
   * _Secondary_ aggregation, which applies to the results of the primary aggregation step, lets you combine the grouped time series into one result by using a second reducer.
 
@@ -289,7 +280,7 @@ Next, all of the points within the three-minute alignment period are summed to g
 (3, 6] | 4  
 (6, 9] | 9  
   
-If `ALIGN_RATE` is selected, the process is the same except that the aligned values are divided by the alignment period. For this example, the alignment period is three minutes so the aligned time series has the following values:
+If `ALIGN_RATE` is selected, the process is the same except that the aligned values are divided by the alignment period. For this example, the alignment period is three minutes, so the aligned time series has the following values:
 
 (start time, end time] (minutes) | aligned value (MiB / second)  
 ---|---  
@@ -315,6 +306,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

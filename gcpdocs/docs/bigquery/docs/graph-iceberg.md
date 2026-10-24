@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/graph-iceberg/
 title: Build a cross-cloud BigQuery Graph over an open borderless lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:14:47.506922+00:00
+fetched_at: 2026-10-24T10:00:03.310141+00:00
 ---
 
 # Build a cross-cloud BigQuery Graph over an open borderless lakehouse  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Build a cross-cloud property graph over an open borderless Lakehouse
 
-The following tutorial shows you how to build a single BigQuery Graph that unifies data silos across two different clouds using an open borderless Lakehouse and Apache Iceberg REST catalog endpoints without moving data.
+The following tutorial shows you how to build a single BigQuery Graph that unifies data silos across two different clouds using an open borderless Lakehouse and Apache Iceberg REST catalog endpoint endpoints without moving data.
 
 ## Before you begin
 
@@ -53,7 +53,7 @@ Before you begin, set up your environment and enable the required APIs.
 
 ## Create the Google Cloud spoke
 
-Set up an open Apache Iceberg REST catalog backed by a Cloud Storage bucket, and load three Iceberg tables into it.
+Set up an open Apache Iceberg REST catalog endpoint backed by a Cloud Storage bucket, and load three Iceberg tables into it.
 
   1. Create the bucket and catalog:
          
@@ -426,6 +426,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

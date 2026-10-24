@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/partners/continuous-data-replication-bigquery-striim/
 title: Continuous data replication to BigQuery using Striim \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:19:48.270339+00:00
+fetched_at: 2026-10-24T09:21:13.480998+00:00
 ---
 
 # Continuous data replication to BigQuery using Striim  |  Cloud Architecture Center  |  Google Cloud Documentation

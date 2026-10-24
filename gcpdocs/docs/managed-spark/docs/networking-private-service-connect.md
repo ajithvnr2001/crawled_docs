@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/networking-private-service-connect/
 title: Managed Service for Apache Spark cluster networking with Private Service Connect \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:36.249322+00:00
+fetched_at: 2026-10-24T11:25:14.425429+00:00
 ---
 
 # Managed Service for Apache Spark cluster networking with Private Service Connect  |  Google Cloud Documentation
@@ -23,11 +23,15 @@ Send feedback
 
 #  Managed Service for Apache Spark cluster networking with Private Service Connect Stay organized with collections  Save and categorize content based on your preferences. 
 
+Private Service Connect with Managed Service for Apache Spark lets you connect cluster workloads to Google APIs and managed services by using private IP addresses inside your Virtual Private Cloud (VPC) (VPC) network. This approach keeps your data traffic off the public internet while securing communication with supported endpoints.
+
+If your workloads require access to data sources across other VPC networks or on-premises environments, you can combine Private Service Connect with VPC peering, Cloud VPN, or Cloud Interconnect. Understanding how Private Service Connect compares to Private Google Access and Cloud NAT helps you choose the right network configuration for your Spark clusters.
+
 This page provides guidance on configuring network connectivity for Managed Service for Apache Spark clusters when using Private Service Connect. It explains the interaction between Private Service Connect and Virtual Private Cloud peering for different Managed Service for Apache Spark use cases. It also summarizes feature similarities and differences among Private Google Access, Private Service Connect, and Cloud NAT.
 
 ## Overview
 
-Managed Service for Apache Spark clusters require network connectivity to Google Cloud APIs and services, such as the Dataproc API, Cloud Storage, and Cloud Logging, and to user resources, such as data sources in other Virtual Private Cloud networks or on-premises environments.
+Managed Service for Apache Spark clusters require network connectivity to Google Cloud APIs and services, such as the Dataproc API, Cloud Storage, and Cloud Logging, and to user resources, such as data sources in other VPC networks or on-premises environments.
 
 By default, Managed Service for Apache Spark clusters created with image versions `2.2` and later are created with internal IP addresses only. Managed Service for Apache Spark automatically enables [Private Google Access](https://docs.cloud.google.com/vpc/docs/private-google-access) on the regional subnet used by the internal-IP-only cluster to enable connections to Google APIs and services without connecting to the public internet.
 
@@ -56,7 +60,7 @@ Direction | Outbound only: Your VM initiates a connection to Google. | Bi-direct
 Scope | Enabled or disabled for an entire subnet. | Deployed as a specific endpoint resource.  
 Services | Connects only to Google APIs, such as Cloud Storage, BigQuery, or Dataproc API. | Connects to Google APIs, services from other companies, and your own services.  
   
-For Managed Service for Apache Spark, Private Google Access is the simpler, traditional method to allow cluster VMs to contact the Managed Service for Apache Spark control plane. Private Service Connect is a more recent and flexible approach that gives you fine-grained control, particularly in complex or multi-tenant networks.
+For Managed Service for Apache Spark, Private Google Access is the simpler, often used method to allow cluster VMs to contact the Managed Service for Apache Spark control plane. Private Service Connect is a more recent and flexible approach that gives you fine-grained control, particularly in complex or multi-tenant networks.
 
 **Why use Private Service Connect?** Even if your Managed Service for Apache Spark cluster has internal-only IP addresses with Private Google Access enabled (the default configuration for `2.2+` image version clusters), Private Service Connect offers the following advantages:
 
@@ -102,7 +106,7 @@ You can use Private Service Connect with a Managed Service for Apache Spark clus
 
 While Private Service Connect provides private access to many Google services, you may also need to enable [VPC peering](https://docs.cloud.google.com/vpc/docs/vpc-peering), particularly in the following scenarios:
 
-  * Other Virtual Private Cloud networks: Private Service Connect connects to _Google-managed services_ , not directly to other customer VPC networks. If your data sources, custom applications, or other services are located in a different VPC network than your Managed Service for Apache Spark cluster, typically VPC peering is required to enable private communication between these networks.
+  * Other VPC networks: Private Service Connect connects to _Google-managed services_ , not directly to other customer VPC networks. If your data sources, custom applications, or other services are located in a different VPC network than your Managed Service for Apache Spark cluster, typically VPC peering is required to enable private communication between these networks.
 
   * On-premises networks: If your Managed Service for Apache Spark cluster accesses data or services in your on-premises environment, you will need a Cloud VPN or Cloud Interconnect connection to your on-premises network, often combined with VPC peering.
 
@@ -170,6 +174,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

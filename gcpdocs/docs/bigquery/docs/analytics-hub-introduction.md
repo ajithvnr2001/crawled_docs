@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/analytics-hub-introduction/
 title: Introduction to BigQuery sharing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:08:49.319915+00:00
+fetched_at: 2026-10-24T08:25:34.592090+00:00
 ---
 
 # Introduction to BigQuery sharing  |  Google Cloud Documentation

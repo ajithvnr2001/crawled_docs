@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migration-center/docs/roles-and-permissions/
 title: Migration Center IAM roles and permissions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:54:40.668350+00:00
+fetched_at: 2026-10-24T08:46:23.507144+00:00
 ---
 
 # Migration Center IAM roles and permissions  |  Google Cloud Documentation

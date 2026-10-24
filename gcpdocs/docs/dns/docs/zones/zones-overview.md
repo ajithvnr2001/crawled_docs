@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/zones/zones-overview/
 title: DNS zones overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:22:21.340099+00:00
+fetched_at: 2026-10-24T11:25:27.726296+00:00
 ---
 
 # DNS zones overview  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ Cloud DNS supports different types of [public](https://docs.cloud.google.com/dns
 
 Cloud DNS forwarding zones let you configure target name servers for specific private zones. Using a forwarding zone is one way to implement outbound DNS forwarding from your VPC network.
 
-A Cloud DNS forwarding zone is a special type of Cloud DNS private zone. Instead of creating records within the zone, you specify a set of forwarding targets. Each forwarding target is a fully qualified domain name (FQDN) or IP address of a DNS server, located in your VPC network, or in an on-premises network connected to your VPC network by Cloud VPN or Cloud Interconnect.
+A Cloud DNS forwarding zone is a special type of Cloud DNS private zone. Instead of creating records within the zone, you specify a set of forwarding targets. Each forwarding target is a fully qualified domain name (FQDN) or IP address of a DNS server, located in your VPC network, or in an on-premises network connected to your VPC network by Cloud VPN or Cloud Interconnect. By default, queries forwarded to private targets originate from `35.199.192.0/19`. If you attach [Outbound Endpoints](https://docs.cloud.google.com/dns/docs/outbound-endpoints-overview) ([Preview](https://cloud.google.com/products#product-launch-stages)) to your forwarding zone, queries to private targets originate from your VPC network's regional proxy-only subnet IP address range.
 
 ### Forwarding targets and routing methods
 
@@ -35,8 +35,8 @@ Cloud DNS supports four types of targets and offers standard or private routing 
 
 Forwarding target | Description | Standard routing supports | Private routing supports | Source of requests  
 ---|---|---|---|---  
-Type 1 | An [internal IP address](https://docs.cloud.google.com/vpc/docs/ip-addresses) of a Google Cloud VM or an [internal passthrough Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/internal) in _the same_ VPC network that is authorized to use the forwarding zone. | Only RFC 1918 IP addresses—traffic always routed through an authorized VPC network. | Any internal IP address, such as an RFC 1918 private address, a non-RFC 1918 private IP addresses, or a privately reused external IP address, except for a prohibited forwarding target IP address —traffic always routed through an authorized VPC network. | `35.199.192.0/19`  
-Type 2 | An IP address of an on-premises system, connected to the VPC network authorized to query the forwarding zone, using Cloud VPN or Cloud Interconnect. | Only RFC 1918 IP addresses—traffic always routed through an authorized VPC network. | Any internal IP address, such as an RFC 1918 private address, a non-RFC 1918 private IP addresses, or a privately reused external IP address, except for a prohibited forwarding target IP address — traffic always routed through an authorized VPC network. | `35.199.192.0/19`  
+Type 1 | An [internal IP address](https://docs.cloud.google.com/vpc/docs/ip-addresses) of a Google Cloud VM or an [internal passthrough Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/internal) in _the same_ VPC network that is authorized to use the forwarding zone. | Only RFC 1918 IP addresses—traffic always routed through an authorized VPC network. | Any internal IP address, such as an RFC 1918 private address, a non-RFC 1918 private IP addresses, or a privately reused external IP address, except for a prohibited forwarding target IP address —traffic always routed through an authorized VPC network. | `35.199.192.0/19` or proxy-only subnet range if using Outbound Endpoints ([Preview](https://cloud.google.com/products#product-launch-stages))  
+Type 2 | An IP address of an on-premises system, connected to the VPC network authorized to query the forwarding zone, using Cloud VPN or Cloud Interconnect. | Only RFC 1918 IP addresses—traffic always routed through an authorized VPC network. | Any internal IP address, such as an RFC 1918 private address, a non-RFC 1918 private IP addresses, or a privately reused external IP address, except for a prohibited forwarding target IP address — traffic always routed through an authorized VPC network. | `35.199.192.0/19` or proxy-only subnet range if using Outbound Endpoints ([Preview](https://cloud.google.com/products#product-launch-stages))  
 Type 3 | An [external IP address](https://docs.cloud.google.com/vpc/docs/ip-addresses) of a DNS name server accessible to the internet _or_ the external IP address of a Google Cloud resource; for example, the external IP address of a VM in another VPC network. | Only internet-routable external IP addresses—traffic always routed to the internet or to the external IP address of a Google Cloud resource. | Private routing isn't supported—make sure that private routing is not selected. | [Google Public DNS source ranges](https://developers.google.com/speed/public-dns/faq#locations)  
 Type 4 | A fully qualified domain name of a target name server that can resolve to both IPv4 and IPv6 addresses through [ VPC network resolution order](https://docs.cloud.google.com/dns/docs/vpc-name-res-order#vpc_steps). | Depending on the resolved forwarding target's network, traffic is routed in one of two ways: 
 
@@ -403,6 +403,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

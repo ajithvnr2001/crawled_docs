@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/running-queries/
 title: Run a query \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:52:48.854452+00:00
+fetched_at: 2026-10-24T09:33:05.051293+00:00
 ---
 
 # Run a query  |  BigQuery  |  Google Cloud Documentation
@@ -565,7 +565,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     require "google/cloud/bigquery"
     
     def query
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_policies-v1beta1/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
       sql = "SELECT name FROM `bigquery-public-data.usa_names.usa_1910_2013` " \
             "WHERE state = 'TX' " \
             "LIMIT 100"

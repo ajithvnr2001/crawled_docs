@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/about-data-lineage/
 title: About data lineage \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:21:55.998401+00:00
+fetched_at: 2026-10-24T08:27:39.191785+00:00
 ---
 
 # About data lineage  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback
 
 #  About data lineage Stay organized with collections  Save and categorize content based on your preferences. 
 
-Data lineage is a visual map that tracks the entire lifecycle of your data. It shows you where your data comes from (the origin), where it travels (the destinations), and all the changes or transformations that happen along the way.
-
-You can view this complete map of your data's journey directly in the Google Cloud console for assets created in products such as Knowledge Catalog (formerly Dataplex Universal Catalog), BigQuery (including external tables created for [Iceberg REST Catalog](https://docs.cloud.google.com/biglake/docs/about-lakehouse-iceberg-rest-catalog-tables)), and Vertex AI. Because workflows often span multiple regions, Knowledge Catalog supports [multi-region lineage](https://docs.cloud.google.com/knowledge-catalog/docs/multi-region-lineage-overview), which provides a unified view of your data's journey across the global Google Cloud ecosystem. Advanced users can also retrieve this information by using the [ Data Lineage API](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rest).
+Data lineage in Knowledge Catalog (formerly Dataplex Universal Catalog) lets you track where your data originates, how it transforms, and where it moves across systems such as BigQuery and Vertex AI. These lineage records help you verify trusted sources, trace pipeline errors to their root cause, assess the downstream impact of changes, and support compliance. You can explore interactive graphs in the Google Cloud console, search [multi-region lineage](https://docs.cloud.google.com/knowledge-catalog/docs/multi-region-lineage-overview), or record and query metadata programmatically with the [Data Lineage API](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rest).
 
 ## Why you need data lineage
 
@@ -42,7 +40,7 @@ Modern companies move and change large amounts of data constantly. For example, 
 
 
 
-Data lineage solves these problems by providing a clear, visual, and documented journey of your data. This lets you understand data sources, trace errors, assess the impact of changes, and maintain compliance.
+Data lineage addresses these challenges by recording where your data comes from (the origin), where it travels (the destinations), and the changes or transformations that happen along the way. This documented record lets you understand data sources, trace errors, assess the impact of changes, and maintain compliance.
 
 ## How data lineage works
 
@@ -62,7 +60,7 @@ The data lineage workflow includes the following steps:
 
   3. **User experience** : you can interact with the stored lineage information in two primary ways:
 
-     * Visual exploration: in the Google Cloud console, a frontend service fetches and renders the lineage data as an interactive graph or list. This is supported for Knowledge Catalog, BigQuery, Lakehouse (for Iceberg REST Catalog tables), physical layer (Cloud Storage), and Vertex AI (for models, datasets, through pipelines; and feature store views, and feature groups). This is ideal for visually exploring your data's journey.
+     * Visual exploration: in the Google Cloud console, a frontend service fetches and renders the lineage data as an interactive graph or list. This is supported for Knowledge Catalog, BigQuery (including external tables created for [Apache Iceberg tables managed by the Apache Iceberg REST catalog endpoint](https://docs.cloud.google.com/lakehouse/docs/lakehouse-tables)), Lakehouse (for Apache Iceberg tables managed by the Apache Iceberg REST catalog endpoint), physical layer (Cloud Storage), and Vertex AI (for models, datasets, through pipelines; and feature store views, and feature groups). This is ideal for visually exploring your data's journey.
 
      * Programmatic access: using an API client, you can directly communicate with the Data Lineage API to automate lineage management. This lets you write lineage information from custom sources. It also lets you read and query the stored lineage data for use in other applications or for building custom reports.
 
@@ -299,7 +297,7 @@ Data lineage is an inherently regionalized service. Lineage metadata including l
 
 As modern enterprise data architectures scale, pipeline workflows frequently cross project and regional boundaries. For example, a BigQuery transformation pipeline running in `us-central1` might read a source table in `us-east1` and output aggregated metrics into a Cloud Storage bucket located in `europe-west1`.
 
-To establish a comprehensive, end-to-end view of your data's lifecycle across these independent geographical spaces, use a multi-region lineage search method.
+To establish a unified, end-to-end view of your data's lifecycle across Google Cloud regions and projects, use a multi-region lineage search method.
 
 For more information, see [About multi-region lineage search](https://docs.cloud.google.com/knowledge-catalog/docs/multi-region-lineage-overview).
 
@@ -411,6 +409,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

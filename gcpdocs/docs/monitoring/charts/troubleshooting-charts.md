@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/charts/troubleshooting-charts/
 title: Troubleshoot charts \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:55:27.599863+00:00
+fetched_at: 2026-10-24T11:25:20.966828+00:00
 ---
 
 # Troubleshoot charts  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -164,6 +164,22 @@ You create charts on a custom dashboard and configure those charts with PromQL. 
 ![Values for a dashboard-wide filter aren't loaded.](https://docs.cloud.google.com/static/monitoring/images/dashboard-filter-no-menu-values.png)
 
 To resolve this issue, enter the filter value, and then select **Apply**. For example, if the filter key is `zone`, then you might enter `us-central1-a`.
+
+### User metadata labels are missing from filter or grouping menus
+
+You configure a chart by using menus, but the **Filter** and **Aggregation** menus don't list user metadata labels, such as `goog-dataproc-*` or `dataflow-*`.
+
+To filter or group time series when user metadata labels don't appear in the menus, query the time series by using [PromQL](https://docs.cloud.google.com/monitoring/promql#promql-cm-query) or [direct filter mode](https://docs.cloud.google.com/monitoring/charts/metrics-selector#direct-filter):
+
+  * In PromQL, prefix the user metadata label key with `metadata_user_`, and enclose the key in double quotes if it contains special characters such as hyphens. For example, the following PromQL query filters Compute Engine VM CPU utilization for time series that have a non-empty `goog-dataproc-cluster-name` user metadata label:
+        
+        {"compute.googleapis.com/instance/cpu/utilization", monitored_resource="gce_instance", "metadata_user_goog-dataproc-cluster-name"!=""}
+        
+
+  * In direct filter mode, filter by `metadata.user_labels`. For example, to filter for a non-empty `goog-dataproc-cluster-name` user metadata label, enter `metadata.user_labels."goog-dataproc-cluster-name"!=""`.
+
+
+
 
 ## Dashboard errors
 
@@ -354,6 +370,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

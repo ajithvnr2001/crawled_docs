@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/setup-multinetwork-support-for-pods/
 title: Set up multi-network support for Pods \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:22:11.095236+00:00
+fetched_at: 2026-10-24T10:00:01.238742+00:00
 ---
 
 # Set up multi-network support for Pods  |  GKE networking  |  Google Cloud Documentation
@@ -36,26 +36,22 @@ Multi-network support for Pods has the following requirements and limitations:
 
 ### Requirements
 
-  * GKE Standard version 1.28 or later.
-  * GKE Autopilot version 1.29.5-gke.1091000 and later or version 1.30.1-gke.1280000 and later.
   * Multi-network support for Pods uses the same [VM-level specifications](https://docs.cloud.google.com/vpc/docs/multiple-interfaces-concepts#specifications) as multi-NIC for Compute Engine.
   * Multi-network support for Pods requires GKE Dataplane V2.
-  * Multi-network support for Pods is available for Container-Optimized OS. Ubuntu support is available on nodes that are running version GKE version 1.32.3-gke.1785000 or later.
+  * Multi-network support for Pods is available for Container-Optimized OS. Ubuntu support is available on nodes that are running GKE version 1.32.3-gke.1785000 or later.
 
 
 
 ### General limitations
 
   * Multi-network support for Pods doesn't work for clusters that are enabled for [dual-stack networking](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/alias-ips#dual_stack_network).
-  * Shared VPC is supported only on GKE version 1.28 or later.
-  * [Multi-Pod CIDR](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/multi-pod-cidr) is supported only on GKE version 1.29 or later, and only for default Pod network.
+  * [Multi-Pod CIDR](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/multi-pod-cidr) is supported only for the default Pod network.
   * Any Pod-networks in a single GKE cluster can't have overlapping CIDR ranges.
   * When you enable multi-network support for Pods, you can't add or remove node-network interfaces or Pod-networks after creating a node pool. To change these settings, you must recreate the node pool.
   * By default, internet access is not available on additional interfaces of Pod-networks inside the Pod. However, you can enable it manually using Cloud NAT.
   * You can't change the default Gateway inside a Pod with multiple interfaces through the API. The default Gateway must be connected to the default Pod-network.
   * The default Pod-network must always be included in Pods, even if you create additional Pod-networks or interfaces.
   * You can't configure the multi-network feature when Managed Hubble has been configured.
-  * To use Shared VPC, ensure that your GKE cluster is running version 1.28.4 or later.
   * For Shared VPC deployments, all network interfaces (NICs) attached to nodes must belong to the same project as the host project.
   * Name of device typed network objects can't exceed 41 characters. The full path of each UNIX domain socket is composed, including the corresponding network name. Linux has a limitation on socket path lengths (under [107 bytes](https://linux.die.net/man/7/unix)). After accounting for the directory, filename prefix, and the `.sock` extension, the network name is limited to a maximum of 41 characters.
   * You can't mutate `Network` and `GKENetworkParamSet` objects. To update these objects, delete and recreate them.
@@ -1109,6 +1105,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

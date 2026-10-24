@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-jobs-timeline/
 title: JOBS_TIMELINE view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:35.666878+00:00
+fetched_at: 2026-10-24T09:44:00.308965+00:00
 ---
 
 # JOBS_TIMELINE view  |  BigQuery  |  Google Cloud Documentation

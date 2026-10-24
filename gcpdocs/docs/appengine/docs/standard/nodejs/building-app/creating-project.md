@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/nodejs/building-app/creating-project/
 title: Create your project \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:51:23.204634+00:00
+fetched_at: 2026-10-24T09:01:54.493541+00:00
 ---
 
 # Create your project  |  App Engine standard environment  |  Google Cloud Documentation

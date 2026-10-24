@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/vmtd-allow-access-vpcsc/
 title: Allow VM Threat Detection to access VPC Service Controls perimeters \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:40:58.183183+00:00
+fetched_at: 2026-10-24T11:18:55.427265+00:00
 ---
 
 # Allow VM Threat Detection to access VPC Service Controls perimeters  |  Security Command Center  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 Premium and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions. 
 
-This document describes how to add ingress and egress rules to allow Virtual Machine Threat Detection to scan VMs in your VPC Service Controls perimeters. Perform this task if your organization uses VPC Service Controls to restrict services in projects that you want VM Threat Detection to scan. For more information about VM Threat Detection, see [VM Threat Detection overview](https://docs.cloud.google.com/security-command-center/docs/concepts-vm-threat-detection-overview).
+To allow Virtual Machine Threat Detection to scan VM instances protected by VPC Service Controls, configure ingress and egress rules for your perimeter. Configure these rules if your organization uses VPC Service Controls to restrict services in projects that you want VM Threat Detection to scan. For more information about VM Threat Detection, see [Virtual Machine Threat Detection overview](https://docs.cloud.google.com/security-command-center/docs/concepts-vm-threat-detection-overview).
 
 ## Before you begin
 
@@ -232,6 +232,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

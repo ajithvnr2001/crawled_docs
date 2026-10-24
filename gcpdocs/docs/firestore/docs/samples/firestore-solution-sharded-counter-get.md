@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-solution-sharded-counter-get/
 title: Getting a Firestore document while using shards \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:09:01.820411+00:00
+fetched_at: 2026-10-24T09:03:10.248368+00:00
 ---
 
 # Getting a Firestore document while using shards  |  Google Cloud Documentation
@@ -111,7 +111,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     require "google/cloud/firestore"
     
-    firestore = Google::Cloud::[Firestore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore-admin/latest/Google-Cloud-Firestore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html) project_id: project_id
+    firestore = Google::Cloud::[Firestore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html) project_id: project_id
     
     shards_ref = firestore.[col_group](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore-Client.html) collection_path
     

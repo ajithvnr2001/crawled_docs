@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/rightsize-hpa-workloads-with-vpa/
 title: Rightsize HPA workloads with VPA \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:09.363938+00:00
+fetched_at: 2026-10-24T11:25:49.350454+00:00
 ---
 
 # Rightsize HPA workloads with VPA  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -38,6 +38,7 @@ HPA rightsizing with VPA enables both autoscalers to operate cooperatively on th
 When configuring HPA rightsizing, consider the following requirements and limitations:
 
   * Rightsizing calculations apply only to CPU. If you include memory in your VPA configuration, VPA resizes memory requests and limits by using standard VPA logic.
+  * HPA rightsizing supports Pods that have one primary container. If the Pod also runs sidecars, the sidecars must have negligible CPU usage compared to the primary container, and you must opt the sidecars out of VPA by setting `mode: "Off"` in their container policy. The HPA must use the `Resource` metric type for CPU; the `ContainerResource` metric type is supported only for Pods that have a single container.
   * You can configure HPA rightsizing for up to 60,000 total containers across all workloads in a single cluster.
   * A single VerticalPodAutoscaler can target up to 1,000 containers.
   * VPA generates recommendations for, and applies updates on, only container-level resource requests and limits (`spec.containers[].resources`). Vertical Pod autoscaling doesn't support [Pod-level resource specifications](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#pod-level-resource-specification) (`spec.resources`).
@@ -216,7 +217,7 @@ To give the vertical Pod autoscaler time to gather usage data and build accurate
            minReplicas: 2
            maxReplicas: 10
            metrics:
-           -   type: Resource
+           - type: Resource
              resource:
                name: cpu
                target:
@@ -285,7 +286,7 @@ After observing recommendations and confirming that they fit your application re
 
   1. In `sample-app-vpa.yaml`, update the `spec.updatePolicy.updateMode` field to `"InPlaceOrRecreate"`:
          
-         ...other fields omitted for clarity...
+         # ...other fields omitted for clarity...
          spec:
            updatePolicy:
              updateMode: "InPlaceOrRecreate"
@@ -303,35 +304,28 @@ The `"InPlaceOrRecreate"` mode updates CPU requests non-disruptively without res
 
 VPA automatically adjusts the CPU requests of your containers to optimal levels based on workload demand, and HPA continues to scale the number of replicas dynamically.
 
-## Configure rightsizing for multi-container workloads
+## Rightsize multi-container workloads
 
-If your workload runs multiple containers in each Pod (such as a primary application container and one or more sidecars), configure the HPA to scale based on the primary container's CPU utilization rather than the total Pod utilization. This configuration helps ensure that HPA and VPA evaluate resource demands by using the same container baseline.
+If your workload runs multiple containers in each Pod (such as a primary application container and one or more sidecars), HPA evaluates the CPU utilization of the whole Pod, while VPA rightsizes only the primary container. For HPA rightsizing to work, the Pod CPU utilization that HPA measures must match the primary container's CPU utilization that VPA sizes for. To meet this requirement, configure your workload as follows:
 
-To target a specific container in your HorizontalPodAutoscaler, use the `ContainerResource` metric type in the `autoscaling/v2` API:
-    
-    
-    apiVersion: autoscaling/v2
-    kind: HorizontalPodAutoscaler
-    metadata:
-      name: multi-container-hpa
-    spec:
-      scaleTargetRef:
-        apiVersion: apps/v1
-        kind: Deployment
-        name: multi-container-app
-      minReplicas: 2
-      maxReplicas: 10
-      metrics:
-      -   type: ContainerResource
-        containerResource:
-          name: cpu
-          container: PRIMARY_CONTAINER_NAME
-          target:
-            type: Utilization
-            averageUtilization: 70
-    
+  * Keep sidecar CPU usage negligible compared to the primary container, so that the sidecars don't skew the Pod utilization that HPA measures. HPA rightsizing supports sidecars only when their CPU usage is negligible.
+  * Use the `Resource` metric type for CPU in the HPA, as shown in Deploy the example workload and HPA. HPA rightsizing doesn't support the `ContainerResource` metric type for Pods that have more than one container. If the HPA uses `ContainerResource` and the Pod has multiple containers, VPA doesn't generate a CPU recommendation for the workload.
+  * Restrict VPA to the primary container. To prevent VPA from evaluating the sidecars, set the `mode` field to `"Off"` for each sidecar in `spec.resourcePolicy.containerPolicies`:
+        
+        resourcePolicy:
+          containerPolicies:
+          - containerName: PRIMARY_CONTAINER_NAME
+            controlledResources: ["cpu"]
+          - containerName: SIDECAR_CONTAINER_NAME
+            mode: "Off"
+        
 
-Replace `PRIMARY_CONTAINER_NAME` with the name of your primary application container.
+Replace the following:
+
+    * `PRIMARY_CONTAINER_NAME`: the name of your primary application container.
+    * `SIDECAR_CONTAINER_NAME`: the name of a sidecar container to exclude from rightsizing. Add one entry for each sidecar.
+
+
 
 ## Verify recommendations
 
@@ -380,6 +374,7 @@ When using HPA rightsizing with VPA, consider the following best practices:
 
   * If you use continuous delivery tools such as Argo CD, the tool might attempt to revert the resource changes made by VPA back to the manifest values. Some tools support configuring settings that ignore these types of changes, for example Argo CD has the [`ignoreDifferences` attribute](https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/).
   * For workloads that experience heavy CPU spikes during initial startup (such as Java applications), you can combine rightsizing with [VPA CPU startup boost](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/boost-application-startup) to temporarily allocate extra CPU during startup without impacting steady-state rightsizing calculations.
+  * For Pods with sidecars, use the `Resource` metric type on the HPA and keep sidecar CPU usage negligible. For details, see Rightsize multi-container workloads.
   * To disable HPA rightsizing on a workload, delete the VerticalPodAutoscaler or set the `spec.updatePolicy.updateMode` field to `"Off"`. Don't remove only the `gke.io/autoscaling-hpa-rightsizing-mode` annotation and leave the `updateMode` field set to `"InPlaceOrRecreate"` or `"Recreate"`. Removing only the annotation reverts VPA to standard VPA behavior, which can cause HPA and VPA to compete and create scaling instability.
 
 
@@ -396,6 +391,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

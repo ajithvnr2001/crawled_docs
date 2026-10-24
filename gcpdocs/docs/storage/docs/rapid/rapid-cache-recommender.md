@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/rapid/rapid-cache-recommender/
 title: Rapid Cache recommendations and insights \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:36:51.034860+00:00
+fetched_at: 2026-10-24T11:25:30.163348+00:00
 ---
 
 # Rapid Cache recommendations and insights  |  Cloud Storage  |  Google Cloud Documentation
@@ -119,7 +119,7 @@ A pane appears showing details about how enabling caching could affect performan
 
 To view all available recommendations for buckets within a project, filter the list of buckets by the **Cache** column. For instructions, see [Filtering](https://docs.cloud.google.com/storage/docs/cloud-console#sort-filter).
 
-In addition to viewing recommendations in the Cloud Storage portion of the Google Cloud console, you can also find Rapid Cache recommendations in the Active Assist. For details, see [Find recommendations with the Active Assist](https://docs.cloud.google.com/recommender/docs/quickstart-recommendation-hub).
+In addition to viewing recommendations in the Cloud Storage portion of the Google Cloud console, you can also find Rapid Cache recommendations in Active Assist. For details, see [Find recommendations with Active Assist](https://docs.cloud.google.com/recommender/docs/quickstart-recommendation-hub).
 
 
 
@@ -170,9 +170,9 @@ To view insights for a specific bucket, complete the following steps:
 
   3. In the **Bucket details** page, click the **Configuration** tab.
 
-In the **Anywhere Cache** section, a lightbulb **Recommended** button appears when there are available recommendations to view. A **Configure Cache** button appears when there are no available recommendations to view and a cache is yet to be created for the bucket.
+In the **Rapid Cache** section, a lightbulb **Recommended** button appears when there are available recommendations to view. A **Configure Cache** button appears when there are no available recommendations to view and a cache is yet to be created for the bucket.
 
-  4. In the **Anywhere Cache** section, click lightbulb **Recommended** or **Configure Cache**.
+  4. In the **Rapid Cache** section, click lightbulb **Recommended** or **Configure Cache**.
 
 The **Configure cache** page appears. In the **Recommendation** column, a **View insight** button is displayed when there are available insights to view.
 
@@ -244,6 +244,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/partitioned-tables/
 title: Introduction to partitioned tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:43.275360+00:00
+fetched_at: 2026-10-24T11:26:03.651724+00:00
 ---
 
 # Introduction to partitioned tables  |  BigQuery  |  Google Cloud Documentation
@@ -260,7 +260,7 @@ For more information, see [Batch loading data](https://docs.cloud.google.com/big
 
   * If you use load, select or copy jobs to append single rows of data to a table, for example, then you should consider batching multiple jobs into one job. BigQuery doesn't perform well when used as a relational database. As a best practice, avoid running frequent, single-row append actions. 
   * To append data at a high rate, consider using [BigQuery Storage Write API (gRPC)](https://docs.cloud.google.com/bigquery/docs/write-api). It is a recommended solution for high-performance data ingestion. The BigQuery Storage Write API (gRPC) has robust features, including exactly-once delivery semantics. To learn about limits and quotas, see [Storage Write API](https://cloud.google.com/bigquery/quotas#write-api-limits) and to see costs of using this API, see [BigQuery data ingestion pricing](https://cloud.google.com/bigquery/pricing#data_ingestion_pricing). 
-  * To monitor the number of modified partitions on a table, use the [`INFORMATION_SCHEMA` view](https://cloud.google.com/bigquery/docs/information-schema-jobs#partitions-modified-by). 
+  * To monitor the number of modified partitions on a table, use the [`INFORMATION_SCHEMA` view](https://docs.cloud.google.com/bigquery/docs/information-schema-jobs#partitions-modified-by). 
   * For information about optimizing table load jobs to avoid reaching quota limits, see [Optimize load jobs](https://docs.cloud.google.com/bigquery/docs/optimize-load-jobs).
 
 
@@ -294,6 +294,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

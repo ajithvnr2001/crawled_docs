@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/account-takeovers/
 title: Detect and prevent account takeovers \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T05:44:11.876277+00:00
+fetched_at: 2026-10-24T11:25:43.974939+00:00
 ---
 
 # Detect and prevent account takeovers  |  Google Cloud Fraud Defense  |  Google Cloud Documentation
@@ -23,9 +23,9 @@ Send feedback
 
 #  Detect and prevent account takeovers Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to detect and prevent account takeovers (ATOs) using Google Cloud Fraud Defense.
+Google Cloud Fraud Defense lets you detect and prevent account takeovers (ATOs) across your websites and mobile applications. To help protect accounts against credential stuffing and automated takeovers, you can combine account-level behavioral analysis in Account defense with compromised-credential checks in Password defense and step-up multi-factor authentication (MFA).
 
-ATO attacks typically occur when an attacker sends requests to sign in to API endpoints using credentials obtained from a data breach, also known as a [password dump](https://security.googleblog.com/2014/09/cleaning-up-after-password-dumps.html). This type of attack can be successful, even if the password dump is from an unrelated site, because humans tend to reuse passwords across multiple accounts. This type of attack does not affect users who practice proper password hygiene, such as using a password manager.
+ATO attacks, such as credential stuffing, typically occur when an attacker sends requests to sign in by using credentials exposed in data breaches and [password dumps](https://security.googleblog.com/2014/09/cleaning-up-after-password-dumps.html). Because users frequently reuse passwords across unrelated sites, automated stuffing attacks can succeed even against properly configured authentication endpoints unless you evaluate behavioral risk and leaked credentials.
 
 ## Before you begin
 
@@ -33,94 +33,46 @@ ATO attacks typically occur when an attacker sends requests to sign in to API en
 
 ## Detect and prevent ATOs
 
-With Fraud Defense, you can detect and prevent ATOs by using one of the following options:
+With Fraud Defense, you can detect and prevent ATOs by using the following capabilities:
 
-  * [Account defense](https://docs.cloud.google.com/recaptcha/docs/account-defender)
-
-  * "I'm not a robot" checkbox
-
-  * Scores and custom challenges
+  * Account defense and the ATO risk score
+  * Password defense for password leak detection
+  * Score-based keys and step-up MFA
 
 
 
+### Use Account defense and the ATO risk score
 
-### Use the I'm not a robot checkbox
+[Account defense](https://docs.cloud.google.com/recaptcha/docs/account-defender) is the primary capability for detecting and preventing ATOs across [websites](https://docs.cloud.google.com/recaptcha/docs/account-defender) and [mobile apps](https://docs.cloud.google.com/recaptcha/docs/account-defender-mobile).
 
-Adding the **I'm not a robot** checkbox to your site is the fastest and easiest way to provide some protection against ATOs without having to integrate additional features, such as SMS or email verification. There is a cost for an attacker to break this protection and this option might be sufficient for some sites.
+Account defense provides a dedicated [ATO risk score](https://docs.cloud.google.com/recaptcha/docs/account-defender#account-takeover-risk-score) (`accountDefenderAssessment.accountTakeoverVerdict.risk`, ranging from `0.0` to `1.0`) and explainability signals (`riskReasons` and `trustReasons`). These signals evaluate account-level behavioral history alongside session signals, providing approximately four times higher ATO detection precision than bot scores alone.
 
-**Note:** Checkbox challenges are not supported on mobile applications.
+To integrate Account defense, pass a stable account identifier in the `user_info.account_id` field (`event.userInfo.accountId` when you call [`CreateAssessment`](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/projects.assessments/create). If the account identifier is available only after authentication, pass `account_id` when you call [`AnnotateAssessment`](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/projects.assessments/annotate).
 
-[Add the "I'm not a robot" checkbox](https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages-with-checkbox) on your web pages.
+### Detect leaked passwords
 
-The following code is a live example of a login page protected by the checkbox:
-    
-    
-    function onSuccess(token) {
-      // The token is included in the POST data in the g-recaptcha-response
-      // parameter. The backend must create an Assessment with the token
-      // and verify the token is valid.
-      console.log(token);
-    }
-    
-    
-    <form id="loginForm" action="?" method="POST">
-      Username: <input type="text" name="username"/><br/>
-      Password: <input type="password" name="password"/><br/>
-      <div class="g-recaptcha" data-sitekey="reCATCHA_sitekey"
-           data-action="account_login" data-callback="onSuccess"></div>
-    </form>
-    
-    
-    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
+Because ATOs frequently rely on credential stuffing with credentials exposed in password dumps, use [Password defense](https://docs.cloud.google.com/recaptcha/docs/check-passwords) on sign-in, password-change, and password-reset flows to detect compromised credentials.
 
-You can experiment with this code in JSFiddle by clicking the `<>` icon in the top-right corner of the code window.
-    
-    
-    <html>
-      <head>
-        <title>Account Login - Checkbox</title>
-        <script src="https://www.google.com/recaptcha/enterprise.js"></script>
-        <script>
-        function onSuccess(token) {
-          // The token is included in the POST data in the g-recaptcha-response
-          // parameter. The backend must create an Assessment with the token
-          // and verify the token is valid.
-          console.log(token);
-        }
-        </script>
-      </head>
-      <body>
-        <form id="loginForm" action="?" method="POST">
-          Username: <input type="text" name="username"/><br/>
-          Password: <input type="password" name="password"/><br/>
-          <div class="g-recaptcha" data-sitekey="6LeAkOgUAAAAACcy3uY6N9H9SJMS27n3Zx2OOnYK"
-               data-action="account_login" data-callback="onSuccess"></div>
-        </form>
-      </body>
-    </html>
+When you check credentials during an assessment, Password defense evaluates the canonicalized username and password hash prefix against known data breaches without exposing plaintext credentials to Google. When you call [`CreateAssessment`](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/projects.assessments/create), pass the username (`credentials.username`) hash prefix (`lookupHashPrefix`) and encrypted credentials hash (`encryptedUserCredentialsHash`) in `privatePasswordLeakVerification`. If the verdict (`leakedPasswordVerdict`) indicates compromised credentials, require a password reset or trigger a step-up MFA challenge.
 
-### Use scores and custom challenges
+### Use score-based keys and step-up MFA
 
-To protect against ATOs, use the Fraud Defense score-based keys and use Multi-factor authentication (MFA) challenges, such as email and SMS challenges in which one-time codes (OTPs) are sent to the user.
+When the ATO risk score (`accountDefenderAssessment.accountTakeoverVerdict.risk`) or bot score (`riskAnalysis.score`) indicates elevated risk, use score-based keys to trigger step-up authentication or multi-factor authentication (MFA) in your application as your enforcement mechanism. For example, prompt the user for an additional factor, require re-authentication, or trigger one-time password (OTP) verification.
 
-To use score-based keys and custom challenges, consider the following options:
+To implement score-based keys and step-up MFA, complete the following steps:
 
-  * Install score-based keys to detect automation in large-scale ATOs.
+  * Install score-based keys to collect session signals and detect automation in large-scale ATOs:
 
-To install score-based keys on web pages, see [Install score-based keys on web pages](https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages).
+    * **Web:** Call `grecaptcha.enterprise.execute()` on your web pages. For more information, see [Install score-based keys on websites](https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages).
 
-To install score-based keys on mobile applications, see [Integrate Fraud Defense with Android apps](https://docs.cloud.google.com/recaptcha/docs/instrument-android-apps). or [Integrate Fraud Defense with iOS apps](https://docs.cloud.google.com/recaptcha/docs/instrument-ios-apps).
+    * **Mobile:** Call `execute()` in the mobile SDKs. For more information, see [Integrate Fraud Defense with Android apps](https://docs.cloud.google.com/recaptcha/docs/instrument-android-apps) or [Integrate Fraud Defense with iOS apps](https://docs.cloud.google.com/recaptcha/docs/instrument-ios-apps).
 
-  * Use MFA to verify account ownership on login or for sensitive actions.
-
-For more information, see [Configure Multi-Factor authentication](https://docs.cloud.google.com/recaptcha/docs/integrate-account-verification).
+  * When `accountTakeoverVerdict.risk` exceeds your risk threshold or `riskAnalysis.score` falls below your bot threshold, trigger step-up authentication or an MFA challenge in your identity provider to verify account ownership on sign-in or for sensitive actions. Triggering step-up challenges selectively on elevated-risk requests reduces friction for legitimate users.
 
 
 
 
-Depending on your use case, you can use MFA on its own or with score-based keys. For example, you might prefer to use MFA challenges only for scores below a certain threshold to reduce friction.
-
-The following example shows how to integrate score-based keys in the login scenario.
+The following example shows how to integrate score-based keys in a sign-in workflow:
     
     
     function submitForm() {
@@ -173,6 +125,8 @@ You can experiment with this code in JSFiddle by clicking the `<>` icon in the t
       </body>
     </html>
 
+**Note:** Visual [checkbox challenges](https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages-with-checkbox) are a legacy, web-only baseline for low-risk sites. Checkbox challenges don't evaluate account-level takeover signals or compromised credentials, and aren't supported on mobile apps.
+
 ## What's next
 
   * To learn about other account protection features, see [User accounts protection features](https://docs.cloud.google.com/recaptcha/docs/protect-accounts-overview).
@@ -183,6 +137,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

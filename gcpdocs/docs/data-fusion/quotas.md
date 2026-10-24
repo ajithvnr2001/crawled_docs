@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/quotas/
 title: Quotas and limits \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:38.507584+00:00
+fetched_at: 2026-10-24T08:21:20.232875+00:00
 ---
 
 # Quotas and limits  |  Cloud Data Fusion  |  Google Cloud Documentation

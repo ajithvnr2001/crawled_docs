@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/mongodb-change-stream-to-bigquery/
 title: MongoDB to BigQuery template (Stream) \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:53:28.368735+00:00
+fetched_at: 2026-10-24T08:41:30.350718+00:00
 ---
 
 # MongoDB to BigQuery template (Stream)  |  Cloud Dataflow  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/jupyterlab-plugin/
 title: Use the BigQuery JupyterLab plugin \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:45:57.470135+00:00
+fetched_at: 2026-10-24T11:25:53.826884+00:00
 ---
 
 # Use the BigQuery JupyterLab plugin  |  Google Cloud Documentation
@@ -27,15 +27,9 @@ This product or feature is subject to the "Pre-GA Offerings Terms" in the Genera
 
 To request feedback or support for this feature, send an email to [bigquery-ide-plugin@google.com](mailto:bigquery-ide-plugin@google.com).
 
-This document shows you how to install and use the BigQuery JupyterLab plugin to do the following:
+The BigQuery JupyterLab plugin lets you explore your datasets and use the BigQuery DataFrames API directly from your local development environment. Integrating this plugin into your workflow lets you manage notebooks, develop with Apache Spark, and deploy your code to [Managed Service for Apache Airflow](https://docs.cloud.google.com/composer/docs/concepts/overview).
 
-  * Explore your BigQuery data.
-  * Use the BigQuery DataFrames API.
-  * Deploy a BigQuery DataFrames notebook to [Managed Service for Apache Airflow](https://docs.cloud.google.com/composer/docs/concepts/overview).
-
-
-
-The BigQuery JupyterLab plugin includes all the functionality of the [Managed Service for Apache Spark JupyterLab plugin](https://docs.cloud.google.com/dataproc-serverless/docs/quickstarts/jupyterlab-sessions), such as creating a Managed Service for Apache Spark Serverless runtime template, launching and managing notebooks, developing with Apache Spark, deploying your code, and managing your resources.
+The BigQuery JupyterLab plugin includes all the functionality of the [Managed Service for Apache Spark JupyterLab plugin](https://docs.cloud.google.com/dataproc-serverless/docs/quickstarts/jupyterlab-sessions).
 
 ## Install the BigQuery JupyterLab plugin
 
@@ -166,6 +160,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

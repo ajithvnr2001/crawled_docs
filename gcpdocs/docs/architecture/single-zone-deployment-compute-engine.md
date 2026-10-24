@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/single-zone-deployment-compute-engine/
 title: Single-zone deployment on Compute Engine \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:44:53.728687+00:00
+fetched_at: 2026-10-24T09:40:54.230708+00:00
 ---
 
 # Single-zone deployment on Compute Engine  |  Cloud Architecture Center  |  Google Cloud Documentation

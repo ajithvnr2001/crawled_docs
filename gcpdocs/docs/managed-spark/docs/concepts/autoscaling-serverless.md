@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/autoscaling-serverless/
 title: Autoscale workload resources \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:59.132165+00:00
+fetched_at: 2026-10-24T11:25:15.213301+00:00
 ---
 
 # Autoscale workload resources  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  Autoscale workload resources Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document provides information about Managed Service for Apache Spark autoscaling. When you submit your Spark workload, Managed Service for Apache Spark can dynamically scale workload resources, such as the number of executors, to run your workload efficiently. Managed Service for Apache Spark autoscaling is the default behavior, and uses [Spark dynamic resource allocation](https://spark.apache.org/docs/latest/job-scheduling.html#dynamic-resource-allocation) to determine whether, how, and when to scale your workload.
+Managed Service for Apache Spark autoscaling lets you dynamically scale workload resources, such as the number of executors, to run Spark jobs efficiently. Enabled by default, autoscaling uses [Spark dynamic resource allocation](https://spark.apache.org/docs/latest/job-scheduling.html#dynamic-resource-allocation) to determine whether, how, and when to scale your workload.
 
 ## Managed Service for Apache Spark autoscaling V2
 
@@ -106,6 +106,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

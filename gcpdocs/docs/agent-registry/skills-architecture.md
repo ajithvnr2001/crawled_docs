@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/skills-architecture/
 title: Skills architecture \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T05:43:21.167526+00:00
+fetched_at: 2026-10-24T08:52:08.784970+00:00
 ---
 
 # Skills architecture  |  Agent Registry  |  Google Cloud Documentation

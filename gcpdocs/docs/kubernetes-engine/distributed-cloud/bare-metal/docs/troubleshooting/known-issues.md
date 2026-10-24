@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/known-issues/
 title: Google Distributed Cloud for bare metal known issues \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:47:26.217975+00:00
+fetched_at: 2026-10-24T11:25:27.055207+00:00
 ---
 
 # Google Distributed Cloud for bare metal known issues  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -92,7 +92,7 @@ To confirm whether your cluster is affected by this issue, do the following:
   1. Check whether any two running Pods across the cluster share the same secondary IP address: 
          
          kubectl get pods -A --field-selector=status.phase=Running -o json | jq -r '
-           [.items[] | .metadata as $m |
+           [.items[] | select(.metadata.deletionTimestamp == null) | .metadata as $m |
              (try ($m.annotations["k8s.v1.cni.cncf.io/network-status"] | fromjson) catch [])[] |
              select(.default != true) | .ips[]? as $ip |
              {ip: $ip, pod: "\($m.namespace)/\($m.name)", interface: .interface, mac: .mac}
@@ -101,7 +101,7 @@ To confirm whether your cluster is affected by this issue, do the following:
   2. To verify a specific running Pod's reservation in the `kube-system` namespace, check whether its reference and secondary IP address exist in `IPPool` and `OverlappingRangeIPReservation`: 
          
          kubectl get ippool IPPOOL_NAME -n kube-system -o yaml | grep "NAMESPACE/POD_NAME"
-         kubectl get overlappingrangeipreservations -n kube-system -o custom-columns=IP:.metadata.name,POD:.spec.podref | grep "IP_ADDRESS"
+         kubectl get overlappingrangeipreservations -n kube-system -o custom-columns=IP:.metadata.name,POD:.spec.podref | grep -w "IP_ADDRESS"
 
 
 **Workaround:** To prevent future premature deletions and recover from a duplicate IP address allocation until you upgrade to version 1.34.1000 or 1.35.0 and later, complete the following steps:

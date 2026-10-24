@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/iam-roles/
 title: Borderless Lakehouse IAM roles \u00a0|\u00a0 BigLake API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:24:48.676402+00:00
+fetched_at: 2026-10-24T08:23:15.761135+00:00
 ---
 
 # Borderless Lakehouse IAM roles  |  BigLake API  |  Google Cloud Documentation
@@ -19,21 +19,19 @@ As of April 20th, 2026, BigLake is now called Lakehouse. BigLake metastore is no
 
 #  Borderless Lakehouse IAM roles Stay organized with collections  Save and categorize content based on your preferences. 
 
-_Borderless Lakehouse_ defines several [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam) roles for managing resources. Each predefined role contains a set of IAM permissions that allow principals to perform certain actions. You can use an IAM policy to give a principal one or more IAM roles.
+Borderless Lakehouse defines several [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs) roles for managing resources. Predefined roles, which you grant by using IAM policies, contain permissions that let principals perform specific actions. You can also create custom IAM roles to tailor access control to your needs.
 
-IAM also offers the ability to create customized IAM roles. You can create custom IAM roles and assign the role one or more permissions. Then, you can grant the new role to your principals. Use custom roles to create an access control model that maps directly to your needs, alongside the available predefined roles.
-
-This page focuses on the IAM roles relevant to the _Lakehouse runtime catalog_.
+This reference lists the IAM roles and permissions for the Lakehouse runtime catalog.
 
 ## Before you begin
 
-  * Read the [IAM](https://docs.cloud.google.com/iam) documentation.
+  * Read the [IAM](https://docs.cloud.google.com/iam/docs) documentation.
 
 
 
 ## Lakehouse roles
 
-IAM Lakehouse roles are a bundle of one or more permissions. You grant roles to principals to allow them to perform actions on the Lakehouse resources in your project. For example, the BigLake Viewer role contains the `biglake.*.get` and `biglake.*.list` permissions, which allow a user to get and list Lakehouse resources in a project.
+IAM Lakehouse roles are a bundle of one or more permissions. You grant roles to principals to let them perform actions on the Lakehouse resources in your project. For example, the BigLake Viewer role contains the `biglake.*.get` and `biglake.*.list` permissions, which let a user get and list Lakehouse resources in a project.
 
 The following table lists all Lakehouse roles and the permissions associated with each role:
 
@@ -121,6 +119,6 @@ Role | Permissions
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

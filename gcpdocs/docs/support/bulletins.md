@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/support/bulletins/
 title: Security bulletins \u00a0|\u00a0 Cloud Customer Care \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:58:33.654718+00:00
+fetched_at: 2026-10-24T11:10:33.530118+00:00
 ---
 
 # Security bulletins  |  Cloud Customer Care  |  Google Cloud Documentation
@@ -26,6 +26,64 @@ The following security bulletins are related to Google Cloud products.
 
 [ Use this XML feed to subscribe to security bulletins for this page. ![Subscribe](https://docs.cloud.google.com/static/docs/images/feed-icon.png)](https://cloud.google.com/feeds/google-cloud-security-bulletins.xml)
 
+## GCP-2026-071
+
+**Published:** 2026-10-23
+
+### Description
+
+Description | Severity | Notes  
+---|---|---  
+On Saturday, October 17, 2026, Google received a report from a security researcher regarding the compromise of private keys associated with eight eMudhra subordinate Certification Authority (CA) certificates, including those cross-signed by AAA Certificate Services. Consequently, these CA certificates are no longer trusted and are being revoked. Although Google Cloud infrastructure remains uncompromised, the following Google Cloud and Firebase products, base images, and client SDKs are impacted:
+
+  * Google Cloud CLI
+  * Cloud Shell
+  * Container-Optimized OS
+  * Compute Engine
+  * Google Kubernetes Engine
+  * Vertex AI
+  * Colab Enterprise
+  * App Engine
+  * Cloud Run
+  * Cloud Run functions
+  * Cloud Functions for Firebase
+  * Firebase AppHosting
+  * Cloud SQL
+  * AlloyDB
+  * Cloud Firestore
+  * Firebase App Distribution
+  * Cloud Monitoring
+  * Confidential Space
+  * Google Distributed Cloud
+
+
+
+#### What should I do?
+
+Google Cloud is actively managing this issue across our infrastructure and platform services, and Google Cloud infrastructure has not been breached. Security telemetry shows no evidence of exploitation against Google Cloud workloads, and proactive mitigations are in place across Google-managed environments to block and distrust the affected certificate authority certificates. For environments and dependencies that you manage directly, take the following actions:
+
+  * **Operating Systems & Self-Managed Environments:** If you manage operating systems or custom container images on Compute Engine, Google Kubernetes Engine (GKE), or Cloud Run, update the trust store via your operating system vendor to revoke trust in the compromised eMudhra (emSign) and AAA Certificate Services certificates: 
+    * Red Hat Enterprise Linux (RHEL): Follow [RHSB-2026-012](https://access.redhat.com/security/vulnerabilities/RHSB-2026-012).
+    * Debian: Update to the latest `ca-certificates` package ([Bug 1151446](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1151446)).
+    * Ubuntu: Follow [USN-8944-1](https://ubuntu.com/blog/emudhra-ca-compromise-fixes-available).
+    * Windows: Install the latest Windows updates.
+    * Container-Optimized OS (COS): Upgrade or restart nodes to pick up current COS milestone releases, or apply the [`cos_ca_cert_mitigation`](https://cos.googlesource.com/cos/tools/+/refs/heads/master/src/cmd/cos_ca_cert_mitigation) tool.
+  * **Google Cloud CLI:** Update to the latest gcloud CLI release to ensure bundled dependencies include updated certificate stores. 
+  * **Service-Specific Guidance:** For managed Google Cloud and Firebase services, such as Google Kubernetes Engine, Serverless runtimes, Managed Databases, Cloud Firestore, Firebase App Distribution, and Confidential Space, Google Cloud is rolling out updates across managed fleets, and service-specific details, release notes, and customer communications will be published through the respective product documentation and official support channels as they become available. Please review individual service documentation for instructions tailored to your deployments. For GKE details and patch versions, see the [GKE security bulletin](https://docs.cloud.google.com/kubernetes-engine/security-bulletins#gcp-2026-071). 
+
+**If you have any questions or require assistance, please contact Google Cloud Support and reference issue #576444463.**
+
+#### What vulnerabilities are being addressed?
+
+The private keys for eight eMudhra (emSign) subordinate Certification Authority (CA) certificates were generated using insufficient cryptographic randomness (weak entropy). This weakness allows a remote attacker with network access to reconstruct private keys, forge trusted TLS certificates, and perform Man-in-the-Middle (MitM) interception against TLS clients, containers, or SDKs that have not yet removed trust in these subordinate CAs. | Medium | 
+
+  * [CVE-2026-111943](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-111943)
+  * Red Hat ([RHSB-2026-012](https://access.redhat.com/security/vulnerabilities/RHSB-2026-012))
+  * Ubuntu ([USN-8944-1](https://ubuntu.com/blog/emudhra-ca-compromise-fixes-available))
+  * Debian (DSA-6572-1 / [Bug 1151446](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1151446))
+
+  
+  
 ## GCP-2026-070
 
 **Published:** 2026-10-21
@@ -7393,6 +7451,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

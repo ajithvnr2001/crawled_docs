@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/kafka-to-gcs/
 title: Apache Kafka to Cloud Storage template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:53:29.042176+00:00
+fetched_at: 2026-10-24T08:41:30.584452+00:00
 ---
 
 # Apache Kafka to Cloud Storage template  |  Cloud Dataflow  |  Google Cloud Documentation

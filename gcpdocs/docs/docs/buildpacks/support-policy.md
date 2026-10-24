@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/buildpacks/support-policy/
 title: Google Cloud's buildpacks support policy \u00a0|\u00a0 Buildpacks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:43.025650+00:00
+fetched_at: 2026-10-24T08:20:46.106382+00:00
 ---
 
 # Google Cloud's buildpacks support policy  |  Buildpacks  |  Google Cloud Documentation

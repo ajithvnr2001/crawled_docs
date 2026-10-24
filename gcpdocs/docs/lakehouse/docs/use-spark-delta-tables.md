@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/use-spark-delta-tables/
 title: Set up Spark with Delta tables \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:41.398715+00:00
+fetched_at: 2026-10-24T08:23:12.419537+00:00
 ---
 
 # Set up Spark with Delta tables  |  Lakehouse  |  Google Cloud Documentation
@@ -36,7 +36,7 @@ This document explains how to configure Apache Spark with the Lakehouse runtime 
   4. Sign in to your Google Cloud account. If you're new to Google Cloud, [ create an account](https://console.cloud.google.com/freetrial) to evaluate how our products perform in real-world scenarios. New customers also get $300 in free credits to run, test, and deploy workloads. 
   5. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
 
-  6. Enable the Lakehouse, Managed Service for Apache Spark APIs, if any are not already enabled. 
+  6. Enable the BigLake, Managed Service for Apache Spark APIs, if any are not already enabled. 
 
 **Roles required to enable APIs**
 
@@ -46,7 +46,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
   7. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
 
-  8. Enable the Lakehouse, Managed Service for Apache Spark APIs, if any are not already enabled. 
+  8. Enable the BigLake, Managed Service for Apache Spark APIs, if any are not already enabled. 
 
 **Roles required to enable APIs**
 
@@ -83,7 +83,7 @@ For instructions, see [Granting a single role](https://docs.cloud.google.com/iam
 To use the Lakehouse runtime catalog with Delta tables, follow this workflow:
 
   1. Create a Lakehouse Hive catalog.
-  2. Configure your Spark session with the Lakehouse metastore client and Delta Lake dependencies.
+  2. Configure your Spark session with the Lakehouse runtime catalog client and Delta Lake dependencies.
   3. Create and populate Delta tables in Cloud Storage using Spark, which registers them with the metastore.
   4. Query the Delta tables from Apache Spark (read and write) or directly from BigQuery (read-only).
 
@@ -93,7 +93,7 @@ To use the Lakehouse runtime catalog with Delta tables, follow this workflow:
 
 To use the Lakehouse runtime catalog with Spark and Delta tables, create a Hive catalog.
 
-A Lakehouse Hive catalog is a collection of Hive databases. Before running Spark jobs, create a catalog to register it with Lakehouse Metastore. The catalog requires a name and a Cloud Storage location for the data.
+A Lakehouse Hive catalog is a collection of Hive databases. Before running Spark jobs, create a catalog to register it with the Lakehouse runtime catalog. The catalog requires a name and a Cloud Storage location for the data.
 
 ###  Console 
 
@@ -147,7 +147,7 @@ Replace the following:
 
 ## Configure Spark to use Delta tables
 
-To use the Lakehouse runtime catalog with Delta tables, configure your Spark session with the Lakehouse metastore client factory and Delta Lake extensions.
+To use the Lakehouse runtime catalog with Delta tables, configure your Spark session with the Lakehouse runtime catalog client factory and Delta Lake extensions.
 
 ### spark-sql
 
@@ -403,7 +403,7 @@ When using Delta tables with the Lakehouse runtime catalog Hive catalog endpoint
   * **Placeholder schema on`GetHiveTable` and true schema inspection**: `GetHiveTable` calls for Delta tables return a placeholder schema instead of the actual table schema. To inspect the real schema of a Delta table, use Apache Spark. BigQuery computes a modified schema adapted for Dremel query execution, which isn't a 1:1 match with the real Delta table schema.
   * **Hive client incompatibility** : Hive clients (like the Hive CLI) don't support Delta tables with the Lakehouse runtime catalog Hive endpoint. Use Apache Spark to manage Delta tables, and Spark or BigQuery to query them.
   * **Catalog-managed operations unsupported** : Catalog-managed mode is unsupported for Delta tables. You can't create a Delta table using standalone metastore DDL. Instead, create Delta tables with external storage locations in Cloud Storage (for example, using Apache Spark) and register them in the catalog.
-  * **BigQuery external Delta table limitations** : The Lakehouse runtime catalog Hive endpoint uses the same underlying query engine implementation as BigQuery external Delta Lake tables. All [external Delta Lake table limitations](https://docs.cloud.google.com/bigquery/docs/create-delta-lake-table#limitations) and [BigLake table limitations](https://docs.cloud.google.com/bigquery/docs/biglake-tables#limitations) apply. For example, Change Data Capture (CDC) operations and the BigQuery Storage Read API aren't supported, and `timestamp_ntz` is unsupported.
+  * **BigQuery external Delta table limitations** : The Lakehouse runtime catalog Hive endpoint uses the same underlying query engine implementation as BigQuery external Delta Lake tables. All [external Delta Lake table limitations](https://docs.cloud.google.com/bigquery/docs/create-delta-lake-table#limitations) and [BigLake table limitations](https://docs.cloud.google.com/bigquery/docs/biglake-intro#limitations) apply. For example, Change Data Capture (CDC) operations and the BigQuery Storage Read API aren't supported, and `timestamp_ntz` is unsupported.
 
 
 
@@ -419,6 +419,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

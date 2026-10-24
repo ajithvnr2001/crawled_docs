@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/authentication/use-service-account-impersonation/
 title: Use service account impersonation \u00a0|\u00a0 Authentication \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:46.374539+00:00
+fetched_at: 2026-10-24T08:20:32.616392+00:00
 ---
 
 # Use service account impersonation  |  Authentication  |  Google Cloud Documentation

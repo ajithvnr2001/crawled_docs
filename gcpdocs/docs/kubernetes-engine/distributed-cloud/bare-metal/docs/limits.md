@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/limits/
 title: Quotas and limits \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:47:07.300184+00:00
+fetched_at: 2026-10-24T11:18:54.434462+00:00
 ---
 
 # Quotas and limits  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Quotas and limits Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page explains Distributed Cloud software only for bare metal quotas and limits for Google Cloud projects, clusters, and nodes.
+Distributed Cloud software only for bare metal applies quotas and limits across Google Cloud projects, clusters, and nodes. These thresholds define supported fleet registrations, cluster capacities, and node resource limits to help you plan and scale bare metal deployments.
 
 ## Limits
 

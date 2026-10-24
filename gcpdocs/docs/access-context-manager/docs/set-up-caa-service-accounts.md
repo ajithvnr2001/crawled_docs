@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/access-context-manager/docs/set-up-caa-service-accounts/
 title: Configure Context-Aware Access for service accounts \u00a0|\u00a0 Access Context Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:19:04.231603+00:00
+fetched_at: 2026-10-24T11:18:55.281081+00:00
 ---
 
 # Configure Context-Aware Access for service accounts  |  Access Context Manager  |  Google Cloud Documentation
@@ -174,6 +174,8 @@ You can use multiple policies to incrementally and selectively deploy policies�
   3. Bind the policy in enforcement mode at the project level, and bind a less restrictive, enforcement-mode policy to specific service accounts as needed. 
 
 
+
+Context-Aware Access evaluates enforcement-mode policies and dry-run mode policies independently across the resource hierarchy. Binding a dry-run mode policy alone to a service account doesn't override an enforcement-mode policy that is bound to the project. To exempt a specific service account from a project-level enforcement-mode policy and evaluate a policy in dry-run mode for that service account, bind an enforcement-mode custom access level that always evaluates to `true` along with a dry-run mode access level to the service account. For instructions, see Use dry-run mode for a service account in a project with an enforcement-mode policy.
 
 ## Access level attributes for service accounts
 
@@ -390,6 +392,110 @@ Replace the following:
 
 
 
+### Use dry-run mode for a service account in a project with an enforcement-mode policy
+
+Because Context-Aware Access evaluates enforcement-mode policies and dry-run mode policies independently across the resource hierarchy, binding only a dry-run mode access level to a service account doesn't override an enforcement-mode policy that is bound to the project.
+
+To exempt a specific service account from a project-level enforcement-mode policy and evaluate an access level in dry-run mode for that service account, create a custom access level that always evaluates to `true`, and then bind that custom access level in enforcement mode along with the dry-run mode access level to the service account:
+
+###  gcloud 
+
+  1. Create an `always_allow.yaml` file with a CEL expression that always evaluates to `true`:
+         
+         expression: "true"
+         
+
+  2. Create the custom access level:
+         
+         gcloud access-context-manager levels create ALWAYS_ALLOW_LEVEL_NAME \
+           --title="TITLE" \
+           --custom-level-spec=always_allow.yaml \
+           --policy=POLICY_ID
+         
+
+Replace the following:
+
+     * `ALWAYS_ALLOW_LEVEL_NAME`: a unique name for the custom access level that always allows access
+
+     * `TITLE`: a short, human-readable title for the access level
+
+     * `POLICY_ID`: the ID of the Access Context Manager access policy
+
+  3. Bind the custom access level in enforcement mode (`--level`) and the target access level in dry-run mode (`--dry-run-level`) to the service account:
+         
+         gcloud access-context-manager cloud-bindings create \
+           --organization=ORGANIZATION_ID \
+           --service-account=SERVICE_ACCOUNT_NAME@SERVICE_ACCOUNT_PROJECT_ID.iam.gserviceaccount.com \
+           --level=accessPolicies/POLICY_ID/accessLevels/ALWAYS_ALLOW_LEVEL_NAME \
+           --dry-run-level=accessPolicies/POLICY_ID/accessLevels/DRY_RUN_ACCESS_LEVEL_NAME
+         
+
+Replace the following:
+
+     * `ORGANIZATION_ID`: your Google Cloud organization ID
+
+     * `SERVICE_ACCOUNT_NAME`: the name of the target service account, which is different from the service account's email
+
+     * `SERVICE_ACCOUNT_PROJECT_ID`: the ID of the project that contains the target service account
+
+     * `POLICY_ID`: the ID of the Access Context Manager access policy
+
+     * `ALWAYS_ALLOW_LEVEL_NAME`: the name of the custom access level that always evaluates to `true`
+
+     * `DRY_RUN_ACCESS_LEVEL_NAME`: the name of the access level that you want to evaluate in dry-run mode
+
+If you already bound the dry-run mode policy at the project level, or if you only want to exempt the service account from the project-level enforcement-mode policy, you can omit `--dry-run-level`.
+
+
+
+
+###  REST API 
+
+  1. Create a [custom access level](https://docs.cloud.google.com/access-context-manager/docs/create-custom-access-level) with the CEL expression `"expression": "true"`.
+
+  2. Create a `request.json` file that binds the custom access level in `accessLevels` and the target dry-run access level in `dryRunAccessLevels` for the service account:
+         
+         {
+         "principal": {
+           "serviceAccount": "SERVICE_ACCOUNT_NAME@SERVICE_ACCOUNT_PROJECT_ID.iam.gserviceaccount.com"
+         },
+         "accessLevels": ["accessPolicies/POLICY_ID/accessLevels/ALWAYS_ALLOW_LEVEL_NAME"],
+         "dryRunAccessLevels": ["accessPolicies/POLICY_ID/accessLevels/DRY_RUN_ACCESS_LEVEL_NAME"]
+         }
+         
+
+Replace the following:
+
+     * `SERVICE_ACCOUNT_NAME`: the name of the target service account, which is different from the service account's email
+
+     * `SERVICE_ACCOUNT_PROJECT_ID`: the ID of the project that contains the target service account
+
+     * `POLICY_ID`: the ID of the Access Context Manager access policy
+
+     * `ALWAYS_ALLOW_LEVEL_NAME`: the name of the custom access level that always evaluates to `true`
+
+     * `DRY_RUN_ACCESS_LEVEL_NAME`: the name of the access level that you want to evaluate in dry-run mode
+
+If you already bound the dry-run mode policy at the project level, or if you only want to exempt the service account from the project-level enforcement-mode policy, you can omit `dryRunAccessLevels`.
+
+  3. Run the following command:
+         
+         curl -H "X-Goog-User-Project: PROJECT_ID" -X POST \
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+         -H "Content-Type: application/json; charset=utf-8" \
+         -d @request.json \
+         "https://accesscontextmanager.googleapis.com/v1/organizations/ORGANIZATION_ID/gcpUserAccessBindings"
+         
+
+Replace the following:
+
+     * `PROJECT_ID`: the ID of the project that you are using to make the API calls
+
+     * `ORGANIZATION_ID`: your Google Cloud organization ID
+
+
+
+
 ### Check Cloud Audit Logs
 
 This section describes how you can check Cloud Audit Logs for dry-run mode access denials for your service account. To learn more about searching for dry-run mode entries in Cloud Audit Logs, see [View dry-run mode logs](https://docs.cloud.google.com/access-context-manager/docs/apply-policies-to-user-groups#view-dry-run-logs).
@@ -450,6 +556,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

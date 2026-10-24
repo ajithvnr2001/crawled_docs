@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/recommender-enable-db-audit/
 title: Improve instance security by enabling database auditing \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:50.672207+00:00
+fetched_at: 2026-10-24T11:25:49.720765+00:00
 ---
 
 # Improve instance security by enabling database auditing  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback
 
 #  Improve instance security by enabling database auditing Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to enable database auditing in AlloyDB, how the database auditing [recommender](https://docs.cloud.google.com/recommender/docs/whatis-activeassist) works, and how you can use it.
-
-The AlloyDB database auditing recommender helps you detect production instances whose auditing is not enabled. It then provides recommendations to enable database auditing.
+To identify AlloyDB for PostgreSQL production instances that don't have database auditing enabled and improve your security posture, you can view and apply recommendations from the AlloyDB database auditing [recommender](https://docs.cloud.google.com/recommender/docs/whatis-activeassist).
 
 **Note:** Recommendations are generated daily.
 
@@ -31,14 +29,14 @@ The AlloyDB database auditing recommender helps you detect production instances 
 
 Before you can view recommendations and insights, do the following:
 
-  * Ensure that you [enable the Recommender API](https://docs.cloud.google.com/recommender/docs/enable-api).
+  * [Enable the Recommender API](https://docs.cloud.google.com/recommender/docs/enable-api).
 
-  * To get the permissions to view and work with insights and recommendations, ensure that you have the required [Identity and Access Management (IAM) roles](https://docs.cloud.google.com/alloydb/docs/reference/iam-roles-permissions). 
+  * To get the permissions to view and work with insights and recommendations, ask your administrator to grant you the required [Identity and Access Management (IAM) roles](https://docs.cloud.google.com/alloydb/docs/reference/iam-roles-permissions): 
 
 Tasks | Roles  
 ---|---  
-View recommendations |  `roles/recommender.alloydbViewer`  
-Apply recommendations |  `roles/recommender.alloydbAdmin` or `roles/alloydb.admin`  
+View recommendations |  AlloyDB Recommender Viewer (`roles/recommender.alloydbViewer`)   
+Apply recommendations |  AlloyDB Recommender Admin (`roles/recommender.alloydbAdmin`) or AlloyDB Admin (`roles/alloydb.admin`)   
   
 See [Grant access to other users](https://docs.cloud.google.com/alloydb/docs/user-grant-access) for more information.
 
@@ -47,7 +45,7 @@ See [Grant access to other users](https://docs.cloud.google.com/alloydb/docs/use
 
 ## List the recommendations
 
-You can list recommendations for enabling database auditing using the Google Cloud console, gcloud CLI, or the Recommender API.
+You can list recommendations for enabling database auditing by using the Google Cloud console, gcloud CLI, or the Recommender API.
 
 ###  Console 
 
@@ -66,7 +64,7 @@ A list of issues is displayed in the **Aggregated issues** panel. Select the **A
 
 ###  gcloud CLI 
 
-To list the enable database auditing recommendations using gcloud CLI, run the [`gcloud recommender recommendations list`](https://docs.cloud.google.com/sdk/gcloud/reference/recommender/recommendations/list) command as follows:
+To list recommendations for enabling database auditing by using the gcloud CLI, run the [`gcloud recommender recommendations list`](https://docs.cloud.google.com/sdk/gcloud/reference/recommender/recommendations/list) command as follows:
     
     
     gcloud recommender recommendations list \
@@ -79,7 +77,9 @@ To list the enable database auditing recommendations using gcloud CLI, run the [
 Replace the following:
 
   * `PROJECT_ID`: your project ID.
-  * `LOCATION`: a region where your instances are located, such as `us-central1`.
+
+  * `LOCATION`: the region where your instances are located, such as `us-central1`.
+
 
 
 
@@ -94,13 +94,15 @@ To list recommendations for enabling database auditing by using the [Recommender
 Replace the following:
 
   * `PROJECT_ID`: your project ID.
-  * `LOCATION`: a region where your instances are located, such as `us-central1`.
+
+  * `LOCATION`: the region where your instances are located, such as `us-central1`.
+
 
 
 
 ## View insights and detailed recommendations
 
-You can view insights and detailed recommendations about instances that require enabling database auditing using the Google Cloud console, gcloud CLI, or the Recommender API.
+You can view insights and detailed recommendations about instances that require enabling database auditing by using the Google Cloud console, gcloud CLI, or the Recommender API.
 
 ###  Console 
 
@@ -125,7 +127,9 @@ Run the [`gcloud recommender insights list`](https://docs.cloud.google.com/sdk/g
 Replace the following:
 
   * `PROJECT_ID`: your project ID.
-  * `LOCATION`: a region where your instances are located, such as `us-central1`.
+
+  * `LOCATION`: the region where your instances are located, such as `us-central1`.
+
 
 
 
@@ -139,7 +143,9 @@ Call the [`insights.list`](https://docs.cloud.google.com/recommender/docs/refere
 Replace the following:
 
   * `PROJECT_ID`: your project ID.
-  * `LOCATION`: a region where your instances are located, such as `us-central1`.
+
+  * `LOCATION`: the region where your instances are located, such as `us-central1`.
+
 
 
 
@@ -149,15 +155,15 @@ Evaluate the recommendation carefully and do any of the following:
 
 ###  Console 
 
-To implement the recommendation, follow instructions in [Enable pgAudit](https://docs.cloud.google.com/alloydb/docs/pgaudit/enable-audit).
+To implement the recommendation, follow the instructions in [Enable pgAudit](https://docs.cloud.google.com/alloydb/docs/pgaudit/enable-audit).
 
 ###  gcloud CLI 
 
-To implement the recommendation, follow instructions in [Enable pgAudit](https://docs.cloud.google.com/alloydb/docs/pgaudit/enable-audit).
+To implement the recommendation, follow the instructions in [Enable pgAudit](https://docs.cloud.google.com/alloydb/docs/pgaudit/enable-audit).
 
 **Note:** AlloyDB automatically restarts the instance after you update this flag.
 
-**Note:** You must carefully evaluate before you update the instance. Applying recommendations might impact your pricing due to more logging.
+**Note:** Carefully evaluate the recommendation before you update the instance. Applying recommendations might impact your pricing due to increased logging.
 
 ## What's next
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/trace/docs/setup/sample-overview/
 title: Overview of collector-based instrumentation samples \u00a0|\u00a0 Cloud Trace \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:32.903176+00:00
+fetched_at: 2026-10-24T11:25:18.793618+00:00
 ---
 
 # Overview of collector-based instrumentation samples  |  Cloud Trace  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 To keep your application code vendor-neutral while collecting and sending telemetry to Google Cloud, you can use the OpenTelemetry collector-based instrumentation samples for [Go](https://docs.cloud.google.com/trace/docs/setup/go), [Java](https://docs.cloud.google.com/trace/docs/setup/java), [Node.js](https://docs.cloud.google.com/trace/docs/setup/nodejs), and [Python](https://docs.cloud.google.com/trace/docs/setup/python).
 
-These samples demonstrate how to configure an in-process OpenTelemetry SDK to export metrics, logs, and traces to a local OpenTelemetry collector that routes your telemetry to Google Cloud. The samples send metric and trace data in OpenTelemetry Protocol (OTLP) format to your Google Cloud project by using the Telemetry API, and send log data by using a Google Cloud exporter.
+These samples demonstrate how to configure an in-process OpenTelemetry SDK to export metrics, logs, and traces to a local OpenTelemetry collector that routes your telemetry to Google Cloud. The samples send log, metric, and trace data in OpenTelemetry Protocol (OTLP) format to your Google Cloud project by using the Telemetry API.
 
 ## How the samples work
 
@@ -35,7 +35,7 @@ You can run the samples in the Cloud Shell, on Google Cloud resources, or on a l
 
 ## Deep dive
 
-The samples use the [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/installation/) as a sidecar to receive and enrich the application's telemetry, which an exporter then sends to your Google Cloud project. The sample applications send metric and trace data to your project by using the Telemetry API, which supports the OTLP format.
+The samples use the [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/installation/) as a sidecar to receive and enrich the application's telemetry, which an exporter then sends to your Google Cloud project. The samples send log, metric, and trace data to your project by using the Telemetry API, which supports the OTLP format.
 
 The samples show how to do the following:
 
@@ -59,9 +59,9 @@ You don't need to install any agents to use these samples.
 
        * The samples use the `otlp` receiver for metric and trace data, and the `filelog` receiver for log data.
 
-       * The samples use the `otlphttp` exporter for metric and trace data, and the Google Cloud exporter for log data.
+       * The samples use the `otlphttp` exporter for log, metric, and trace data.
 
-The `otlphttp` exporter sends data to your project by using the Telemetry API, which supports OTLP. The Google Cloud exporter converts your log data into a format compatible with the Cloud Logging API and then sends the transformed data to your Google Cloud project.
+The `otlphttp` exporter sends data to your project by using the Telemetry API, which supports OTLP.
 
      * `docker-compose.creds.yaml`: This file optionally mounts a Google Cloud credentials file in the `otelcol` container. You need this file when you run a sample on a local machine where [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/application-default-credentials) are available only as a file.
 
@@ -138,6 +138,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

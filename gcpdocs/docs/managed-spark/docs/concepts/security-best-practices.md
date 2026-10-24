@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/security-best-practices/
 title: Managed Service for Apache Spark security best practices \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:45:06.266628+00:00
+fetched_at: 2026-10-24T11:25:16.135443+00:00
 ---
 
 # Managed Service for Apache Spark security best practices  |  Google Cloud Documentation
@@ -23,11 +23,11 @@ Send feedback
 
 #  Managed Service for Apache Spark security best practices Stay organized with collections  Save and categorize content based on your preferences. 
 
-Securing your Managed Service for Apache Spark environment is crucial for protecting sensitive data and preventing unauthorized access. This document outlines key best practices to enhance your Managed Service for Apache Spark security posture, including recommendations for network security, Identity and Access Management, encryption, and secure cluster configuration.
+Managed Service for Apache Spark lets you protect sensitive data and prevent unauthorized access by applying key security controls. Implementing best practices for network security, Identity and Access Management (IAM), encryption, and cluster configuration helps you maintain your security posture across your workloads.
 
 ## Network security
 
-  * **Deploy Managed Service for Apache Spark in a private VPC**. Create a dedicated [Virtual Private Cloud](https://docs.cloud.google.com/vpc/docs/overview) for your Managed Service for Apache Spark clusters, isolating them from other networks and the public internet.
+  * **Deploy Managed Service for Apache Spark in a private VPC**. Create a dedicated [Virtual Private Cloud (VPC)](https://docs.cloud.google.com/vpc/docs/overview) for your Managed Service for Apache Spark clusters, isolating them from other networks and the public internet.
 
   * **Use private IPs**. To protect your Managed Service for Apache Spark clusters from exposure to the public internet, use private IP addresses for enhanced security and isolation.
 
@@ -40,7 +40,7 @@ Securing your Managed Service for Apache Spark environment is crucial for protec
 
 
 
-## Identity and Access Management
+## IAM
 
   * **Isolate permissions**. Use different [data plane service accounts](https://docs.cloud.google.com/managed-spark/docs/concepts/configuring-clusters/service-accounts#VM_service_account) for different clusters. Assign to service accounts only the permissions that clusters need to run their workloads.
 
@@ -99,6 +99,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

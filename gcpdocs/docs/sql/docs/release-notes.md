@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/release-notes/
 title: Cloud SQL release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:48.927321+00:00
+fetched_at: 2026-10-24T08:33:54.195784+00:00
 ---
 
 # Cloud SQL release notes  |  Google Cloud Documentation
@@ -24,6 +24,59 @@ Send feedback
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/cloud-sql-release-notes.xml) directly. 
+
+## October 23, 2026
+
+**Cloud SQL for MySQL**
+
+Security
+
+In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071), Google is updating Cloud SQL's managed components. No manual updates to the certificate store are required for Cloud SQL-managed instances. The fix is shipping in a new maintenance version that will be applied during [scheduled maintenance](https://docs.cloud.google.com/sql/docs/mysql/maintenance). You can also apply the fix by [performing self-service maintenance](https://docs.cloud.google.com/sql/docs/mysql/self-service-maintenance). An announcement will be published when the self-service maintenance fix is available.
+
+**What should I do?**
+
+  * If you use the Cloud SQL Auth Proxy, then upgrade the Cloud SQL Auth Proxy to [2.26.3 or later](https://docs.cloud.google.com/sql/docs/mysql/sql-proxy#install) and the Cloud SQL Proxy Operator to [1.8.4 or later](https://docs.cloud.google.com/sql/docs/mysql/connect-proxy-operator). If you run the standalone proxy binary, then also update the host's certificate authority (CA) certificates.
+
+  * If you use a Cloud SQL Language Connector, then update the language runtime and operating system CA certificates used with the [Cloud SQL Language Connector](https://docs.cloud.google.com/sql/docs/mysql/connect-connectors) (for example, Go 1.26.10 or 1.27.3 or later, certifi 2026.10.19 or later).
+
+  * If you're using the gcloud CLI to install the Cloud SQL Auth Proxy, then update the gcloud CLI to [590.0.1](https://docs.cloud.google.com/sdk/gcloud#download_and_install_the).
+
+
+
+
+**Cloud SQL for PostgreSQL**
+
+Security
+
+In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071), Google is updating Cloud SQL's managed components. No manual updates to the certificate store are required for Cloud SQL-managed instances. The fix is shipping in a new maintenance version that will be applied during [scheduled maintenance](https://docs.cloud.google.com/sql/docs/postgres/maintenance). You can also apply the fix by [performing self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance). An announcement will be published when the self-service maintenance fix is available.
+
+**What should I do?**
+
+  * If you use the Cloud SQL Auth Proxy, then upgrade the Cloud SQL Auth Proxy to [2.26.3 or later](https://docs.cloud.google.com/sql/docs/postgres/sql-proxy#install) and the Cloud SQL Proxy Operator to [1.8.4 or later](https://docs.cloud.google.com/sql/docs/postgres/connect-proxy-operator). If you run the standalone proxy binary, then also update the host's certificate authority (CA) certificates.
+
+  * If you use a Cloud SQL Language Connector, then update the language runtime and operating system CA certificates used with the [Cloud SQL Language Connector](https://docs.cloud.google.com/sql/docs/postgres/connect-connectors) (for example, Go 1.26.10 or 1.27.3 or later, certifi 2026.10.19 or later).
+
+  * If you're using the gcloud CLI to install the Cloud SQL Auth Proxy, then update the gcloud CLI to [590.0.1](https://docs.cloud.google.com/sdk/gcloud#download_and_install_the).
+
+
+
+
+**Cloud SQL for SQL Server**
+
+Security
+
+In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071), Google is updating Cloud SQL's managed components. No manual updates to the certificate store are required for Cloud SQL-managed instances. The fix is shipping in a new maintenance version that will be applied during [scheduled maintenance](https://docs.cloud.google.com/sql/docs/sqlserver/maintenance). You can also apply the fix by [performing self-service maintenance](https://docs.cloud.google.com/sql/docs/sqlserver/self-service-maintenance). An announcement will be published when the self-service maintenance fix is available.
+
+**What should I do?**
+
+  * If you use the Cloud SQL Auth Proxy, then upgrade the Cloud SQL Auth Proxy to [2.26.3 or later](https://docs.cloud.google.com/sql/docs/sqlserver/sql-proxy#install) and the Cloud SQL Proxy Operator to [1.8.4 or later](https://docs.cloud.google.com/sql/docs/sqlserver/connect-proxy-operator). If you run the standalone proxy binary, then also update the host's certificate authority (CA) certificates.
+
+  * If you use a Cloud SQL Language Connector, then update the language runtime and operating system CA certificates used with the [Cloud SQL Language Connector](https://docs.cloud.google.com/sql/docs/sqlserver/connect-connectors) (for example, Go 1.26.10 or 1.27.3 or later, certifi 2026.10.19 or later).
+
+  * If you're using the gcloud CLI to install the Cloud SQL Auth Proxy, then update the gcloud CLI to [590.0.1](https://docs.cloud.google.com/sdk/gcloud#download_and_install_the).
+
+
+
 
 ## October 16, 2026
 
@@ -9501,6 +9554,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/nodes/sole-tenant-nodes/
 title: Sole-tenancy overview \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:08:04.160639+00:00
+fetched_at: 2026-10-24T08:35:35.269683+00:00
 ---
 
 # Sole-tenancy overview  |  Compute Engine  |  Google Cloud Documentation

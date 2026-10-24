@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/known-limitations/
 title: Known limitations and recommendations \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:52:06.660848+00:00
+fetched_at: 2026-10-24T11:25:12.243528+00:00
 ---
 
 # Known limitations and recommendations  |  Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -81,6 +81,7 @@ This page describes known limitations (including special considerations for hand
   * Migration jobs are limited to 10,000 tables.
   * Rows have a size limitation of 100 MB. Rows that exceed the 100 MB limit are not migrated, and show up as errors in the migration job. 
   * Any tables that are created after the migration has started aren't be migrated automatically. First, you need to pull their schema in the conversion workspace, apply converted definitions to the destination, and update the migration job. 
+  * Virtual columns (`GENERATED ALWAYS AS (...) VIRTUAL`) aren't replicated during data migration because Oracle doesn't write virtual column values to redo logs. If a virtual column is part of a composite primary key, only the non-virtual columns are used as the primary key during replication. 
 
 
 
@@ -147,6 +148,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

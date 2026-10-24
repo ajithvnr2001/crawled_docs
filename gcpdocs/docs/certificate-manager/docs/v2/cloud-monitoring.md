@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/certificate-manager/docs/v2/cloud-monitoring/
 title: Monitor resources using Cloud Monitoring \u00a0|\u00a0 Certificate Manager (2nd gen) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:51.528754+00:00
+fetched_at: 2026-10-24T09:05:47.248692+00:00
 ---
 
 # Monitor resources using Cloud Monitoring  |  Certificate Manager (2nd gen)  |  Google Cloud Documentation

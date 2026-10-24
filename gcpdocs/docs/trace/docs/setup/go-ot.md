@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/trace/docs/setup/go-ot/
 title: Go instrumentation sample \u00a0|\u00a0 Cloud Trace \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:57:36.602405+00:00
+fetched_at: 2026-10-24T11:25:19.998003+00:00
 ---
 
 # Go instrumentation sample  |  Cloud Trace  |  Google Cloud Documentation
@@ -379,7 +379,7 @@ In the previous code, the function call `r.Context()` retrieves the Go `Context`
 
 ### Add instrumentation to the HTTP client
 
-To inject the trace context into outgoing HTTP requests and to add trace and metric instrumentation, call the `otelhttp.Get` function. In the following example, the `callSingle` function performs this action:
+To inject the trace context into outgoing HTTP requests and to add trace and metric instrumentation, configure an `http.Client` with `otelhttp.NewTransport` and pass the request context by calling `http.NewRequestWithContext`. In the following example, the `callSingle` function performs this action:
     
     
     func callSingle(ctx context.Context) error {
@@ -394,7 +394,7 @@ To inject the trace context into outgoing HTTP requests and to add trace and met
     }
     
 
-In the previous code, the `otelhttp` handler uses the global `TracerProvider`, `MeterProvider`, and `TextMapPropagator` instances. The `setupOpenTelemetry` function configures these instances.
+In the previous code, the `otelhttp` transport uses the global `TracerProvider`, `MeterProvider`, and `TextMapPropagator` instances. The `setupOpenTelemetry` function configures these instances.
 
 ### Write structured logs
 
@@ -406,7 +406,7 @@ To write structured logs that link to a trace, use Go's structured logging packa
 
 ## Run a sample app configured to collect telemetry
 
-The instrumentation in the sample app uses vendor-neutral formats, like JSON for log data and OTLP for metric and trace data. The OpenTelemetry `Collector` sends log and metric data to your project by using Google exporters. It sends your trace data to your project by using the Telemetry API, which uses OTLP. The load generator in the app issues requests to the app's routes.
+The instrumentation in the sample app uses vendor-neutral formats, like JSON for log data and OTLP for metric and trace data. The OpenTelemetry `Collector` sends log, metric, and trace data to your project by using the Telemetry API, which uses OTLP. The load generator in the app issues requests to the app's routes.
 
 ### Download and deploy the app
 
@@ -552,6 +552,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

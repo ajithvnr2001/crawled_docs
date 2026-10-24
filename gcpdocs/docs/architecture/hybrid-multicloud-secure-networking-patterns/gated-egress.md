@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/hybrid-multicloud-secure-networking-patterns/gated-egress/
 title: Gated egress \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:01:27.660560+00:00
+fetched_at: 2026-10-24T08:43:13.796664+00:00
 ---
 
 # Gated egress  |  Cloud Architecture Center  |  Google Cloud Documentation

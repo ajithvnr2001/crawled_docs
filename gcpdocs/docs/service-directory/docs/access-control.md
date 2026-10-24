@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-directory/docs/access-control/
 title: Roles and permissions \u00a0|\u00a0 Service Directory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:38:24.210096+00:00
+fetched_at: 2026-10-24T08:49:23.925724+00:00
 ---
 
 # Roles and permissions  |  Service Directory  |  Google Cloud Documentation

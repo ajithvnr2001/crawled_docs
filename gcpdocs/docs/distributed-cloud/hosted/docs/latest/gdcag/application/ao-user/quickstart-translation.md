@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/quickstart-translation/
 title: Translate text \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:29:58.370238+00:00
+fetched_at: 2026-10-24T11:25:54.207246+00:00
 ---
 
 # Translate text  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -178,8 +178,8 @@ For more information on the `translateText` method, see the [Python client libra
 
 Use one of the following HTML tags on the `contents` field of requests to exclude parts of your text from translation:
 
-  * `<span translate="no">"TEXT"</span>`
-  * `<span class="notranslate">"TEXT"</span>`
+  * `<span translate="no">TEXT</span>`
+  * `<span class="notranslate">TEXT</span>`
 
 
 
@@ -209,10 +209,10 @@ The expected translated text to English is:
     this is a test.
     
 
-Use the HTML tags to exclude text from the translation. For example, the following `curl` request uses the `<span class="notranslate">"TEXT"</span>` tag to exclude `Hola,` from the previous input text in Spanish when translating the text to English:
+Use the HTML tags to exclude text from the translation. For example, the following `curl` request uses the `<span class="notranslate">TEXT</span>` tag to exclude `Hola,` from the previous input text in Spanish when translating the text to English:
     
     
-    curl -vv -X POST -H "Content-Type: application/json" -H "Authorization: Bearer TOKEN" https://ENDPOINT/v3/projects/PROJECT_ID:translateText -d '{"parent": "projects/PROJECT_ID", "source_language_code": "es", "target_language_code": "en", "contents": ["<span class=\"notranslate\">\"Hola,\"</span>\"esto es una prueba.\""]}'
+    curl -vv -X POST -H "Content-Type: application/json" -H "Authorization: Bearer TOKEN" https://ENDPOINT/v3/projects/PROJECT_ID:translateText -d '{"parent": "projects/PROJECT_ID", "source_language_code": "es", "target_language_code": "en", "contents": ["<span class=\"notranslate\">Hola,</span> esto es una prueba."]}'
     
 
 ### Translate with glossary
@@ -221,27 +221,25 @@ To translate text with words from a glossary, you must [create a glossary](https
 
   1. Save the following `request_glossary.json` file:
          
-         cat <<- EOF > request_glossary.json
          {
-         "sourceLanguageCode": "SOURCE_LANGUAGE",
-         "targetLanguageCode": "SOURCE_LANGUAGE",
-         "contents": "TEXT",
-         "glossaryConfig": {
-           "glossary": "projects/PROJECT_ID/glossaries/GLOSSARY_ID",
-           "ignoreCase": IGNORE_CASE_BOOLEAN,
-           "contextual_translation_enabled": CONTEXTUAL_BOOLEAN
+           "sourceLanguageCode": "SOURCE_LANGUAGE",
+           "targetLanguageCode": "TARGET_LANGUAGE",
+           "contents": ["TEXT"],
+           "glossaryConfig": {
+             "glossary": "projects/PROJECT_ID/glossaries/GLOSSARY_ID",
+             "ignoreCase": IGNORE_CASE_BOOLEAN
+           }
          }
-         }
-         EOF
          
 
 Replace the following:
 
      * `PROJECT_ID`: your project ID.
-     * `SOURCE_LANGUAGE`: the language in which your document is written. See the list of [supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-translation-langs) and their respective language codes.
-     * `TARGET_LANGUAGE`: the language or languages into which you want to translate your document. See the list of [supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-translation-langs) and their respective language codes.
+     * `SOURCE_LANGUAGE`: the language in which your text is written. See the list of [supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-translation-langs) and their respective language codes.
+     * `TARGET_LANGUAGE`: the language into which you want to translate your text. See the list of [supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-translation-langs) and their respective language codes.
      * `TEXT`: translating text which includes glossary words
      * `GLOSSARY_ID`: the ID of glossary, example: `G11111111114524`
+     * `IGNORE_CASE_BOOLEAN`: whether glossary term matching is case-insensitive (`true` or `false`).
   2. Make the request:
          
          curl -vv -X POST -H "Content-Type: application/json" -H "Authorization: Bearer TOKEN" https://ENDPOINT/v3/projects/PROJECT_ID:translateText -d @request_glossary.json
@@ -258,11 +256,10 @@ Request:
     {
       "sourceLanguageCode": "es",
       "targetLanguageCode": "en",
-      "contents": "La novela cuenta la historia de una joven que viaja a Madrid",
+      "contents": ["La novela cuenta la historia de una joven que viaja a Madrid"],
       "glossaryConfig": {
         "glossary": "projects/test-project/glossaries/GLOSSARY_ID",
-        "ignoreCase": true,
-        "contextual_translation_enabled": true
+        "ignoreCase": true
       }
     }
     
@@ -281,15 +278,13 @@ Response:
       ]}
     
 
-The `translations` field contains the regular machine translation before the glossary is applied; the `glossaryTranslations` field contains the translation after the glossary is applied. When you set the `contextual_translation_enabled` field to `true`, the response will only contain the `glossaryTranslations` field and not the `translations` field.
+The `translations` field contains the regular machine translation before the glossary is applied; the `glossaryTranslations` field contains the translation after the glossary is applied.
 
 ## Detect language
 
 The `detectLanguage` method returns the language of a text string by sending an HTTP request.
 
 For example, the following request detects English as the language from the input text `Hello, this is a test`:
-
-### curl
     
     
     curl -vv -X POST -H "Content-Type: application/json" -H "Authorization: Bearer TOKEN" https://ENDPOINT/v3/projects/PROJECT_ID:detectLanguage -d '{"parent": "projects/PROJECT_ID", "content": "Hello, this is a test"}'
@@ -297,23 +292,19 @@ For example, the following request detects English as the language from the inpu
 
 ## Get an operation
 
-The `getOperation` method returns the latest state of a [long-running operation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/glossary#longrunning). Use this method to retrieve the operation result generated by the Vertex AI Translation API service. To use this method, specify your project ID and [the Vertex AI Translation endpoint](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-status).
+The `getOperation` method returns the latest state of a [long-running operation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/glossary#longrunning). Use this method to retrieve the operation result generated by the Vertex AI Translation API service. To use this method, specify your project ID, the operation ID (`OPERATION_ID`) returned by the long-running call, and [the Vertex AI Translation endpoint](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-status).
 
 For example, the following request returns the state of a long-running operation, such as [creating a glossary](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-glossary), that is running in your project:
-
-### curl
     
     
-    curl -vv -X GET -H "Content-Type: application/json" -H "Authorization: Bearer TOKEN" https://ENDPOINT/v3/projects/PROJECT_ID/operations/PROJECT_ID
+    curl -vv -X GET -H "Content-Type: application/json" -H "Authorization: Bearer TOKEN" https://ENDPOINT/v3/projects/PROJECT_ID/operations/OPERATION_ID
     
 
 ## List operations
 
 The `listOperations` method returns a list of the [long-running operations](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/glossary#longrunning) that match a specified filter in the request. To use this method, specify your project ID and [the Vertex AI Translation endpoint](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-status).
 
-For example, the following request returns the list of operations running in your project and limit the page size to ten results per page:
-
-### curl
+For example, the following request returns the list of operations running in your project and limits the page size to 10 results per page:
     
     
     curl -vv -X GET -H "Content-Type: application/json" -H "Authorization: Bearer TOKEN" https://ENDPOINT/v3/projects/PROJECT_ID/operations?page_size=10
@@ -324,11 +315,9 @@ For example, the following request returns the list of operations running in you
 The `supportedLanguages` method returns the list of languages that the Vertex AI Translation API supports.
 
 For example, the following request returns the supported languages by specifying [the Vertex AI Translation endpoint](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-status):
-
-### curl
     
     
-    curl -vv -X GET -H "Content-Type: application/json" -H "Authorization: Bearer TOKEN" https://ENDPOINT/v3/projects/PROJECT_ID/locations/PROJECT_ID/supportedLanguages
+    curl -vv -X GET -H "Content-Type: application/json" -H "Authorization: Bearer TOKEN" https://ENDPOINT/v3/projects/PROJECT_ID/supportedLanguages
     
 
 For the complete list of the supported languages, see [Supported languages for Vertex AI Translation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-translation-langs).
@@ -337,6 +326,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-21 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-21 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/querying-partitioned-tables/
 title: Query partitioned tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:44.148254+00:00
+fetched_at: 2026-10-24T09:33:32.382001+00:00
 ---
 
 # Query partitioned tables  |  BigQuery  |  Google Cloud Documentation

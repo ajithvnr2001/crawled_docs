@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/reference/libraries/
 title: Client libraries and ADK \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:20.364424+00:00
+fetched_at: 2026-10-24T09:24:30.183575+00:00
 ---
 
 # Client libraries and ADK  |  Agent Registry  |  Google Cloud Documentation

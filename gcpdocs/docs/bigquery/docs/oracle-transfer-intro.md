@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/oracle-transfer-intro/
 title: Introduction to Oracle data transfers \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:32.590205+00:00
+fetched_at: 2026-10-24T08:28:11.190298+00:00
 ---
 
 # Introduction to Oracle data transfers  |  BigQuery  |  Google Cloud Documentation

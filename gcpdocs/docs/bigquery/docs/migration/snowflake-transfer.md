@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration/snowflake-transfer/
 title: Schedule a Snowflake transfer \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:58:24.647851+00:00
+fetched_at: 2026-10-24T11:26:05.482207+00:00
 ---
 
 # Schedule a Snowflake transfer  |  BigQuery  |  Google Cloud Documentation
@@ -302,21 +302,21 @@ Enter the `bq mk` command and supply the transfer creation flag `--transfer_conf
     
     bq mk \
         --transfer_config \
-        --project_id=project_id \
-        --data_source=data_source \
-        --target_dataset=dataset \
-        --display_name=name \
-        --service_account_name=service_account \
-        --params='parameters'
+        --project_id=PROJECT_ID \
+        --data_source=DATA_SOURCE \
+        --target_dataset=DATASET \
+        --display_name=NAME \
+        --service_account_name=SERVICE_ACCOUNT \
+        --params='PARAMETERS'
 
 Replace the following:
 
-  * project_id: your Google Cloud project ID. If `--project_id` isn't specified, the default project is used.
-  * data_source: the data source, `snowflake_migration`.
-  * dataset: the BigQuery target dataset for the transfer configuration.
-  * name: the display name for the transfer configuration. The transfer name can be any value that lets you identify the transfer if you need to modify it later.
-  * service_account: (Optional) the service account name used to authenticate your transfer. The service account should be owned by the same `project_id` used to create the transfer and it should have all of the required roles.
-  * parameters: the parameters for the created transfer configuration in JSON format. For example: `--params='{"param":"param_value"}'`.
+  * `PROJECT_ID`: your Google Cloud project ID. If `--project_id` isn't specified, the default project is used.
+  * `DATA_SOURCE`: the data source, `snowflake_migration`.
+  * `DATASET`: the BigQuery target dataset for the transfer configuration.
+  * `NAME`: the display name for the transfer configuration. The transfer name can be any value that lets you identify the transfer if you need to modify it later.
+  * `SERVICE_ACCOUNT`: (Optional) the service account name used to authenticate your transfer. The service account should be owned by the same `PROJECT_ID` used to create the transfer and it should have all of the required roles.
+  * `PARAMETERS`: the parameters for the created transfer configuration in JSON format. For example: `--params='{"param":"param_value"}'`.
 
 
 
@@ -456,6 +456,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/billing/docs/how-to/reports/
 title: Analyze billing data and cost trends with Reports \u00a0|\u00a0 Cloud Billing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:07:46.638965+00:00
+fetched_at: 2026-10-24T11:25:29.678899+00:00
 ---
 
 # Analyze billing data and cost trends with Reports  |  Cloud Billing  |  Google Cloud Documentation
@@ -239,12 +239,13 @@ The following Google Cloud-created, preconfigured report views are available:
 Preset reports using a _Charge period_ (formerly _Usage date_) time range  
 ---  
 **Services — this month** (default) | **Time range** : Current month. **Group by** : Service. **Description** : The current calendar month's daily cost for all services and SKUs, grouped by _Service_ (for example, Compute Engine or Cloud Storage), including any usage-specific savings applied, but not including invoice-level charges or credits such as taxes and adjustments.  
+[ **Live costs by SKU**](https://docs.cloud.google.com/billing/docs/how-to/reports/live-costs) | **Time range** : Last 15 days. **Group by** : SKU. **Description** : For the last 15 days, the _actual_ and _live costs_ for all services and SKUs, in all projects, grouped by _SKU_ , excluding any usage-specific savings or credits.  Live costs are _gross, estimated_ costs that are available in near-real-time for limited SKUs from eligible services and don't include credits. When spend caps or anomaly alerts are triggered, live costs can help you identify which specific SKUs, services, or projects are driving your costs.  
 **Projects — this month** | **Time range** : Current month. **Group by** : Project. **Description** : The current calendar month's daily cost for all services and SKUs, grouped by _Project_ , including any usage-specific savings applied, but not including invoice-level charges and credits such as taxes and adjustments.  
 **SKUs — this month** | **Time range** : Current month. **Group by** : SKU. **Description** : The current calendar month's daily cost for all services and SKUs, grouped by _SKU_ , including any usage-specific savings applied, but not including invoice-level charges and credits such as taxes and adjustments.  
 **Services — daily costs this month** | **Time range** : Current month. **Group by** : Date > Service. **Description** : The current calendar month's daily cost for all services and SKUs, grouped by _Date > Service_, including any usage-specific savings applied. In the report table, expand the row for a day to see your daily costs summarized per service. This view doesn't include invoice-level charges and credits such as taxes and adjustments.  
 **Projects — daily costs this month** | **Time range** : Current month. **Group by** : Date > Project. **Description** : The current calendar month's daily cost for all services and SKUs, grouped by _Date > Project_, including any usage-specific savings applied. In the report table, expand the row for a day to see your daily costs summarized per project. This view doesn't include invoice-level charges and credits such as taxes and adjustments.  
 **SKUs — daily costs this month** | **Time range** : Current month. **Group by** : Date > SKU. **Description** : The current calendar month's daily cost for all services and SKUs, grouped by _Date > SKU_, including any usage-specific savings applied. In the report table, expand the row for a day to see your daily costs summarized per SKU. This view doesn't include invoice-level charges and credits such as taxes and adjustments.  
-**Gemini Enterprise costs by SKU** | **Time range** : Current month. **Group by** : SKU. **Filter by** : _Gemini Enterprise_ Originating products. **Description** : The current calendar month's daily cost for all _Gemini Enterprise_ services and SKUs, filtered by _Originating products_ and grouped by _SKU_ , including any usage-specific savings applied, but not including invoice-level charges and credits such as taxes and adjustments.  
+[ **Gemini Enterprise costs by SKU**](https://docs.cloud.google.com/billing/docs/how-to/reports/gemini-enterprise-costs) | **Time range** : Current month. **Group by** : SKU. **Filter by** : _Gemini Enterprise_ Originating products. **Description** : The current calendar month's daily cost for all _Gemini Enterprise_ services and SKUs, filtered by _Originating products_ and grouped by _SKU_ , including any usage-specific savings applied, but not including invoice-level charges and credits such as taxes and adjustments.  
 **Services — daily costs L7D** | **Time range** : Last seven days. **Group by** : Date > Service. **Description** : The daily costs for the last seven days (L7D) for all services and SKUs, grouped by _Date > Service_, including any usage-specific savings applied. In the report table, expand the row for a day to see your daily costs summarized per service. This view doesn't include invoice-level charges and credits such as taxes and adjustments.  
 Preset reports using a _Billing period_ (formerly _Invoice month_) time range  
 ---  
@@ -928,6 +929,10 @@ The following table lists common report configuration scenarios and provides lin
 ---  
 Learn how to track, analyze, and manage your Gemini Enterprise subscription and consumption costs using billing reports.  |  [ View Gemini Enterprise costs](https://docs.cloud.google.com/billing/docs/how-to/reports/gemini-enterprise-costs)  
   
+### View _live_ costs in Cloud Billing reports  
+  
+Learn how to access live costs in billing reports. Live costs are _gross, estimated_ costs that are available in near-real-time for limited SKUs from eligible services and don't include credits. Live costs are faster than actual, fully processed costs and are useful for quick analysis. When spend caps or anomaly alerts are triggered, live costs can help you identify which specific SKUs, services, or projects are driving your costs.  |  [ View live costs in reports](https://docs.cloud.google.com/billing/docs/how-to/reports/live-costs)  
+  
 ### View and analyze savings  
   
 Use the Savings filters to include or exclude discounts and credits, such as committed use discounts and promotional credits, from your cost calculations.  |  [View and analyze your savings](https://docs.cloud.google.com/billing/docs/how-to/reports/savings-and-credits)  
@@ -961,6 +966,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/public-datasets/
 title: Borderless Lakehouse public datasets \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:46.506614+00:00
+fetched_at: 2026-10-24T10:00:12.210507+00:00
 ---
 
 # Borderless Lakehouse public datasets  |  Google Cloud Documentation
@@ -23,16 +23,9 @@ Send feedback
 
 #  Borderless Lakehouse public datasets Stay organized with collections  Save and categorize content based on your preferences. 
 
-_Borderless Lakehouse_ hosts high-quality public datasets served through the [Apache Iceberg REST Catalog](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint), making them available to the general public as part of the [Google Cloud Public Dataset Program](https://cloud.google.com/datasets).
+_Borderless Lakehouse_ lets you query read-only public datasets served through the [Apache Iceberg REST catalog endpoint](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint) as part of the [Google Cloud Public Dataset Program](https://docs.cloud.google.com/datasets). You can connect BigQuery, Managed Service for Apache Spark, Trino, or Apache Flink to combine these tables with your private data or test open source engine configurations against a live Apache Iceberg REST catalog endpoint without managing storage infrastructure.
 
-These datasets are available for read-only access, and you can access and integrate them into your applications using Apache Spark, Trino, Flink, or BigQuery. Google pays for the storage of these datasets and provides public access to the data through Lakehouse. You pay only for the queries that you perform on the data.
-
-The goal of these public datasets is to lower the barrier to entry for Iceberg. You don't need to manage infrastructure to learn Iceberg, you need to connect. You can use these datasets to:
-
-  * Use BigQuery (through Lakehouse) to query these tables directly using SQL, combining them with your private data.
-  * Test your OSS engine (for example, Spark, Trino, or Flink) configurations against a live REST Catalog.
-
-
+Google pays for the storage of these datasets and provides public access to the data through Lakehouse. You pay only for the queries that you run on the data.
 
 ## Before you begin
 
@@ -245,7 +238,7 @@ One of Iceberg's most powerful features is Time Travel. You can query the table 
 
 By querying the history metadata table (for example, `SELECT * FROM lakehouse-sample.public_data.nyc_taxicab.history`), you can find snapshot IDs and travel back to see how the dataset grew over time.
 
-For more information, see [Use the Iceberg REST catalog with Cloud Storage](https://docs.cloud.google.com/lakehouse/docs/use-lakehouse-metastore-iceberg-rest-catalog).
+For more information, see [Query Apache Iceberg tables with Lakehouse](https://docs.cloud.google.com/lakehouse/docs/query-iceberg-tables-with-lakehouse).
 
 ## Available datasets
 
@@ -501,6 +494,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

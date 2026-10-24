@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/use-data-profiling/
 title: Create and use data profile scans \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:39:48.228036+00:00
+fetched_at: 2026-10-24T08:41:36.785112+00:00
 ---
 
 # Create and use data profile scans  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,11 +23,7 @@ Send feedback
 
 #  Create and use data profile scans Stay organized with collections  Save and categorize content based on your preferences. 
 
-Knowledge Catalog (formerly Dataplex Universal Catalog) lets you identify common statistical characteristics (common values, data distribution, null counts) of the columns in your BigQuery tables. This information helps you to understand and analyze your data more effectively.
-
-For more information about Knowledge Catalog data profile scans, see [About data profiling](https://docs.cloud.google.com/knowledge-catalog/docs/data-profiling-overview).
-
-**Tip:** While this document covers how to manage data profile scans across your project, you can also create and manage data profile scans when working with a specific table. For more information, see the Manage data profile scans for a specific table section of this document.
+Data profile scans in Knowledge Catalog (formerly Dataplex Universal Catalog) let you identify column-level statistics, such as common values, data distributions, and null percentages, to understand and analyze your data. You can schedule or run scans on BigQuery tables, and on Apache Iceberg, Apache Hive, and SAP Business Data Cloud (BDC) Delta Lake tables managed by Google Cloud Lakehouse, configure custom execution identities, publish results, and export metrics to BigQuery. For more information about how profiling works, see [About data profiling](https://docs.cloud.google.com/knowledge-catalog/docs/data-profiling-overview).
 
 ## Before you begin
 
@@ -55,9 +51,9 @@ To get the permissions that you need to create and manage data profile scans, as
     * [BigQuery Job User ](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.jobUser) (`roles/bigquery.jobUser`) on the project running the scan (all table types)
     * [BigQuery Data Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.dataViewer) (`roles/bigquery.dataViewer`) on the BigQuery tables being scanned
   * Run data profile scans against BigQuery external tables that use Cloud Storage data: 
-    * [Storage Object Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectViewer) (`roles/storage.objectViewer`) on the Cloud Storage bucket (Cloud Storage, Apache Hive, and Iceberg REST catalog)
+    * [Storage Object Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectViewer) (`roles/storage.objectViewer`) on the Cloud Storage bucket (Cloud Storage, Apache Hive catalog endpoint, and Apache Iceberg REST catalog endpoint)
     * [Storage Legacy Bucket Reader ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.legacyBucketReader) (`roles/storage.legacyBucketReader`) on the Cloud Storage bucket
-  * Run data profile scans for Iceberg REST Catalog, SAP BDC Delta Lake, and Apache Hive tables on Google Cloud Lakehouse: [BigLake Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/biglake#biglake.viewer) (`roles/biglake.viewer`) on the tables being scanned 
+  * Run data profile scans for Apache Iceberg, Apache Hive, and SAP BDC Delta Lake tables managed by Google Cloud Lakehouse: [BigLake Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/biglake#biglake.viewer) (`roles/biglake.viewer`) on the tables being scanned 
   * Export data profile scan results to a BigQuery table: [BigQuery Data Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.dataEditor) (`roles/bigquery.dataEditor`) on the table 
 
 
@@ -112,7 +108,7 @@ To ensure that the execution identity has the necessary permissions to run data 
   * Run data profile scans for BigQuery external tables that use Cloud Storage data: 
     * [Storage Object Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectViewer) (`roles/storage.objectViewer`) on Cloud Storage bucket
     * [Storage Legacy Bucket Reader ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.legacyBucketReader) (`roles/storage.legacyBucketReader`) on the Cloud Storage bucket
-  * Run data profile scans for Iceberg REST Catalog, SAP BDC Delta Lake, and Apache Hive tables on Google Cloud Lakehouse: [BigLake Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/biglake#biglake.viewer) (`roles/biglake.viewer`) on the tables being scanned 
+  * Run data profile scans for Apache Iceberg, Apache Hive, and SAP BDC Delta Lake tables managed by Google Cloud Lakehouse: [BigLake Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/biglake#biglake.viewer) (`roles/biglake.viewer`) on the tables being scanned 
   * Export data profile scan results to a BigQuery table: [BigQuery Data Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.dataEditor) (`roles/bigquery.dataEditor`) on the table 
 
 
@@ -267,6 +263,8 @@ To use end-user credentials, specify the `userCredential` object instead:
 
 ## Create a data profile scan
 
+The steps in this section and the following sections show how to manage data profile scans across your project. To create and manage scans when working with a specific table, see Manage data profile scans for a specific table.
+
 ### Console
 
   1. In the Google Cloud console, go to the Knowledge Catalog **Data profiling & quality** page.
@@ -281,7 +279,7 @@ To use end-user credentials, specify the `userCredential` object instead:
 
   5. Optional: Enter a **Description**.
 
-  6. In the **Table** field, click **Browse**. Choose the table to scan, and then click **Select**. Only standard BigQuery, Iceberg REST Catalog, SAP BDC Delta Lake, and Apache Hive on Google Cloud Lakehousetables are supported.
+  6. In the **Table** field, click **Browse**. Choose the table to scan, and then click **Select**. Only standard BigQuery tables and Apache Iceberg, Apache Hive, and SAP BDC Delta Lake tables managed by Google Cloud Lakehouse are supported.
 
 For tables in multi-region datasets, choose a region where to create the data scan.
 
@@ -2095,6 +2093,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

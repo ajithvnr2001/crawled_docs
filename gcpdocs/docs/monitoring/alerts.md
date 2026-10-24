@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/alerts/
 title: Alerting overview \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:20:19.384826+00:00
+fetched_at: 2026-10-24T11:25:12.963916+00:00
 ---
 
 # Alerting overview  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -94,7 +94,7 @@ For example, if your monitored resource includes a `cluster` label and your metr
 
 Don't rely on the values of [ system- or user-defined resource metadata labels](https://docs.cloud.google.com/monitoring/api/v3/metric-model#meta-labels) when selecting time series for sensitive alerting policies. Instead, use the values of labels defined by the [monitored-resource types](https://docs.cloud.google.com/monitoring/api/resources). 
 
-Resource metadata labels are added asynchronously to time series and aren't subject to the same [ latency expectations](https://docs.cloud.google.com/monitoring/api/v3/latency-n-retention#latency) as values of labels defined metric types or monitored-resource types. Therefore, an alerting policy that depends on metadata values to trigger an action can behave erratically if the population of resource metadata labels is delayed.
+Resource metadata labels are added asynchronously to time series and aren't subject to the same [ latency expectations](https://docs.cloud.google.com/monitoring/api/v3/latency-n-retention#latency) as values of labels defined by metric types or monitored-resource types. Therefore, an alerting policy that depends on metadata values to trigger an action can behave erratically if the population of resource metadata labels is delayed.
 
 #### Monitor log entry data
 
@@ -154,6 +154,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

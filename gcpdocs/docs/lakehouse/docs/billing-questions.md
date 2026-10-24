@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/billing-questions/
 title: Billing questions \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:44:48.941589+00:00
+fetched_at: 2026-10-24T08:23:16.807724+00:00
 ---
 
 # Billing questions  |  Lakehouse  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ Cloud Billing tools and support channels let you monitor costs, resolve account 
 
   * To resolve billing concerns, use the [Google Cloud Billing Troubleshooter](https://support.google.com/cloud/troubleshooter/7279311).
 
-  * To request help with billing inquiries, contact [Cloud Billing Support](https://docs.cloud.google.com/support/billing).
+  * To request help with billing inquiries, contact [Cloud Billing Support](https://docs.cloud.google.com/support/docs/get-billing-support).
 
   * To change or disable billing on a project, go to the **Billing** page in the Google Cloud console. For more information, see [Enable, disable, or change billing for a project](https://docs.cloud.google.com/billing/docs/how-to/modify-project).
 

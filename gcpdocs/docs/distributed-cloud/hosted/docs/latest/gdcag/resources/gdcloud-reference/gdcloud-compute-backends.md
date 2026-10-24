@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-compute-backends/
 title: gdcloud compute backends \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:53:17.255599+00:00
+fetched_at: 2026-10-24T08:20:16.989088+00:00
 ---
 
 # gdcloud compute backends  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

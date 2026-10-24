@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/containers/create-volume-snapshots/
 title: Create volume snapshots \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:27.834513+00:00
+fetched_at: 2026-10-24T08:21:01.668593+00:00
 ---
 
 # Create volume snapshots  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

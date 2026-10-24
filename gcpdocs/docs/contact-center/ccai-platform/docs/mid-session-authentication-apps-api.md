@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/mid-session-authentication-apps-api/
 title: Mid-Session authentication by API \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:11:15.307189+00:00
+fetched_at: 2026-10-24T11:10:33.738871+00:00
 ---
 
 # Mid-Session authentication by API  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -31,13 +31,15 @@ The base URI for this new endpoint differs depending on the `comm_type`.
 
 For the `call` comm_type:
 
-POST `https://&lt;subdomain>.&lt;domain>//apps/api/v1/calls/:call_id/end_user`
+POST `https://<subdomain>.<domain>/apps/api/v1/calls/:call_id/end_user`
 
 For the `chat` comm_type:
 
-POST `https://&lt;subdomain>.&lt;domain>//apps/api/v1/chats/:chat_id/end_user`
+POST `https://<subdomain>.<domain>/apps/api/v1/chats/:chat_id/end_user`
 
 ## API operations
+
+In the following sections, you can find details about the API operations.
 
 ### Parameters
 
@@ -52,9 +54,9 @@ ID  | Field name  | Type  | Required?  | Description  | Example values
   
 ## API samples
 
-### Sample API response
+In the next sections, you can find sample API requests and responses.
 
-#### Success response sample:
+### Success response sample
 
 `202 Accepted`
     
@@ -64,35 +66,48 @@ ID  | Field name  | Type  | Required?  | Description  | Example values
     }
     
 
-#### Failure response samples
+### Failure response samples
 
-##### Missing Parameters
+In the next sections, you can find sample failure responses.
+
+#### Error responses
+
+400 Bad Request - The request is missing the required identifier field.
     
     
-    400 {"message": "param is missing or the value is empty: comm_type"}
-    400 {"message": "param is missing or the value is empty: identifier"}
+    {
+      "message": "param is missing or the value is empty: identifier"
+    }
     
 
-##### Referencing a comm type other than call or chat
+401 Unauthorized - authentication failed.
     
     
-    404 {"message": "Not Found"}
+    {
+      "message": "Not Found"
+    }
     
 
-##### Session not active
+404 Not Found - no call or chat exists for the provided ID.
+
+#### Session not active
     
     
     400 {"message": "Call is already ended"}
     400 {"message": "Chat is already ended"}
     
 
-##### Unsupported CRM request
+#### Unsupported CRM request
+
+400 Bad Request - The instance's CRM configuration does not support this update path.
     
     
-    400 {"message": "Unsupported CRM request"}
+    {
+      "message": "Unsupported CRM request"
+    }
     
 
-##### Duplicate request
+#### Duplicate request
     
     
     400 {"message": "Duplicate request: Please wait for the interval to expire"}
@@ -100,12 +115,14 @@ ID  | Field name  | Type  | Required?  | Description  | Example values
 
 ## API request sample
 
+In the next section, you can find sample API requests for the call and chat comm types.
+
 ### Call Comm Type
     
     
     POST https://<subdomain>.<domain>/apps/api/v1/calls/:call_id/end_user
     Content-Type: application/json
-    Authorization: Bearer <your_access_token>
+    -u apiuser:APIUSER_TOKEN
     
     {
         "identifier": "unique_external_id",
@@ -120,7 +137,7 @@ ID  | Field name  | Type  | Required?  | Description  | Example values
     
     POST https://<subdomain>.<domain>/apps/api/v1/chats/:chat_id/end_user
     Content-Type: application/json
-    Authorization: Bearer <your_access_token>
+    -u apiuser:APIUSER_TOKEN
     
     {
         "identifier": "unique_external_id",
@@ -130,7 +147,7 @@ ID  | Field name  | Type  | Required?  | Description  | Example values
     }
     
 
-## Apps API Documentation
+## Apps API documentation
 
 For additional apps API endpoints, see [Apps API Publication](https://docs.cloud.google.com/contact-center/ccai-platform/docs/apps-api).
 
@@ -138,6 +155,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

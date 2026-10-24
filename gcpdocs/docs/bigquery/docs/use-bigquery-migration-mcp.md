@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/use-bigquery-migration-mcp/
 title: Use the BigQuery Migration Service MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:43:31.632660+00:00
+fetched_at: 2026-10-24T11:25:58.872487+00:00
 ---
 
 # Use the BigQuery Migration Service MCP server  |  Google Cloud Documentation
@@ -137,7 +137,7 @@ AI applications and agents, such as Claude or Antigravity, can instantiate an MC
 You can automatically register the BigQuery Migration Service MCP server into supported AI clients by using [`add-mcp`](https://github.com/neon-solutions/add-mcp) without manually locating configuration file paths. The tool detects your installed AI clients automatically. The following example shows how to use `add-mcp` to register the BigQuery Migration Service MCP server:
     
     
-    npx add-mcp https://bigquerymigration.googleapis.com/mcp --name bqms --header "x-goog-user-project: <var>PROJECT_ID</var>" --scopes "https://www.googleapis.com/auth/bigquerymigration,https://www.googleapis.com/auth/devstorage.read_only" --timeout 30000
+    npx add-mcp https://bigquerymigration.googleapis.com/mcp --name bqms --header "x-goog-user-project: PROJECT_ID" --scopes "https://www.googleapis.com/auth/bigquerymigration,https://www.googleapis.com/auth/devstorage.read_only" --timeout 30000
     
 
 > **Note:** When you use `google_credentials` for authentication, `add-mcp` hardens written configurations by emitting standard MCP fields and dropping vendor-specific properties like `authProviderType: "google_credentials"`. For clients that require Google Cloud OAuth credentials (such as Antigravity or Gemini CLI), ensure that `"authProviderType": "google_credentials"` and `"oauth": { "scopes": [...] }` are included in your JSON configuration.
@@ -446,6 +446,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-21 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-21 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

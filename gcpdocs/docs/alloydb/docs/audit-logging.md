@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/alloydb/docs/audit-logging/
-title: AlloyDB for PostgreSQL audit logging \u00a0|\u00a0 Google Cloud Documentation
+title: AlloyDB audit logging \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:08.971602+00:00
+fetched_at: 2026-10-24T11:25:50.930267+00:00
 ---
 
-# AlloyDB for PostgreSQL audit logging  |  Google Cloud Documentation
+# AlloyDB audit logging  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/alloydb/docs/audit-logging/
 
@@ -19,7 +19,9 @@ fetched_at: 2026-10-23T16:50:08.971602+00:00
 
 Send feedback 
 
-#  AlloyDB for PostgreSQL audit logging Stay organized with collections  Save and categorize content based on your preferences. 
+#  AlloyDB audit logging Stay organized with collections  Save and categorize content based on your preferences. 
+
+To monitor administrative and data access operations on your AlloyDB for PostgreSQL clusters, instances, and backups, you can view and configure Cloud Audit Logs for AlloyDB.
 
 This document lists the audited methods for AlloyDB for PostgreSQL. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-admin-index-get/
 title: Get admin index \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:53:51.794996+00:00
+fetched_at: 2026-10-24T08:24:36.497220+00:00
 ---
 
 # Get admin index  |  Firestore in Datastore mode  |  Google Cloud Documentation

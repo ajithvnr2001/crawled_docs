@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/instance-read-pool-create/
 title: Create a read pool instance in a cluster \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:43.714450+00:00
+fetched_at: 2026-10-24T11:25:09.503849+00:00
 ---
 
 # Create a read pool instance in a cluster  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -22,6 +22,8 @@ Send feedback
 #  Create a read pool instance in a cluster Stay organized with collections  Save and categorize content based on your preferences. 
 
 Read pool instances in an AlloyDB for PostgreSQL cluster let you scale read capacity and offload read-only query workloads from your primary instance. You can create a read pool instance by using the Google Cloud console or the Google Cloud CLI.
+
+A read pool instance can use a different machine series and machine type than your primary instance's machine series and machine type. All nodes within a single read pool instance use the same machine series and machine type. To serve read traffic across multiple machine series or different machine types at the same time, deploy separate read pool instances for each configuration. For more information about supported machine series, see [Choose an AlloyDB machine type](https://docs.cloud.google.com/alloydb/docs/choose-machine-type#machine-series-configuration).
 
 Optionally, you can enable [transparent query forwarding](https://docs.cloud.google.com/alloydb/docs/transparent-query-forwarding) to optimize resource utilization by automatically routing read-only traffic.
 
@@ -59,32 +61,39 @@ If you don't have any of these roles, contact your Organization Administrator to
 The number of nodes in a read pool instance determines the instance's overall computing capacity.
 
 **Note:** You can have a maximum of 20 nodes across all the read pool instances in a cluster.
-     3. Select one of the following machine series:
+     3. Select one of the following machine series for the read pool instance, which can differ from your primary instance's machine series:
 
         * C4A (Google Axion-based machine series)
-        * N2 (x86-based machine series). This is the default machine series.
+
+        * N2 (x86-based machine series). This machine series is the default.
+
         * C4 (x86-based machine series)
+
         * Z3 (Intel Xeon-based machine series)
-     4. Select a machine type.
+
+     4. Select a machine type. All nodes in the read pool instance use the machine series and machine type that you select. Supported vCPU counts depend on the machine series:
 
         * C4A supports 1, 2, 4, 8, 16, 32, 48, 64, and 72 vCPUs.
+
         * N2 supports 2, 4, 8, 16, 32, 64, 96, and 128 vCPUs.
+
         * C4 supports 4, 8, 16, 24, 32, 48, 96, 144, 192, and 288 vCPUs.
+
         * Z3 supports 8, 14, 16, 22, 32, 44, and 88 vCPUs.
 
-For more information about using the C4A Axion-based machine series, including the 1 vCPU machine type, see [Considerations when using the C4A Axion-based machine series](https://docs.cloud.google.com/alloydb/docs/cluster-create#considerations-c4a).
+For more information about using the C4A Axion-based machine series, including the 1-vCPU machine type, see [Considerations when using the C4A Axion-based machine series](https://docs.cloud.google.com/alloydb/docs/cluster-create#considerations-c4a).
 
-        1. Optional: To connect your applications and clients over the public internet, click **Enable Public IP** in **Public IP Connectivity**. Enabling public IP might require additional configuration to make sure that you have a secure connection. For more information, see [Connect using public IP](https://docs.cloud.google.com/alloydb/docs/connect-public-ip).
+     5. Optional: To connect your applications and clients over the public internet, click **Enable Public IP** in **Public IP Connectivity**. Enabling public IP might require additional configuration to secure your connection. For more information, see [Connect using public IP](https://docs.cloud.google.com/alloydb/docs/connect-public-ip).
 
 By default, private IP is always enabled. For more information, see [Enable private services access](https://docs.cloud.google.com/alloydb/docs/configure-connectivity).
 
-     5. Optional: To enable managed connection pooling, select **Enable managed connection pool** under **Managed connection pool**. For more information, see [Configure managed connection pooling](https://docs.cloud.google.com/alloydb/docs/configure-managed-connection-pooling).
+     6. Optional: To enable managed connection pooling, select **Enable managed connection pool** under **Managed connection pool**. For more information, see [Configure managed connection pooling](https://docs.cloud.google.com/alloydb/docs/configure-managed-connection-pooling).
 
-     6. Choose your network security settings. To keep your data secure, we recommend that you use mTLS encryption using AlloyDB connectors or SSL encryption.
+     7. Choose your network security settings. To keep your data secure, use mTLS encryption with AlloyDB connectors or SSL encryption.
 
-When you change your security settings, your instance is available for use, but existing, noncompliant connections are dropped.
+When you change your security settings, your instance remains available for use, but AlloyDB drops existing noncompliant connections.
 
-     7. Optional: Set custom flags to your instance. For each flag, follow these steps:
+     8. Optional: Set custom flags to your instance. For each flag, follow these steps:
 
         1. Click **Advanced Configuration Options**.
         2. Click **Add a database flag**.
@@ -135,7 +144,7 @@ Replace the following:
       * 96: 96 vCPUs, 768 GB RAM
       * 128: 128 vCPUs, 864 GB RAM
     * If both `machine_type` and `cpu_count` are provided, the `cpu_count` value must align with the number of vCPUs specified in the `machine_type`. For example, if `machine_type` is `n2-highmem-4`, then you must set `cpu_count` to `4`.
-  * `MACHINE_TYPE`: Select from a list of supported machine-types such as `n2-highmem-4`, `c4-highmem-4-lssd`, or `c4a-highmem-4-lssd`. For more information, see [Choose an AlloyDB machine type.](https://docs.cloud.google.com/alloydb/docs/choose-machine-type)
+  * `MACHINE_TYPE`: a supported machine type for the read pool instance, such as `n2-highmem-4`, `c4-highmem-4-lssd`, `c4a-highmem-4-lssd`, or `z3-highmem-14-standardlssd`. The read pool instance can use a different machine series and machine type than the primary instance's machine series and machine type, and all nodes in the read pool instance use this machine type. For more information about supported machine types, see [Choose an AlloyDB machine type](https://docs.cloud.google.com/alloydb/docs/choose-machine-type).
 
   * `PROJECT_ID`: The ID of the project where your existing cluster is located.
 

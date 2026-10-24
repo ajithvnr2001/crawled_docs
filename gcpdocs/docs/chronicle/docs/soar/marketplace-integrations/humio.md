@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/humio/
 title: Humio \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:42:08.347161+00:00
+fetched_at: 2026-10-24T08:50:41.620999+00:00
 ---
 
 # Humio  |  Google Security Operations  |  Google Cloud Documentation

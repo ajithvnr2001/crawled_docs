@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/fraud-prevention/
 title: Protect payment transactions with Transaction defense \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T05:43:59.037358+00:00
+fetched_at: 2026-10-24T11:25:44.068132+00:00
 ---
 
 # Protect payment transactions with Transaction defense  |  Google Cloud Fraud Defense  |  Google Cloud Documentation
@@ -153,14 +153,16 @@ You can experiment with this code in JSFiddle by clicking the `<>` icon in the t
 
 To receive payment fraud verdicts, create assessments with [Transaction Data](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/projects.assessments#TransactionData) by using the additional fields in the [projects.assessments.create](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/projects.assessments/create) method.
 
-At a minimum, the integration requires the `payment_method`, `card_bin`, and `card_last_four` fields. To improve the detection quality, we recommend adding optional fields such as `email`, `phone_number`, and `billing_address`.
-
-One of the following is required to receive a Transaction defense Assessment with Frontend Integration:
+To receive a Transaction defense assessment with frontend integration, provide at least one of the following required identifier fields:
 
   * [Transaction Data](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/projects.assessments#TransactionData) `cardBin` and `cardLastFour`.
-  * [User](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/.projects.assessments#User) `accountId`
-  * [User](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/.projects.assessments#User) `email`
-  * [User](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/.projects.assessments#User) `phoneNumber`
+  * [User](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/projects.assessments#User) `accountId`
+  * [User](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/projects.assessments#User) `email`
+  * [User](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/projects.assessments#User) `phoneNumber`
+
+
+
+To improve the detection quality, we recommend adding optional fields such as `payment_method`, `email`, `phone_number`, and `billing_address`.
 
 **Important:** Without this minimum set of data, your Assessment response won't contain a Transaction defense Assessment.
     
@@ -188,7 +190,7 @@ One of the following is required to receive a Transaction defense Assessment wit
                     ],
                     "locality": "Sunnyvale",
                     "administrative_area": "CA",
-                    "region_code": "USA",
+                    "region_code": "US",
                     "postal_code": "123456"
                 }
             }
@@ -213,9 +215,9 @@ Because reCAPTCHA API-only Integration produces a Transaction defense Assessment
   2. [Transaction Data](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/projects.assessments#TransactionData) `paymentMethod`.
   3. One of the following: 
      * [Transaction Data](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/projects.assessments#TransactionData) `cardBin` and `cardLastFour`.
-     * [User](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/.projects.assessments#User) `accountId`
-     * [User](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/.projects.assessments#User) `email`
-     * [User](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/.projects.assessments#User) `phoneNumber`
+     * [User](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/projects.assessments#User) `accountId`
+     * [User](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/projects.assessments#User) `email`
+     * [User](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/projects.assessments#User) `phoneNumber`
 
 
     
@@ -234,7 +236,7 @@ Because reCAPTCHA API-only Integration produces a Transaction defense Assessment
                 "user": {
                     "account_id": "abcde12345",
                     "email": "someEmailAddress@example.com",
-                    "phone_number": "+18005550175",
+                    "phone_number": "+18005550175"
                 },
                 "billing_address": {
                     "recipient": "name1 name2",
@@ -244,7 +246,7 @@ Because reCAPTCHA API-only Integration produces a Transaction defense Assessment
                     ],
                     "locality": "Sunnyvale",
                     "administrative_area": "CA",
-                    "region_code": "USA",
+                    "region_code": "US",
                     "postal_code": "123456"
                 }
             }
@@ -255,7 +257,7 @@ To improve the quality of scores, we recommend that you provide as much input as
 
 ## Interpret assessments
 
-After you start sending the transaction data, you receive assessments as a JSON response with the `fraudPreventionAssessment` component in `riskAnalysis`.
+After you start sending the transaction data, you receive assessments as a JSON response with the `fraudPreventionAssessment` component in the [`Assessment`](https://docs.cloud.google.com/recaptcha/docs/reference/rest/v1/projects.assessments#Assessment) response.
 
 The following example is a sample response:
     
@@ -267,10 +269,14 @@ The following example is a sample response:
       .....
       ....
       ....
-    "fraudPreventionAssessment": {
+      "fraudPreventionAssessment": {
         "transactionRisk": 0.9,
-        "riskReasons": HIGH_TRANSACTION_VELOCITY
-    }
+        "riskReasons": [
+          {
+            "reason": "HIGH_TRANSACTION_VELOCITY"
+          }
+        ]
+      }
     }
 
 The response you receive includes a score and reason codes wherever applicable. The higher the score, the more likely the transaction is fraudulent and risky; the lower the score, the more likely the transaction is legitimate. For example, a score of 0.9 indicates that the transaction is more likely fraudulent and risky, and a score of 0.1 indicates that the transaction is more likely legitimate.
@@ -296,6 +302,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

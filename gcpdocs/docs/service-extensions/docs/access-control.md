@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-extensions/docs/access-control/
 title: Roles and permissions \u00a0|\u00a0 Service Extensions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:33:13.323555+00:00
+fetched_at: 2026-10-24T08:49:23.848407+00:00
 ---
 
 # Roles and permissions  |  Service Extensions  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ The following table lists Service Extensions IAM roles and the permissions that 
 
 Roles | Permissions  
 ---|---  
-**Service Extensions Admin** (`roles/networkservices.serviceExtensionsAdmin`) Permissions to create, updated, list, view, and delete extensions. |  `networkservices.authzExtensions.create`  
+**Service Extensions Admin** (`roles/networkservices.serviceExtensionsAdmin`) Permissions to create, update, list, view, and delete extensions. |  `networkservices.authzExtensions.create`  
 `networkservices.authzExtensions.delete`  
 `networkservices.authzExtensions.get`  
 `networkservices.authzExtensions.list`  
@@ -58,16 +58,21 @@ Roles | Permissions
 `networkservices.lbTrafficExtensions.get`  
 `networkservices.lbTrafficExtensions.list`  
 `networkservices.lbTrafficExtensions.update`  
-`networkservices.wasmActions.get`  
-`networkservices.wasmActions.list`  
-`networkservices.wasmActions.create`  
-`networkservices.wasmActions.delete`  
+`networkservices.cdnEdgeExtensions.create`  
+`networkservices.cdnEdgeExtensions.delete`  
+`networkservices.cdnEdgeExtensions.get`  
+`networkservices.cdnEdgeExtensions.list`  
+`networkservices.cdnEdgeExtensions.update`  
+`networkservices.wasmPlugins.create`  
+`networkservices.wasmPlugins.delete`  
 `networkservices.wasmPlugins.get`  
 `networkservices.wasmPlugins.list`  
-`networkservices.wasmPlugins.create`  
 `networkservices.wasmPlugins.update`  
-`networkservices.wasmPlugins.delete`  
-`networkservices.wasmPlugins.use` |  **Service Extensions Viewer** (`roles/networkservices.serviceExtensionsViewer`) Permissions to list and view extensions. |  `networkservices.authzExtensions.get`  
+`networkservices.wasmPlugins.use`  
+`networkservices.wasmPluginVersions.create`  
+`networkservices.wasmPluginVersions.delete`  
+`networkservices.wasmPluginVersions.get`  
+`networkservices.wasmPluginVersions.list` |  **Service Extensions Viewer** (`roles/networkservices.serviceExtensionsViewer`) Permissions to list and view extensions. |  `networkservices.authzExtensions.get`  
 `networkservices.authzExtensions.list`  
 `networkservices.lbEdgeExtensions.get`  
 `networkservices.lbEdgeExtensions.list`  
@@ -75,10 +80,12 @@ Roles | Permissions
 `networkservices.lbRouteExtensions.list`  
 `networkservices.lbTrafficExtensions.get`  
 `networkservices.lbTrafficExtensions.list`  
-`networkservices.wasmActions.get`  
-`networkservices.wasmActions.list`  
+`networkservices.cdnEdgeExtensions.get`  
+`networkservices.cdnEdgeExtensions.list`  
 `networkservices.wasmPlugins.get`  
 `networkservices.wasmPlugins.list`  
+`networkservices.wasmPluginVersions.get`  
+`networkservices.wasmPluginVersions.list`  
   
 The following table lists IAM roles that you need for other services and the permissions that each role includes.
 
@@ -178,6 +185,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

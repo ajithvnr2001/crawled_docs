@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/create-database-web-mobile-client-library/
 title: Quickstart: Create a Firestore database by using a web or mobile client library \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:28:06.108708+00:00
+fetched_at: 2026-10-24T08:56:39.813700+00:00
 ---
 
 # Quickstart: Create a Firestore database by using a web or mobile client library  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -125,7 +125,7 @@ Visit [our installation guide](https://firebase.google.com/docs/ios/installation
   1. Follow the instructions to [add Firebase to your Android app](https://firebase.google.com/docs/android/setup).
   2. Declare the dependency for the Firestore library for Android in your module (app-level) Gradle file (usually `app/build.gradle.kts` or `app/build.gradle`): 
          
-         implementation("com.google.firebase:firebase-firestore:27.0.1")
+         implementation("com.google.firebase:firebase-firestore:27.1.0")
 
 If your app uses multiple Firebase libraries, consider using the [Firebase Android BoM](https://firebase.google.com/docs/android/learn-more#bom), which ensures that your app's Firebase library versions are always compatible. 
 
@@ -910,6 +910,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-21 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-21 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

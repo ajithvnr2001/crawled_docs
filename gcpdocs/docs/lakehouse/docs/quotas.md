@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/quotas/
 title: Quotas and system limits for borderless Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:05.940536+00:00
+fetched_at: 2026-10-24T08:23:14.326188+00:00
 ---
 
 # Quotas and system limits for borderless Lakehouse  |  Google Cloud Documentation
@@ -23,30 +23,9 @@ Send feedback
 
 #  Quotas and system limits for borderless Lakehouse Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document lists the quotas and system limits that apply to Lakehouse.
+Borderless Lakehouse resources have configurable quotas and fixed system limits to help control resource consumption and maintain service stability. _Quotas_ set baseline allocations that you can adjust by [requesting an increase](https://docs.cloud.google.com/docs/quotas/help/request_increase) or using the [quota adjuster](https://docs.cloud.google.com/docs/quotas/quota-adjuster), while _system limits_ are fixed operational thresholds that can't be changed.
 
-  * _Quotas_ have default values, but you can typically request adjustments.
-  * _System limits_ are fixed values that can't be changed.
-
-
-
-Google Cloud uses quotas to help ensure fairness and reduce spikes in resource use and availability. A quota restricts how much of a Google Cloud resource your Google Cloud project can use. Quotas apply to a range of resource types, including hardware, software, and network components. For example, quotas can restrict the number of API calls to a service, the number of load balancers used concurrently by your project, or the number of projects that you can create. Quotas protect the community of Google Cloud users by preventing the overloading of services. Quotas also help you to manage your own Google Cloud resources.
-
-The Cloud Quotas system does the following:
-
-  * Monitors your consumption of Google Cloud products and services
-  * Restricts your consumption of those resources
-  * Provides a way to [request changes to the quota value](https://docs.cloud.google.com/docs/quotas/help/request_increase) and [automate quota adjustments](https://docs.cloud.google.com/docs/quotas/quota-adjuster)
-
-
-
-In most cases, when you attempt to consume more of a resource than its quota allows, the system blocks access to the resource, and the task that you're trying to perform fails.
-
-Quotas generally apply at the Google Cloud project level. Your use of a resource in one project doesn't affect your available quota in another project. Within a Google Cloud project, quotas are shared across all applications and IP addresses. 
-
-For more information, see the [Cloud Quotas overview](https://docs.cloud.google.com/docs/quotas/overview). 
-
-There are also _system limits_ on Lakehouse resources. System limits can't be changed. 
+To learn how quotas work at the Google Cloud project level and how to track consumption, see the [Cloud Quotas overview](https://docs.cloud.google.com/docs/quotas/overview).
 
 ## Get quota and system limit metric names
 
@@ -110,9 +89,9 @@ Maximum rate of table metadata update operations per table  |  5 operations per 
   * The bq command-line tool
   * BigQuery client libraries
   * The following API methods: 
-    * [`tables.insert`](https://docs.cloud.google.com/bigquery/docs/reference/v2/tables/insert)
-    * [`tables.patch`](https://docs.cloud.google.com/bigquery/docs/reference/v2/tables/patch)
-    * [`tables.update`](https://docs.cloud.google.com/bigquery/docs/reference/v2/tables/update)
+    * [`tables.insert`](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/tables/insert)
+    * [`tables.patch`](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/tables/patch)
+    * [`tables.update`](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/tables/update)
   * [DDL](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language) statements on tables 
 
 This limit also includes the combined total of all load jobs, copy jobs, and query jobs that append to or overwrite a destination table or that use a [DML](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax) `DELETE`, `INSERT`, `MERGE`, `TRUNCATE TABLE`, or `UPDATE` statements to write data to a table. Note that while DML statements count toward this limit, they are not subject to it if it is reached. DML operations have [dedicated rate limits](https://docs.cloud.google.com/bigquery/quotas#data-manipulation-language-statements).  If you exceed this limit, you get an error message like `Exceeded rate limits: too many table update operations for this table`. This error is transient; you can retry with an exponential backoff.  To identify the operations that count toward this limit, you can [ Inspect your logs](https://docs.cloud.google.com/bigquery/docs/reference/auditlogs#bigqueryauditmetadata_format). Refer to [Troubleshoot quota errors](https://docs.cloud.google.com/bigquery/docs/troubleshoot-quotas#ts-maximum-update-table-metadata-limit) for guidance on diagnosing and resolving this error.   
@@ -143,6 +122,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

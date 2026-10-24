@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/v3/metrics-details/
 title: Structure of time series \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:56:23.920529+00:00
+fetched_at: 2026-10-24T11:25:21.073513+00:00
 ---
 
 # Structure of time series  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -21,18 +21,9 @@ Send feedback
 
 #  Structure of time series Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page is an in-depth continuation of the discussion and examples presented in [Metrics, time series, and resources](https://docs.cloud.google.com/monitoring/api/v3/metrics) and [Components of the metric model](https://docs.cloud.google.com/monitoring/api/v3/metric-model). To get the most from this page, read those pages first.
+The Cloud Monitoring API represents the Cloud Monitoring metric model using [`TimeSeries`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/TimeSeries), [`Metric`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.alerts#Metric), [`MonitoredResource`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/Shared.Types/MonitoredResource), and descriptor objects. Understanding this structure helps you use the Monitoring API directly, create custom metrics, and integrate external sources such as [OpenTelemetry](https://opentelemetry.io), whose data maps to the same model. If you interact with Monitoring primarily through the Google Cloud console, you probably don't need this level of detail.
 
-This page is intended for readers who want a deeper understanding of time series and the implementation of the Cloud Monitoring metric model, particularly those readers who are using the Monitoring API. This includes users of custom (user-defined) metrics. 
-
-  * This page maps the general metric model to the Cloud Monitoring API, so it is useful for anyone using the Monitoring API directly. Users whose primary interaction is with the Google Cloud console probably don't need this level of detail.
-
-  * It is also useful to anyone using a third-party integration like [OpenTelemetry](https://opentelemetry.io). As data from an external source reaches Cloud Monitoring through an integration, it is mapped to the Cloud Monitoring metric model and treated like any other metric data.
-
-
-
-
-For more on collecting your own metrics, see [User-defined metrics overview](https://docs.cloud.google.com/monitoring/custom-metrics). 
+Before reading this document, familiarize yourself with [Metrics, time series, and resources](https://docs.cloud.google.com/monitoring/api/v3/metrics) and [Components of the metric model](https://docs.cloud.google.com/monitoring/api/v3/metric-model). For more information about collecting your own metrics, see [User-defined metrics overview](https://docs.cloud.google.com/monitoring/custom-metrics).
 
 ## Review of the metric model
 
@@ -95,7 +86,7 @@ A time series is represented as an instance of a [`TimeSeries`](https://docs.clo
 
 Most time series include a lot more data points; this one covers a one-minute interval. All time series have the same structure, with the following fields:
 
-  * The `metric` field records
+  * The `metric` field records:
 
     * The metric-label values for this particular time series, representing one combination of label values.
     * The metric type with which the data is associated. The metric type specifies the available labels and describes what is represented by the data points.
@@ -109,7 +100,7 @@ The information in this field is described in more detail in [Metrics](https://d
 
 The information in this field is described in more detail in [Monitored-resource objects](https://docs.cloud.google.com/monitoring/api/v3/metrics-details#intro-monres).
 
-  * The `metricKind` and `valueType` fields tell you how to interpret the values. For more information, see [Metric kinds and types](https://docs.cloud.google.com/monitoring/api/v3/kinds-and-types).
+  * The `metricKind` and `valueType` fields tell you how to interpret the values. For more information, see [Value types and metric kinds](https://docs.cloud.google.com/monitoring/api/v3/kinds-and-types).
 
   * The `points` field is an array of timestamped values. The metric type tells you what the values represent. The sample time series has an array with a single data point; in most time series, the array has many more values.
 
@@ -118,7 +109,7 @@ The information in this field is described in more detail in [Monitored-resource
 
 For a live example that retrieves time series data, see [Time series: data from a monitored resource](https://docs.cloud.google.com/monitoring/api/v3/metric-model#time-series).
 
-This rest of this page looks at the information in the `metric` and `resource` fields in more detail.
+The rest of this page looks at the information in the `metric` and `resource` fields in more detail.
 
 ## Monitored resources
 
@@ -141,7 +132,7 @@ For example, here is a monitored-resource object describing a particular Compute
           }
     
 
-This instance of a monitored resource is of the type `gce_instance`, it has a specific `instance_id` value (5106847938295940291) in the project `a-gcp-project`. The instance is located in the US. Another time series might originate from a different instance of this monitored resource. Each combination of label values identifies a unique resource from which data is collected.
+This instance of a monitored resource is of the type `gce_instance`, and it has a specific `instance_id` value (5106847938295940291) in the project `a-gcp-project`. The instance is located in the US. Another time series might originate from a different instance of this monitored resource. Each combination of label values identifies a unique resource from which data is collected.
 
 Different sets of labels make sense for different resources. The set of labels for a resource is determined by the monitored-resource descriptor for that type.
 
@@ -156,7 +147,7 @@ A monitored-resource descriptor is like a schema or specification for a record s
       **"type"** : "gce_instance",
       "displayName": "VM Instance",
       "description": "A virtual machine instance hosted in Compute Engine.",
-      **"name"** : "projects/[PROJECT_ID]/monitoredResourceDescriptors/gce_instance"
+      **"name"** : "projects/[PROJECT_ID]/monitoredResourceDescriptors/gce_instance",
       **"labels"** : [
         {
           "key": "project_id",
@@ -170,7 +161,7 @@ A monitored-resource descriptor is like a schema or specification for a record s
           "key": "zone",
           "description": "The Compute Engine zone in which the VM is running."
         }
-      ],
+      ]
     }
     
 
@@ -182,11 +173,10 @@ You can retrieve the monitored-resource descriptors in your Google Cloud project
 
   1. Open the [`monitoredResourceDescriptors.list`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.monitoredResourceDescriptors/list) reference page.
 
-  2. In the pane labeled **Try this method** , enter the following:
-
-     * **name** : `projects/PROJECT_ID/monitoredResourceDescriptors/gce_instance`
-
-Replace `PROJECT_ID` with the ID of your Google Cloud project.
+  2. In the pane labeled **Try this method** , for the **name** field enter the following after replacing `PROJECT_ID` with the ID of your Google Cloud project:
+         
+         projects/PROJECT_ID/monitoredResourceDescriptors/gce_instance
+         
 
   3. Click **Execute**.
 
@@ -267,9 +257,11 @@ You can retrieve metric descriptors by using the Cloud Monitoring API. See, for 
 
   1. Open the [`metricDescriptors.list`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors/list) reference page.
 
-  2. In the pane labeled **Try this method** , enter the following:
+  2. In the pane labeled **Try this method** , for the **name** field enter the following after replacing `PROJECT_ID` with the ID of your Google Cloud project:
+         
+         projects/PROJECT_ID/metricDescriptors/logging.googleapis.com/log_entry_count
+         
 
-     * **name** : `projects/PROJECT_ID/metricDescriptors/logging.googleapis.com/log_entry_count` Replace `PROJECT_ID` with the ID of your Google Cloud project.
   3. Click **Execute**.
 
 
@@ -279,7 +271,7 @@ The request returns the preceding descriptor.
 
 For examples using the Monitoring API methods, see [List metric and resource types](https://docs.cloud.google.com/monitoring/custom-metrics/browsing-metrics).
 
-Most of the fields in the metric descriptor are self-explanatory. The two likely to need further explanation are the metric kind and value type, which are described further in [Metric kinds and types](https://docs.cloud.google.com/monitoring/api/v3/kinds-and-types).
+Most of the fields in the metric descriptor are self-explanatory. The two likely to need further explanation are the metric kind and value type, which are described further in [Value types and metric kinds](https://docs.cloud.google.com/monitoring/api/v3/kinds-and-types).
 
 Cloud Monitoring has approximately 6,500 built-in metric types; see the [Metrics list](https://docs.cloud.google.com/monitoring/api/metrics) for details. You can also create your own metric descriptors to capture custom metrics. For more information, see [User-defined metrics overview](https://docs.cloud.google.com/monitoring/custom-metrics). 
 
@@ -287,6 +279,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

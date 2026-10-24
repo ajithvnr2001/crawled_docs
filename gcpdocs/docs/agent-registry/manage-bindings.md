@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/manage-bindings/
 title: Manage bindings \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:16.492875+00:00
+fetched_at: 2026-10-24T11:26:18.730318+00:00
 ---
 
 # Manage bindings  |  Agent Registry  |  Google Cloud Documentation
@@ -26,9 +26,14 @@ In Agent Registry, [bindings](https://docs.cloud.google.com/agent-registry/compo
 ## Before you begin
 
   1. [Set up Agent Registry](https://docs.cloud.google.com/agent-registry/setup).
-  2. Register the source and target components. For more information, see [Registration models](https://docs.cloud.google.com/agent-registry/component-lifecycle-and-discovery#registration-models).
-  3. If you want to configure bindings for delegated permissions, create an auth provider with [Agent Identity auth manager](https://docs.cloud.google.com/iam/docs/agent-identity-overview#agent-auth-manager). For more information, see [Authenticate to tools and resources](https://docs.cloud.google.com/agent-registry/authenticate-toolsets).
-  4. To use the Google Cloud CLI commands in this document, [set up your gcloud CLI environment](https://docs.cloud.google.com/agent-registry/setup#set-up-cli).
+  2. Get [the project ID](https://support.google.com/googleapi/answer/7014113) for the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled.
+
+  3. Register the source and target components. For more information, see [Registration models](https://docs.cloud.google.com/agent-registry/component-lifecycle-and-discovery#registration-models).
+
+  4. If you want to configure bindings for delegated permissions, create an auth provider with [Agent Identity auth manager](https://docs.cloud.google.com/iam/docs/agent-identity-overview#agent-auth-manager). For more information, see [Authenticate to tools and resources](https://docs.cloud.google.com/agent-registry/authenticate-toolsets).
+
+  5. To use the Google Cloud CLI commands in this document, [set up your gcloud CLI environment](https://docs.cloud.google.com/agent-registry/setup#set-up-cli).
+
 
 
 
@@ -287,6 +292,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

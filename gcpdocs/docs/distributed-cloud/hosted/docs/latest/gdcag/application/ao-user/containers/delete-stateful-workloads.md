@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/containers/delete-stateful-workloads/
 title: Delete stateful workloads \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:27.285352+00:00
+fetched_at: 2026-10-24T08:20:20.715576+00:00
 ---
 
 # Delete stateful workloads  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

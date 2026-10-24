@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/buildpacks/stacks/
 title: Stacks \u00a0|\u00a0 Buildpacks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:43.961439+00:00
+fetched_at: 2026-10-24T08:20:20.018150+00:00
 ---
 
 # Stacks  |  Buildpacks  |  Google Cloud Documentation

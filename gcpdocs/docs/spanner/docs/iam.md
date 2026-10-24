@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/iam/
 title: IAM overview \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:31:36.661216+00:00
+fetched_at: 2026-10-24T08:49:23.756961+00:00
 ---
 
 # IAM overview  |  Spanner  |  Google Cloud Documentation

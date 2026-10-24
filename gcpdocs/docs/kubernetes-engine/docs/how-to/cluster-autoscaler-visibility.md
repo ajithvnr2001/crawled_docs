@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/cluster-autoscaler-visibility/
 title: View cluster autoscaler events and metrics \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:23:03.251643+00:00
+fetched_at: 2026-10-24T11:25:58.308673+00:00
 ---
 
 # View cluster autoscaler events and metrics  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -630,7 +630,7 @@ Message | Details | Parameters | Mitigation
 ---|---|---|---  
 `"scale.up.error.out.of.resources"` | Resource errors occur when you try to request new resources in a zone that cannot accommodate your request due to the current unavailability of a Compute Engine resource, such as GPUs or CPUs. | Failing MIG IDs. | Follow the [resource availability troubleshooting steps](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-resource-availability) in the Compute Engine documentation.  
 `"scale.up.error.quota.exceeded"` | The scaleUp event failed because some of the MIGs couldn't be increased, due to exceeded Compute Engine quota. | Failing MIG IDs. | Check the **Errors** tab of the MIG in the Google Cloud console to see what quota is being exceeded. After you know which quota is being exceeded, follow the instructions to [request a quota increase](https://docs.cloud.google.com/compute/quotas#requesting_additional_quota).  
-`"scale.up.error.waiting.for.instances.timeout"` | Scale up of managed instance group failed to scale up due to timeout.  | Failing MIG IDs. | If the instances boot but do not register with the control plane, follow the [instance registration troubleshooting steps](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/node-registration#find-instance-failed-registration). This message should be transient. If it persists, [contact Cloud Customer Care](https://docs.cloud.google.com/kubernetes-engine/docs/getting-support) for further investigation.   
+`"scale.up.error.waiting.for.instances.timeout"` | Scale up of managed instance group failed to scale up due to timeout.  | Failing MIG IDs. | If the instances boot but don't register with the control plane, then follow the steps in [Find an instance that failed node registration](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/node-registration#find-instance-failed-registration). For other causes, see [MIG instances failed to appear in time](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/cluster-autoscaler-scale-up#instances-failed-to-appear). This error is usually transient. If the error persists, then [contact Cloud Customer Care](https://docs.cloud.google.com/kubernetes-engine/docs/getting-support) for further investigation.   
 `"scale.up.error.ip.space.exhausted"` | Can't scale up because instances in some of the managed instance groups ran out of IPs. This means that the cluster doesn't have enough unallocated IP address space to use to add new nodes or Pods. | Failing MIG IDs. | Follow the troubleshooting steps in [Not enough free IP address space for Pods](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/vpc-clusters#not_enough_space).  
 `"scale.up.error.service.account.deleted"` | Can't scale up because the service account was deleted. | Failing MIG IDs. |  Try to [undelete the service account](https://docs.cloud.google.com/iam/docs/service-accounts-delete-undelete#undeleting). If that procedure is unsuccessful, [contact Cloud Customer Care](https://docs.cloud.google.com/kubernetes-engine/docs/getting-support) for further investigation.   
   
@@ -728,6 +728,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

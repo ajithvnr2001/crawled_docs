@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-ao-permissions/
 title: Prepare IAM permissions \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:27.927873+00:00
+fetched_at: 2026-10-24T11:10:36.403314+00:00
 ---
 
 # Prepare IAM permissions  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ You must request IAM roles and permissions before you can begin integrating Vert
 
 
 
-For details, see 
+For details, see [Grant and revoke access](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/iam/set-up-role-bindings).
 
 **Tip:** It's important to grant and request access using the [principle of least privilege](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/permissions#preinciple-of-least-privilege), to verify you have access to only the minimum necessary permissions for your task. This keeps your resources secure and protects it from unwanted access.
 
@@ -61,8 +61,7 @@ _N/A_ | IAM Project Admin | `project-iam-admin` | Manage the IAM allow policies 
 Online Prediction | Vertex AI Prediction User | `vertex-ai-prediction-user` | Access the Online Prediction service to make requests to your model endpoint.  
 Vertex AI Prediction Admin | `vertex-ai-prediction-admin` | Manage resources used to deploy models with Online Prediction.  
 Optical Character Recognition (OCR) | AI OCR Developer | `ai-ocr-developer` | Access the OCR service to detect text in images.  
-Speech-to-Text | AI Speech Chirp Developer | `ai-speech-chirp-developer` | Access the Chirp model of the Speech-to-Text service to recognize speech and transcribe audio.  
-AI Speech Developer | `ai-speech-developer` | Access the Speech-to-Text service to recognize speech and transcribe audio.  
+Speech-to-Text | AI Speech Developer | `ai-speech-developer` | Access the Speech-to-Text service to recognize speech and transcribe audio.  
 Text Embedding | AI Text Embedding Developer | `ai-text-embedding-developer` | Access the Text Embedding model to convert English natural language into numerical vectors.  
 AI Text Embedding Multilingual Developer | `ai-text-embedding-multilingual-developer` | Access the Text Embedding Multilingual model to convert multilingual natural language into numerical vectors.  
 Gemini | AI Large Gemini Developer | `ai-large-gemini-developer` | Access the Large Gemini service in the project namespace using the AICS inference gateway. Apply as a zonal RoleBinding on the management API server.  

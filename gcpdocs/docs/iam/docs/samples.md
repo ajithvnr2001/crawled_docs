@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/samples/
 title: All IAM code samples \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:03:13.541035+00:00
+fetched_at: 2026-10-24T08:43:53.660017+00:00
 ---
 
 # All IAM code samples  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

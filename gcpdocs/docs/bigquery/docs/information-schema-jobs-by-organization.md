@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-jobs-by-organization/
 title: JOBS_BY_ORGANIZATION view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:37.042683+00:00
+fetched_at: 2026-10-24T11:26:03.465507+00:00
 ---
 
 # JOBS_BY_ORGANIZATION view  |  BigQuery  |  Google Cloud Documentation
@@ -43,13 +43,13 @@ The `INFORMATION_SCHEMA.JOBS_BY_ORGANIZATION` view has the following schema:
 
 **Column name** | **Data type** | **Value**  
 ---|---|---  
-`bi_engine_statistics` | `RECORD` |  If the project is configured to use the [BI Engine](https://cloud.google.com/bigquery/docs/bi-engine-intro), then this field contains [BiEngineStatistics](https://cloud.google.com/bigquery/docs/reference/rest/v2/Job#bienginestatistics). Otherwise `NULL`.   
+`bi_engine_statistics` | `RECORD` |  If the project is configured to use the [BI Engine](https://docs.cloud.google.com/bigquery/docs/bi-engine-intro), then this field contains [BiEngineStatistics](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/Job#bienginestatistics). Otherwise `NULL`.   
 `cache_hit` | `BOOLEAN` | Whether the query results of this job were from a cache. If you have a [multi-query statement job](https://docs.cloud.google.com/bigquery/docs/multi-statement-queries), `cache_hit` for your parent query is `NULL`.   
 `copy_job_statistics` | `RECORD` |  [Statistics for a copy job.](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/Job#CopyJobStatistics)  
 `creation_time` | `TIMESTAMP` |  (_Partitioning column_) Creation time of this job. Partitioning is based on the UTC time of this timestamp.  
-`destination_table` | `RECORD` |  Destination [table](https://cloud.google.com/bigquery/docs/reference/rest/v2/TableReference) for results, if any.   
+`destination_table` | `RECORD` |  Destination [table](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/TableReference) for results, if any.   
 `end_time` | `TIMESTAMP` | The end time of this job, in milliseconds since the epoch. This field represents the time when the job enters the `DONE` state.  
-`error_result` | `RECORD` |  Details of any errors as [ErrorProto](https://cloud.google.com/bigquery/docs/reference/rest/v2/ErrorProto) objects.   
+`error_result` | `RECORD` |  Details of any errors as [ErrorProto](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/ErrorProto) objects.   
 `global_query_info` | `RECORD` |  Information about a [global query](https://docs.cloud.google.com/bigquery/docs/global-queries). Contains the following fields: 
 
   * `parent_job_id`: The ID of the parent global query job in the primary region.
@@ -67,7 +67,7 @@ Possible values are:
 
   
 `job_id` | `STRING` | The ID of the job if a job was created. Otherwise, the query ID of a query using optional job creation mode. For example, `bquxjob_1234`.  
-`job_stages` | `RECORD REPEATED` |  [Query stages](https://cloud.google.com/bigquery/docs/reference/rest/v2/Job#ExplainQueryStage) of the job. **Note** : This column's values are empty for queries that read from tables with row-level access policies. For more information, see [best practices for row-level security in BigQuery.](https://docs.cloud.google.com/bigquery/docs/best-practices-row-level-security)  
+`job_stages` | `RECORD REPEATED` |  [Query stages](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/Job#ExplainQueryStage) of the job. **Note** : This column's values are empty for queries that read from tables with row-level access policies. For more information, see [best practices for row-level security in BigQuery.](https://docs.cloud.google.com/bigquery/docs/best-practices-row-level-security)  
 `job_type` | `STRING` |  The type of the job. Can be `QUERY`, `LOAD`, `EXTRACT`, `COPY`, or `NULL`. A `NULL` value indicates a background job.   
 `labels` | `RECORD` | Array of labels applied to the job as key-value pairs.  
 `object_storage_stats` | `RECORD REPEATED` |  Statistics for object storage and caching usage for a query job. The value is a repeated record with the following fields:  
@@ -94,24 +94,24 @@ In this output:
   
 `reservation_group_path` | `ARRAY<STRING>` | The reservation group to which the reservation is linked. For example, if the reservation is linked to group `my-group`, the `reservation_group_path` field contains a list such as: `[my-group]`.  
 `edition` | `STRING` | The edition associated with the reservation assigned to this job. For more information about editions, see [Introduction to BigQuery editions](https://docs.cloud.google.com/bigquery/docs/editions-intro).  
-`session_info` | `RECORD` |  Details about the [session](https://cloud.google.com/bigquery/docs/sessions-intro) in which this job ran, if any.   
+`session_info` | `RECORD` |  Details about the [session](https://docs.cloud.google.com/bigquery/docs/sessions-intro) in which this job ran, if any.   
 `start_time` | `TIMESTAMP` | The start time of this job, in milliseconds since the epoch. This field represents the time when the job transitions from the `PENDING` state to either `RUNNING` or `DONE`.  
 `state` | `STRING` |  Running state of the job. Valid states include `PENDING`, `RUNNING`, and `DONE`.   
-`statement_type` | `STRING` |  The type of query statement. For example, `DELETE`, `INSERT`, `SCRIPT`, `SELECT`, or `UPDATE`. See [QueryStatementType](https://cloud.google.com/bigquery/docs/reference/auditlogs/rest/Shared.Types/BigQueryAuditMetadata.QueryStatementType) for list of valid values.   
-`timeline` | `RECORD` | [Query timeline](https://cloud.google.com/bigquery/docs/reference/rest/v2/Job#QueryTimelineSample) of the job. Contains snapshots of query execution.  
+`statement_type` | `STRING` |  The type of query statement. For example, `DELETE`, `INSERT`, `SCRIPT`, `SELECT`, or `UPDATE`. See [QueryStatementType](https://docs.cloud.google.com/bigquery/docs/reference/auditlogs/rest/Shared.Types/BigQueryAuditMetadata.QueryStatementType) for list of valid values.   
+`timeline` | `RECORD` | [Query timeline](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/Job#QueryTimelineSample) of the job. Contains snapshots of query execution.  
 `total_bytes_billed` | `INTEGER` |  If the project is configured to use [on-demand pricing](https://cloud.google.com/bigquery/pricing#analysis_pricing_models), then this field contains the total bytes billed for the job. If the project is configured to use [flat-rate pricing](https://cloud.google.com/bigquery/pricing#analysis_pricing_models), then you are not billed for bytes and this field is informational only. **Note** : This column's values are empty for queries that read from tables with row-level access policies. For more information, see [best practices for row-level security in BigQuery.](https://docs.cloud.google.com/bigquery/docs/best-practices-row-level-security)  
 `total_bytes_processed` | `INTEGER` |  Total bytes processed by the job. **Note** : This column's values are empty for queries that read from tables with row-level access policies. For more information, see [best practices for row-level security in BigQuery.](https://docs.cloud.google.com/bigquery/docs/best-practices-row-level-security)  
 `total_modified_partitions` | `INTEGER` |  The total number of partitions the job modified. This field is populated for `LOAD` and `QUERY` jobs.   
 `total_slot_ms` | `INTEGER` | Slot milliseconds for the job over its entire duration in the `RUNNING` state, including retries.  
 `total_services_sku_slot_ms` | `INTEGER` | Total slot milliseconds for the job that runs on external services and is billed on the services SKU. This field is only populated for jobs that have external service costs, and is the total of the usage for costs whose billing method is `"SERVICES_SKU"`.  
-`transaction_id` | `STRING` |  ID of the [transaction](https://cloud.google.com/bigquery/docs/transactions) in which this job ran, if any.   
+`transaction_id` | `STRING` |  ID of the [transaction](https://docs.cloud.google.com/bigquery/docs/transactions) in which this job ran, if any.   
 `user_email` | `STRING` |  (_Clustering column_) Email address or service account of the user who ran the job.   
 `principal_subject` | `STRING` |  A string representation of the identity of the principal that ran the job.   
 `query_info.resource_warning` | `STRING` |  The warning message that appears if the resource usage during query processing is above the internal threshold of the system.   
 A successful query job can have the `resource_warning` field populated. With `resource_warning`, you get additional data points to optimize your queries and to set up monitoring for performance trends of an equivalent set of queries by using `query_hashes`.   
 `query_info.query_hashes.normalized_literals` | `STRING` |  Contains the hash value of the query. `normalized_literals` is a hexadecimal `STRING` hash that ignores comments, parameter values, UDFs, and literals. The hash value will differ when underlying views change, or if the query implicitly references columns, such as `SELECT *`, and the table schema changes.   
 This field appears for successful [GoogleSQL](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax) queries that are not cache hits.   
-`query_info.performance_insights` | `RECORD` |  [Performance insights](https://cloud.google.com/bigquery/docs/reference/rest/v2/Job#PerformanceInsights) for the job.   
+`query_info.performance_insights` | `RECORD` |  [Performance insights](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/Job#PerformanceInsights) for the job.   
 `transferred_bytes` | `INTEGER` | Total bytes transferred for BigQuery Omni queries, such as BigQuery Omni transfer jobs.  
 `materialized_view_statistics` | `RECORD` |  [Statistics of materialized views](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/Job#MaterializedViewStatistics) considered in a query job. ([Preview](https://cloud.google.com/products#product-launch-stages))   
 `metadata_cache_statistics` | `RECORD` |  [Statistics for metadata column index usage for tables](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/Job#metadatacachestatistics) referenced in a query job.   
@@ -125,7 +125,7 @@ This field appears for successful [GoogleSQL](https://docs.cloud.google.com/bigq
   * `DEFAULT_GOOGLE_SQL`: No query dialect was specified in the job request. BigQuery used the default value of GoogleSQL.
 
 For jobs submitted by users, this field is only populated for query jobs. The default selection of query dialect can be controlled by the [configuration settings](https://docs.cloud.google.com/bigquery/docs/default-configuration#configuration-settings). For background jobs, the value of this field isn't controlled by the default query dialect configuration settings, and doesn't impact jobs submitted by users. For some background jobs, the value is omitted.  
-`continuous` | `BOOLEAN` | Whether the job is a [continuous query](https://cloud.google.com/bigquery/docs/continuous-queries-introduction).  
+`continuous` | `BOOLEAN` | Whether the job is a [continuous query](https://docs.cloud.google.com/bigquery/docs/continuous-queries-introduction).  
 `continuous_query_info.output_watermark` | `TIMESTAMP` | Represents the point up to which the continuous query has successfully processed data.  
 `vector_search_statistics` | `RECORD` |  [Statistics for a vector search query.](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/Job#VectorSearchStatistics)  
 `external_service_costs` | `RECORD` |  An array of information about the external service costs for a query job.   
@@ -290,6 +290,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

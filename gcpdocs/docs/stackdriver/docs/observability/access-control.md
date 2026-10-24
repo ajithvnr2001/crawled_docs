@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/stackdriver/docs/observability/access-control/
 title: Control access with IAM \u00a0|\u00a0 Google Cloud Observability \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:10:23.693701+00:00
+fetched_at: 2026-10-24T08:46:20.872025+00:00
 ---
 
 # Control access with IAM  |  Google Cloud Observability  |  Google Cloud Documentation

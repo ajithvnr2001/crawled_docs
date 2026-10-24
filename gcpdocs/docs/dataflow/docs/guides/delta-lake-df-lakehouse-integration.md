@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/delta-lake-df-lakehouse-integration/
 title: Import Delta Lake tables into borderless Lakehouse using Dataflow job builder \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:52:36.909552+00:00
+fetched_at: 2026-10-24T11:10:21.809424+00:00
 ---
 
 # Import Delta Lake tables into borderless Lakehouse using Dataflow job builder  |  Google Cloud Documentation
@@ -21,13 +21,9 @@ Send feedback
 
 #  Import Delta Lake tables into borderless Lakehouse using Dataflow job builder Stay organized with collections  Save and categorize content based on your preferences. 
 
-Migrating Delta Lake tables into borderless Lakehouse can be complex and expensive if you have to move large volumes of data. The Dataflow job builder provides a low-code or no-code interface to import your Cloud Storage Delta Lake tables directly into Lakehouse. The existing data is copied over from the Delta Lake table to the target Lakehouse table using a Dataflow job that autoscales based on the volume of your data.
+The Dataflow job builder lets you import Cloud Storage Delta Lake tables directly into borderless Lakehouse through a low-code or no-code interface, reducing the complexity of large-scale data migrations. An autoscaling Dataflow batch job copies your data to the target Apache Iceberg table in Lakehouse and automatically creates the schema for new tables, while existing tables require a matching schema.
 
-For new tables, Dataflow automatically creates the schema. For existing tables, the schema isn't modified, so the destination table schema must correctly map to the source Delta Lake table for the job to succeed.
-
-Use the following connection details to import data from a Delta Lake table stored in Cloud Storage.
-
-After you import this data, you have the option to enable continuous migration.
+After you import your data, you can optionally enable continuous migration.
 
 ## Before you begin
 
@@ -149,6 +145,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

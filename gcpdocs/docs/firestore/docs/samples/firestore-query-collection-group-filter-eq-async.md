@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-collection-group-filter-eq-async/
 title: Query a Firestore collection group with an eq filter (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:28:04.596863+00:00
+fetched_at: 2026-10-24T09:04:08.346226+00:00
 ---
 
 # Query a Firestore collection group with an eq filter (async)  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/regions-and-zones/
 title: Supported regions and zones \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:32:57.420606+00:00
+fetched_at: 2026-10-24T11:25:16.445528+00:00
 ---
 
 # Supported regions and zones  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -114,6 +114,8 @@ You can create Exascale VM Clusters and Exascale Storage Vaults in the following
 | `us-east4` | Northern Virginia | `us-east4-a-r2`  
 `us-east4-b-r1` |   
 | `us-west3` | Salt Lake City | `us-west3-a-r1` |   
+**South America** |  |  |  |   
+| `southamerica-east1` | São Paulo, Brazil, South America | `southamerica-east1-a-r1` |   
 **Europe** |  |  |  |   
 | `europe-west2` | London, England | `europe-west2-a-r1`  
 `europe-west2-c-r2` |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
@@ -140,6 +142,8 @@ You can create DB systems resources in the following regions and zones:
 | `us-east4` | Northern Virginia | `us-east4-a-r2`  
 `us-east4-b-r1` |   
 | `us-west3` | Salt Lake City | `us-west3-a-r1` |   
+**South America** |  |  |  |   
+| `southamerica-east1` | São Paulo, Brazil, South America | `southamerica-east1-a-r1` |   
 **Europe** |  |  |  |   
 | `europe-west2` | London, England | `europe-west2-a-r1`  
 `europe-west2-c-r2` |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
@@ -219,6 +223,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

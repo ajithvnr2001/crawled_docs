@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/regional-endpoints/
 title: Lakehouse regional endpoints \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:50.170639+00:00
+fetched_at: 2026-10-24T08:23:14.027561+00:00
 ---
 
 # Lakehouse regional endpoints  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ Regional endpoints restrict requests to proceed only if the affected catalog res
 
 Unlike global endpoints, where requests can be routed through a different location from where the resource resides, regional endpoints restrict your requests to the location specified by the endpoint where the resource resides. Regional endpoints terminate Transport Layer Security (TLS) sessions in the location specified by the endpoint for requests received from the internet, other Google Cloud resources such as Compute Engine virtual machines, on-premises services using Cloud VPN or Cloud Interconnect, and Virtual Private Clouds (VPCs).
 
-Regional endpoints help to ensure data residency by keeping your in-transit catalog requests within the location specified by the endpoint. For more information about how service metadata is handled, see [Note on service data](https://docs.cloud.google.com/assured-workloads/docs/data-residency#service-data).
+Regional endpoints help to ensure data residency by keeping your in-transit catalog requests within the location specified by the endpoint. For more information about how service metadata is handled, see [Note on Customer Data and Service Data](https://docs.cloud.google.com/assured-workloads/docs/data-residency#customer-service-data).
 
 **Note:** Lakehouse uses the BigLake API (`biglake.googleapis.com`). When configuring regional endpoints for the Lakehouse runtime catalog, use the `biglake.LOCATION.rep.googleapis.com` hostname.
 
@@ -40,7 +40,7 @@ The following catalog endpoints in the Lakehouse runtime catalog are available f
 Catalog endpoint | Regional endpoint URL | Reference  
 ---|---|---  
 [Apache Iceberg REST catalog endpoint](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint) | `https://biglake.LOCATION.rep.googleapis.com/iceberg/v1/restcatalog` | [REST](https://docs.cloud.google.com/lakehouse/docs/reference/rest)  
-[Apache Hive catalog endpoint](https://docs.cloud.google.com/lakehouse/docs/about-spark-hive-metastore) (Preview) | `https://biglake.LOCATION.rep.googleapis.com/hive/v1` | [REST](https://docs.cloud.google.com/lakehouse/docs/reference/rest)  
+[Apache Hive catalog endpoint](https://docs.cloud.google.com/lakehouse/docs/about-spark-hive-metastore) | `https://biglake.LOCATION.rep.googleapis.com/hive/v1` | [REST](https://docs.cloud.google.com/lakehouse/docs/reference/rest)  
   
 ## Supported locations
 
@@ -100,8 +100,8 @@ Regional endpoints cannot be used to perform the following operations:
 
 Keep in mind the following restrictions when using regional endpoints:
 
-  * Regional endpoints don't support [mutual Transport Layer Security (mTLS)](https://docs.cloud.google.com/chrome-enterprise-premium/docs/understand-mtls).
-  * Using a regional endpoint doesn't by itself restrict users from creating resources in other regions or calling the global endpoint (`biglake.googleapis.com`). To enforce regional restrictions, configure the [Organization Policy Service resource locations constraint](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations) and restrict global API endpoint usage.
+  * Regional endpoints don't support [mutual Transport Layer Security (mTLS)](https://docs.cloud.google.com/access-context-manager/docs/understand-mtls).
+  * Using a regional endpoint doesn't by itself restrict users from creating resources in other regions or calling the global endpoint (`biglake.googleapis.com`). To enforce regional restrictions, configure the [Organization Policy Service resource locations constraint](https://docs.cloud.google.com/organization-policy/restrict-locations) and restrict global API endpoint usage.
 
 
 
@@ -234,6 +234,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

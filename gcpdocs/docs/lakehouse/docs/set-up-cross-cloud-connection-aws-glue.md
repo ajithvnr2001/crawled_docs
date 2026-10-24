@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-aws-glue/
 title: Set up cross-cloud connection for AWS Glue \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:35.560620+00:00
+fetched_at: 2026-10-24T08:23:13.859486+00:00
 ---
 
 # Set up cross-cloud connection for AWS Glue  |  Lakehouse  |  Google Cloud Documentation
@@ -84,7 +84,7 @@ You might also be able to get the required permissions through [custom roles](ht
 
 This section lists the limitations and considerations for accessing cross-cloud data.
 
-  * **Supported Cloud Providers for Cross-Cloud Interconnect:** Using a private interconnect with your borderless Lakehouse is supported with the following remote cloud providers: Amazon Web Services (AWS). You can use either a [Dedicated Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process) or a [Partner Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview).
+  * **Supported Cloud Providers for Cross-Cloud Interconnect:** Using a private interconnect for accessing cross-cloud data is supported with the following remote cloud providers: Amazon Web Services (AWS). You can use either a [Dedicated Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process) or a [Partner Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview).
   * **Network routing:** If a private interconnect (such as Dedicated CCI or Partner CCI) is not configured, queries route over the public internet. This can result in higher egress fees from your remote cloud provider and less predictable performance.
   * **Read-only:** Federated catalogs in Lakehouse are read-only views of the remote catalog. Resource manipulation (such as creating, updating, or deleting resources) are not supported and must be performed directly in the remote catalog.
   * **Data freshness:** The `--refresh-interval` flag for a federated catalog determines how often metadata is synchronized. The value must be `0s` (disabled) or at least `300s` (5 minutes). A catalog's background metadata refresh may take longer the more namespace and table resources there are. If the previous refresh overruns, the current refresh will be skipped, but the next refresh will be scheduled at the following interval. Queries use the most recently synchronized catalog metadata, so changes made in the remote catalog, such as new tables, schema updates, or newly committed data, aren't visible in Lakehouse until the next background metadata refresh completes. 
@@ -538,7 +538,7 @@ The **Connection details** section appears.
 If you don't configure CCI, the connection travels securely over the public internet.
     
     
-    gcloud alpha biglake iceberg catalogs create FEDERATED_CATALOG_NAME \
+    gcloud biglake iceberg catalogs create FEDERATED_CATALOG_NAME \
         --project="PROJECT_ID" \
         --primary-location="REGION" \
         --catalog-type="federated" \
@@ -553,7 +553,7 @@ If you don't configure CCI, the connection travels securely over the public inte
 If you configured a private interconnect (such as Dedicated CCI or Partner CCI), provide the Service Directory service reference so that Lakehouse routes traffic privately.
     
     
-    gcloud alpha biglake iceberg catalogs create FEDERATED_CATALOG_NAME \
+    gcloud biglake iceberg catalogs create FEDERATED_CATALOG_NAME \
         --project="PROJECT_ID" \
         --primary-location="REGION" \
         --catalog-type="federated" \
@@ -586,7 +586,7 @@ When the catalog is created, Lakehouse provisions a unique service account for i
 
   1. Run the following command to extract the `biglake-service-account-id` value into an active bash variable:
          
-         LAKEHOUSE_SA_ID=$(gcloud alpha biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
+         LAKEHOUSE_SA_ID=$(gcloud biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
            --project="PROJECT_ID" \
            --format="value(biglake-service-account-id)")
 
@@ -634,7 +634,7 @@ Now that secure trust relationships are successfully established across both pla
 ###  gcloud 
     
     
-    gcloud alpha biglake iceberg catalogs update FEDERATED_CATALOG_NAME \
+    gcloud biglake iceberg catalogs update FEDERATED_CATALOG_NAME \
       --project="PROJECT_ID" \
       --refresh-interval="300s"
 
@@ -689,14 +689,14 @@ Grant the required roles to the catalog's service account:
     
     # Grant Service Directory Viewer
     gcloud projects add-iam-policy-binding PROJECT_ID \
-    --member="serviceAccount:$(gcloud alpha biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
+    --member="serviceAccount:$(gcloud biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
         --project="PROJECT_ID" \
         --format='value(biglake-service-account)')" \
     --role="roles/servicedirectory.viewer"
     
     # Grant Service Directory PSC Authorized Service
     gcloud projects add-iam-policy-binding PROJECT_ID \
-    --member="serviceAccount:$(gcloud alpha biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
+    --member="serviceAccount:$(gcloud biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
         --project="PROJECT_ID" \
         --format='value(biglake-service-account)')" \
     --role="roles/servicedirectory.pscAuthorizedService"
@@ -707,12 +707,12 @@ Verify that the catalog background metadata refresh cycle completed successfully
 
   1. Verify that the refresh status indicates success:
          
-         gcloud alpha biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
+         gcloud biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
            --project="PROJECT_ID"
 
   2. Confirm that the namespaces are synchronized:
          
-         gcloud alpha biglake iceberg namespaces list \
+         gcloud biglake iceberg namespaces list \
            --project="PROJECT_ID" \
            --catalog="FEDERATED_CATALOG_NAME"
 
@@ -730,6 +730,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

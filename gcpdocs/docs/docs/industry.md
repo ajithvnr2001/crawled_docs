@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/industry/
 title: Industry solutions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:59.839217+00:00
+fetched_at: 2026-10-24T08:20:23.737404+00:00
 ---
 
 # Industry solutions  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/roles-permissions/
 title: Roles and permissions \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:14.832927+00:00
+fetched_at: 2026-10-24T08:43:13.894506+00:00
 ---
 
 # Roles and permissions  |  Agent Registry  |  Google Cloud Documentation

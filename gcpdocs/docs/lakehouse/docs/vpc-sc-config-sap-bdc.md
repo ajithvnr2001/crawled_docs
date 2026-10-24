@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/vpc-sc-config-sap-bdc/
 title: VPC Service Controls configuration for SAP BDC \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:36.087540+00:00
+fetched_at: 2026-10-24T08:23:11.853461+00:00
 ---
 
 # VPC Service Controls configuration for SAP BDC  |  Lakehouse  |  Google Cloud Documentation
@@ -23,14 +23,7 @@ Send feedback
 
 #  VPC Service Controls configuration for SAP BDC Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains how to configure VPC Service Controls (VPC SC) egress and ingress rules for SAP Business Data Cloud (BDC). 
-
-Depending on your integration, you must configure rules for the following data flows:
-
-  * **Querying SAP data (SAP to BDC):** To query SAP tables from Google Cloud, you must configure an **egress rule**.
-  * **Publishing data to SAP (BDC to SAP):** To publish data to SAP, you must configure an **ingress rule**.
-
-
+VPC Service Controls (VPC SC) helps you secure data exchanges between Google Cloud and SAP Business Data Cloud (BDC). Depending on your integration direction, you can configure egress rules to query SAP tables from Google Cloud or ingress rules to publish data to SAP BDC. 
 
 ## Egress rules for querying SAP
 
@@ -38,7 +31,7 @@ You might see this error when querying SAP tables:
 
 `VPC Service Controls: Request is prohibited by organization's policy. File: gs://example-bucket/path/to/file`
 
-This occurs because BigQuery must read Cloud Storage external buckets that host the table data. If your perimeter restricts `storage.googleapis.com`, you might receive a `RESOURCES_NOT_IN_SAME_SERVICE_PERIMETER` error because the external bucket is outside your perimeter. To resolve this, configure an egress rule. For more information, see [Resources not in the same perimeter](https://cloud.google.com/vpc-service-controls/docs/troubleshooting#resources-not-in-same-perimeter).
+This occurs because BigQuery must read Cloud Storage external buckets that host the table data. If your perimeter restricts `storage.googleapis.com`, you might receive a `RESOURCES_NOT_IN_SAME_SERVICE_PERIMETER` error because the external bucket is outside your perimeter. To resolve this, configure an egress rule. For more information, see [Resources not in the same perimeter](https://docs.cloud.google.com/vpc-service-controls/docs/troubleshooting#resources-not-in-same-perimeter).
 
 ### Configure egress rules
 
@@ -109,9 +102,9 @@ Verify the updated egress policies:
 
 ## Ingress rules for publishing data to SAP
 
-SAP needs to query the Lakehouse API to read Apache Iceberg tables managed by Lakehouse. Your VPC SC rules might block this if the project's perimeter restricts the `biglake.googleapis.com` service.
+SAP needs to query the BigLake API to read Apache Iceberg tables managed by Lakehouse. Your VPC Service Controls rules might block this if the project's perimeter restricts the `biglake.googleapis.com` service.
 
-If your project has VPC Service Controls enforced, and the perimeter applied on the project restricts the `biglake.googleapis.com` service, you must configure an ingress rule to allow SAP federated principals to access Lakehouse APIs.
+If your project has VPC Service Controls enforced, and the perimeter applied on the project restricts the `biglake.googleapis.com` service, you must configure an ingress rule to allow SAP federated principals to access the BigLake API.
 
 ### Configure ingress rules
 
@@ -126,7 +119,7 @@ Replace the following:
      * `ACCESS_POLICY`: your access policy.
      * `PERIMETER`: your service perimeter.
 
-Your service perimeter can restrict the Lakehouse API if the response contains:
+Your service perimeter can restrict the BigLake API if the response contains:
     
     resources:
     - projects/PROJECT_ID
@@ -194,6 +187,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

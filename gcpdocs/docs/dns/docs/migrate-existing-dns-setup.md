@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/migrate-existing-dns-setup/
 title: Migrate an existing Cloud DNS forwarding setup to Outbound Endpoints \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:07:34.702856+00:00
+fetched_at: 2026-10-24T11:25:27.127615+00:00
 ---
 
 # Migrate an existing Cloud DNS forwarding setup to Outbound Endpoints  |  Google Cloud Documentation
@@ -40,12 +40,12 @@ There are four phases to migrating an existing Cloud DNS forwarding setup to use
 
 ### Preparation
 
-In the preparation phase, before you can start the migration, you create the proxy-only subnets, regular subnets, and Outbound Endpoints. Also make sure your on-premises firewall rules permit inbound DNS traffic from the IP address range of your regional proxy-only subnet.
+In the preparation phase, before you can start the migration, you create the [proxy-only subnets](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets), regular subnets, and Outbound Endpoints. Also make sure your on-premises network has a return route for the regional proxy-only subnet IP address range and that your on-premises firewall rules permit inbound DNS traffic from the IP address range of your regional proxy-only subnet.
 
   1. **Create proxy-only subnets** : If not already present, in each region where you intend to deploy an Outbound Endpoint, create a [proxy-only subnet](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets) with a minimum size of `/26` (64 addresses).
   2. **Identify or create a regular subnet** : In each region where you plan to deploy an Outbound Endpoint, identify or create a regular subnet with an available internal IPv4 address in its primary IP range.
-  3. **Create Outbound Endpoints** : [Create your Outbound Endpoints](https://docs.cloud.google.com/dns/docs/create-update-outbound-endpoints#create-outbound-endpoint) and associate them with your target VPC network, region, regular subnet (`--subnetwork=REGULAR_SUBNET`), and an available internal IPv4 address (`--endpoint-ip=IP_ADDRESS_STRING`). Cloud DNS automatically creates and manages the static IP reservation resource and binds the endpoint to the regional proxy-only subnet in the VPC network.
-  4. **Update on-premises firewalls** : Add firewall rules in your on-premises and external environments to permit inbound DNS traffic (UDP and TCP port 53) originating from the IP address range of your regional proxy-only subnet.
+  3. **Create Outbound Endpoints** : [Create your Outbound Endpoints](https://docs.cloud.google.com/dns/docs/create-update-outbound-endpoints#create-outbound-endpoint) and associate them with your target VPC network, region, regular subnet (`--subnetwork=REGULAR_SUBNET`), and an available internal IPv4 address (`--endpoint-ip=IP_ADDRESS_STRING`. Cloud DNS automatically creates and manages the static IP reservation resource and binds the endpoint to the regional proxy-only subnet in the VPC network.
+  4. **Update on-premises firewalls and routes** : Ensure your on-premises network has a return route for the regional proxy-only subnet IP address range. Add firewall rules in your on-premises and external environments to permit inbound DNS traffic (UDP and TCP port 53) originating from the IP address range of your regional proxy-only subnet.
 
 **Note:** Don't remove the existing firewall rule for `35.199.192.0/19` at this time.
 
@@ -58,7 +58,7 @@ Optionally, you can use the verification phase to verify your Outbound Endpoint 
   1. **Create a test forwarding zone** : Create a new, temporary forwarding zone for a test domain (for example, `test.corp.example.com`).
   2. **Configure for the endpoints** : Configure the test zone to use the new Outbound Endpoints.
   3. **Launch a test VM** : In a relevant VPC network, launch a temporary test VM.
-  4. **Verify resolution** : From the test VM, use `dig` or `nslookup` to query a host within your test zone (for example, `dig host.test.corp.example.com`). Confirm that you receive a successful DNS response in the test VM and that the server received the query. Also verify that the server received the query from a source IP address in the new proxy-only subnet.
+  4. **Verify resolution** : From the test VM, use `dig` or `nslookup` to query a host within your test zone (for example, `dig host.test.corp.example.com`). Confirm that you receive a successful DNS response. Verify in your on-premises or external DNS server logs that the server received the query from a source IP address in the new regional proxy-only subnet. Also verify in the `dns_query` logs that `jsonPayload.egressPath` is set to `OUTBOUND_ENDPOINT`.
 
 
 
@@ -67,7 +67,7 @@ Optionally, you can use the verification phase to verify your Outbound Endpoint 
 During the production migration phase, you update your forwarding zones and server policies to use your Outbound Endpoints and review query logs to make sure queries are resolving successfully.
 
   1. **Update forwarding zones and server policies** : For each forwarding zone or server policy you want to migrate, edit the configuration and change the forwarding path from the default `35.199.192.0/19` range to your Outbound Endpoints.
-  2. **Monitor resolution and health** : Review your Cloud DNS query logs and monitoring metrics for the migrated zones to confirm that queries are successfully resolving. 
+  2. **Monitor resolution and health** : Review your Cloud DNS query logs (checking `jsonPayload.egressPath=OUTBOUND_ENDPOINT`, `jsonPayload.outboundEndpoint`, and `jsonPayload.egressError`) and existing monitoring metrics for the migrated zones to confirm that queries are successfully resolving. 
      * Use `dns.googleapis.com/query/response_count` to track query volume and response status codes.
   3. **High-volume migration and pre-warming strategy** : 
      * **Auto scaling latency** : There is approximately a 10-minute autoscaling spin-up latency for underlying Google-managed proxy infrastructure.
@@ -110,6 +110,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

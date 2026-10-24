@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/multiregional-vms/
 title: Multi-regional deployment on Compute Engine \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:44:53.535352+00:00
+fetched_at: 2026-10-24T08:35:53.409159+00:00
 ---
 
 # Multi-regional deployment on Compute Engine  |  Cloud Architecture Center  |  Google Cloud Documentation

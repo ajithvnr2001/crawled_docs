@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/use-cmek/
 title: Secure data with encryption keys \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:04.744817+00:00
+fetched_at: 2026-10-24T11:25:51.714337+00:00
 ---
 
 # Secure data with encryption keys  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,54 +21,58 @@ Send feedback
 
 #  Secure data with encryption keys Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to create, configure, and apply customer-managed encryption keys (CMEK) for AlloyDB for PostgreSQL.
+To protect data at rest in your AlloyDB for PostgreSQL clusters and backups with keys that you control, you can create, authorize, apply, and manage customer-managed encryption keys (CMEK) in Cloud Key Management Service (Cloud KMS).
 
 For more information about CMEK, see [About CMEK](https://docs.cloud.google.com/alloydb/docs/cmek).
 
 ## Create and authorize a CMEK key for AlloyDB
 
-  1. Create a key in Cloud Key Management Service (Cloud KMS). AlloyDB supports the following kinds of keys:
+  1. Create a key in Cloud KMS. AlloyDB supports the following kinds of keys:
 
      * [Symmetric keys](https://docs.cloud.google.com/kms/docs/creating-keys)
      * [Cloud HSM keys](https://docs.cloud.google.com/kms/docs/hsm#create-a-key)
      * [Cloud External Key Manager (Cloud EKM) keys](https://docs.cloud.google.com/kms/docs/ekm#overview)
 
-The key must be in the same location as your AlloyDB cluster. For example, a AlloyDB cluster located in `us-west1` can use only keys in `us-west1`.
+The key must be in the same location as your AlloyDB cluster. For example, an AlloyDB cluster located in `us-west1` can use only keys in `us-west1`.
 
 If you already have a Cloud KMS key in the correct location, you can skip this step.
 
   2. Grant AlloyDB access to the key.
 
      1. Using the Google Cloud CLI, create and display the service agent, or display it if the account already exists:
-    
-    gcloud beta services identity create --service=alloydb.googleapis.com \
-            --project=PROJECT
+            
+            gcloud beta services identity create --service=alloydb.googleapis.com \
+                --project=PROJECT
 
-The [gcloud services identity](https://docs.cloud.google.com/sdk/gcloud/reference/beta/services/identity/create) command creates or gets the [service agent](https://docs.cloud.google.com/iam/docs/service-account-types#service-agents) that AlloyDB can use to access the Cloud KMS key on your behalf.
+The [`gcloud beta services identity create`](https://docs.cloud.google.com/sdk/gcloud/reference/beta/services/identity/create) command creates or gets the [service agent](https://docs.cloud.google.com/iam/docs/service-account-types#service-agents) that AlloyDB can use to access the Cloud KMS key on your behalf.
 
-The service account ID resembles an email address:
-    
-    Service identity created: service-xxx@gcp-sa-alloydb.iam.gserviceaccount.com
-    
+The service agent ID resembles an email address:
+            
+            Service identity created: service-PROJECT_NUMBER@gcp-sa-alloydb.iam.gserviceaccount.com
+            
 
-     1. Grant the `cloudkms.cryptoKeyEncrypterDecrypter` role to the service account:
-    
-    gcloud kms keys add-iam-policy-binding KEY \
-            --location REGION \
-            --keyring KEYRING \
-            --project=PROJECT \
-            --member serviceAccount:service-xxx@gcp-sa-alloydb.iam.gserviceaccount.com \
-            --role roles/cloudkms.cryptoKeyEncrypterDecrypter
-    
+     2. Grant the Cloud KMS CryptoKey Encrypter/Decrypter role (`roles/cloudkms.cryptoKeyEncrypterDecrypter`) to the service agent:
+            
+            gcloud kms keys add-iam-policy-binding KEY \
+                --location=REGION \
+                --keyring=KEYRING \
+                --project=PROJECT \
+                --member=serviceAccount:service-PROJECT_NUMBER@gcp-sa-alloydb.iam.gserviceaccount.com \
+                --role=roles/cloudkms.cryptoKeyEncrypterDecrypter
 
 Replace the following:
 
-     * KEY: the Cloud KMS ID of the key
-     * REGION: the key's region—for example, `us-central1`
-     * PROJECT: the ID of the key's project
-     * KEYRING: the ID of the key's Cloud KMS key ring
+        * `KEY`: the Cloud KMS ID of the key.
 
-This role grants the service account permission to encrypt and decrypt using the Cloud KMS key. For more information, see [ Cloud KMS Permissions and Roles](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles).
+        * `REGION`: the key's region—for example, `us-central1`.
+
+        * `KEYRING`: the ID of the key's Cloud KMS key ring.
+
+        * `PROJECT`: the ID of the key's project.
+
+        * `PROJECT_NUMBER`: the project number of your AlloyDB cluster's project.
+
+This role grants the service agent permission to encrypt and decrypt using the Cloud KMS key. For more information about Cloud KMS roles and permissions, see [Cloud KMS permissions and roles](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles).
 
 
 
@@ -89,18 +93,21 @@ To view the key details of a cluster using CMEK, click its name in the **Resourc
 
 ### gcloud
 
-Call the [`gcloud alloydb clusters describe`](https://docs.cloud.google.com/sdk/gcloud/reference/beta/alloydb/clusters/describe) command:
+Call the [`gcloud alloydb clusters describe`](https://docs.cloud.google.com/sdk/gcloud/reference/alloydb/clusters/describe) command:
     
     
     gcloud alloydb clusters describe CLUSTER \
-    --project=PROJECT \
-    --region=REGION
+        --project=PROJECT \
+        --region=REGION
 
 Replace the following:
 
-  * CLUSTER: the ID of the cluster to describe
-  * PROJECT: the ID of the cluster's project
-  * REGION: the cluster's region—for example, `us-central1`
+  * `CLUSTER`: the ID of the cluster to describe.
+
+  * `PROJECT`: the ID of the cluster's project.
+
+  * `REGION`: the cluster's region—for example, `us-central1`.
+
 
 
 
@@ -108,17 +115,17 @@ The output includes an `encryptionInfo` field with a summary of the cluster's en
 
 ## Apply CMEK to backups
 
-When you create a new backup, you can choose whether to encrypt it using the default Google-managed encryption or a CMEK key. For more information, see [Create an on-demand backup](https://docs.cloud.google.com/alloydb/docs/backup/create-on-demand) or [Schedule automatic backups](https://docs.cloud.google.com/alloydb/docs/backup/schedule).
+When you create a new backup, you can choose whether to encrypt it using the default Google-managed encryption or a CMEK key. For more information, see [Create an on-demand backup](https://docs.cloud.google.com/alloydb/docs/backup/create-on-demand) or [Configure a backup plan](https://docs.cloud.google.com/alloydb/docs/backup/configure).
 
 You also have the option to apply a CMEK key to the cluster created when restoring from a backup, regardless of that backup's encryption method. For more information, see [Restore a cluster](https://docs.cloud.google.com/alloydb/docs/backup/restore).
 
 ## Rotate keys using CMEK encryption
 
-It's important to understand the implications of rotating your customer-managed encryption keys (CMEK) in Cloud Key Management Service (Cloud KMS) when used with AlloyDB clusters.
+It's important to understand the implications of rotating your customer-managed encryption keys (CMEK) in Cloud KMS when used with AlloyDB clusters.
 
 When you rotate a CMEK key, the following happens to your existing AlloyDB data:
 
-  * Immediate access continues: the data remains encrypted with its original Data Encryption Key (DEK) version, as long as the earlier version of the key is still available in KMS, neither disabled nor deleted.
+  * Immediate access continues: the data remains encrypted with its original Data Encryption Key (DEK) version, as long as the earlier version of the key is still available in Cloud KMS, neither disabled nor deleted.
 
   * Full data re-encryption is manual: to get all your AlloyDB data on the latest primary key version, you must re-encrypt it.
 
@@ -134,7 +141,7 @@ To re-encrypt your existing cluster with a new CMEK key version, you must perfor
 
 
 
-For more information, see [Cluster restoration](https://docs.cloud.google.com/alloydb/docs/backup/overview#restoring).
+For more information, see [Cluster restoration](https://docs.cloud.google.com/alloydb/docs/backup/overview#cluster-restoration).
 
 Frequent CMEK key rotation with AlloyDB requires significant operational overhead. Because existing data doesn't automatically re-encrypt, and because manual re-encryption involves a full backup and restore to a new cluster, frequent rotations can be cumbersome and can impact availability or management complexity.
 
@@ -146,7 +153,7 @@ You can safely delete old CMEK key versions in Cloud KMS only after you confirm 
 
 ### Console
 
-The **Encryption** column of the **Backups** page displays whether each backup in your project uses Google-managed encryption or Cloud Key Management Service (CMEK).
+The **Encryption** column of the **Backups** page displays whether each backup in your project uses Google-managed encryption or Cloud KMS (CMEK).
 
 [Go to the Backups page](https://console.cloud.google.com/alloydb/backups)
 
@@ -154,18 +161,21 @@ To see the key details of a backup using CMEK, click **Restore**. The subsequent
 
 ### gcloud
 
-Call the [`gcloud alloydb backups describe`](https://docs.cloud.google.com/sdk/gcloud/reference/beta/alloydb/clusters/describe) command:
+Call the [`gcloud alloydb backups describe`](https://docs.cloud.google.com/sdk/gcloud/reference/alloydb/backups/describe) command:
     
     
-    gcloud alloydb backups describe CLUSTER \
-    --project=PROJECT \
-    --region=REGION
+    gcloud alloydb backups describe BACKUP_ID \
+        --project=PROJECT \
+        --region=REGION
 
 Replace the following:
 
-  * CLUSTER: the ID of the backup to describe
-  * PROJECT: the ID of the backup's project
-  * REGION: the backup's region—for example, `us-central1`
+  * `BACKUP_ID`: the ID of the backup to describe.
+
+  * `PROJECT`: the ID of the backup's project.
+
+  * `REGION`: the backup's region—for example, `us-central1`.
+
 
 
 
@@ -175,9 +185,9 @@ The output includes an `encryptionInfo` field with a summary of the backup's enc
 
 Disabling a cluster's CMEK key makes that cluster's data inaccessible until you enable the key again.
 
-However, disabling a key can take [up to three hours to propagate](https://docs.cloud.google.com/kms/docs/consistency) to your AlloyDB cluster. To disable a key while preventing access to your data immediately, follow these steps:
+However, disabling a key can take [up to three hours to propagate](https://docs.cloud.google.com/kms/docs/consistency) to your AlloyDB cluster. To disable a key while preventing access to your data without waiting for key propagation, follow these steps:
 
-  1. [Delete your cluster's primary instance.](https://docs.cloud.google.com/alloydb/docs/instance-delete) This does not affect your cluster's data. You can create a new primary instance after re-enabling the key, as described in the following section.
+  1. [Delete your cluster's primary instance.](https://docs.cloud.google.com/alloydb/docs/instance-delete) Deleting the primary instance doesn't affect your cluster's data. You can create a new primary instance after re-enabling the key, as described in the following section.
 
   2. [Use Cloud KMS to disable the key.](https://docs.cloud.google.com/kms/docs/enable-disable#disable)
 
@@ -203,7 +213,7 @@ To view audit logs associated with a particular CMEK key, follow these steps:
 
   1. Make sure that [logging is enabled ](https://docs.cloud.google.com/logging/docs/audit/configure-data-access#config-console-enable) for the Cloud KMS API in your project.
 
-  2. Go to the **Logs Explorer** in the Google Cloud console.
+  2. Go to the **Logs Explorer** page in the Google Cloud console.
 
 [Go to the Logs Explorer](https://console.cloud.google.com/logs/query)
 
@@ -217,9 +227,12 @@ To view audit logs associated with a particular CMEK key, follow these steps:
 
 Replace the following:
 
-     * REGION: the key's region—for example, `us-central1`
-     * KEYRING: the ID of the key's Cloud KMS key ring
-     * KEY: the Cloud KMS ID of the key
+     * `REGION`: the key's region—for example, `us-central1`.
+
+     * `KEYRING`: the ID of the key's Cloud KMS key ring.
+
+     * `KEY`: the Cloud KMS ID of the key.
+
   4. Under normal operations, encrypt and decrypt operations are logged with `INFO` severity. These entries are logged when the instances in your AlloyDB cluster validate the Cloud KMS key, which occurs about every five minutes.
 
   5. If AlloyDB fails to access the key, the operations are logged as `ERROR`.

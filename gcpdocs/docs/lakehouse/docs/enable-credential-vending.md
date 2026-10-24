@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/enable-credential-vending/
 title: Enable credential vending \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:06.792902+00:00
+fetched_at: 2026-10-24T08:23:16.440788+00:00
 ---
 
 # Enable credential vending  |  Lakehouse  |  Google Cloud Documentation
@@ -97,7 +97,7 @@ You might also be able to get the required permissions through [custom roles](ht
 
 ## Enable credential vending
 
-If the authentication method for your Apache Iceberg REST catalog is set to end-user credentials, you can switch it to [credential vending mode](https://docs.cloud.google.com/lakehouse/docs/lakehouse-iceberg-rest-catalog#credential-vending-mode).
+If the authentication method for your Apache Iceberg REST catalog endpoint is set to end-user credentials, you can switch it to [credential vending mode](https://docs.cloud.google.com/lakehouse/docs/credential-vending).
 
 ###  Console 
 
@@ -127,7 +127,7 @@ This verifies that your catalog's service account has the Storage Object User ro
 
 ###  gcloud 
 
-Use the [`gcloud biglake iceberg catalogs update` command](https://docs.cloud.google.com/sdk/gcloud/reference/biglake/iceberg/catalogs/create).
+Use the [`gcloud biglake iceberg catalogs update` command](https://docs.cloud.google.com/sdk/gcloud/reference/biglake/iceberg/catalogs/update).
     
     
     gcloud biglake iceberg catalogs update \
@@ -137,7 +137,7 @@ Use the [`gcloud biglake iceberg catalogs update` command](https://docs.cloud.go
 
 Replace the following:
 
-  * `CATALOG_NAME`: a name for your catalog. For Lakehouse catalogs, this is your custom catalog name. For Cloud Storage bucket catalogs, this matches the Cloud Storage bucket ID used with the REST catalog. This name is also used as the catalog identifier when [querying these tables from BigQuery](https://docs.cloud.google.com/sdk/gcloud/reference/biglake/iceberg/catalogs/create).
+  * `CATALOG_NAME`: a name for your catalog. For Lakehouse catalogs, this is your custom catalog name. For Cloud Storage bucket catalogs, this matches the Cloud Storage bucket ID used with the REST catalog. This name is also used as the catalog identifier when [querying these tables from BigQuery](https://docs.cloud.google.com/sdk/gcloud/reference/biglake/iceberg/catalogs/update).
   * `PROJECT_ID`: your Google Cloud project ID.
 
 After enabling credential vending, explicitly grant the **Storage Object User** role (`roles/storage.objectUser`) on all associated storage buckets to your catalog's auto-provisioned Apache Iceberg REST catalog service account.
@@ -150,7 +150,7 @@ After enabling credential vending, explicitly grant the **Storage Object User** 
 To enable credential vending mode using the REST API, make a `PATCH` request to the [`UpdateIcebergCatalog`](https://docs.cloud.google.com/lakehouse/docs/reference/rest/v1/iceberg.v1.restcatalog.extensions.projects.catalogs/patch) endpoint:
     
     
-    PATCH /iceberg/v1/restcatalog/extensions/projects/PROJECT_ID/catalogs/CATALOG_ID?updateMask=icebergCatalog.credential_mode
+    PATCH /iceberg/v1/restcatalog/extensions/projects/PROJECT_ID/catalogs/CATALOG_ID?updateMask=credential_mode
     
 
 The request body must contain an `IcebergCatalog` JSON payload with `credential_mode` set to `VENDED_CREDENTIALS`.
@@ -166,6 +166,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

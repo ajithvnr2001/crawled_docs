@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/best-practices/
 title: Best practices for using Semantic governance policies \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:45:06.979396+00:00
+fetched_at: 2026-10-24T11:25:55.872976+00:00
 ---
 
 # Best practices for using Semantic governance policies  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -137,7 +137,7 @@ A poor constraint is typically vague, uses subjective language, or fails to map 
 When authoring constraints, follow these guidelines:
 
   * **Use plain human language:** Use complete sentences in a declarative or imperative sense (for example, _"You mustn't allow..."_ or _"Disallow..."_).
-  * **Avoid weak phrasing:** Avoid _"I think it's best if..."_ or _"Try to avoid..."_. Phrasing matters for the LLM judge.
+  * **Avoid weak phrasing:** Avoid _"I think it's best if..."_ or _"Try to avoid..."_. Phrasing matters for the LLM in the semantic governance policy engine.
   * **Be specific:** Specify constraints with directly stated limits (for example, "$1000", "8 AM to 4 PM EST"). Use wording that aligns with descriptions of tools and parameters.
   * **Avoid contradictions:** Ensure agent-scope and tool-scope constraints don't conflict (for example, different dollar thresholds).
 
@@ -157,6 +157,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

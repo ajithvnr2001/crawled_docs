@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/component-lifecycle-and-discovery/
 title: Component lifecycle and discovery \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T05:43:30.388745+00:00
+fetched_at: 2026-10-24T08:50:57.525806+00:00
 ---
 
 # Component lifecycle and discovery  |  Agent Registry  |  Google Cloud Documentation

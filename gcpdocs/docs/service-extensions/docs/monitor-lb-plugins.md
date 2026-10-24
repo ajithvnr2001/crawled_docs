@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-extensions/docs/monitor-lb-plugins/
 title: Logging and monitoring for Application Load Balancer and Cloud CDN plugins \u00a0|\u00a0 Service Extensions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:33:55.002579+00:00
+fetched_at: 2026-10-24T11:25:11.848523+00:00
 ---
 
 # Logging and monitoring for Application Load Balancer and Cloud CDN plugins  |  Service Extensions  |  Google Cloud Documentation
@@ -133,7 +133,7 @@ Consider a sample Service Extensions log entry. The value of `message` is passed
 
 Plugins are limited to logging up to 16 KiB of payload data per client HTTP request. This amount is divided across multiple logging calls that are associated with a given HTTP request. The limit applies only to log message text, not to additional metadata added to the log record by Service Extensions.
 
-For example, if an `on_http_request_headers` callback makes two logging calls with 4 KiB messages each, and then an `on_http_response_headers` callback attempts to make three logging calls with 4 KiB messages each for the same HTTP request, the third logging message is dropped. A log message is added to record the number of plugin-generated log messages that were dropped.
+For example, if an `on_http_request_headers` callback makes two logging calls with 4 KiB messages each and then an `on_http_response_headers` callback tries to make three logging calls with 4 KiB messages each for the same HTTP request, the fifth logging message is dropped. A log message is added to record the number of plugin-generated log messages that were dropped.
 
 ### Logging from the load balancer perspective
 
@@ -305,7 +305,7 @@ Description
 The number of invocations sent to the extension.  
 `extension/invocation_latencies` | Extension invocation latencies   
 `DELTA`, `DISTRIBUTION`, `ms`   
-The distribution calculated from the latency of each extension invocation.  
+The distribution calculated from the latency of each extension invocation. Applicable only for callout extensions; not supported for plugins.  
 `extension/sent_chunks_count` | Extension sent chunks count   
 `DELTA`, `INT64`, `1`   
 Applicable only for `request_body` and `response_body` events. The number of data chunks sent to the extension.  
@@ -380,6 +380,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

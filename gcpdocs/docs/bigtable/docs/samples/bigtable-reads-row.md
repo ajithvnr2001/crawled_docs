@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-reads-row/
 title: Read a row \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:48:10.476204+00:00
+fetched_at: 2026-10-24T08:41:40.346997+00:00
 ---
 
 # Read a row  |  Bigtable  |  Google Cloud Documentation
@@ -200,7 +200,7 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
     
       # instance_id = "my-instance"
       # table_id    = "my-table"
-      bigtable = Google::Cloud::[Bigtable](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html)
+      bigtable = Google::Cloud::[Bigtable](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable-v2/latest/Google-Cloud-Bigtable.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html)
       table = bigtable.table instance_id, table_id
     
       row = table.read_row "phone#4c410523#20190501"

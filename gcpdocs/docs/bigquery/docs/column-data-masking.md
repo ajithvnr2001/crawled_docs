@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/column-data-masking/
 title: Mask column data \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:00:02.595359+00:00
+fetched_at: 2026-10-24T10:00:16.000644+00:00
 ---
 
 # Mask column data  |  BigQuery  |  Google Cloud Documentation
@@ -312,6 +312,83 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     
 
+###  Java 
+
+Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/overview). 
+
+To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
+    
+    
+    import com.google.api.gax.rpc.[AlreadyExistsException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.AlreadyExistsException.html);
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
+    import com.google.api.gax.rpc.[NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[CreateDataPolicyRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.CreateDataPolicyRequest.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.html).[PredefinedExpression](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.PredefinedExpression.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html).[DataPolicyType](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.DataPolicyType.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.LocationName.html);
+    import java.io.IOException;
+    
+    public class CreateDataPolicy {
+    
+      /**
+       * Creates a data policy to apply a data masking rule to a specific BigQuery table column.
+       *
+       * @param projectId The Google Cloud project ID (for example, "example-project-id").
+       * @param location The geographic location of the data policy (for example, "us-central1").
+       * @param dataPolicyId The user-assigned ID for the new data policy (for example,
+       *     "example_data_policy").
+       */
+      public static void createDataPolicy(String projectId, String location, String dataPolicyId) {
+        [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.LocationName.html) parent = [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.LocationName.html).of(projectId, location);
+    
+        [DataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.html) dataMaskingPolicy =
+            [DataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.html).newBuilder()
+                .[setPredefinedExpression](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.Builder.html#com_google_cloud_bigquery_datapolicies_v2_DataMaskingPolicy_Builder_setPredefinedExpression_com_google_cloud_bigquery_datapolicies_v2_DataMaskingPolicy_PredefinedExpression_)([PredefinedExpression](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.PredefinedExpression.html).SHA256)
+                .build();
+    
+        [DataPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html) dataPolicy =
+            [DataPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html).newBuilder()
+                .[setDataPolicyType](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.Builder.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_Builder_setDataPolicyType_com_google_cloud_bigquery_datapolicies_v2_DataPolicy_DataPolicyType_)([DataPolicyType](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.DataPolicyType.html).DATA_MASKING_POLICY)
+                .[setDataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.Builder.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_Builder_setDataMaskingPolicy_com_google_cloud_bigquery_datapolicies_v2_DataMaskingPolicy_)(dataMaskingPolicy)
+                .build();
+    
+        [CreateDataPolicyRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.CreateDataPolicyRequest.html) request =
+            [CreateDataPolicyRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.CreateDataPolicyRequest.html).newBuilder()
+                .setParent(parent.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.LocationName.html#com_google_cloud_bigquery_datapolicies_v2_LocationName_toString__)())
+                .setDataPolicyId(dataPolicyId)
+                .setDataPolicy(dataPolicy)
+                .build();
+    
+        try ([DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html) client = [DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html).create()) {
+          [DataPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html) response = client.createDataPolicy(request);
+    
+          System.out.printf("Successfully created data policy: %s%n", response.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_getName__)());
+          System.out.printf("Data Policy ID: %s%n", response.[getDataPolicyId](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_getDataPolicyId__)());
+          System.out.printf("Data Policy Type: %s%n", response.[getDataPolicyType](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_getDataPolicyType__)());
+          if (response.[hasDataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_hasDataMaskingPolicy__)()) {
+            System.out.printf(
+                "Data Masking Predefined Expression: %s%n",
+                response.[getDataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_getDataMaskingPolicy__)().getPredefinedExpression());
+          }
+        } catch ([AlreadyExistsException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.AlreadyExistsException.html) err) {
+          System.err.printf(
+              "error: data policy '%s' already exists in location '%s' for project '%s': %s%n",
+              dataPolicyId, location, projectId, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        } catch ([NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html) err) {
+          System.err.printf(
+              "error: project '%s' or location '%s' was not found: %s%n",
+              projectId, location, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+          System.err.printf(
+              "error: failed to create data policy '%s' in location '%s' for project '%s': %s%n",
+              dataPolicyId, location, projectId, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        }
+      }
+    
+
 ### Set policy tags on columns
 
 Set a data policy on a column by attaching the policy tag associated with the data policy to the column.
@@ -521,6 +598,68 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     
 
+###  Java 
+
+Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/overview). 
+
+To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
+    
+    
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
+    import com.google.api.gax.rpc.[NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.html).[PredefinedExpression](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.PredefinedExpression.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataPolicyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyName.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html);
+    import java.io.IOException;
+    
+    public class GetDataPolicy {
+    
+      /**
+       * Gets a specific data policy from the BigQuery Data Policy API by its name.
+       *
+       * @param projectId The Google Cloud project ID (for example, "example-project-id").
+       * @param location The geographic location of the data policy (for example, "us-central1").
+       * @param dataPolicyId The user-assigned ID of the data policy (for example,
+       *     "example_data_policy").
+       */
+      public static void getDataPolicy(String projectId, String location, String dataPolicyId) {
+        [DataPolicyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyName.html) dataPolicyName = [DataPolicyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyName.html).of(projectId, location, dataPolicyId);
+    
+        try ([DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html) client = [DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html).create()) {
+          [DataPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html) response = client.getDataPolicy(dataPolicyName);
+    
+          System.out.printf("Successfully retrieved data policy: %s%n", response.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_getName__)());
+          System.out.printf("  Data Policy ID: %s%n", response.[getDataPolicyId](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_getDataPolicyId__)());
+          System.out.printf("  Data Policy Type: %s%n", response.[getDataPolicyType](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_getDataPolicyType__)());
+          if (!response.[getPolicyTag](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_getPolicyTag__)().[isEmpty](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.LibraryMetadata.html#com_google_api_gax_rpc_LibraryMetadata_isEmpty__)()) {
+            System.out.printf("  Policy Tag: %s%n", response.[getPolicyTag](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_getPolicyTag__)());
+          }
+          if (!response.[getGranteesList](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_getGranteesList__)().[isEmpty](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.LibraryMetadata.html#com_google_api_gax_rpc_LibraryMetadata_isEmpty__)()) {
+            System.out.printf("  Grantees: %s%n", String.join(", ", response.[getGranteesList](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_getGranteesList__)()));
+          }
+          if (response.[hasDataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_hasDataMaskingPolicy__)()) {
+            [DataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.html) maskingPolicy = response.[getDataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_getDataMaskingPolicy__)();
+            if (maskingPolicy.[getPredefinedExpression](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataMaskingPolicy_getPredefinedExpression__)()
+                != [PredefinedExpression](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.PredefinedExpression.html).PREDEFINED_EXPRESSION_UNSPECIFIED) {
+              System.out.printf(
+                  "  Data Masking Predefined Expression: %s%n",
+                  maskingPolicy.[getPredefinedExpression](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataMaskingPolicy_getPredefinedExpression__)());
+            } else if (!maskingPolicy.[getRoutine](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataMaskingPolicy_getRoutine__)().[isEmpty](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.LibraryMetadata.html#com_google_api_gax_rpc_LibraryMetadata_isEmpty__)()) {
+              System.out.printf("  Data Masking Routine: %s%n", maskingPolicy.[getRoutine](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataMaskingPolicy_getRoutine__)());
+            }
+          }
+        } catch ([NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html) err) {
+          System.err.printf(
+              "error: data policy '%s' not found: %s%n", dataPolicyName, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+          System.err.printf(
+              "error: failed to get data policy '%s': %s%n", dataPolicyName, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        }
+      }
+    
+
 ### Check IAM permissions on a data policy
 
 Follow these steps to get the IAM policy for a data policy:
@@ -639,6 +778,64 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
         except Exception as e:
             print(f"An unexpected error occurred: {e}")
     
+    
+
+###  Java 
+
+Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/overview). 
+
+To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
+    
+    
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
+    import com.google.api.gax.rpc.[NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataPolicyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyName.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html);
+    import com.google.iam.v1.[Binding](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.Binding.html);
+    import com.google.iam.v1.[GetIamPolicyRequest](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.GetIamPolicyRequest.html);
+    import com.google.iam.v1.[Policy](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.Policy.html);
+    import java.io.IOException;
+    
+    public class GetIamPolicy {
+    
+      /**
+       * Gets the IAM policy for a specified data policy resource from the BigQuery Data Policy API.
+       *
+       * @param projectId The Google Cloud project ID (for example, "example-project-id").
+       * @param location The geographic location of the data policy (for example, "us-central1").
+       * @param dataPolicyId The ID of the data policy (for example, "example_data_policy").
+       */
+      public static void getIamPolicy(String projectId, String location, String dataPolicyId) {
+        [DataPolicyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyName.html) resourceName = [DataPolicyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyName.html).of(projectId, location, dataPolicyId);
+    
+        [GetIamPolicyRequest](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.GetIamPolicyRequest.html) request =
+            [GetIamPolicyRequest](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.GetIamPolicyRequest.html).newBuilder().setResource(resourceName.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyName.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicyName_toString__)()).build();
+    
+        try ([DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html) client = [DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html).create()) {
+          [Policy](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.Policy.html) policy = client.getIamPolicy(request);
+    
+          System.out.printf("Successfully retrieved IAM policy for data policy: %s%n", resourceName);
+          System.out.printf("Policy Version: %d%n", policy.[getVersion](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.Policy.html#com_google_iam_v1_Policy_getVersion__)());
+          if (policy.[getBindingsCount](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.Policy.html#com_google_iam_v1_Policy_getBindingsCount__)() > 0) {
+            System.out.println("Policy Bindings:");
+            for ([Binding](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.Binding.html) binding : policy.[getBindingsList](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.Policy.html#com_google_iam_v1_Policy_getBindingsList__)()) {
+              System.out.printf("  Role: %s%n", binding.getRole());
+              System.out.printf("  Members: %s%n", String.join(", ", binding.getMembersList()));
+              if (binding.hasCondition() && !binding.getCondition().getExpression().[isEmpty](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.LibraryMetadata.html#com_google_api_gax_rpc_LibraryMetadata_isEmpty__)()) {
+                System.out.printf("  Condition: %s%n", binding.getCondition().getExpression());
+              }
+            }
+          } else {
+            System.out.println("No bindings found in the policy.");
+          }
+        } catch ([NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html) err) {
+          System.err.printf("error: data policy '%s' not found: %s%n", resourceName, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+          System.err.printf(
+              "error: failed to get IAM policy for data policy '%s': %s%n",
+              resourceName, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        }
+      }
     
 
 ### List data policies
@@ -783,6 +980,71 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
         except Exception as e:
             print(f"An unexpected error occurred: {e}")
     
+    
+
+###  Java 
+
+Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/overview). 
+
+To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
+    
+    
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
+    import com.google.api.gax.rpc.[NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html).[ListDataPoliciesPagedResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.ListDataPoliciesPagedResponse.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[ListDataPoliciesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.ListDataPoliciesRequest.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.LocationName.html);
+    import java.io.IOException;
+    
+    public class ListDataPolicies {
+    
+      /**
+       * Lists all data policies in a specified project and location.
+       *
+       * @param projectId The Google Cloud project ID (for example, "example-project-id").
+       * @param location The geographic location of the data policies (for example, "us-central1").
+       */
+      public static void listDataPolicies(String projectId, String location) {
+        [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.LocationName.html) parent = [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.LocationName.html).of(projectId, location);
+    
+        [ListDataPoliciesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.ListDataPoliciesRequest.html) request =
+            [ListDataPoliciesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.ListDataPoliciesRequest.html).newBuilder().setParent(parent.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.LocationName.html#com_google_cloud_bigquery_datapolicies_v2_LocationName_toString__)()).build();
+    
+        try ([DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html) client = [DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html).create()) {
+          System.out.printf(
+              "Listing data policies for project '%s' in location '%s':%n", projectId, location);
+          [ListDataPoliciesPagedResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.ListDataPoliciesPagedResponse.html) pageResult = client.listDataPolicies(request);
+    
+          boolean foundPolicies = false;
+          for ([DataPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html) dataPolicy : pageResult.iterateAll()) {
+            foundPolicies = true;
+            System.out.printf("  Data Policy Name: %s%n", dataPolicy.getName());
+            System.out.printf("  Data Policy ID: %s%n", dataPolicy.getDataPolicyId());
+            System.out.printf("  Data Policy Type: %s%n", dataPolicy.getDataPolicyType());
+            if (!dataPolicy.getPolicyTag().[isEmpty](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.LibraryMetadata.html#com_google_api_gax_rpc_LibraryMetadata_isEmpty__)()) {
+              System.out.printf("  Policy Tag: %s%n", dataPolicy.getPolicyTag());
+            }
+            if (!dataPolicy.getGranteesList().[isEmpty](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.LibraryMetadata.html#com_google_api_gax_rpc_LibraryMetadata_isEmpty__)()) {
+              System.out.printf("  Grantees: %s%n", String.join(", ", dataPolicy.getGranteesList()));
+            }
+            System.out.println("--------------------");
+          }
+    
+          if (!foundPolicies) {
+            System.out.println("No data policies found.");
+          }
+        } catch ([NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html) err) {
+          System.err.printf(
+              "error: project '%s' or location '%s' was not found: %s%n",
+              projectId, location, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+          System.err.printf(
+              "error: failed to list data policies in location '%s' for project '%s': %s%n",
+              location, projectId, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        }
+      }
     
 
 ### Update data policies
@@ -955,6 +1217,77 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     
 
+###  Java 
+
+Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/overview). 
+
+To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
+    
+    
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
+    import com.google.api.gax.rpc.[NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.html).[PredefinedExpression](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.PredefinedExpression.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataPolicyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyName.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[UpdateDataPolicyRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.UpdateDataPolicyRequest.html);
+    import com.google.protobuf.[FieldMask](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html);
+    import java.io.IOException;
+    
+    public class UpdateDataPolicy {
+    
+      /**
+       * Updates the data masking configuration of an existing data policy.
+       *
+       * @param projectId The Google Cloud project ID (for example, "example-project-id").
+       * @param location The geographic location of the data policy (for example, "us-central1").
+       * @param dataPolicyId The ID of the data policy to update (for example, "example_data_policy").
+       */
+      public static void updateDataPolicy(String projectId, String location, String dataPolicyId) {
+        [DataPolicyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyName.html) dataPolicyName = [DataPolicyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyName.html).of(projectId, location, dataPolicyId);
+    
+        try ([DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html) client = [DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html).create()) {
+          // Retrieve the existing policy so its etag can be used to prevent race conditions.
+          [DataPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html) existingPolicy = client.getDataPolicy(dataPolicyName);
+    
+          [DataPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html) updatedDataPolicy =
+              [DataPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html).newBuilder()
+                  .setName(dataPolicyName.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyName.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicyName_toString__)())
+                  .[setDataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.Builder.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_Builder_setDataMaskingPolicy_com_google_cloud_bigquery_datapolicies_v2_DataMaskingPolicy_)(
+                      [DataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.html).newBuilder()
+                          .[setPredefinedExpression](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.Builder.html#com_google_cloud_bigquery_datapolicies_v2_DataMaskingPolicy_Builder_setPredefinedExpression_com_google_cloud_bigquery_datapolicies_v2_DataMaskingPolicy_PredefinedExpression_)([PredefinedExpression](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataMaskingPolicy.PredefinedExpression.html).SHA256)
+                          .build())
+                  .[setEtag](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.Builder.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_Builder_setEtag_java_lang_String_)(existingPolicy.[getEtag](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_getEtag__)())
+                  .build();
+    
+          [FieldMask](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html) updateMask = [FieldMask](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html).newBuilder().[addPaths](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.Builder.html#com_google_protobuf_FieldMask_Builder_addPaths_java_lang_String_)("data_masking_policy").build();
+    
+          [UpdateDataPolicyRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.UpdateDataPolicyRequest.html) request =
+              [UpdateDataPolicyRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.UpdateDataPolicyRequest.html).newBuilder()
+                  .setDataPolicy(updatedDataPolicy)
+                  .[setUpdateMask](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.UpdateDataPolicyRequest.Builder.html#com_google_cloud_bigquery_datapolicies_v2_UpdateDataPolicyRequest_Builder_setUpdateMask_com_google_protobuf_FieldMask_)(updateMask)
+                  .build();
+    
+          [DataPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html) response = client.updateDataPolicy(request);
+    
+          System.out.printf("Successfully updated data policy: %s%n", response.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_getName__)());
+          System.out.printf("New data policy type: %s%n", response.[getDataPolicyType](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_getDataPolicyType__)());
+          if (response.[hasDataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_hasDataMaskingPolicy__)()) {
+            System.out.printf(
+                "New masking expression: %s%n",
+                response.[getDataMaskingPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicy.html#com_google_cloud_bigquery_datapolicies_v2_DataPolicy_getDataMaskingPolicy__)().getPredefinedExpression());
+          }
+        } catch ([NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html) err) {
+          System.err.printf(
+              "error: data policy '%s' not found: %s%n", dataPolicyName, err.getMessage());
+        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+          System.err.printf(
+              "error: failed to update data policy '%s': %s%n", dataPolicyName, err.getMessage());
+        }
+      }
+    
+
 ### Delete data policies
 
 The user or service account that creates a data policy must have the `bigquery.dataPolicies.delete` permission. This permission is included in the BigQuery Data Policy Admin, BigQuery Admin and BigQuery Data Owner roles.
@@ -1053,6 +1386,44 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
         except Exception as e:
             print(f"Error deleting data policy '{name}': {e}")
     
+    
+
+###  Java 
+
+Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/overview). 
+
+To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
+    
+    
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
+    import com.google.api.gax.rpc.[NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataPolicyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyName.html);
+    import com.google.cloud.bigquery.datapolicies.v2.[DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html);
+    import java.io.IOException;
+    
+    public class DeleteDataPolicy {
+    
+      /**
+       * Deletes a data policy from the BigQuery Data Policy API.
+       *
+       * @param projectId The Google Cloud project ID (for example, "example-project-id").
+       * @param location The geographic location of the data policy (for example, "us-central1").
+       * @param dataPolicyId The ID of the data policy to delete (for example, "example_data_policy").
+       */
+      public static void deleteDataPolicy(String projectId, String location, String dataPolicyId) {
+        [DataPolicyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyName.html) name = [DataPolicyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyName.html).of(projectId, location, dataPolicyId);
+    
+        try ([DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html) client = [DataPolicyServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatapolicy/latest/com.google.cloud.bigquery.datapolicies.v2.DataPolicyServiceClient.html).create()) {
+          client.deleteDataPolicy(name);
+          System.out.printf("Successfully deleted data policy: %s%n", name);
+        } catch ([NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html) err) {
+          System.err.printf(
+              "error: data policy '%s' not found: %s%n", name, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+          System.err.printf(
+              "error: failed to delete data policy '%s': %s%n", name, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        }
+      }
     
 
 ## Mask data by applying data policies to a column
@@ -1278,6 +1649,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

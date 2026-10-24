@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/manager-api-pagination-tailing/
 title: Pagination and tailing \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:13:59.358670+00:00
+fetched_at: 2026-10-24T11:10:30.412737+00:00
 ---
 
 # Pagination and tailing  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -29,9 +29,9 @@ Pagination is supported for most endpoints of the manager API. For exceptions, s
 
 ### Set the page size
 
-By default, manager API endpoints return pages containing 100 records. You can change this number using the `per` query parameter.
+By default, manager API endpoints return pages containing 100 records. You can change this number using the `per` query parameter, up to a maximum of 100. A larger value is reduced to 100.
 
-To set the pages size, use the following endpoint:
+To set the page size, use the following endpoint:
     
     
     /manager/api/v1/agents?per=50
@@ -53,7 +53,7 @@ This returns the second page of records
 
 ### Get all available records
 
-By default, the manager API returns 100 records in a response page, although you can change the number of records in a page by setting the page size. For the endpoints that support pagination, the response header includes the total number of records available. If that number exceeds your page size, you need to call the API multiple times to get all of the records. The manager API doesn't explicitly indicate that there are additional records to return.
+By default, the manager API returns 100 records in a response page, although you can change the number of records in a page by setting the page size. For the endpoints that support pagination, the response header includes the total number of records available. If that number exceeds your page size, you need to call the API multiple times to get all of the records. For endpoints that support pagination, the response includes a `Link` header following RFC 5988. A `rel="next"` link is present whenever more records are available, and a `rel="last"` link gives the number of the final page. The response also includes `Total` and `Per-Page` headers.
 
 To get all available records, do the following:
 
@@ -66,7 +66,7 @@ To get all available records, do the following:
 
 
 
-## Tailing an endpoint for updated records
+## Tail an endpoint for updated records
 
 Google recommends against using pagination for the [call](https://docs.cloud.google.com/contact-center/ccai-platform/docs/manager-api-call), [chat](https://docs.cloud.google.com/contact-center/ccai-platform/docs/manager-api-chat), and [agent activity](https://docs.cloud.google.com/contact-center/ccai-platform/docs/manager-api-agent-activity) API endpoints because we can't guarantee optimal results. Instead, we recommend tailing these API endpoints for updated records. Tailing an API endpoint means continuously calling it to get records that are new or updated since your last request.
 
@@ -124,7 +124,7 @@ The Calls API returns a response similar to the following:
       ]
     
 
-Response objects updated on or after the timestamp you specified are returned, sorted by date, in ascending order. Use the `updated_at` timestamp from the last object in this response for the timestamp in your next call to the endpoint.
+Response objects updated on or after the timestamp you specified are returned, sorted by date, in ascending order. Use the `updated_at` timestamp from the last object in this response for the timestamp in your next call to the endpoint. The `from` filter is inclusive, so the next response repeats the record at that timestamp. Deduplicate on record ID, or record the IDs already processed at that timestamp and skip them.
 
   2. Call the Call API endpoint 60 minutes later. The updated Call records since your last request are returned.
 
@@ -134,6 +134,8 @@ Response objects updated on or after the timestamp you specified are returned, s
 
 
 ### Tail the Chats API endpoint
+
+Use the `updated_at` timestamp from the last object in this response for the timestamp in your next call to the endpoint. The `updated_at[from]` filter is inclusive, so the next response repeats the record at that timestamp. Deduplicate on record ID, or record the IDs already processed at that timestamp and skip them.
 
 Whenever a chat record is modified, its `updated_at` timestamp is updated. You can use the timestamp to specify the chat records that you want to retrieve when calling the Chats API endpoint.
 
@@ -198,13 +200,17 @@ Response objects updated on or after the timestamp specified are returned, sorte
 
 ### Tail the Agent Activity API endpoint
 
-Agent Activity Logs don't have an `updated_at` timestamp, so this endpoint is filtered by activity time rather than by update time. You can use the `started_at` timestamp to specify the activity records that you want to retrieve when calling the Agent Activity API endpoint. This endpoint also supports keyset pagination through a `cursor` query parameter, which walks records in `id` order and avoids the depth-related slowdown of offset pagination. Start the walk at `cursor=0`, pass the `X-Next-Cursor` response header value as the `cursor` parameter on each subsequent request, and stop when a response carries no `X-Next-Cursor` header. A `cursor` request cannot be combined with `page`, `sort_column`, or `sort_direction`.
+Unlike the Chat and Call records, the Agent Activity Logs don't get updated and as such don't have an `updated_at` timestamp. You can use the `started_at` timestamp to specify the activity records that you want to retrieve when calling the Agent Activity API endpoint. The `started_at[from]` filter is inclusive, so the next response repeats the record at that timestamp. Deduplicate on record ID, or record the IDs already processed at that timestamp and skip them.
 
 To tail the Agent Activity API endpoint every 60 minutes, follow these steps:
 
   1. Make a request to the Agent Activity API endpoint (`/manager/api/v1/agent_activity_logs`), specifying the following query parameters:
 
      * `started_at[from]`. Specify that you want activity logs that were started on or after this time.
+
+     * `ended_at[from]`. Specify that you want activity logs that ended on or after this time. Use this instead of `started_at[from]` to catch sessions that started before your window but ended inside it.
+
+     * `page`. Include this parameter so the response returns pagination headers. Without `page`, the response is capped at the default page size of 100 records without returning the `Link`, `Total` or `Per-Page` headers.
 
      * `sort_column`. Specify the field to sort the records by.
 
@@ -213,7 +219,7 @@ To tail the Agent Activity API endpoint every 60 minutes, follow these steps:
 The following is an example Bash script that uses the `curl` command:
     
     # 1. Define your environment variables (usually set in your shell or .env file)
-    export API_HOSTNAME="ccaip-host.uc1.ccaiplatform.com/"
+    export API_HOSTNAME="ccaip-host.uc1.ccaiplatform.com"
     export API_USER="ccaip-host"
     export API_PASS="CCAI Platform API Key"
     
@@ -263,6 +269,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-21 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-21 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

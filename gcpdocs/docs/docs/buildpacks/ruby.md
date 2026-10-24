@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/buildpacks/ruby/
 title: Building a Ruby application \u00a0|\u00a0 Buildpacks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:44.023752+00:00
+fetched_at: 2026-10-24T08:20:26.562764+00:00
 ---
 
 # Building a Ruby application  |  Buildpacks  |  Google Cloud Documentation

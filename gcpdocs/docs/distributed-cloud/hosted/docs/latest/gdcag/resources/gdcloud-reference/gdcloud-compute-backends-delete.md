@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-compute-backends-delete/
 title: gdcloud compute backends delete \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:53:17.396877+00:00
+fetched_at: 2026-10-24T08:20:15.344904+00:00
 ---
 
 # gdcloud compute backends delete  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

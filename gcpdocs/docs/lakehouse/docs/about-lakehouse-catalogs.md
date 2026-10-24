@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/about-lakehouse-catalogs/
 title: About the Lakehouse runtime catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:33:15.411488+00:00
+fetched_at: 2026-10-24T08:23:17.264134+00:00
 ---
 
 # About the Lakehouse runtime catalog  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Send feedback
 
 The Lakehouse runtime catalog lets you centralize table metadata in a fully-managed, serverless metastore that serves as a single source of truth for your data in borderless Lakehouse. With centralized metadata, processing engines—including Apache Spark, Apache Flink, Apache Hive, and BigQuery—can share tables directly without duplicating files.
 
-When you configure a client endpoint such as the Apache Iceberg REST catalog, it acts as a management interface that connects query engines to the Lakehouse runtime catalog. The endpoint handles table metadata, and Cloud Storage stores the underlying metadata and data files.
+When you configure a client endpoint such as the Apache Iceberg REST catalog endpoint, it acts as a management interface that connects query engines to the Lakehouse runtime catalog. The endpoint handles table metadata, and Cloud Storage stores the underlying metadata and data files.
 
 As a core component of Lakehouse, the Lakehouse runtime catalog provides open API interoperability and supports analytics, streaming, and AI workloads when paired with BigQuery. For more information about these architectural benefits, see [What is borderless Lakehouse?](https://docs.cloud.google.com/lakehouse/docs/introduction)
 
@@ -155,6 +155,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

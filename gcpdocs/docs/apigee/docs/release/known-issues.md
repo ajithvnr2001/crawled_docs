@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/release/known-issues/
 title: Apigee known issues \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:46.860465+00:00
+fetched_at: 2026-10-24T10:34:26.076402+00:00
 ---
 
 # Apigee known issues  |  Google Cloud Documentation
@@ -133,6 +133,11 @@ See also:
   
 **Workaround:** After API proxy deployment, restart the apigee-runtime pods one by one so that the change is propagated correctly.   
 480997525 | Apigee 1-17-0-apigee-1 | FIXED in Apigee 1-17-0-apigee-2 |  **Proxy calls fail with`The URI contain illegal characters` error after Netty upgrade.** In Apigee version 1-17-0-apigee-1, a Netty upgrade to 4.1.129.Final introduced a regression. This can cause API proxy calls to fail with a `400` status code and the error message `The URI contain illegal characters`. This issue is tracked externally in [ netty/netty#16020](https://github.com/netty/netty/issues/16020).   
+511240460 | Upgrades from hybrid 1.15.x to hybrid 1.16.0 and later | **OPEN** (no fix planned) |  **Upgrading the operator from Apigee hybrid 1.15.x to 1.16.x restarts the runtime, synchronizer, MART, Envoy adapter, and migration pods in every environment.** Apigee hybrid 1.16 adds a volume mount to the pod template of these components. On the first operator upgrade from 1.15.x to 1.16.x, the runtime, synchronizer, MART, Envoy adapter, and migration pods restart once in every environment. This restart happens whether or not certificate rotation is enabled. Each restart is a rolling update, so each workload briefly runs extra (surge) pods. In a cluster with many environments, these surge pods all start at the same time. The mint task scheduler isn't restarted. It takes the change on its next scheduled run. The restart happens only once, on the upgrade from 1.15.x to 1.16.x. Later upgrades, such as from 1.16.x to 1.17.x, don't cause it. Later Apigee hybrid versions need the volume mount, so no fix is planned. **Workaround:** Before you upgrade the operator, make sure your cluster has capacity for surge pods for all environments at the same time, or upgrade during a low-traffic window. See:
+
+  * [ Upgrading Apigee hybrid to version 1.16: Install the Apigee hybrid 1.16 runtime](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/upgrade#install-runtime)
+
+  
 465834046 | hybrid 1.14.3, hybrid 1.15.1, and hybrid 1.16.0 and later for upgrades | FIXED in hybrid 1.14.3, hybrid 1.15.1, and hybrid 1.16.0 for fresh installs |  **cert-manager versions 1.18+ changed the default for the private key rotation policy from`Never` to `Always`. If the private key for `apigee-ca` is rotated it will impact traffic** **Note:** This only applies to upgraded Apigee hybrid clusters. The certificates in fresh installs of the hybrid versions 1.14.3+, 1.15.1+, and 1.16.0. already have the rotation policy set to `Never`. Newer versions of cert-manager (v1.18+) now automatically rotate the private keys. When this key is rotated for the apigee-ca certificate, it will cause an outage. **Workaround:** To avoid this issue, you can choose one of the following options:
 
   * Do not upgrade cert-manager to a version higher than 1.17.x.
@@ -880,6 +885,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

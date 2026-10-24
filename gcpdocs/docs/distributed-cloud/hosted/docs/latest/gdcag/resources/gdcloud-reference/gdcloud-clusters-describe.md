@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/gdcloud-reference/gdcloud-clusters-describe/
 title: gdcloud clusters describe \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:53:21.570982+00:00
+fetched_at: 2026-10-24T08:20:17.140404+00:00
 ---
 
 # gdcloud clusters describe  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

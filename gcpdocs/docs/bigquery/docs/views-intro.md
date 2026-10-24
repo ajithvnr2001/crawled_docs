@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/views-intro/
 title: Introduction to logical views \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:43.701114+00:00
+fetched_at: 2026-10-24T08:24:39.274148+00:00
 ---
 
 # Introduction to logical views  |  BigQuery  |  Google Cloud Documentation

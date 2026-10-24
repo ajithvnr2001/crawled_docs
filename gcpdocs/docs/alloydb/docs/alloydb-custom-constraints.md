@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/alloydb-custom-constraints/
 title: Use custom organization policies \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:42.426480+00:00
+fetched_at: 2026-10-24T11:25:50.325459+00:00
 ---
 
 # Use custom organization policies  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,30 +21,34 @@ Send feedback
 
 #  Use custom organization policies Stay organized with collections  Save and categorize content based on your preferences. 
 
-Google Cloud Organization Policy gives you centralized, programmatic control over your organization's resources. As the [organization policy administrator](https://docs.cloud.google.com/resource-manager/docs/organization-policy/using-constraints#add-org-policy-admin), you can define an organization policy, which is a set of restrictions called constraints that apply to Google Cloud resources and descendants of those resources in the [Google Cloud resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy). You can enforce organization policies at the organization, folder, or project level.
+Google Cloud Organization Policy Service gives you centralized, programmatic control over your organization's resources. As the [organization policy administrator](https://docs.cloud.google.com/resource-manager/docs/organization-policy/using-constraints#add-org-policy-admin), you can define an organization policy, which is a set of restrictions called constraints that apply to Google Cloud resources and descendants of those resources in the [Google Cloud resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy). You can enforce organization policies at the organization, folder, or project level.
 
 Organization Policy provides [predefined constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/org-policy-constraints) for various Google Cloud services. However, if you want more granular, customizable control over the specific fields that are restricted in your organization policies, you can also create custom organization policies.
 
-By implementing a custom organization policy you enforce consistent configurations and restrictions. This verifies that your AlloyDB for PostgreSQL clusters, instances, and backups adhere to security best practices and regulatory requirements.
+By implementing a custom organization policy, you enforce consistent configurations and restrictions. This enforcement helps ensure that your AlloyDB for PostgreSQL clusters, instances, and backups adhere to security best practices and regulatory requirements.
 
 If you attempt to create or update a cluster, instance, or backup while the custom constraint is enforced and noncompliant with the constraint, then the operation fails. Any project added to the organization or folder that uses a custom organization policy inherits the constraints of that policy.
 
 ## Policy inheritance
 
-By default, organization policies are inherited by the descendants of the resources on which you enforce the policy. For example, if you enforce a policy on a folder, Google Cloud enforces the policy on all projects in the folder. To learn more about this behavior and how to change it, refer to [Hierarchy evaluation rules](https://docs.cloud.google.com/resource-manager/docs/organization-policy/understanding-hierarchy#disallow_inheritance).
+By default, organization policies are inherited by the descendants of the resources on which you enforce the policy. For example, if you enforce a policy on a folder, Google Cloud enforces the policy on all projects in the folder. To learn more about this behavior and how to change it, see [Hierarchy evaluation rules](https://docs.cloud.google.com/resource-manager/docs/organization-policy/understanding-hierarchy#inheritance).
 
 ## Pricing
 
-The Organization Policy Service, including predefined and custom organization policies, is offered at no charge.
+Organization Policy, including predefined and custom organization policies, is offered at no charge.
 
 ## Limitations
 
-Like all organization policy constraints, policy changes don't apply retroactively to existing AlloyDB for PostgreSQL clusters, instances, and backups.
+Like all organization policy constraints, policy changes don't apply retroactively to existing AlloyDB clusters, instances, and backups.
 
-  * A new policy doesn't impact an existing cluster, instance, and backup configurations.
-  * An existing cluster, instance, and backup configuration remains valid, unless you change the cluster, instance, or backup configuration from a compliance to non-compliance state using the Google Cloud console, Google Cloud CLI, or RPC.
+  * A new policy doesn't impact existing cluster, instance, or backup configurations.
+
+  * An existing cluster, instance, or backup configuration remains valid, unless you change the cluster, instance, or backup configuration from a compliance to non-compliance state by using the Google Cloud console, Google Cloud CLI, or RPC.
+
   * A scheduled maintenance update doesn't cause a policy enforcement, because maintenance doesn't change the configuration of the cluster, instance, or backup.
-  * Backups created using the Continuous Backup and Recovery, and the Automated Backups features won't be constrained by the policies themselves.
+
+  * Backups created by using the continuous backup and recovery and the automated backups features aren't constrained by the policies themselves.
+
 
 
 
@@ -117,7 +121,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 To get the permissions that you need to manage organization policies, ask your administrator to grant you the following IAM roles: 
 
-  * [Organization policy administrator ](https://docs.cloud.google.com/iam/docs/roles-permissions/orgpolicy#orgpolicy.policyAdmin) (`roles/orgpolicy.policyAdmin`) on the organization resource
+  * [Organization Policy Administrator ](https://docs.cloud.google.com/iam/docs/roles-permissions/orgpolicy#orgpolicy.policyAdmin) (`roles/orgpolicy.policyAdmin`) on the organization resource
   * To create or update an AlloyDB cluster: [](https://docs.cloud.google.com/iam/docs/roles-permissions/alloydb#alloydb.admin)[AlloyDB Admin](https://docs.cloud.google.com/alloydb/docs/reference/iam-roles-permissions) (`roles/alloydb.admin`) on the project resource 
 
 
@@ -128,11 +132,11 @@ You might also be able to get the required permissions through [custom roles](ht
 
 ## Create a custom constraint
 
-A custom constraint is defined in a YAML file by the resources, methods, conditions, and actions that are supported by the service on which you are enforcing the organization policy. Conditions for your custom constraints are defined using [Common Expression Language (CEL)](https://github.com/google/cel-spec/blob/master/doc/intro.md). For more information about how to build conditions in custom constraints using CEL, see the CEL section of [Creating and managing custom constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#common_expression_language).
+A custom constraint is defined in a YAML file by the resources, methods, conditions, and actions that are supported by the service on which you are enforcing the organization policy. Conditions for your custom constraints are defined using [Common Expression Language (CEL)](https://github.com/google/cel-spec/blob/master/doc/intro.md). For more information about how to build conditions in custom constraints using CEL, see the CEL section of [Creating and managing custom constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#cel).
 
 Organization policies are defined by the values set for each constraint. An organization policy administrator can create custom constraints to restrict public IP configurations of AlloyDB at the project, folder, or organization level.
 
-You can create a custom constraint—for example, `customConstraints/custom.restrictPublicIP`, to limit public IP access on AlloyDB instances. This boolean constraint restricts configuring public IP on AlloyDB instances where this constraint is set. This constraint isn't retroactive. AlloyDB instances with existing public IP access still work even after this constraint is enforced.
+You can create a custom constraint—for example, `customConstraints/custom.restrictPublicIP`—to limit public IP access on AlloyDB instances. This boolean constraint restricts configuring public IP on AlloyDB instances where this constraint is set. This constraint isn't retroactive. AlloyDB instances with existing public IP access still work even after this constraint is enforced.
 
 By default, public IP access to AlloyDB instances is allowed.
 
@@ -155,11 +159,11 @@ Replace the following:
 
   * `ORGANIZATION_ID`: your organization ID, such as `123456789`.
 
-  * `CONSTRAINT_NAME`: the name you want for your new custom constraint. A custom constraint must start with `custom.`, and can only include uppercase letters, lowercase letters, or numbers, for example, custom.restrictPublicIP. The maximum length of this field is 70 characters, not counting the prefix, for example, `organizations/123456789/customConstraints/custom`.
+  * `CONSTRAINT_NAME`: the name you want for your new custom constraint. A custom constraint must start with `custom.`, and can only include uppercase letters, lowercase letters, or numbers, for example, `custom.restrictPublicIP`. The maximum length of this field is 70 characters, not counting the prefix, for example, `organizations/123456789/customConstraints/custom`.
 
-  * `RESOURCE_NAME`: the name (not the URI) of the AlloyDB REST resource containing the object and field you want to restrict. For example, Instance.
+  * `RESOURCE_NAME`: the name (not the URI) of the AlloyDB REST resource containing the object and field you want to restrict. For example, `Instance`.
 
-  * `CONDITION`: a [CEL condition](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#common_expression_language) that is written against a representation of a supported service resource. This field has a maximum length of 1000 characters. See Supported custom constraint for more information about the resources available to write conditions against. For example, "resource.networkConfig.enablePublicIp == true".
+  * `CONDITION`: a [CEL condition](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#cel) that is written against a representation of a supported service resource. This field has a maximum length of 1000 characters. See Supported custom constraints and operations for more information about the resources available to write conditions against. For example, `"resource.networkConfig.enablePublicIp == true"`.
 
   * `ACTION`: the action to take if the `condition` is met. This can be either `ALLOW` or `DENY`.
 
@@ -170,7 +174,7 @@ Replace the following:
 
 
 
-For more information about how to create a custom constraint, see [Defining custom constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#defining_custom_constraints).
+For more information about how to create a custom constraint, see [Defining custom constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#create-custom-constraint).
 
 ## Set up a custom constraint
 
@@ -316,7 +320,15 @@ Replace `POLICY_PATH` with the full path to your organization policy YAML file. 
 
 ## Supported custom constraints and operations
 
-You can enforce custom constraints on AlloyDB instance, cluster, and backup resources. All v1 fields on the AlloyDB [instance](https://docs.cloud.google.com/alloydb/docs/reference/rest/v1/projects.locations.clusters.instances#resource:-instance), [cluster](https://docs.cloud.google.com/alloydb/docs/reference/rest/v1/projects.locations.clusters#resource:-cluster), and [backup](https://docs.cloud.google.com/alloydb/docs/reference/rest/v1/projects.locations.backups#resource:-backup) resources are supported for the custom constraint. You can enforce custom constraints during the following AlloyDB operations:
+You can enforce custom constraints on AlloyDB instance, cluster, and backup resources. All v1 fields on the AlloyDB [instance](https://docs.cloud.google.com/alloydb/docs/reference/rest/v1/projects.locations.clusters.instances#Instance), [cluster](https://docs.cloud.google.com/alloydb/docs/reference/rest/v1/projects.locations.clusters#Cluster), and [backup](https://docs.cloud.google.com/alloydb/docs/reference/rest/v1/projects.locations.backups#Backup) resources are supported for custom constraints:
+
+Supported resource type (`resourceTypes`) | Supported method types (`methodTypes`) | Supported fields reference  
+---|---|---  
+`alloydb.googleapis.com/Instance` | `CREATE`, `UPDATE` | [`Instance` resource fields](https://docs.cloud.google.com/alloydb/docs/reference/rest/v1/projects.locations.clusters.instances#Instance)  
+`alloydb.googleapis.com/Cluster` | `CREATE`, `UPDATE`, `GOVERN_TAGS` | [`Cluster` resource fields](https://docs.cloud.google.com/alloydb/docs/reference/rest/v1/projects.locations.clusters#Cluster)  
+`alloydb.googleapis.com/Backup` | `CREATE`, `GOVERN_TAGS` | [`Backup` resource fields](https://docs.cloud.google.com/alloydb/docs/reference/rest/v1/projects.locations.backups#Backup)  
+  
+You can enforce custom constraints during the following AlloyDB operations:
 
   * Instance creation
   * Instance update
@@ -329,11 +341,17 @@ You can enforce custom constraints on AlloyDB instance, cluster, and backup reso
 This section provides examples of the following common custom constraints:
 
   * Restrict public IP access using organization policies
-  * Limit the CIDR range of Authorized Networks
-  * Limit the number of Authorized Networks
+
+  * Limit the CIDR range of authorized networks
+
+  * Limit the number of authorized networks
+
   * Enforce mandatory tags using organization policies
+
   * Enforce continuous backups for all clusters
+
   * Restrict on-demand backup for specific clusters
+
 
 
 
@@ -350,6 +368,8 @@ This section provides examples of the following common custom constraints:
         actionType: DENY
         displayName: Restrict public IP access on AlloyDB instances
         description: Prevent users from enabling public IP on instance creation and update.
+
+Replace `ORGANIZATION_ID` with the organization ID.
 
 Supported operations:
 
@@ -372,7 +392,7 @@ Supported operations:
         displayName: "Restrict large CIDR ranges for AlloyDB Authorized Networks"
         description: "Prevents AlloyDB instances from being created or updated with an authorized network CIDR range larger than /n (i.e., a prefix length less than n, e.g., 16)."
 
-Replace ORGANIZATION_ID with the organization ID.
+Replace `ORGANIZATION_ID` with the organization ID.
 
 Supported operations:
 
@@ -395,7 +415,7 @@ Supported operations:
         displayName: "Limit the number of AlloyDB Authorized Networks"
         description: "Prevents AlloyDB instances from being created or updated with more than a specified number of Authorized Networks."
 
-Replace ORGANIZATION_ID with the organization ID.
+Replace `ORGANIZATION_ID` with the organization ID.
 
 Supported operations:
 
@@ -411,16 +431,25 @@ Supported operations:
         resourceTypes:
         - alloydb.googleapis.com/Cluster
         methodTypes:
+        - GOVERN_TAGS
+        condition: "resource.hasDirectTagKey('TAG_NAME')"
         actionType: ALLOW
         displayName: Enforce mandatory tags on AlloyDB cluster resource.
-        description: Prevent users from cluster creation if mandatory tags are not provided.
+        description: Prevent users from creating a cluster if mandatory tags aren't provided.
 
-Replace TAG_NAME with the tag name.
+Replace the following:
 
-Supported operations: Supported operations:
+  * `ORGANIZATION_ID`: the organization ID.
+
+  * `TAG_NAME`: the tag name.
+
+
+
+
+Supported operations:
 
   * Cluster creation
-  * Backup creation
+  * Backup creation (when you include `alloydb.googleapis.com/Backup` in `resourceTypes`)
 
 
 
@@ -437,6 +466,8 @@ Supported operations: Supported operations:
         actionType: DENY
         displayName: Enforce continuous backup configuration on AlloyDB clusters
         description: Prevent users from disabling continuous backup configuration on cluster creation and update.
+
+Replace `ORGANIZATION_ID` with the organization ID.
 
 Supported operations:
 
@@ -458,7 +489,14 @@ Supported operations:
         displayName: Restrict taking on-demand backup of certain clusters
         description: Prevent users from taking on-demand backups for certain clusters.
 
-Replace CLUSTER_NAME with the cluster name.
+Replace the following:
+
+  * `ORGANIZATION_ID`: the organization ID.
+
+  * `CLUSTER_NAME`: the cluster name.
+
+
+
 
 Supported operation:
 

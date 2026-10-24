@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-set-up-project/
 title: Set up a project for Vertex AI \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:22.109510+00:00
+fetched_at: 2026-10-24T08:20:22.287819+00:00
 ---
 
 # Set up a project for Vertex AI  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/resources/gdcloud-reference/gdcloud-dataproc-application-environments/
 title: gdcloud dataproc application-environments \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:18.151592+00:00
+fetched_at: 2026-10-24T08:20:56.051130+00:00
 ---
 
 # gdcloud dataproc application-environments  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

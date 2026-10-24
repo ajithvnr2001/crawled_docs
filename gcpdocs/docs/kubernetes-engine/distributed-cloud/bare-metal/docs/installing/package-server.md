@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/package-server/
 title: Use a private package repository server \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:14.825041+00:00
+fetched_at: 2026-10-24T11:18:53.902017+00:00
 ---
 
 # Use a private package repository server  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Use a private package repository server Stay organized with collections  Save and categorize content based on your preferences. 
 
-Google Distributed Cloud supports using your own private package repository server. Use this feature to skip adding package repositories to each bare metal machine in your deployment. To ensure Google Distributed Cloud has all the required packages available, this page lists all the packages and dependencies you need to prepare in your private package repository server.
+Google Distributed Cloud lets you use a private package repository server to skip adding package repositories to each bare metal machine in your deployment. To ensure Google Distributed Cloud has all the required packages available, this document lists the packages and dependencies you need to prepare in your private repository server.
 
 ## Before you begin
 

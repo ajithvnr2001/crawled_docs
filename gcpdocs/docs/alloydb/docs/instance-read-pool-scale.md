@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/instance-read-pool-scale/
 title: Scale an instance \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:59.824402+00:00
+fetched_at: 2026-10-24T11:25:09.912082+00:00
 ---
 
 # Scale an instance  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -51,7 +51,9 @@ This section describes manual methods for scaling your AlloyDB instances. For ex
 
 ### Scale an instance's machine type
 
-You can vertically scale both primary and read pool instances by changing the instance's machine type, which modifies its vCPU and RAM.
+You can vertically scale a primary or read pool instance by changing the instance's machine type, which modifies its vCPU count and memory. Changing the machine type lets you resize the instance to a different vCPU count within the same machine series or switch it to a different machine series. Primary instances and read pool instances in the same cluster can use different machine series. All nodes within a single read pool instance use the same machine series and machine type. For more information, see [Machine series configuration](https://docs.cloud.google.com/alloydb/docs/choose-machine-type#machine-series-configuration).
+
+When you change the machine type of a read pool instance, AlloyDB creates replacement VMs with the target machine type. After the replacement VMs are ready, AlloyDB replaces the existing VMs while keeping the read pool instance's IP address unchanged. If creating the replacement VMs fails because of resource unavailability, such as a stockout, AlloyDB cancels the operation with an error and leaves the existing read pool VMs running without disruption.
 
 ### Console
 
@@ -88,7 +90,7 @@ For more information about using the C4A Axion-based machine series, including t
 
 To use the gcloud CLI, you can [install and initialize](https://docs.cloud.google.com/sdk/docs/install-sdk) the Google Cloud CLI, or you can use [Cloud Shell](https://docs.cloud.google.com/shell/docs/using-cloud-shell).
 
-Use the [`gcloud alloydb instances update`](https://docs.cloud.google.com/sdk/gcloud/reference/alloydb/instances/update) command to change the machine type of the primary instance.
+Use the [`gcloud alloydb instances update`](https://docs.cloud.google.com/sdk/gcloud/reference/alloydb/instances/update) command to change the machine type of a primary or read pool instance.
     
     
     gcloud alloydb instances update INSTANCE_ID \
@@ -100,9 +102,9 @@ Use the [`gcloud alloydb instances update`](https://docs.cloud.google.com/sdk/gc
 
 Replace the following:
 
-  * `INSTANCE_ID`: The ID of the instance that you are updating.
+  * `INSTANCE_ID`: the ID of the instance that you are updating.
 
-  * `CPU_COUNT`: The number of N2 vCPUs that you want for the instance. N2 is the default. Valid values include the following: 
+  * `CPU_COUNT`: the number of vCPUs that you want for the instance. You must specify either the `--cpu-count` flag, the `--machine-type` flag, or both. If you specify only the `--cpu-count` flag, the instance uses the N2 machine series with one of the following valid values: 
 
     * `2`: 2 vCPUs, 16 GB RAM
     * `4`: 4 vCPUs, 32 GB RAM
@@ -112,16 +114,15 @@ Replace the following:
     * `64`: 64 vCPUs, 512 GB RAM
     * `96`: 96 vCPUs, 768 GB RAM
     * `128`: 128 vCPUs, 864 GB RAM
-  * `MACHINE_TYPE`: Optional. Select from a list of supported machine-types such as `n2-highmem-4`, `c4-highmem-4-lssd`, or `c4a-highmem-4-lssd`. For more information, see [Choose an AlloyDB machine type.](https://docs.cloud.google.com/alloydb/docs/choose-machine-type)
+  * `MACHINE_TYPE`: a supported machine type for the instance, such as `n2-highmem-4`, `c4-highmem-4-lssd`, `c4a-highmem-4-lssd`, or `z3-highmem-14-standardlssd`. For more information about supported machine types, see [Choose an AlloyDB machine type](https://docs.cloud.google.com/alloydb/docs/choose-machine-type).
 
-When you use `MACHINE_TYPE` and `CPU_COUNT` together, the values in `CPU_COUNT` and `MACHINE_TYPE` must match, otherwise you get an error.
+If you specify both the `--machine-type` and `--cpu-count` flags, the vCPU counts must match, or the command returns an error.
 
-**Note:** When you use N2 deployments, you can choose to use only the `CPU_COUNT` parameter.
-  * `REGION_ID`: The region where the instance is placed.
+  * `REGION_ID`: the region of the instance.
 
-  * `CLUSTER_ID`: The ID of the cluster where the instance is placed.
+  * `CLUSTER_ID`: the ID of the cluster that contains the instance.
 
-  * `PROJECT_ID`: The ID of the project where the cluster is placed.
+  * `PROJECT_ID`: the ID of the project that contains the cluster.
 
 
 

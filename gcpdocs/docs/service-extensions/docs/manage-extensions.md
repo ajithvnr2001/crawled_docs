@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-extensions/docs/manage-extensions/
 title: Manage extensions \u00a0|\u00a0 Service Extensions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:34:22.531804+00:00
+fetched_at: 2026-10-24T11:25:14.201458+00:00
 ---
 
 # Manage extensions  |  Service Extensions  |  Google Cloud Documentation
@@ -91,6 +91,17 @@ Replace `LOCATION` with the location of the extension resource.
 
 The following high-level information is provided about each extension: the name, the load-balancing scheme, and the last modified date.
 
+### Media CDN edge extensions
+
+To list the Media CDN edge extensions in the current project, use the `gcloud beta service-extensions cdn-edge-extensions list` command:
+    
+    
+    gcloud beta service-extensions cdn-edge-extensions list \
+        --location=global
+    
+
+The output lists the extension ID and the date and time when the extension was last modified. To view the target `EdgeCacheService` associated with an extension, see the View the details of an extension section.
+
 ### Route extensions
 
 To list the route extensions in the current project, use the [`gcloud service-extensions lb-route-extensions list` command](https://docs.cloud.google.com/sdk/gcloud/reference/service-extensions/lb-route-extensions/list).
@@ -172,6 +183,17 @@ Replace the following:
 
 
 
+### Media CDN edge extensions
+
+To view the details of a Media CDN edge extension, use the `gcloud beta service-extensions cdn-edge-extensions describe` command:
+    
+    
+    gcloud beta service-extensions cdn-edge-extensions describe EXTENSION_ID \
+        --location=global
+    
+
+Replace `EXTENSION_ID` with the ID or fully qualified name of the Media CDN edge extension.
+
 ### Route extensions
 
 To view the details of a route extension, use the [`gcloud service-extensions lb-route-extensions describe` command](https://docs.cloud.google.com/sdk/gcloud/reference/service-extensions/lb-route-extensions/describe).
@@ -220,7 +242,7 @@ On the **Edit service extensions** page, the basic information about the extensi
 
   3. Make changes as required.
 
-For information about most fields, see the pages on how to configure [route extensions](https://docs.cloud.google.com/service-extensions/docs/configure-route-extensions) and [traffic extensions](https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions).
+For information about most fields, see the pages on how to configure [edge extensions](https://docs.cloud.google.com/service-extensions/docs/configure-edge-extensions), [route extensions](https://docs.cloud.google.com/service-extensions/docs/configure-route-extensions), [authorization extensions](https://docs.cloud.google.com/service-extensions/docs/configure-authorization-extensions), [traffic extensions](https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions), and [Media CDN edge extensions](https://docs.cloud.google.com/service-extensions/docs/configure-media-cdn-edge-extensions).
 
   4. Click **Update extension**.
 
@@ -229,7 +251,7 @@ For information about most fields, see the pages on how to configure [route exte
 
 ### gcloud
 
-To edit an extension, use the same steps that you used to configure it. For more information, see the pages about how to configure [route extensions](https://docs.cloud.google.com/service-extensions/docs/configure-route-extensions), [authorization extensions](https://docs.cloud.google.com/service-extensions/docs/configure-authorization-extensions), and [traffic extensions](https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions).
+To edit an extension, use the same steps that you used to configure it. For more information, see the pages about how to configure [edge extensions](https://docs.cloud.google.com/service-extensions/docs/configure-edge-extensions), [route extensions](https://docs.cloud.google.com/service-extensions/docs/configure-route-extensions), [authorization extensions](https://docs.cloud.google.com/service-extensions/docs/configure-authorization-extensions), [traffic extensions](https://docs.cloud.google.com/service-extensions/docs/configure-traffic-extensions), and [Media CDN edge extensions](https://docs.cloud.google.com/service-extensions/docs/configure-media-cdn-edge-extensions).
 
 **Note:** You can't modify the extension name or the load balancing scheme of an existing extension.
 
@@ -284,6 +306,17 @@ Replace the following:
 
 
 
+### Media CDN edge extensions
+
+To delete a Media CDN edge extension, use the `gcloud beta service-extensions cdn-edge-extensions delete` command:
+    
+    
+    gcloud beta service-extensions cdn-edge-extensions delete EXTENSION_ID \
+      --location=global
+    
+
+Replace `EXTENSION_ID` with the ID or fully qualified name of the Media CDN edge extension.
+
 ### Route extensions
 
 To delete a route extension, use the [`gcloud service-extensions lb-route-extensions delete` command](https://docs.cloud.google.com/sdk/gcloud/reference/service-extensions/lb-route-extensions/delete).
@@ -326,6 +359,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

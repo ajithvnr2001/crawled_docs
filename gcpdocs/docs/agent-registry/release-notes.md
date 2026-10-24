@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/release-notes/
 title: Agent Registry release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:19.734838+00:00
+fetched_at: 2026-10-24T09:24:34.134299+00:00
 ---
 
 # Agent Registry release notes  |  Google Cloud Documentation

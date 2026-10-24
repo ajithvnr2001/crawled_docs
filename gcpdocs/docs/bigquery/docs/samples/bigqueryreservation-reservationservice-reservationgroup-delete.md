@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigqueryreservation-reservationservice-reservationgroup-delete/
 title: Delete a reservation group \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:53:59.496553+00:00
+fetched_at: 2026-10-24T08:28:11.502897+00:00
 ---
 
 # Delete a reservation group  |  BigQuery  |  Google Cloud Documentation

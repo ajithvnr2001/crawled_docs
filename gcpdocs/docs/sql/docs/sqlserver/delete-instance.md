@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/delete-instance/
 title: Delete instances \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:11:54.960959+00:00
+fetched_at: 2026-10-24T11:25:01.646685+00:00
 ---
 
 # Delete instances  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -24,7 +24,9 @@ Send feedback
 
 [MySQL](https://docs.cloud.google.com/sql/docs/mysql/delete-instance "View this page for the MySQL database engine") | [PostgreSQL](https://docs.cloud.google.com/sql/docs/postgres/delete-instance "View this page for the PostgreSQL database engine") | SQL Server
 
-This page describes how to delete Cloud SQL instances.
+Deleting a Cloud SQL instance lets you permanently remove unneeded databases and stop incurring compute and storage charges. Because deletion permanently erases instance data and backups, you can [take a final backup](https://docs.cloud.google.com/sql/docs/sqlserver/backup-recovery/backups#final-backups) or [export data to Cloud Storage](https://docs.cloud.google.com/sql/docs/sqlserver/import-export) beforehand to preserve your information. Before you delete an instance, you must first disable [deletion protection](https://docs.cloud.google.com/sql/docs/sqlserver/deletion-protection) if it is enabled.
+
+## Before you begin
 
 **Warning:** All data on an instance, including backups, is permanently lost when that instance is deleted. To preserve your data, [export it to Cloud Storage](https://docs.cloud.google.com/sql/docs/sqlserver/import-export) before you delete it. The Cloud SQL Admin role includes the permission to delete the instance. To prevent accidental deletion, grant this role only as needed. Additionally, consider [deletion protection](https://docs.cloud.google.com/sql/docs/sqlserver/deletion-protection).
 
@@ -258,6 +260,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

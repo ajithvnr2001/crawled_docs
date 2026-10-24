@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/use-bindplane-agent/
 title: Deploy the Bindplane agent for collection \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:41:46.966482+00:00
+fetched_at: 2026-10-24T08:51:45.618099+00:00
 ---
 
 # Deploy the Bindplane agent for collection  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-extensions/docs/overview/
 title: Service Extensions overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:33:28.022055+00:00
+fetched_at: 2026-10-24T11:25:13.037864+00:00
 ---
 
 # Service Extensions overview  |  Google Cloud Documentation
@@ -63,23 +63,33 @@ Service Extensions helps you use prepublished plugins for your custom needs by a
 
 Use plugins with Cloud Load Balancing in the following sample scenarios:
 
-**Exception handling**
-    Redirect clients to a custom error page for certain response classes.
-**Custom logging**
-    Log user-defined headers or custom data into Cloud Logging.
-**Header addition**
-    Create new headers relevant for your applications or specific customers.
-    Insert new headers for request and response.
-**Header manipulation**
-    Rewrite existing request and response headers or override client headers on their way to the backend or while responding to a client.
-**Security**
-    Write custom security policies based on client request or response headers and make enforcement decisions within your plugin.
-**Script injection**
-    Rewrite HTML from the origin for Google reCAPTCHA integration or Google Analytics tagging.
-**Influencing Cloud CDN**
-    Manipulate HTTP request characteristics to influence custom caching dynamics and determine which content gets served from the Cloud CDN cache.
-**Routing**
-    Rewrite HTTP requests to influence backend service selection, allowing for more advanced routing decisions at the edge.
+  * **Exception handling**
+
+    * Redirect clients to a custom error page for certain response classes.
+  * **Custom logging**
+
+    * Log user-defined headers or custom data into Cloud Logging.
+  * **Header addition**
+
+    * Create new headers relevant for your applications or specific customers.
+    * Insert new headers for request and response.
+  * **Header manipulation**
+
+    * Rewrite existing request and response headers or override client headers on their way to the backend or while responding to a client.
+  * **Security**
+
+    * Write custom security policies based on client request or response headers and make enforcement decisions within your plugin.
+  * **Script injection**
+
+    * Rewrite HTML from the origin for Google reCAPTCHA integration or Google Analytics tagging.
+  * **Influencing Cloud CDN**
+
+    * Manipulate HTTP request characteristics to influence custom caching dynamics and determine which content gets served from the Cloud CDN cache.
+  * **Routing**
+
+    * Rewrite HTTP requests to influence backend service selection, allowing for more advanced routing decisions at the edge.
+
+
 
 ### Callouts to user-managed services
 
@@ -95,24 +105,30 @@ Use callouts with Cloud Load Balancing for the following:
 
 Callouts are highly flexible and support a variety of customizations. Some examples of everyday use cases follow:
 
-**Custom routing and traffic management**
-    Perform HTTP or URL redirects.
-    Modify request attributes, such as headers or URLs, based on application-specific logic to force the URL map to choose a different backend service than originally targeted by the request.
-    Add, remove, or modify headers or rewrite URLs based on complex application-specific logic before forwarding traffic to the backend service.
-    Implement custom session affinity or stickiness based on the specific attributes of a request.
-    In [Preview](https://cloud.google.com/products#product-launch-stages), implement [dynamic forwarding](https://docs.cloud.google.com/service-extensions/docs/lb-advanced-use-cases#dynamic-forwarding), which maps tenants to endpoints programmatically.
-**Security and logging**
-    Log custom information from payloads or custom headers to Logging or a custom-made logging solution.
-    Use security tools or services, including custom user authentication and authorization support.
-    Validate arbitrary headers and query parameters such as device IDs.
-    Log requests and responses to third-party logging solutions.
-    Implement custom user authentication and authorization.
-**Partner integration**
-    Integrate security products, such as API Gateway security, BOT management, or Web Application Firewall (WAF).
-**Authorization**
-    Enrich the authorization decision-making process or further constrain the authorization decisions from Google-provided built-in authorization engines.
-    Mix authorization decisions from multiple authorization systems.
-    Seamlessly integrate Google authorization engines with broader authorization ecosystems and infrastructures, including external policy engines.
+  * **Custom routing and traffic management**
+
+    * Perform HTTP or URL redirects.
+    * Modify request attributes, such as headers or URLs, based on application-specific logic to force the URL map to choose a different backend service than originally targeted by the request.
+    * Add, remove, or modify headers or rewrite URLs based on complex application-specific logic before forwarding traffic to the backend service.
+    * Implement custom session affinity or stickiness based on the specific attributes of a request.
+    * In [Preview](https://cloud.google.com/products#product-launch-stages), implement [dynamic forwarding](https://docs.cloud.google.com/service-extensions/docs/lb-advanced-use-cases#dynamic-forwarding), which maps tenants to endpoints programmatically.
+  * **Security and logging**
+
+    * Log custom information from payloads or custom headers to Logging or a custom-made logging solution.
+    * Use security tools or services, including custom user authentication and authorization support.
+    * Validate arbitrary headers and query parameters such as device IDs.
+    * Log requests and responses to third-party logging solutions.
+    * Implement custom user authentication and authorization.
+  * **Partner integration**
+
+    * Integrate security products, such as API Gateway security, BOT management, or Web Application Firewall (WAF).
+  * **Authorization**
+
+    * Enrich the authorization decision-making process or further constrain the authorization decisions from Google-provided built-in authorization engines.
+    * Mix authorization decisions from multiple authorization systems.
+    * Seamlessly integrate Google authorization engines with broader authorization ecosystems and infrastructures, including external policy engines.
+
+
 
 For more information, see [Cloud Load Balancing and Cloud CDN extensions overview](https://docs.cloud.google.com/service-extensions/docs/lb-extensions-overview).
 
@@ -142,28 +158,38 @@ This product or feature is subject to the "Pre-GA Offerings Terms" in the Genera
 
 For more information, see [Media CDN extensions overview](https://docs.cloud.google.com/service-extensions/docs/media-cdn-extensions-overview).
 
-### Plugins for Media CDN
+### Edge extensions for Media CDN
 
-Service Extensions helps you use prepublished plugins for your custom needs by adding them in the Media CDN processing path.
+Service Extensions lets you use edge extensions (`CdnEdgeExtension`) to attach WebAssembly (Wasm) plugins directly to Media CDN Edge Cache services (`EdgeCacheService`). 
 
-Some key use cases where you can use plugins with Media CDN follow:
+You can use these extensions to inspect and modify HTTP request and response headers directly in the request and response processing paths. For more information, see [How Media CDN edge extensions work](https://docs.cloud.google.com/service-extensions/docs/media-cdn-extensions-overview#how-media-cdn-plugins-work) in _Media CDN extensions overview_.
 
-**Customization**
-    Rewrite request URLs.
-    Normalize header values to improve cache performance.
-**Security and logging**
-    During live events, block users with pirated tokens.
-    Support custom user authentication and authorization.
-    Translate and implement custom URL signing.
-    Customize cache keys, application-specific headers, or device types.
-    Log custom variables to Cloud Logging.
-**Targeting and monetization**
-    Improve conversions through A-B testing.
-    Implement custom ad targeting.
-    Offer trial usage models at no extra charge.
-**Partner integration**
-    Implement video watermarking.
-    Optimize videos and images.
+Here are a few key use cases that show how you can use edge extensions with Media CDN:
+
+  * **Customization**
+
+    * Rewrite request URLs.
+    * Normalize header values to improve cache performance.
+    * Set request headers that match Media CDN route rules for dynamic route selection or origin picking.
+    * Customize response headers to meet the requirements of your applications or end users.
+  * **Security and logging**
+
+    * During live events, block users with pirated tokens.
+    * Support custom user authentication and authorization.
+    * Translate and implement custom URL signing.
+    * Customize cache keys, application-specific headers, or device types.
+    * Log custom variables to Cloud Logging.
+  * **Targeting and monetization**
+
+    * Improve conversions through A-B testing.
+    * Implement custom ad targeting.
+    * Offer trial usage models at no extra charge.
+  * **Partner integration**
+
+    * Implement video watermarking.
+    * Optimize videos and images.
+
+
 
 ## Secure Web Proxy extensions
 
@@ -181,14 +207,18 @@ Service Extensions helps you use callouts to insert custom services directly int
 
 Some key use cases where you can use callouts with Secure Web Proxy follow:
 
-**Security**
-    Delegate authorization decisions to configured policy engines or agentic applications.
-    Integrate your outbound data transfer and AI agent flows with specialized security providers.
-    Implement custom authentication or authorization solutions.
-**Customization**
-    Inspect, modify, or block traffic before it continues to its destination.
-    Dynamically add HTTP headers.
-    Enforce bespoke business logic.
+  * **Security**
+
+    * Delegate authorization decisions to configured policy engines or agentic applications.
+    * Integrate your outbound data transfer and AI agent flows with specialized security providers.
+    * Implement custom authentication or authorization solutions.
+  * **Customization**
+
+    * Inspect, modify, or block traffic before it continues to its destination.
+    * Dynamically add HTTP headers.
+    * Enforce bespoke business logic.
+
+
 
 ## Global Front End
 
@@ -206,6 +236,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/search-lineage-streaming-api/
 title: Search multi-region lineage using server-side automation \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:59.429034+00:00
+fetched_at: 2026-10-24T08:34:36.297464+00:00
 ---
 
 # Search multi-region lineage using server-side automation  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -27,27 +27,21 @@ Send feedback
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This document describes how to look up multi-level, cross-regional data lineage by using the `searchLineageStreaming` API.
-
-The [`searchLineageStreaming`](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rest/v1/projects.locations/searchLineageStreaming) API performs a breadth-first search in a specified direction (upstream or downstream) starting from a defined set of root entities, and returns a unified lineage graph as a real-time streaming response.
-
-Unlike standard lineage lookup APIs that might time out on massive multi-project graphs, `searchLineageStreaming` delivers real-time, chunked responses. Use this API when building tools that need to traverse broad, deep, or cross-regional data architectures without request timeouts.
-
-For more information, see [About multi-region lineage search](https://docs.cloud.google.com/knowledge-catalog/docs/multi-region-lineage-overview).
+The [`searchLineageStreaming`](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rest/v1/projects.locations/searchLineageStreaming) API lets you look up multi-level, cross-regional data lineage and receive a unified graph as a real-time stream. You can build tools that traverse broad, deep, or multi-project data architectures without request timeouts. For more information, see [About multi-region lineage search](https://docs.cloud.google.com/knowledge-catalog/docs/multi-region-lineage-overview).
 
 ## Key capabilities
 
 The `searchLineageStreaming` API includes the following capabilities:
 
-  * **Breadth-first search** : Traverses the lineage graph layer by layer, accurately calculating the depth of each connected asset.
+  * **Breadth-first search** : Traverses the lineage graph layer by layer upstream or downstream from a defined set of root entities, accurately calculating the depth of each connected asset.
 
-  * **Streaming response** : Returns subgraphs and lineage links as they are discovered by the backend system. This is highly efficient for broad or deep lineage graphs and prevents request timeouts.
+  * **Streaming response** : Delivers real-time, chunked responses containing subgraphs and lineage links as the backend system discovers them. Unlike standard lineage lookup APIs that might time out on large multi-project graphs, streaming prevents request timeouts across broad or deep graphs.
 
   * **Multi-location and multi-project traversal** : Although you specify only one billing project in the request path, the API automatically discovers and traverses lineage links across multiple Google Cloud projects and geographical locations, provided you have the required permissions.
 
   * **Fine-grained column-level lineage** : Supports searching for column-level dependencies between assets.
 
-  * **Wildcard lookups** : Lets you to retrieve all column-level lineage for a specific entity by suffixing the fully qualified name (FQN) with `*`.
+  * **Wildcard lookups** : Lets you retrieve all column-level lineage for a specific entity by suffixing the fully qualified name (FQN) with `*`.
 
   * **Pipeline insights** : Optionally retrieves metadata about the transformation pipelines (processes) that created the lineage links.
 
@@ -1116,6 +1110,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/access-control/
 title: Roles and permissions \u00a0|\u00a0 Network Connectivity Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:55:35.121139+00:00
+fetched_at: 2026-10-24T08:46:23.352999+00:00
 ---
 
 # Roles and permissions  |  Network Connectivity Center  |  Google Cloud Documentation

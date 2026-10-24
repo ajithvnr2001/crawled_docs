@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-admin-client-create/
 title: Create a new Datastore admin client \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:53:53.470444+00:00
+fetched_at: 2026-10-24T08:24:41.331939+00:00
 ---
 
 # Create a new Datastore admin client  |  Firestore in Datastore mode  |  Google Cloud Documentation

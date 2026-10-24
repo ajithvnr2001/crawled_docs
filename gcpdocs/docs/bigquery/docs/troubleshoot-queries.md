@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/troubleshoot-queries/
 title: Troubleshoot query issues \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:49:09.171129+00:00
+fetched_at: 2026-10-24T11:25:05.852528+00:00
 ---
 
 # Troubleshoot query issues  |  BigQuery  |  Google Cloud Documentation
@@ -95,7 +95,7 @@ If the query references any [materialized views](https://docs.cloud.google.com/b
 
 #### Metadata caching statistics
 
-For queries that involve Amazon S3 BigLake tables or Cloud Storage BigLake tables with metadata caching enabled, compare the output of the [`MetadataCacheStatistics`](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/Job#metadatacachestatistics) to check whether there is a difference in metadata cache usage between the slow and fast query and corresponding reasons. For example, the metadata cache might be outside the table's `maxStaleness` window.
+For queries that involve Amazon S3 BigLake tables or Cloud Storage BigLake tables with metadata caching enabled, compare the output of the [`MetadataCacheStatistics`](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/Job#metadatacachestatistics) to check whether there is a difference in metadata cache usage between the slow and fast query and corresponding reasons. For example, the metadata cache might be outside the `maxStaleness` time interval configured for the table.
 
 #### Comparing BigQuery BI Engine statistics
 
@@ -1031,6 +1031,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

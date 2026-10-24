@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/v3/metric-model/
 title: Components of the metric model \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:59:42.870798+00:00
+fetched_at: 2026-10-24T11:25:12.540496+00:00
 ---
 
 # Components of the metric model  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -21,30 +21,9 @@ Send feedback
 
 #  Components of the metric model Stay organized with collections  Save and categorize content based on your preferences. 
 
-Cloud Monitoring's model for monitoring data consists of three primary concepts:
+Understanding how monitored-resource types, metric types, labels, and time series work together in Cloud Monitoring helps you query data, build charts and alerts, and design custom metrics. You apply these concepts when you inspect metrics in [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-explorer), configure [alerting policies](https://docs.cloud.google.com/monitoring/alerts), [retrieve time-series data](https://docs.cloud.google.com/monitoring/custom-metrics/reading-metrics) with the Cloud Monitoring API, or create [user-defined metrics](https://docs.cloud.google.com/monitoring/custom-metrics).
 
-  * Monitored-resource types
-  * Metric types
-  * Time series
-
-
-
-The document [The metric model](https://docs.cloud.google.com/monitoring/api/v3/metrics) describes these Cloud Monitoring concepts in general terms. If these concepts are new to you, read that page first.
-
-This page describes metric types, monitored resources, and time series, along with some related concepts, in more detail. These concepts underlie all Monitoring metrics.
-
-You should understand the information on this page if you want to do any of the following: 
-
-  * Inspect metric data by using [Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-explorer).
-
-  * Create alerting policies to notify you when a value goes outside its normal limits, as described in [Using alerting policies](https://docs.cloud.google.com/monitoring/alerts).
-
-  * Retrieve raw or aggregated monitoring data using the Monitoring API, as described in [Retrieve time-series data](https://docs.cloud.google.com/monitoring/custom-metrics/reading-metrics).
-
-  * Create your own metric types, as described in [User-defined metrics overview](https://docs.cloud.google.com/monitoring/custom-metrics).
-
-
-For more detail on these concepts and how they map to the Cloud Monitoring API, see [Structure of time series](https://docs.cloud.google.com/monitoring/api/v3/metrics-details), particularly if you plan to use the Monitoring API or custom metrics. 
+If these concepts are new to you, start with [Metrics, time series, and resources](https://docs.cloud.google.com/monitoring/api/v3/metrics). For Monitoring API object schemas and custom-metric details, see [Structure of time series](https://docs.cloud.google.com/monitoring/api/v3/metrics-details).
 
 ## A word about labels
 
@@ -65,7 +44,7 @@ A _monitored resource_ is a resource from which metric data is captured. Cloud M
 
 Types of monitored resources include generic nodes and tasks, architectural components in Google Kubernetes Engine, tables in Bigtable, various AWS resources, and many more. 
 
-Each type of monitored resource is formally described in a data structure called a _monitored-resource descriptor_. For more information, see [Monitored resource descriptors](https://docs.cloud.google.com/monitoring/api/v3/metrics-details#intro-monresdesc).
+Each type of monitored resource is formally described in a data structure called a _monitored-resource descriptor_. For more information, see [Monitored-resource descriptors](https://docs.cloud.google.com/monitoring/api/v3/metrics-details#intro-monresdesc).
 
 Each of the supported monitored-resource types has an entry in the [Monitored resource list](https://docs.cloud.google.com/monitoring/api/resources). The entries in the list are created from the monitored-resource descriptors. This section describes the information captured in a monitored-resource descriptor and shows how it is presented in the list.
 
@@ -77,7 +56,7 @@ The following image shows the [entry in the list](https://docs.cloud.google.com/
 
 All entries in the list include the following information:
 
-  * **Type** : The header in the entry lists the monitored-resource type; `gcs_bucket` in the example.
+  * **Type** : The header in the entry lists the monitored-resource type, `gcs_bucket` in the example.
   * **Display name** : A short description of the monitored resource.
   * **Description** : A longer description of the monitored resource.
   * **Labels** : A set of dimensions for classifying data. For more information, see [Labels](https://docs.cloud.google.com/monitoring/api/v3/metric-model#generic-label-info).
@@ -86,7 +65,7 @@ All entries in the list include the following information:
 
 ## Metric types
 
-A _metric type_ describes measurements that can be collected from a monitored resource. A metric type includes a description of what is being measured and how the measurements are interpreted. Cloud Monitoring supports approximately 6,500 types of metrics, and it provides you the ability to define new types. 
+A _metric type_ describes measurements that can be collected from a monitored resource. A metric type includes a description of what is being measured and how the measurements are interpreted. Cloud Monitoring supports approximately 6,500 types of metrics, and it provides you with the ability to define new types. 
 
 Metric types include counts of API calls, disk-usage statistics, storage consumption, and many more.
 
@@ -112,15 +91,15 @@ Namespaces are omitted from entries in the tables.
 
 All the metric types associated with Cloud Storage are listed in the [table for Cloud Storage metrics](https://docs.cloud.google.com/monitoring/api/metrics_gcp_p_z#gcp-storage).
 
-  * **Launch stage** : A colored block that indicates the launch stage of the metric type with a value like Alpha, Beta, and GA.
+  * **Launch stage** : A colored block that indicates the launch stage of the metric type with a value like Alpha, Beta, or GA.
 
   * **Display name** : A brief string describing the metric type, “Request count” in the example.
 
   * **Kind, Type, Unit** : This line provides information for interpreting the data values: the example shows a delta metric recorded as a 64-bit integer with no unit (that's the `1` value).
 
-    * **Kind:** This example is a _delta_ metric, which records a change over a period of time. That is, each data point records the number of API calls since the previous data point was written. For more information on kinds, see [Value types and metric kinds](https://docs.cloud.google.com/monitoring/api/v3/kinds-and-types).
+    * **Kind** : This example is a _delta_ metric, which records a change over a period of time. That is, each data point records the number of API calls since the previous data point was written. For more information on kinds, see [Value types and metric kinds](https://docs.cloud.google.com/monitoring/api/v3/kinds-and-types).
 
-    * **Type:** This example records its values as 64-bit integers. For more information on types, see [Value types and metric kinds](https://docs.cloud.google.com/monitoring/api/v3/kinds-and-types).
+    * **Type** : This example records its values as 64-bit integers. For more information on types, see [Value types and metric kinds](https://docs.cloud.google.com/monitoring/api/v3/kinds-and-types).
 
     * **Unit** : This metric doesn't need an explicit unit because it represents a count; the digit `1` is used to indicate that no unit is needed.
 
@@ -149,7 +128,7 @@ For example, if you want to track the number of widgets sold by your stores, you
 
 ## Labels
 
-A label is key-value pair that can be used to provide information about a data value.
+A label is a key-value pair that can be used to provide information about a data value.
 
 ### Metric and monitored-resource labels
 
@@ -160,9 +139,9 @@ The definitions of both metric and monitored-resource types include labels. Labe
 
 
 
-Therefore, all data collected for API requests from a Cloud Storage bucket is classified by the method that was called, the response code for the call, the name, location, and project of the bucket involved. The set of labels varies with the metric or monitored-resource type; the available labels are documented in the [Metrics list](https://docs.cloud.google.com/monitoring/api/metrics) and [Monitored resource list](https://docs.cloud.google.com/monitoring/api/resources) pages.
+Therefore, all data collected for API requests from a Cloud Storage bucket is classified by the method that was called, the response code for the call, and the name, location, and project of the bucket involved. The set of labels varies with the metric or monitored-resource type; the available labels are documented in the [Metrics list](https://docs.cloud.google.com/monitoring/api/metrics) and [Monitored resource list](https://docs.cloud.google.com/monitoring/api/resources) pages.
 
-By tracking the response code, method name, and location when counting API calls, you can then fetch the number of calls to a particular API method, or the number of failing calls to any method, or the number of failing calls to a specific method in a specific location.
+By tracking the response code, method name, and location when counting API calls, you can then fetch the number of calls to a particular API method, the number of failing calls to any method, or the number of failing calls to a specific method in a specific location.
 
 The number of labels and the number of values each can assume is referred to as _cardinality_. The cardinality is the number of possible time series that might be collected for a pair of metric and monitored-resource types: there is one time series for each combination of values of their labels. For more information, see [Cardinality: time series and labels](https://docs.cloud.google.com/monitoring/api/v3/metric-model#cardinality).
 
@@ -174,7 +153,7 @@ The system and user metadata labels are collectively called _resource metadata l
 
 **Note:** Don't rely on the values of system- or user-defined resource metadata labels when selecting time series for sensitive alerting policies or for other responsive operations like autoscaling. Instead, use the values of labels defined by the [monitored-resource types](https://docs.cloud.google.com/monitoring/api/resources). 
 
-Resource metadata labels are added asynchronously to time series and aren't subject to the same [ latency expectations](https://docs.cloud.google.com/monitoring/api/v3/latency-n-retention#latency) as values of labels defined metric types or monitored-resource types. Therefore, an alerting policy or other responsive operation that depends on metadata values to trigger an action can behave erratically if the population of resource metadata labels is delayed.
+Resource metadata labels are added asynchronously to time series and aren't subject to the same [ latency expectations](https://docs.cloud.google.com/monitoring/api/v3/latency-n-retention#latency) as values of labels defined by metric types or monitored-resource types. Therefore, an alerting policy or other responsive operation that depends on metadata values to trigger an action can behave erratically if the population of resource metadata labels is delayed.
 
 Resource metadata labels only appear in the query result if you explicitly aggregate by them.
 
@@ -184,7 +163,7 @@ For more information on filtering, see [Monitoring filters](https://docs.cloud.g
 
 This section discusses what monitoring data is and how it's organized in time series. This is where the conceptual components of the metric model become concrete artifacts.
 
-Cloud Monitoring store regular measurements over time for pairs of metric and monitored-resource types. The measurements are collected into _time series_ , and each time series contains the following items:
+Cloud Monitoring stores regular measurements over time for pairs of metric and monitored-resource types. The measurements are collected into _time series_ , and each time series contains the following items:
 
   * The name of the metric type to which the time series belongs, and one combination of values for the metric's labels.
 
@@ -231,7 +210,7 @@ method: read` | `{
   
 Cloud Monitoring doesn't record “empty” time series. In the Cloud Storage buckets example, if you're not using a particular bucket or never call a particular API method, then no data is collected for that label, and no time series mentions it. This means that, if your project has no data at all for a particular metric, you never see the metric type.
 
-The metric types don't indicate what types of monitored resources are found in the metrics' time series. For Cloud Storage, there is only one monitored resource type—`gcs_bucket`. Some metric types pair with more than one monitored resource.
+The metric types don't indicate what types of monitored resources are found in the metrics' time series. For Cloud Storage, there is only one monitored-resource type—`gcs_bucket`. Some metric types pair with more than one monitored resource.
 
 **Live example** : If you have a Google Cloud project, you can try the APIs Explorer widget, located on the reference page for the [`timeSeries.list`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list) method in the Monitoring API.
 
@@ -239,7 +218,7 @@ The metric types don't indicate what types of monitored resources are found in t
 
   2. In the pane labeled **Try this method** , enter the following:
 
-     * **name** : `projects/PROJECT_ID` Replace `PROJECT_ID` with the ID of your Google Cloud project.
+     * **name** : `projects/PROJECT_ID`. Replace `PROJECT_ID` with the ID of your Google Cloud project.
      * **filter** : `metric.type="logging.googleapis.com/log_entry_count" resource.type="gce_instance"`
      * **interval.start_time** : Enter the start time and ensure that it is 20 minutes earlier than the end time.
      * **interval.end_time** : Enter the end time.
@@ -306,11 +285,11 @@ The cardinality of this metric is 6 (3×2). If there are 1,000 possible values f
 
 This cardinality value is a maximum, based on the number of combinations of possible label values. The effective, real-world value might be significantly lower when all combinations of label values don't actually occur. For example, if each color appears in only one zone, not in both zones, then the maximum number of time series you see in the running system is 1,000. But the usefulness of effective cardinality depends on the reasons that certain combinations don't appear and whether they might in the future.
 
-![Cardinality depends the values any labels can have.](https://docs.cloud.google.com/static/monitoring/images/cardinality.png)
+![Cardinality depends on the values any labels can have.](https://docs.cloud.google.com/static/monitoring/images/cardinality.png)
 
 When time series data is written, it is classified by metric and monitored-resource types. For any pair of metric and resource types, the _total cardinality_ is the product of the metric cardinality and the resource cardinality. If you have a metric with cardinality of 1,000, and a resource with cardinality of 100, and if every label value appears, then you have 100,000 time series (1,000×100).
 
-When designing your own metrics, ensure that the set of possible values for any label is constrained. A small set of discrete values (like “red,” “green,” and “blue,”) is the preferred approach. If, for example, you use 8-bit RGB values for a `color` label, you can have over 16 million different values. Do _not_ use high-resolution values like timestamps, any kind of unique identifier, user IDs, IP addresses, unparameterized URLs, and so forth, for metric labels. 
+When designing your own metrics, ensure that the set of possible values for any label is constrained. A small set of discrete values (like “red,” “green,” and “blue”) is the preferred approach. If, for example, you use 8-bit RGB values for a `color` label, you can have over 16 million different values. Do _not_ use high-resolution values like timestamps, any kind of unique identifier, user IDs, IP addresses, unparameterized URLs, and so forth, for metric labels. 
 
 ### Query performance and cardinality
 
@@ -340,6 +319,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/ad/
 title: Overview of Managed Microsoft AD in Cloud SQL \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:18:27.238873+00:00
+fetched_at: 2026-10-24T11:25:00.631917+00:00
 ---
 
 # Overview of Managed Microsoft AD in Cloud SQL  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -24,13 +24,13 @@ Send feedback
 
 MySQL | PostgreSQL | SQL Server
 
-You can integrate Cloud SQL for SQL Server with Managed Service for Microsoft Active Directory (also called Managed Microsoft AD).
+Managed Service for Microsoft Active Directory (Managed Microsoft AD) lets you manage authentication and authorization for your Cloud SQL for SQL Server instances by using Active Directory-based identities. Joining an instance to a Managed Microsoft AD domain lets you sign in with Windows Authentication and connect your cloud databases with on-premises Active Directory domains.
 
-This page contains information to review before you start an integration. After reviewing the following information, including the limitations, see [Using Cloud SQL with Managed Microsoft AD](https://docs.cloud.google.com/sql/docs/sqlserver/configure-ad).
+Before you start an integration, review the prerequisites, topologies, and limitations in this document. After you review this information, see [Using Cloud SQL with Managed Microsoft AD](https://docs.cloud.google.com/sql/docs/sqlserver/configure-ad).
 
 ## Advantages of integrating with Managed Microsoft AD
 
-Authentication, authorization, and more are available through [Managed Microsoft AD](https://docs.cloud.google.com/managed-microsoft-ad/docs/overview). For example, joining an instance to a Managed Microsoft AD domain lets you to sign in using Windows Authentication with an AD-based identity.
+Authentication, authorization, and more are available through [Managed Microsoft AD](https://docs.cloud.google.com/managed-microsoft-ad/docs/overview). For example, joining an instance to a Managed Microsoft AD domain lets you sign in using Windows Authentication with an AD-based identity.
 
 Integrating Cloud SQL for SQL Server with an AD domain has the additional advantage of Cloud integration with your on-premises AD domains.
 
@@ -168,6 +168,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

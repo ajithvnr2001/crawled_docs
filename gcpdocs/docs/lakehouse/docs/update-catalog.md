@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/update-catalog/
 title: Update a catalog \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:46.883532+00:00
+fetched_at: 2026-10-24T08:23:12.575946+00:00
 ---
 
 # Update a catalog  |  Lakehouse  |  Google Cloud Documentation
@@ -150,7 +150,7 @@ To upgrade an existing single-bucket catalog to a multiple-bucket catalog (recom
 To modify a catalog's properties (such as its description) using the REST API, make a `PATCH` request to the [`UpdateIcebergCatalog`](https://docs.cloud.google.com/lakehouse/docs/reference/rest/v1/iceberg.v1.restcatalog.extensions.projects.catalogs/patch) endpoint with the appropriate `updateMask`:
     
     
-    PATCH /iceberg/v1/restcatalog/extensions/projects/PROJECT_ID/catalogs/CATALOG_ID?updateMask=icebergCatalog.description
+    PATCH /iceberg/v1/restcatalog/extensions/projects/PROJECT_ID/catalogs/CATALOG_ID?updateMask=description
     
 
 The request body must contain an `IcebergCatalog` JSON payload with the fields to update:
@@ -166,14 +166,14 @@ The request body must contain an `IcebergCatalog` JSON payload with the fields t
 To upgrade its type using the REST API, make a `PATCH` request to the [`UpdateIcebergCatalog`](https://docs.cloud.google.com/lakehouse/docs/reference/rest/v1/iceberg.v1.restcatalog.extensions.projects.catalogs/patch) endpoint with the `catalogType` in the `updateMask`:
     
     
-    PATCH /iceberg/v1/restcatalog/extensions/projects/PROJECT_ID/catalogs/CATALOG_ID?updateMask=icebergCatalog.catalogType
+    PATCH /iceberg/v1/restcatalog/extensions/projects/PROJECT_ID/catalogs/CATALOG_ID?updateMask=catalog_type
     
 
 The request body must contain an `IcebergCatalog` JSON payload with the new catalog type:
     
     
     {
-      "catalogType": "BIGLAKE"
+      "catalog_type": "CATALOG_TYPE_BIGLAKE"
     }
     
 
@@ -190,6 +190,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

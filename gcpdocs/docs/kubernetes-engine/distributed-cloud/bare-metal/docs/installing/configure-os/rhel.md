@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/configure-os/rhel/
 title: Configure RHEL \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:19.892607+00:00
+fetched_at: 2026-10-24T11:18:53.347069+00:00
 ---
 
 # Configure RHEL  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Configure RHEL Stay organized with collections  Save and categorize content based on your preferences. 
 
-You must configure the base operating system of your node machines to use Google Distributed Cloud. This page contains the steps you need to take to complete the needed configuration. For more information about troubleshooting Google Distributed Cloud, see the [troubleshooting guides](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/known-issues).
+To use Google Distributed Cloud, you must configure the base Red Hat Enterprise Linux (RHEL) operating system on your node machines. Setting up required package managers, kernel parameters, and system services prepares your nodes for cluster deployment. For troubleshooting assistance, see the [known issues](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/known-issues).
 
 ## Before you begin
 
@@ -228,7 +228,7 @@ Ensure these values are set correctly on your node machines:
 
 
 
-## Best Practices
+## Best practices
 
 To simplify installation, we recommend that you configure RHEL using a minimal installation with headless management. Also, be sure to enable your [network connection](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/assembly_configuring-and-managing-network-access_configuring-basic-system-settings) and either use the default DHCP or provide a valid, static IP address and network information. Ensure that the machine can connect to [the required external resources](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/proxy#prerequisites), such as `cloud.google.com`.
 

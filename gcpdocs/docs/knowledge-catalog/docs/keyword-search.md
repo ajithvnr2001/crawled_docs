@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/keyword-search/
 title: Use keyword-only search in Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:42.948748+00:00
+fetched_at: 2026-10-24T11:10:27.935781+00:00
 ---
 
 # Use keyword-only search in Knowledge Catalog  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback
 
 #  Use keyword-only search in Knowledge Catalog Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** To query Knowledge Catalog data, use [Knowledge Catalog search](https://docs.cloud.google.com/knowledge-catalog/docs/search-assets). Use keyword-only search for backward compatibility only.
-
-Use keyword-only search in Knowledge Catalog to find resources using specific keywords, filters, and a defined syntax. Keyword-only search provides precise control over your search queries and lets you narrow down results based on metadata fields.
+Keyword-only search in Knowledge Catalog lets you find resources using specific keywords, filters, and a defined syntax. This search mode provides precise control over your queries so you can narrow down results based on metadata fields. Knowledge Catalog supports keyword-only search for backward compatibility only. To query data assets, use [Knowledge Catalog search](https://docs.cloud.google.com/knowledge-catalog/docs/search-assets).
 
 ## Before you begin
 
@@ -640,6 +638,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

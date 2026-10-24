@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/17.9.0/docs/db-version-policies/
 title: Database version policies \u00a0|\u00a0 AlloyDB Omni using containers: 17.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:28.117026+00:00
+fetched_at: 2026-10-24T09:46:10.449393+00:00
 ---
 
 # Database version policies  |  AlloyDB Omni using containers: 17.9.0  |  Google Cloud Documentation

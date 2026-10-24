@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/troubleshoot-import-export-glossaries/
 title: Troubleshoot business glossary and entry link import errors \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:41:17.933516+00:00
+fetched_at: 2026-10-24T08:29:49.316068+00:00
 ---
 
 # Troubleshoot business glossary and entry link import errors  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,9 +23,9 @@ Send feedback
 
 #  Troubleshoot business glossary and entry link import errors Stay organized with collections  Save and categorize content based on your preferences. 
 
-This guide helps you troubleshoot Knowledge Catalog issues when you [import and export glossaries and entry links](https://docs.cloud.google.com/knowledge-catalog/docs/import-export-glossaries-entrylinks-overview), including missing entry links, invalid glossary URL errors, or when an import job fails.
+Knowledge Catalog (formerly Dataplex Universal Catalog) lets you import and export business glossaries and entry links in bulk to manage your business vocabulary at scale. When you run the import or export utility scripts, you can diagnose and resolve common issues such as missing entry links, empty glossary exports, invalid glossary or spreadsheet URLs, interrupted import jobs, and script network timeouts. For more information, see [About importing and exporting glossaries and entry links](https://docs.cloud.google.com/knowledge-catalog/docs/import-export-glossaries-entrylinks-overview).
 
-If you need help resolving an issue that isn't addressed on this page, contact [Google Cloud Support](https://cloud.google.com/support).
+If you need help resolving an issue that isn't addressed in this document, see [Cloud Customer Care](https://docs.cloud.google.com/support).
 
 ## Fix missing entry links in Knowledge Catalog
 
@@ -201,6 +201,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

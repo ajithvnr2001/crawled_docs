@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/containers/inspect-stateful-workloads/
 title: Inspect stateful workloads \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:26.408609+00:00
+fetched_at: 2026-10-24T08:20:21.477121+00:00
 ---
 
 # Inspect stateful workloads  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

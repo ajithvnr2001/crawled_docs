@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-firebase-reactive/
 title: React to value change by updating a value \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:03:50.670086+00:00
+fetched_at: 2026-10-24T08:54:23.425797+00:00
 ---
 
 # React to value change by updating a value  |  Cloud Run functions  |  Google Cloud Documentation
@@ -45,7 +45,7 @@ To authenticate to Cloud Run functions, set up Application Default Credentials. 
     using Google.Cloud.Functions.Hosting;
     using Google.Events.Protobuf.Cloud.Firestore.V1;
     using Microsoft.AspNetCore.Hosting;
-    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Microsoft.Extensions.DependencyInjection.html);
+    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.ApiKeys.V2/latest/Microsoft.Extensions.DependencyInjection.html);
     using Microsoft.Extensions.Logging;
     using System.Collections.Generic;
     using System.Threading;
@@ -397,7 +397,7 @@ To authenticate to Cloud Run functions, set up Application Default Credentials. 
       # subsequent calls.
       set_global :firestore_client do
         require "google/cloud/firestore"
-        Google::Cloud::[Firestore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore-admin/latest/Google-Cloud-Firestore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html) project_id: ENV["GOOGLE_CLOUD_PROJECT"]
+        Google::Cloud::[Firestore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html) project_id: ENV["GOOGLE_CLOUD_PROJECT"]
       end
     end
     

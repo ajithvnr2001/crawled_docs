@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/access-control/
 title: Access control with IAM \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:36:35.076116+00:00
+fetched_at: 2026-10-24T08:49:24.127079+00:00
 ---
 
 # Access control with IAM  |  Secret Manager  |  Google Cloud Documentation

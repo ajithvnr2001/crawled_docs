@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-extensions/docs/monitor-media-cdn-plugins/
 title: Logging and monitoring for Media CDN plugins \u00a0|\u00a0 Service Extensions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:33:28.105708+00:00
+fetched_at: 2026-10-24T11:25:11.939006+00:00
 ---
 
 # Logging and monitoring for Media CDN plugins  |  Service Extensions  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ You can view these messages by using the `networkservices.googleapis.com` servic
 
   * Media CDN log messages
 
-Media CDN log messages for HTTP requests to `EdgeCacheService` resources with an associated Wasm action. These are regular Media CDN log entries that are viewable under the `edgecache.googleapis.com` service.
+Media CDN log messages for HTTP requests to `EdgeCacheService` resources with an associated `CdnEdgeExtension`. These are regular Media CDN log entries that you can view under the `edgecache.googleapis.com` service.
 
 
 
@@ -138,7 +138,20 @@ The related Media CDN log entry appears as follows. The `requestId` and `trace` 
       "jsonPayload": {
         "cacheMode": "USE_ORIGIN_HEADERS",
         "@type": "type.googleapis.com/google.cloud.edgecache.v1.EdgeCacheLogEntry",
-        "wasmAction": "add-headers-action-prod-resource",
+            "serviceExtensionInfo": [
+          {
+            "serviceExtension": "projects/123456789/locations/global/cdnEdgeExtensions/my-cdn-edge-extension",
+            "chain": "edge-plugin-chain",
+            "extension": "auth-and-header-plugin",
+            "grpcStatus": "OK",
+            "processingRequests": [
+              {
+                "eventType": "RESPONSE_HEADERS",
+                "processingEffect": "CONTENT_MODIFIED"
+              }
+            ]
+          }
+        ],
         "cacheKeyFingerprint": "f04d02bb12f2e79e",
         "proxyStatus": "Google-Edge-Cache",
         "clientCity": "Erlangen",
@@ -189,7 +202,7 @@ The related Media CDN log entry appears as follows. The `requestId` and `trace` 
 
 Plugins are limited to logging up to 16 KiB of payload data per client HTTP request. This amount is divided across multiple logging calls that are associated with a given HTTP request. The limit applies only to log message text, not to additional metadata added to the log record by Service Extensions.
 
-For example, if an `on_http_request_headers` callback makes two logging calls with 4 KiB messages each, and then an `on_http_response_headers` callback attempts to make three logging calls with 4 KiB messages each for the same HTTP request, the third logging message is dropped. A log message is added to record the number of plugin-generated log messages that were dropped.
+For example, if an `on_http_request_headers` callback makes two logging calls with 4 KiB messages each and then an `on_http_response_headers` callback tries to make three logging calls with 4 KiB messages each for the same HTTP request, the fifth logging message is dropped. A log message is added to record the number of plugin-generated log messages that were dropped.
 
 ## Monitoring
 
@@ -238,25 +251,60 @@ The CPU usage time of plugin invocations, in microseconds.
 `GAUGE`, `DISTRIBUTION`, `By`   
 Total memory allocated by Wasm plugin VMs, in bytes.   
   
-### Plugin metrics for Media CDN
+### Service extension monitoring metrics for Media CDN
 
-You can monitor the following metrics for plugins from the Media CDN perspective. The metric type strings follow this prefix: `edgecache.googleapis.com/edge_cache_route_rule/network_actions/`. The prefix is omitted from the entries in the table.
+You can monitor Media CDN edge extensions from the `EdgeCacheService` perspective in Monitoring Metrics Explorer:
+
+  1. In the Google Cloud console, go to the **Metrics explorer** page.
+
+[Go to Metrics Explorer](https://console.cloud.google.com/monitoring/metrics-explorer)
+
+  2. Select the **Media CDN Service Extension** monitored resource.
+
+  3. Select the **Extension** metric category.
+
+  4. Filter by the `extension_service` label set to your plugin name.
+
+
+
+
+In [Preview](https://docs.cloud.google.com/products#product-launch-stages), you can monitor the following metrics for extensions on Media CDN. These metrics have the prefix `networkactions.googleapis.com`. The prefix is omitted from the entries in the following table.
+
+The following table provides the metric type, display name, kind, type, unit, and description for each metric.
 
 Metric type | Display name   
 Kind, Type, Unit   
 Description  
 ---|---  
-`wasm_action_invocation_count` | Service Extensions invocation count   
+`extension/invocation_count` | Extension invocation count   
 `DELTA`, `INT64`, `1`   
-The number of Service Extensions invocations handled by Media CDN over the selected time span.   
-`wasm_action_invocation_latencies` | Service Extensions invocation latency   
-`DELTA`, `DISTRIBUTION`, `us`   
-The total time, in milliseconds, that Media CDN takes to dispatch and execute the plugin. The metric includes label-delineated entries for Service Extensions [callbacks](https://docs.cloud.google.com/service-extensions/docs/prepare-plugin-code#callbacks).   
+The number of invocations sent to the extension.  
+`extension/invocation_latencies` | Extension invocation latencies   
+`DELTA`, `DISTRIBUTION`, `ms`   
+The distribution calculated from the latency of each extension invocation. Applicable only for callout extensions; not supported for plugins.  
+`extension/sent_chunks_count` | Extension sent chunks count   
+`DELTA`, `INT64`, `1`   
+Applicable only for `request_body` and `response_body` events. The number of data chunks sent to the extension.  
+`extension/received_chunks_count` | Extension received chunks count   
+`DELTA`, `INT64`, `1`   
+Applicable only for `request_body` and `response_body` events. The number of chunks received from the extension.  
+`extension/failed_open_count` | Extension failed invocations with fail-open   
+`DELTA`, `INT64`, `1`   
+The number of times that an invocation failed when the system was configured to fail open and the request was allowed to proceed.  
+`extension/mutation_rejections_count` | Extension mutation rejections count   
+`DELTA`, `INT64`, `1`   
+The number of invocations that requested header, body, or trailer mutations but were rejected. Rejections can occur for a variety of reasons, such as when the mutation is invalid or exceeds size limits.  
+`extension/sent_bytes_count` | Extension sent bytes count   
+`DELTA`, `INT64`, `By`   
+The number of bytes sent to the extension.  
+`extension/received_bytes_count` | Extension received bytes count   
+`DELTA`, `INT64`, `By`   
+The number of bytes received from the extension.  
   
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

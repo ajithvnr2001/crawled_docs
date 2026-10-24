@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/insights/inventory-reports/
 title: Inventory reports \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:28.975168+00:00
+fetched_at: 2026-10-24T11:25:35.699245+00:00
 ---
 
 # Inventory reports  |  Cloud Storage  |  Google Cloud Documentation
@@ -156,7 +156,7 @@ The `manifest.json` file contains the following auto-populated fields:
 
 Where:
 
-  * `REPORT_CONFIG_FIELDS` includes fields contained within the [ReportConfig resource](https://docs.cloud.google.com/storage/docs/insights/v1/reportConfig).
+  * `REPORT_CONFIG_FIELDS` includes fields contained within the [ReportConfig resource](https://docs.cloud.google.com/storage/docs/insights/reference/rest/v1/projects.locations.reportConfigs).
 
   * `NUMBER_OF_INCLUDED_OBJECTS` is the number of objects included in the inventory report.
 

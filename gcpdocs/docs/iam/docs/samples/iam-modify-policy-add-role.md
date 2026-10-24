@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/samples/iam-modify-policy-add-role/
 title: Add a new role binding \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:10:03.376458+00:00
+fetched_at: 2026-10-24T08:44:05.276462+00:00
 ---
 
 # Add a new role binding  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

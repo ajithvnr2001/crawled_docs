@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/troubleshooting-lineage/
 title: Troubleshoot data lineage issues \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:23:38.224137+00:00
+fetched_at: 2026-10-24T08:32:09.289063+00:00
 ---
 
 # Troubleshoot data lineage issues  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,7 +23,9 @@ Send feedback
 
 #  Troubleshoot data lineage issues Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document helps you troubleshoot and resolve the most common issues with Knowledge Catalog (formerly Dataplex Universal Catalog) data lineage graphs not showing up. Resolving these issues ensures that you can successfully track data movement, understand data origins, and debug data pipelines.
+Data lineage in Knowledge Catalog (formerly Dataplex Universal Catalog) lets you track data movement, understand data origins, and debug data pipelines. If lineage graphs, process metadata, table details, or column-level links don't appear as expected, or if you see unexpected Knowledge Catalog Premium Processing charges, you can check your project permissions, API settings, and supported job types.
+
+If you need help resolving an issue that isn't addressed in this document, see [Cloud Customer Care](https://docs.cloud.google.com/support).
 
 ## Project types
 
@@ -170,6 +172,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-format-online-prediction/
 title: Format your prediction requests \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:23.317009+00:00
+fetched_at: 2026-10-24T08:21:03.981414+00:00
 ---
 
 # Format your prediction requests  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/pre-built-tools-with-mcp-toolbox/
 title: Use Knowledge Catalog with MCP, the Antigravity CLI, and other agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:21:52.933260+00:00
+fetched_at: 2026-10-24T11:10:25.047599+00:00
 ---
 
 # Use Knowledge Catalog with MCP, the Antigravity CLI, and other agents  |  Google Cloud Documentation
@@ -23,17 +23,17 @@ Send feedback
 
 #  Use Knowledge Catalog with MCP, the Antigravity CLI, and other agents Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** Gemini Code Assist and the Gemini CLI are now Antigravity Code Assist and the Antigravity CLI. Some links in this document point to destinations that still use the former product names.
+Connecting Knowledge Catalog (formerly Dataplex Universal Catalog) to Model Context Protocol (MCP) clients lets you discover data assets, inspect entries, and retrieve metadata context using AI agents. You can integrate tools such as the Antigravity CLI through a dedicated plugin or configure IDEs to use a local [MCP Toolbox for Databases](https://github.com/googleapis/mcp-toolbox) server. To connect data lineage to developer tools instead, see [Use data lineage with a local MCP Toolbox server](https://docs.cloud.google.com/knowledge-catalog/docs/use-lineage-mcp-toolbox).
 
-This page explains how to connect your Knowledge Catalog (formerly Dataplex Universal Catalog) instance to developer tools such as the Antigravity CLI. Connecting Knowledge Catalog to these tools enables AI-driven data discovery and asset management directly within your tool.
+## Supported tools and connection methods
 
-To connect data lineage to developer tools using a local MCP Toolbox server, see [Use data lineage with local MCP Toolbox server](https://docs.cloud.google.com/knowledge-catalog/docs/use-lineage-mcp-toolbox).
-
-For an integrated command-line experience, we recommend using the dedicated Knowledge Catalog plugin for the Antigravity CLI. The plugin bundles the underlying skills directly into the plugin, which simplifies setup and configuration.
+For an integrated command-line experience, we recommend using the dedicated Knowledge Catalog plugin for the Antigravity CLI. The plugin bundles the underlying skills, which simplifies setup and configuration.
 
 Alternatively, you can connect other IDEs and developer tools that support MCP by using a local [MCP Toolbox for Databases](https://github.com/googleapis/mcp-toolbox). You can then use AI agents in your existing IDE to discover data assets in Knowledge Catalog. For more information about MCP, see [Introduction to Model Context Protocol](https://modelcontextprotocol.io/introduction).
 
-This guide demonstrates the connection process for the following tools:
+**Note:** Gemini Code Assist and the Gemini CLI are now Antigravity Code Assist and the Antigravity CLI. Some links in this document point to destinations that still use the former product names.
+
+This document demonstrates the connection process for the following tools:
 
   * Antigravity CLI (through plugin)
   * Antigravity Code Assist
@@ -463,6 +463,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/data-quality-tasks-overview/
 title: Data quality tasks overview \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:58.368722+00:00
+fetched_at: 2026-10-24T08:36:46.153184+00:00
 ---
 
 # Data quality tasks overview  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,9 +23,9 @@ Send feedback
 
 #  Data quality tasks overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Caution:** Knowledge Catalog (formerly Dataplex Universal Catalog) data quality tasks is a legacy offering based on open source software. We recommend that you start using the latest built-in [Automatic data quality](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview) offering.
+**Caution:** Knowledge Catalog (formerly Dataplex Universal Catalog) data quality tasks is a legacy offering based on open source software. We recommend that you start using the latest built-in [Auto data quality](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview) offering.
 
-Knowledge Catalog data quality tasks let you define and run data quality checks across tables in BigQuery and Cloud Storage. Knowledge Catalog data quality tasks also let you apply regular data controls in BigQuery environments.
+Knowledge Catalog data quality tasks let you define YAML-based rules to validate tables in BigQuery and Cloud Storage without managing infrastructure. You can schedule checks to apply regular data controls in BigQuery environments, monitor datasets in production pipelines, and build reports for regulatory requirements.
 
 ## When to create Knowledge Catalog data quality tasks
 
@@ -78,7 +78,7 @@ There are no charges for using Knowledge Catalog to organize data or using the s
 
 ## What's next
 
-  * [Create Knowledge Catalog data quality checks](https://docs.cloud.google.com/knowledge-catalog/docs/check-data-quality).
+  * [Use data quality tasks](https://docs.cloud.google.com/knowledge-catalog/docs/check-data-quality).
 
 
 
@@ -86,6 +86,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

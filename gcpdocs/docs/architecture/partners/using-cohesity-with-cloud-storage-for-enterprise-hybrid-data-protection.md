@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/partners/using-cohesity-with-cloud-storage-for-enterprise-hybrid-data-protection/
 title: Data management with Cohesity Helios and Google Cloud \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:19:47.011451+00:00
+fetched_at: 2026-10-24T09:21:11.163769+00:00
 ---
 
 # Data management with Cohesity Helios and Google Cloud  |  Cloud Architecture Center  |  Google Cloud Documentation

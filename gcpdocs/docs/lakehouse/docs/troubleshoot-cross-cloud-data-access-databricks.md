@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/troubleshoot-cross-cloud-data-access-databricks/
 title: Troubleshoot cross-cloud data access for Databricks Unity Catalog \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:43:03.321793+00:00
+fetched_at: 2026-10-24T10:00:14.108198+00:00
 ---
 
 # Troubleshoot cross-cloud data access for Databricks Unity Catalog  |  Lakehouse  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
 
 **Note:** For support during the preview, send an email to [biglake-help@google.com](mailto:biglake-help@google.com).
 
-Cross-cloud data access in borderless Lakehouse lets you query remote Databricks Unity Catalog tables without moving data. If federated tables don't appear after a metadata refresh, you can diagnose and resolve common permission and storage configuration issues in Unity Catalog. For general cross-cloud data access troubleshooting, such as connectivity and routing over private interconnects, see [Troubleshoot cross-cloud data access](https://docs.cloud.google.com/lakehouse/docs/troubleshoot-cross-cloud-data-access).
+This page shows you how to troubleshoot background metadata refresh for cross-cloud data access with Databricks Unity Catalog. For general cross-cloud data access troubleshooting, such as connectivity and routing over private interconnects, see [Troubleshoot cross-cloud data access](https://docs.cloud.google.com/lakehouse/docs/troubleshoot-cross-cloud-data-access).
 
 ## Tables are empty or not discovered during refresh
 
@@ -45,6 +45,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/dataframes-sessions-io/
 title: Manage BigQuery DataFrames sessions and I/O \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:57:41.603523+00:00
+fetched_at: 2026-10-24T11:25:55.777560+00:00
 ---
 
 # Manage BigQuery DataFrames sessions and I/O  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Manage BigQuery DataFrames sessions and I/O
 
-This document explains how to manage sessions and perform input and output (I/O) operations when you use BigQuery DataFrames. You will learn how to create and use sessions, work with in-memory data, and read from and write to files and BigQuery tables.
+Managing sessions and I/O operations in BigQuery DataFrames lets you control your execution environment and move data in and out of your workflows. You can configure your sessions to control where your queries run, and you can perform I/O operations to read and write in-memory data, Cloud Storage files, and BigQuery tables.
 
 ## BigQuery sessions
 
@@ -213,6 +213,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

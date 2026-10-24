@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/geospatial-tutorial-hurricane/
 title: Using geospatial analytics to plot a hurricane's path \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:49:49.286338+00:00
+fetched_at: 2026-10-24T11:25:45.911281+00:00
 ---
 
 # Using geospatial analytics to plot a hurricane's path  |  BigQuery  |  Google Cloud Documentation
@@ -21,16 +21,14 @@ Send feedback
 
 #  Using geospatial analytics to plot a hurricane's path Stay organized with collections  Save and categorize content based on your preferences. 
 
-This tutorial introduces you to geospatial analytics. Geospatial analytics let you easily analyze and visualize geospatial data in BigQuery.
+Using geospatial analytics in BigQuery lets you analyze and visualize geographic data, such as mapping a storm's trajectory over time. You can convert raw latitude and longitude coordinates into geographical points to query a hurricane's chronological path and plot the results using integrated visualization tools.
 
 ## Objectives
 
-In this tutorial, you:
-
-  * Use a geospatial analytics function to convert latitude and longitude columns into geographical points
-  * Run a query that plots the path of a hurricane
-  * Visualize your results in BigQuery
-  * Visualize your results in [BigQuery Geo Viz](https://docs.cloud.google.com/bigquery/docs/geospatial-visualize)
+  * Use a geospatial analytics function to convert latitude and longitude columns into geographical points.
+  * Run a query that plots the path of a hurricane.
+  * Visualize your results in BigQuery.
+  * Visualize your results in [BigQuery Geo Viz](https://docs.cloud.google.com/bigquery/docs/geospatial-visualize).
 
 
 
@@ -352,6 +350,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

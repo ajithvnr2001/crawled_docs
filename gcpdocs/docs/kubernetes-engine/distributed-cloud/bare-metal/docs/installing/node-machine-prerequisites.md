@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/node-machine-prerequisites/
 title: Cluster node machine prerequisites \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:47:02.295279+00:00
+fetched_at: 2026-10-24T11:18:54.557612+00:00
 ---
 
 # Cluster node machine prerequisites  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,11 +22,7 @@ Send feedback
 
 #  Cluster node machine prerequisites Stay organized with collections  Save and categorize content based on your preferences. 
 
-Google Distributed Cloud supports a wide variety of systems running on the hardware that the target operating system distributions support. A Google Distributed Cloud configuration can run on minimal hardware, or on multiple machines to provide flexibility, availability, and performance.
-
-Regardless of your Google Distributed Cloud configuration, your nodes and clusters must have enough CPU, RAM, and storage resources to meet the needs of clusters and the workloads that you're running.
-
-This page is for Admins and architects and Operators who define IT solutions and system architecture in accordance with company strategy. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
+Google Distributed Cloud lets you deploy clusters on hardware configurations ranging from minimal setups to multiple machines that provide high availability and performance. Regardless of your configuration, your node machines must meet specific CPU, RAM, and storage prerequisites to support cluster operations and your workloads.
 
 ## Minimum and recommended CPU, RAM, and storage requirements
 

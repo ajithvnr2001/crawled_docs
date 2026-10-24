@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/query-sap-data/
 title: Query SAP Business Data Cloud data \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:06.087144+00:00
+fetched_at: 2026-10-24T10:00:07.417105+00:00
 ---
 
 # Query SAP Business Data Cloud data  |  Lakehouse  |  Google Cloud Documentation
@@ -23,9 +23,13 @@ Send feedback
 
 #  Query SAP Business Data Cloud data Stay organized with collections  Save and categorize content based on your preferences. 
 
-After the connection is established and data products are shared, you can discover and query the SAP data in BigQuery. For information on how these products are shared in SAP, see [Working with Data Products in SAP Business Data Cloud Connect](https://help.sap.com/docs/business-data-cloud/sap-business-data-cloud-connect/working-with-data-products-in-sap-business-data-cloud-connect?locale=en-US&version=LATEST) in the SAP documentation.
+BigQuery lets you discover and query SAP Business Data Cloud (BDC) data products after you establish a connection and share data in SAP. For information about sharing these products, see [Working with Data Products in SAP Business Data Cloud Connect](https://help.sap.com/docs/business-data-cloud/sap-business-data-cloud-connect/working-with-data-products-in-sap-business-data-cloud-connect?locale=en-US&version=LATEST) in the SAP documentation.
 
-By default, borderless Lakehouse automatically refreshes catalog metadata in the background every 5 minutes (`5m` or `300s`). To change the refresh interval for your catalog, update the catalog using `gcloud`:
+By default, borderless Lakehouse refreshes catalog metadata in the background every five minutes (`5m` or `300s`). Shared data appears in the following hierarchical structure: `PROJECT_ID.CATALOG_ID.SHARE_NAME.SCHEMA_NAME.TABLE_NAME`.
+
+## Update the catalog refresh interval
+
+To change the metadata refresh interval for your catalog, run the `gcloud biglake delta-sharing catalogs update` command:
     
     
     gcloud biglake delta-sharing catalogs update CATALOG_ID \
@@ -39,10 +43,6 @@ Replace the following:
   * `REFRESH_INTERVAL`: the interval for refreshing metadata, specified as a duration string with units (for example, `5m` for 5 minutes, `300s` for 300 seconds, or `1h` for 1 hour).
 
 
-
-The data appears in a hierarchical structure:
-
-`CATALOG_ID.SHARE_NAME.SCHEMA_NAME.TABLE_NAME`.
 
 ## List the shares in the catalog
 
@@ -156,6 +156,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

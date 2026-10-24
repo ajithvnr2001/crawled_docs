@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-anomalies-overview/
 title: Agent Anomaly Detection overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:43:46.952753+00:00
+fetched_at: 2026-10-24T11:26:00.674200+00:00
 ---
 
 # Agent Anomaly Detection overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ Pre-GA products are available "as is" and might have limited support. For more i
 
 **Caution:** This product is available to approved users that are signed in to their browser with an allowlisted email address. To request access to use this product, read this page to understand the prerequisites and complete the form at the bottom of this page.
 
-Agent Anomaly Detection provides a dynamic, reasoning-based oversight and audit layer designed specifically for autonomous enterprise AI agents. Unlike conventional application security tools that only scan static code for vulnerabilities or inspect network traffic at the perimeter, Agent Anomaly Detection evaluates the live reasoning traces, tool interactions, and execution flows of agents to detect suspicious intent, policy violations, and behavioral anomalies.
+Agent Anomaly Detection provides a dynamic, reasoning-based oversight and audit layer designed specifically for autonomous enterprise AI agents. Unlike conventional application security tools that only scan static code for vulnerabilities or inspect network traffic at the perimeter, Agent Anomaly Detection evaluates the live reasoning traces, tool interactions, and execution flows of agents using built-in detectors to detect suspicious intent, policy violations, and behavioral anomalies.
 
 The core of Agent Anomaly Detection is a multi-layered anomaly analysis framework that analyzes agent session activity asynchronously. By ingesting OpenTelemetry logs and execution traces, the service determines whether an agent is operating outside of its intended boundaries without introducing execution latency into your live agent workflows.
 
@@ -44,8 +44,18 @@ Benefit or Feature | Description
 **Asynchronous near real-time security** | Telemetry (logs and traces) is processed out-of-band, maintaining fast agent response times. A multi-layered analysis model allows for maintaining cost efficiency with near real-time assessments.  
 **Reasoning-based intent analysis** | Anomaly analysis reasons over flagged traces to differentiate complex business logic from unauthorized action.  
 **Comprehensive threat detection** | Audits agent-specific security risks out of the box with default detectors that capture threat patterns outlined in the OWASP Top 10 for Agentic Security Threats, including tool misuse, privilege abuse, cascading agent failures, rogue behaviors, and resource exhaustion.  
-**Integration with Security Command Center** | Anomaly findings are surfaced directly in Security Command Center for centralized security management, search, and incident tracking. For information on Security Command Center, see [Overview of Security Command Center](https://docs.cloud.google.com/security-command-center/docs/activate-scc-overview). **Note:** This integration requires one of the [Security Command Center](https://docs.cloud.google.com/security-command-center/docs/service-tiers)-supported tiers: Standard, Premium, or Enterprise.  
+**Integration with Security Command Center** | Anomaly findings are surfaced directly in Security Command Center for centralized security management, search, and incident tracking. For information on Security Command Center, see [Overview of Security Command Center](https://docs.cloud.google.com/security-command-center/docs/activate-scc-overview). **Note:** This integration requires one of the [Security Command Center-supported tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers): Standard, Premium, or Enterprise.  
+**Integration with Cloud Monitoring** | Detection and coverage metrics are written to Cloud Monitoring, where you can chart them, add them to dashboards, and use them in alerting policies. For details, see [Monitor anomaly metrics in Cloud Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/audit/agent-anomalies#cloud-monitoring).  
   
+## What's new
+
+The following features were added to the Agent Anomaly Detection preview functionality on October 22, 2026:
+
+  * **Support for ADK on Google Kubernetes Engine** : Monitor agents built with Agent Development Kit (ADK) (version 2.1.0 or later) and deployed on your [GKE](https://docs.cloud.google.com/gke/docs/overview) clusters (`GKE_WORKLOAD`).
+  * **Support for Cloud Run** : Monitor agents deployed as [Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) services (`CLOUD_RUN_SERVICE`). By exporting OpenTelemetry traces to Cloud Trace and logs to Cloud Logging, Cloud Run services are automatically discovered and listed on the Settings page, where you can enable them for Agent Anomaly Detection.
+
+
+
 ## Multi-layered detection system
 
 To balance assessment coverage and cost, Agent Anomaly Detection uses a multi-layered detection system that analyzes agent logs to identify and report on anomalous sessions:
@@ -60,9 +70,9 @@ To balance assessment coverage and cost, Agent Anomaly Detection uses a multi-la
 
 Agent Anomaly Detection is available for agents meeting the following criteria. Agents that meet the criteria are automatically recognized as **monitored agents** by Agent Anomaly Detection (the service is aware of the agent's existence, but nothing is run on the agent's logs and no costs are incurred). You must explicitly **enable** a monitored agent for Agent Anomaly Detection for active anomaly analysis to run on its logs and traces.
 
-  * **Compatible runtime** : Deployed on the Agent Runtime.
-  * **ADK version** : Built using Agent Development Kit (ADK) for Python, version 1.2 or later. Version 2.1.0 or later is recommended.
-  * **Logging and observability buckets** : Agent Anomaly Detection is currently available for US (multi-region) and EU (multi-region) buckets. Both the logging and observability buckets must be in the same multi-region. The `_Default` logging bucket is in the `global` location unless your organization changed its default, and `global` works only with the US multi-region. For EU, use a logging bucket in the `eu` location.
+  * **Compatible runtime** : Deployed on Agent Runtime (Reasoning Engine), Cloud Run (`CLOUD_RUN_SERVICE`), or Google Kubernetes Engine (`GKE_WORKLOAD`).
+  * **ADK version** : Built using ADK for Python, version 2.1.0 or later.
+  * **Logging and observability buckets** : Both buckets must be in the same location as your Agent Anomaly Detection scope (such as the US or EU multi-region). For a scope in the US multi-region, they can also be in the `global` location (such as the default `_Default` logging bucket). For a scope in the EU multi-region, use a logging bucket in the `eu` location.
   * **Telemetry capture** : OpenTelemetry tracing and logging are enabled using the ADK.
   * **Metadata capture** : Raw telemetry is configured to capture prompt input and response output contents.
   * **Active tracing** : The `enable_tracing` flag is not explicitly set to `false` in the ADK configuration.
@@ -97,6 +107,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

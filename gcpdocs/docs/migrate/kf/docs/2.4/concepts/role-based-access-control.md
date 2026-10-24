@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migrate/kf/docs/2.4/concepts/role-based-access-control/
 title: Role-based Access Control \u00a0|\u00a0 Kf 2.4 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:47:15.094428+00:00
+fetched_at: 2026-10-24T08:46:36.145896+00:00
 ---
 
 # Role-based Access Control  |  Kf 2.4  |  Google Cloud Documentation

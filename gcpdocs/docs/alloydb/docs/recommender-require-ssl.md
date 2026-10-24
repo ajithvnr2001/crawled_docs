@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/recommender-require-ssl/
 title: Improve instance security by enforcing SSL or TLS encryption \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:20.467259+00:00
+fetched_at: 2026-10-24T11:25:48.670502+00:00
 ---
 
 # Improve instance security by enforcing SSL or TLS encryption  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,11 +21,9 @@ Send feedback
 
 #  Improve instance security by enforcing SSL or TLS encryption Stay organized with collections  Save and categorize content based on your preferences. 
 
-The AlloyDB enforce SSL mode [recommender](https://docs.cloud.google.com/recommender/docs/whatis-activeassist) helps you detect instances that are critical and allow unencrypted direct connections.
+To identify AlloyDB for PostgreSQL production instances that allow unencrypted direct connections and protect your data in transit, you can view and apply recommendations from the AlloyDB enforce SSL mode [recommender](https://docs.cloud.google.com/recommender/docs/whatis-activeassist).
 
-This page describes the AlloyDB enforce SSL mode recommender, how this recommender works, and how to use it.
-
-The AlloyDB enforce SSL mode recommender analyzes instance metadata. If the instance is a production instance and does not enforce encryption requirements for direct connections, it is recommended to enable SSL mode.
+The AlloyDB enforce SSL mode recommender analyzes instance metadata. If an instance is a production instance and doesn't enforce encryption requirements for direct connections, the recommender recommends that you enable SSL mode.
 
 Recommendations are generated daily.
 
@@ -33,14 +31,14 @@ Recommendations are generated daily.
 
 Before you can view recommendations and insights, do the following:
 
-  * Ensure that you [enable the Recommender API](https://docs.cloud.google.com/recommender/docs/enable-api).
+  * [Enable the Recommender API](https://docs.cloud.google.com/recommender/docs/enable-api).
 
-  * To get the permissions to view and work with insights and recommendations, ensure that you have the required [Identity and Access Management (IAM) roles](https://docs.cloud.google.com/alloydb/docs/reference/iam-roles-permissions). 
+  * To get the permissions to view and work with insights and recommendations, ask your administrator to grant you the required [Identity and Access Management (IAM) roles](https://docs.cloud.google.com/alloydb/docs/reference/iam-roles-permissions): 
 
 Tasks | Roles  
 ---|---  
-View recommendations |  `roles/recommender.alloydbViewer`  
-Apply recommendations |  `roles/recommender.alloydbAdmin` or `roles/alloydb.admin`  
+View recommendations |  AlloyDB Recommender Viewer (`roles/recommender.alloydbViewer`)   
+Apply recommendations |  AlloyDB Recommender Admin (`roles/recommender.alloydbAdmin`) or AlloyDB Admin (`roles/alloydb.admin`)   
   
 See [Grant access to other users](https://docs.cloud.google.com/alloydb/docs/user-grant-access) for more information.
 
@@ -49,7 +47,7 @@ See [Grant access to other users](https://docs.cloud.google.com/alloydb/docs/use
 
 ## List the recommendations
 
-You can list recommendations for enforcing SSL mode using the Google Cloud console, gcloud CLI, or the Recommender API.
+You can list recommendations for enforcing SSL mode by using the Google Cloud console, gcloud CLI, or the Recommender API.
 
 ###  Console 
 
@@ -68,7 +66,7 @@ A list of issues is displayed in the **Aggregated issues** panel. Select the **A
 
 ###  gcloud CLI 
 
-To list the enforce SSL mode recommendations using gcloud CLI, run the [`gcloud recommender recommendations list`](https://docs.cloud.google.com/sdk/gcloud/reference/recommender/recommendations/list) command as follows:
+To list recommendations for enforcing SSL mode by using the gcloud CLI, run the [`gcloud recommender recommendations list`](https://docs.cloud.google.com/sdk/gcloud/reference/recommender/recommendations/list) command as follows:
     
     
     gcloud recommender recommendations list \
@@ -82,7 +80,7 @@ Replace the following:
 
   * `PROJECT_ID`: your project ID.
 
-  * `LOCATION`: a region where your instances are located, such as `us-central1`.
+  * `LOCATION`: the region where your instances are located, such as `us-central1`.
 
 
 
@@ -99,14 +97,14 @@ Replace the following:
 
   * `PROJECT_ID`: your project ID.
 
-  * `LOCATION`: a region where your instances are located, such as `us-central1`.
+  * `LOCATION`: the region where your instances are located, such as `us-central1`.
 
 
 
 
 ## View insights and detailed recommendations
 
-You can view insights and detailed recommendations about instances that require enforcing SSL mode using the Google Cloud console, gcloud CLI, or the Recommender API.
+You can view insights and detailed recommendations about instances that require enforcing SSL mode by using the Google Cloud console, gcloud CLI, or the Recommender API.
 
 To view insights and detailed recommendations, follow these steps:
 
@@ -134,7 +132,7 @@ Replace the following:
 
   * `PROJECT_ID`: your project ID.
 
-  * `LOCATION`: a region where your instances are located, such as `us-central1`.
+  * `LOCATION`: the region where your instances are located, such as `us-central1`.
 
 
 
@@ -151,12 +149,20 @@ Replace the following:
 
   * `PROJECT_ID`: your project ID.
 
-  * `LOCATION`: a region where your instances are located, such as `us-central1`.
+  * `LOCATION`: the region where your instances are located, such as `us-central1`.
 
 
 
 
 ## Apply the recommendation
+
+Evaluate the recommendation carefully and do any of the following:
+
+###  Console 
+
+To implement the recommendation, [enforce SSL/TLS mode](https://docs.cloud.google.com/alloydb/docs/instance-ssl#configure_the_ssl_enforcement_mode_on_an_instance) on your instance.
+
+###  gcloud CLI 
 
 To implement the recommendation, [enforce SSL/TLS mode](https://docs.cloud.google.com/alloydb/docs/instance-ssl#configure_the_ssl_enforcement_mode_on_an_instance) on your instance.
 

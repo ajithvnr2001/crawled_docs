@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/build-agent-to-enrich-metadata/
 title: Build an agent to enrich your metadata \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:49.344269+00:00
+fetched_at: 2026-10-24T11:10:28.845306+00:00
 ---
 
 # Build an agent to enrich your metadata  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,21 +23,27 @@ Send feedback
 
 #  Build an agent to enrich your metadata Stay organized with collections  Save and categorize content based on your preferences. 
 
-Knowledge Catalog (formerly Dataplex Universal Catalog) manages metadata for data assets across the organization. This metadata provides the context that agents use to discover, understand, and query the data required to answer user questions.
+Knowledge Catalog (formerly Dataplex Universal Catalog) lets you automate metadata enrichment for data assets across your organization at scale. Adding business context from external sources helps users and downstream AI agents discover, understand, and query the data required to answer questions. In this tutorial, you use sample code from the [`knowledge-catalog`](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/samples/enrichment) repository to build an agent that generates and publishes BigQuery table documentation to Knowledge Catalog.
 
-While Knowledge Catalog automatically manages resources, tracks technical schemas, and generates descriptions and [data profiles](https://docs.cloud.google.com/knowledge-catalog/docs/data-profiling-overview), valuable business context often resides in other locations, such as:
+## How metadata enrichment works
+
+While Knowledge Catalog automatically manages resources, tracks technical schemas, and generates descriptions and [data profiles](https://docs.cloud.google.com/knowledge-catalog/docs/data-profiling-overview), valuable business context often resides in other locations, such as the following:
 
   * Internal documents and wikis
   * Code repositories
-  * Communication channels such as Google Chat and Slack
+  * Communication channels, such as Google Chat and Slack
 
 
 
-You can build AI agents to extract context from these sources and continuously enrich your metadata at scale. This tutorial uses sample code from the [`knowledge-catalog`](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/samples/enrichment) repository to show you how to build an agent that does the following:
+You can build AI agents to extract context from these sources, combine it with technical metadata, and continuously enrich catalog entries in Knowledge Catalog.
 
-  * **Extract context:** Extracts business context from knowledge bases, documents, code, or chat to enrich technical metadata.
-  * **Generate documentation:** Generates documentation for BigQuery tables based on extracted context and other information sources.
-  * **Improve search and discovery:** Publishes generated documentation to Knowledge Catalog, making entries easier to find and understand through search.
+## Objectives
+
+In this tutorial, you build an agent that performs the following tasks:
+
+  * Extract business context from knowledge bases, documents, code, or chat to enrich technical metadata.
+  * Generate documentation for BigQuery tables based on extracted context and other information sources.
+  * Publish generated documentation to Knowledge Catalog to improve search and discovery, making entries easier to find and understand.
 
 
 
@@ -323,6 +329,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

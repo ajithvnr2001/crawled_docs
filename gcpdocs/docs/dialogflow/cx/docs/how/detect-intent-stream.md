@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/how/detect-intent-stream/
 title: Detect intent \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:43:34.133022+00:00
+fetched_at: 2026-10-24T09:10:40.741128+00:00
 ---
 
 # Detect intent  |  Dialogflow CX  |  Google Cloud Documentation
@@ -1933,7 +1933,7 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
     from google.api_core import retry as retries
     from google.api_core.client_options import ClientOptions
     from google.api_core.exceptions import GoogleAPIError, ServiceUnavailable
-    from google.cloud import [dialogflowcx_v3](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest)
+    from google.cloud import dialogflowcx_v3
     from google.protobuf.json_format import MessageToDict
     
     import pyaudio
@@ -2145,7 +2145,7 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
             else:
                 client_options = ClientOptions(quota_project_id=project)
     
-            self.client = [dialogflowcx_v3](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest).[SessionsAsyncClient](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.services.sessions.SessionsAsyncClient.html)(client_options=client_options)
+            self.client = dialogflowcx_v3.[SessionsAsyncClient](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.services.sessions.SessionsAsyncClient.html)(client_options=client_options)
             self.agent_name = agent_name
             self.language_code = language_code
             self.single_utterance = single_utterance
@@ -2164,22 +2164,22 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
             self, audio_queue: asyncio.Queue
         ) -> AsyncGenerator[dialogflowcx_v3.StreamingDetectIntentRequest, None]:
             """Generates the requests for the streaming API."""
-            audio_config = [dialogflowcx_v3](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest).[InputAudioConfig](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.InputAudioConfig.html)(
-                audio_encoding=[dialogflowcx_v3](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest).[AudioEncoding](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.AudioEncoding.html).AUDIO_ENCODING_LINEAR_16,
+            audio_config = dialogflowcx_v3.[InputAudioConfig](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.InputAudioConfig.html)(
+                audio_encoding=dialogflowcx_v3.[AudioEncoding](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.AudioEncoding.html).AUDIO_ENCODING_LINEAR_16,
                 sample_rate_hertz=self.sample_rate,
                 model=self.model,
                 single_utterance=self.single_utterance,
             )
-            query_input = [dialogflowcx_v3](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest).[QueryInput](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.QueryInput.html)(
+            query_input = dialogflowcx_v3.[QueryInput](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.QueryInput.html)(
                 language_code=self.language_code,
-                audio=[dialogflowcx_v3](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest).[AudioInput](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.AudioInput.html)(config=audio_config),
+                audio=dialogflowcx_v3.[AudioInput](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.AudioInput.html)(config=audio_config),
             )
-            output_audio_config = [dialogflowcx_v3](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest).[OutputAudioConfig](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.OutputAudioConfig.html)(
-                audio_encoding=[dialogflowcx_v3](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest).[OutputAudioEncoding](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.OutputAudioEncoding.html).OUTPUT_AUDIO_ENCODING_LINEAR_16,
+            output_audio_config = dialogflowcx_v3.[OutputAudioConfig](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.OutputAudioConfig.html)(
+                audio_encoding=dialogflowcx_v3.[OutputAudioEncoding](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.OutputAudioEncoding.html).OUTPUT_AUDIO_ENCODING_LINEAR_16,
                 sample_rate_hertz=self.sample_rate,
                 synthesize_speech_config=(
-                    [dialogflowcx_v3](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest).[SynthesizeSpeechConfig](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.SynthesizeSpeechConfig.html)(
-                        voice=[dialogflowcx_v3](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest).[VoiceSelectionParams](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.VoiceSelectionParams.html)(name=self.voice)
+                    dialogflowcx_v3.[SynthesizeSpeechConfig](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.SynthesizeSpeechConfig.html)(
+                        voice=dialogflowcx_v3.[VoiceSelectionParams](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.VoiceSelectionParams.html)(name=self.voice)
                     )
                     if self.voice
                     else None
@@ -2187,7 +2187,7 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
             )
     
             # First request contains session ID, query input audio config, and output audio config
-            request = [dialogflowcx_v3](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest).[StreamingDetectIntentRequest](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.StreamingDetectIntentRequest.html)(
+            request = dialogflowcx_v3.[StreamingDetectIntentRequest](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.StreamingDetectIntentRequest.html)(
                 session=f"{self.agent_name}/sessions/{self.session_id}",
                 query_input=query_input,
                 enable_partial_response=True,
@@ -2207,9 +2207,9 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
                         )
                         break  # Exit the generator
     
-                    request = [dialogflowcx_v3](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest).[StreamingDetectIntentRequest](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.StreamingDetectIntentRequest.html)(
-                        query_input=[dialogflowcx_v3](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest).[QueryInput](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.QueryInput.html)(
-                            audio=[dialogflowcx_v3](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest).[AudioInput](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.AudioInput.html)(audio=chunk)
+                    request = dialogflowcx_v3.[StreamingDetectIntentRequest](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.StreamingDetectIntentRequest.html)(
+                        query_input=dialogflowcx_v3.[QueryInput](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.QueryInput.html)(
+                            audio=dialogflowcx_v3.[AudioInput](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.AudioInput.html)(audio=chunk)
                         )
                     )
                     yield request
@@ -2295,7 +2295,7 @@ To authenticate to Dialogflow CX, set up Application Default Credentials. For mo
     
     
     async def listen_print_loop(
-        responses: AsyncGenerator[[dialogflowcx_v3](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest).[StreamingDetectIntentResponse](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.StreamingDetectIntentResponse.html), None],
+        responses: AsyncGenerator[dialogflowcx_v3.[StreamingDetectIntentResponse](https://docs.cloud.google.com/python/docs/reference/dialogflow-cx/latest/google.cloud.dialogflowcx_v3.types.StreamingDetectIntentResponse.html), None],
         audioIO: AudioIO,
         audio_queue: asyncio.Queue,
         dialogflow_timeout: float,
@@ -2877,6 +2877,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-21 UTC.
+Last updated 2026-10-22 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-21 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 

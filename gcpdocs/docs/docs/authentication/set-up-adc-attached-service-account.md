@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/authentication/set-up-adc-attached-service-account/
 title: Set up ADC for a resource with an attached service account \u00a0|\u00a0 Authentication \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:48.011460+00:00
+fetched_at: 2026-10-24T08:20:45.044715+00:00
 ---
 
 # Set up ADC for a resource with an attached service account  |  Authentication  |  Google Cloud Documentation

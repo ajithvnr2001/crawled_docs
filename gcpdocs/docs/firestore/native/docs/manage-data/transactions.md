@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/transactions/
 title: Transactions and batched writes \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:13:59.537161+00:00
+fetched_at: 2026-10-24T08:56:18.320986+00:00
 ---
 
 # Transactions and batched writes  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -285,7 +285,7 @@ Android
     
     update_in_transaction(transaction, city_ref)
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/83a4a2befda9030e8c4e5b1d24bbc97c04329923/firestore/cloud-client/snippets.py#L395-L403)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/snippets.py#L395-L403)
 
 ##### Python  
 (Async)
@@ -301,7 +301,7 @@ Android
     
     await update_in_transaction(transaction, city_ref)
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/83a4a2befda9030e8c4e5b1d24bbc97c04329923/firestore/cloud-async-client/snippets.py#L389-L397)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-async-client/snippets.py#L389-L397)
 
 ##### C++
     
@@ -400,7 +400,7 @@ Android
     }
     
     
-    [save_transaction_document_update.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/5a88b95e85a07cb132bd437f5940aea3afe8ab54/firestore/save_transaction_document_update.go#L18-L59)
+    [save_transaction_document_update.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/save_transaction_document_update.go#L18-L59)
 
 ##### PHP
     
@@ -414,7 +414,7 @@ Android
         ]);
     });
     
-    [transaction_document_update.php](https://github.com/GoogleCloudPlatform/php-docs-samples/blob/699cf3e69716069e565cfc595cb4efb1049ab35a/firestore/src/transaction_document_update.php#L41-L48)
+    [transaction_document_update.php](https://github.com/GoogleCloudPlatform/php-docs-samples/blob/66350c7d0e5b75b645ab4cca0da8c2df39e356a9/firestore/src/transaction_document_update.php#L41-L48)
 
 ##### Unity
     
@@ -462,7 +462,7 @@ Android
       tx.update city_ref, { population: new_population }
     end
     
-    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce9995ee43bde7f4792efc07782fe2a2ba6184d9/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L23-L29)
+    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/99543a6e02d18c66111a30130ea036036d577005/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L23-L29)
 
 ### Passing information out of transactions
 
@@ -745,7 +745,7 @@ Android
     else:
         print("Sorry! Population is too big.")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/83a4a2befda9030e8c4e5b1d24bbc97c04329923/firestore/cloud-client/snippets.py#L410-L428)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/snippets.py#L410-L428)
 
 ##### Python  
 (Async)
@@ -771,7 +771,7 @@ Android
     else:
         print("Sorry! Population is too big.")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/83a4a2befda9030e8c4e5b1d24bbc97c04329923/firestore/cloud-async-client/snippets.py#L404-L422)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-async-client/snippets.py#L404-L422)
 
 ##### C++
     
@@ -843,7 +843,7 @@ Android
     }
     
     
-    [save_transaction_document_update_conditional.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/5a88b95e85a07cb132bd437f5940aea3afe8ab54/firestore/save_transaction_document_update_conditional.go#L18-L57)
+    [save_transaction_document_update_conditional.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/save_transaction_document_update_conditional.go#L18-L57)
 
 ##### PHP
     
@@ -868,7 +868,7 @@ Android
         printf('Sorry! Population is too big.' . PHP_EOL);
     }
     
-    [transaction_document_update_conditional.php](https://github.com/GoogleCloudPlatform/php-docs-samples/blob/699cf3e69716069e565cfc595cb4efb1049ab35a/firestore/src/transaction_document_update_conditional.php#L41-L59)
+    [transaction_document_update_conditional.php](https://github.com/GoogleCloudPlatform/php-docs-samples/blob/66350c7d0e5b75b645ab4cca0da8c2df39e356a9/firestore/src/transaction_document_update_conditional.php#L41-L59)
 
 ##### Unity
     
@@ -958,7 +958,7 @@ Android
       puts "Sorry! Population is too big."
     end
     
-    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce9995ee43bde7f4792efc07782fe2a2ba6184d9/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L40-L54)
+    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/99543a6e02d18c66111a30130ea036036d577005/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L40-L54)
 
 ### Transaction failure
 
@@ -1225,7 +1225,7 @@ Android
     # Commit the batch
     batch.commit()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/83a4a2befda9030e8c4e5b1d24bbc97c04329923/firestore/cloud-client/snippets.py#L435-L450)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/snippets.py#L435-L450)
 
 ##### Python  
 (Async)
@@ -1248,7 +1248,7 @@ Android
     # Commit the batch
     await batch.commit()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/83a4a2befda9030e8c4e5b1d24bbc97c04329923/firestore/cloud-async-client/snippets.py#L429-L444)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-async-client/snippets.py#L429-L444)
 
 ##### C++
     
@@ -1343,7 +1343,7 @@ Android
     }
     
     
-    [save_data_batch_writes.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/5a88b95e85a07cb132bd437f5940aea3afe8ab54/firestore/save_data_batch_writes.go#L18-L55)
+    [save_data_batch_writes.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/save_data_batch_writes.go#L18-L55)
 
 ##### PHP
     
@@ -1369,7 +1369,7 @@ Android
     # Commit the batch
     $batch->commit();
     
-    [data_batch_writes.php](https://github.com/GoogleCloudPlatform/php-docs-samples/blob/699cf3e69716069e565cfc595cb4efb1049ab35a/firestore/src/data_batch_writes.php#L40-L59)
+    [data_batch_writes.php](https://github.com/GoogleCloudPlatform/php-docs-samples/blob/66350c7d0e5b75b645ab4cca0da8c2df39e356a9/firestore/src/data_batch_writes.php#L40-L59)
 
 ##### Unity
     
@@ -1443,7 +1443,7 @@ Android
       b.delete "#{collection_path}/LA"
     end
     
-    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/ce9995ee43bde7f4792efc07782fe2a2ba6184d9/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L64-L73)
+    [transactions_and_batched_writes.rb](https://github.com/googleapis/google-cloud-ruby/blob/99543a6e02d18c66111a30130ea036036d577005/google-cloud-firestore/samples/transactions_and_batched_writes.rb#L64-L73)
 
 Like transactions, batched writes are atomic. Unlike transactions, batched writes do not need to ensure that read documents remain un-modified which leads to fewer failure cases. They are not subject to retries or to failures from too many retries. Batched writes execute even when the user's device is offline.
 
@@ -1537,6 +1537,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-21 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-21 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

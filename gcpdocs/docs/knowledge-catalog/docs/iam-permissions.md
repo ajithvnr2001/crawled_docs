@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/knowledge-catalog/docs/iam-permissions/
-title: Knowledge Catalog IAM permissions \u00a0|\u00a0 Google Cloud Documentation
+title: Knowledge Catalog Identity and Access Management permissions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:21:21.965843+00:00
+fetched_at: 2026-10-24T09:05:27.005438+00:00
 ---
 
-# Knowledge Catalog IAM permissions  |  Google Cloud Documentation
+# Knowledge Catalog Identity and Access Management permissions  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/knowledge-catalog/docs/iam-permissions/
 
@@ -21,19 +21,11 @@ As of April 10, 2026, Dataplex Universal Catalog is now called Knowledge Catalog
 
 Send feedback 
 
-#  Knowledge Catalog IAM permissions Stay organized with collections  Save and categorize content based on your preferences. 
+#  Knowledge Catalog Identity and Access Management permissions Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document provides a reference of Identity and Access Management (IAM) permissions for Knowledge Catalog resources. Use these permissions to create custom roles or to verify the granular access required for metadata management, data scans, lake operations, tasks, and environments.
+Identity and Access Management (IAM) permissions let you control granular access to Knowledge Catalog (formerly Dataplex Universal Catalog) resources across metadata management, data scans, lakes, zones, assets, tasks, and environments. Because you don't grant permissions directly to principals, you can assign predefined roles for common use cases or bundle specific permissions into custom roles to enforce the principle of least privilege.
 
-## Permissions and roles
-
-You don't directly grant users permissions. Instead, you grant them roles, which have one or more permissions within them. This approach aligns with the principle of least privilege, encouraging you to grant only the necessary access required for a user or service account to perform its tasks.
-
-IAM offers predefined roles for common use cases. If these predefined roles don't meet your specific needs, you can create your own custom roles containing only the specific permissions required.
-
-For more information about predefined Knowledge Catalog roles and the permissions they contain, see [Knowledge Catalog IAM roles](https://docs.cloud.google.com/knowledge-catalog/docs/iam-roles).
-
-For a detailed description of IAM and its features, see the [ IAM documentation](https://docs.cloud.google.com/iam/docs).
+This document lists the IAM permissions required to run specific operations and API methods in Knowledge Catalog. For more information about predefined roles, see [Knowledge Catalog IAM roles](https://docs.cloud.google.com/knowledge-catalog/docs/iam-roles). For more information about IAM, see [IAM overview](https://docs.cloud.google.com/iam/docs/overview).
 
 ## IAM policy Set and Get permissions
 
@@ -375,6 +367,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/identity/docs/how-to/setup-user-invitations/
-title: Setting up the User Invitation API \u00a0|\u00a0 Cloud Identity \u00a0|\u00a0 Google Cloud Documentation
+title: Set up the User Invitation API \u00a0|\u00a0 Cloud Identity \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:10:37.582613+00:00
+fetched_at: 2026-10-24T11:26:17.615720+00:00
 ---
 
-# Setting up the User Invitation API  |  Cloud Identity  |  Google Cloud Documentation
+# Set up the User Invitation API  |  Cloud Identity  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/identity/docs/how-to/setup-user-invitations/
 
@@ -19,11 +19,11 @@ fetched_at: 2026-10-23T13:10:37.582613+00:00
 
 Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
 
-# Setting up the User Invitation API
+# Set up the User Invitation API
 
 This page explains how to set up the Cloud Identity User Invitation API.
 
-## Enabling the API and setting up credentials
+## Enable the API and set up credentials
 
   1. Sign in to your Google Cloud account. If you're new to Google Cloud, [ create an account](https://console.cloud.google.com/freetrial) to evaluate how our products perform in real-world scenarios. New customers also get $300 in free credits to run, test, and deploy workloads. 
   2. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
@@ -56,25 +56,15 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 In the **Service account description** field, enter a description. For example, `Service account for quickstart`. 
 
      5. Click **Create and continue**. 
-     6. Grant the **Project > Owner** role to the service account. 
+     6. Grant the **Service Account Token Creator** role to the service account. 
 
-To grant the role, find the **Select a role** list, then select **Project > Owner**. 
+To grant the role, find the **Select a role** list, then select **Service Account Token Creator**. 
 
-**Note** : The **Role** field affects which resources the service account can access in your project. You can revoke these roles or grant additional roles later. In production environments, do not grant the Owner, Editor, or Viewer roles. Instead, grant a [predefined role](https://docs.cloud.google.com/iam/docs/understanding-roles#predefined_roles) or [custom role](https://docs.cloud.google.com/iam/docs/understanding-custom-roles) that meets your needs. 
+**Note** : The **Role** field affects which resources the service account can access in your project. You can revoke these roles or grant additional roles later. 
      7. Click **Continue**. 
      8. Click **Done** to finish creating the service account. 
 
-Do not close your browser window. You will use it in the next step. 
-
-  5. Create a service account key: 
-
-     1. In the Google Cloud console, click the email address for the service account that you created. 
-     2. Click **Keys**. 
-     3. Click **Add key** , and then click **Create new key**. 
-     4. Click **Create**. A JSON key file is downloaded to your computer. 
-     5. Click **Close**. 
-
-  6. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
+  5. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
 
 **Roles required to select or create a project**
 
@@ -84,7 +74,7 @@ Do not close your browser window. You will use it in the next step.
 
 [Go to project selector](https://console.cloud.google.com/projectselector2/home/dashboard)
 
-  7. Enable the Cloud Identity API, if it is not already enabled. 
+  6. Enable the Cloud Identity API, if it is not already enabled. 
 
 **Roles required to enable APIs**
 
@@ -92,7 +82,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 [Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=cloudidentity.googleapis.com)
 
-  8. Create a service account: 
+  7. Create a service account: 
 
      1. Ensure that you have the Create Service Accounts IAM role (`roles/iam.serviceAccountCreator`) and the Project IAM Admin role (`roles/resourcemanager.projectIamAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
      2. In the Google Cloud console, go to the **Create service account** page. 
@@ -104,28 +94,18 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 In the **Service account description** field, enter a description. For example, `Service account for quickstart`. 
 
      5. Click **Create and continue**. 
-     6. Grant the **Project > Owner** role to the service account. 
+     6. Grant the **Service Account Token Creator** role to the service account. 
 
-To grant the role, find the **Select a role** list, then select **Project > Owner**. 
+To grant the role, find the **Select a role** list, then select **Service Account Token Creator**. 
 
-**Note** : The **Role** field affects which resources the service account can access in your project. You can revoke these roles or grant additional roles later. In production environments, do not grant the Owner, Editor, or Viewer roles. Instead, grant a [predefined role](https://docs.cloud.google.com/iam/docs/understanding-roles#predefined_roles) or [custom role](https://docs.cloud.google.com/iam/docs/understanding-custom-roles) that meets your needs. 
+**Note** : The **Role** field affects which resources the service account can access in your project. You can revoke these roles or grant additional roles later. 
      7. Click **Continue**. 
      8. Click **Done** to finish creating the service account. 
 
-Do not close your browser window. You will use it in the next step. 
-
-  9. Create a service account key: 
-
-     1. In the Google Cloud console, click the email address for the service account that you created. 
-     2. Click **Keys**. 
-     3. Click **Add key** , and then click **Create new key**. 
-     4. Click **Create**. A JSON key file is downloaded to your computer. 
-     5. Click **Close**. 
 
 
 
-
-## Installing the Python client library
+## Install the Python client library
 
 To install the Python client library, run the following command:
     
@@ -134,25 +114,80 @@ To install the Python client library, run the following command:
         google-auth-oauthlib google-auth-httplib2
     
 
-For more on setting up your Python development environment, refer to the [Python Development Environment Setup Guide](https://docs.cloud.google.com/python/docs/setup).
+For more information about setting up your Python development environment, see the [Python Development Environment Setup Guide](https://docs.cloud.google.com/python/docs/setup).
 
-## Authenticating as a service account with domain-wide delegation
+## Authenticate and instantiate a client
 
-If you want to provide an account with domain-wide privileges so it can manage user invitations on behalf of admins, you should authenticate as a service account and then grant it the domain-wide privileges.
+To call the User Invitation API as a service account, you must use domain-wide delegation (DWD). You can authenticate the service account using Application Default Credentials (ADC) or a service account key.
 
-**Note:** Because domain-wide delegation works by allowing the service account to impersonate an admin user, audit logs will show any service account actions as the user.
+To authenticate as an administrator without DWD, use end-user OAuth 2.0 credentials with the `https://www.googleapis.com/auth/cloud-identity.userinvitations` scope instead. For more information, see [Using OAuth 2.0 for web server applications](https://developers.google.com/identity/protocols/oauth2/web-server#obtainingaccesstokens).
 
-See [Delegate domain-wide authority to your service account](https://developers.google.com/admin-sdk/directory/v1/guides/delegation#delegate_domain-wide_authority_to_your_service_account) for instructions. You need to provide the following scope to authorize the service account:
+**Warning:** Domain-wide delegation (DWD) is a powerful privilege that lets a service account impersonate any user in your domain with the allowed scopes. Use DWD only when absolutely necessary, because it can pose a security risk. Whenever possible, grant specific Cloud Identity roles directly to the service account instead. The User Invitation API doesn't support granting a role to a service account, so service accounts require DWD. See [domain-wide delegation best practices](https://knowledge.workspace.google.com/admin/apps/domain-wide-delegation-best-practices). 
+
+### Set up domain-wide delegation
+
+To use domain-wide delegation, you must grant the service account authority to impersonate an administrator. Audit logs show any service account actions as the impersonated user.
+
+For instructions, see [Delegate domain-wide authority to your service account](https://developers.google.com/admin-sdk/directory/v1/guides/delegation#delegate_domain-wide_authority_to_your_service_account).
+
+To authorize the service account, provide the following scope:
 
   * `https://www.googleapis.com/auth/cloud-identity.userinvitations`
 
 
 
-### Instantiating a client
+### Instantiate a client
 
-The following example shows how to instantiate a client using service account credentials. To authenticate as an end-user instead, replace the credential object from the service account with the credential you obtained earlier in [Using OAuth 2.0 for web server applications](https://developers.google.com/identity/protocols/oauth2/web-server#obtainingaccesstokens).
+To instantiate a client, choose an authentication method. We recommend using Application Default Credentials (ADC) if your code is running on Google Cloud or using Workload Identity Federation.
 
-###  Python 
+###  ADC 
+    
+    
+    from google.auth import iam
+    from google.auth.transport import requests
+    import google.auth
+    from google.oauth2 import service_account
+    
+    INITIAL_SCOPES = ['https://www.googleapis.com/auth/iam']
+    CI_SCOPES = ['https://www.googleapis.com/auth/cloud-identity.userinvitations']
+    TOKEN_URI = "https://accounts.google.com/o/oauth2/token"
+    
+    def create_delegated_credentials(
+      user_email: str
+    ) -> google.auth.credentials.Credentials:
+      """Creates delegated credentials for the user.
+    
+      Args:
+        user_email: The administrator email to call as.
+    
+      Returns:
+        The delegated credentials for the user.
+      """
+    
+      # Fetch application default credentials (ADC)
+      credentials, _ = google.auth.default(scopes=INITIAL_SCOPES)
+    
+      # Populate account information
+      request = requests.Request()
+      credentials.refresh(request)
+    
+      # Create an IAM signer
+      signer = iam.Signer(request, credentials,
+                          credentials.service_account_email)
+    
+      # Create domain-wide delegated (DWD) credentials
+      delegated_credentials = service_account.Credentials(
+          signer=signer,
+          service_account_email=credentials.service_account_email,
+          token_uri=TOKEN_URI,
+          scopes=CI_SCOPES,
+          subject=user_email
+      )
+    
+      return delegated_credentials
+    
+
+###  Service account key 
     
     
     from google.oauth2 import service_account
@@ -176,12 +211,18 @@ The following example shows how to instantiate a client using service account cr
       return service
     
 
-You can now begin making calls to the User Invitation API.
+After running this code, you can begin making calls to the User Invitation API.
+
+## What's next
+
+  * [Create and manage user invitations](https://docs.cloud.google.com/identity/docs/how-to/manage-user-invitations)
+
+
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

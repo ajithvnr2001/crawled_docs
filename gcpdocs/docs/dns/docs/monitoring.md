@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/monitoring/
 title: Use logging and monitoring \u00a0|\u00a0 Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:44.735611+00:00
+fetched_at: 2026-10-24T11:25:27.629448+00:00
 ---
 
 # Use logging and monitoring  |  Cloud DNS  |  Google Cloud Documentation
@@ -232,12 +232,12 @@ Field | Field type | Description | Used in metrics
 `destinationIP` | String / Target | Target IP address, only applicable for forwarding cases | No  
 `dnsArmorResult.threatChecked` | Boolean | Whether the query was forwarded to [DNS Armor](https://docs.cloud.google.com/dns/docs/threat-detection) for threat inspection | No  
 `egressError` | String | Egress proxy error, the actual error reported by the egress proxy as received from the on-premises DNS server This field can be used to differentiate an actual SERVFAIL returned by the on-premises DNS versus a network error encountered by the egress proxy | No  
-`egressPath` | String | If `none` or omitted, the query used the default standard Cloud DNS path, or `OUTBOUND_ENDPOINT` if the query was forwarded with an Outbound Endpoint | No  
+`egressPath` | String | `OUTBOUND_ENDPOINT` if the query was forwarded with an Outbound Endpoint or omitted if the query used the default standard Cloud DNS path | No  
 `healthyIps` | String | Set of IP addresses in the ResourceRecordSet that are known to be `HEALTHY` to Cloud DNS at the time of the query | No  
 `location` | String | Google Cloud region, for example `us-east1`, from which the response was served | Yes  
-`outboundEndpoint.name` | String | User-provided name of the Outbound Endpoint (this string is only present if `egress_path` is `OUTBOUND_ENDPOINT`) | No  
-`outboundEndpoint.projectId` | String | The Google Cloud project ID where the Outbound Endpoint is located (this string is only present if `egress_path` is `OUTBOUND_ENDPOINT`) | No  
-`outboundEndpoint.location` | String | The Google Cloud region where the Outbound Endpoint is located (this string is only present if `egress_path` is `OUTBOUND_ENDPOINT`) | No  
+`outboundEndpoint.name` | String | User-provided name of the Outbound Endpoint (this string is only present if `egressPath` is `OUTBOUND_ENDPOINT`) | No  
+`outboundEndpoint.projectId` | String | The Google Cloud project ID where the Outbound Endpoint is located (this string is only present if `egressPath` is `OUTBOUND_ENDPOINT`) | No  
+`outboundEndpoint.location` | String | The Google Cloud region where the Outbound Endpoint is located (this string is only present if `egressPath` is `OUTBOUND_ENDPOINT`) | No  
 `project_id` | String | Google Cloud project ID of the network from which the query was received | Yes  
 `protocol` | String / DNS | `TCP` | `UDP` | No  
 `queryName` | String / DNS | DNS query name, [RFC 1035 4.1.2](https://datatracker.ietf.org/doc/html/rfc1035#section-4.1.2) | No  

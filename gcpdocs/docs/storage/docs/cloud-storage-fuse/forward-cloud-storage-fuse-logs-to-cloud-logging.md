@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/forward-cloud-storage-fuse-logs-to-cloud-logging/
 title: Forward Cloud Storage FUSE logs to Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:57.418756+00:00
+fetched_at: 2026-10-24T11:25:30.259120+00:00
 ---
 
 # Forward Cloud Storage FUSE logs to Cloud Logging  |  Google Cloud Documentation
@@ -42,7 +42,7 @@ When you forward Cloud Storage FUSE logs to Cloud Logging, you can do the follow
 
 ## Pricing
 
-For pricing information about Cloud Logging, see [Cloud Logging costs](https://docs.cloud.google.com/stackdriver/pricing#logging-costs).
+For pricing information about Cloud Logging, see [Cloud Logging costs](https://docs.cloud.google.com/logging/pricing#logging-costs).
 
 ## Get required roles
 
@@ -62,7 +62,7 @@ For instructions on granting roles for projects, see [Manage access to projects]
 
 [Go to Cloud Logging API](https://console.cloud.google.com/apis/enableflow?apiid=logging.googleapis.com)
 
-  3. [Install the Cloud Ops Agent](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/install-index), which is Google Cloud's primary agent for collecting logs and metrics. Select an installation method based on the type of virtual machine you're using.
+  3. [Install the Cloud Ops Agent](https://docs.cloud.google.com/logging/docs/agent/ops-agent/install-index), which is Google Cloud's primary agent for collecting logs and metrics. Select an installation method based on the type of virtual machine you're using.
 
   4. Set the logging severity to `trace` by using either the [`--log-severity`](https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/cli-options#log-severity) option or the [`severity`](https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/config-file#severity) field to `trace`.
 
@@ -92,9 +92,9 @@ For instructions on granting roles for projects, see [Manage access to projects]
               receivers: [gcsfuse_trace_logs]
          
 
-To learn about additional logging configurations, see [Cloud Logging configurations](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/configuration#logging-config).
+To learn about additional logging configurations, see [Cloud Logging configurations](https://docs.cloud.google.com/logging/docs/agent/ops-agent/configuration#logging-config).
 
-  3. Put the configuration for the Cloud Ops Agent in a path based on your operating system. To choose which path to put the configuration, see the [Google Cloud Observability documentation for user-specified configurations](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/configuration#file-location).
+  3. Put the configuration for the Cloud Ops Agent in a path based on your operating system. To choose which path to put the configuration, see the [Google Cloud Observability documentation for user-specified configurations](https://docs.cloud.google.com/logging/docs/agent/ops-agent/configuration#file-location).
 
   4. Restart the Cloud Ops Agent to pick up new configuration changes using the `systemctl restart` command:
          
@@ -118,6 +118,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

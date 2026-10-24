@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/run-gemma4-31b-sft-maxtext/
 title: Run SFT for Gemma 4 31B on multi-host TPU v6e \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:08.339499+00:00
+fetched_at: 2026-10-24T09:19:54.578351+00:00
 ---
 
 # Run SFT for Gemma 4 31B on multi-host TPU v6e  |  AI Hypercomputer  |  Google Cloud Documentation

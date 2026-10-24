@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/buildpacks/base-images/
 title: Base images \u00a0|\u00a0 Buildpacks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:47.394353+00:00
+fetched_at: 2026-10-24T08:20:22.341737+00:00
 ---
 
 # Base images  |  Buildpacks  |  Google Cloud Documentation

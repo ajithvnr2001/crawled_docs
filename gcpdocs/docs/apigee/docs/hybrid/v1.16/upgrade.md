@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/upgrade/
 title: Upgrading Apigee hybrid to version 1.16 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:40:53.210641+00:00
+fetched_at: 2026-10-24T10:33:32.178912+00:00
 ---
 
 # Upgrading Apigee hybrid to version 1.16  |  Google Cloud Documentation
@@ -1078,42 +1078,46 @@ See:
 **Caution:** Do not create new environments during the upgrade process.This upgrade procedure assumes you are using the same namespace and service accounts for the upgraded installation. If you are making any configuration changes, be sure to reflect those changes in your overrides file before installing the Helm charts.**Note:** Before executing any of the Helm upgrade/install commands, use the Helm dry-run feature by adding `--dry-run` at the end of the command. See `helm -h` to list supported commands, options, and usage. 
 
   1. If you have not, navigate into your `APIGEE_HELM_CHARTS_HOME` directory. Run the following commands from that directory.
-  2. Upgrade the Apigee Operator/Controller: **Note:** This step requires elevated cluster permissions. Run `helm -h` or `helm upgrade -h` for details.
+  2. Upgrade the Apigee Operator/Controller: **Note:** This step requires elevated cluster permissions. Run `helm -h` or `helm upgrade -h` for details.**Caution:** When you upgrade from hybrid 1.15.x, the operator upgrade restarts the runtime, synchronizer, MART, Envoy adapter, and migration pods once in every environment. This restart happens only on this upgrade. Make sure your cluster has capacity for surge pods in all environments at the same time, or upgrade during a low-traffic window. 
+
+See:
+
+     * [Known issue 511240460](https://docs.cloud.google.com/apigee/docs/release/known-issues#511240460)
 
 Dry run:
-         
-         helm upgrade operator apigee-operator/ \
-           --install \
-           --namespace APIGEE_NAMESPACE \
-           -f OVERRIDES_FILE \
-           --dry-run=server
-         
+    
+    helm upgrade operator apigee-operator/ \
+      --install \
+      --namespace APIGEE_NAMESPACE \
+      -f OVERRIDES_FILE \
+      --dry-run=server
+    
 
 Upgrade the chart:
-         
-         helm upgrade operator apigee-operator/ \
-           --install \
-           --namespace APIGEE_NAMESPACE \
-           -f OVERRIDES_FILE
-         
+    
+    helm upgrade operator apigee-operator/ \
+      --install \
+      --namespace APIGEE_NAMESPACE \
+      -f OVERRIDES_FILE
+    
 
 Verify Apigee Operator installation:
-         
-         helm ls -n APIGEE_NAMESPACE
-         
-         
-         NAME       NAMESPACE       REVISION   UPDATED                                STATUS     CHART                   APP VERSION
-         operator   apigee   3          2024-08-21 00:42:44.492009 -0800 PST   deployed   apigee-operator-1.16.11   1.16.11
-         
+    
+    helm ls -n APIGEE_NAMESPACE
+    
+    
+    NAME       NAMESPACE       REVISION   UPDATED                                STATUS     CHART                   APP VERSION
+    operator   apigee   3          2024-08-21 00:42:44.492009 -0800 PST   deployed   apigee-operator-1.16.11   1.16.11
+    
 
 Verify it is up and running by checking its availability:
-         
-         kubectl -n APIGEE_NAMESPACE get deploy apigee-controller-manager
-         
-         
-         NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
-         apigee-controller-manager   1/1     1            1           7d20h
-         
+    
+    kubectl -n APIGEE_NAMESPACE get deploy apigee-controller-manager
+    
+    
+    NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+    apigee-controller-manager   1/1     1            1           7d20h
+    
 
   3. Upgrade the Apigee datastore: 
 
@@ -1456,6 +1460,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

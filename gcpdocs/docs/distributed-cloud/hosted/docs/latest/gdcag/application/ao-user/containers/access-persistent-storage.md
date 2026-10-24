@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/containers/access-persistent-storage/
 title: Access persistent storage \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:28.765322+00:00
+fetched_at: 2026-10-24T08:20:48.449088+00:00
 ---
 
 # Access persistent storage  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

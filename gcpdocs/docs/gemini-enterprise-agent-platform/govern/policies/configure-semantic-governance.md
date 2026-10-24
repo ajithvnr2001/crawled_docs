@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance/
 title: Configure semantic governance policies \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:43:24.691171+00:00
+fetched_at: 2026-10-24T11:25:56.407666+00:00
 ---
 
 # Configure semantic governance policies  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -483,7 +483,7 @@ This command returns a long-running operation. Wait for the operation to complet
 
 Once the policy engine is active, you can define the technical and behavioral guardrails for your agents.
 
-**Best practice:** Semantic governance policy uses LLMs as judges, which can make mistakes. We recommend enabling **dry run mode** first before enforcing policies in production. This lets you observe the policy engine's verdicts in Log Explorer and ensure that your natural language constraints behave as expected without blocking real actions. For instructions, see Enabling dry run mode.
+**Best practice:** The LLM in the semantic governance policy engine can make mistakes. We recommend enabling **dry run mode** first before enforcing policies in production. This lets you observe the policy engine's verdicts in Log Explorer and ensure that your natural language constraints behave as expected without blocking real actions. For instructions, see Enabling dry run mode.
 
   1. **Define the scope** : Determine if the policy applies to all actions taken by an agent or targets a specific tool.
   2. **Author the constraints** : Provide your business rules in plain English.
@@ -881,6 +881,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

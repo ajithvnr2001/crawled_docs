@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/tutorials/using-semantic-caching-policies-psc/
 title: Semantic caching with a private (Private Service Connect) endpoint \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:31:57.641222+00:00
+fetched_at: 2026-10-24T10:27:59.143210+00:00
 ---
 
 # Semantic caching with a private (Private Service Connect) endpoint  |  Apigee  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ _View[ Apigee Edge](https://docs.apigee.com/api-platform/get-started/what-apigee
 
 This page describes how to configure and use the Apigee semantic caching policies to enable intelligent response reuse based on semantic similarity. In this example, the policies run their similarity search against a Vector Search index that is deployed on a _private (Private Service Connect) endpoint_. Using these policies in your Apigee API proxy minimizes redundant backend API calls, reduces latency, and lowers operational costs.
 
-This guide applies to both Apigee and Apigee Hybrid. The policy configuration is identical on both platforms—only how the runtime reaches the private endpoint differs, as described in Step 2: Connect to the service attachment. On Apigee Hybrid, semantic caching over a private (Private Service Connect) endpoint is supported in **version 1.17.0 and later**. For more information, see Set up on Apigee Hybrid.
+This guide applies to both Apigee and Apigee Hybrid. The policy configuration is identical on both platforms—only how the runtime reaches the private endpoint differs, as described in Step 2: Connect to the service attachment. On Apigee Hybrid, semantic caching over a private (Private Service Connect) endpoint is supported in **version 1.16.11 and later** , and **version 1.17.0 and later**. For more information, see Set up on Apigee Hybrid.
 
 ## Before you begin
 
@@ -184,7 +184,7 @@ Where `SERVICE_ACCOUNT` is the email address of the service account that the pro
 
 For Apigee Hybrid deployments, confirm the following additional requirements:
 
-  * **A hybrid runtime on 1.17.0 or later** , installed in your own Kubernetes cluster. See the [Apigee Hybrid installation documentation](https://docs.cloud.google.com/apigee/docs/hybrid/latest/install-intro). This feature adds no cluster requirements of its own—any supported hybrid cluster works.
+  * **A hybrid runtime on version 1.16.11 or later, or 1.17.0 or later** , installed in your own Kubernetes cluster. See the [Apigee Hybrid installation documentation](https://docs.cloud.google.com/apigee/docs/hybrid/latest/install-intro). This feature adds no cluster requirements of its own—any supported hybrid cluster works.
   * **An Intermediate or Comprehensive environment** and an environment group with a runtime hostname, the same as on Apigee. Semantic caching policies deploy only to Intermediate or Comprehensive environments.
   * **Network reachability from the runtime to the private endpoint.** The message processor must be able to open a plaintext gRPC connection to the Vector Search Private Service Connect endpoint on `TARGET_HOST:10000`.
   * **Egress for the REST calls.** The Embeddings, Populate, and model-target calls go to the public `REGION-aiplatform.googleapis.com` surface, so the runtime also needs a path to Google APIs—directly, or over a private path if your cluster has no public egress.
@@ -193,7 +193,7 @@ For Apigee Hybrid deployments, confirm the following additional requirements:
 
 ## Set up on Apigee Hybrid
 
-Semantic caching over a private (Private Service Connect) endpoint is supported on Apigee Hybrid **version 1.17.0 and later**. The policy configuration and the Vector Search steps in this tutorial are identical to Apigee—the difference is that on hybrid you run the runtime and provide its connectivity yourself. Because hybrid deployments vary widely, this section is general guidance rather than exact commands. The only requirement this feature adds is that the runtime must be able to reach the private endpoint over plaintext gRPC.
+Semantic caching over a private (Private Service Connect) endpoint is supported on Apigee Hybrid **version 1.16.11 and later** , and **version 1.17.0 and later**. The policy configuration and the Vector Search steps in this tutorial are identical to Apigee—the difference is that on hybrid you run the runtime and provide its connectivity yourself. Because hybrid deployments vary widely, this section is general guidance rather than exact commands. The only requirement this feature adds is that the runtime must be able to reach the private endpoint over plaintext gRPC.
 
 ### Provide network reachability
 
@@ -303,7 +303,7 @@ Create the following directory layout:
         ├── SCL-1.xml
         └── SCP-1.xml
 
-**`policies/SCL-1.xml`** —the SemanticCacheLookup policy. The `<SimilaritySearch>` block uses `<PrivateServiceConnect><GrpcEndpoint>` (no `<URL>`). **Note:** The `<PrivateServiceConnect>` transport is supported on Apigee, and on Apigee Hybrid **version 1.17.0 and later**.
+**`policies/SCL-1.xml`** —the SemanticCacheLookup policy. The `<SimilaritySearch>` block uses `<PrivateServiceConnect><GrpcEndpoint>` (no `<URL>`). **Note:** The `<PrivateServiceConnect>` transport is supported on Apigee, and on Apigee Hybrid **version 1.16.11 and later** , and **version 1.17.0 and later**.
 
 Note: `<GrpcEndpoint>` rules: 
 
@@ -492,6 +492,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/register-agents/
 title: Register agents \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:13.500227+00:00
+fetched_at: 2026-10-24T08:50:55.706446+00:00
 ---
 
 # Register agents  |  Agent Registry  |  Google Cloud Documentation

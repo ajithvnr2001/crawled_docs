@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/metadata-change-feeds-overview/
 title: About metadata change feeds \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:51:00.236332+00:00
+fetched_at: 2026-10-24T08:41:38.988617+00:00
 ---
 
 # About metadata change feeds  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  About metadata change feeds Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document provides an overview of Knowledge Catalog (formerly Dataplex Universal Catalog) metadata change feeds. These metadata change feeds let you track metadata changes in your Knowledge Catalog instance in near real-time and build event-driven workflows based on those changes.
+Knowledge Catalog (formerly Dataplex Universal Catalog) metadata change feeds let you track metadata changes to entries and aspects across your organization, projects, or entry groups in near real time and build event-driven workflows. To create and manage these feeds, see [Receive notifications with metadata change feeds](https://docs.cloud.google.com/knowledge-catalog/docs/receive-metadata-notifications).
 
 ## How metadata change feeds work
 
@@ -86,8 +86,6 @@ The following example shows a metadata change feed configured to monitor project
       "pubsubTopic": "projects/PROJECT_ID_PUBSUB/topics/TOPIC_ID"
     }
     
-
-For instructions on how to create and manage metadata change feeds, see [Receive notifications with metadata change feeds](https://docs.cloud.google.com/knowledge-catalog/docs/receive-metadata-notifications).
 
 ### Notification message format
 
@@ -176,7 +174,7 @@ Review the following limitations for metadata change feeds:
 
 ## Pricing
 
-There are no direct charges for Knowledge Catalog metadata change feeds. However, you incur costs for the resources used, such as Pub/Sub message delivery, storage, and data egress. See [Pub/Sub pricing](https://cloud.google.com/pubsub/pricing).
+Knowledge Catalog offers metadata change feeds at no additional charge. However, you incur costs for the resources used, such as Pub/Sub message delivery, storage, and data egress. For more information, see [Pub/Sub pricing](https://cloud.google.com/pubsub/pricing).
 
 ## What's next
 
@@ -189,6 +187,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

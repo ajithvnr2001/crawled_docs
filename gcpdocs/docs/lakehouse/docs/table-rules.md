@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/table-rules/
 title: Table management and security rules \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:48:04.626672+00:00
+fetched_at: 2026-10-24T11:05:34.586359+00:00
 ---
 
 # Table management and security rules  |  Lakehouse  |  Google Cloud Documentation

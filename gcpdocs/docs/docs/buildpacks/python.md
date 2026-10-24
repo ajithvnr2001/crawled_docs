@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/buildpacks/python/
 title: Build a Python application \u00a0|\u00a0 Buildpacks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:45.309252+00:00
+fetched_at: 2026-10-24T08:20:54.777171+00:00
 ---
 
 # Build a Python application  |  Buildpacks  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-v2-basic-auditlogs/
 title: Deploy Cloud Function 2nd gen with Audit Log trigger using Terraform \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:11:37.323340+00:00
+fetched_at: 2026-10-24T08:54:30.768110+00:00
 ---
 
 # Deploy Cloud Function 2nd gen with Audit Log trigger using Terraform  |  Cloud Run functions  |  Google Cloud Documentation

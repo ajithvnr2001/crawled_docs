@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/pgaudit/about/
 title: About pgAudit \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:15.389854+00:00
+fetched_at: 2026-10-24T11:25:53.543102+00:00
 ---
 
 # About pgAudit  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ The open-source pgAudit extension in AlloyDB for PostgreSQL lets you selectively
 
 Database auditing in AlloyDB is available through the pgAudit extension, which monitors and records a configurable subset of executed SQL commands and queries. In contrast, [Cloud Audit Logs](https://docs.cloud.google.com/logging/docs/audit) records administrative and maintenance operations performed on an AlloyDB instance, as described in [Monitor access using audit logs](https://docs.cloud.google.com/alloydb/docs/audit-logging).
 
-**Important:** AlloyDB uses an asynchronous managed pipeline to process user generated audit logs. Records are temporarily buffered on the instance's local storage before being securely forwarded to Cloud Logging. This local buffering provides high-performance logging, but it consumes temporary disk space on the instance. For more information, see Limitations.
+**Important:** AlloyDB uses an asynchronous managed pipeline to process user-generated audit logs. Records are temporarily buffered on the instance's local storage before being securely forwarded to Cloud Logging. This local buffering provides high-performance logging, but it consumes temporary disk space on the instance. For more information about local storage limits, see Limitations.
 
 ## Limitations
 
@@ -42,9 +42,12 @@ The following limitations apply to the pgAudit functionality:
   * When log generation rate exceeds the platform's ingestion capacity, logs are buffered locally. Sustained backpressure can result in the following:
 
     * Higher latency between audit events and records visible in Cloud Logging.
+
     * Instance restarts or crashes resulting from local disk space exhaustion.
+
     * Intermittent gaps in processed and persisted audit log trails.
-  * The maximum size for a single audit record is 1MB.
+
+  * The maximum size for a single audit record is 1 MB.
 
 
 

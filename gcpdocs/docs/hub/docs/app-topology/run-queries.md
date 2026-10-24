@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/hub/docs/app-topology/run-queries/
 title: Run queries \u00a0|\u00a0 Cloud Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:33.363508+00:00
+fetched_at: 2026-10-24T08:48:35.725310+00:00
 ---
 
 # Run queries  |  Cloud Hub  |  Google Cloud Documentation

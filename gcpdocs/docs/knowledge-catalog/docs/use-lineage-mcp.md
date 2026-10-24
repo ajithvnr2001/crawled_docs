@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/use-lineage-mcp/
 title: Use the data lineage remote MCP server \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:21:26.253038+00:00
+fetched_at: 2026-10-24T11:10:26.162854+00:00
 ---
 
 # Use the data lineage remote MCP server  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -27,9 +27,9 @@ Send feedback
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1), and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-**Note:** To get support or provide feedback for this feature, contact [data-lineage-preview@google.com](mailto:data-lineage-preview@google.com).
+The data lineage remote Model Context Protocol (MCP) server lets you query lineage graphs, discover upstream data provenance, and analyze downstream impact across your data pipelines. You can connect the server to AI agents, such as Antigravity, ChatGPT, and Claude, or to custom AI applications that you develop.
 
-This document shows you how to use the data lineage remote Model Context Protocol (MCP) server to connect with AI applications including Antigravity, ChatGPT, Claude, and custom applications you are developing. The data lineage remote MCP server lets you interact with data lineage to query data lineage graphs, discover upstream data provenance, and analyze downstream impact. The Data Lineage API remote MCP server is enabled when you enable the Data Lineage API API. 
+## About Model Context Protocol
 
 [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP) standardizes how large language models (LLMs) and AI applications or agents connect to external data sources. MCP servers let you use their tools, resources, and prompts to take actions and get updated data from their backend service.
 
@@ -68,6 +68,8 @@ Google and Google Cloud remote MCP servers have the following features and benef
 For information about other MCP servers and information about security and governance controls available for Google Cloud MCP servers, see [Google Cloud MCP servers overview](https://docs.cloud.google.com/mcp/overview).
 
 ## Before you begin
+
+The data lineage remote MCP server is enabled when you enable the Data Lineage API.
 
   1. Sign in to your Google Cloud account. If you're new to Google Cloud, [ create an account](https://console.cloud.google.com/freetrial) to evaluate how our products perform in real-world scenarios. New customers also get $300 in free credits to run, test, and deploy workloads. 
   2. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
@@ -139,7 +141,7 @@ You might also be able to get these permissions with [custom roles](https://docs
 
 ## Authentication and authorization
 
-The Data Lineage API remote MCP server uses the [OAuth 2.0](https://developers.google.com/identity/protocols/oauth2) protocol with [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) for authentication and authorization. All [Google Cloud identities](https://docs.cloud.google.com/docs/authentication/identity-products) are supported for authentication to MCP servers. 
+The data lineage remote MCP server uses the [OAuth 2.0](https://developers.google.com/identity/protocols/oauth2) protocol with [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) for authentication and authorization. All [Google Cloud identities](https://docs.cloud.google.com/docs/authentication/identity-products) are supported for authentication to MCP servers. 
 
 We recommend that you create a separate identity for agents that are using MCP tools so that access to resources can be controlled and monitored. For more information about authentication, see [Authenticate to MCP servers](https://docs.cloud.google.com/mcp/authenticate-mcp).
 
@@ -264,6 +266,10 @@ You can combine multiple criteria to build customized security and governance po
 
 For more information, see [Control MCP use with Identity and Access Management](https://docs.cloud.google.com/mcp/control-mcp-use-iam).
 
+## Get support
+
+To get support or provide feedback for this preview feature, contact [data-lineage-preview@google.com](mailto:data-lineage-preview@google.com).
+
 ## What's next
 
   * Read the [data lineage MCP tools reference](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/mcp).
@@ -275,6 +281,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

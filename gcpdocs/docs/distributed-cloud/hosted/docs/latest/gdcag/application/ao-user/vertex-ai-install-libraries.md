@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-install-libraries/
 title: Install Vertex AI client libraries \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:27.765745+00:00
+fetched_at: 2026-10-24T11:10:34.756470+00:00
 ---
 
 # Install Vertex AI client libraries  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -110,14 +110,30 @@ Replace the following:
          tar -zxf CLIENT_LIBRARY
          
 
+Extracting `OS-google-cloud-SERVICE-VERSION.tar.gz` (for example, `centos-google-cloud-speech-2.15.0.tar.gz`) creates the `LIBRARY_NAME` directory (for example, `google-cloud-speech`, without the `OS-` prefix or `-VERSION` suffix).
+
   3. Install the client library in Distributed Cloud:
          
-         pip install -r FOLDER_NAME/requirements.txt --no-index --find-links FOLDER_NAME
+         pip install -r LIBRARY_NAME/requirements.txt --no-index --find-links LIBRARY_NAME
          
 
-Replace `FOLDER_NAME` with the path to the local directory where you downloaded the library file.
+Replace `LIBRARY_NAME` with the extracted library directory name, such as `google-cloud-speech`.
 
-  4. Import the client library using a Python script. The following example shows a code snippet of a Python script that imports the Vertex AI Translation client library to illustrate what importing libraries looks like:
+  4. If you installed the Speech-to-Text client library, verify the installation and version (`2.15.0`):
+
+**Note:** Speech-to-Text API calls on Distributed Cloud must import `from google.cloud import speech_v1p1beta1 as speech` because the API gateway routes the `google.cloud.speech.v1p1beta1.Speech` service. Importing `from google.cloud import speech` defaults to `speech_v1`, and API calls with `speech_v1` return `501 MethodNotImplemented`.
+         
+         from google.cloud import speech_v1p1beta1 as speech
+         
+         print(speech.__version__)
+         
+
+The output displays the installed version:
+         
+         2.15.0
+         
+
+  5. Import the client library using a Python script. The following example shows a code snippet of a Python script that imports the Vertex AI Translation client library to illustrate what importing libraries looks like:
          
          from google.cloud import [translate](https://docs.cloud.google.com/python/docs/reference/translate/latest/google.cloud.translate_v2.client.Client.html)
          from google.api_core.client_options import ClientOptions
@@ -143,9 +159,9 @@ Replace the following:
 For more information about making Vertex AI Translation requests, [learn about translation features](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-translation) or [translate text](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/quickstart-translation).
 
 **Note:** The `google-cloud-translate` 3.8.0 client library doesn't expose the `s3_source` field, so it can't create glossaries or translate documents from storage buckets. Instead, use the REST API to [create a glossary](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-glossary#create-glossary) or [translate documents from a bucket](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-translate-docs#translate-bucket).
-  5. Save the Python script with a name, such as `translation-service.py`.
+  6. Save the Python script with a name, such as `translation-service.py`.
 
-  6. Run the Python script:
+  7. Run the Python script:
          
          python SCRIPT_NAME
          

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/release-notes/
 title: Google SecOps Response Integrations release notes \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:09:25.356990+00:00
+fetched_at: 2026-10-24T09:21:18.956546+00:00
 ---
 
 # Google SecOps Response Integrations release notes  |  Google Security Operations  |  Google Cloud Documentation
@@ -26,6 +26,48 @@ This page documents production updates to Google SecOps Response Integrations. Y
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/chronicle-soar-marketplace-release-notes.xml) directly. 
+
+## October 21, 2026
+
+Feature
+
+**Google Threat Intelligence** : Version 22.0
+
+  * The following new connector has been added:
+
+    * **Google Threat Intelligence - GTI Alerts Connector**
+
+
+
+Change
+
+**Siemplify** : Version 114.0
+
+  * Added support for lazy case loading so that case data is no longer attached to the remote agent task when enabled by the platform in the following action:
+
+    * **Run Remote**
+
+
+
+Change
+
+**Palo Alto Cortex XDR** : Version 34.0
+
+  * Added the **Entities To Ignore** parameter to exclude alerts containing specified IP addresses, CIDR ranges, domains, file hashes, hostnames, or usernames in the following connector:
+
+    * **Palo Alto Cortex XDR - Incidents Connector**
+
+
+
+Change
+
+**Google Threat Intelligence** : Version 22.0
+
+  * Improved private submission handling when retrieving comments in the following action:
+
+    * **Submit File**
+
+
 
 ## October 14, 2026
 
@@ -67,29 +109,6 @@ Change
 
 Change
 
-**Google Threat Intelligence** : Version 21.0
-
-  * Improved issue ingestion to adaptively scan the configured `Max Hours Backwards` time range and skip periods without new issues in the following connector:
-
-    * **Google Threat Intelligence - ASM Issues Connector**
-  * Added the **Anonymize Credential** parameter to optionally mask compromised passwords with asterisks in ingested alerts and events in the following connector:
-
-    * **Google Threat Intelligence - DTM Alerts Connector**
-
-
-
-Change
-
-**Email Utilities** : Version 17.0
-
-  * Resolved an issue causing entities to not be created when `Create Observed Entities` was configured for specific entity types in the following action:
-
-    * **Parse Case Wall Email**
-
-
-
-Change
-
 **Microsoft Graph Mail** : Version 49.0
 
   * Updated the **Folder Name** parameter to be optional, allowing searches across the entire mailbox when no folder is specified in the following action:
@@ -126,6 +145,29 @@ Change
   * Fixed an issue where environment extraction only checked the first event in multi-event alerts in the following connector:
 
     * **Chronicle Alerts Connector**
+
+
+
+Change
+
+**Email Utilities** : Version 17.0
+
+  * Resolved an issue causing entities to not be created when **Create Observed Entities** was configured for specific entity types in the following action:
+
+    * **Parse Case Wall Email**
+
+
+
+Change
+
+**Google Threat Intelligence** : Version 21.0
+
+  * Improved issue ingestion to adaptively scan the configured **Max Hours Backwards** time range and skip periods without new issues in the following connector:
+
+    * **Google Threat Intelligence - ASM Issues Connector**
+  * Added the **Anonymize Credential** parameter to optionally mask compromised passwords with asterisks in ingested alerts and events in the following connector:
+
+    * **Google Threat Intelligence - DTM Alerts Connector**
 
 
 

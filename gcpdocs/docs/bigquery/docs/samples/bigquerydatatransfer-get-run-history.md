@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatatransfer-get-run-history/
 title: List transfer runs \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:46:07.665538+00:00
+fetched_at: 2026-10-24T09:33:19.962480+00:00
 ---
 
 # List transfer runs  |  BigQuery  |  Google Cloud Documentation

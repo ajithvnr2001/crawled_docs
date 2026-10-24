@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/troubleshooting/collecting-diagnostic-information/
 title: Collecting diagnostic information \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:49:44.457507+00:00
+fetched_at: 2026-10-24T11:25:25.249425+00:00
 ---
 
 # Collecting diagnostic information  |  Compute Engine  |  Google Cloud Documentation
@@ -106,6 +106,8 @@ To get the permissions that you need to run the diagnostic tool by using Google 
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
+To attach diagnostic information to a support case, you also need the Tech Support Editor (`roles/cloudsupport.techSupportEditor`) role.
+
 ## Collecting diagnostic information from a VM
 
 Run the diagnostic tool either directly from the VM, or remotely, by using the Google Cloud CLI.
@@ -171,6 +173,50 @@ After the tool finishes running, it saves the collected diagnostic information t
 
 
 
+## Attach diagnostic information to a support case
+
+If you have an open case with Cloud Customer Care, then you can attach diagnostic information directly to the case when you collect it. This option saves you from downloading the archive from Cloud Storage and attaching it to the case yourself.
+
+**Preview**
+
+This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+The diagnostic information is attached to the case without a review step. If you need to review the information or remove confidential or personally identifiable information (PII) before you share it, then don't use this option. Instead, collect the information as described in Collecting diagnostic information from a VM, review the archive in Cloud Storage, and then attach it to the case.
+
+Before you attach diagnostic information to a support case, make sure that:
+
+  * Your organization has a Customer Care plan that lets you create technical support cases (Standard, Enhanced, or Premium Support).
+  * You have the Tech Support Editor (`roles/cloudsupport.techSupportEditor`) role. If the case belongs to an organization, then you need the role on the organization.
+  * The [Cloud Support API](https://docs.cloud.google.com/support/docs/reference/support-api) is enabled in the project.
+  * The case is open.
+
+
+
+To attach diagnostic information to a support case, do the following:
+
+  1. Make sure that you have installed the [alpha commands](https://docs.cloud.google.com/sdk/docs/components#alpha_and_beta_components) component:
+         
+         gcloud components install alpha
+         
+
+  2. Run the `gcloud alpha compute diagnose export-logs` command with the `--support-case` flag:
+         
+         gcloud alpha compute diagnose export-logs INSTANCE_NAME \
+             --zone=ZONE \
+             --support-case=CASE_NUMBER
+         
+
+Replace the following:
+
+     * INSTANCE_NAME: the name of the Windows Server compute instance.
+     * ZONE: the zone of the instance.
+     * CASE_NUMBER: the number of an open support case.
+
+The command checks that the case exists and that you can add attachments to it before it starts collecting. It then waits for the instance to finish collecting diagnostic information, which might take a few minutes, and uploads the archive to the case. The archive also stays in the Cloud Storage bucket, the same as when you omit the `--support-case` flag.
+
+
+
+
 ## What's next
 
   * Learn how to [capture screenshots from VMs](https://docs.cloud.google.com/compute/docs/instances/capturing-vm-screenshots).
@@ -186,6 +232,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/use-lineage/
 title: View data lineage for Google Cloud systems \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:22:03.045688+00:00
+fetched_at: 2026-10-24T08:30:54.472320+00:00
 ---
 
 # View data lineage for Google Cloud systems  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  View data lineage for Google Cloud systems Stay organized with collections  Save and categorize content based on your preferences. 
 
-View data lineage to understand the relationships between your project's resources and the processes that created them. These relationships show how data assets, such as tables and datasets, are transformed by processes like queries and pipelines. This guide describes how to view data lineage details in the Google Cloud console or retrieve them by using the Data Lineage API.
+Data lineage in Knowledge Catalog (formerly Dataplex Universal Catalog) lets you trace how data assets move and change across systems to inspect transformations, review run history, and analyze dependencies. After enabling tracking, you can explore graphs and lists for BigQuery, Vertex AI, and cataloged entries in the Google Cloud console, or retrieve lineage details with the Data Lineage API. For more information, see [About data lineage](https://docs.cloud.google.com/knowledge-catalog/docs/about-data-lineage).
 
 ## Roles and permissions
 
@@ -64,7 +64,7 @@ You might also be able to get these permissions with [custom roles](https://docs
 
 ## Types of data lineage views
 
-You can view lineage information as an interactive graph or a structured list in the Google Cloud console.
+You can view lineage information as an interactive graph or a structured list in the Google Cloud console. Both views show the relationships between your project's resources and the processes that created or transformed them. For example, you can see how queries and pipelines transform data assets such as tables, datasets, and models.
 
 For a detailed description of the graph elements (such as nodes, edges, process icons, and labels) and the columns available in the list views, see [About data lineage visualization in Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/lineage-views).
 
@@ -447,6 +447,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

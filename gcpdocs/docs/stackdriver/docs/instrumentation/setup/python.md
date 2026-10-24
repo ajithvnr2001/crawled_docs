@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/stackdriver/docs/instrumentation/setup/python/
 title: Python instrumentation sample \u00a0|\u00a0 Google Cloud Observability \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:51:29.375609+00:00
+fetched_at: 2026-10-24T11:25:18.189940+00:00
 ---
 
 # Python instrumentation sample  |  Google Cloud Observability  |  Google Cloud Documentation
@@ -157,7 +157,7 @@ To instrument your app to collect trace and metric data and to write structured 
 
 ### Configure OpenTelemetry
 
-This example app is configured to use the OpenTelemetry Python SDK to export traces and metrics by using the [OTLP protocol](https://opentelemetry.io/docs/specs/otlp/). By default, the OpenTelemetry Python SDK uses the [W3C Trace Context](https://www.w3.org/TR/trace-context/) format for [propagating trace context](https://opentelemetry.io/docs/concepts/context-propagation/#propagation), which ensures that spans have the correct parent-child relationship within a trace.
+This example app is configured to use the OpenTelemetry Python SDK to export logs, metrics, and traces by using the [OTLP protocol](https://opentelemetry.io/docs/specs/otlp/). By default, the OpenTelemetry Python SDK uses the [W3C Trace Context](https://www.w3.org/TR/trace-context/) format for [propagating trace context](https://opentelemetry.io/docs/concepts/context-propagation/#propagation), which ensures that spans have the correct parent-child relationship within a trace.
 
 The following code sample illustrates a Python module to set up OpenTelemetry. To view the full sample, in the sample's toolbar, select the GitHub logo.
     
@@ -235,7 +235,7 @@ For more information about these fields, see the [`LogEntry`](https://docs.cloud
 
 ## Run a sample app configured to collect telemetry
 
-The instrumentation in the sample app uses vendor-neutral formats, like JSON for log data and OTLP for metric and trace data. The sample app also uses [Flask](https://flask.palletsprojects.com/en/3.0.x/) to serve HTTP requests and the [requests](https://requests.readthedocs.io/en/latest/) library to make HTTP requests. The OpenTelemetry `Collector` sends log and metric data to your project by using Google exporters. It sends your trace data to your project by using the Telemetry API, which uses OTLP.
+The instrumentation in the sample app uses vendor-neutral formats, like JSON for log data and OTLP for metric and trace data. The sample app also uses [Flask](https://flask.palletsprojects.com/en/3.0.x/) to serve HTTP requests and the [requests](https://requests.readthedocs.io/en/latest/) library to make HTTP requests. The OpenTelemetry `Collector` sends log, metric, and trace data to your project by using the Telemetry API, which uses OTLP.
 
 To generate metrics and traces for the HTTP client and server, the example app installs the [`opentelemetry-instrumentation-flask`](https://pypi.org/project/opentelemetry-instrumentation-flask/) and [`opentelemetry-instrumentation-requests`](https://pypi.org/project/opentelemetry-instrumentation-requests/) instrumentation libraries:
     
@@ -424,6 +424,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

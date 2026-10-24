@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/php-gen2/runtime/
 title: PHP runtime environment \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:51:24.326290+00:00
+fetched_at: 2026-10-24T09:02:00.723183+00:00
 ---
 
 # PHP runtime environment  |  App Engine standard environment  |  Google Cloud Documentation

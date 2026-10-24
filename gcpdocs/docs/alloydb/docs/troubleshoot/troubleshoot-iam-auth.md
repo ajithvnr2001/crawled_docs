@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/troubleshoot/troubleshoot-iam-auth/
 title: Troubleshoot IAM authentication \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:57.446130+00:00
+fetched_at: 2026-10-24T11:25:48.790646+00:00
 ---
 
 # Troubleshoot IAM authentication  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,15 +21,15 @@ Send feedback
 
 #  Troubleshoot IAM authentication Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to troubleshoot [Identity and Access Management (IAM) authentication](https://docs.cloud.google.com/alloydb/docs/database-users/iam-authentication) issues for AlloyDB for PostgreSQL.
+To diagnose and resolve failed [Identity and Access Management (IAM) authentication](https://docs.cloud.google.com/alloydb/docs/database-users/iam-authentication) login attempts for AlloyDB for PostgreSQL, you can inspect authentication alert logs in Logs Explorer.
 
 To determine the cause of a failed IAM-based authentication attempt, follow these steps:
 
-  1. In the Google Cloud console, go to the Logs Explorer page:
+  1. In the Google Cloud console, go to the **Logs Explorer** page:
 
 [Go to Logs Explorer](https://console.cloud.google.com/logs/query)
 
-  2. In the **All resources** drop-down list, select **AlloyDB instance**.
+  2. In the **All resources** drop-down list, select **AlloyDB Instance**.
 
   3. Under **Severity** , click **Alert**.
 
@@ -40,7 +40,7 @@ If **Alert** isn't an option, then there are no authentication failures logged w
 `Request had invalid authentication credentials.`
     The access token is invalid.
 `Caller does not have required permission to use project.`
-    The IAM principal doesn't have [the necessary IAM roles](https://docs.cloud.google.com/alloydb/docs/manage-iam-authn#role) or permissions. The full error message specifies the missing roles or permissions.
+    The IAM principal doesn't have [the necessary IAM roles](https://docs.cloud.google.com/alloydb/docs/database-users/manage-iam-auth#role) or permissions. The full error message specifies the missing roles or permissions.
 `IAM principal does not match database user.`
     
 
@@ -61,12 +61,12 @@ PostgreSQL has a limit of 63 characters for role and user identifiers. Although 
 
 **Workaround: Use service account impersonation**
 
-If you can't shorten the service account name, you can bypass this limitation by using service account impersonation. This decouples the identity running the workload from the identity used to log in to the database:
+If you can't shorten the service account name, you can bypass this limitation by using service account impersonation. This decouples the identity running the workload from the identity used to sign in to the database:
 
      1. Create a proxy service account with a name whose shortened principal, excluding the `.gserviceaccount.com` suffix, is 63 characters or fewer, such as `db-proxy@PROJECT_ID.iam.gserviceaccount.com`.
      2. [Add the proxy service account to the AlloyDB cluster](https://docs.cloud.google.com/alloydb/docs/database-users/manage-iam-auth#create-user) as an `IAM_BASED` database user with the username `db-proxy@PROJECT_ID.iam`.
      3. In IAM, grant the original service account of the workload the Service Account Token Creator role (`roles/iam.serviceAccountTokenCreator`) on the proxy service account.
-     4. Configure your application, connector, or Auth Proxy to connect using the proxy identity.
+     4. Configure your application, AlloyDB Language Connectors, or AlloyDB Auth Proxy to connect using the proxy identity.
 
 For example, you can connect using the `gcloud beta alloydb connect` command with the `--impersonate-service-account` flag:
     

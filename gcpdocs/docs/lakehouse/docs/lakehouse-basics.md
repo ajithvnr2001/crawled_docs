@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/lakehouse-basics/
 title: How borderless Lakehouse works \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:46.138087+00:00
+fetched_at: 2026-10-24T08:23:15.626697+00:00
 ---
 
 # How borderless Lakehouse works  |  Google Cloud Documentation
@@ -111,7 +111,7 @@ When building with Google Cloud's Lakehouse, you can choose from the following t
 
 #### Supported table formats
 
-Apache Iceberg V2 tables (GA) and V3 tables (Preview) are supported. Iceberg V1 tables aren't supported. Before you use existing V1 tables with Lakehouse, you must upgrade them to a supported version. For more information, see [Upgrade Iceberg V1 tables to V2](https://docs.cloud.google.com/lakehouse/docs/lakehouse-iceberg-rest-catalog#upgrade-v1-to-v2).
+Apache Iceberg V2 tables (GA) and V3 tables (Preview) are supported. Iceberg V1 tables aren't supported. Before you use existing V1 tables with Lakehouse, you must upgrade them to a supported version. For more information, see [Upgrade Iceberg V1 tables to V2](https://docs.cloud.google.com/lakehouse/docs/update-tables#upgrade_a_table).
 
 
 
@@ -153,7 +153,7 @@ When architecting and operating a data lakehouse on Google Cloud, consider the f
 ## What's next
 
   * For a deeper dive into the metastore service, see [About the Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/about-lakehouse-catalogs).
-  * [Use the Lakehouse runtime catalog with Apache Spark, BigQuery and the Apache Iceberg REST catalog endpoint](https://docs.cloud.google.com/lakehouse/docs/use-lakehouse-metastore-iceberg-rest-catalog).
+  * [Use the Lakehouse runtime catalog with Apache Spark, BigQuery and the Apache Iceberg REST catalog endpoint](https://docs.cloud.google.com/lakehouse/docs/query-iceberg-tables-with-lakehouse).
 
 
 
@@ -161,6 +161,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

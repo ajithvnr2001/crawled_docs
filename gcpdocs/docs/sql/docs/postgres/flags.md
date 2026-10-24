@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/flags/
 title: Configure database flags \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:19:56.932972+00:00
+fetched_at: 2026-10-24T10:03:14.149888+00:00
 ---
 
 # Configure database flags  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -1716,8 +1716,8 @@ Unit is `8` KB.
 The default is **16** MB.  | Yes  
 [ wal_compression](https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-WAL-COMPRESSION) | `enumeration`  
 `off` | `on` | `pglz` | `lz4` | `zstd`   
-The default is **off**.   
-**Note:** The `pglz`, `lz4`, and `zstd` values are supported only for PostgreSQL versions 15 and later. | No  
+The default is **off** for Cloud SQL Enterprise edition instances and for Cloud SQL Enterprise Plus edition instances with 32 or fewer vCPUs. For Cloud SQL Enterprise Plus edition instances with more than 32 vCPUs on PostgreSQL 14 and later, the default is **on**.   
+**Note:** The `pglz`, `lz4`, and `zstd` values are supported only for PostgreSQL versions 15 and later.**Note:** On large Cloud SQL Enterprise Plus edition instances with more than 32 vCPUs, setting `wal_compression` to `on` reduces WAL volume, but might affect single-threaded maintenance operations such as `VACUUM FULL`. To optimize maintenance performance for these workloads, you can set `wal_compression` to `off`. | No  
 [wal_decode_buffer_size](https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-WAL-DECODE-BUFFER-SIZE) | `integer`  
 `65536` ... `1073741823`   
 Unit is `B`.   
@@ -1791,6 +1791,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

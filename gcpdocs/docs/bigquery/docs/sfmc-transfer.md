@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/sfmc-transfer/
 title: Load Salesforce Marketing Cloud data into BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:59:59.183631+00:00
+fetched_at: 2026-10-24T11:25:57.906499+00:00
 ---
 
 # Load Salesforce Marketing Cloud data into BigQuery  |  Google Cloud Documentation
@@ -45,7 +45,7 @@ You must have the following information when creating a Salesforce Marketing Clo
 
 Parameter Name | Description  
 ---|---  
-`subdomain` | The API subdomain, found in the base URI. For example, in the authentication base URI `https://SUBDOMAIN.auth.marketingcloudapis.com/`, SUBDOMAIN is your subdomain value.   
+`subdomain` | The API subdomain, found in the base URI. For example, in the authentication base URI `https://SUBDOMAIN.auth.marketingcloudapis.com/`, `SUBDOMAIN` is your subdomain value.   
 `instance` | The API server instance, found in the URL after you sign into the Salesforce Marketing Cloud application. The instance value includes `s` followed by a numeric value. For example, in the URL `https://mc.s4.exacttarget.com/`, the instance value is `s4`. For more information, see [Find the stack location for a Marketing Cloud account](https://help.salesforce.com/s/articleView?id=000383566&type=1)  
 `clientId` | The client ID from the API integration. Navigate to **Setup** > **Apps** > **Installed Packages** , and then click the package name. The client ID is listed under **Components**.  
 `clientSecret` | The app integration client secret. Navigate to **Setup** > **Apps** > **Installed Packages** , and then click the package name. The client secret is listed under **Components**.  
@@ -195,11 +195,11 @@ Enter the [`bq mk` command](https://docs.cloud.google.com/bigquery/docs/referenc
 
 Replace the following:
 
-  * PROJECT_ID (optional): your Google Cloud project ID. If `--project_id` isn't supplied to specify a particular project, the default project is used.
-  * DATA_SOURCE: the data source (for example, `saphana`).
-  * DISPLAY_NAME: the display name for the transfer configuration. The data transfer name can be any value that lets you identify the transfer if you need to modify it later.
-  * DATASET: the target dataset for the transfer configuration.
-  * PARAMETERS: the parameters for the created transfer configuration in JSON format. For example: `--params='{"param":"param_value"}'`. The following are the parameters for a Salesforce Marketing Cloud transfer: 
+  * `PROJECT_ID` (optional): your Google Cloud project ID. If `--project_id` isn't supplied to specify a particular project, the default project is used.
+  * `DATA_SOURCE`: the data source (for example, `saphana`).
+  * `DISPLAY_NAME`: the display name for the transfer configuration. The data transfer name can be any value that lets you identify the transfer if you need to modify it later.
+  * `DATASET`: the target dataset for the transfer configuration.
+  * `PARAMETERS`: the parameters for the created transfer configuration in JSON format. For example: `--params='{"param":"param_value"}'`. The following are the parameters for a Salesforce Marketing Cloud transfer: 
     * `connector.subdomain`: The API subdomain.
     * `connector.instance`: The API instance value.
     * `connector.authentication.oauth.clientId`: The app ID name for the OAuth client.
@@ -324,6 +324,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

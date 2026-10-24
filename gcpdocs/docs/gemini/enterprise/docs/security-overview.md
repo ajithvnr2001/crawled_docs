@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/security-overview/
 title: Gemini Enterprise security overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:39.687018+00:00
+fetched_at: 2026-10-24T08:21:12.198659+00:00
 ---
 
 # Gemini Enterprise security overview  |  Google Cloud Documentation
@@ -110,10 +110,38 @@ Third-party connectors interact with public endpoints outside Google's network; 
 
 To mitigate, Gemini Enterprise makes sure that your egress traffic is secured by granular VPC Firewall rules, which restrict outbound connections to only the Fully Qualified Domain Names (FQDNs) of the external service you provide.
 
+## Network communication requirements
+
+This section outlines the network communication requirements for connecting to and using Gemini Enterprise.
+
+### Inbound traffic (user to service)
+
+All communication from a user's browser to Gemini Enterprise user-facing endpoints (such as `console.cloud.google.com`, `vertexaisearch.cloud.google.com`, and `notebooklm.cloud.google.com`), authentication endpoints (such as `auth.cloud.google`), and programmatic endpoints (such as `*.googleapis.com` and `*.clients6.google.com`) occurs over HTTPS on TCP port 443. Your organization's firewalls must allow outbound connections from your user's network to these endpoints on this port. For a complete list of domains, see [Configure private UI access](https://docs.cloud.google.com/gemini/enterprise/docs/private-ui-access#update-dns-settings).
+
+  * Protocol: HTTPS
+  * Port: TCP/443
+  * Direction: User's network (outbound) to Google Cloud (inbound)
+
+
+
+### Service-side network controls
+
+Gemini Enterprise is a Google-managed Software-as-a-Service (SaaS) offering. As such, you don't have direct access to the underlying network infrastructure. You can't implement custom network controls, such as firewall rules or VPC Service Controls configurations, directly on the service. Security is managed by Google, adhering to the robust security practices of Google Cloud.
+
+### Outbound traffic (service to other endpoints)
+
+In certain agentic AI workflows, such as when using extensions or enterprise data grounding, Gemini Enterprise (or agents hosted on [Agent Runtime on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini/enterprise/docs/register-and-manage-an-adk-agent)) can initiate outbound network connections.
+
+  * Origin: All outbound traffic originates from Google's internal IP address ranges. This traffic doesn't originate from or transit through the network infrastructure that you control.
+  * Purpose: This traffic is used to connect to authorized APIs and data sources (for example, Google Workspace APIs and public APIs for extensions) to fulfill user requests.
+  * Security: These connections are made securely over encrypted channels (HTTPS/TLS) and are governed by Google's internal security and production network policies.
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

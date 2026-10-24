@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-snowflake/
 title: Set up cross-cloud connection for Snowflake Horizon Catalog \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:48.069212+00:00
+fetched_at: 2026-10-24T08:23:15.015918+00:00
 ---
 
 # Set up cross-cloud connection for Snowflake Horizon Catalog  |  Lakehouse  |  Google Cloud Documentation
@@ -88,7 +88,7 @@ You might also be able to get the required permissions through [custom roles](ht
 
 This section lists the limitations and considerations for accessing cross-cloud data.
 
-  * **Supported Cloud Providers for Cross-Cloud Interconnect:** Using a private interconnect with your borderless Lakehouse is supported with the following remote cloud providers: Amazon Web Services (AWS). You can use either a [Dedicated Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process) or a [Partner Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview).
+  * **Supported Cloud Providers for Cross-Cloud Interconnect:** Using a private interconnect for accessing cross-cloud data is supported with the following remote cloud providers: Amazon Web Services (AWS). You can use either a [Dedicated Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process) or a [Partner Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview).
   * **Network routing:** If a private interconnect (such as Dedicated CCI or Partner CCI) is not configured, queries route over the public internet. This can result in higher egress fees from your remote cloud provider and less predictable performance.
   * **Snowflake Horizon Catalog supported tables:** Only Snowflake Iceberg tables are synchronized to Lakehouse. Snowflake native tables are ignored during metadata refresh.
   * **Network policy and egress IP addresses:** When querying a Snowflake account, Lakehouse relies on global infrastructure egress IP addresses to reach the Snowflake internet-facing endpoint. Egress originates from broad Google infrastructure ranges. In your remote cloud, use [`goog.json`](https://www.gstatic.com/ipranges/goog.json) to allowlist Google egress IP address ranges in your Snowflake network policy.
@@ -391,7 +391,7 @@ Replace the following:
 
      * `SNOWFLAKE_PAT_TOKEN`: Your Snowflake Programmatic Access Token (PAT).
      * `SNOWFLAKE_ROLE`: The specific Snowflake role required for the session. For example, `ICEBERG_VIEW`.
-**Note:** The `client_id` parameter is not required for Snowflake Horizon setups because authentication is handled entirely by the PAT token and the scope.
+**Note:** The `client_id` parameter is not required for Snowflake Horizon Catalog setups because authentication is handled entirely by the PAT token and the scope.
   3. Configure the regional endpoint for Secret Manager:
 
 By default, Secret Manager uses a global endpoint. However, Lakehouse requires that your secrets be stored in the same region as your Lakehouse catalog. To interact with regional secrets using the `gcloud` CLI, you must override the default API endpoint for your current session or profile.
@@ -473,7 +473,7 @@ If you use secret-based authentication, you must specify `--secret-name`.
 If you don't configure CCI, the connection travels securely over the public internet.
     
     
-    gcloud alpha biglake iceberg catalogs create FEDERATED_CATALOG_NAME \
+    gcloud biglake iceberg catalogs create FEDERATED_CATALOG_NAME \
         --project="PROJECT_ID" \
         --primary-location="REGION" \
         --catalog-type="federated" \
@@ -489,7 +489,7 @@ If you don't configure CCI, the connection travels securely over the public inte
 If you configured a private interconnect (such as Dedicated CCI or Partner CCI), provide the Service Directory service reference.
     
     
-    gcloud alpha biglake iceberg catalogs create FEDERATED_CATALOG_NAME \
+    gcloud biglake iceberg catalogs create FEDERATED_CATALOG_NAME \
         --project="PROJECT_ID" \
         --primary-location="REGION" \
         --catalog-type="federated" \
@@ -526,7 +526,7 @@ If you use Workload Identity Federation, you must specify `--snowflake-role`.
 If you don't configure CCI, the connection travels securely over the public internet.
     
     
-    gcloud alpha biglake iceberg catalogs create FEDERATED_CATALOG_NAME \
+    gcloud biglake iceberg catalogs create FEDERATED_CATALOG_NAME \
         --project="PROJECT_ID" \
         --primary-location="REGION" \
         --catalog-type="federated" \
@@ -542,7 +542,7 @@ If you don't configure CCI, the connection travels securely over the public inte
 If you configured a private interconnect (such as Dedicated CCI or Partner CCI), provide the Service Directory service reference.
     
     
-    gcloud alpha biglake iceberg catalogs create FEDERATED_CATALOG_NAME \
+    gcloud biglake iceberg catalogs create FEDERATED_CATALOG_NAME \
         --project="PROJECT_ID" \
         --primary-location="REGION" \
         --catalog-type="federated" \
@@ -587,7 +587,7 @@ Grant the catalog's service account permission to access the secret:
     gcloud secrets add-iam-policy-binding SNOWFLAKE_SECRET_NAME \
       --project="PROJECT_ID" \
       --location="REGION" \
-      --member="serviceAccount:$(gcloud alpha biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
+      --member="serviceAccount:$(gcloud biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
           --project="PROJECT_ID" \
           --format='value(biglake-service-account)')" \
       --role="roles/secretmanager.secretAccessor"
@@ -612,7 +612,7 @@ You can get this from the JSON response of the creation command (field `biglake-
 
 Alternatively, you can run the describe command on the catalog to get the value:
          
-         gcloud alpha biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
+         gcloud biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
            --project="PROJECT_ID"
 
 Look for the `biglake-service-account-id` in the output.
@@ -673,14 +673,14 @@ Grant the required roles to the catalog's service account:
     
     # Grant Service Directory Viewer
     gcloud projects add-iam-policy-binding PROJECT_ID \
-    --member="serviceAccount:$(gcloud alpha biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
+    --member="serviceAccount:$(gcloud biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
         --project="PROJECT_ID" \
         --format='value(biglake-service-account)')" \
     --role="roles/servicedirectory.viewer"
     
     # Grant Service Directory PSC Authorized Service
     gcloud projects add-iam-policy-binding PROJECT_ID \
-    --member="serviceAccount:$(gcloud alpha biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
+    --member="serviceAccount:$(gcloud biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
         --project="PROJECT_ID" \
         --format='value(biglake-service-account)')" \
     --role="roles/servicedirectory.pscAuthorizedService"
@@ -691,18 +691,18 @@ Verify that the catalog background metadata refresh cycle completed successfully
 
   1. Verify that the refresh status indicates success:
          
-         gcloud alpha biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
+         gcloud biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
            --project="PROJECT_ID"
 
   2. Confirm that the namespaces are synchronized:
          
-         gcloud alpha biglake iceberg namespaces list \
+         gcloud biglake iceberg namespaces list \
            --project="PROJECT_ID" \
            --catalog="FEDERATED_CATALOG_NAME"
 
   3. Confirm that the tables in a namespace are synchronized:
          
-         gcloud alpha biglake iceberg tables list \
+         gcloud biglake iceberg tables list \
            --project="PROJECT_ID" \
            --catalog="FEDERATED_CATALOG_NAME" \
            --namespace="NAMESPACE_ID"
@@ -713,7 +713,7 @@ Verify that the catalog background metadata refresh cycle completed successfully
 ## What's next
 
   * [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data).
-  * [Troubleshoot cross-cloud data access](https://docs.cloud.google.com/lakehouse/docs/troubleshoot-cross-cloud-data-access).
+  * [Troubleshoot cross-cloud data access for Snowflake Horizon Catalog](https://docs.cloud.google.com/lakehouse/docs/troubleshoot-cross-cloud-data-access-snowflake).
 
 
 
@@ -721,6 +721,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

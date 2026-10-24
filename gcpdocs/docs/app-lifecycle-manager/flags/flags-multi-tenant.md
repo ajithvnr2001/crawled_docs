@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/flags/flags-multi-tenant/
 title: Use feature flags for multi-tenant architecture \u00a0|\u00a0 App Lifecycle Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:09:01.045306+00:00
+fetched_at: 2026-10-24T11:10:24.890751+00:00
 ---
 
 # Use feature flags for multi-tenant architecture  |  App Lifecycle Manager  |  Google Cloud Documentation
@@ -168,7 +168,7 @@ For simpler use cases, you can emulate waves by triggering separate rollouts man
 You can manually orchestrate the rollout by triggering separate operations per target group using `--unit-filter`.
     
     
-    # Rollout to Beta group first
+    # Deploy to Beta group first
     gcloud beta app-lifecycle-manager rollouts create "beta-rollout" \
         --flag-release="release-of-enhanced-search" \
         --rollout-kind="rollout-kind-of-enhanced-search" \
@@ -176,7 +176,7 @@ You can manually orchestrate the rollout by triggering separate operations per t
         --rollout-orchestration-strategy="Google.Cloud.Simple.AllAtOnce" \
         --unit-filter="labels.group == beta"
     
-    # After verification, rollout to the rest of the fleet
+    # After verification, deploy to the rest of the fleet
     gcloud beta app-lifecycle-manager rollouts create "full-rollout" \
         --flag-release="release-of-enhanced-search" \
         --rollout-kind="rollout-kind-of-enhanced-search" \
@@ -196,6 +196,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

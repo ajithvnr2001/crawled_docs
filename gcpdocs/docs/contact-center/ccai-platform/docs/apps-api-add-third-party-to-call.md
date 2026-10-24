@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/apps-api-add-third-party-to-call/
 title: Add a third party to a call \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:31.211901+00:00
+fetched_at: 2026-10-24T08:42:28.584505+00:00
 ---
 
 # Add a third party to a call  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation

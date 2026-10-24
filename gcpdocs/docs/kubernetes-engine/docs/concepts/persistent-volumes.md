@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes/
-title: GKE persistent volumes & provisioning \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
+title: GKE persistent volumes and provisioning \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:23:20.303228+00:00
+fetched_at: 2026-10-24T11:26:07.019258+00:00
 ---
 
-# GKE persistent volumes & provisioning  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
+# GKE persistent volumes and provisioning  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes/
 
@@ -19,7 +19,7 @@ fetched_at: 2026-10-23T10:23:20.303228+00:00
 
 Send feedback 
 
-#  GKE persistent volumes & provisioning Stay organized with collections  Save and categorize content based on your preferences. 
+#  GKE persistent volumes and provisioning Stay organized with collections  Save and categorize content based on your preferences. 
 
 [ Standard ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/choose-cluster-mode)
 
@@ -275,9 +275,9 @@ As with zonal persistent disks, regional persistent disks can be dynamically pro
 
 ## Volume binding mode WaitForFirstConsumer
 
-If you dynamically provision a persistent disk in your cluster, we recommend you set the `WaitForFirstConsumer` [volume binding mode](https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode) on your StorageClass. This setting instructs Kubernetes to provision a persistent disk in the same zone that the Pod gets scheduled to. It respects Pod scheduling constraints such as [anti-affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) and node selectors. Anti-affinity on zones allows StatefulSet Pods to be spread across zones along with the corresponding disks.
+If you dynamically provision a persistent disk in your cluster, we recommend you set the `WaitForFirstConsumer` [volume binding mode](https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode) in your StorageClass definition. This setting instructs Kubernetes to provision a persistent disk in the same zone that the Pod gets scheduled to. It respects Pod scheduling constraints such as [anti-affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) and node selectors. Anti-affinity on zones allows StatefulSet Pods to be spread across zones along with the corresponding disks. Furthermore, this setting helps mitigate issues when a zone lacks compute capacity by deferring storage provisioning until a healthy, available node can be secured. This deferred provisioning helps prevent your stateful application from being permanently locked into a degraded zone where it would be stuck in a `Pending` state.
 
-Following is an example `StorageClass` for provisioning zonal persistent disks that sets `WaitForFirstConsumer`:
+Following is an example `StorageClass` definition for provisioning zonal persistent disks that sets `WaitForFirstConsumer`:
     
     
     apiVersion: storage.k8s.io/v1
@@ -308,6 +308,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

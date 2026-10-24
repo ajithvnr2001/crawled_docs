@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/charts/selecting-aggregating-metrics/
 title: Select metrics for charts on dashboards \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:55:51.662387+00:00
+fetched_at: 2026-10-24T11:25:20.848009+00:00
 ---
 
 # Select metrics for charts on dashboards  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -133,6 +133,8 @@ When you supply multiple filtering criteria, the corresponding chart shows only 
 To add a filter when using the menu-driven interface of the Google Cloud console, do the following:
 
   1. In the **Filter** element, click **Add filter** , and make a selection from the menu.
+
+The menu lists user metadata labels, such as `user_labels`, only for resources that exist in your project. To filter by labels for deleted resources, write a PromQL query or a Monitoring-filter query.
 
   2. To change the comparison, select a value from the **Comparator** menu.
 
@@ -401,6 +403,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

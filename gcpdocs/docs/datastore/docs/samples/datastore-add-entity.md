@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-add-entity/
 title: Add task \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:53:56.236148+00:00
+fetched_at: 2026-10-24T08:24:36.198928+00:00
 ---
 
 # Add task  |  Firestore in Datastore mode  |  Google Cloud Documentation
@@ -205,7 +205,7 @@ To authenticate to Datastore mode, set up Application Default Credentials. For m
     def add_task description
       require "google/cloud/datastore"
     
-      datastore = Google::Cloud::[Datastore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html)
+      datastore = Google::Cloud::[Datastore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore-v1/latest/Google-Cloud-Datastore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-datastore/latest/Google-Cloud-Datastore.html)
     
       task = datastore.entity "Task" do |t|
         t["description"] = description

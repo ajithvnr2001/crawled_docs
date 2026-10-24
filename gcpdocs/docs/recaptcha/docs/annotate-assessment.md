@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/annotate-assessment/
 title: Annotate assessments \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T05:44:18.497482+00:00
+fetched_at: 2026-10-24T11:25:41.626245+00:00
 ---
 
 # Annotate assessments  |  Google Cloud Fraud Defense  |  Google Cloud Documentation
@@ -63,21 +63,21 @@ After you create an assessment, you receive a JSON response as shown in the foll
 Retrieve the unique assessment ID from the `name` field in the JSON response.
         
         {
-        'tokenProperties': {
-          'valid': True,
-          'hostname': 'www.google.com',
-          'action': 'homepage',
-          'createTime': u'2019-03-28T12:24:17.894Z'
+        "tokenProperties": {
+          "valid": true,
+          "hostname": "www.google.com",
+          "action": "homepage",
+          "createTime": "2019-03-28T12:24:17.894Z"
         },
-        'riskAnalysis': {
-          'score': 0.1,
-          'reasons': ['AUTOMATION']
+        "riskAnalysis": {
+          "score": 0.1,
+          "reasons": ["AUTOMATION"]
         },
-        'event': {
-          'token': 'RESPONSE_TOKEN',
-          'siteKey': 'KEY_ID'
+        "event": {
+          "token": "RESPONSE_TOKEN",
+          "siteKey": "KEY_ID"
         },
-        **'name' : 'ASSESSMENT_ID'**
+        **"name" : "ASSESSMENT_ID"**
         }
 
   * For WAF integrations, you can retrieve the unique assessment ID from the reCAPTCHA token. The unique assessment ID is the unique alphanumeric string of 16 characters that appears at the end of the reCAPTCHA token after `:U=`. For example, if the reCAPTCHA token is `.................U=6ZZZZe73fZZZZZZ0`, then the assessment ID is `6ZZZZe73fZZZZZZ0`.
@@ -227,6 +227,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

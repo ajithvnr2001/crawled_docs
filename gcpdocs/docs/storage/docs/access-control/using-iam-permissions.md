@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/access-control/using-iam-permissions/
 title: Set and manage IAM policies on buckets \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:29.340638+00:00
+fetched_at: 2026-10-24T11:25:39.193721+00:00
 ---
 
 # Set and manage IAM policies on buckets  |  Cloud Storage  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 [Overview](https://docs.cloud.google.com/storage/docs/access-control/iam)
 
-This page describes how to set [Identity and Access Management (IAM) policies](https://docs.cloud.google.com/iam/docs/policies) on buckets, so you can control access to objects and managed folders within those buckets.
+This page describes how to set [Identity and Access Management (IAM) policies](https://docs.cloud.google.com/iam/docs/allow-policies) on buckets, so you can control access to objects and managed folders within those buckets.
 
 If you're looking for other methods of access control, see the following resources:
 
@@ -1964,7 +1964,7 @@ Where `BUCKET_NAME` is the name of the relevant bucket. For example, `my-bucket`
 
 Where:
 
-     * `VERSION` is the [IAM policy version](https://docs.cloud.google.com/iam/docs/policies#versions), which is required to be 3 for buckets with IAM Conditions.
+     * `VERSION` is the [IAM policy version](https://docs.cloud.google.com/iam/docs/allow-policies#versions), which is required to be 3 for buckets with IAM Conditions.
 
      * `IAM_ROLE` is the role to which the condition applies. For example, `roles/storage.objectViewer`.
 
@@ -2560,6 +2560,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

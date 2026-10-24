@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/autotuning/
 title: Autotune Spark batch workloads \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:57.312404+00:00
+fetched_at: 2026-10-24T11:25:15.979671+00:00
 ---
 
 # Autotune Spark batch workloads  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -23,6 +23,8 @@ Send feedback
 
 #  Autotune Spark batch workloads Stay organized with collections  Save and categorize content based on your preferences. 
 
+Managed Service for Apache Spark autotuning lets you optimize recurring batch workloads for performance and resiliency without manual configuration. Rather than requiring you to evaluate complex Spark parameters, autotuning analyzes previous runs (called _cohorts_) and automatically applies settings based on Spark best practices.
+
 **Private Preview**
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
@@ -33,7 +35,7 @@ This document provides information about autotuning Managed Service for Apache S
 
 ## Sign up for Managed Service for Apache Spark autotuning
 
-To sign up for access to the Managed Service for Apache Spark autotuning [preview release](https://cloud.google.com/products#product-launch-stages) described on this page, complete and submit the [Managed Service for Apache Spark Preview access request](https://docs.google.com/forms/d/e/1FAIpQLSeoH3mLxuL1WeAkPnUko448XQH3gKaCQjc3T9S8cRMpZ0WfkQ/viewform) signup form. After the form is approved, projects listed in the form have access to preview features.
+To sign up for access to the Managed Service for Apache Spark autotuning [preview release](https://docs.cloud.google.com/products#product-launch-stages) described on this page, complete and submit the [Managed Service for Apache Spark Preview access request](https://docs.google.com/forms/d/e/1FAIpQLSeoH3mLxuL1WeAkPnUko448XQH3gKaCQjc3T9S8cRMpZ0WfkQ/viewform) signup form. After the form is approved, projects listed in the form have access to preview features.
 
 ## Benefits
 
@@ -337,12 +339,12 @@ You can view the latest autotuning changes that were applied to a running, compl
 
 ## Pricing
 
-Managed Service for Apache Spark autotuning is offered during private preview without additional charge. Standard [Managed Service for Apache Spark pricing](https://cloud.google.com/dataproc-serverless/pricing) applies.
+Managed Service for Apache Spark autotuning is offered during private preview without additional charge. Standard [Managed Service for Apache Spark pricing](https://docs.cloud.google.com/dataproc-serverless/pricing) applies.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

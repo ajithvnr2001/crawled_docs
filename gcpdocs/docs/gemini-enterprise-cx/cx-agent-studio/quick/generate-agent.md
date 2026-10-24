@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/quick/generate-agent/
 title: Create agents with Arc \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:13.020308+00:00
+fetched_at: 2026-10-24T08:51:39.783545+00:00
 ---
 
 # Create agents with Arc  |  CX Agent Studio  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/troubleshoot-cross-cloud-data-access/
 title: Troubleshoot cross-cloud data access \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:51.212420+00:00
+fetched_at: 2026-10-24T08:23:12.863410+00:00
 ---
 
 # Troubleshoot cross-cloud data access  |  Lakehouse  |  Google Cloud Documentation
@@ -42,10 +42,10 @@ Check the background metadata refresh status on a federated catalog in the **Lak
 [Go to Lakehouse](https://console.cloud.google.com/biglake)
     
     
-    gcloud alpha biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
+    gcloud biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
         --project="PROJECT_ID"
     
-    gcloud alpha biglake delta-sharing catalogs describe FEDERATED_CATALOG_NAME \
+    gcloud biglake delta-sharing catalogs describe FEDERATED_CATALOG_NAME \
         --project="PROJECT_ID"
 
 ## Connectivity or routing issues
@@ -60,20 +60,10 @@ If you encounter connectivity or routing issues when you use a private interconn
 
 
 
-## Snowflake catalog refresh fails with Code 16 (Unauthenticated)
-
-If the background metadata refresh for a Snowflake Horizon Catalog fails with status `Code 16` (`UNAUTHENTICATED`), verify the following:
-
-  * **Secret payload formatting:** Ensure that the secret token in Secret Manager contains the required JSON structure (`{"client_secret": "<var>SNOWFLAKE_PAT_TOKEN</var>", "scope": "session:role:<var>SNOWFLAKE_ROLE</var>"}`) rather than the raw Personal Access Token (PAT) string.
-  * **Token expiration and permissions:** Ensure the Snowflake PAT is valid and the associated user and role have sufficient privileges to access the target catalog and databases.
-  * **Network policy:** If a Snowflake network policy is configured, ensure that Google's egress IP address ranges from [`goog.json`](https://www.gstatic.com/ipranges/goog.json) are allowlisted.
-
-
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

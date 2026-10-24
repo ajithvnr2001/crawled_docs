@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-extensions/docs/monitor-swp-callouts/
 title: Logging and monitoring for Secure Web Proxy callouts \u00a0|\u00a0 Service Extensions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:33:31.939196+00:00
+fetched_at: 2026-10-24T11:25:12.609536+00:00
 ---
 
 # Logging and monitoring for Secure Web Proxy callouts  |  Service Extensions  |  Google Cloud Documentation
@@ -81,7 +81,7 @@ Description
 The number of invocations sent to the extension.  
 `extension/invocation_latencies` | Extension invocation latencies   
 `DELTA`, `DISTRIBUTION`, `ms`   
-The distribution calculated from the latency of each extension invocation.  
+The distribution calculated from the latency of each extension invocation. Applicable only for callout extensions; not supported for plugins.  
 `extension/sent_chunks_count` | Extension sent chunks count   
 `DELTA`, `INT64`, `1`   
 Applicable only for `request_body` and `response_body` events. The number of data chunks sent to the extension.  
@@ -105,6 +105,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-table-storage-usage/
 title: TABLE_STORAGE_USAGE_TIMELINE view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:35:34.558081+00:00
+fetched_at: 2026-10-24T11:26:01.072558+00:00
 ---
 
 # TABLE_STORAGE_USAGE_TIMELINE view  |  BigQuery  |  Google Cloud Documentation
@@ -260,12 +260,12 @@ The following example joins the `TABLE_OPTIONS` and `TABLE_STORAGE_USAGE_TIMELIN
         INNER JOIN region-REGION.INFORMATION_SCHEMA.TABLE_STORAGE_USAGE_TIMELINE
         USING (TABLE_CATALOG, TABLE_SCHEMA, TABLE_NAME)
         WHERE option_name='tags'
-        AND CONTAINS_SUBSTR(option_value, '(\"tag_namespaced_key\", \"tag_namespaced_value\")')
+        AND CONTAINS_SUBSTR(option_value, '(\"TAG_NAMESPACED_KEY\", \"TAG_NAMESPACED_VALUE\")')
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

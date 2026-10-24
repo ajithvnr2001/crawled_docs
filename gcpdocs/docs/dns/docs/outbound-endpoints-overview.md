@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/outbound-endpoints-overview/
 title: Outbound Endpoints overview \u00a0|\u00a0 Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:49.715986+00:00
+fetched_at: 2026-10-24T11:25:27.534392+00:00
 ---
 
 # Outbound Endpoints overview  |  Cloud DNS  |  Google Cloud Documentation
@@ -39,7 +39,7 @@ To learn more about migrating your existing DNS forwarding setup to Outbound End
 
 ## Outbound Endpoints architecture and query routing
 
-An Outbound Endpoint is created within a specific VPC network and uses that network's [proxy-only subnet](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets) for its source IP address.
+An Outbound Endpoint is created within a specific VPC network (using a regular subnet in the target region for the endpoint's internal IP address) and uses that network's regional [proxy-only subnet](https://docs.cloud.google.com/load-balancing/docs/proxy-only-subnets) for its source IP address.
 
 When you attach Outbound Endpoints to your forwarding zones or server policy, Cloud DNS first attempts to route DNS queries through the highest-ranked Outbound Endpoint by using the existing target ranking algorithm. If that endpoint is unhealthy, Cloud DNS tries the next highest-ranked endpoint. The geographically closest Outbound Endpoint is preferred but not guaranteed.
 
@@ -55,7 +55,7 @@ For protection against regional outages, you can configure Outbound Endpoints in
 
 Even if the highest ranked endpoint is in a different region, Cloud DNS continues to route queries to that endpoint. For example, if an endpoint in Region A becomes unavailable, traffic is automatically routed to a healthy endpoint in Region B. When the endpoint in Region A is healthy again, the ranking algorithm will detect its improved performance and start preferring it again for upcoming queries.
 
-You can have up to 10 Outbound Endpoints per project per region but you can request a quota increase in the Google Cloud console if needed. There can be up to 100 Outbound Endpoints attached to a forwarding zone or server policy.
+You can have up to 10 Outbound Endpoints per project per region, and up to 100 Outbound Endpoints attached to a forwarding zone or server policy.
 
 ### Route queries to regional on-premises resolvers
 
@@ -72,7 +72,7 @@ The following provides a high-level overview of what you need to do to route que
 When a VM in one region makes a query, the system follows a two-step routing process:
 
   * **Endpoint selection** : Cloud DNS evaluates the list of Outbound Endpoints associated with the forwarding zone and selects the best endpoint (for example, an endpoint in Europe is likely chosen for a query from a VM in Europe).
-  * **Destination resolution** : The selected Outbound Endpoint resolves the destination FQDN (`onprem-resolvers.example.com`). As the Outbound Endpoint is a regional resource located in the specified region, the Geolocation policy identifies the query's source as that region and returns the specific IP address you have configured for that region. The Outbound Endpoint then forwards the original query to the target DNS server IP.
+  * **Destination resolution** : Cloud DNS resolves the destination FQDN (`onprem-resolvers.example.com`) for the region of the query's origin. Cloud DNS then forwards the original query through the selected Outbound Endpoint to the resolved DNS server IP. The Geolocation policy identifies the query's source as that region and returns the specific IP address you have configured for that region.
 
 
 
@@ -108,7 +108,7 @@ The VMs in the spoke VPC networks send queries through the Outbound Endpoint in 
 
 #### Shared VPC support
 
-Outbound Endpoints support Shared VPC deployments. The endpoint and its associated proxy-only subnet are created centrally in the host project. Service projects can then create private forwarding zones or server policies and bind them cross-project to the centralized Outbound Endpoint in the host project (requiring `dns.outboundEndpoints.bindPrivateDNSZone` or `dns.outboundEndpoints.bindPrivateDNSPolicy` on the host project).
+Outbound Endpoints support Shared VPC deployments. The endpoint, its regular subnet, and its associated proxy-only subnet are created centrally in the host project. Service projects can inherit forwarding zones or server policies created in the host project, or create their own private forwarding zones or server policies and bind them cross-project to the centralized Outbound Endpoint in the host project (requiring `dns.outboundEndpoints.bindPrivateDNSZone` or `dns.outboundEndpoints.bindPrivateDNSPolicy` on the host project).
 
 ### Manage network resources associated with Outbound Endpoints
 
@@ -116,11 +116,11 @@ Cloud DNS Outbound Endpoints enforce strict lifecycle dependencies with their un
 
 #### Delete proxy-only subnet or VPC network when in use by an Outbound Endpoint
 
-A proxy-only subnet or VPC network actively in use by an Outbound Endpoint is protected from deletion to prevent outages. Attempting to delete these resources results in an error. If you want to delete these resources, you must follow these steps in the exact order:
+A regular subnet, proxy-only subnet, or VPC network actively in use by an Outbound Endpoint is protected from deletion to prevent outages. Attempting to delete these resources results in an error. If you want to delete these resources, you must follow these steps in the exact order:
 
   1. **Update Cloud DNS configuration** : Edit any forwarding zones or server policies that use the Outbound Endpoint and remove it from the configuration so it is no longer in use.
-  2. **Delete the Outbound Endpoint** : After the endpoint is no longer in use, you can delete it. This action releases the dependency on the proxy-only subnet.
-  3. **Delete the proxy-only subnet** : After confirming no other resources are using it, delete the proxy-only subnet.
+  2. **Delete the Outbound Endpoint** : After the endpoint is no longer in use, you can delete it. This action releases the dependency on the regular subnet and proxy-only subnet.
+  3. **Delete the subnets** : After confirming no other resources are using it, delete the proxy-only and regular subnets.
   4. **Delete the VPC network** : Once all other VPC dependencies are removed, you can delete the VPC network.
 
 
@@ -162,7 +162,7 @@ Outbound Endpoints have the following limitations:
 
   * **Binding Outbound Endpoints to a network across projects is unsupported** : Creating an Outbound Endpoint in a service project attached to a host project's shared VPC network is not supported. Outbound Endpoints must reside in the same project as the VPC network and subnet they attach to.
 
-  * **Limited to private targets** : Outbound Endpoints only support forwarding to [private targets](https://docs.cloud.google.com/dns/docs/zones/zones-overview#fz-targets) and can't be used as an egress proxy or static source IP anchor for public internet DNS traffic. Queries to public internet targets resolve directly through Google's distributed anycast edge to minimize latency and avoid Cloud NAT dependencies.
+  * **Limited to private targets** : Outbound Endpoints only support forwarding to [private targets](https://docs.cloud.google.com/dns/docs/zones/zones-overview#fz-targets) (including [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918), [RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598), and privately routed non-RFC 1918 addresses configured with `--private-forward-targets` or `forwardingPath: "private"`) and can't be used as an egress proxy or static source IP anchor for public internet DNS traffic. Queries to public internet targets resolve directly through Google's distributed anycast edge to minimize latency and avoid Cloud NAT dependencies.
 
   * **Regional scope** : Outbound Endpoints are regional resources. You must create endpoints in each region you intend to use them in.
 
@@ -183,6 +183,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

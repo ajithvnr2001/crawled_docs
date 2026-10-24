@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/tags-and-labels/
 title: Tags and labels \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:44.030955+00:00
+fetched_at: 2026-10-24T11:10:29.180383+00:00
 ---
 
 # Tags and labels  |  Cloud Storage  |  Google Cloud Documentation
@@ -21,26 +21,19 @@ Send feedback
 
 #  Tags and labels Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes the tags and labels you can set on Cloud Storage resources.
+You can use Google Cloud _tags_ and Cloud Storage _bucket labels_ to organize your Cloud Storage buckets, manage access, and analyze costs.
 
-## Overview
+Tags let you manage access control and analyze cost data at the bucket level, and at higher levels of the [resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy) across Google Cloud. You can use tags to grant conditional access to resources by referencing tags in [IAM policy bindings](https://docs.cloud.google.com/iam/docs/tags-access-control). You manage tags using Resource Manager.
 
-Google Cloud _tags_ and Cloud Storage _bucket labels_ are two ways to organize your Cloud Storage resources.
+Labels let you [apply custom metadata](https://docs.cloud.google.com/storage/docs/using-bucket-labels) to your buckets using Cloud Storage tools.
 
-  * Tags can be used at higher levels of the [resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy) and across Google Cloud. They are managed using the [Resource Manager](https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview) and can be referenced in [IAM policy bindings](https://docs.cloud.google.com/iam/docs/tags-access-control) to grant conditional access to resources.
-
-  * Bucket labels are [managed](https://docs.cloud.google.com/storage/docs/using-bucket-labels) using Cloud Storage tools.
-
-
-
-
-Tags and labels work independently of each other, and you can use both on the same bucket.
+Tags and labels work independently, and you can apply both to the same bucket.
 
 ## Tags
 
 Tags are key-value pairs you can apply to your resources for fine-grained access control and granular cost data at the bucket level.
 
-Tags are created at the organization or project level and managed through the [Resource Manager](https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview), which is used across Google Cloud. Once you attach a tag to a Cloud Storage bucket, you can [use the tag](https://docs.cloud.google.com/iam/docs/conditions-attribute-reference#resource-tags) with [IAM Conditions](https://docs.cloud.google.com/storage/docs/access-control/using-iam-permissions#conditions-iam) to grant access to resources or with [organization policies](https://docs.cloud.google.com/resource-manager/docs/organization-policy/tags-organization-policy) to enforce constraints on resources. You can also use the tag to analyze [detailed usage cost data exported to Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/export-data-bigquery-tables/detailed-usage#tags).
+Tags are created at the organization or project level and managed through [Resource Manager](https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview), which is used across Google Cloud. Once you attach a tag to a Cloud Storage bucket, you can [use the tag](https://docs.cloud.google.com/iam/docs/conditions-attribute-reference#resource-tags) with [IAM Conditions](https://docs.cloud.google.com/storage/docs/access-control/using-iam-permissions#conditions-iam) to grant access to resources or with [organization policies](https://docs.cloud.google.com/resource-manager/docs/organization-policy/tags-organization-policy) to enforce constraints on resources. You can also use the tag to analyze [detailed usage cost data exported to Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/export-data-bigquery-tables/detailed-usage#tags).
 
 When using tags, note the following restrictions:
 
@@ -55,7 +48,7 @@ When using tags, note the following restrictions:
 
 ### Required permissions
 
-Although tags are managed through the Resource Manager, you need the following IAM permissions to set and manage tags on buckets:
+Although tags are managed through Resource Manager, you need the following IAM permissions to set and manage tags on buckets:
 
   * `storage.buckets.listTagBindings`
   * `storage.buckets.listEffectiveTags`
@@ -122,7 +115,7 @@ Keep in mind the following when working with bucket labels:
 
 
 
-For a general example of using labels to organize your resources in billing, see [Billing Export to BigQuery Query Examples](https://docs.cloud.google.com/billing/docs/how-to/bq-examples).
+For a general example of how to use labels to organize your resources for billing, see [Example queries for Cloud Billing data export](https://docs.cloud.google.com/billing/docs/how-to/bq-examples).
 
 ### Pricing details for labels
 
@@ -139,6 +132,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/quotas/
 title: Quotas and limits \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:39:54.194934+00:00
+fetched_at: 2026-10-24T09:03:23.375469+00:00
 ---
 
 # Quotas and limits  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

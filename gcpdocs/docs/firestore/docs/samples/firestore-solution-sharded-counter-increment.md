@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-solution-sharded-counter-increment/
 title: Incrementing a Firestore document field while using shards \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:27:42.800605+00:00
+fetched_at: 2026-10-24T09:03:10.072313+00:00
 ---
 
 # Incrementing a Firestore document field while using shards  |  Google Cloud Documentation
@@ -109,7 +109,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     require "google/cloud/firestore"
     
-    firestore = Google::Cloud::[Firestore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore-admin/latest/Google-Cloud-Firestore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html) project_id: project_id
+    firestore = Google::Cloud::[Firestore](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-firestore/latest/Google-Cloud-Firestore.html) project_id: project_id
     
     # Select a shard of the counter at random
     shard_id = rand 0...num_shards

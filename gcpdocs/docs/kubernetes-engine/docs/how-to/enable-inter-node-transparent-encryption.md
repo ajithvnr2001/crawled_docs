@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/enable-inter-node-transparent-encryption/
 title: Encrypt your data in-transit in GKE with user-managed encryption keys \u00a0|\u00a0 GKE security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:21:31.136218+00:00
+fetched_at: 2026-10-24T10:00:01.039058+00:00
 ---
 
 # Encrypt your data in-transit in GKE with user-managed encryption keys  |  GKE security  |  Google Cloud Documentation
@@ -34,7 +34,7 @@ Before reading this page, ensure that you're familiar with the following concept
 
 
 
-By default, Google [encrypts all data in-transit between VMs](https://docs.cloud.google.com/security/encryption-in-transit) at the network interface controller (NIC) level to ensure the confidentiality of the data in-transit, regardless of what service or application is running on the VM (including GKE). This layer of encryption is applicable to all GKE nodes and Pod traffic. The encryption keys are provided and managed by Google.
+By default, Google [encrypts all data in-transit between VMs](https://docs.cloud.google.com/docs/security/encryption-in-transit) at the network interface controller (NIC) level to ensure the confidentiality of the data in-transit, regardless of what service or application is running on the VM (including GKE). This layer of encryption is applicable to all GKE nodes and Pod traffic. The encryption keys are provided and managed by Google.
 
 You can enable inter-node transparent encryption in single and multi-cluster environments. For more information about how this feature works, see How inter-node transparent encryption works with GKE.
 
@@ -84,13 +84,6 @@ Before you start, make sure that you have performed the following tasks:
   * Enable the Google Kubernetes Engine API. 
 [ Enable Google Kubernetes Engine API ](https://console.cloud.google.com/apis/enableflow?apiid=container.googleapis.com)
   * To use the Google Cloud CLI for this task, [install](https://docs.cloud.google.com/sdk/docs/install) and then [initialize](https://docs.cloud.google.com/sdk/docs/initialize) the gcloud CLI. If you previously installed the gcloud CLI, get the latest version by running the `gcloud components update` command. Earlier gcloud CLI versions might not support running the commands in this document. **Note:** For existing gcloud CLI installations, make sure to set the `compute/region` [property](https://docs.cloud.google.com/sdk/docs/properties#setting_properties). If you use primarily zonal clusters, set the `compute/zone` instead. By setting a default location, you can avoid errors in the gcloud CLI like the following: `One of [--zone, --region] must be supplied: Please specify location`. You might need to specify the location in certain commands if the location of your cluster differs from the default that you set.
-
-
-  * GKE inter-node transparent encryption is only supported on Google Cloud CLI version 458.0.0 and later and the following GKE versions:
-
-    * 1.26.10-gke.1024000 or later
-    * 1.27.7-gke.1506000 or later
-    * 1.28.2-gke.1098000 or later
 
 
 
@@ -347,7 +340,7 @@ Consider the following when dealing with the private or public key pairs and ses
 ## What's next
 
   * [Learn more about Google Cloud encryption at rest](https://docs.cloud.google.com/docs/security/encryption/default-encryption).
-  * [Learn more about Google Cloud encryption in transit](https://docs.cloud.google.com/security/encryption-in-transit).
+  * [Learn more about Google Cloud encryption in transit](https://docs.cloud.google.com/docs/security/encryption-in-transit).
   * [Learn more about application-layer secrets encryption](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/encrypting-secrets).
 
 
@@ -356,6 +349,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

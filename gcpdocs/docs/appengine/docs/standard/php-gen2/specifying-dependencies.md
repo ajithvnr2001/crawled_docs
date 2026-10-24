@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/php-gen2/specifying-dependencies/
 title: Specifying dependencies \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:51:23.589065+00:00
+fetched_at: 2026-10-24T09:01:59.847088+00:00
 ---
 
 # Specifying dependencies  |  App Engine standard environment  |  Google Cloud Documentation

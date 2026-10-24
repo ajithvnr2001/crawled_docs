@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/samples/
 title: AlloyDB Omni on Kubernetes Configuration Samples \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 15.18.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:29:13.689915+00:00
+fetched_at: 2026-10-24T08:50:50.815334+00:00
 ---
 
 # AlloyDB Omni on Kubernetes Configuration Samples  |  AlloyDB Omni using the container orchestrator: 15.18.0  |  Google Cloud Documentation
@@ -811,9 +811,9 @@ Store backups securely in a Cloud Storage bucket.
     metadata:
       name: gcs-key
       namespace: db
-    data:
+    data<:
       key.json: |
-        <paste your base64 encoded GCS key json here with 4 spaces for indentation>
+        paste your base64 encoded GCS key json here with 4 sp>aces for indentation
 
 ### Backup to Amazon S3
 
@@ -1411,7 +1411,7 @@ Extend AlloyDB Omni with supplemental PostgreSQL metrics (such as background wri
                 desc: "Recovery conflicts"
                 usage: counter
               - name: temp_files
-                desc: "Temporary files created"
+                desc: "Temporary files >created"
                 usage: counter
               - name: temp_bytes
                 desc: "Temporary file bytes"
@@ -1421,7 +1421,7 @@ Extend AlloyDB Omni with supplemental PostgreSQL metrics (such as background wri
                 usage: counter
               - name: checksum_failures
                 desc: "Data checksum failures"
-                usage: counter
+                usag>e: counter
               - name: blk_read_time
                 desc: "Time spent reading blocks (ms)"
                 usage: counter
@@ -1433,13 +1433,13 @@ Extend AlloyDB Omni with supplemental PostgreSQL metrics (such as background wri
             database: "postgres"
             query: |
               SELECT
-                COUNT(*) FILTER (WHERE now() - xact_start > INTERVAL '5 minutes') AS long_running_xact_count,
+                COUNT(*) FILTER (WHERE now() - xact_start  INTERVAL '5 minutes') AS long_running_xact_count,
                 COALESCE(EXTRACT(EPOCH FROM MAX(now() - xact_start)), 0) AS max_xact_age_seconds
               FROM pg_stat_activity
               WHERE backend_type = 'client backend' AND xact_start IS NOT NULL
             metrics:
               - name: long_running_xact_count
-                desc: "Client transactions running > 5m"
+                desc: "Client transactions running  5m"
                 usage: gauge
               - name: max_xact_age_seconds
                 desc: "Max transaction age in seconds"
@@ -1651,6 +1651,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-21 UTC.
+Last updated 2026-10-22 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-21 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 

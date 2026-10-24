@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/access-control/signed-urls/
 title: Signed URLs \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:13.743218+00:00
+fetched_at: 2026-10-24T11:25:30.695083+00:00
 ---
 
 # Signed URLs  |  Cloud Storage  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ A _signed URL_ is a URL that provides limited permission and time to make a requ
 
   * When you generate a signed URL, you must specify an account that has sufficient permission to make the request that the signed URL will make.
 
-    * In most cases, the account is a [service account](https://docs.cloud.google.com/iam/docs/service-accounts).
+    * In most cases, the account is a [service account](https://docs.cloud.google.com/iam/docs/service-account-overview).
 
     * In cases where you create your own program to generate signed URLs, it's possible to use a user account, if it has an associated [HMAC key](https://docs.cloud.google.com/storage/docs/authentication/hmackeys).
 
@@ -122,6 +122,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

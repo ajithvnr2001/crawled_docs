@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/samples/dataflow-kafka-read-multi-topic/
 title: Read from multiple Kafka topics to Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:54:01.968131+00:00
+fetched_at: 2026-10-24T09:12:11.459814+00:00
 ---
 
 # Read from multiple Kafka topics to Dataflow  |  Google Cloud Documentation

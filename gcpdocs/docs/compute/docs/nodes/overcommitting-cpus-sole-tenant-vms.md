@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/nodes/overcommitting-cpus-sole-tenant-vms/
 title: Overcommit CPUs on sole-tenant VMs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:20.863986+00:00
+fetched_at: 2026-10-24T08:34:43.529911+00:00
 ---
 
 # Overcommit CPUs on sole-tenant VMs  |  Compute Engine  |  Google Cloud Documentation

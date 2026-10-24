@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/install/
 title: Install or upgrade Cloud Storage FUSE \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:54.849039+00:00
+fetched_at: 2026-10-24T11:25:30.489131+00:00
 ---
 
 # Install or upgrade Cloud Storage FUSE  |  Google Cloud Documentation
@@ -210,7 +210,7 @@ To upgrade to the latest version of Cloud Storage FUSE using source code, re-run
 
 ## What's next
 
-  * Learn how to [mount buckets using Cloud Storage FUSE](https://docs.cloud.google.com/storage/docs/gcsfuse-mount).
+  * Learn how to [mount buckets using Cloud Storage FUSE](https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/mount-bucket).
   * Learn how to [troubleshoot issues installing Cloud Storage FUSE](https://docs.cloud.google.com/storage/docs/troubleshooting-cloud-storage-fuse).
 
 
@@ -219,6 +219,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

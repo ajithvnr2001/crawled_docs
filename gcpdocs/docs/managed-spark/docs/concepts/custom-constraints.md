@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/custom-constraints/
 title: Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:45:21.601056+00:00
+fetched_at: 2026-10-24T11:25:14.041810+00:00
 ---
 
 # Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -23,9 +23,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Manage resources using custom constraints
 
-Google Cloud Organization Policy gives you centralized, programmatic control over your organization's resources. As the [organization policy administrator](https://docs.cloud.google.com/resource-manager/docs/organization-policy/using-constraints#add-org-policy-admin), you can define an organization policy, which is a set of restrictions called constraints that apply to Google Cloud resources and descendants of those resources in the [Google Cloud resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy). You can enforce organization policies at the organization, folder, or project level.
+Custom constraints let you enforce granular governance rules on Managed Service for Apache Spark cluster configurations across your [Google Cloud resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy). By defining these rules, you can restrict specific cluster properties and maintain compliance across your environments.
 
-Organization Policy provides [predefined constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/org-policy-constraints) for various Google Cloud services. However, if you want more granular, customizable control over the specific fields that are restricted in your organization policies, you can also create _custom constraints_ and use those custom constraints in a custom organization policy.
+While Organization Policy Service provides [predefined constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/org-policy-constraints) for common settings, custom constraints let you target specific resource fields when clusters are created or updated. As an [organization policy administrator](https://docs.cloud.google.com/resource-manager/docs/organization-policy/using-constraints#add-org-policy-admin), you can define _custom constraints_ and enforce them at the organization, folder, or project level.
 
 ## Benefits
 
@@ -37,7 +37,7 @@ By default, organization policies are inherited by the descendants of the resour
 
 ## Pricing
 
-The Organization Policy Service, including predefined and custom organization policies, is offered at no charge.
+The Organization Policy, including predefined and custom organization policies, is offered at no charge.
 
 ## Before you begin
 
@@ -56,7 +56,7 @@ The Organization Policy Service, including predefined and custom organization po
 
      3. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
 
-     4. Enable the Dataproc API, if it is not already enabled. 
+     4. Enable the Managed Service for Apache Spark API, if it is not already enabled. 
 
 **Roles required to enable APIs**
 
@@ -84,7 +84,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
      9. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
 
-     10. Enable the Dataproc API, if it is not already enabled. 
+     10. Enable the Managed Service for Apache Spark API, if it is not already enabled. 
 
 **Roles required to enable APIs**
 
@@ -168,9 +168,9 @@ Replace the following:
 
   * `ACTION`: the action to take if the `condition` is met. This can be either `ALLOW` or `DENY`.
 
-  * `DISPLAY_NAME`: a human-friendly name for the constraint, for example, "Enforce enabling Dataproc Component Gateway". This field has a maximum length of 200 characters.
+  * `DISPLAY_NAME`: a human-friendly name for the constraint, for example, "Enforce enabling Managed Service for Apache Spark Component Gateway". This field has a maximum length of 200 characters.
 
-  * `DESCRIPTION`: a human-friendly description of the constraint to display as an error message when the policy is violated, for example, "Only allow Dataproc cluster creation if the Component Gateway is enabled". This field has a maximum length of 2000 characters.
+  * `DESCRIPTION`: a human-friendly description of the constraint to display as an error message when the policy is violated, for example, "Only allow Managed Service for Apache Spark cluster creation if the Component Gateway is enabled". This field has a maximum length of 2000 characters.
 
 
 
@@ -511,7 +511,7 @@ Enforce the use of a non-default network. |
   
 ## What's next
 
-  * See [Introduction to the Organization Policy Service](https://docs.cloud.google.com/resource-manager/docs/organization-policy/overview) to learn more about organization policies.
+  * See [Introduction to the Organization Policy](https://docs.cloud.google.com/resource-manager/docs/organization-policy/overview) to learn more about organization policies.
   * Learn more about how to [create and manage organization policies](https://docs.cloud.google.com/resource-manager/docs/organization-policy/using-constraints).
   * See the full list of predefined [Organization policy constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/org-policy-constraints).
 
@@ -521,6 +521,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

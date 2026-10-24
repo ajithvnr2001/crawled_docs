@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/how-to-configure-custom-claims/
 title: Configure custom claims on users \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:11:07.417947+00:00
+fetched_at: 2026-10-24T08:44:00.351981+00:00
 ---
 
 # Configure custom claims on users  |  Identity Platform  |  Google Cloud Documentation
@@ -62,7 +62,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
          # The new custom claims will propagate to the user's ID token the
          # next time a new one is issued.
          
-         [index.py](https://github.com/firebase/firebase-admin-python/blob/de456071dc7450a6d7715667debf6049f38fd85d/snippets/auth/index.py#L282-L285)
+         [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L282-L285)
 
 ###  Go 
          
@@ -129,7 +129,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
              # Allow access to requested admin resource.
              pass
          
-         [index.py](https://github.com/firebase/firebase-admin-python/blob/de456071dc7450a6d7715667debf6049f38fd85d/snippets/auth/index.py#L290-L294)
+         [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L290-L294)
 
 ###  Go 
          
@@ -193,7 +193,7 @@ To preserve security, set custom claims using the Admin SDK on your server:
          # The claims can be accessed on the user record.
          print(user.custom_claims.get('admin'))
          
-         [index.py](https://github.com/firebase/firebase-admin-python/blob/de456071dc7450a6d7715667debf6049f38fd85d/snippets/auth/index.py#L298-L301)
+         [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L298-L301)
 
 ###  Go 
          
@@ -241,6 +241,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-21 UTC.
+Last updated 2026-10-22 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-21 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/overcapacity-deflection-per-queue/
 title: Overcapacity deflection per-queue \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:30.604519+00:00
+fetched_at: 2026-10-24T08:41:55.718992+00:00
 ---
 
 # Overcapacity deflection per-queue  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation

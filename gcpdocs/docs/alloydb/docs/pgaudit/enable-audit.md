@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/pgaudit/enable-audit/
 title: Enable pgAudit \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:33.558089+00:00
+fetched_at: 2026-10-24T11:25:50.600925+00:00
 ---
 
 # Enable pgAudit  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Enable pgAudit Stay organized with collections  Save and categorize content based on your preferences. 
 
-To enable auditing on an AlloyDB instance, you perform two steps. First, you enable alloydb.enable_pgaudit flag on the instance. Then, you connect to the cluster's primary instance and create the pgaudit extension in the databases.
+To enable auditing on an AlloyDB for PostgreSQL instance, you perform two steps. First, you enable the `alloydb.enable_pgaudit` flag on the instance. Then, you connect to the cluster's primary instance and create the `pgaudit` extension in the databases. Depending on the scope of statements that you configure pgAudit to log and your workload volume, enabling extensive audit logging can affect query performance.
 
-**Note:** Only users who are members of the `alloydbsuperuser` role can create extensions. The postgres user role that is created when you create a new cluster is a member of the `alloydbsuperuser` role. 
+**Note:** Only users who are members of the `alloydbsuperuser` role can create extensions. The `postgres` user role that is created when you create a new cluster is a member of the `alloydbsuperuser` role. 
 
   1. Enable pgAudit on the instance: 
 
@@ -48,14 +48,16 @@ Enable pgAudit on an instance by setting that instance's `alloydb.enable_pgaudit
 
 Note that AlloyDB automatically restarts the instance after you update this flag.
 
-**Note:** The default value for the `pgaudit.log` flag is `none`. To use the pgAudit extension, you must [set values for this flag.](https://docs.cloud.google.com/alloydb/docs/pgaudit/configure-log-behavior)
+**Note:** The default value for the `pgaudit.log` flag is `none`. To use the pgAudit extension, you must [set values for this flag](https://docs.cloud.google.com/alloydb/docs/pgaudit/configure-log-behavior). 
   2. Connect to the primary instance and create the extension in each database. You must perform the following steps on the primary instance even if you are enabling auditing on a read pool instance: 
-     1. Connect a psql client to the cluster's primary instance, as described in [Connect a psql client to an instance](https://docs.cloud.google.com/alloydb/docs/connect-psql). 
-     2. At the psql command prompt, connect to the database and create the extension: 
+     1. Connect a `psql` client to the cluster's primary instance, as described in [Connect a psql client to an instance](https://docs.cloud.google.com/alloydb/docs/connect-psql). 
+     2. At the `psql` command prompt, connect to the database and create the extension: 
             
             \c DB_NAME
                 CREATE EXTENSION IF NOT EXISTS pgaudit;
                 
+
+Replace `DB_NAME` with the name of the database.
 
      3. Repeat the previous two steps to connect to other databases and create the extension in each one of them. 
 

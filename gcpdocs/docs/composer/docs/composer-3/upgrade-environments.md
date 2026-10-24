@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-3/upgrade-environments/
 title: Upgrade environments \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:07:44.932452+00:00
+fetched_at: 2026-10-24T08:31:08.674574+00:00
 ---
 
 # Upgrade environments  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -237,20 +237,20 @@ To run an upgrade check for your environment:
 
 ###  gcloud 
 
-To run an upgrade check for your environment, run the [`environments check-upgrade`](https://docs.cloud.google.com/sdk/gcloud/reference/composer/environments/check-upgrade) command with the Airflow version or build. that you want to upgrade to.
+To run an upgrade check for your environment, run the [`environments check-upgrade`](https://docs.cloud.google.com/sdk/gcloud/reference/composer/environments/check-upgrade) command with the Airflow version or build that you want to upgrade to:
     
     
     gcloud composer environments check-upgrade \
       ENVIRONMENT_NAME \
       --location LOCATION \
-      --airflow-version VERSION
+      --airflow-version AIRFLOW_VERSION
     
 
 Replace:
 
   * `ENVIRONMENT_NAME` with the name of the environment.
   * `LOCATION` with the region where the environment is located.
-  * `VERSION` with the new Airflow [version and build](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to upgrade to, in the `airflow-x.y.z-build.t` format. You can use all [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases).
+  * `AIRFLOW_VERSION` with the Airflow [version and build](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to upgrade to, in the `x.y.z-build.t` format. You can also use [Airflow version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#gcloud-arguments). 
 
 
 
@@ -259,7 +259,7 @@ Example:
     
     gcloud composer environments check-upgrade example-environment \
       --location us-central1 \
-      --airflow-version airflow-2.11.1-build.21
+      --airflow-version 2.11.1-build.21
     
 
 Example output:
@@ -293,11 +293,11 @@ Specify the image version in the `imageVersion` field:
     
     
     {
-      "imageVersion": "VERSION"
+      "imageVersion": "IMAGE_VERSION"
     }
     
 
-Replace `VERSION` with the new version that you want to upgrade to, in the `composer-3-airflow-x.y.z-build.t` format. 
+Replace `IMAGE_VERSION` with the [Managed Airflow (Gen 3) image version](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to upgrade to, in the `composer-3-airflow-x.y.z-build.t` format. You can also use [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases).
 
 ## Check for conflicts with Managed Airflow (Gen 3)
 
@@ -330,14 +330,14 @@ To check for compatibility with Managed Airflow (Gen 3), run the [`environments 
     gcloud composer environments check-upgrade \
       ENVIRONMENT_NAME \
       --location LOCATION \
-      --image-version COMPOSER_3_VERSION
+      --image-version COMPOSER_3_IMAGE_VERSION
     
 
 Replace:
 
   * `ENVIRONMENT_NAME` with the name of the environment.
   * `LOCATION` with the region where the environment is located.
-  * `COMPOSER_3_VERSION` with the Airflow [version and build](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to upgrade to, in the `airflow-x.y.z-build.t` format. You can use all [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases).
+  * `COMPOSER_3_IMAGE_VERSION` with the target [Managed Airflow (Gen 3) image version](https://docs.cloud.google.com/composer/docs/composer-versions), in the `composer-3-airflow-x.y.z-build.t` format. You can also use Managed Airflow (Gen 3) [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases).
 
 
 
@@ -377,11 +377,11 @@ Specify the image version in the `imageVersion` field:
     
     
     {
-      "imageVersion": "COMPOSER_3_VERSION"
+      "imageVersion": "COMPOSER_3_IMAGE_VERSION"
     }
     
 
-Replace `COMPOSER_3_VERSION` with the Airflow [version and build](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to upgrade to, in the `airflow-x.y.z-build.t` format. You can use all [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases).
+Replace `COMPOSER_3_IMAGE_VERSION` with the target [Managed Airflow (Gen 3) image version](https://docs.cloud.google.com/composer/docs/composer-versions), in the `composer-3-airflow-x.y.z-build.t` format. You can also use Managed Airflow (Gen 3) [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases).
 
 ## Upgrade your environment
 
@@ -414,14 +414,14 @@ To upgrade your environment to a new version or build of Airflow:
     gcloud composer environments update \
       ENVIRONMENT_NAME \
       --location LOCATION \
-      --airflow-version VERSION
+      --airflow-version AIRFLOW_VERSION
     
 
 Replace:
 
   * `ENVIRONMENT_NAME` with the name of the environment.
   * `LOCATION` with the region where the environment is located.
-  * `VERSION` with the new Airflow [version and build](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to upgrade to, in the `airflow-x.y.z-build.t` format. You can also use all [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases).
+  * `AIRFLOW_VERSION` with the Airflow [version and build](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to upgrade to, in the `x.y.z-build.t` format. You can also use [Airflow version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#gcloud-arguments). 
 
 
 
@@ -431,7 +431,7 @@ For example:
     gcloud composer environments update \
       example-environment \
       --location us-central1 \
-      --airflow-version airflow-2.11.1-build.21
+      --airflow-version 2.11.1-build.21
     
 
 ###  API 
@@ -454,28 +454,28 @@ For example:
     // locations/us-central1/environments/example-environment?updateMask=
     // config.softwareConfig.imageVersion
     
-      {
-        "config": {
-          "softwareConfig": {
-            "imageVersion": "composer-3-airflow-2.11.1-build.21"
-          }
+    {
+      "config": {
+        "softwareConfig": {
+          "imageVersion": "composer-3-airflow-2.11.1-build.21"
         }
       }
+    }
     
 
 ###  Terraform 
 
-The `image_version` field in the `config.software_config` block controls the Airflow version and build of your environment. In this field, specify a new Airflow version and build. 
+The `image_version` field in the `config.software_config` block controls the Airflow version and build of your environment. In this field, specify the full Managed Airflow (Gen 3) image version in the `composer-3-airflow-x.y.z-build.t` format. 
     
     
-      resource "google_composer_environment" "example" {
+    resource "google_composer_environment" "example" {
       provider = google-beta
       name = "ENVIRONMENT_NAME"
       region = "LOCATION"
     
       config {
         software_config {
-          image_version = "VERSION"
+          image_version = "IMAGE_VERSION"
         }
       }
     }
@@ -484,8 +484,8 @@ The `image_version` field in the `config.software_config` block controls the Air
 Replace:
 
   * `ENVIRONMENT_NAME` with the name of the environment.
-  * `LOCATION` with the region where the environment is located. 
-  * `VERSION` with the new Airflow [version and build](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to upgrade to, in the `airflow-x.y.z-build.t` format. You can also use all [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases).
+  * `LOCATION` with the region where the environment is located.
+  * `IMAGE_VERSION` with the full [Managed Airflow (Gen 3) image version](https://docs.cloud.google.com/composer/docs/composer-versions) for the Airflow version and build that you want to upgrade to, in the `composer-3-airflow-x.y.z-build.t` format. You can also use all [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases).
 
 
 
@@ -499,7 +499,7 @@ Example:
     
       config {
         software_config {
-          image_version = "airflow-2.11.1-build.21"
+          image_version = "composer-3-airflow-2.11.1-build.21"
         }
       }
     }
@@ -595,7 +595,7 @@ Replace:
 
 
 
-The output of this command is the previously used version.
+The command outputs the previously used full image version in the `composer-3-airflow-x.y.z-build.t` format, such as `composer-3-airflow-2.11.1-build.20`. In this format, `x.y.z-build.t` is the Airflow version and build.
 
 ### Run the rollback operation
 
@@ -611,14 +611,14 @@ Rolling back an upgrade is not supported in Google Cloud console. Use gcloud CLI
     gcloud composer environments update \
       ENVIRONMENT_NAME \
       --location LOCATION \
-      --airflow-version VERSION
+      --airflow-version AIRFLOW_VERSION
     
 
 Replace:
 
   * `ENVIRONMENT_NAME` with the name of the environment.
   * `LOCATION` with the region where the environment is located.
-  * `VERSION` with the new Airflow [version and build](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to roll back to, in the `airflow-x.y.z-build.t` format. It's not possible to use [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases) for the rollback operation.
+  * `AIRFLOW_VERSION` with the previous Airflow [version and build](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to roll back to, in the `x.y.z-build.t` format. You can't use [Airflow version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#gcloud-arguments) for the rollback operation.
 
 
 
@@ -628,7 +628,7 @@ Example:
     gcloud composer environments update \
       example-environment \
       --location us-central1 \
-      --airflow-version airflow-2.11.1-build.21
+      --airflow-version 2.11.1-build.21
     
 
 ###  API 
@@ -639,7 +639,7 @@ Example:
 
      1. In the `updateMask` parameter, specify the `config.softwareConfig.imageVersion` mask.
 
-     2. In the request body, in the `imageVersion` field, specify a version that you want to roll back to.
+     2. In the request body, in the `imageVersion` field, specify the previous [Managed Airflow (Gen 3) image version](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to roll back to, in the `composer-3-airflow-x.y.z-build.t` format. You can't use [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases) for the rollback operation.
 
 
 
@@ -651,28 +651,28 @@ For example:
     // locations/us-central1/environments/example-environment?updateMask=
     // config.softwareConfig.imageVersion
     
-      {
-        "config": {
-          "softwareConfig": {
-            "imageVersion": "composer-3-airflow-2.11.1-build.21"
-          }
+    {
+      "config": {
+        "softwareConfig": {
+          "imageVersion": "composer-3-airflow-2.11.1-build.21"
         }
       }
+    }
     
 
 ###  Terraform 
 
-The `image_version` field in the `config.software_config` block controls the Airflow version and build of your environment. In this field, specify an Airflow version and build that you want to roll back to.
+The `image_version` field in the `config.software_config` block controls the Airflow version and build of your environment. In this field, specify the previous Managed Airflow (Gen 3) image version that you want to roll back to, in the `composer-3-airflow-x.y.z-build.t` format.
     
     
-      resource "google_composer_environment" "example" {
+    resource "google_composer_environment" "example" {
       provider = google-beta
       name = "ENVIRONMENT_NAME"
       region = "LOCATION"
     
       config {
         software_config {
-          image_version = "VERSION"
+          image_version = "IMAGE_VERSION"
         }
       }
     }
@@ -682,7 +682,7 @@ Replace:
 
   * `ENVIRONMENT_NAME` with the name of the environment.
   * `LOCATION` with the region where the environment is located.
-  * `VERSION` with the Airflow [version and build](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to roll back to, in the `airflow-x.y.z-build.t` format. It's not possible to use [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases) for the rollback operation.
+  * `IMAGE_VERSION` with the previous [Managed Airflow (Gen 3) image version](https://docs.cloud.google.com/composer/docs/composer-versions) that you want to roll back to, in the `composer-3-airflow-x.y.z-build.t` format. You can't use [version aliases](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-aliases) for the rollback operation.
 
 
 
@@ -696,7 +696,7 @@ Example:
     
       config {
         software_config {
-          image_version = "airflow-2.11.1-build.21"
+          image_version = "composer-3-airflow-2.11.1-build.21"
         }
       }
     }
@@ -719,6 +719,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-22 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 

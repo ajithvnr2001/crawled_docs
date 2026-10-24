@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/reuse-data-quality-rules/
 title: Reuse data quality rules \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:43.862129+00:00
+fetched_at: 2026-10-24T08:36:17.289195+00:00
 ---
 
 # Reuse data quality rules  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback
 
 #  Reuse data quality rules Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to reuse Knowledge Catalog (formerly Dataplex Universal Catalog) data quality rules to define and manage standardized business rules.
-
-Rule reusability lets you share complex or standardized business rule definitions across multiple data quality rules and scans by using rule templates. This document also describes how to set up, create, and manage reusable rule templates, and how to attach data quality rules to catalog entries as metadata aspects.
+Rule templates in Knowledge Catalog (formerly Dataplex Universal Catalog) let you share standardized validation checks across multiple data quality scans. You can reference predefined system templates or custom SQL templates in scans, or attach rules to BigQuery tables and business glossary terms as metadata aspects. For an overview of how data quality scans and built-in rules work, see [Auto data quality overview](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview).
 
 ## Use cases
 
@@ -225,7 +223,7 @@ For example, if a column contains the values `(a, a, b, b, c, d, e)`:
 
 ## Manage data quality rule templates
 
-This section describes how to create, edit, and delete rule templates.
+To set up and manage custom reusable rule templates, create a rule library to store your templates, and then create, update, or delete templates within that library.
 
 ### Create a rule library
 
@@ -1207,6 +1205,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

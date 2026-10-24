@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-http-cors/
 title: HTTP CORS \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:03:13.389607+00:00
+fetched_at: 2026-10-24T08:54:22.084588+00:00
 ---
 
 # HTTP CORS  |  Cloud Run functions  |  Google Cloud Documentation

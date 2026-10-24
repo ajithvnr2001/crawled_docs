@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/
 title: All Cloud Healthcare API code samples \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:11:08.297039+00:00
+fetched_at: 2026-10-24T08:50:07.335494+00:00
 ---
 
 # All Cloud Healthcare API code samples  |  Google Cloud Documentation

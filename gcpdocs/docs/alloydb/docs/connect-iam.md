@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/connect-iam/
 title: Connect using an IAM account \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:10.596262+00:00
+fetched_at: 2026-10-24T11:25:53.103069+00:00
 ---
 
 # Connect using an IAM account  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ For an overview of connecting to AlloyDB instances, see [Connection overview](ht
 
 Your project, cluster, instances, and IAM user accounts all require preparation before you can sign in to an AlloyDB instance using IAM credentials.
 
-**Caution:** There is a per-minute sign-in quota for each instance, which includes both successful and unsuccessful sign-ins. When the quota is exceeded, sign-ins are temporarily unavailable. We recommend that you avoid frequent sign-ins and restrict sign-ins using authorized networks.
+**Caution:** There is a per-minute sign-in quota for each instance, which includes both successful and unsuccessful sign-ins. When the quota is exceeded, sign-ins are temporarily unavailable. Avoid frequent sign-ins and restrict sign-ins by using authorized networks.
 
 For more information, see [Manage IAM authentication](https://docs.cloud.google.com/alloydb/docs/database-users/manage-iam-auth).
 
@@ -47,7 +47,7 @@ Google Cloud prints an OAuth 2.0 token as the output of this command.
 
 For additional security, you can restrict the token for use with only AlloyDB authentication by following these alternative steps:
 
-     1. Add the `alloydb.login` scope to your current environment's access credentials using [the `gcloud auth application-default login` command](https://docs.cloud.google.com/sdk/gcloud/reference/auth/application-default/login), if you have not already done so:
+     1. Add the `alloydb.login` scope to your current environment's access credentials using [the `gcloud auth application-default login` command](https://docs.cloud.google.com/sdk/gcloud/reference/auth/application-default/login), if you haven't already done so:
             
             gcloud auth application-default login --scopes=https://www.googleapis.com/auth/alloydb.login,https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/userinfo.email,openid
 
@@ -80,15 +80,15 @@ The following `psql` command demonstrates one way to sign in to an IAM user on t
 
 Replace the following:
 
-  * `INSTANCE_ADDRESS`: The IP address of the AlloyDB instance to connect to.
+  * `INSTANCE_ADDRESS`: the IP address of the AlloyDB instance to connect to.
 
-  * `USERNAME`: An identifier for the IAM user to authenticate with the instance.
+  * `USERNAME`: an identifier for the IAM user to authenticate with the instance.
 
 For an IAM user account, supply the user account's full email address. For example, `kai@example.com`.
 
 For an IAM service account, supply the service account's address _without_ the `.gserviceaccount.com` suffix. For example, to specify the service account `my-service@my-project.iam.gserviceaccount.com`, you would use the value `my-service@my-project.iam` here.
 
-  * `DATABASE`: The name of the database to connect to.
+  * `DATABASE`: the name of the database to connect to.
 
 
 

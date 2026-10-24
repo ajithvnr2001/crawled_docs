@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/topology-domains-set-up/
 title: Set up topology domains \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:15.915511+00:00
+fetched_at: 2026-10-24T11:10:26.388519+00:00
 ---
 
 # Set up topology domains  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -27,12 +27,7 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
 
 This page provides an overview of topology domains and guidelines for setting them up.
 
-Setting up a topology domain requires that you enable [advanced cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/admin-cluster-configuration-file-latest#enable-advanced-cluster-field). Note the following limitations with the advanced cluster preview:
-
-  * You can enable advanced cluster at cluster creation time for new 1.31 clusters only.
-  * After advanced cluster is enabled, you won't be able to upgrade the cluster to 1.32. Only enable advanced cluster in a test environment.
-
-
+Setting up a topology domain requires that you enable [advanced cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/admin-cluster-configuration-file-latest#enable-advanced-cluster-field).
 
 This page is for Admins and architects who define IT solutions and system architecture in accordance with company strategy, and create and manage policies related to user permissions. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
 
@@ -100,7 +95,7 @@ After the cluster is created, you update the Pod spec, for example:
 
 At a high level, the Kubernetes scheduler uses `topology.examplepetstore.com/zone` to separate the cluster nodes into different groups, `zone-1`, `zone-2`, and `zone-3`. Then the scheduler spreads the Pods across these three node groups.
 
-## Guidelines for Topology Domains Setup
+## Guidelines for setting up topology domains
 
 To ensure effective use of all clusters resources by the Kubernetes scheduler, we recommend the following guidelines:
 
@@ -114,6 +109,10 @@ To ensure effective use of all clusters resources by the Kubernetes scheduler, w
 
 If these guidelines aren't met, then the scheduler will still try to use the full capacity of the cluster, but it might take longer to schedule Pods, and not all Pods will get the expected spreading behavior.
 
+## Limitations
+
+You can't use `gkectl get-config` to [generate configuration files](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/get-configuration-file-from-cluster) from clusters that use topology domains. This limitation applies to the admin cluster and to all user clusters that the admin cluster manages. Keep the configuration files that you use to create and update these clusters, including the [vSphere infrastructure configuration file](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/reference/vsphere-infrastructure-configuration-file) and [IP block files](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/ip-block-file). Use these files as the source of truth for your cluster configuration.
+
 ## What's next
 
   * [Create an admin cluster for use in topology domains](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/create-admin-cluster-topology-domains)
@@ -126,6 +125,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

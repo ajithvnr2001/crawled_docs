@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-log-stackdriver/
 title: Trigger function from Cloud Logging \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:03:12.265544+00:00
+fetched_at: 2026-10-24T08:54:21.015661+00:00
 ---
 
 # Trigger function from Cloud Logging  |  Cloud Run functions  |  Google Cloud Documentation

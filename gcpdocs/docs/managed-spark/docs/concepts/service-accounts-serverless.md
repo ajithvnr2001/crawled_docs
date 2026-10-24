@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/service-accounts-serverless/
 title: Managed Service for Apache Spark service accounts \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:43.290542+00:00
+fetched_at: 2026-10-24T11:25:16.619053+00:00
 ---
 
 # Managed Service for Apache Spark service accounts  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  Managed Service for Apache Spark service accounts Stay organized with collections  Save and categorize content based on your preferences. 
 
-Managed Service for Apache Spark batch workloads and interactive sessions run either with end user or service account credentials. When service account credentials are used, the service account used to run batch workloads or interactive sessions depends on the batch or session runtime version.
+Service accounts in Managed Service for Apache Spark let you authenticate batch workloads and interactive sessions to securely access Google Cloud resources. Workloads run with either end-user or service account credentials. When service account credentials are used, the specific service account assigned to run the workload depends on the batch or session runtime version.
 
 ## Pre-3.0 runtime service accounts
 
@@ -46,7 +46,7 @@ To view and manage roles granted to the batch workload or session service accoun
 
   1. In the Google Cloud console, go to the **IAM** page.
 
-[Go to IAM](https://console.cloud.google.com/dataproc/interactive)'
+[Go to Identity and Access Management (IAM)](https://console.cloud.google.com/dataproc/interactive)'
 
   2. Click **Include Google-provided role grants**.
 
@@ -74,7 +74,7 @@ The examples in this sections apply to submitting a batch workload that is execu
 
      1. [Enable service accounts to be attached across projects](https://docs.cloud.google.com/iam/docs/attach-service-accounts#enabling-cross-project).
 
-     2. Enable the Dataproc API, if it is not already enabled. 
+     2. Enable the Managed Service for Apache Spark API, if it is not already enabled. 
 
 **Roles required to enable APIs**
 
@@ -186,7 +186,7 @@ To troubleshoot this issue, verify your service account has the following minimu
   * **Managed Service for Apache Spark Worker** role (`roles/dataproc.worker`): This role grants the necessary permissions for Managed Service for Apache Spark to manage and execute Spark workloads and sessions.
   * **Storage Object Viewer** (`roles/storage.objectViewer`), **Storage Object Creator** (`roles/storage.objectCreator`), or **Storage Object Admin** (`roles/storage.admin`): If your Spark application reads from or writes to Cloud Storage buckets, the service account needs appropriate permissions to access the buckets. For example, if your input data is in a Cloud Storage bucket, **`Storage Object Viewer`** is required. If your application writes output to a Cloud Storage bucket, **`Storage Object Creator`** or **`Storage Object Admin`** is needed.
   * **BigQuery Data Editor** (`roles/bigquery.dataEditor`) or **BigQuery Data Viewer** (`roles/bigquery.dataViewer`): If your Spark application interacts with BigQuery, verify the service account has the appropriate [BigQuery roles](https://docs.cloud.google.com/bigquery/docs/access-control).
-  * **Cloud Logging permissions:** The service account needs permissions to write logs to Cloud Logging for effective debugging. Typically, the **`Logging Writer`** role (`roles/logging.logWriter`) is sufficient.
+  * **Cloud Logging permissions:** The service account needs permissions to write logs to Logging for effective debugging. Typically, the **`Logging Writer`** role (`roles/logging.logWriter`) is sufficient.
 
 
 
@@ -215,6 +215,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/instance-ssl/
 title: Configure SSL enforcement mode on AlloyDB instances \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:33.872537+00:00
+fetched_at: 2026-10-24T11:25:48.148728+00:00
 ---
 
 # Configure SSL enforcement mode on AlloyDB instances  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -25,9 +25,9 @@ To secure client connections and control whether unencrypted traffic or client c
 
 By default, an AlloyDB instance accepts only connections using SSL.
 
-AlloyDB uses SSL to establish secure, authenticated, and encrypted connections to AlloyDB instances. In addition, a configurable SSL enforcement mode ensures that all database connections to an instance use SSL encryption.
+AlloyDB uses SSL to establish secure, authenticated, and encrypted connections to AlloyDB instances. In addition, a configurable SSL enforcement mode requires that all database connections to an instance use SSL encryption.
 
-This document covers how to configure the SSL enforcement mode on an existing instance. For information about how to configure the SSL enforcement mode when you create an instance, see [create a primary instance](https://docs.cloud.google.com/alloydb/docs/instance-primary-create).
+This document covers how to configure the SSL enforcement mode on an existing instance. For information about how to configure the SSL enforcement mode when you create an instance, see [Create a primary instance](https://docs.cloud.google.com/alloydb/docs/instance-primary-create).
 
 ## Before you begin
 
@@ -73,10 +73,14 @@ Use the [`gcloud alloydb instances update`](https://docs.cloud.google.com/sdk/gc
 
 Replace the following:
 
-  * `INSTANCE_ID`: The ID of the instance that you are updating.
-  * `REGION_ID`: The region where the instance is placed.
-  * `CLUSTER_ID`: The ID of the cluster where the instance is placed.
-  * `PROJECT_ID`: The ID of the project where the cluster is placed.
+  * `INSTANCE_ID`: the ID of the instance that you are updating.
+
+  * `REGION_ID`: the region where the instance is placed.
+
+  * `CLUSTER_ID`: the ID of the cluster where the instance is placed.
+
+  * `PROJECT_ID`: the ID of the project where the cluster is placed.
+
 
 
 
@@ -89,7 +93,7 @@ To allow unencrypted database connections to an instance, use the `gcloud alloyd
         --project=PROJECT_ID \
         --ssl-mode=ALLOW_UNENCRYPTED_AND_ENCRYPTED
 
-If the command returns an error message that includes the phrase `invalid cluster state MAINTENANCE`, then the cluster is undergoing routine maintenance. This temporarily disallows instance reconfiguration. Run the command again after the cluster returns to a `READY` state. To check the cluster's status, see [View cluster details](https://docs.cloud.google.com/alloydb/docs/cluster-view).
+If the command returns an error message that includes the phrase `invalid cluster state MAINTENANCE`, then the cluster is undergoing routine maintenance. This state temporarily disallows instance reconfiguration. Run the command again after the cluster returns to a `READY` state. To check the cluster's status, see [View cluster details](https://docs.cloud.google.com/alloydb/docs/cluster-view).
 
 Send feedback 
 

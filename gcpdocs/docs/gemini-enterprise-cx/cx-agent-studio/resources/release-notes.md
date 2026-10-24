@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/resources/release-notes/
 title: CX Agent Studio release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:07.160146+00:00
+fetched_at: 2026-10-24T08:52:38.175179+00:00
 ---
 
 # CX Agent Studio release notes  |  Google Cloud Documentation
@@ -28,6 +28,10 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/cx-agent-studio-release-notes.xml) directly. 
 
 ## October 22, 2026
+
+Feature
+
+[Composite V2 model](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/agent#composite-v2) (`gemini-composite-v2`) is now generally available for enterprise voice agents, with more natural speech and inline tags for precise delivery control. For guidance, see [Best practices for composite models](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/agent#composite-best-practices).
 
 Feature
 

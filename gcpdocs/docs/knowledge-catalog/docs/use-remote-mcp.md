@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/use-remote-mcp/
 title: Use the Knowledge Catalog remote MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:21:26.005970+00:00
+fetched_at: 2026-10-24T11:10:26.560220+00:00
 ---
 
 # Use the Knowledge Catalog remote MCP server  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  Use the Knowledge Catalog remote MCP server Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document shows you how to use the Knowledge Catalog remote Model Context Protocol (MCP) server to connect with AI applications including Antigravity, ChatGPT, Claude, and custom applications you are developing. The Knowledge Catalog remote MCP server lets you interact with Knowledge Catalog (formerly Dataplex Universal Catalog) to discover your data assets, search metadata, and retrieve entry details. The Dataplex API remote MCP server is enabled when you enable the Dataplex API API. 
+The remote Model Context Protocol (MCP) server in Knowledge Catalog (formerly Dataplex Universal Catalog) lets you discover data assets, search metadata, retrieve entry details, and manage data products. You can connect AI clients, such as Antigravity, ChatGPT, Claude, and custom applications, to ground agent workflows in your catalog context.
 
 ## Google and Google Cloud remote MCP servers
 
@@ -85,6 +85,8 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 
 
+Enabling the Dataplex API automatically enables the Knowledge Catalog remote MCP server.
+
 ### Required roles
 
 To get the permissions that you need to use the Knowledge Catalog MCP server, ask your administrator to grant you the following IAM roles on the project where you want to use the Knowledge Catalog MCP server: 
@@ -113,7 +115,7 @@ You might also be able to get these permissions with [custom roles](https://docs
 
 ## Authentication and authorization
 
-The Dataplex API remote MCP server uses the [OAuth 2.0](https://developers.google.com/identity/protocols/oauth2) protocol with [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) for authentication and authorization. All [Google Cloud identities](https://docs.cloud.google.com/docs/authentication/identity-products) are supported for authentication to MCP servers. 
+The Knowledge Catalog remote MCP server uses the [OAuth 2.0](https://developers.google.com/identity/protocols/oauth2) protocol with [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) for authentication and authorization. All [Google Cloud identities](https://docs.cloud.google.com/docs/authentication/identity-products) are supported for authentication to MCP servers. 
 
 We recommend that you create a separate identity for agents that are using MCP tools so that access to resources can be controlled and monitored. For more information about authentication, see [Authenticate to MCP servers](https://docs.cloud.google.com/mcp/authenticate-mcp).
 
@@ -340,6 +342,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

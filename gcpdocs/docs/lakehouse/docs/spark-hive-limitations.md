@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/spark-hive-limitations/
 title: Limitations and considerations \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:43:02.310743+00:00
+fetched_at: 2026-10-24T08:23:13.028097+00:00
 ---
 
 # Limitations and considerations  |  Lakehouse  |  Google Cloud Documentation
@@ -33,8 +33,8 @@ This section lists the limitations of using the Lakehouse runtime catalog with v
 
 ### Metastore limitations
 
-  * Managed Service for Apache Spark supports only PySpark jobs with borderless Lakehouse Metastore.
-  * The Dataproc API doesn't support setting Lakehouse Metastore properties in the `properties` field.
+  * Managed Service for Apache Spark supports only PySpark jobs with the Lakehouse runtime catalog.
+  * The Dataproc API doesn't support setting Lakehouse runtime catalog properties in the `properties` field.
   * You can't create Managed Service for Apache Spark clusters that use Kerberos, because Lakehouse runtime catalog doesn't support delegation token or primary key APIs.
   * Databases and tables can use a Cloud Storage `location_uri` that is distinct from their Hive catalog, as long as the Cloud Storage bucket is in the same region as the Hive catalog.
   * The Hive catalog can't contain Iceberg namespaces and tables. To create and use Iceberg namespaces and tables, use the Lakehouse runtime catalog instead.
@@ -51,7 +51,7 @@ This section lists the limitations of using the Lakehouse runtime catalog with v
   * Case-insensitive search isn't supported.
   * Clustering and bucketing aren't supported.
   * Only virtual views are supported.
-  * Delta Lake tables are supported through Apache Spark (read and write) and BigQuery (read-only). Hive clients (such as Hive CLI) don't support Delta Lake tables. All [BigQuery Delta Lake external table limitations](https://docs.cloud.google.com/bigquery/docs/create-delta-lake-table#limitations) and [BigLake table limitations](https://docs.cloud.google.com/bigquery/docs/biglake-tables#limitations) apply. For more details and specific limitations, see [Set up Spark with Delta tables](https://docs.cloud.google.com/lakehouse/docs/use-spark-delta-tables).
+  * Delta Lake tables are supported through Apache Spark (read and write) and BigQuery (read-only). Hive clients (such as Hive CLI) don't support Delta Lake tables. All [BigQuery Delta Lake external table limitations](https://docs.cloud.google.com/bigquery/docs/create-delta-lake-table#limitations) and [BigLake table limitations](https://docs.cloud.google.com/bigquery/docs/biglake-intro#limitations) apply. For more details and specific limitations, see [Set up Spark with Delta tables](https://docs.cloud.google.com/lakehouse/docs/use-spark-delta-tables).
 
 
 
@@ -117,7 +117,7 @@ The Hive Metastore (HMS) provides governance at the table, column, and partition
 ### Partition limitations
 
   * Tracking column-level statistics at the partition level isn't supported.
-  * The `BatchCreateHivePartitions` API limits calls to 900 partitions.
+  * The `BatchCreatePartitions`, `BatchDeletePartitions`, and `BatchUpdatePartitions` APIs limit calls to 900 partitions per batch.
 
 
 
@@ -131,6 +131,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

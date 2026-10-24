@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/access-control-project/
 title: IAM for project-level activations \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:36:59.219134+00:00
+fetched_at: 2026-10-24T08:46:28.308506+00:00
 ---
 
 # IAM for project-level activations  |  Security Command Center  |  Google Cloud Documentation

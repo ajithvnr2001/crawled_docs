@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/query-remote-data/
 title: Query remote data \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:36.682967+00:00
+fetched_at: 2026-10-24T10:00:02.746173+00:00
 ---
 
 # Query remote data  |  Lakehouse  |  Google Cloud Documentation
@@ -29,16 +29,16 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
 
 **Note:** For support during the preview, email [biglake-help@google.com](mailto:biglake-help@google.com).
 
-After setting up cross-cloud data access, you can query remote data from multiple sources. This capability of borderless Lakehouse lets you access data using standard SQL in BigQuery, the open-source version of Apache Spark, or Managed Service for Apache Spark. In addition to analytical queries, you can use your federated data for AI-driven insights and governance:
+In borderless Lakehouse, a cross-cloud connection lets you access remote data from external platforms without moving files between cloud environments. You can then query your federated tables from BigQuery, Managed Service for Apache Spark, or open-source Apache Spark.
 
-  * [**Conversational Analytics**](https://docs.cloud.google.com/lakehouse/docs/conversational-analytics): Build specialized agents grounded in your exact data sources, including federated tables, to analyze data across clouds from a single conversation.
-  * [**Dataplex Catalog**](https://docs.cloud.google.com/dataplex/docs/catalog-overview#supported-sources): Use Knowledge Catalog features for data profiling and insights with federated data sources.
+In addition to analytical queries, you can use your federated data for AI-driven insights and governance:
+
+  * [**Conversational analytics**](https://docs.cloud.google.com/lakehouse/docs/conversational-analytics): build specialized agents grounded in your data sources, including federated tables, to analyze data across clouds from a single conversation.
+  * [**Knowledge Catalog**](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview#supported-sources): profile data and generate insights across your federated data sources.
 
 
 
-For deeper insights, you can author specialized agents grounded in your data sources, from projects, datasets, and tables to views, graphs, and user-defined functions. Because your data rarely lives in one place, conversational analytics reaches beyond BigQuery Standard tables to Apache Iceberg tables managed by Lakehouse and Lakehouse sources like Databricks Unity, AWS Glue, SAP, and Salesforce. This lets you break down data silos and analyze data across clouds from a single conversation.
-
-This page shows you how to query remote data after you set up cross-cloud data access.
+For deeper analysis, you can author conversational analytics agents that use projects, datasets, tables, views, graphs, and user-defined functions. These agents work across BigQuery standard tables, Apache Iceberg tables managed by Lakehouse, and Lakehouse sources such as Databricks Unity Catalog, AWS Glue, SAP BDC, and Salesforce.
 
 ## Before you begin
 
@@ -188,7 +188,7 @@ Storage | `spark.sql.catalog.CATALOG_NAME.io-impl` | Notes
 ---|---|---  
 **Amazon S3** | `org.apache.iceberg.aws.s3.S3FileIO` | Requires credential vending (`X-Iceberg-Access-Delegation=vended-credentials`) if enabled.  
 Additional parameter: `spark.sql.catalog.CATALOG_NAME.s3.region` (for a list of regions, see [Amazon S3 endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region)).  
-**Google Cloud Storage** | `org.apache.iceberg.gcp.gcs.GCSFileIO` | Additional parameter: `spark.sql.catalog.CATALOG_NAME.gcs.oauth2.refresh-credentials-endpoint`=`https://oauth2.googleapis.com/token`.  
+**Cloud Storage** | `org.apache.iceberg.gcp.gcs.GCSFileIO` | Additional parameter: `spark.sql.catalog.CATALOG_NAME.gcs.oauth2.refresh-credentials-endpoint`=`https://oauth2.googleapis.com/token`.  
 **Azure Blob Storage** | `org.apache.iceberg.azure.adlsv2.ADLSFileIO` | No additional storage parameters required.  
   
 For Snowflake, you may encounter issues when querying `STRING` columns because they are automatically storage-optimized. You can resolve this in one of two ways:
@@ -209,7 +209,7 @@ Lakehouse caching is enabled automatically for all cross-cloud queries. When a q
 To verify cache hit rates and measure your egress cost savings, inspect the job details in the BigQuery console or retrieve the query job statistics (`JobStatistics2`) using the BigQuery API or `bq` CLI:
     
     
-    bq show --format=prettyjson --j JOB_ID
+    bq show --format=prettyjson --job=true JOB_ID
 
 In the JSON output under `statistics.query.objectStorageStats` (or `object_storage_stats` in the proto API), the job statistics return a list with an entry for each cloud provider accessed during execution. Each entry contains the following fields:
 
@@ -231,6 +231,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

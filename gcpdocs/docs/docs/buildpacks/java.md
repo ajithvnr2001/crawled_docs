@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/buildpacks/java/
 title: Building a Java application \u00a0|\u00a0 Buildpacks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:45.648769+00:00
+fetched_at: 2026-10-24T08:20:34.198311+00:00
 ---
 
 # Building a Java application  |  Buildpacks  |  Google Cloud Documentation

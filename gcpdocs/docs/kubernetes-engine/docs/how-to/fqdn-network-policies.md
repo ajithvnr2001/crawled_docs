@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/fqdn-network-policies/
 title: Control Pod egress traffic using FQDN network policies \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:21:00.554872+00:00
+fetched_at: 2026-10-24T10:00:01.622628+00:00
 ---
 
 # Control Pod egress traffic using FQDN network policies  |  GKE networking  |  Google Cloud Documentation
@@ -40,9 +40,6 @@ Before you start, make sure that you have performed the following tasks:
 
 `FQDNNetworkPolicy` resources have the following requirements and limitations:
 
-  * You must have a GKE cluster running one of the following versions: 
-    * 1.26.4-gke.500 or later
-    * 1.27.1-gke.400 or later
   * Your cluster must use [GKE Dataplane V2](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/dataplane-v2#technical_specifications). 
     * You must use one of the DNS providers in your GKE cluster, kube-dns or Cloud DNS. Custom kube-dns or Core DNS deployments are not supported.
   * Google Cloud CLI version 462.0.0 or later.
@@ -196,32 +193,6 @@ If the FQDN object in the `FQDNNetworkPolicy` includes a domain that has CNAMEs 
 
 If your Pod queries `example.com`, then `example.com` is what you should write in the rule. Even if you get back a chain of aliases from your upstream DNS servers (e.g. `example.com` to `example.cdn.com` to `1.2.3.4`), the FQDN Network Policy will still allow your traffic through.
 
-## Known Issues
-
-This section lists all known issues for the fully qualified domain names (FQDN).
-
-### Specifying `protocol: ALL` causes policy to be ignored
-
-_This known issue has been fixed for GKE versions 1.27.10-gke.1055000+ and 1.28.3-gke.1055000+_
-
-If you create a `FQDNNetworkPolicy` which specifies `protocol: ALL` in the `ports` section, GKE does not enforce the policy. This issue occurs because of an issue with parsing the policy. Specifying `TCP` or `UDP` does not cause this issue.
-
-As a workaround, if you don't specify a `protocol` in the `ports` entry, the rule matches all protocols by default. Removing the `protocol: ALL` bypasses the parsing issue and GKE enforces the `FQDNNetworkPolicy`.
-
-In GKE version 1.27.10-gke.1055000+ and 1.28.3-gke.1055000+, policies with `protocol: ALL` are correctly parsed and enforced.
-
-### NetworkPolicy Logging causes incorrect or missing logs
-
-_This known issue has been fixed for GKE versions 1.27.10-gke.1055000+ and 1.28.2-gke.1157000+_
-
-If your cluster is using [Network Policy Logging](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/network-policy-logging) and FQDN network policies, there is a bug which can cause missing or incorrect log entries.
-
-When using network policy logging _without delegate_ , the policy logs for DNS connections leaving a workload incorrectly claim that the traffic was dropped. The traffic itself was allowed (per the `FQDNNetworkPolicy`), but the logs were incorrect.
-
-When using network policy logging _with delegation_ , policy logs are missing. The traffic itself is unaffected.
-
-In GKE version 1.27.10-gke.105500+ and 1.28.2-gke.1157000+, this bug has been fixed. DNS connections will now be correctly logged as ALLOWED, when the traffic is selected by a `NetworkPolicy` or a `FQDNNetworkPolicy`.
-
 ## What's next
 
   * [Read the Kubernetes documentation about network policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
@@ -233,6 +204,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

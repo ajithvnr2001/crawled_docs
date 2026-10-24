@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/v3/distribution-metrics/
 title: Percentiles and distribution-valued metrics \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:56:24.239822+00:00
+fetched_at: 2026-10-24T11:25:24.553788+00:00
 ---
 
 # Percentiles and distribution-valued metrics  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -21,21 +21,21 @@ Send feedback
 
 #  Percentiles and distribution-valued metrics Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to understand percentiles and the histogram model for a metric data with a [`Distribution`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/TypedValue#Distribution) value type. A distribution metric defines ranges of values, called _buckets_ , and records the count of measured values that falls into each bucket. Distribution metrics don't report the individual measure values; they report a histogram of counts in buckets. This value type is used by services when the individual measurements are too numerous to collect, but statistical information, such as averages or percentiles, about those measurements is valuable.
+Metrics with a [`Distribution`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/TypedValue#Distribution) value type in Cloud Monitoring group high-volume measurements into value ranges called _buckets_ instead of recording every individual data point. Recording bucket counts as a histogram lets services summarize large sets of measurements so you can analyze statistics such as averages and percentiles.
 
-When you chart a distribution-valued metric on a heatmap, you can use an option in the chart toolbar to overlay the 50th, 95th, and 99th percentiles. To display a distribution-valued metric on a line chart, you must configure the chart to convert the distribution value into a numeric value. You can perform this conversion by using an [aligner](https://docs.cloud.google.com/monitoring/api/v3/aggregation#alignment-intro) that selects a percentile. 
+On a heatmap chart, you can overlay the 50th, 95th, and 99th percentiles from the chart toolbar. To display a distribution-valued metric on a line chart, use an [aligner](https://docs.cloud.google.com/monitoring/api/v3/aggregation#alignment-intro) that selects a percentile to convert each distribution into a numeric value.
 
-The next section of this page uses a synthetic example to show how percentiles are determined. The example shows that the percentile values depend on the number of buckets, the width of the buckets, the distribution of the measurements, and the total count of samples. The percentile values don't depend on the actual measured values because those values aren't available in the histogram.
+The examples in this document show how bucket count, bucket width, measurement distribution, and sample size determine estimated percentile values without storing individual measurements.
 
 ## Example with synthetic data
 
-Consider an [`Exponential`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/TypedValue#Exponential) bucket model with a scale of 1, a growth factor of 2, and 10 finite buckets. This histogram contains 12 buckets, the 10 finite buckets, 1 bucket that only specifies an upper bound, and 1 that only specifies a lower bound. For this example, the finite bucket with index _n+1_ is twice as wide as the finite bucket with index _n_.
+Consider an [`Exponential`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/TypedValue#Exponential) bucket model with a scale of 1, a growth factor of 2, and 10 finite buckets. This histogram contains 12 buckets: the 10 finite buckets, 1 bucket that only specifies an upper bound, and 1 that only specifies a lower bound. For this example, the finite bucket with index _n+1_ is twice as wide as the finite bucket with index _n_.
 
 The following examples show that the width of the bucket determines the maximum error between the computed percentile and the measurements. They also show that the number of samples in a histogram is important. For example, if the number of samples is less than 20, then the 95th and 99th percentiles are always in the same bucket.
 
-### Case 1: The total number of samples is 1.
+### Case 1: The total number of samples is 1
 
-When there is a single measurement, the three percentile values differ but they only show the 50th, 95th, and 99th percentile of the same bucket. The error between the estimate and the actual measurements can't be determined because the measurement isn't known.
+When there is a single measurement, the three percentile values differ, but they only show the 50th, 95th, and 99th percentiles of the same bucket. The error between the estimate and the actual measurements can't be determined because the measurement isn't known.
 
 For example, assume that the histogram of measurements is as shown in the following table:
 
@@ -59,7 +59,7 @@ To compute the 50th percentile, do the following:
   1. Use the bucket counts to determine the bucket that contains the 50th percentile. In this example, bucket number 8 contains the 50th percentile.
   2. Compute the estimate using the following rule:
          
-         pth percentage = bucket_low +
+         pth percentile = bucket_low +
                          (bucket_up - bucket_low)*(p - p_low)/(p_up - p_low)
          
 
@@ -86,7 +86,7 @@ Percentile | Bucket number | Value
   
 The error between the estimate and the actual measurements can be bounded, but it can't be determined because the measurement isn't known.
 
-### Case 2: The total number of samples is 10.
+### Case 2: The total number of samples is 10
 
 When there are 10 samples, the 50th percentile might be in a different bucket than the 95th and 99th percentiles. However, there aren't enough measurements to allow the 95th and 99th percentiles to be in different buckets.
 
@@ -148,7 +148,7 @@ For example, to identify the bucket model for a metric, do the following:
   1. Go to the [`projects.timeSeries/list`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list) web page.
   2. In [APIs Explorer](https://docs.cloud.google.com/monitoring/api/apis-explorer), enter the filter that specifies the metric, a start time, and an end time.
 
-For example, to get information about the metric that stores [API requests latencies](https://docs.cloud.google.com/monitoring/api/metrics_gcp_p_z#serviceruntime/api/request_latencies), enter the following:
+For example, to get information about the metric that stores [API request latencies](https://docs.cloud.google.com/monitoring/api/metrics_gcp_p_z#serviceruntime/api/request_latencies), enter the following:
          
          metric.type="serviceruntime.googleapis.com/api/request_latencies"
          resource.type="consumed_api"
@@ -169,7 +169,6 @@ The following is the `list` API response for a distribution-valued metric that i
         {
           "metric": {...},
           "resource": {...},
-          },
           "metricKind": "DELTA",
           "valueType": "DISTRIBUTION",
           "points": [
@@ -233,12 +232,12 @@ _n_ th bucket | Lower bound | Upper bound | Midpoint
   
 ### Verify the percentile computations
 
-Now that the bucket configuration is known, for any set of measurements you can predict the values of 50th, 95th, and 99th percentile values. For example, if there is one sample and it is in bucket number 10, then the 50th percentile value is 24.79.
+Now that the bucket configuration is known, for any set of measurements, you can predict the 50th, 95th, and 99th percentile values. For example, if there is one sample and it is in bucket number 10, then the 50th percentile value is 24.79.
 
-To retrieve the 50th, 95th, and 99th percentile values of the metric, you can use the API method [`projects.timeSeries/list`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list), and include an alignment period and aligner. In this example, the following settings were selected:
+To retrieve the 50th, 95th, and 99th percentile values of the metric, you can use the API method [`projects.timeSeries/list`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list) and include an alignment period and aligner. In this example, the following settings were selected:
 
   * **Aligner** : `ALIGN_PERCENTILE_50`, `ALIGN_PERCENTILE_95`, or `ALIGN_PERCENTILE_99`
-  * **Alignment Period** : 60 s
+  * **Alignment period** : 60 s
 
 
 
@@ -284,18 +283,18 @@ For the `ALIGN_PERCENTILE_50` selection, each value in the time series is the 50
         },
     
 
-For two of the samples, the 50th percentile is in bucket 10, for the other sample it is in bucket 11.
+For two of the samples, the 50th percentile is in bucket 10; for the other sample, it is in bucket 11.
 
 The following table shows the results of executing the `projects.timeSeries/list` method with different aligners. The first row corresponds to the case where the aligner isn't specified. When you don't specify an aligner, the bucket model and mean values are returned. The next three rows list the data returned when the aligner is set to `ALIGN_PERCENTILE_50`, `ALIGN_PERCENTILE_95`, and `ALIGN_PERCENTILE_99`:
 
 Statistic | Sample @ 15:06 | Sample @ 15:05 | Sample @ 15:04  
 ---|---|---|---  
-mean | 25.889 | 33.7435 | Not available.  
+mean | 25.889 | 33.7435 | Not available  
 50th percentile | 24.79 | 34.71 | 24.79  
 95th percentile | 28.51 | 39.91 | 28.51  
 99th percentile | 28.84 | 40.37 | 28.84  
   
-As the two examples with synthetic data illustrate, the values of the percentiles dependent on how the samples are distributed. When all samples are in the sample bucket, then the 50th percentile is the midpoint of that bucket. However, when samples are in different buckets, that distribution affects the estimates.
+As the two examples with synthetic data illustrate, the values of the percentiles depend on how the samples are distributed. When all samples are in the same bucket, then the 50th percentile is the midpoint of that bucket. However, when samples are in different buckets, that distribution affects the estimates.
 
 To determine if the 50th percentile is a reasonable estimate of the mean, you can compare the mean value to the 50th percentile. The mean value is returned with the bucket details.
 
@@ -307,6 +306,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

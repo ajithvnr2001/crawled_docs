@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/routines-intro/
 title: Introduction to routines \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:58:40.933119+00:00
+fetched_at: 2026-10-24T11:25:45.735676+00:00
 ---
 
 # Introduction to routines  |  BigQuery  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Introduction to routines
 
-This document describes how to choose a routine, which is a resource type that you use to create functions or stored procedures in BigQuery.
+Creating routines in BigQuery lets you encapsulate complex logic by using reusable functions and stored procedures. Choosing the right routine for your workload lets you efficiently aggregate data, automate management tasks, and integrate with external services directly from your queries.
 
 ## Supported routines
 
@@ -239,6 +239,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

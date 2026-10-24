@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/vpc-sc/configure-vpc-service-controls/
 title: Configure VPC Service Controls \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:40.326733+00:00
+fetched_at: 2026-10-24T11:25:49.173933+00:00
 ---
 
 # Configure VPC Service Controls  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback
 
 #  Configure VPC Service Controls Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page provides an overview of VPC Service Controls, a Google Cloud feature that integrates with AlloyDB to secure data and resources.
-
-VPC Service Controls helps mitigate the risk of data exfiltration from AlloyDB instances. You can use VPC Service Controls to create service perimeters that protect the resources and data of services that you explicitly specify.
+To mitigate the risk of data exfiltration from your AlloyDB for PostgreSQL instances, you can use VPC Service Controls to configure service perimeters and access levels that protect your AlloyDB resources and data.
 
 For a general overview of VPC Service Controls, its security benefits, and its capabilities across Google Cloud products, see [Overview of VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview).
 
@@ -46,9 +44,9 @@ For a general overview of VPC Service Controls, its security benefits, and its c
   6. Add the [ Identity and Access Management (IAM) roles](https://docs.cloud.google.com/vpc-service-controls/docs/access-control#required_roles) to the user or service account that you're using to set up and administer VPC Service Controls. For more information, see [ IAM roles for administering VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/access-control).
   7. Review [ limitations](https://docs.cloud.google.com/vpc-service-controls/docs/supported-products#table_alloydb_api) when you use VPC Service Controls with AlloyDB.
 
-**Note:** If you use [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc), both the [host project and the service project](https://docs.cloud.google.com/vpc-service-controls/docs/troubleshooting#shared_vpc) should be included in the service perimeter. 
+**Note:** If your AlloyDB cluster resides in a [Shared VPC](https://docs.cloud.google.com/vpc/docs/shared-vpc) network, you must include both your AlloyDB service project (for example, `projects/PROJECT_NUMBER`) and the host project or the Shared VPC network resource (for example, `//compute.googleapis.com/projects/HOST_PROJECT_ID/global/networks/SHARED_VPC_NETWORK`) in the [service perimeter](https://docs.cloud.google.com/vpc-service-controls/docs/troubleshooting#shared_vpc). 
 
-## How to secure AlloyDB service using VPC Service Controls
+## Secure AlloyDB using VPC Service Controls
 
 Before you begin, review [Overview of VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview) and [AlloyDB limitations when using VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/supported-products#table_alloydb_api).
 
@@ -73,11 +71,11 @@ To create and manage a service perimeter, complete the following steps:
 
   2. Create a service perimeter by following the instructions in [Creating a service perimeter](https://docs.cloud.google.com/vpc-service-controls/docs/create-service-perimeters).
 
-  3. Add more instances to the service perimeter. To add existing AlloyDB instances to the perimeter, follow the instructions in [Updating a service perimeter](https://docs.cloud.google.com/vpc-service-controls/docs/manage-service-perimeters#updating_a_service_perimeter).
+  3. Add more instances to the service perimeter. To add existing AlloyDB instances to the perimeter, follow the instructions in [Updating a service perimeter](https://docs.cloud.google.com/vpc-service-controls/docs/manage-service-perimeters#update).
 
-  4. Add APIs to the service perimeter. To mitigate the risk of your data being exfiltrated from AlloyDB, you must restrict AlloyDB API, Compute Engine API, Cloud Storage API, Container Registry API, Certificate Authority Service API, and Cloud KMS API. For more information, see [access-context-manager perimeters update](https://docs.cloud.google.com/sdk/gcloud/reference/access-context-manager/perimeters/update).
+  4. Add APIs to the service perimeter. To mitigate the risk of your data being exfiltrated from AlloyDB, you must restrict the AlloyDB API, Compute Engine API, Cloud Storage API, Artifact Registry API, Certificate Authority Service API, and Cloud Key Management Service API. For more information about updating service perimeters, see the [`gcloud access-context-manager perimeters update`](https://docs.cloud.google.com/sdk/gcloud/reference/access-context-manager/perimeters/update) command.
 
-To add APIs as restricted services:
+To add APIs as restricted services, follow these steps:
 
 ### Console
 
@@ -88,19 +86,20 @@ To add APIs as restricted services:
      2. In the **VPC Service Controls** page, in the table, click the name of the service perimeter that you want to modify.
      3. Click **Edit**.
      4. In the **Edit VPC Service Perimeter** page, click **Add Services**.
-     5. Add **AlloyDB API** , **Compute Engine API** , **Cloud Storage API** , **Container Registry API** , **Certificate Authority Service API** , and **Cloud KMS API**.
+     5. Add **AlloyDB API** , **Compute Engine API** , **Cloud Storage API** , **Artifact Registry API** , **Certificate Authority Service API** , and **Cloud KMS API**.
      6. Click **Save**.
 
 ### gcloud
     
     gcloud access-context-manager perimeters update PERIMETER_ID \
     --policy=POLICY_ID \
-    --add-restricted-services=alloydb.googleapis.com,compute.googleapis.com,storage.googleapis.com,
-      containerregistry.googleapis.com,privateca.googleapis.com,cloudkms.googleapis.com
+    --add-restricted-services=alloydb.googleapis.com,compute.googleapis.com,storage.googleapis.com,artifactregistry.googleapis.com,privateca.googleapis.com,cloudkms.googleapis.com
     
 
-     * PERIMETER_ID: The ID of the perimeter or the fully qualified identifier for the perimeter.
-     * POLICY_ID: The ID of the access policy.
+Replace the following:
+
+     * `PERIMETER_ID`: the ID of the perimeter or the fully qualified identifier for the perimeter.
+     * `POLICY_ID`: the ID of the access policy.
 
   5. If you [enabled advanced query insights features](https://docs.cloud.google.com/alloydb/docs/using-advanced-query-insights#enable-advanced-features), add the `databaseinsights.googleapis.com` API to the service perimeter as a restricted service:
 
@@ -123,8 +122,10 @@ To add APIs as restricted services:
     --add-restricted-services=databaseinsights.googleapis.com
     
 
-     * PERIMETER_ID: The ID of the perimeter or the fully qualified identifier for the perimeter.
-     * POLICY_ID: The ID of the access policy.
+Replace the following:
+
+     * `PERIMETER_ID`: the ID of the perimeter or the fully qualified identifier for the perimeter.
+     * `POLICY_ID`: the ID of the access policy.
 
 
 

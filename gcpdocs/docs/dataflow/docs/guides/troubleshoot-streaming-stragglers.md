@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/troubleshoot-streaming-stragglers/
 title: Troubleshoot stragglers in streaming jobs \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:04.486578+00:00
+fetched_at: 2026-10-24T08:20:18.920055+00:00
 ---
 
 # Troubleshoot stragglers in streaming jobs  |  Cloud Dataflow  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/connected-sheets/
 title: Use Connected Sheets \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:46:34.741168+00:00
+fetched_at: 2026-10-24T11:26:16.592683+00:00
 ---
 
 # Use Connected Sheets  |  BigQuery  |  Google Cloud Documentation
@@ -320,7 +320,7 @@ The result looks similar to the following:
     +---------------------------------+---------------------------------+-----------------+------------+--------------------+---------------+
     
 
-### Aggregate Connected Sheets usage by user at the project level
+### Aggregate Connected Sheets usage by user at the project level 
 
 If you don't have organization-level permissions or only need to monitor a specific project, run the following query to identify the top Connected Sheets users within a project over the last 30 days. The query aggregates the total number of queries, total bytes billed, and total slot milliseconds for each user. This information is useful for understanding adoption and for identifying top consumers of resources.
     
@@ -365,7 +365,7 @@ The result looks similar to the following:
     +---------------------+---------------+--------------------+-----------------+
     
 
-### Find job logs of Connected Sheets queries at the project-level
+### Find job logs of Connected Sheets queries at the project-level 
 
 If you don't have organization-level permissions or only need to monitor a specific project, run the following query to see a detailed log of all Connected Sheets queries for the current project:
     
@@ -442,6 +442,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

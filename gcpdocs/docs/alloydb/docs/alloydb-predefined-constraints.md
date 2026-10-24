@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/alloydb-predefined-constraints/
 title: Use predefined organization policies \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:50.516984+00:00
+fetched_at: 2026-10-24T11:25:51.184011+00:00
 ---
 
 # Use predefined organization policies  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,16 +21,18 @@ Send feedback
 
 #  Use predefined organization policies Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to add predefined organization policies on AlloyDB for PostgreSQL clusters and backups, which lets you put restrictions on AlloyDB at the project, folder, or organization level.
+To enforce organization-wide encryption requirements on AlloyDB for PostgreSQL clusters and backups, you can apply predefined organization policy constraints at the project, folder, or organization level.
 
 ## Customer-managed encryption keys (CMEK) organization policy
 
-You can use the CMEK organization policy to control the CMEK settings of your AlloyDB clusters and backups. This policy lets you control the [Cloud KMS keys](https://docs.cloud.google.com/kms/docs/resource-hierarchy) that you use to protect your data.
+You can use the CMEK organization policy to control the CMEK settings of your AlloyDB clusters and backups. This policy lets you control the [Cloud Key Management Service (Cloud KMS) keys](https://docs.cloud.google.com/kms/docs/resource-hierarchy#keys) that you use to protect your data.
 
-AlloyDB supports two organization policy constraints that help ensure CMEK protection across an organization:
+AlloyDB supports two organization policy constraints that help enforce CMEK protection across an organization:
 
-  * `constraints/gcp.restrictNonCmekServices`: Requires CMEK protection for the `alloydb.googleapis.com`. When you add this constraint and add the `alloydb.googleapis.com` to the `Deny` policy list of services, AlloyDB refuses to create a new cluster or a backup unless they are enabled with CMEK.
-  * `constraints/gcp.restrictCmekCryptoKeyProjects`: Limits which Cloud KMS CryptoKeys you can use for CMEK protection in AlloyDB clusters and backups. With this constraint, when AlloyDB creates a new cluster or a backup with CMEK, the CryptoKey must come from an allowed project, folder, or organization.
+  * `constraints/gcp.restrictNonCmekServices`: requires CMEK protection for the `alloydb.googleapis.com` service. When you add this constraint and add `alloydb.googleapis.com` to the `Deny` policy list of services, AlloyDB refuses to create a new cluster or a backup unless they are enabled with CMEK.
+
+  * `constraints/gcp.restrictCmekCryptoKeyProjects`: limits which Cloud KMS CryptoKeys you can use for CMEK protection in AlloyDB clusters and backups. With this constraint, when AlloyDB creates a new cluster or a backup with CMEK, the CryptoKey must come from an allowed project, folder, or organization.
+
 
 
 
@@ -107,7 +109,7 @@ To add a CMEK organization policy, follow these steps:
      5. Click **Add rule**.
      6. Under **Policy values** , click **Custom**.
      7. Under **Policy types** , select **Deny**.
-     8. Under **Custom values** , enter `alloydb.googleapis.com`. This ensures that CMEK is enforced while creating AlloyDB clusters and backups.
+     8. Under **Custom values** , enter `alloydb.googleapis.com`. This configuration enforces CMEK while creating AlloyDB clusters and backups.
   4. To set `constraints/gcp.restrictCmekCryptoKeyProjects`, follow these steps:
 
      1. Filter for the constraint `ID`: `constraints/gcp.restrictCmekCryptoKeyProjects` or `Name`: `Restrict which projects may supply KMS CryptoKeys for CMEK`.
@@ -119,7 +121,7 @@ To add a CMEK organization policy, follow these steps:
      7. Under **Policy types** , select **Allow**.
      8. Under **Custom values** , enter the resource using the following format: `under:organizations/ORGANIZATION_ID`, `under:folders/FOLDER_ID`, or `projects/PROJECT_ID`.
 
-This ensures that your AlloyDB clusters and backups use the Cloud KMS keys only from the allowed project, folder, or organization.
+This configuration restricts your AlloyDB clusters and backups to using Cloud KMS keys only from the allowed project, folder, or organization.
 
   5. Click **Done** and then click **Save**.
 

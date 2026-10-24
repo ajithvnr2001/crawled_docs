@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/multi-region-lineage-overview/
 title: About multi-region lineage search \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:51:00.382751+00:00
+fetched_at: 2026-10-24T08:26:48.906348+00:00
 ---
 
 # About multi-region lineage search  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,22 +23,13 @@ Send feedback
 
 #  About multi-region lineage search Stay organized with collections  Save and categorize content based on your preferences. 
 
-When you manage data across a complex organization, understanding your data lineage is essential for good data governance and effective cloud data management. This guide explains how to use multi-region search in Knowledge Catalog (formerly Dataplex Universal Catalog) to track your data across geographic boundaries.
-
-By default, data lineage in Knowledge Catalog is a regional service. Whenever your data moves or transforms, the resulting lineage data such as links, processes, and events, is stored in the specific region where that action took place.
-
-However, real-world data pipelines frequently span multiple Google Cloud projects and regions. For example, you might have a BigQuery table in `us-central1` that copies data to a storage bucket in `europe-west1`. To trace your data assets across these boundaries and build complete lineage graphs, you need to perform a multi-region search.
-
-Knowledge Catalog gives you two ways to discover and connect these cross-regional lineage graphs:
-
-  * The server-side automation method that uses the [`searchLineageStreaming`](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rest/v1/projects.locations/searchLineageStreaming) API (Preview)—Recommended
-  * The client-side fan-out method that uses the [`searchLinks`](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rest/v1/projects.locations/searchLinks) API
-
-
+Multi-region lineage search in Knowledge Catalog (formerly Dataplex Universal Catalog) lets you trace data assets across Google Cloud projects and regions to build complete lineage graphs. This unified view helps you maintain data governance and analyze dependencies across your organization when pipelines span geographic boundaries. You can discover and connect cross-regional graphs by using recommended server-side automation with the [`searchLineageStreaming`](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rest/v1/projects.locations/searchLineageStreaming) API (Preview) or client-side fan-out with the [`searchLinks`](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rest/v1/projects.locations/searchLinks) API. For instructions on using the streaming API, see [Search multi-region lineage using server-side automation](https://docs.cloud.google.com/knowledge-catalog/docs/search-lineage-streaming-api).
 
 ## Core concepts of multi-region lineage search
 
-To understand multi-region lineage discovery, it helps to understand how the system handles graph traversal:
+By default, data lineage in Knowledge Catalog is a regional service. Whenever your data moves or transforms, the resulting lineage data, such as links, processes, and events, is stored in the specific region where that action took place. However, real-world data pipelines frequently span multiple Google Cloud projects and regions. For example, you might have a BigQuery table in `us-central1` that copies data to a storage bucket in `europe-west1`, requiring a multi-region search to trace your data assets across these boundaries.
+
+To understand multi-region lineage discovery, it helps to understand how Knowledge Catalog handles graph traversal:
 
   * Root criteria: The starting point of your lineage search, defined by one or more asset names (such as a BigQuery table or a Pub/Sub topic) or fine-grained column fields.
 
@@ -101,6 +92,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

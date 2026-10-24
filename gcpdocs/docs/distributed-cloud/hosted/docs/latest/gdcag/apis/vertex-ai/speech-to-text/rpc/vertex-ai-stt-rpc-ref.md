@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/vertex-ai/speech-to-text/rpc/vertex-ai-stt-rpc-ref/
 title: Speech-to-Text RPC API reference \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:14:57.365271+00:00
+fetched_at: 2026-10-24T11:10:33.830439+00:00
 ---
 
 # Speech-to-Text RPC API reference  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -28,10 +28,22 @@ Use this guide to programmatically integrate speech recognition technologies int
 
 ### Speech-to-Text methods
 
-There are two methods available in GDC:
+In GDC, the API gateway exposes the `google.cloud.speech.v1p1beta1.Speech` gRPC service (`from google.cloud import speech_v1p1beta1 as speech` in Python). There are two methods available in GDC:
 
-  * [Recognize](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/vertex-ai/speech-to-text/rpc/google.cloud.speech.v1): Performs synchronous speech recognition. `Recognize` receives results after all audio has been sent and processed.
-  * [StreamingRecognize](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/vertex-ai/speech-to-text/rpc/google.cloud.speech.v1): Performs bidirectional streaming speech recognition. `StreamingRecognize` receives results while sending audio. 
+  * [Recognize](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/vertex-ai/speech-to-text/rpc/google.cloud.speech.v1): Performs synchronous speech recognition (`google.cloud.speech.v1p1beta1.Speech.Recognize`). `Recognize` receives results after all audio has been sent and processed.
+  * [StreamingRecognize](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/vertex-ai/speech-to-text/rpc/google.cloud.speech.v1): Performs bidirectional streaming speech recognition (`google.cloud.speech.v1p1beta1.Speech.StreamingRecognize`). `StreamingRecognize` receives results while sending audio.
+
+
+
+### Unsupported methods and fields in GDC
+
+The following public Speech-to-Text `v1` and `v1p1beta1` API methods and fields aren't supported on GDC:
+
+  * **`google.cloud.speech.v1.Speech` gRPC service paths**: Requests sent to `/google.cloud.speech.v1.Speech/*` return `UNIMPLEMENTED` (`HTTP 501`) at the Envoy API gateway. Use `google.cloud.speech.v1p1beta1.Speech` (`from google.cloud import speech_v1p1beta1 as speech`).
+  * **`LongRunningRecognize`** : Asynchronous batch recognition isn't implemented by the GDC backend (`UNIMPLEMENTED`). Use `Recognize` or `StreamingRecognize`.
+  * **`RecognitionAudio.uri`** : Object storage URIs (`gs://...` or S3 URIs) aren't supported and return `400 INVALID_ARGUMENT: audio_content must not be empty`. Pass inline audio bytes using `RecognitionAudio.content`.
+  * **`TranscriptOutputConfig`** : Writing transcription output to object storage buckets isn't supported on GDC.
+  * **`SpeechAdaptation`, `PhraseSet`, `CustomClass`, and `speech_contexts`**: Speech adaptation and biasing aren't supported. The backend rejects biasing fields with `UNIMPLEMENTED: Biasing is currently not supported`, and the `Adaptation` service isn't routed at the API gateway. 
 
 
 
@@ -39,6 +51,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

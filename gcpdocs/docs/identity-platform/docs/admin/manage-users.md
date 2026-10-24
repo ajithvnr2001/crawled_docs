@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/admin/manage-users/
 title: Managing users programmatically \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:11:09.050908+00:00
+fetched_at: 2026-10-24T08:43:05.556111+00:00
 ---
 
 # Managing users programmatically  |  Identity Platform  |  Google Cloud Documentation
@@ -315,7 +315,7 @@ You can also retrieve a list of users based on identifiers that you provide. You
     	log.Printf("%v", id)
     }
     
-    [auth.go](https://github.com/firebase/firebase-admin-go/blob/b7add760e980248e638976a1a6e19f583979c336/snippets/auth.go#L190-L208)
+    [auth.go](https://github.com/firebase/firebase-admin-go/blob/3be3a8604dad5dba6717295c68882c7b98ba3df3/snippets/auth.go#L190-L208)
 
 ### C#
     
@@ -834,7 +834,7 @@ You can also delete multiple users at once:
     	log.Printf("%v", err)
     }
     
-    [auth.go](https://github.com/firebase/firebase-admin-go/blob/b7add760e980248e638976a1a6e19f583979c336/snippets/auth.go#L279-L288)
+    [auth.go](https://github.com/firebase/firebase-admin-go/blob/3be3a8604dad5dba6717295c68882c7b98ba3df3/snippets/auth.go#L279-L288)
 
 ### C#
     
@@ -870,6 +870,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-21 UTC.
+Last updated 2026-10-22 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-21 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/php-gen2/upgrade-php-runtime/
 title: Upgrade an existing application \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:51:23.396096+00:00
+fetched_at: 2026-10-24T09:02:01.142254+00:00
 ---
 
 # Upgrade an existing application  |  App Engine standard environment  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/lineage-use-cases-cost-optimization/
 title: Use data lineage to optimize costs \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:24:14.560887+00:00
+fetched_at: 2026-10-24T08:33:55.811512+00:00
 ---
 
 # Use data lineage to optimize costs  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,15 +23,15 @@ Send feedback
 
 #  Use data lineage to optimize costs Stay organized with collections  Save and categorize content based on your preferences. 
 
-In this scenario, you manage a BigQuery project with datasets derived from the [Quarterly Census of Employment and Wages (QCEW)](https://console.cloud.google.com/marketplace/product/bls-public-data/qcew). The project contains numerous tables and views for various dashboards and analyses, such as tracking employment trends or wage comparisons. As a result, your storage costs increase. To reduce costs, you identify tables or views that are not actively used as sources for jobs or assets within BigQuery, making them candidates for deletion.
+Data lineage in Knowledge Catalog lets you track downstream dependencies for tables and views in your BigQuery project. You can then identify assets that aren't actively used as sources for downstream jobs or workflows and flag them as candidates for deletion to reduce storage costs.
 
-Use data lineage to identify unused assets and optimize costs in your BigQuery project. By checking each asset for downstream links, systematically flag unused resources for deletion to reduce storage costs.
+In this tutorial, you manage a BigQuery project with datasets derived from the Quarterly Census of Employment and Wages (QCEW). The project contains numerous tables and views for dashboards and analyses, such as tracking employment trends or wage comparisons, which increases your storage costs. By checking each asset for downstream links, you can systematically flag unused resources for deletion.
 
 **Caution:** Be careful when deleting resources. Just because a resource lacks downstream workflows doesn't mean it is entirely unused. For example, users might still query a table directly to retrieve specific data in read-only mode. Deleting the resource could disrupt the work of anyone who relies on that direct access.
 
 ## Set up Lineage Explorer
 
-To complete the use case, first set up the environment and run the data transformations. Use the [prerequisites and setup](https://docs.cloud.google.com/knowledge-catalog/docs/lineage-use-cases-prerequisites) page to connect a remote repository to Dataform. This repository contains the code necessary to set up the dataset and transform the data.
+To complete the use case, first set up the environment and run the data transformations by connecting a remote repository to Dataform. This repository contains the code necessary to set up the dataset and transform the data. For more information, see [Prerequisites and setup](https://docs.cloud.google.com/knowledge-catalog/docs/lineage-use-cases-prerequisites).
 
 After you finish the environment setup, use BigQuery and **Lineage Explorer** to visually identify assets without downstream dependencies.
 
@@ -50,12 +50,12 @@ In this example, compare active assets with standalone assets to determine which
 
 
 
-Observe the graph. If there are no downstream nodes, the asset is not being used as a source for other tracked BigQuery jobs. For more information on visualizing data with data lineage graph, see [Lineage graph view](https://docs.cloud.google.com/knowledge-catalog/docs/lineage-views#lineage-graph-view).
+Observe the graph. If there are no downstream nodes, the asset is not being used as a source for other tracked BigQuery jobs. For more information about visualizing data with the data lineage graph, see [Lineage graph view](https://docs.cloud.google.com/knowledge-catalog/docs/lineage-views#lineage-graph-view).
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

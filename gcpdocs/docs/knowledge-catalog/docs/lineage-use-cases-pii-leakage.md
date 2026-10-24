@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/knowledge-catalog/docs/lineage-use-cases-pii-leakage/
-title: Analyze causes of Personally Identifiable Information (PII) leak \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
+title: Analyze causes of personally identifiable information (PII) leak \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:54.689851+00:00
+fetched_at: 2026-10-24T08:36:34.305970+00:00
 ---
 
-# Analyze causes of Personally Identifiable Information (PII) leak  |  Knowledge Catalog  |  Google Cloud Documentation
+# Analyze causes of personally identifiable information (PII) leak  |  Knowledge Catalog  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/knowledge-catalog/docs/lineage-use-cases-pii-leakage/
 
@@ -21,25 +21,19 @@ As of April 10, 2026, Dataplex Universal Catalog is now called Knowledge Catalog
 
 Send feedback 
 
-#  Analyze causes of Personally Identifiable Information (PII) leak Stay organized with collections  Save and categorize content based on your preferences. 
+#  Analyze causes of personally identifiable information (PII) leak Stay organized with collections  Save and categorize content based on your preferences. 
 
-In this scenario, you receive an alert that sensitive consumer data (specifically first and last names) appears in a view visible to the entire organization.
+Data lineage in Knowledge Catalog (formerly Dataplex Universal Catalog) lets you trace how data moves across tables and views to identify where personally identifiable information (PII) crosses security boundaries. In this tutorial, you investigate a scenario where consumer email addresses (`user_email`) intended for account creation, invoicing, and shipping leak into an organization-wide analytics table. You use column-level lineage to trace the exposed column from the public `order_status_stats` table through the `status_counts_by_user_v` view back to the transformation process that joins it with identity data.
 
-This information is originally intended only for specific functional purposes, such as account creation, invoicing, and shipping. However, through a series of transformations and the creation of an analytics view, the Personally Identifiable Information (PII) leaks into a broader analytics schema.
+## Before you begin
 
-In this tutorial, you use data lineage to trace the flow of sensitive data back to the process that moves it from a trusted to a non-trusted location.
-
-## Get started
-
-To complete the use case, first set up the environment and run the data transformations. Use the [prerequisites and setup](https://docs.cloud.google.com/knowledge-catalog/docs/lineage-use-cases-prerequisites) page to connect a remote repository to Dataform. This repository contains the code necessary to set up the dataset and transform the data.
-
-After you set up the environment, use BigQuery and **Lineage Explorer** to identify where PII crosses a security boundary.
+Before starting this tutorial, you must enable the required APIs, grant the required Identity and Access Management roles, and run the sample data transformations in Dataform to populate the dataset. For complete setup instructions, see [Prerequisites and setup](https://docs.cloud.google.com/knowledge-catalog/docs/lineage-use-cases-prerequisites).
 
 ## Analyze personal information leak with Lineage Explorer
 
 After you prepare the dataset, trace the personal information leak using the BigQuery **Lineage** tab.
 
-In this example, you trace the `user_email` column from the public view back to its source:
+In this example, you trace the `user_email` column from the public table back to its source:
 
   1. In Google Cloud console, go to the **BigQuery** page.
   2. Use the search field to find the `order_status_stats` table.
@@ -61,6 +55,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

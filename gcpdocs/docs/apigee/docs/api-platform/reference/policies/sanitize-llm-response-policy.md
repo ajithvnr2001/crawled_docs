@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy/
 title: SanitizeModelResponse policy \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:57:57.221355+00:00
+fetched_at: 2026-10-24T10:28:39.874185+00:00
 ---
 
 # SanitizeModelResponse policy  |  Apigee  |  Google Cloud Documentation
@@ -80,9 +80,10 @@ Defines a SanitizeModelResponse policy.
 **Parent Element** |  N/A   
 **Child Elements** |  [`<DisplayName>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#displayname)  
 [`<IgnoreUnresolvedVariables>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#ignoreunresolvedvariables)  
-[`<TemplateName>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#templatename)  
+[`<ModelArmor>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#modelarmor)  
 [`<UserPromptSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#userpromptsource)  
 [`<LLMResponseSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#llmresponsesource)  
+[`<FunctionCallSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#functioncallsource)  
   
   
 The [`<SanitizeModelResponse>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#name) element uses the following syntax:
@@ -96,9 +97,9 @@ The [`<SanitizeModelResponse>`](https://docs.cloud.google.com/apigee/docs/api-pl
       <ModelArmor>
         <TemplateName>projects/{project}/locations/{location}/templates/{template-name}</TemplateName>
       </ModelArmor>
-      <UserPromptSource>{jsonPath('$.contents[-1].parts[-1].text',request.content,true)}</UserPromptSource>
-      <LLMResponseSource>{jsonPath('$.candidates[-1].content.parts',response.content,true)}</LLMResponseSource>
-      <FunctionCallSource>{jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content,true)}</FunctionCallSource>
+      <UserPromptSource>{jsonPath('$.contents[-1].parts[-1].text',request.content)}</UserPromptSource>
+      <LLMResponseSource>{jsonPath('$.candidates[-1].content.parts',response.content)}</LLMResponseSource>
+      <FunctionCallSource>{jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content)}</FunctionCallSource>
     </SanitizeModelResponse>
 
 ### Default Policy
@@ -112,9 +113,9 @@ The following example shows the default settings when you add a SanitizeModelRes
       <ModelArmor>
         <TemplateName>projects/{project}/locations/{location}/templates/{template-name}</TemplateName>
       </ModelArmor>
-      <UserPromptSource>{jsonPath('$.contents[-1].parts[-1].text',request.content,true)}</UserPromptSource>
-      <LLMResponseSource>{jsonPath('$.candidates[-1].content.parts',response.content,true)}</LLMResponseSource>
-      <FunctionCallSource>{jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content,true)}</FunctionCallSource>
+      <UserPromptSource>{jsonPath('$.contents[-1].parts[-1].text',request.content)}</UserPromptSource>
+      <LLMResponseSource>{jsonPath('$.candidates[-1].content.parts',response.content)}</LLMResponseSource>
+      <FunctionCallSource>{jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content)}</FunctionCallSource>
     </SanitizeModelResponse>
 
 When you insert a new SanitizeModelResponse policy using the Apigee UI, the template contains stubs for all possible operations. See below for information on required elements.
@@ -139,20 +140,18 @@ Child Element | Required? | Description
 ---|---|---  
 [`<DisplayName>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#displayname) | Optional | The name of the policy.   
 [`<IgnoreUnresolvedVariables>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#ignoreunresolvedvariables) | Optional | Specifies whether processing stops if the variable used for the template name or Model Armor payload is unresolved.  
-[`<TemplateName>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#templatename) | Required | The Model Armor template used to sanitize the LLM response. This value can be templated using the following Apigee flow variables: 
+[`<ModelArmor>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#modelarmor) | Required | Contains the required information for specifying the Model Armor template.  
+[`<UserPromptSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#userpromptsource) | Optional | The payload location from which to extract the user prompt text. The policy sends this text to Model Armor as context for response sanitization. If you omit this element, the policy sends only the LLM response to Model Armor for sanitization, and the policy deploys and runs successfully. Supports only string text values. This field supports Apigee message template syntax, including the use of [ variables](https://docs.cloud.google.com/apigee/docs/api-platform/reference/message-template-intro#use-curly-braces-to-denote-variables) or [JSON Path functions](https://docs.cloud.google.com/apigee/docs/api-platform/reference/message-template-intro#json-path-function). For example: 
     
     
-    projects/{organization.name}/locations/{system.region.name}/templates/{id}  
+    {jsonpath('$.contents[-1].parts[-1].text',request.content,false)}  
   
-[`<UserPromptSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#userpromptsource) | Required | The location of the payload for the user prompt text to be extracted. Only string text values are supported. This field supports Apigee message template syntax, including the use of [ variables](https://docs.cloud.google.com/apigee/docs/api-platform/reference/message-template-intro#use-curly-braces-to-denote-variables) or [JSON Path functions. For example: 
+[`<LLMResponseSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#llmresponsesource) | Optional | The location of the payload for the LLM response text to be extracted. When omitted, the default Agent Platform `generateContent` JSON path is applied: `{jsonPath('$.candidates[-1].content.parts',response.content)}`. Only string text values are supported. This field supports Apigee message template syntax, including the use of [ variables](https://docs.cloud.google.com/apigee/docs/api-platform/reference/message-template-intro#use-curly-braces-to-denote-variables) or [JSON Path functions](https://docs.cloud.google.com/apigee/docs/api-platform/reference/message-template-intro#json-path-function). For example: 
     
     
-    {jsonpath('$.contents[-1].parts[-1].text',request.content,false)}](https://docs.cloud.google.com/apigee/docs/api-platform/reference/message-template-intro#json-path-function)  
-[`<LLMResponseSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#llmresponsesource) | Required | The location of the payload for the LLM response text to be extracted. Only string text values are supported. This field supports Apigee message template syntax, including the use of [ variables](https://docs.cloud.google.com/apigee/docs/api-platform/reference/message-template-intro#use-curly-braces-to-denote-variables) or [JSON Path functions. For example: 
-    
-    
-    {jsonpath('$.input.prompt.text',request.content,false)}](https://docs.cloud.google.com/apigee/docs/api-platform/reference/message-template-intro#json-path-function)  
-`<FunctionCallSource>` | Optional | The location of the function call arguments to extract from model responses. Used as a fallback when `<LLMResponseSource>` returns empty on function calling turns. Default: `{jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content,true)}`  
+    {jsonpath('$.input.prompt.text',request.content,false)}  
+  
+[`<FunctionCallSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#functioncallsource) | Optional | The location of the function call arguments to extract from model responses. The policy uses this element as a fallback when [`<LLMResponseSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#llmresponsesource) returns empty on function-calling turns. Default: `{jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content)}`  
   
 ## Child element reference
 
@@ -190,7 +189,7 @@ The `<DisplayName>` element uses the following syntax:
 
 The `<DisplayName>` element has no attributes or child elements.
 
-### <IgnoreUnresolvedVariables>
+### `<IgnoreUnresolvedVariables>`
 
 Determines whether processing stops when a variable is unresolved. Set to `true` to ignore unresolved variables and continue processing.
 
@@ -201,6 +200,24 @@ Determines whether processing stops when a variable is unresolved. Set to `true`
 **Parent Element** |  [`<SanitizeModelResponse>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#name)  
 **Child Elements** |  None   
   
+### `<ModelArmor>`
+
+Contains the Model Armor template configuration. The [`<TemplateName>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#templatename) child element specifies which Model Armor template is used to sanitize the LLM response.
+
+**Default Value** | N/A  
+---|---  
+**Required?** | Required  
+**Type** | Complex object  
+**Parent Element** |  [`<SanitizeModelResponse>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#name)  
+**Child Elements** |  [`<TemplateName>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#templatename)  
+  
+The `<ModelArmor>` element uses the following syntax:
+    
+    
+    <ModelArmor>
+      <TemplateName>projects/{project}/locations/{location}/templates/{template-name}</TemplateName>
+    </ModelArmor>
+
 ### `<TemplateName>`
 
 The Model Armor template.
@@ -209,7 +226,7 @@ The Model Armor template.
 ---|---  
 **Required?** | Required  
 **Type** | String  
-**Parent Element** |  [`<SanitizeModelResponse>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#name)  
+**Parent Element** |  [`<ModelArmor>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#modelarmor)  
 **Child Elements** |  None   
   
 The `<TemplateName>` element uses the following syntax:
@@ -232,16 +249,16 @@ This example uses Apigee flow variables to populate the required information.
 
 ### `<UserPromptSource>`
 
-The location of the payload for the user prompt text to be extracted. Only string text values are supported. 
+The payload location from which to extract the user prompt text. If you provide this element, the policy sends the user prompt to Model Armor alongside the model response for context-aware sanitization. If you omit this element, the policy sanitizes only the model response, and the policy deploys and runs successfully. Supports only string text values.
 
 This field supports Apigee message template syntax, including the use of [ variables](https://docs.cloud.google.com/apigee/docs/api-platform/reference/message-template-intro#use-curly-braces-to-denote-variables) or [JSON Path functions](https://docs.cloud.google.com/apigee/docs/api-platform/reference/message-template-intro#json-path-function). For example: 
     
     
     {jsonpath('$.input.prompt.text',request.content,false)}
 
-**Default Value** | {jsonPath('$.contents[-1].parts[-1].text',request.content,true)}  
+**Default Value** | N/A  
 ---|---  
-**Required?** | Required  
+**Required?** | Optional  
 **Type** | String  
 **Parent Element** |  [`<SanitizeModelResponse>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#name)  
 **Child Elements** |  None   
@@ -255,20 +272,20 @@ This field supports Apigee message template syntax, including the use of [ varia
     
     {jsonpath('$.input.prompt.text',request.content,false)}
 
-**Default Value** | {jsonPath($.candidates[-1].content.parts,response.content,true)}  
+**Default Value** | {jsonPath('$.candidates[-1].content.parts',response.content)}  
 ---|---  
-**Required?** | Required  
+**Required?** | Optional  
 **Type** | String  
 **Parent Element** |  [`<SanitizeModelResponse>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#name)  
 **Child Elements** |  None   
   
-### <FunctionCallSource>
+### `<FunctionCallSource>`
 
-The location of the function call arguments to extract from the model response. This element is used as a fallback when `<LLMResponseSource>` returns empty, which occurs when the model returns a function call invocation instead of text content.
+The location of the function call arguments to extract from the model response. The policy uses this element as a fallback when [`<LLMResponseSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#llmresponsesource) returns empty, which occurs when the model returns a function call invocation instead of text content.
 
 This field supports message template syntax, including JSON Path functions.
 
-**Default Value** | {jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content,true)}  
+**Default Value** | {jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content)}  
 ---|---  
 **Required?** | Optional  
 **Type** | String  
@@ -408,6 +425,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

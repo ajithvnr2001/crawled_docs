@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/sap-bdc-overview/
 title: About SAP Business Data Cloud integration \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:50.931665+00:00
+fetched_at: 2026-10-24T08:23:13.940475+00:00
 ---
 
 # About SAP Business Data Cloud integration  |  Lakehouse  |  Google Cloud Documentation
@@ -23,9 +23,9 @@ Send feedback
 
 #  About SAP Business Data Cloud integration Stay organized with collections  Save and categorize content based on your preferences. 
 
-Borderless Lakehouse lets you connect Google Cloud analytics with your SAP environment. This integration unifies your data analytics by connecting external data sources with your existing Google Cloud environment.
+Borderless Lakehouse lets you connect Google Cloud analytics with your SAP Business Data Cloud (BDC) environment to unify data across external sources and your Google Cloud workloads.
 
-This integration lets you use BigQuery's analytical power directly on your SAP data without moving it, whether your SAP Business Data Cloud (BDC) instance is hosted on Amazon Web Services (AWS), Microsoft Azure, or Google Cloud. The SAP BDC instance acts as the central system that governs and provides data from all SAP applications, including finance, supply chain, and HR.
+You can run BigQuery analytics directly on your SAP data without moving it, whether your SAP BDC instance is hosted on Amazon Web Services (AWS), Microsoft Azure, or Google Cloud. The SAP BDC instance governs and provides data from all SAP applications, including finance, supply chain, and HR.
 
 You can manage access to your federated data for several use cases:
 
@@ -71,7 +71,7 @@ SAP BDC connects to Lakehouse using the Delta Sharing protocol to expose data to
 
   * **Federated Delta Lake Catalog:** A Lakehouse catalog type that connects to SAP BDC using the Delta Sharing protocol.
   * **Catalog ID:** A unique identifier for the Lakehouse catalog resource in your Google Cloud project.
-  * **Federated Catalog:** A mechanism where BigQuery continuously queries the remote SAP BDC catalog for a current list of shares, schemas, and tables. This prevents stale or manually copied metadata.
+  * **Federated Catalog:** A mechanism where BigQuery continuously queries the remote SAP BDC instance for a current list of shares, schemas, and tables. This prevents stale or manually copied metadata.
   * **Connection:** The mechanism in the Lakehouse catalog that links and authenticates BigQuery and SAP BDC.
 
 
@@ -100,6 +100,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

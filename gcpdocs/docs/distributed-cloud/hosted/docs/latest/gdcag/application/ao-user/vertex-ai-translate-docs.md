@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-translate-docs/
 title: Try translating formatted documents \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:21.746161+00:00
+fetched_at: 2026-10-24T08:20:39.075081+00:00
 ---
 
 # Try translating formatted documents  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

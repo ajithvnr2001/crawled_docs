@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/overview/
 title: App Lifecycle Manager overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:09:00.167176+00:00
+fetched_at: 2026-10-24T11:10:24.593645+00:00
 ---
 
 # App Lifecycle Manager overview  |  Google Cloud Documentation
@@ -51,7 +51,7 @@ App Lifecycle Manager provides the following benefits:
 
 ## How does App Lifecycle Manager work?
 
-App Lifecycle Manager deploys artifacts that define your _App offering_. These artifacts must have a Terraform configuration. The deployment is organized into distinct _units_ that can be updated with _releases_ containing changes to your offering through a configurable rollout process.
+App Lifecycle Manager deploys artifacts that define your _App offering_. These artifacts must have a Terraform configuration. The deployment is organized into distinct _units_ that can be updated with _releases_ containing changes to your offering through a configurable rollout.
 
 For more information about App Lifecycle Manager nomenclature, see the [Glossary](https://docs.cloud.google.com/app-lifecycle-manager/glossary).
 
@@ -183,15 +183,15 @@ App Lifecycle Manager employs several rollout strategies to manage how units in 
 
 Use rollout strategies to minimize negative customer impacts and isolate issues to individual logical and physical failure domains. Define your rollout strategies by creating a rollout kind specifying one of the following rollout strategies:
 
-  * **One location at a time (simple)** : One location rolls out at a time, with no wait in-between locations. Units are selected arbitrarily within a location, with a maximum of 5% of the location's units updated at a given time.
+  * **One location at a time (simple)** : One location is updated at a time, with no wait in-between locations. Units are selected arbitrarily within a location, with a maximum of 5% of the location's units updated at a given time.
 
 This strategy is recommended for development environments and emergency scenarios.
 
-  * **All at once (simple)** : All locations begin rolling out at the same time.
+  * **All at once (simple)** : All locations begin updating at the same time.
 
 This strategy is recommended for development environments and emergency scenarios.
 
-  * **Progressive (gradual)** : Within each location, units are rolled out in static percentage-based batches (for example, 1%, 10%, 20%, 30%, ~40%) with soak times between batches. Across locations, the rollout progresses with an exponential increase in the number of concurrent locations (for example, one location, then two, then four) with soak times (18 hours, for example) between waves. Units within a location are selected randomly. 
+  * **Progressive (gradual)** : Within each location, units are updated in static percentage-based batches (for example, 1%, 10%, 20%, 30%, ~40%) with soak times between batches. Across locations, the rollout progresses with an exponential increase in the number of concurrent locations (for example, one location, then two, then four) with soak times (18 hours, for example) between waves. Units within a location are selected randomly. 
 
 This strategy is designed for safe and predictable rollouts across multiple locations. It starts with a small footprint and gradually expands as confidence grows. This strategy is recommended in production environments with _more than one location_.
 
@@ -284,6 +284,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

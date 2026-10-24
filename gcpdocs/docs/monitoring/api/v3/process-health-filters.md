@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/v3/process-health-filters/
 title: Process-health filters \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:59:48.658104+00:00
+fetched_at: 2026-10-24T11:25:20.305548+00:00
 ---
 
 # Process-health filters  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -21,15 +21,13 @@ Send feedback
 
 #  Process-health filters Stay organized with collections  Save and categorize content based on your preferences. 
 
-This guide describes how to count the number of processes running on your virtual machines (VMs) that meet the filter conditions you specify. You can create alerting policies and charts that count processes by using the Cloud Monitoring API or by using the Google Cloud console.
+You can count the processes running on your virtual machines (VMs) that match specific criteria by using process-health filters in Cloud Monitoring. Use these filters in alerting policies and charts through the Cloud Monitoring API or direct filter mode in the Google Cloud console.
 
-If you are interested in information about running processes, for example, you want to know the CPU utilization for specific processes, then see [Process metrics](https://docs.cloud.google.com/monitoring/agent/process-metrics).
-
-The structure of the Monitoring filter when it's used to count processes is similar to the structure used when you use these filters to specify monitored resources or metric types. For general information, see [Monitoring filters](https://docs.cloud.google.com/monitoring/api/v3/filters).
+To monitor resource consumption such as CPU utilization for specific processes, see [Monitor processes on VMs](https://docs.cloud.google.com/monitoring/agent/process-metrics). Process-health filters share syntax with standard resource and metric filters; for general syntax rules, see [Monitoring filters](https://docs.cloud.google.com/monitoring/api/v3/filters).
 
 ## Before you begin
 
-If you aren't familiar with metrics, time series, and monitored resources, see [Metrics, Time Series, and Resources](https://docs.cloud.google.com/monitoring/api/v3/metrics).
+If you aren't familiar with metrics, time series, and monitored resources, see [Metrics, time series, and resources](https://docs.cloud.google.com/monitoring/api/v3/metrics).
 
 ## Processes that are counted
 
@@ -45,7 +43,7 @@ One way to determine whether a process can be counted is to view the output of t
         root      1640  0.0  0.0      0     0 ?        S    Oct25   2:36 [nfsd]
     
 
-When the entry in the `COMMAND` column is wrapped with square brackets, for example `[nfsd]`, the command-line information for the process isn't available and therefore the process isn't counted.
+When the entry in the `COMMAND` column is wrapped with square brackets—for example, `[nfsd]`—the command-line information for the process isn't available and therefore the process isn't counted.
 
 ## Process-health filter structure
 
@@ -75,7 +73,7 @@ If you use the Google Cloud console, then use direct filter mode to enter the va
         select_process_count("*") resource.type="gce_instance"
     
 
-For information about how to access direct filter mode when using Metrics Explorer, or when creating alerting policies or charts on dashboards, see the following documents:
+For information about how to access direct filter mode when using Metrics Explorer or when creating alerting policies or charts on dashboards, see the following documents:
 
   * Alerting: [Direct filter mode](https://docs.cloud.google.com/monitoring/alerts/using-alerting-ui#not-listed)
   * Charts: [Direct filter mode](https://docs.cloud.google.com/monitoring/charts/selecting-aggregating-metrics#direct-filter)
@@ -131,8 +129,8 @@ The value of a filter object can be any of the following:
 
 If you specify multiple filters, then the following rules apply:
 
-  * `command_line` is joined to `command` by a logical-OR. A process is counted when it matches either filter.
-  * `user` is joined to `command_line` (`command`) by a logical-AND. A process is a match only when it matches the `user` filter and the `command_line` (`command`) filter.
+  * `command_line` is joined to `command` by a logical OR. A process is counted when it matches either filter.
+  * `user` is joined to `command_line` (`command`) by a logical AND. A process is a match only when it matches the `user` filter and the `command_line` (`command`) filter.
   * If you apply all filters, then a process is counted when it matches the `user` filter and when it matches the `command_line` or `command` filter.
 
 
@@ -141,7 +139,7 @@ If you specify multiple filters, then the following rules apply:
 
 To use named arguments, specify the filter name, an equals statement, `=`, and then the filter value. You can specify named arguments in any order.
 
-For example, the following matches all processes started by root when the command line included the string `nginx`:
+For example, the following matches all processes started by root when the command line includes the string `nginx`:
     
     
          select_process_count("command_line=has_substring(\"nginx\")","user=root")
@@ -153,7 +151,7 @@ This example uses a regular expression match on the command line:
          select_process_count("command_line=monitoring.regex.full_match(\".*nginx.*\")","user=starts_with(\"root\")")
     
 
-This example counts all processes whose command line was `/bin/bash`:
+This example counts all processes whose command line is `/bin/bash`:
     
     
          select_process_count("command=/bin/bash")
@@ -193,6 +191,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

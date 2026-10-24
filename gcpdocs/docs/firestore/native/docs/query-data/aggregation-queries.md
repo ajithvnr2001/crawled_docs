@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/aggregation-queries/
 title: Summarize data with aggregation queries \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:02:51.772584+00:00
+fetched_at: 2026-10-24T08:56:08.361568+00:00
 ---
 
 # Summarize data with aggregation queries  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -190,7 +190,7 @@ Android
     }
     
     
-    [aggregate_query_count.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/5a88b95e85a07cb132bd437f5940aea3afe8ab54/firestore/aggregate_query_count.go#L16-L61)
+    [aggregate_query_count.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/aggregate_query_count.go#L16-L61)
 
 ##### Java
     
@@ -238,7 +238,7 @@ Android
     
     
     
-    [aggregate_query_count.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/83a4a2befda9030e8c4e5b1d24bbc97c04329923/firestore/cloud-client/aggregate_query_count.py#L22-L47)
+    [aggregate_query_count.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/aggregate_query_count.py#L22-L47)
 
 The `count()` aggregation takes into account any filters on the query and any `limit` clauses.
 
@@ -391,7 +391,7 @@ Android
     }
     
     
-    [aggregate_query_count.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/5a88b95e85a07cb132bd437f5940aea3afe8ab54/firestore/aggregate_query_count.go#L16-L61)
+    [aggregate_query_count.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/aggregate_query_count.go#L16-L61)
 
 ##### Java
     
@@ -441,7 +441,7 @@ Android
     
     
     
-    [aggregate_query_count.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/83a4a2befda9030e8c4e5b1d24bbc97c04329923/firestore/cloud-client/aggregate_query_count.py#L22-L47)
+    [aggregate_query_count.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/aggregate_query_count.py#L22-L47)
 
 ## Use the `sum()` aggregation
 
@@ -1380,6 +1380,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-21 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-21 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

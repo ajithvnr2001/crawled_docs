@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-extensions/docs/quotas/
 title: Quotas and limits \u00a0|\u00a0 Service Extensions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:34:23.294154+00:00
+fetched_at: 2026-10-24T11:25:12.312818+00:00
 ---
 
 # Quotas and limits  |  Service Extensions  |  Google Cloud Documentation
@@ -63,7 +63,7 @@ Number of plugins per project per location |  | 100
 Cloud Load Balancing only: Number of plugins attached to Application Load Balancers through edge extensions per project |  | 5 at any given point in time  
 Cloud Load Balancing only: Number of plugins attached to Application Load Balancers through route extensions per project, per location, and per load balancing scheme |  | 5 at any given point in time  
 Cloud Load Balancing only: Number of plugins attached to Application Load Balancers through traffic extensions per project, per location, and per load balancing scheme |  | 5 at any given point in time  
-Media CDN only: Number of plugin resources attached to Media CDN services through `WasmAction` resources per project |  | 5 at any given point in time  
+Media CDN only: Number of `CdnEdgeExtension` resources attached to Media CDN services per project |  | 5 at any given point in time  
   
 ## Limits
 
@@ -78,7 +78,9 @@ Service Extensions enforces the following resource and configuration limits:
 Limit |  | Value  
 ---|---|---  
 Number of extension chains per attachment point  |  | 5  
-Number of plugins in an edge extension chain  |  | 1  
+Cloud Load Balancing only: Number of plugins in an `LbEdgeExtension` chain |  | 1  
+Media CDN only: Number of plugins in a `CdnEdgeExtension` chain |  | 2  
+Media CDN only: Number of `CdnEdgeExtension` resources per `EdgeCacheService` |  | 1  
 Number of plugins or callouts in a route extension chain  |  | 1  
 Number of plugins or callouts in a traffic extension chain  |  | 3  
 Size of a compiled plugin along with the plugin configuration data  |  | 5 MiB  
@@ -102,6 +104,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

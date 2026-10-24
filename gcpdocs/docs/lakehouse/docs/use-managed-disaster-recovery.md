@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/use-managed-disaster-recovery/
 title: Use cross-region replication and disaster recovery \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:51.664435+00:00
+fetched_at: 2026-10-24T10:00:12.415531+00:00
 ---
 
 # Use cross-region replication and disaster recovery  |  Lakehouse  |  Google Cloud Documentation
@@ -144,7 +144,7 @@ Replace the following:
 
   * `CATALOG_NAME`: the name of your catalog.
   * `PRIMARY_REPLICA_REGION`: the region to designate as the new primary replica.
-  * `REPLICATION_TIMESTAMP`: an RFC 3339 timestamp that acts as a checkpoint for replication. The replication process verifies that the replica contains all data committed up to this time. If the replica does not contain all data committed before this timestamp, the command fails. To force the failover process regardless of any replication delay, set this timestamp to a date far in the past. Note: While this feature is in Preview, the REPLICATION_TIMESTAMP only tracks the catalog metadata, rather than Cloud Storage files. To keep data loss with a lower bound, see the Cloud Storage [Data availability and durability](https://docs.cloud.google.com/storage/docs/availability-durability) documentation.
+  * `REPLICATION_TIMESTAMP`: an RFC 3339 timestamp that acts as a checkpoint for replication. The replication process verifies that the replica contains all data committed up to this time. If the replica does not contain all data committed before this timestamp, the command fails. To force the failover process regardless of any replication delay, set this timestamp to a date far in the past. Note: While this feature is in Preview, the `REPLICATION_TIMESTAMP` only tracks the catalog metadata, rather than Cloud Storage files. To keep data loss with a lower bound, see the Cloud Storage [Data availability and durability](https://docs.cloud.google.com/storage/docs/availability-durability) documentation.
 
 
 
@@ -158,6 +158,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

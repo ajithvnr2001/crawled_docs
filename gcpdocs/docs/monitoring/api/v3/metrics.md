@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/v3/metrics/
 title: Metrics, time series, and resources \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:59:39.412871+00:00
+fetched_at: 2026-10-24T11:25:20.719430+00:00
 ---
 
 # Metrics, time series, and resources  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -21,23 +21,11 @@ Send feedback
 
 #  Metrics, time series, and resources Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how Cloud Monitoring models the measurements it collects, those measurements help you understand how your applications and system services are performing. Cloud Monitoring's model for monitoring data consists of three primary concepts—monitored-resource types, metric types, time series:
+Cloud Monitoring models the measurements it collects by using _monitored-resource types_ , _metric types_ , and _time series_ so you can track how your applications and system services perform.
 
-  * _Monitored-resource types_ are the sources of the measurements, like your applications and system services. There are more than 270 types of monitored resources available. For the current list, see [Monitored resource list](https://docs.cloud.google.com/monitoring/api/resources).
+Monitored-resource types identify measurement sources. Metric types define what is measured, such as CPU utilization. Monitoring provides more than 6,500 types in the [Metrics list](https://docs.cloud.google.com/monitoring/api/metrics) for Google Cloud, AWS, and third-party software, and lets you create custom metrics. A time series collects the measurements from a specific monitored resource.
 
-  * _Metric types_ define the property that is being measured, like CPU utilization. There are more than 6,500 types of metrics available in Monitoring, for monitoring Google Cloud, AWS, and a variety of third-party software. For lists of metric types, see [Metrics list](https://docs.cloud.google.com/monitoring/api/metrics). And if you need something that isn't already defined, you can create your own. 
-
-  * A _time series_ is a collection of measurements from a specific monitored resource.
-
-
-
-
-For an introduction to these concepts and how they are related, read this document. The following documents provide more in-depth information:
-
-  * For information about labels and time series cardinality, and for examples of monitored resources and metric types, see [Components of the metric model](https://docs.cloud.google.com/monitoring/api/v3/metric-model).
-  * For detailed information about time series, including how they are represented by the Cloud Monitoring API, see [Structure of time series](https://docs.cloud.google.com/monitoring/api/v3/metrics-details). This information is particularly relevant to you if you plan to use the Monitoring API or custom metrics. 
-
-
+For labels and cardinality, see [Components of the metric model](https://docs.cloud.google.com/monitoring/api/v3/metric-model). For Cloud Monitoring API representations and custom-metric details, see [Structure of time series](https://docs.cloud.google.com/monitoring/api/v3/metrics-details).
 
 ## The Cloud Monitoring metric model
 
@@ -55,7 +43,7 @@ For example, suppose there is a metric that tracks the number of widgets sold by
 
   * **Source of the measurements**
 
-The metric model records information about each resource being monitored. The particular information captured depends on the type of resource being monitored: it might include geographical locations, method names, disk IDs, and so forth, anything that might be the source of measurements.
+The metric model records information about each resource being monitored. The particular information captured depends on the type of resource being monitored: it might include geographical locations, method names, disk IDs, or anything else that might be the source of measurements.
         
         **Source information** : project? location? method?
         
@@ -86,7 +74,7 @@ The measurement values are meaningless without information about how to interpre
 
     * Is the value an integer or a string?
     * Does the value represent miles per hour or radians?
-    * Does the value represent the total at the time, or the change since the previous value?
+    * Does the value represent the total at the time or the change since the previous value?
           
           **Type information** : integer? incremental?
           
@@ -133,7 +121,7 @@ A single Cloud Monitoring metric type or monitored-resource type can be associat
 
 ## What's next
 
-  * For more information on the structure of Cloud Monitoring metrics, see 
+  * For more information on the structure of Cloud Monitoring metrics, see the following: 
     * [Components of the metric model](https://docs.cloud.google.com/monitoring/api/v3/metric-model) for a deeper look at metrics, resources, and time series.
     * [Structure of time series](https://docs.cloud.google.com/monitoring/api/v3/metrics-details) for information about how time series map to the Cloud Monitoring API.
   * For information on time-series operations like aggregation, grouping, and filtering, see [Filtering and aggregation: manipulating time series](https://docs.cloud.google.com/monitoring/api/v3/aggregation).
@@ -145,6 +133,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

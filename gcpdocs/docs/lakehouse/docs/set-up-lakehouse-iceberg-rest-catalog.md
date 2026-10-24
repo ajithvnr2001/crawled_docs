@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog/
 title: Set up the Apache Iceberg REST catalog endpoint \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:34.861712+00:00
+fetched_at: 2026-10-24T08:34:00.917116+00:00
 ---
 
 # Set up the Apache Iceberg REST catalog endpoint  |  Lakehouse  |  Google Cloud Documentation
@@ -23,13 +23,9 @@ Send feedback
 
 #  Set up the Apache Iceberg REST catalog endpoint Stay organized with collections  Save and categorize content based on your preferences. 
 
-For new catalogs, we recommend using the _Apache Iceberg REST catalog endpoint_ in the _Lakehouse runtime catalog_. This endpoint provides a fully managed, standardized interface based on the open-source _Apache Iceberg REST Catalog API_.
+The _Apache Iceberg REST catalog endpoint_ in the _Lakehouse runtime catalog_ lets you discover, read, and manage Apache Iceberg tables in Lakehouse across multiple query engines. Built on the _Apache Iceberg REST Catalog API_ , this endpoint acts as a single source of truth for open-source or third-party engines, such as Apache Spark, that access data in Cloud Storage and interoperate with BigQuery.
 
-This endpoint acts as a single source of truth, enabling seamless interoperability across your query engines. It allows engines like Apache Spark to discover, read, and manage your Google Cloud Apache Iceberg tables managed by Lakehouse.
-
-This approach is a good choice if you use compatible OSS or third party engines to access data in Cloud Storage and need interoperability with other engines, including BigQuery. It supports features like credential vending for fine-grained access control and [cross-region replication and disaster recovery](https://docs.cloud.google.com/lakehouse/docs/about-managed-disaster-recovery).
-
-In contrast, the [_Custom Apache Iceberg catalog for BigQuery_ endpoint](https://docs.cloud.google.com/lakehouse/docs/about-custom-iceberg-catalog-endpoint) is an earlier integration. While existing workflows can continue to use it, the REST catalog offers a more standardized and feature-rich experience.
+The endpoint supports credential vending for delegated storage access and [cross-region replication and disaster recovery](https://docs.cloud.google.com/lakehouse/docs/about-managed-disaster-recovery). While existing workflows can continue using the earlier [_Custom Apache Iceberg catalog for BigQuery_ endpoint](https://docs.cloud.google.com/lakehouse/docs/about-custom-iceberg-catalog-endpoint), use the Apache Iceberg REST catalog endpoint for new catalogs to get a more standardized and feature-rich interface.
 
 ## Before you begin
 
@@ -43,7 +39,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 [Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=biglake.googleapis.com)
 
-  3. Familiarize yourself with [Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/about-lakehouse-catalogs) and the [Iceberg REST catalog endpoint overview](https://docs.cloud.google.com/lakehouse/docs/understand-catalog-types) before continuing.
+  3. Familiarize yourself with [Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/about-lakehouse-catalogs) and the [Iceberg REST catalog endpoint overview](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint) before continuing.
   4. If you have existing version 1 (V1) Apache Iceberg tables, you must upgrade them before using them with the Apache Iceberg REST catalog endpoint. For more information, see [Upgrade Iceberg V1 tables to V2](https://docs.cloud.google.com/lakehouse/docs/update-tables).
 
 
@@ -56,8 +52,8 @@ To get the permissions that you need to use the Apache Iceberg REST catalog endp
     * [BigLake Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/biglake#biglake.admin) (`roles/biglake.admin`) on the project
     * [Storage Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.admin) (`roles/storage.admin`) on all associated Cloud Storage buckets.
   * Create (register) tables in a Lakehouse runtime catalog: [BigLake Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/biglake#biglake.admin) (`roles/biglake.admin`) on the project. 
-  * Read table data in credential vending mode: [BigLake Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/biglake#biglake.viewer) (`roles/biglake.viewer`) on the project. If you use query engines such as Managed Service for Apache Spark, Managed Service for Apache Spark, or Dataflow to read table data, grant this role to the service account that you use to run jobs in that engine. 
-  * Write table data in credential vending mode: [BigLake Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/biglake#biglake.editor) (`roles/biglake.editor`) on the project. If you use query engines such as Managed Service for Apache Spark, Managed Service for Apache Spark, or Dataflow to write table data, grant this role to the service account that you use to run jobs in that engine. 
+  * Read table data in credential vending mode: [BigLake Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/biglake#biglake.viewer) (`roles/biglake.viewer`) on the project. If you use query engines such as Managed Service for Apache Spark or Dataflow to read table data, grant this role to the service account that you use to run jobs in that engine. 
+  * Write table data in credential vending mode: [BigLake Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/biglake#biglake.editor) (`roles/biglake.editor`) on the project. If you use query engines such as Managed Service for Apache Spark or Dataflow to write table data, grant this role to the service account that you use to run jobs in that engine. 
   * Use the auto-provisioned Lakehouse runtime catalog service account in credential vending mode: [Storage Object User ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectUser) (`roles/storage.objectUser`) on all associated Cloud Storage buckets. After creating the catalog, explicitly grant the Storage Object User role (`roles/storage.objectUser`) on all associated storage buckets to your catalog's auto-provisioned Lakehouse runtime catalog service account. 
   * Read catalog resources and table data in non-credential vending mode: 
     * [BigLake Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/biglake#biglake.viewer) (`roles/biglake.viewer`) on the project
@@ -122,7 +118,7 @@ For more information about the differences between these configurations, see [ca
 
 #### Credential mode (scope)
 
-You can create a catalog that uses either end-user credentials or [credential vending mode](https://docs.cloud.google.com/lakehouse/docs/understand-catalog-types#storage-single-bucket).
+You can create a catalog that uses either end-user credentials or [credential vending mode](https://docs.cloud.google.com/lakehouse/docs/credential-vending).
 
   * **End-user credentials:** The catalog passes the identity of the end user accessing it to Cloud Storage for authorization checks.
 
@@ -137,7 +133,7 @@ Creation of the auto-provisioned catalog service account is [eventually consiste
 
 #### Location
 
-Familiarize yourself with the [location requirements](https://docs.cloud.google.com/lakehouse/docs/understand-catalog-types#bucket_and_catalog_regions) before creating a catalog.
+Familiarize yourself with the [location requirements](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint#bucket_and_catalog_regions) before creating a catalog.
 
   * When you create a namespace, it automatically uses the same region as your catalog.
 
@@ -150,11 +146,11 @@ Familiarize yourself with the [location requirements](https://docs.cloud.google.
 
 ## Set up the Iceberg REST catalog endpoint
 
-Before you set up your catalog, we recommend reading the [Apache Iceberg REST catalog endpoint overview](https://docs.cloud.google.com/lakehouse/docs/understand-catalog-types) to understand its resource hierarchy, catalog types, and naming structure.
+Before you set up your catalog, we recommend reading the [Apache Iceberg REST catalog endpoint overview](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint) to understand its resource hierarchy, catalog types, and naming structure.
 
 The following are the general steps to follow when using the Apache Iceberg REST catalog endpoint in the Lakehouse runtime catalog:
 
-  1. Choose your catalog type—a [multiple-bucket](https://docs.cloud.google.com/lakehouse/docs/understand-catalog-types#storage-multiple-buckets) catalog (recommended) or a [single-bucket](https://docs.cloud.google.com/lakehouse/docs/understand-catalog-types#storage-single-bucket) catalog.
+  1. Choose your catalog type—a [multiple-bucket](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint#storage-multiple-buckets) catalog (recommended) or a [single-bucket](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint#storage-single-bucket) catalog.
   2. Create a catalog that points to your warehouse location.
   3. Configure your client application to use the Apache Iceberg REST catalog endpoint.
   4. Create a namespace or schema to organize your tables.
@@ -170,7 +166,7 @@ Follow these steps to create a catalog based on your preferred credential mode a
 
 **Create a multiple-bucket catalog (recommended)**
 
-This configuration lets your catalog to associate multiple buckets and lets you name your catalog independently of any bucket name.
+This configuration lets your catalog associate multiple buckets and lets you name your catalog independently of any bucket name.
 
   1. Open the **Lakehouse** page in the Google Cloud console.
 
@@ -227,7 +223,7 @@ Your catalog is created and the **Catalog details** page opens.
 
 **Create a multiple-bucket catalog (recommended)**
 
-This configuration lets your catalog to associate multiple buckets and lets you name your catalog independently of any bucket name.
+This configuration lets your catalog associate multiple buckets and lets you name your catalog independently of any bucket name.
 
 To create a multiple-bucket catalog (recommended), run the [`gcloud biglake iceberg catalogs create`](https://docs.cloud.google.com/sdk/gcloud/reference/biglake/iceberg/catalogs/create) command.
     
@@ -252,9 +248,9 @@ Replace the following:
 
   * `RESTRICTED_LOCATIONS`: (Optional) Comma-separated list of additional allowed storage locations, in the format `gs://my-bucket-1/...,gs://my-bucket-2/...`. If you specify a path (such as `gs://my-bucket/path`), any namespaces or tables within that bucket must be under that path. All configured cloud storage locations across the default location and restricted locations must be in the same geographic region group or jurisdiction (such as the United States, Europe, Canada, or Asia). For example, you cannot mix a bucket in the US with a bucket in Europe. For a list of supported locations, see [Lakehouse locations](https://docs.cloud.google.com/lakehouse/docs/locations).
 
-**Warning:** Avoid configuring overlapping paths with other catalogs to prevent unauthorized credential exposure. or more information, see [Storage across Multiple buckets](https://docs.cloud.google.com/lakehouse/docs/understand-catalog-types#storage-multiple-buckets).
+**Warning:** Avoid configuring overlapping paths with other catalogs to prevent unauthorized credential exposure. For more information, see [Multiple-bucket catalog](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint#storage-multiple-buckets).
 
-  * `LOCATION`: (Optional) The primary region for the catalog to ensure interoperability with BigQuery. For Cloud Storage buckets in the US region (for example, `US` or `us-central1`) or the EU region (for example, `EU` or `europe-west4`), specify `US` or `EU` respectively to ensure the catalog is accessible and available for querying from the corresponding BigQuery multi-regions. For more information, see [Bucket and catalog regions](https://docs.cloud.google.com/lakehouse/docs/understand-catalog-types#bucket_and_catalog_regions).
+  * `LOCATION`: (Optional) The primary region for the catalog to ensure interoperability with BigQuery. For Cloud Storage buckets in the US region (for example, `US` or `us-central1`) or the EU region (for example, `EU` or `europe-west4`), specify `US` or `EU` respectively to ensure the catalog is accessible and available for querying from the corresponding BigQuery multi-regions. For more information, see [Bucket and catalog regions](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint#bucket_and_catalog_regions).
 
 
 
@@ -480,8 +476,8 @@ The following example configures the query engine with credential vending:
         spark.sql.catalog.CATALOG_NAME.header.x-goog-user-project=PROJECT_ID,\
         spark.sql.catalog.CATALOG_NAME.rest.auth.type=org.apache.iceberg.gcp.auth.GoogleAuthManager,\
         spark.sql.catalog.CATALOG_NAME.io-impl=org.apache.iceberg.gcp.gcs.GCSFileIO,\
-        **spark.sql.catalog. CATALOG_NAME.header.X-Iceberg-Access-Delegation=vended-credentials,\**"
-        spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions
+        **spark.sql.catalog. CATALOG_NAME.header.X-Iceberg-Access-Delegation=vended-credentials,\**
+        spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions"
 
 For more information, see the [Headers in the `RESTCatalog`](https://py.iceberg.apache.org/configuration/#headers-in-rest-catalog) section of the Apache Iceberg documentation.
 
@@ -694,7 +690,7 @@ After you configure your client, create a namespace or schema to organize your t
   5. For **Location** , specify the path to associate with your namespace:
 
      * **Multiple-bucket** (recommended): You can set any custom location as long as it is under a location allowed by the catalog (`default_location` or `restricted_locations`). If you do not specify a location, the namespace is created under the catalog's default location (for example, `gs://{path-to-default-location}/{namespace_name}`).
-     * **Single-bucket **: The namespace location is automatically inherited from the catalog's single bucket.
+     * **Single-bucket** : The namespace location is automatically inherited from the catalog's single bucket.
   6. Click **Create**.
 
 
@@ -735,7 +731,7 @@ To upgrade your catalog, see [Update a catalog](https://docs.cloud.google.com/la
 
   * Learn how to [manage catalogs in the Google Cloud console](https://docs.cloud.google.com/lakehouse/docs/manage-catalogs).
 
-  * Learn about [Apache Iceberg tables managed by Lakehouse](https://docs.cloud.google.com/lakehouse/docs/lakehouse-iceberg-tables).
+  * Learn about [Apache Iceberg tables managed by Lakehouse](https://docs.cloud.google.com/lakehouse/docs/lakehouse-tables).
 
 
 
@@ -744,6 +740,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

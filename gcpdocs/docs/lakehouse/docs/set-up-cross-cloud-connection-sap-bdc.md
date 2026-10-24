@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-sap-bdc/
 title: Set up cross-cloud connection for SAP Business Data Cloud \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:55.477294+00:00
+fetched_at: 2026-10-24T08:23:13.375302+00:00
 ---
 
 # Set up cross-cloud connection for SAP Business Data Cloud  |  Lakehouse  |  Google Cloud Documentation
@@ -145,7 +145,7 @@ To verify, check the **Job Information** in the BigQuery Job History for any job
 
 ## Set up federation
 
-To query your data, set up a Lakehouse federated catalog that connects to your remote SAP BDC catalog. This initiates a handshake that establishes a trust relationship where the BigQuery service account acts as the identity for the Google Cloud project.
+To query your data, set up a Lakehouse federated catalog that connects to your remote SAP BDC instance. This initiates a handshake that establishes a trust relationship where the BigQuery service account acts as the identity for the Google Cloud project.
 
 ### Create the Lakehouse Delta Sharing catalog
 
@@ -298,6 +298,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

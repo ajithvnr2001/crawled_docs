@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/cluster-autoscaler-scale-up/
 title: Troubleshoot cluster autoscaler not scaling up \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:24:02.315554+00:00
+fetched_at: 2026-10-24T11:25:58.074391+00:00
 ---
 
 # Troubleshoot cluster autoscaler not scaling up  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -206,7 +206,7 @@ Message | Details | Parameters | Mitigation
 ---|---|---|---  
 `"scale.up.error.out.of.resources"` | Resource errors occur when you try to request new resources in a zone that cannot accommodate your request due to the current unavailability of a Compute Engine resource, such as GPUs or CPUs. | Failing MIG IDs. | Follow the [resource availability troubleshooting steps](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-resource-availability) in the Compute Engine documentation.  
 `"scale.up.error.quota.exceeded"` | The scaleUp event failed because some of the MIGs couldn't be increased, due to exceeded Compute Engine quota. | Failing MIG IDs. | Check the **Errors** tab of the MIG in the Google Cloud console to see what quota is being exceeded. After you know which quota is being exceeded, follow the instructions to [request a quota increase](https://docs.cloud.google.com/compute/quotas#requesting_additional_quota).  
-`"scale.up.error.waiting.for.instances.timeout"` | Scale up of managed instance group failed to scale up due to timeout.  | Failing MIG IDs. | If the instances boot but do not register with the control plane, follow the [instance registration troubleshooting steps](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/node-registration#find-instance-failed-registration). This message should be transient. If it persists, [contact Cloud Customer Care](https://docs.cloud.google.com/kubernetes-engine/docs/getting-support) for further investigation.   
+`"scale.up.error.waiting.for.instances.timeout"` | Scale up of managed instance group failed to scale up due to timeout.  | Failing MIG IDs. | If the instances boot but don't register with the control plane, then follow the steps in [Find an instance that failed node registration](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/node-registration#find-instance-failed-registration). For other causes, see [MIG instances failed to appear in time](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/cluster-autoscaler-scale-up#instances-failed-to-appear). This error is usually transient. If the error persists, then [contact Cloud Customer Care](https://docs.cloud.google.com/kubernetes-engine/docs/getting-support) for further investigation.   
 `"scale.up.error.ip.space.exhausted"` | Can't scale up because instances in some of the managed instance groups ran out of IPs. This means that the cluster doesn't have enough unallocated IP address space to use to add new nodes or Pods. | Failing MIG IDs. | Follow the troubleshooting steps in [Not enough free IP address space for Pods](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/vpc-clusters#not_enough_space).  
 `"scale.up.error.service.account.deleted"` | Can't scale up because the service account was deleted. | Failing MIG IDs. |  Try to [undelete the service account](https://docs.cloud.google.com/iam/docs/service-accounts-delete-undelete#undeleting). If that procedure is unsuccessful, [contact Cloud Customer Care](https://docs.cloud.google.com/kubernetes-engine/docs/getting-support) for further investigation.   
   
@@ -352,6 +352,120 @@ To check whether a Pod's resource requests exceed the resources provided by your
 
 
 
+### MIG instances failed to appear in time
+
+**Symptoms** :
+
+You see one of the following error messages:
+
+  * In the Google Cloud console, the cluster shows the following notification:
+        
+        Can't scale up because instances in managed instance groups hosting node pools failed to appear in time
+        
+
+  * In Logging, the `eventResult` event for the scale-up contains the following error message:
+        
+        scale.up.error.waiting.for.instances.timeout
+        
+
+
+
+
+**Cause** :
+
+Compute Engine can't create nodes in the MIG, or the new nodes fail to register with the control plane before the scale-up operation times out. This issue can happen for any of the following reasons:
+
+  * **Failed node registration** : Compute Engine creates the nodes, but they don't register with the control plane because of one or more firewall rules, a recent change to private services access or VPC Network Peering, or a missing Identity and Access Management (IAM) service account.
+  * **Exceeded project quotas** : new instances in the MIG don't appear because your project exceeds a quota for CPUs, IP addresses, or another resource.
+  * **Unavailable IP addresses** : the subnet doesn't have enough free IP addresses to create new nodes.
+  * **Invalid instance template** : the MIG uses an invalid instance template, such as a template with a missing image, which prevents scale-up.
+  * **Insufficient resources** : the zone doesn't have enough Compute Engine resources, such as GPUs or CPUs, to create a new node.
+  * **Inaccessible APIs** : a required API, such as `compute.googleapis.com`, isn't accessible because of a firewall rule or a VPC Service Controls perimeter.
+  * **Network latency** : significant network latency delays the creation or usability of a new node.
+
+
+
+**Resolution** :
+
+  1. To identify the cause of the timeout, [list the instance errors in the MIG](https://docs.cloud.google.com/compute/docs/instance-groups/getting-info-about-migs#listing_instance_errors), and then check the result:
+
+     * **The MIG doesn't list errors from the time of the failure** : Compute Engine created the nodes, but the nodes didn't register with the control plane before the timeout. In the next step, start with **Failed node registration**. If the nodes registered but took too long, then see **Network latency**.
+     * **The MIG lists errors from the time of the failure** : Compute Engine couldn't create the nodes. Use the error code and error message to find the cause in the next step. Common error codes include the following:
+
+       * `QUOTA_EXCEEDED`: exceeded project quotas
+       * `IP_SPACE_EXHAUSTED`: unavailable IP addresses
+       * `ZONE_RESOURCE_POOL_EXHAUSTED`: insufficient resources
+
+Some error codes have a `_WITH_DETAILS` suffix and include more information in the error message. If the error message reports a resource that doesn't exist, such as a source image, then see the **Invalid instance template** bullet point.
+
+  2. Use the resolution that corresponds to the cause of your issue:
+
+     * **Failed node registration** : follow the steps in [Find an instance that failed node registration](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/node-registration#find-instance-failed-registration). You can also check for recent configuration changes:
+
+       * **Firewall rules** : to check whether a firewall rule was recently created, updated, or deleted, run the following query in Logs Explorer:
+             
+             resource.type="gce_firewall_rule"
+             log_id("cloudaudit.googleapis.com/activity")
+             
+
+If a change blocks traffic between the nodes and the control plane or to Google APIs, then [update or replace the firewall rule](https://docs.cloud.google.com/firewall/docs/using-firewalls#updating_firewall_rules). For more information about the required connectivity, see [Prerequisites for successful node registration](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/node-registration#check-prereqs-for-node-registration).
+
+       * **IAM service account** : for a missing service account, see the `scale.up.error.service.account.deleted` row in the ScaleUp errors table.
+
+       * **Private services access** : to check for recent changes in audit logs, see [Private services access audit logging](https://docs.cloud.google.com/vpc/docs/private-services-access-audit-logging).
+
+       * **VPC Network Peering** : to check whether peering was recently added, updated, or removed, run the following query in Logs Explorer for each peered project:
+             
+             log_id("cloudaudit.googleapis.com/activity")
+             resource.type="gce_network"
+             protoPayload.methodName:("compute.networks.addPeering" OR
+             "compute.networks.updatePeering" OR
+             "compute.networks.removePeering")
+             
+
+If a peering change disrupted connectivity to the control plane, then [update the peering connection](https://docs.cloud.google.com/vpc/docs/using-vpc-peering#update-peer-connection). If the connection was deleted, then see [VPC Network Peering connection is accidentally deleted](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/network-isolation#vpc_peering_network).
+
+     * **Exceeded project quotas** : see the `scale.up.error.quota.exceeded` row in the ScaleUp errors table.
+
+     * **Unavailable IP addresses** : see the `scale.up.error.ip.space.exhausted` row in the ScaleUp errors table.
+
+     * **Invalid instance template** : see [The instance template is not valid](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-migs#the_instance_template_is_not_valid) in the Compute Engine documentation.
+
+     * **Insufficient resources** : see the `scale.up.error.out.of.resources` row in the ScaleUp errors table.
+
+     * **Inaccessible APIs** : in Logs Explorer, run a query to check for activity related to firewall rules or VPC Service Controls perimeters:
+
+       * To check whether a firewall rule was recently changed, run the audit log query in the **Firewall rules** bullet point of **Failed node registration**. If you enabled [Firewall Rules Logging](https://docs.cloud.google.com/firewall/docs/vpc-firewall-rules-logging-overview) for your rules, then you can also view the connections that your rules denied by running the following query:
+             
+             resource.type="gce_subnetwork"
+             log_id("compute.googleapis.com/firewall")
+             jsonPayload.disposition="DENIED"
+             
+
+If the logs show a firewall rule that blocks traffic to required Google APIs, then [update or replace the firewall rule](https://docs.cloud.google.com/firewall/docs/using-firewalls#updating_firewall_rules) to allow the traffic. For more information about networking requirements, see [Prerequisites for network connection to Google APIs and services](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/node-registration#network-connection-to-apis).
+
+       * If you use VPC Service Controls, then select your organization in the Google Cloud console and run the following query in Logs Explorer to check whether a perimeter was recently added or modified:
+             
+             logName="organizations/ORGANIZATION_ID/logs/cloudaudit.googleapis.com%2Factivity"
+             protoPayload.serviceName="accesscontextmanager.googleapis.com"
+             
+
+Replace `ORGANIZATION_ID` with your organization ID.
+
+You can also add the following filters to find an update or creation of a VPC Service Controls perimeter:
+             
+             severity=NOTICE
+             protoPayload.methodName=("google.identity.accesscontextmanager.v1.AccessContextManager.CreateServicePerimeter"
+             OR "google.identity.accesscontextmanager.v1.AccessContextManager.UpdateServicePerimeter")
+             
+
+If a new or modified perimeter blocks access to required Google APIs, then [retrieve VPC Service Controls errors from audit logs](https://docs.cloud.google.com/vpc-service-controls/docs/retrieve-troubleshoot-errors) to identify the blocked service and [update the service perimeter](https://docs.cloud.google.com/vpc-service-controls/docs/manage-service-perimeters#update) to allow access. For more information about using cluster autoscaler in a perimeter, see [Autoscaler not working in perimeters with accessible services and restricted services enabled](https://docs.cloud.google.com/vpc-service-controls/docs/troubleshoot-services-within-perimeter#autoscaler-not-working).
+
+     * **Network latency** : transient network latency usually resolves on subsequent scale-up attempts. For persistent latency, see [Troubleshooting common networking issues](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-networking) in the Compute Engine documentation.
+
+
+
+
 ### Unhealthy clusters prevent scale-up
 
 **Symptoms** :
@@ -397,6 +511,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

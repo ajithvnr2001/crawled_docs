@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-jobs-timeline-by-folder/
 title: JOBS_TIMELINE_BY_FOLDER view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:33.638482+00:00
+fetched_at: 2026-10-24T09:43:59.223259+00:00
 ---
 
 # JOBS_TIMELINE_BY_FOLDER view  |  BigQuery  |  Google Cloud Documentation

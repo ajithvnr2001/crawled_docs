@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/samples/documentai-get-processor-version/
 title: View details about a processor version \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:51.292360+00:00
+fetched_at: 2026-10-24T08:20:33.344328+00:00
 ---
 
 # View details about a processor version  |  Document AI  |  Google Cloud Documentation

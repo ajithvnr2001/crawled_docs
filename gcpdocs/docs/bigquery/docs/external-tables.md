@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/external-tables/
 title: Introduction to external tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:39.456745+00:00
+fetched_at: 2026-10-24T08:24:32.927648+00:00
 ---
 
 # Introduction to external tables  |  BigQuery  |  Google Cloud Documentation

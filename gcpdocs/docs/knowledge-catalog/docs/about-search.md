@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/about-search/
 title: About search in Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:52.868912+00:00
+fetched_at: 2026-10-24T11:10:27.760488+00:00
 ---
 
 # About search in Knowledge Catalog  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback
 
 #  About search in Knowledge Catalog Stay organized with collections  Save and categorize content based on your preferences. 
 
-Use Knowledge Catalog (formerly Dataplex Universal Catalog) search to discover resources across your organization using natural language queries with semantic matching, keywords, and structured predicates.
-
-**Note:** Knowledge Catalog search supports both semantic and keyword matching. It also supports keyword-only search mode for backward compatibility. For information about keyword-only search, its filters, and how to use it, see [Keyword-only search](https://docs.cloud.google.com/knowledge-catalog/docs/keyword-search).
+Search in Knowledge Catalog (formerly Dataplex Universal Catalog) lets you discover resources across your organization using natural language queries with semantic matching, keywords, and structured predicates. You can look up specific data assets, explore relevant metadata across systems, or retrieve scoped results for programmatic and agentic workflows.
 
 ## Use cases
 
@@ -77,7 +75,8 @@ Query type | Usage | Examples
 **Natural language queries** | Uses semantic matching without requiring exact name or column matches. | `customer churn prediction features`  
 **Structured predicates** | Combines free-text queries with explicit predicate filters for narrowing down search results. | `audit logs system=bigquery`  
 **Extended syntax** | For precise search, narrowed down to a specific scope. Extended syntax is most often used in agentic and programmatic use cases. For more information, see [Search syntax](https://docs.cloud.google.com/knowledge-catalog/docs/search-syntax). | `(system:bigquery OR system:spanner) AND column:credit_card_number aspect:classification.tier=PII -projectid:sandbox-project`  
-  
+**Note:** Knowledge Catalog search also supports keyword-only search mode for backward compatibility. For information about keyword-only search, its filters, and how to use it, see [Keyword-only search](https://docs.cloud.google.com/knowledge-catalog/docs/keyword-search).
+
 ## Access search in Knowledge Catalog
 
 You have the following options to access search in Knowledge Catalog:
@@ -178,6 +177,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

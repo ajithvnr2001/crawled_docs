@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/enterprise-app-oracle-database-compute-engine/
 title: Enterprise application with Oracle Database on Compute Engine \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:44:53.252248+00:00
+fetched_at: 2026-10-24T09:47:24.372362+00:00
 ---
 
 # Enterprise application with Oracle Database on Compute Engine  |  Cloud Architecture Center  |  Google Cloud Documentation

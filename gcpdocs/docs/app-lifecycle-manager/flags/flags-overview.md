@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/flags/flags-overview/
 title: App Lifecycle Manager feature flags overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:09:00.385410+00:00
+fetched_at: 2026-10-24T11:10:24.813022+00:00
 ---
 
 # App Lifecycle Manager feature flags overview  |  Google Cloud Documentation
@@ -44,7 +44,7 @@ Review the main [App Lifecycle Manager overview](https://docs.cloud.google.com/a
 
 When you implement feature flags with App Lifecycle Manager it provides several benefits for your SaaS development and operations lifecycle:
 
-  * **Decouple feature releases from code deployments:** Ship new code to production with features disabled by default. Enable features for specific users or gradually roll them out when ready, reducing the risk associated with large deployments.
+  * **Decouple feature releases from code deployments:** Ship new code to production with features disabled by default. Enable features for specific users or gradually deploy them when ready, reducing the risk associated with large deployments.
   * **Increase safety, speed, and reliability:**
     * Test features in production with a limited audience (canary releases).
     * Perform gradual rollouts using App Lifecycle Manager Rollout capabilities, minimizing the impact of potential issues.
@@ -56,7 +56,7 @@ When you implement feature flags with App Lifecycle Manager it provides several 
 
 ## How App Lifecycle Manager feature flags work
 
-Using feature flags in App Lifecycle Manager involves two main aspects: the management plane (defining and rolling out flags) and the data plane (accessing flag values within your application).
+Using feature flags in App Lifecycle Manager involves two main aspects: the management plane (defining and deploying flags) and the data plane (accessing flag values within your application).
 
 ### Integrated usage with App Lifecycle Manager
 
@@ -88,7 +88,7 @@ Your application code interacts with the data plane to consume flag values:
   * **Configuration:** Point the `flagd` provider to the App Lifecycle Manager feature flag service endpoint: `saasconfig.googleapis.com:443`.
   * **Targeting:** Provide the `provider_id` to identify the flag configuration. This value typically corresponds to the full resource name of the App Lifecycle Manager unit (`projects/PROJECT_ID/locations/LOCATION/featureFlagsConfigs/UNIT_ID`, for example).
   * **Authentication:** The provider uses Application Default Credentials (ADC) to securely authenticate requests to the Google Cloud service endpoint. The service account used needs the `roles/saasconfig.viewer` Identity and Access Management role.
-  * **Flag evaluation:** Use [standard OpenFeature methods (`client.get_boolean_value(...)`)](https://openfeature.dev/docs/reference/concepts/evaluation-api/#basic-evaluation,%20for%20example) in your code to check flag values. The provider handles fetching the latest rolled-out configuration from the service.
+  * **Flag evaluation:** Use [standard OpenFeature methods (`client.get_boolean_value(...)`)](https://openfeature.dev/docs/reference/concepts/evaluation-api/#basic-evaluation,%20for%20example) in your code to check flag values. The provider handles fetching the latest deployed configuration from the service.
 
 
 
@@ -197,6 +197,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/lakehouse/docs/use-catalog-federation/
-title: Query BigQuery using catalog federation \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
+title: Query BigQuery tables through the Apache Iceberg REST catalog endpoint \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:35.597978+00:00
+fetched_at: 2026-10-24T08:23:12.486187+00:00
 ---
 
-# Query BigQuery using catalog federation  |  Lakehouse  |  Google Cloud Documentation
+# Query BigQuery tables through the Apache Iceberg REST catalog endpoint  |  Lakehouse  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/lakehouse/docs/use-catalog-federation/
 
@@ -20,37 +20,37 @@ As of April 20th, 2026, BigLake is now called Lakehouse. BigLake metastore is no
 
 Send feedback 
 
-#  Query BigQuery using catalog federation Stay organized with collections  Save and categorize content based on your preferences. 
+#  Query BigQuery tables through the Apache Iceberg REST catalog endpoint Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Warning:** For most workloads, we recommend using [Lakehouse runtime catalogs](https://docs.cloud.google.com/lakehouse/docs/about-lakehouse-catalogs) instead of BigQuery catalog federation.
+**Warning:** For most workloads, we recommend using [Lakehouse runtime catalogs](https://docs.cloud.google.com/lakehouse/docs/about-lakehouse-catalogs) instead of routing requests directly to the BigQuery catalog.
 
-_Lakehouse_ provides interoperability with BigQuery through a feature known as _BigQuery catalog federation_. This feature lets you expose tables managed by BigQuery, for example Iceberg managed tables, to external open source (OSS) engines such as Apache Spark and Trino.
+_Lakehouse_ provides interoperability with BigQuery by routing requests through the Apache Iceberg REST catalog endpoint to the BigQuery catalog. This capability lets you expose tables managed by BigQuery, for example Iceberg managed tables, to external open source (OSS) engines such as Apache Spark and Trino.
 
 Instead of creating a dedicated Lakehouse catalog container to store metadata, the Apache Iceberg REST catalog endpoint acts purely as a proxy gateway. When external engines connect using the `bq://` warehouse prefix, the gateway routes their catalog requests directly to BigQuery's internal catalog. This lets you create and manage tables directly within BigQuery using standard BigQuery DDL or APIs, while giving external OSS engines read-only access to query those tables through the REST catalog endpoint.
 
-## How BigQuery catalog federation works
+## How querying BigQuery tables through the REST catalog endpoint works
 
-BigQuery catalog federation lets you expose BigQuery tables—such as Iceberg managed tables and BigQuery metastore tables—through the Lakehouse runtime catalog Apache Iceberg REST catalog endpoint.
+Routing requests to the BigQuery catalog lets you expose BigQuery tables—such as Iceberg managed tables and BigQuery metastore tables—through the Lakehouse runtime catalog Apache Iceberg REST catalog endpoint.
 
-The BigQuery catalog federation flow works as follows:
+The workflow operates as follows:
 
-  1. **Create a table in the BigQuery catalog** : You create an Iceberg managed table in BigQuery using [DDL statements](https://docs.cloud.google.com/bigquery/docs/iceberg-tables#create-iceberg-tables). This table exists in the BigQuery catalog, is governed by BigQuery access control lists (ACLs), and functions as a BigQuery REST resource.
-  2. **Federate into the BigQuery warehouse from the Lakehouse runtime catalog** : Using the Lakehouse runtime catalog Apache Iceberg REST API, you federate into a warehouse specified by the `bq://projects/PROJECT_ID` warehouse path format (or the regional version, `bq://projects/PROJECT_ID/locations/LOCATION`). This lets you access the BigQuery table from compute engines like Apache Spark through the Lakehouse API. In this configuration, you get a read-only experience from Spark, but a read-write experience from BigQuery.
+  1. **Create a table in the BigQuery catalog** : You create an Iceberg managed table in BigQuery using [DDL statements](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery#create-iceberg-tables). This table exists in the BigQuery catalog, is governed by BigQuery access control lists (ACLs), and functions as a BigQuery REST resource.
+  2. **Federate into the BigQuery warehouse from the Lakehouse runtime catalog** : Using the Lakehouse runtime catalog Apache Iceberg REST API, you federate into a warehouse specified by the `bq://projects/PROJECT_ID` warehouse path format (or the regional version, `bq://projects/PROJECT_ID/locations/LOCATION`). This lets you access the BigQuery table from compute engines like Apache Spark through the Apache Iceberg REST Catalog API. In this configuration, you get a read-only experience from Spark, but a read-write experience from BigQuery.
 
 
 
 ### Considerations
 
-  * Because BigQuery catalog federation does not create a dedicated Lakehouse catalog resource, other catalog-level concepts and configurations—such as the resource hierarchy, bucket and catalog regions, and the four-part P.C.N.T naming structure—do not apply to this method. In the underlying API, this corresponds to the `CATALOG_TYPE_BIGQUERY` configuration. Note that storage access delegation (credential vending) is not supported for federated BigQuery catalogs.
+  * Because routing requests to the BigQuery catalog does not create a dedicated Lakehouse catalog resource, other catalog-level concepts and configurations—such as the resource hierarchy, bucket and catalog regions, and the four-part P.C.N.T naming structure—do not apply to this method. In the underlying API, this corresponds to the `CATALOG_TYPE_BIGQUERY` configuration. Note that storage access delegation (credential vending) is not supported for federated BigQuery catalogs.
 
-  * BigQuery catalog federation is distinct from the cross-cloud data access capability of _borderless Lakehouse_. While BigQuery catalog federation exposes Google Cloud tables to external OSS engines, Lakehouse connects Google Cloud to remote external catalogs, such as Databricks Unity Catalog, to query data stored in other cloud providers directly from BigQuery and OSS engines without migrating data. For more information about that workflow, see [About cross-cloud data access](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access).
+  * Exposing BigQuery tables through the REST catalog endpoint is distinct from the cross-cloud data access capability of _borderless Lakehouse_. While this workflow exposes Google Cloud tables to external OSS engines, Lakehouse connects Google Cloud to remote external catalogs, such as Databricks Unity Catalog, to query data stored in other cloud providers directly from BigQuery and OSS engines without migrating data. For more information about that workflow, see [About cross-cloud data access](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access).
 
 
 
 
 ### Comparison with tables managed by the Apache Iceberg REST catalog endpoint
 
-BigQuery catalog federation differs from workflows where the Lakehouse runtime catalog uses the [Apache Iceberg REST catalog endpoint](https://docs.cloud.google.com/lakehouse/docs/lakehouse-iceberg-rest-catalog) in the following ways:
+Exposing BigQuery tables through the REST catalog endpoint differs from workflows where the Lakehouse runtime catalog uses the [Apache Iceberg REST catalog endpoint](https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog) in the following ways:
 
   * **Resource management and catalog storage** : Federated tables reside in the BigQuery catalog as BigQuery REST resources, and the Lakehouse runtime catalog acts as a proxy gateway. When the Lakehouse runtime catalog uses the Apache Iceberg REST catalog endpoint, tables are stored directly within the catalog as Lakehouse REST resources.
   * **Access control** : Federated tables use BigQuery IAM permissions and access control lists (ACLs). When the Lakehouse runtime catalog uses the Apache Iceberg REST catalog endpoint, tables use Lakehouse ACLs.
@@ -75,12 +75,12 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 ### Required roles
 
-To get the permissions that you need to use catalog federation in BigQuery, ask your administrator to grant you the following IAM roles: 
+To get the permissions that you need to query BigQuery tables through the Apache Iceberg REST catalog endpoint, ask your administrator to grant you the following IAM roles: 
 
   * Read catalog resources and query table data: 
     * [BigLake Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/biglake#biglake.viewer) (`roles/biglake.viewer`) on the project
     * [Storage Object Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectViewer) (`roles/storage.objectViewer`) on the Cloud Storage bucket
-  * Perform data manipulation language (DML) operations with BigQuery catalog federation: 
+  * Perform data manipulation language (DML) operations: 
     * [BigQuery Data Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.dataEditor) (`roles/bigquery.dataEditor`) on the project
     * [Storage Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.admin) (`roles/storage.admin`) on the Cloud Storage bucket. If you use query engines such as Managed Service for Apache Spark to perform DML operations, grant these roles to the service account that you use to run jobs in that engine.
 
@@ -90,21 +90,21 @@ For more information about granting roles, see [Manage access to projects, folde
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
-## Set up BigQuery catalog federation
+## Configure your client for the BigQuery warehouse
 
-To enable BigQuery catalog federation, configure your client (such as Apache Spark or Trino) with the `bq://projects/PROJECT_ID` warehouse format in the `WAREHOUSE_PATH` field in the client configuration examples in [Configure client application](https://docs.cloud.google.com/lakehouse/docs/lakehouse-iceberg-rest-catalog#configure-catalog).
+To connect to the BigQuery warehouse, configure your client (such as Apache Spark or Trino) with the `bq://projects/PROJECT_ID` warehouse format in the `WAREHOUSE_PATH` field in the client configuration examples in [Configure client application](https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog#configure-catalog).
 
 You can also choose to include a BigQuery location to restrict future requests to a single location using the `bq://projects/PROJECT_ID/locations/LOCATION` format.
 
-Because these resources are managed by BigQuery, you must have the applicable [required permissions](https://docs.cloud.google.com/bigquery/docs/iceberg-tables#required-roles).
+Because these resources are managed by BigQuery, you must have the applicable [required permissions](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery#required-roles).
 
 ### Create namespaces for federated tables
 
-After you configure your client for BigQuery catalog federation, you can create a namespace for your federated tables.
+After you configure your client, you can create a namespace for your tables.
 
 ###  Spark 
 
-To use BigQuery catalog federation, include the `LOCATION` and `DBPROPERTIES` clauses:
+To create a namespace in the BigQuery warehouse, include the `LOCATION` and `DBPROPERTIES` clauses:
     
     
     spark.sql("CREATE NAMESPACE IF NOT EXISTS NAMESPACE_NAME LOCATION 'gs://BUCKET_NAME/NAMESPACE_NAME' WITH DBPROPERTIES ('gcp-region' = 'LOCATION');")
@@ -120,7 +120,7 @@ Replace the following:
 
 ###  Trino 
 
-To use BigQuery catalog federation, include the `LOCATION` and `gcp-region` properties:
+To create a schema in the BigQuery warehouse, include the `LOCATION` and `gcp-region` properties:
     
     
     CREATE SCHEMA IF NOT EXISTS  CATALOG_NAME.SCHEMA_NAME WITH ( LOCATION = 'gs://BUCKET_NAME/SCHEMA_NAME', "gcp-region" = 'LOCATION');
@@ -160,6 +160,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

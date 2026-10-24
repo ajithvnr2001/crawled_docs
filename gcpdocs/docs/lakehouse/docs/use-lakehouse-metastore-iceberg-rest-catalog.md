@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/use-lakehouse-metastore-iceberg-rest-catalog/
 title: Quickstart: Use the Iceberg REST catalog with Cloud Storage \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:43:02.476657+00:00
+fetched_at: 2026-10-24T08:23:12.657952+00:00
 ---
 
 # Quickstart: Use the Iceberg REST catalog with Cloud Storage  |  Lakehouse  |  Google Cloud Documentation
@@ -22,11 +22,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Use the Iceberg REST catalog with Cloud Storage
 
-Learn how to use _Lakehouse_ by creating a _Lakehouse runtime catalog_ with a [Cloud Storage bucket](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint#supported_catalog_types). This configuration establishes a managed metadata layer that connects open-source processing engines with Google Cloud.
+Borderless Lakehouse lets you establish a managed metadata layer in the Lakehouse runtime catalog that connects open source processing engines with Google Cloud.
 
-You then run Managed Service for Apache Spark PySpark job to create an [Apache Iceberg table managed by Lakehouse](https://docs.cloud.google.com/lakehouse/docs/lakehouse-iceberg-tables) using the _Apache Iceberg REST catalog_ endpoint.
-
-Afterwards, you can query the resulting table directly from the Google Cloud console in BigQuery using the `project.catalog.namespace.table` syntax.
+In this quickstart, you create a catalog backed by a [Cloud Storage bucket](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint#warehouse-storage-locations) and run a Managed Service for Apache Spark PySpark job to create an [Apache Iceberg table managed by Lakehouse](https://docs.cloud.google.com/lakehouse/docs/lakehouse-tables) using the Apache Iceberg REST catalog endpoint. Afterward, you query the resulting table directly from the Google Cloud console in BigQuery using the four-part **P.C.N.T** (**Project.Catalog.Namespace.Table**) syntax.
 
 ## Before you begin
 
@@ -84,7 +82,7 @@ To allow the Managed Service for Apache Spark PySpark job and Lakehouse runtime 
 
   2. Click **Authorize**.
 
-  3. Grant the **Dataproc Worker** role to the project's [Compute Engine default service account](https://docs.cloud.google.com/iam/docs/service-accounts#default-service-accounts), which Managed Service for Apache Spark uses by default as detailed in [Managed Service for Apache Spark service accounts](https://docs.cloud.google.com/dataproc/docs/concepts/configuring-clusters/service-accounts#dataproc-cluster-service-accounts).
+  3. Grant the **Dataproc Worker** role to the project's [Compute Engine default service account](https://docs.cloud.google.com/iam/docs/service-account-types#default), which Managed Service for Apache Spark uses by default as detailed in [Managed Service for Apache Spark service accounts](https://docs.cloud.google.com/dataproc/docs/concepts/configuring-clusters/service-accounts#dataproc-cluster-service-accounts).
          
          gcloud projects add-iam-policy-binding PROJECT_ID \
              --member="serviceAccount:$(gcloud projects describe PROJECT_ID --format='value(projectNumber)')-compute@developer.gserviceaccount.com" \
@@ -248,7 +246,7 @@ Replace the following:
 
 **Important** :
 
-This identifier is also the name of your Catalog. For example, if you created your bucket to store your catalog and named it `iceberg-bucket`, both your catalog name and bucket name are `iceberg-bucket`. This name is used later when you query your catalog in BigQuery, using the P.C.N.T syntax. For example `my-project.biglake-catalog-id-name.quickstart_namespace.quickstart_table`.
+This identifier is also the name of your Catalog. For example, if you created your bucket to store your catalog and named it `iceberg-bucket`, both your catalog name and bucket name are `iceberg-bucket`. This name is used later when you query your catalog in BigQuery, using the **P.C.N.T** (**Project.Catalog.Namespace.Table**) syntax. For example `my-project.biglake-catalog-id-name.quickstart_namespace.quickstart_table`.
 
      * `PROJECT_ID`: your Google Cloud project ID.
 
@@ -281,7 +279,7 @@ When the job completes, it displays an output similar to the following:
 
 [Go to BigQuery](https://console.cloud.google.com/bigquery)
 
-  2. In the query editor, enter the following statement. The query uses the `project.catalog.namespace.table` syntax.
+  2. In the query editor, enter the following statement. The query uses the **P.C.N.T** (**Project.Catalog.Namespace.Table**) syntax.
          
          SELECT * FROM `PROJECT_ID.LAKEHOUSE_CATALOG_ID.quickstart_namespace.quickstart_table`;
          
@@ -296,7 +294,7 @@ Replace:
 
 This identifier is also the name of your Cloud Storage bucket.
 
-For example, if you created your bucket to store your catalog and named it `iceberg-bucket`, both your catalog name and bucket name are `iceberg-bucket`. This is used later when you query your catalog in BigQuery, using the P.C.N.T syntax. For example `my-project.biglake-catalog-id-name.quickstart_namespace.quickstart_table`.
+For example, if you created your bucket to store your catalog and named it `iceberg-bucket`, both your catalog name and bucket name are `iceberg-bucket`. This is used later when you query your catalog in BigQuery, using the **P.C.N.T** (**Project.Catalog.Namespace.Table**) syntax. For example `my-project.biglake-catalog-id-name.quickstart_namespace.quickstart_table`.
 
   3. Click **Run**.
 
@@ -357,7 +355,7 @@ Replace the following:
 
 **Important** :
 
-This identifier is also the name of your Catalog. For example, if you created your bucket to store your catalog and named it `iceberg-bucket`, both your catalog name and bucket name are `iceberg-bucket`. This name is used later when you query your catalog in BigQuery, using the P.C.N.T syntax. For example `my-project.biglake-catalog-id-name.quickstart_namespace.quickstart_table`.
+This identifier is also the name of your Catalog. For example, if you created your bucket to store your catalog and named it `iceberg-bucket`, both your catalog name and bucket name are `iceberg-bucket`. This name is used later when you query your catalog in BigQuery, using the **P.C.N.T** (**Project.Catalog.Namespace.Table**) syntax. For example `my-project.biglake-catalog-id-name.quickstart_namespace.quickstart_table`.
 
      * `PROJECT_ID`: your Google Cloud project ID.
      * `REGION`: the region to run the Managed Service for Apache Spark batch workload in.
@@ -365,7 +363,7 @@ This identifier is also the name of your Catalog. For example, if you created yo
 
 [Go to Lakehouse](https://console.cloud.google.com/biglake)
 
-  3. Select your LAKEHOUSE_CATALOG_ID catalog, and then click **Delete**.
+  3. Select your `LAKEHOUSE_CATALOG_ID` catalog, and then click **Delete**.
 
   4. Go to **Cloud Storage Buckets**.
 
@@ -379,7 +377,7 @@ This identifier is also the name of your Catalog. For example, if you created yo
 ## What's next
 
   * Learn how to [manage Lakehouse catalogs](https://docs.cloud.google.com/lakehouse/docs/manage-catalogs).
-  * Learn about [Apache Iceberg tables supported by the Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/lakehouse-iceberg-tables).
+  * Learn about [Apache Iceberg tables supported by the Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/lakehouse-tables).
 
 
 
@@ -387,6 +385,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/metrics/
 title: Cloud Storage FUSE metrics \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:29.848028+00:00
+fetched_at: 2026-10-24T11:25:30.376627+00:00
 ---
 
 # Cloud Storage FUSE metrics  |  Google Cloud Documentation
@@ -40,7 +40,7 @@ For diagnostic purposes, you can collect metrics in the background when you use 
 
 ## Pricing
 
-Cloud Storage FUSE metrics are charged based on your usage. For more information about pricing, refer to [Google Cloud Observability pricing](https://docs.cloud.google.com/stackdriver/pricing).
+Cloud Storage FUSE metrics are charged based on your usage. For more information about pricing, refer to [Google Cloud Observability pricing](https://docs.cloud.google.com/monitoring/pricing).
 
 ## Use the Cloud Monitoring exporter
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/manage-tables-acl/
 title: Manage Apache Iceberg REST catalog endpoint ACLs \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:38.371182+00:00
+fetched_at: 2026-10-24T08:23:14.804563+00:00
 ---
 
 # Manage Apache Iceberg REST catalog endpoint ACLs  |  Lakehouse  |  Google Cloud Documentation
@@ -39,7 +39,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 [Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=biglake.googleapis.com)
 
-  3. Install and initialize the Google Cloud SDK.
+  3. [Install](https://docs.cloud.google.com/sdk/docs/install) and [initialize](https://docs.cloud.google.com/sdk/docs/initializing) the Google Cloud CLI.
   4. Verify that you have an existing Apache Iceberg REST catalog endpoint and namespace.
   5. Verify that you have an existing Apache Iceberg table managed by Lakehouse within the specified catalog and namespace.
 
@@ -100,11 +100,11 @@ The following section shows you how to apply ACLs to catalogs.
 
 ### Get the IAM policy
 
-To view the current IAM policy on a Lakehouse Iceberg catalog, use the [`gcloud alpha biglake iceberg catalogs get-iam-policy`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/biglake/iceberg/catalogs/get-iam-policy) command.
+To view the current IAM policy on a Lakehouse Iceberg catalog, use the [`gcloud biglake iceberg catalogs get-iam-policy`](https://docs.cloud.google.com/sdk/gcloud/reference/biglake/iceberg/catalogs/get-iam-policy) command.
 
   1. To get the IAM policy, run the following command:
          
-         gcloud alpha biglake iceberg catalogs get-iam-policy CATALOG_NAME \
+         gcloud biglake iceberg catalogs get-iam-policy CATALOG_NAME \
              --project=PROJECT_ID
          
 
@@ -119,7 +119,7 @@ Replace the following:
 
 ### Set the IAM policy
 
-To update the IAM policy on a Lakehouse Iceberg catalog, use the [`gcloud alpha biglake iceberg catalogs set-iam-policy`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/biglake/iceberg/catalogs/set-iam-policy) command. This command uses a local JSON or YAML file that contains the policy you want to apply.
+To update the IAM policy on a Lakehouse Iceberg catalog, use the [`gcloud biglake iceberg catalogs set-iam-policy`](https://docs.cloud.google.com/sdk/gcloud/reference/biglake/iceberg/catalogs/set-iam-policy) command. This command uses a local JSON or YAML file that contains the policy you want to apply.
 
   1. Create a local policy file in JSON or YAML format. The policy file must contain the bindings and an `etag`. The `etag` value provides optimistic concurrency control to prevent overwriting changes. To get the current `etag`, run the `get-iam-policy` command first.
 
@@ -147,7 +147,7 @@ The following example shows a policy file named `policy.json`:
 
   2. To set the IAM policy, run the following command:
          
-         gcloud alpha biglake iceberg catalogs set-iam-policy CATALOG_NAME POLICY_FILE \
+         gcloud biglake iceberg catalogs set-iam-policy CATALOG_NAME POLICY_FILE \
              --project=PROJECT_ID
          
 
@@ -196,11 +196,11 @@ The **Share permissions** dialog appears.
 
 ### Get the IAM policy
 
-To view the current IAM policy on a Lakehouse Iceberg namespace, use the [`gcloud alpha biglake iceberg namespaces get-iam-policy`](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/biglake/iceberg/namespaces/get-iam-policy) command.
+To view the current IAM policy on a Lakehouse Iceberg namespace, use the [`gcloud biglake iceberg namespaces get-iam-policy`](https://docs.cloud.google.com/sdk/gcloud/reference/biglake/iceberg/namespaces/get-iam-policy) command.
 
   1. To get the IAM policy, run the following command:
          
-         gcloud alpha biglake iceberg namespaces get-iam-policy NAMESPACE_NAME \
+         gcloud biglake iceberg namespaces get-iam-policy NAMESPACE_NAME \
              --catalog=CATALOG_NAME \
              --project=PROJECT_ID
          
@@ -217,7 +217,7 @@ Replace the following:
 
 ### Set the IAM policy
 
-To update the IAM policy on a Lakehouse Iceberg namespace, use the `gcloud alpha biglake iceberg namespaces set-iam-policy` command. This command uses a local JSON or YAML file that contains the policy you want to apply.
+To update the IAM policy on a Lakehouse Iceberg namespace, use the [`gcloud biglake iceberg namespaces set-iam-policy`](https://docs.cloud.google.com/sdk/gcloud/reference/biglake/iceberg/namespaces/set-iam-policy) command. This command uses a local JSON or YAML file that contains the policy you want to apply.
 
   1. Create a local policy file in JSON or YAML format. The policy file must contain the bindings and an `etag`. The `etag` value provides optimistic concurrency control to prevent overwriting changes. To get the current `etag`, run the `get-iam-policy` command first.
 
@@ -245,7 +245,7 @@ The following example shows a policy file named `policy.json`:
 
   2. To set the IAM policy, run the following command:
          
-         gcloud alpha biglake iceberg namespaces set-iam-policy NAMESPACE_NAME POLICY_FILE \
+         gcloud biglake iceberg namespaces set-iam-policy NAMESPACE_NAME POLICY_FILE \
              --catalog=CATALOG_NAME \
              --project=PROJECT_ID
          
@@ -377,6 +377,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

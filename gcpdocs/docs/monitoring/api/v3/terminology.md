@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/v3/terminology/
 title: Notes on terminology \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:59:47.771927+00:00
+fetched_at: 2026-10-24T11:25:20.619722+00:00
 ---
 
 # Notes on terminology  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -21,7 +21,11 @@ Send feedback
 
 #  Notes on terminology Stay organized with collections  Save and categorize content based on your preferences. 
 
-The words _name_ , _type_ , _kind_ , _metric_ , and _resource_ appear in various combinations and contexts related to Cloud Monitoring, and the usages aren't always consistent. For example, here are some common patterns:
+Distinguishing between overlapping terms such as _name_ , _type_ , _kind_ , _metric_ , and _resource_ helps you interpret Cloud Monitoring documentation and supply the right fields in Cloud Monitoring API requests. Casual usage often blurs how metric types, monitored-resource types, value types, metric kinds, and API resource names differ.
+
+## Common overlapping terms
+
+The following examples illustrate how Monitoring terms and identifiers are often used interchangeably depending on context:
 
   * The term _metric_ might be used, in different contexts, to refer to any of the following:
 
@@ -36,7 +40,7 @@ The words _name_ , _type_ , _kind_ , _metric_ , and _resource_ appear in various
     * A metric name
     * A metric type
     * A metric type name
-  * The string like `gcs_bucket` might be referred to as any of the following:
+  * A string like `gcs_bucket` might be referred to as any of the following:
 
     * A resource name1
     * A monitored resource
@@ -47,7 +51,7 @@ The words _name_ , _type_ , _kind_ , _metric_ , and _resource_ appear in various
 
 1 The REST API reference material also makes frequent use of the term _resource name_ , which usually has nothing to do with monitored resources. This term is described in more detail in [Resource names](https://docs.cloud.google.com/monitoring/api/v3/terminology#resource-name).
 
-This section provides some guidance on possibly confusing terminology.
+The remainder of this document provides some guidance on possibly confusing terminology.
 
 ## Types and names
 
@@ -67,7 +71,7 @@ If you look at the descriptor for this metric type, you see these two key-value 
 
 The `type` in a metric descriptor is a string that encodes information about the service generating the data (for example, `storage.googleapis.com`) and what's being measured (`api/request_count`).
 
-In a metric descriptor, the value of the `name` is the fully-qualified version of metric type; the `name` value is the `type` value prefixed with this string:
+In a metric descriptor, the value of the `name` field is the fully qualified version of the metric type; the `name` value is the `type` value prefixed with this string:
     
     
     projects/[PROJECT_ID]/metricDescriptors/
@@ -91,7 +95,7 @@ The following example corresponds to the `api` entry in the [list of monitored r
 
 The value of `name` within a project is entirely predictable from the value of `type`, but they are not exactly the same thing. However, the terms are often used imprecisely in casual discussion.
 
-**Key Point:** In almost all cases, use of “metric type”, “metric name”, or “metric type name” refers to the metric type as described here. The word “metric” typically means the time series associated with a metric type. The phrase “monitored resource” usually means the type or a particular physical entity described by a type.
+**Key Point:** In almost all cases, use of “metric type,” “metric name,” or “metric type name” refers to the metric type as described here. The word “metric” typically means the time series associated with a metric type. The phrase “monitored resource” usually means the type or a particular physical entity described by a type.
 
 ## Metric kind and value type
 
@@ -102,16 +106,16 @@ There are two other terms that can be confused with “metric type”:
 
 
 
-These terms are not alternate terms for “metric type”.
+These terms are not alternate terms for “metric type.”
 
-“Value type” and “metric kind” describe the data collected. They are both related to the programming concept “datatype”.
+“Value type” and “metric kind” describe the data collected. They are both related to the programming concept “data type”.
 
   * The value type describes the individual values.
   * The metric kind describes how the values are related to each other.
 
 
 
-See [Metric kinds and types](https://docs.cloud.google.com/monitoring/api/v3/kinds-and-types) for details.
+See [Value types and metric kinds](https://docs.cloud.google.com/monitoring/api/v3/kinds-and-types) for details.
 
 ## Resource names
 
@@ -131,21 +135,21 @@ Here are some examples of some structures that have resource names and how they 
     * Prefix: `projects/[PROJECT_ID]/monitoredResourceDescriptors`
     * `type` (sample): `api`
     * `name`: `projects/[PROJECT_ID]/monitoredResourceDescriptors/api`
-  * Alerting policies: join the values of the prefix and a generated ID 
+  * Alerting policies: join the values of the prefix and a generated ID: 
     * Prefix: `projects/[PROJECT_ID]/alertPolicies`
     * Alert-policy ID: a number generated when the policy was created
     * `name`: `projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]`
 
 
 
-The term “resource name” refers to a resource in the hierarchy of a service's API, and isn't related to the concept of monitored resources in any way. For more information about resource names in the design of an API, see [Resource names](https://docs.cloud.google.com/apis/design/resource_names).
+The term “resource name” refers to a resource in the hierarchy of a service's API and isn't related to the concept of monitored resources in any way. For more information about resource names in the design of an API, see [Resource names](https://docs.cloud.google.com/apis/design/resource_names).
 
-**Key Point:** In the Cloud Monitoring API, when a `name` field is described as a “resource name”, the value for that field is a fully qualified identifier created by taking a `type` (or other field) value and prefixing it with the string that identifies the type of resource.
+**Key Point:** In the Cloud Monitoring API, when a `name` field is described as a “resource name,” the value for that field is a fully qualified identifier created by taking a `type` (or other field) value and prefixing it with the string that identifies the type of resource.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/iam/predefined-role-permissions/
 title: Predefined role permissions \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:20:36.532986+00:00
+fetched_at: 2026-10-24T11:25:47.366417+00:00
 ---
 
 # Predefined role permissions  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -5020,17 +5020,6 @@ resourcepools.prediction.aiplatform.gdc.goog.watch
 **Vertex AI Prediction User**  
 (`vertex-ai-prediction-user`) Performs predict requests on AI Platform endpoints. |  **Zonal** endpoints.aiplatform.googleapis.com.predict  
   
-**Vertex AI Speech Chirp Developer**  
-(`ai-speech-chirp-developer`) Accesses the Speech Chirp service. |  **Zonal** recognizers.speech.gdc.goog.create  
-recognizers.speech.gdc.goog.delete  
-recognizers.speech.gdc.goog.get  
-recognizers.speech.gdc.goog.list  
-recognizers.speech.gdc.goog.patch  
-recognizers.speech.gdc.goog.recognize  
-recognizers.speech.gdc.goog.streaming-recognize  
-recognizers.speech.gdc.goog.update  
-recognizers.speech.gdc.goog.watch  
-  
 **Vertex AI Speech Developer**  
 (`ai-speech-developer`) Accesses the Speech service. |  **Zonal** recognizers.speech.gdc.goog.create  
 recognizers.speech.gdc.goog.delete  
@@ -5372,6 +5361,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/using-bucket-labels/
 title: Using bucket labels \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:20.392735+00:00
+fetched_at: 2026-10-24T11:10:30.091499+00:00
 ---
 
 # Using bucket labels  |  Cloud Storage  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Using bucket labels Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page shows you how to add, modify, remove, and view the [labels](https://docs.cloud.google.com/storage/docs/tags-and-labels#bucket-labels) set on a [bucket](https://docs.cloud.google.com/storage/docs/buckets) in Cloud Storage.
+_Labels_ let you organize your Cloud Storage buckets using key-value metadata pairs. You can add, modify, remove, and view these pairs to categorize your resources. For background information, see [Bucket labels](https://docs.cloud.google.com/storage/docs/tags-and-labels#bucket-labels).
 
 ## Required roles
 
@@ -1250,6 +1250,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

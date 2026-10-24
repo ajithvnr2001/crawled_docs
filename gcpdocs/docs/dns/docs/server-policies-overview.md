@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/server-policies-overview/
 title: DNS server policies \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:12:30.925432+00:00
+fetched_at: 2026-10-24T11:25:27.204490+00:00
 ---
 
 # DNS server policies  |  Google Cloud Documentation
@@ -84,8 +84,8 @@ Cloud DNS supports the following alternative name servers and offers standard or
 
 Alternative name server type | Standard routing supports | Private routing supports | Query source address range  
 ---|---|---|---  
-**Type 1 name server** An [internal IP address](https://docs.cloud.google.com/vpc/docs/ip-addresses) of a Google Cloud VM in _the same_ VPC network where the outbound server policy is defined. | Only RFC 1918 IP addresses—traffic always routed through an authorized VPC network. | Any internal IP address, such as an RFC 1918 private address, a non-RFC 1918 private IP addresses, or a privately reused external IP address, except for a prohibited alternative name server IP address—traffic always routed through an authorized VPC network. | `35.199.192.0/19`  
-**Type 2 name server** An IP address of an on-premises system, connected to the VPC network with the outbound server policy, using Cloud VPN or Cloud Interconnect. | Only RFC 1918 IP addresses—traffic always routed through an authorized VPC network. | Any internal IP address, such as an RFC 1918 private address, a non-RFC 1918 private IP addresses, or a privately reused external IP address, except for a prohibited alternative name server IP address— traffic always routed through an authorized VPC network. | `35.199.192.0/19`  
+**Type 1 name server** An [internal IP address](https://docs.cloud.google.com/vpc/docs/ip-addresses) of a Google Cloud VM in _the same_ VPC network where the outbound server policy is defined. | Only RFC 1918 IP addresses—traffic always routed through an authorized VPC network. | Any internal IP address, such as an RFC 1918 private address, a non-RFC 1918 private IP addresses, or a privately reused external IP address, except for a prohibited alternative name server IP address—traffic always routed through an authorized VPC network. | `35.199.192.0/19` or proxy-only subnet range if using Outbound Endpoints ([Preview](https://cloud.google.com/products#product-launch-stages))  
+**Type 2 name server** An IP address of an on-premises system, connected to the VPC network with the outbound server policy, using Cloud VPN or Cloud Interconnect. | Only RFC 1918 IP addresses—traffic always routed through an authorized VPC network. | Any internal IP address, such as an RFC 1918 private address, a non-RFC 1918 private IP addresses, or a privately reused external IP address, except for a prohibited alternative name server IP address— traffic always routed through an authorized VPC network. | `35.199.192.0/19` or proxy-only subnet range if using Outbound Endpoints ([Preview](https://cloud.google.com/products#product-launch-stages))  
 **Type 3 name server** An [external IP address](https://docs.cloud.google.com/vpc/docs/ip-addresses) of a DNS name server accessible to the internet _or_ the external IP address of a Google Cloud resource—for example, the external IP address of a VM in another VPC network. | Only internet-routable external IP addresses—traffic always routed to the internet or to the external IP address of a Google Cloud resource. | Private routing isn't supported. | [Google Public DNS source ranges](https://developers.google.com/speed/public-dns/faq#locations)  
   
 Cloud DNS offers two routing methods for querying alternative name servers:
@@ -180,6 +180,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

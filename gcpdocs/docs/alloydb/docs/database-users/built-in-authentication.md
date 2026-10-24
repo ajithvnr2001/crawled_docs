@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/database-users/built-in-authentication/
 title: AlloyDB for PostgreSQL built-in database authentication \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:04.120861+00:00
+fetched_at: 2026-10-24T11:25:52.037025+00:00
 ---
 
 # AlloyDB for PostgreSQL built-in database authentication  |  Google Cloud Documentation
@@ -21,13 +21,13 @@ Send feedback
 
 #  AlloyDB for PostgreSQL built-in database authentication Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how built-in authentication works on AlloyDB for PostgreSQL instances and how database administrators can set password policies for local database users.
+To authenticate database connections with PostgreSQL usernames and passwords, you can use built-in authentication on AlloyDB for PostgreSQL instances and enforce password policies for local database users.
 
 Authentication is the process of verifying the identity of a user who is attempting to access data in the database. AlloyDB uses the following types of authentication for database users:
 
-  * **PostgreSQL's native built-in authentication** uses a username and a password to authenticate local database users. The current page describes this type of authentication.
+  * **PostgreSQL native built-in authentication** uses a username and a password to authenticate local database users. The current page describes this type of authentication.
 
-  * **IAM database authentication** uses IAM to authenticate a user. For more information, see [AlloyDB IAM database authentication](https://docs.cloud.google.com/alloydb/docs/database-users/iam-authentication).
+  * **Identity and Access Management (IAM) database authentication** uses IAM to authenticate a user. For more information about IAM database authentication, see [AlloyDB IAM database authentication](https://docs.cloud.google.com/alloydb/docs/database-users/iam-authentication).
 
 
 
@@ -48,7 +48,7 @@ You can set a password policy when you create a primary instance, or you can add
 
   * **Disallow username** : prevent the use of the username in the password.
 
-  * **Password expiration** : make sure that passwords are rotated periodically.
+  * **Password expiration** : require periodic password rotation.
 
 
 
@@ -57,7 +57,7 @@ You can set a password policy when you create a primary instance, or you can add
 
 Password policies for read replicas are inherited from the primary instance and can't be modified independently. This is because user management and authentication are write operations that can only be performed on the primary instance.
 
-When you promote a read replica to become a primary instance, the password policy is not automatically carried over. You must explicitly enable the password policy on the newly promoted instance, including all the specific policy options you want to enforce.
+When you promote a read replica to become a primary instance, the password policy isn't automatically carried over. You must explicitly enable the password policy on the newly promoted instance, including all the specific policy options you want to enforce.
 
 ## What's next
 

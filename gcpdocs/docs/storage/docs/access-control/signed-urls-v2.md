@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/access-control/signed-urls-v2/
 title: V2 Signing Process \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:36.640516+00:00
+fetched_at: 2026-10-24T11:25:31.411336+00:00
 ---
 
 # V2 Signing Process  |  Cloud Storage  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ String Component | Example | Description
 
 ## Signing strings with the App Engine App Identity service
 
-When creating a signed URL using a program, you can either sign the string from within your program, or else from within a App Engine application using the App Engine Identity service, which uses App Engine's service account credentials. For example, using the [Python App Identity API](https://docs.cloud.google.com/appengine/docs/python/appidentity), you can:
+When creating a signed URL using a program, you can either sign the string from within your program, or else from within a App Engine application using the App Engine Identity service, which uses App Engine's service account credentials. For example, using the [Python App Identity API](https://docs.cloud.google.com/appengine/docs/standard/services/appidentity?tab=python), you can:
 
   * Use `google.appengine.api.app_identity.sign_blob()` to sign the bytes from your constructed string, providing the `Signature` you need when assembling the signed URL.
 
@@ -106,6 +106,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

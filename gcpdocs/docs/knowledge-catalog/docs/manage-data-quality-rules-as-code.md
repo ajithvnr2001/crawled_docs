@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/manage-data-quality-rules-as-code/
 title: Manage data quality rules as code with Terraform, Cloud Build, and GitHub \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:49.644642+00:00
+fetched_at: 2026-10-24T08:28:04.668494+00:00
 ---
 
 # Manage data quality rules as code with Terraform, Cloud Build, and GitHub  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,19 +23,11 @@ Send feedback
 
 #  Manage data quality rules as code with Terraform, Cloud Build, and GitHub Stay organized with collections  Save and categorize content based on your preferences. 
 
-This tutorial explains how to manage Knowledge Catalog (formerly Dataplex Universal Catalog) [data quality rules](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview) as code with Terraform, Cloud Build, and GitHub.
-
-Many different options for data quality rules as code are available to define and measure the quality of your data.
-
-If you have different versions of a dataset for multiple environments, such as `dev` and `prod` environments, Terraform provides a reliable way to assign data quality rules to environment-specific versions of datasets.
-
-Version control also is an important [DevOps](https://cloud.google.com/devops/) best practice. Managing your data quality rules as code provides you with versions of your data quality rules that are available in your GitHub history. Terraform can also save its [state](https://www.terraform.io/docs/state/) to Cloud Storage, which can store earlier versions of the state file. Terraform uses state to map resources to your configuration, keep track of metadata, and improve performance for large infrastructures.
-
-For more information about Terraform, Cloud Build, and auto data quality rules, see [Overview of Terraform on Google Cloud](https://docs.cloud.google.com/docs/terraform/terraform-overview), [Cloud Build](https://docs.cloud.google.com/build), and [Auto data quality overview](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview).
+Defining auto data quality rules as code in Knowledge Catalog (formerly Dataplex Universal Catalog) lets you version-control your validation rules and apply checks consistently across environment-specific datasets. In this tutorial, you connect GitHub and Cloud Build to preview Terraform changes in pull requests and promote quality scans from development to production BigQuery tables. For more information, see [Auto data quality overview](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview), [Overview of Terraform on Google Cloud](https://docs.cloud.google.com/docs/terraform/terraform-overview), and [Overview of Cloud Build](https://docs.cloud.google.com/build/docs/overview).
 
 ## Architecture
 
-To understand how this tutorial uses Cloud Build for managing Terraform executions, consider the following architecture diagram. Note that it uses GitHub branches—`dev` and `prod`—to represent actual environments.
+When you maintain separate versions of a dataset across environments such as `dev` and `prod`, Terraform provides a reliable way to assign data quality rules to each dataset. The following diagram shows how this tutorial uses Cloud Build to manage Terraform executions across GitHub branches:
 
 **Note:** For simplicity, this tutorial implements only `dev` and `prod` environments. You can extend this behavior to deploy to more environments and to create projects under your [organization hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy) if needed.
 
@@ -136,7 +128,7 @@ Git uses this information to identify you as the author of the commits that you 
 
 ## Set up your GitHub repository
 
-In this tutorial, you use a single Git repository to define your cloud infrastructure. You orchestrate this infrastructure by having different branches corresponding to different environments:
+Version control is an important [DevOps](https://cloud.google.com/devops/) best practice, and managing your data quality rules as code keeps earlier versions of your rules available in your GitHub history. In this tutorial, you use a single Git repository to define your cloud infrastructure. You orchestrate this infrastructure by having different branches corresponding to different environments:
 
   * The `dev` branch contains the latest changes that are applied to the development environment.
   * The `prod` branch contains the latest changes that are applied to the production environment.
@@ -206,9 +198,9 @@ To ensure that the changes being proposed are appropriate for every environment,
 
 ## Configure Terraform to store state in Cloud Storage buckets
 
-By default, Terraform stores [state](https://www.terraform.io/docs/state/) locally in a file named `terraform.tfstate`. This default configuration can make Terraform usage difficult for teams, especially when many users run Terraform at the same time and each machine has its own understanding of the current infrastructure.
+Terraform uses [state](https://www.terraform.io/docs/state/) to map resources to your configuration, keep track of metadata, and improve performance for large infrastructures. By default, Terraform stores state locally in a file named `terraform.tfstate`. This default configuration can make Terraform usage difficult for teams, especially when many users run Terraform at the same time and each machine has its own understanding of the current infrastructure.
 
-To help you avoid such issues, this section configures a [remote state](https://www.terraform.io/docs/state/remote.html) that points to a Cloud Storage bucket. Remote state is a feature of [backends](https://www.terraform.io/docs/backends) and, in this tutorial, is configured in the `backend.tf` file.
+To help you avoid such issues, this section configures a [remote state](https://www.terraform.io/docs/state/remote.html) that points to a Cloud Storage bucket, which can also store earlier versions of the state file. Remote state is a feature of [backends](https://www.terraform.io/docs/backends) and, in this tutorial, is configured in the `backend.tf` file.
     
     
     # Copyright 2024 Google LLC
@@ -581,6 +573,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

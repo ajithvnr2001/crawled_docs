@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/use-discovery-agent/
 title: Build an agent to discover your data \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:21:33.145217+00:00
+fetched_at: 2026-10-24T10:48:12.586379+00:00
 ---
 
 # Build an agent to discover your data  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  Build an agent to discover your data Stay organized with collections  Save and categorize content based on your preferences. 
 
-The Knowledge Catalog discovery agent is an AI-powered assistant that improves search relevance for complex natural language queries based on Knowledge Catalog search capabilities. By optimizing query understanding and formulation, it provides more accurate results than the standard Knowledge Catalog Search API. This capability is critical especially for complex or lengthy queries.
+The open-source [discovery agent](https://github.com/GoogleCloudPlatform/dataplex-labs/tree/main/knowledge_catalog_discovery_agent) for Knowledge Catalog (formerly Dataplex Universal Catalog) lets you find relevant data assets with complex or lengthy natural language queries. Using the Agent Development Kit (ADK), you can run this AI-powered assistant as the root agent or integrate it as a tool in a custom agent.
 
 ## Use cases
 
@@ -35,11 +35,11 @@ The discovery agent provides a rich, conversational experience for scenarios suc
 
 
 
-The discovery agent is built on top of [Knowledge Catalog semantic search](https://docs.cloud.google.com/knowledge-catalog/docs/search-assets) which provides you out-of-the box hybrid search. You can continue to use Knowledge Catalog semantic search directly when you need to process high-intent searches (when you know the specific resource or column), low-latency requirements, or zero-setup hybrid search.
+The discovery agent is built on top of [Knowledge Catalog semantic search](https://docs.cloud.google.com/knowledge-catalog/docs/search-assets), which provides out-of-the-box hybrid search. By optimizing query understanding and formulation, the agent provides more accurate results than the standard Knowledge Catalog Search API, especially for complex or lengthy queries. You can continue to use Knowledge Catalog semantic search directly for high-intent searches (when you know the specific resource or column), low-latency queries, or zero-setup hybrid search.
 
 ## How it works
 
-The discovery agent performs the following steps to respond to a search query: 
+The discovery agent performs the following steps to respond to a search query:
 
   1. Analyzes input for intent to understand the query, generates multiple search variations, and maps terms to metadata filters.
   2. Searches for resources using the Knowledge Catalog semantic search.
@@ -255,6 +255,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

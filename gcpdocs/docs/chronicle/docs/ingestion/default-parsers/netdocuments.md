@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/netdocuments/
 title: Collect NetDocuments logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:42:32.248162+00:00
+fetched_at: 2026-10-24T08:31:00.637537+00:00
 ---
 
 # Collect NetDocuments logs  |  Google Security Operations  |  Google Cloud Documentation

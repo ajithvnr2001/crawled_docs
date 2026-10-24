@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/samples/dataflow-bigquery-stream-exactly-once/
 title: Stream to BigQuery with exactly-once processing \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:54:10.126808+00:00
+fetched_at: 2026-10-24T09:12:12.684866+00:00
 ---
 
 # Stream to BigQuery with exactly-once processing  |  Cloud Dataflow  |  Google Cloud Documentation

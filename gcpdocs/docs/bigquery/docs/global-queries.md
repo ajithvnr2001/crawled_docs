@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/global-queries/
 title: Global queries \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:13:32.184785+00:00
+fetched_at: 2026-10-24T11:25:52.377820+00:00
 ---
 
 # Global queries  |  BigQuery  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ This product or feature is subject to the "Pre-GA Offerings Terms" in the Genera
 
 **Note:** To get support or provide feedback for this preview feature, contact [bq-xregion-support@google.com](mailto:bq-xregion-support@google.com).
 
-Global queries let you run SQL queries that reference data stored in more than one region. For example, you can run a global query that joins a table located in `us-central1` with a table located in `europe-central2`. This document explains how to enable and run global queries in your project.
+You can use global queries to run SQL queries that reference data stored in multiple regions. Joining tables across different geographic locations lets you analyze your distributed data without needing to manually move or consolidate your datasets.
 
 ## Before you begin
 
@@ -325,6 +325,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-21 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-21 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

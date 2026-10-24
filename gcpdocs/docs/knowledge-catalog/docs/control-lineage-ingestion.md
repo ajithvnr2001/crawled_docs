@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/control-lineage-ingestion/
 title: About data lineage ingestion control \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:45:45.674948+00:00
+fetched_at: 2026-10-24T08:35:34.687789+00:00
 ---
 
 # About data lineage ingestion control  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  About data lineage ingestion control Stay organized with collections  Save and categorize content based on your preferences. 
 
-To manage costs and governance policies, you can turn data lineage ingestion on or off for specific Google Cloud services. For example, you can disable lineage collection for development projects or high-volume workloads that don't require lineage tracking.
+Knowledge Catalog (formerly Dataplex Universal Catalog) lets you turn automatic [data lineage](https://docs.cloud.google.com/knowledge-catalog/docs/about-data-lineage) ingestion on or off across organizations, folders, and projects. Per-service controls for Google Cloud integrations such as BigQuery and Managed Service for Apache Spark help you manage costs and governance policies. For example, you can disable collection for development projects or high-volume workloads that don't require tracking.
 
 ## Supported service integrations
 
@@ -117,6 +117,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

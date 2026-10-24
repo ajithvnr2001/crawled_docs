@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/external-data-sources/
 title: Introduction to external data sources \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:33.183270+00:00
+fetched_at: 2026-10-24T08:25:29.946952+00:00
 ---
 
 # Introduction to external data sources  |  BigQuery  |  Google Cloud Documentation

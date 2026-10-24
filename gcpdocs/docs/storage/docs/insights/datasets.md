@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/insights/datasets/
 title: Storage Insights datasets \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:43.003228+00:00
+fetched_at: 2026-10-24T11:25:29.423522+00:00
 ---
 
 # Storage Insights datasets  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/cluster-region/
 title: Cluster region \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:33.963908+00:00
+fetched_at: 2026-10-24T11:25:14.887813+00:00
 ---
 
 # Cluster region  |  Managed Service for Apache Spark  |  Google Cloud Documentation
@@ -23,11 +23,9 @@ Send feedback
 
 #  Cluster region Stay organized with collections  Save and categorize content based on your preferences. 
 
-You specify a Compute Engine [region](https://docs.cloud.google.com/compute/docs/regions-zones#available), such as "us-east1" or "europe-west1", when you create a Managed Service for Apache Spark cluster. Managed Service for Apache Spark will isolate cluster resources, such as VM instances and Cloud Storage and metadata storage, within a zone within the specified region.
+Managed Service for Apache Spark lets you specify a Compute Engine [region](https://docs.cloud.google.com/compute/docs/regions-zones#available), such as `us-east1` or `europe-west1`, to determine where your cluster runs. The service isolates resources—including VM instances, Cloud Storage, and metadata storage—within a single zone in that region.
 
-You can optionally specify a zone within the specified cluster region, such as "us-east1-a" or "europe-west1-b", when you create a cluster. If you don't specify the zone, [Managed Service for Apache Spark Auto Zone Placement](https://docs.cloud.google.com/managed-spark/docs/concepts/auto-zone) will choose a zone within your specified cluster region to locate clusters resources.
-
-The regional namespace corresponds to the `/regions/REGION` segment of Managed Service for Apache Spark resource URIs (see, for example, the cluster [`networkUri`](https://docs.cloud.google.com/managed-spark/docs/reference/rest/v1/ClusterConfig#GceClusterConfig.FIELDS.network_uri)).
+When you create a cluster, you can optionally select a zone, such as `us-east1-a` or `europe-west1-b`. If you omit it, [Managed Service for Apache Spark Auto Zone Placement](https://docs.cloud.google.com/managed-spark/docs/concepts/auto-zone) automatically chooses a zone within that region.
 
 ## Region names
 
@@ -62,7 +60,7 @@ The default Managed Service for Apache Spark endpoint is **location endpoint**. 
 
 Specify a Compute Engine region in the **Region** field in the **Define your cluster** section on the [**Create cluster**](https://console.cloud.google.com/dataproc/clusters/create) page in the Google Cloud console.
 
-### gcloud CLI
+### Google Cloud CLI
 
 When you create a cluster, specify a region using the required `--region` flag.
     
@@ -124,6 +122,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

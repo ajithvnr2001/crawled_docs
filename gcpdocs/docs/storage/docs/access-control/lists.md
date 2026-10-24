@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/access-control/lists/
 title: Access control lists (ACLs) \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:44.061827+00:00
+fetched_at: 2026-10-24T11:25:32.690198+00:00
 ---
 
 # Access control lists (ACLs)  |  Cloud Storage  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ In most cases, you should avoid using ACLs, and you should [enable uniform bucke
 
   * ACLs can't be used exclusively to control access to your Google Cloud resources, because ACLs can't be set on the overall project or resources outside Cloud Storage.
   * Enabling uniform bucket-level access creates a simpler access control surface and lets you use additional Google Cloud features. For more information, see [should you use uniform bucket-level access](https://docs.cloud.google.com/storage/docs/uniform-bucket-level-access#should-you-use).
-  * The [domain restricted sharing](https://docs.cloud.google.com/resource-manager/docs/organization-policy/restricting-domains) organization policy and [custom organization policies](https://docs.cloud.google.com/iam/docs/org-policy-custom-constraints) don't prevent access granted by ACLs, potentially leading to unintended access.
+  * The [domain restricted sharing](https://docs.cloud.google.com/organization-policy/restrict-domains) organization policy and [custom organization policies](https://docs.cloud.google.com/iam/docs/org-policy-custom-constraints) don't prevent access granted by ACLs, potentially leading to unintended access.
   * Unexpected behaviors and access can occur when using ACLs in projects that have [IAM conditions](https://docs.cloud.google.com/iam/docs/conditions-overview) set at or above the project level.
 
 
@@ -254,6 +254,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

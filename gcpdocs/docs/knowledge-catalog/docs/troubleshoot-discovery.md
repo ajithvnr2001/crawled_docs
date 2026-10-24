@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/troubleshoot-discovery/
 title: Troubleshoot Knowledge Catalog data discovery issues \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:41:04.099438+00:00
+fetched_at: 2026-10-24T08:31:53.149891+00:00
 ---
 
 # Troubleshoot Knowledge Catalog data discovery issues  |  Google Cloud Documentation
@@ -23,7 +23,9 @@ Send feedback
 
 #  Troubleshoot Knowledge Catalog data discovery issues Stay organized with collections  Save and categorize content based on your preferences. 
 
-This guide helps you troubleshoot and resolve common issues with Knowledge Catalog data discovery scans (also called standalone discovery), including table publishing failures and schema incompatibility errors.
+Knowledge Catalog (formerly Dataplex Universal Catalog) data discovery, also called standalone discovery, lets you automatically scan Cloud Storage buckets to extract metadata and publish tables to BigQuery. You can troubleshoot and resolve common discovery scan errors, such as BigQuery and BigLake table publishing failures, folder schema mismatches, and tables that don't update after schema changes. For more information, see [Discover and catalog Cloud Storage data](https://docs.cloud.google.com/knowledge-catalog/docs/cloud-storage-discovery).
+
+If you need help resolving an issue that isn't addressed in this document, contact [Cloud Customer Care](https://docs.cloud.google.com/support).
 
 ## BigQuery table publishing failure (FAILED_BIGQUERY_TABLE_PUBLISH)
 
@@ -39,8 +41,8 @@ This issue occurs because of the following conditions:
 
 To resolve this issue, perform the following checks:
 
-  * **Verify service account roles** : Confirm that the Knowledge Catalog service account `service-PROJECT_NUMBER@gcp-sa-dataplex.iam.gserviceaccount.com` has the Dataplex Discovery BigLake Publishing Service Agent (`roles/dataplex.discoveryBigLakePublishingServiceAgent`) role.
-  * **Verify connection permissions** : If you create BigLake tables, verify that the BigQuery connection service account has read access to the Cloud Storage bucket (using `roles/storage.objectViewer` or `roles/dataplex.discoveryServiceAgent`).
+  * **Verify service account roles** : Confirm that the Knowledge Catalog service account `service-PROJECT_NUMBER@gcp-sa-dataplex.iam.gserviceaccount.com` has the **Dataplex Discovery BigLake Publishing Service Agent** (`roles/dataplex.discoveryBigLakePublishingServiceAgent`) role.
+  * **Verify connection permissions** : If you create BigLake tables, verify that the BigQuery connection service account has read access to the Cloud Storage bucket using the **Storage Object Viewer** (`roles/storage.objectViewer`) or **Dataplex Discovery Service Agent** (`roles/dataplex.discoveryServiceAgent`) role.
   * **Check connection and dataset location** : Ensure that the BigQuery connection and the BigQuery dataset exist in the same region, and that they are compatible with the location of the Cloud Storage bucket.
   * **Inspect logs for details** : Explore your DataScan job logs in Cloud Logging. If the error contains `BigQuery: Permission denied`, check the service account permissions. If it contains `TABLE_CONFIG`, verify that the data files conform to BigQuery requirements.
 
@@ -108,14 +110,10 @@ To resolve this issue, check the table labels in BigQuery:
 
 
 
-## Get support
-
-If you need help resolving an issue that isn't addressed in this document, contact [Cloud Customer Care](https://docs.cloud.google.com/support).
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

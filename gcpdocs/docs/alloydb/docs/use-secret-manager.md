@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/use-secret-manager/
 title: Use Secret Manager to handle secrets in AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:29.628828+00:00
+fetched_at: 2026-10-24T11:25:52.471402+00:00
 ---
 
 # Use Secret Manager to handle secrets in AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Use Secret Manager to handle secrets in AlloyDB for PostgreSQL Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to use AlloyDB for PostgreSQL with Secret Manager to store sensitive access information.
+To protect sensitive database credentials and connection details—such as usernames, passwords, and instance connection names—for AlloyDB for PostgreSQL, you can store and manage them as secrets in [Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview).
 
-Securely handling your sensitive information is an essential part of building a secure development workflow. For AlloyDB, we recommend that you store your sensitive information as secrets that you create in [Secret Manager](https://docs.cloud.google.com/secret-manager). Secrets include API keys, passwords, sensitive information, and credentials that you might use to access a confidential system.
+Securely handling your sensitive information is an essential part of building a secure development workflow. For AlloyDB, store your sensitive information as secrets that you create in [Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview). Secrets include API keys, passwords, sensitive information, and credentials that you might use to access a confidential system.
 
 ## Overview
 
@@ -72,7 +72,7 @@ To detect when the value for the instance connection name is updated, use the Al
     done
     
 
-For more information on how to create and access a secret that contains the instance connection name of the primary replica, see [Create and access a secret using Secret Manager](https://docs.cloud.google.com/secret-manager/docs/create-secret-quickstart). For more information on using the AlloyDB Auth proxy, see [Connect using the AlloyDB Auth Proxy](https://docs.cloud.google.com/alloydb/docs/auth-proxy/connect).
+For more information on how to create and access a secret that contains the instance connection name of the primary replica, see [Create and access a secret using Secret Manager](https://docs.cloud.google.com/secret-manager/docs/create-secret-quickstart). For more information on using the AlloyDB Auth Proxy, see [Connect using the AlloyDB Auth Proxy](https://docs.cloud.google.com/alloydb/docs/auth-proxy/connect).
 
 ## What's next
 

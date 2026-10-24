@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/buildpacks/use-a-specific-builder/
 title: Use a specific builder \u00a0|\u00a0 Buildpacks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:43.111069+00:00
+fetched_at: 2026-10-24T08:20:21.947213+00:00
 ---
 
 # Use a specific builder  |  Buildpacks  |  Google Cloud Documentation

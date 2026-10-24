@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/use-auto-data-quality/
 title: Use auto data quality \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:41:14.290160+00:00
+fetched_at: 2026-10-24T11:10:23.885793+00:00
 ---
 
 # Use auto data quality  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,13 +23,7 @@ Send feedback
 
 #  Use auto data quality Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to use Knowledge Catalog (formerly Dataplex Universal Catalog) data quality scans to measure, monitor, and manage the quality of your data. Data quality scans help you automate the process of validating your data for completeness, validity, and consistency.
-
-With data quality scans, you can define rules to check for missing values, ensure values match a regular expression or belong to a set, verify uniqueness, or use custom SQL for more complex validations such as anomaly detection. This document explains how to create and manage data quality scans.
-
-Learn more about [data quality scans](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview). Learn more about [reusing data quality rules](https://docs.cloud.google.com/knowledge-catalog/docs/reuse-data-quality-rules) across multiple scans.
-
-**Note:** The steps in this document show how to manage data quality scans across your project. You can also create and manage data quality scans when working with a specific table.
+Auto data quality scans in Knowledge Catalog (formerly Dataplex Universal Catalog) let you automate data validation to measure, monitor, and manage the completeness, validity, and consistency of your data. You can define built-in or custom SQL rules, create and run scans, export results to BigQuery, and configure alerts for failed checks. For an overview of how scans work, see [Auto data quality overview](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview).
 
 ## Before you begin
 
@@ -166,13 +160,13 @@ To run a scan, you must enable [Private Google Access](https://docs.cloud.google
 
 ## Define data quality rules
 
-You can define data quality rules by using the following:
+You can define data quality rules by using the following options:
 
-  * [Built-in rules](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview#predefined-rules)
+  * [Built-in rules](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview#predefined-rules) to check for missing values, verify uniqueness, or confirm that values match a regular expression or belong to a set.
 
-  * [Custom SQL checks](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview#supported-custom-sql-rule-types)
+  * [Custom SQL checks](https://docs.cloud.google.com/knowledge-catalog/docs/auto-data-quality-overview#supported-custom-sql-rule-types) to run more complex validations, such as anomaly detection.
 
-  * [Reusable rules](https://docs.cloud.google.com/knowledge-catalog/docs/reuse-data-quality-rules), including [system rule templates](https://docs.cloud.google.com/knowledge-catalog/docs/reuse-data-quality-rules#system-templates)
+  * [Reusable rules](https://docs.cloud.google.com/knowledge-catalog/docs/reuse-data-quality-rules), including [system rule templates](https://docs.cloud.google.com/knowledge-catalog/docs/reuse-data-quality-rules#system-templates), to apply standardized rules across multiple scans.
 
 
 
@@ -473,6 +467,8 @@ To use end-user credentials, specify the `userCredential` object instead:
 **Note:** The execution identity is immutable. You can only set it when you create a scan. You can't change it by updating an existing scan.
 
 ## Create a data quality scan
+
+The steps in this section and the following sections show how to manage data quality scans across your project. To create and manage scans when working with a specific table, see Manage data quality scans for a specific table.
 
 ### Console
 
@@ -2218,9 +2214,9 @@ To get the job that identified the data quality failures, use the [`dataScans.ge
 
 ## Manage data quality scans for a specific table
 
-The steps in this document show how to manage data profile scans across your project by using the Knowledge Catalog **Data profiling & quality** page in the Google Cloud console.
+The steps in this document show how to manage data quality scans across your project by using the Knowledge Catalog **Data profiling & quality** page in the Google Cloud console.
 
-You can also create and manage data profile scans when working with a specific table. In the Google Cloud console, on the Knowledge Catalog page for the table, use the **Data quality** tab. Do the following:
+You can also create and manage data quality scans when working with a specific table. In the Google Cloud console, on the Knowledge Catalog page for the table, use the **Data quality** tab. Do the following:
 
   1. In the Google Cloud console, go to the Knowledge Catalog **Search** page.
 
@@ -2805,6 +2801,7 @@ To delete a data quality scan, use the [`dataScans.delete` method](https://docs.
 
 ## What's next
 
+  * Learn how to [reuse data quality rules](https://docs.cloud.google.com/knowledge-catalog/docs/reuse-data-quality-rules) across multiple scans.
   * Follow a tutorial to [build a policy-as-code data quality workflow](https://docs.cloud.google.com/knowledge-catalog/docs/build-policy-as-code-data-quality-workflow).
   * Follow a tutorial to [manage data quality rules as code with Terraform](https://docs.cloud.google.com/knowledge-catalog/docs/manage-data-quality-rules-as-code).
   * Learn about [data profiling](https://docs.cloud.google.com/knowledge-catalog/docs/data-profiling-overview).
@@ -2816,6 +2813,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

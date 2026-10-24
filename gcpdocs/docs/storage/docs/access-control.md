@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/access-control/
 title: Overview of access control \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:36:33.411016+00:00
+fetched_at: 2026-10-24T11:25:32.171182+00:00
 ---
 
 # Overview of access control  |  Cloud Storage  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ You control who has access to your Cloud Storage buckets and objects and what le
 
 When you create a bucket, you should decide whether you want to apply permissions using _uniform_ or _fine-grained_ access.
 
-  * **Uniform (recommended)** : [Uniform bucket-level access](https://docs.cloud.google.com/storage/docs/uniform-bucket-level-access) allows you to use [Identity and Access Management (IAM)](https://docs.cloud.google.com/storage/docs/access-control/iam) alone to manage permissions. IAM applies permissions to all the objects contained inside the bucket or groups of objects with common name prefixes. IAM also allows you to use features that are not available when working with ACLs, such as [managed folders](https://docs.cloud.google.com/storage/docs/managed-folders), [IAM Conditions](https://docs.cloud.google.com/iam/docs/conditions-overview), [domain restricted sharing](https://docs.cloud.google.com/resource-manager/docs/organization-policy/restricting-domains), and [workforce identity federation](https://docs.cloud.google.com/iam/docs/workforce-identity-federation).
+  * **Uniform (recommended)** : [Uniform bucket-level access](https://docs.cloud.google.com/storage/docs/uniform-bucket-level-access) allows you to use [Identity and Access Management (IAM)](https://docs.cloud.google.com/storage/docs/access-control/iam) alone to manage permissions. IAM applies permissions to all the objects contained inside the bucket or groups of objects with common name prefixes. IAM also allows you to use features that are not available when working with ACLs, such as [managed folders](https://docs.cloud.google.com/storage/docs/managed-folders), [IAM Conditions](https://docs.cloud.google.com/iam/docs/conditions-overview), [domain restricted sharing](https://docs.cloud.google.com/organization-policy/restrict-domains), and [workforce identity federation](https://docs.cloud.google.com/iam/docs/workforce-identity-federation).
 
   * **Fine-grained** : The fine-grained option enables you to use IAM and [Access Control Lists (ACLs)](https://docs.cloud.google.com/storage/docs/access-control/lists) together to manage permissions. ACLs are a legacy access control system for Cloud Storage designed for interoperability with Amazon S3. ACLs also allow you to specify access on a per-object basis.
 
@@ -149,6 +149,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

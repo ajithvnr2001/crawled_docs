@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/pricing/
 title: Agent Registry pricing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:13.540913+00:00
+fetched_at: 2026-10-24T08:52:07.616400+00:00
 ---
 
 # Agent Registry pricing  |  Google Cloud Documentation

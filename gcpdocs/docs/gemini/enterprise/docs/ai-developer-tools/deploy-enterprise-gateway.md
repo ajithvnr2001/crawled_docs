@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools/deploy-enterprise-gateway/
 title: Configure an enterprise gateway for Google Antigravity \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:21.332508+00:00
+fetched_at: 2026-10-24T08:54:56.325006+00:00
 ---
 
 # Configure an enterprise gateway for Google Antigravity  |  Gemini Enterprise  |  Google Cloud Documentation

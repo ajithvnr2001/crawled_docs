@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/choose-machine-type/
 title: Choose an AlloyDB machine type \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:57.295144+00:00
+fetched_at: 2026-10-24T11:25:11.452151+00:00
 ---
 
 # Choose an AlloyDB machine type  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -54,13 +54,44 @@ Z3 |
 Large working dataset, storage intensive |   
 Allows caching of more data per vCPU; optimized for storage-dense, I/O-intensive workloads  
   
+## Machine series configuration for primary and read pool instances
+
+To optimize performance and cost, an AlloyDB cluster lets you configure and scale machine series and machine types independently across your primary instance and read pool instances.
+
+### Cross-machine-series configurations
+
+An AlloyDB cluster supports cross-machine-series configurations, which let you run the primary instance and read pool instances on different compute machine series. For example, you can provision the primary instance on the N2 machine series and provision read pool instances on the C4, C4A, or Z3 machine series.
+
+**Note:** For high-availability (HA) clusters, the standby instance automatically uses the same machine series and machine type as the primary instance.
+
+### Vertical scaling for primary instances
+
+To adapt to workload changes, you can vertically scale an AlloyDB primary instance in the following ways:
+
+  * Scale the size within a machine series: Increase or decrease the vCPU and memory allocation within the existing machine series. For example, scale a primary instance from an N2 machine type with 8 vCPUs to an N2 machine type with 16 vCPUs.
+
+  * Change the machine series shape: Transition the primary instance to a different machine series to optimize workload performance or hardware efficiency. For example, change a primary instance from an N2 machine type with 16 vCPUs to an Axion-based C4A machine type with 32 vCPUs.
+
+
+
+
+### Horizontal scaling for read pool instances
+
+You can scale a read pool instance horizontally by adding or removing nodes behind a single load-balanced reader IP endpoint. All nodes in a read pool instance must use the same machine series and machine type. For example, if you add a third node to a read pool instance that contains two N2 nodes, then the third node must also use the same N2 machine type, not a C4, C4A, or Z3 machine type.
+
+### Machine series transitions for read pool instances
+
+You can switch a read pool instance to a different machine series, such as from N2 to C4, C4A, or Z3, which transitions all nodes in the read pool instance to the target machine series and machine type. To serve read traffic across multiple machine series or machine types simultaneously, deploy separate read pool instances for each configuration.
+
+**Caution:** Changing the machine series of a read pool instance replaces its existing nodes. When you update a read pool instance from N2 nodes to C4, C4A, or Z3 nodes, AlloyDB doesn't add the replacement nodes to the existing pool. Instead, AlloyDB provisions replacement nodes in the target machine series, routes traffic to the replacement nodes while keeping the read pool instance's IP address unchanged, and deletes the original nodes. This update requires slight downtime and causes a momentary interruption in active client connections.
+
 ## Machine series availability for AlloyDB clusters
 
 You can choose one of the following machine series:
 
   * **N2** : this machine series provides a balanced price-to-performance ratio for a variety of AlloyDB workloads.
   * **C4A Axion-based** : this machine series provides optimized price-performance and delivers predictable high performance for high demand AlloyDB workloads.
-  * **C4** : this machine series provides excellent performance, and the largest vertical scale in AlloyDB.
+  * **C4** : this machine series provides excellent performance and the largest vertical scale in AlloyDB.
   * **Z3** : this machine series is optimized for storage-dense, I/O-intensive workloads.
 
 
@@ -177,50 +208,50 @@ The following machine types are available for instances for the C4 machine serie
 288 |   
 2304 GB RAM  
   
-### Z3 standardlssd
+### Z3 standard-lssd
 
-The following machine types are available for instances for the Z3 machine series. For more information, see [Z3 machine series](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z3-standardlssd).
+The following machine types are available for instances for the Z3 machine series. For more information, see [Z3 machine series](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z3-standard-lssd).
 
   
 **Machine type** |   
 **vCPUs** |   
 **Memory (GB)**  
 ---|---|---  
-` z3-highmem-14-standardlssd ` |   
+` z3-highmem-14-standard-lssd ` |   
 14 |   
 112 GB RAM  
-` z3-highmem-22-standardlssd ` |   
+` z3-highmem-22-standard-lssd ` |   
 22 |   
 176 GB RAM  
-` z3-highmem-44-standardlssd ` |   
+` z3-highmem-44-standard-lssd ` |   
 44 |   
 352 GB RAM  
-` z3-highmem-88-standardlssd ` |   
+` z3-highmem-88-standard-lssd ` |   
 88 |   
 704 GB RAM  
   
-### Z3 highlssd
+### Z3 high-lssd
 
-The following machine types are available for instances for the Z3 `highlssd` machine series. For more information, see [Z3 machine series](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z3-highlssd).
+The following machine types are available for instances for the Z3 `high-lssd` machine series. For more information, see [Z3 machine series](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z3-highlssd).
 
   
 **Machine type** |   
 **vCPUs** |   
 **Memory (GB)**  
 ---|---|---  
-` z3-highmem-8-highlssd ` |   
+` z3-highmem-8-high-lssd ` |   
 8 |   
 64 GB RAM  
-` z3-highmem-16-highlssd ` |   
+` z3-highmem-16-high-lssd ` |   
 16 |   
 128 GB RAM  
-` z3-highmem-22-highlssd ` |   
+` z3-highmem-22-high-lssd ` |   
 22 |   
 176 GB RAM  
-` z3-highmem-32-highlssd ` |   
+` z3-highmem-32-high-lssd ` |   
 32 |   
 256 GB RAM  
-` z3-highmem-44-highlssd ` |   
+` z3-highmem-44-high-lssd ` |   
 44 |   
 352 GB RAM  
   

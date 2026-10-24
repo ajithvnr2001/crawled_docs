@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/access-control/roles-permissions/
 title: Sensitive Data Protection roles and permissions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:38:35.177625+00:00
+fetched_at: 2026-10-24T08:45:38.690636+00:00
 ---
 
 # Sensitive Data Protection roles and permissions  |  Google Cloud Documentation

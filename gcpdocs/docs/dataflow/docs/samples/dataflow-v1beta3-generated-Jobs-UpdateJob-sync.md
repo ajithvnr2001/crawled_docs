@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/samples/dataflow-v1beta3-generated-Jobs-UpdateJob-sync/
 title: Update a job (Ruby) \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:54:00.364589+00:00
+fetched_at: 2026-10-24T09:12:09.980323+00:00
 ---
 
 # Update a job (Ruby)  |  Cloud Dataflow  |  Google Cloud Documentation

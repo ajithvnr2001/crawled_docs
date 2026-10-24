@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/registry-mirror/
 title: Use a registry mirror for container images \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:16.405861+00:00
+fetched_at: 2026-10-24T11:18:54.076144+00:00
 ---
 
 # Use a registry mirror for container images  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,9 +22,9 @@ Send feedback
 
 #  Use a registry mirror for container images Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page explains how to create and upgrade clusters using images pulled from a registry mirror, rather than from a public registry such as `gcr.io`. This feature can be enabled or disabled at any time in the cluster lifecycle.
+Configuring a local registry mirror lets you create and upgrade clusters by pulling container images from a local endpoint instead of upstream registries such as `gcr.io`. This approach helps accelerate pod creation, avoid external pull rate limits, and protect your deployment workflows from public registry outages. You can enable or disable registry mirroring at any point during the cluster lifecycle.
 
-This page is for Operators and Storage specialists who configure and manage storage performance, usage, and expense. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
+## How a registry mirror works
 
 A registry mirror is a local copy of a public registry that copies or mirrors the file structure of the public registry. For example, suppose that the path to your local registry mirror is `172.18.0.20:5000`. When `containerd` encounters a request to pull an image such as `gcr.io/kubernetes-e2e-test-images/nautilus:1.0`, `containerd` attempts to pull that image, not from `gcr.io`, but from your local registry at the following path: `172.18.0.20:5000/kubernetes-e2e-test-images/nautilus:1.0`. If the image isn't in this local registry path, the image is pulled automatically from the `gcr.io` public registry.
 

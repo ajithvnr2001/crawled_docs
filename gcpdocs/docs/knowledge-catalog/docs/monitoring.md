@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/monitoring/
 title: Monitor Knowledge Catalog metrics \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:41.009670+00:00
+fetched_at: 2026-10-24T08:53:34.587147+00:00
 ---
 
 # Monitor Knowledge Catalog metrics  |  Google Cloud Documentation
@@ -23,15 +23,15 @@ Send feedback
 
 #  Monitor Knowledge Catalog metrics Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains how to use Cloud Monitoring to track the health of Knowledge Catalog (formerly Dataplex Universal Catalog) services, optimize performance, and gain visibility into your data platform. Proactive monitoring helps you ensure the reliability of data applications and make informed decisions about resource allocation and cost management.
+Cloud Monitoring lets you track the health and performance of Knowledge Catalog (formerly Dataplex Universal Catalog) resources, including lakes, zones, and assets. You can build custom dashboards and configure alerts for service thresholds in Monitoring, or query Cloud Billing exports in BigQuery to attribute Data Compute Unit (DCU) costs across data scans and lineage workloads.
 
-To understand the costs, see [Monitoring pricing](https://cloud.google.com/stackdriver/pricing).
+For more information about pricing, see [Google Cloud Observability pricing](https://cloud.google.com/products/observability/pricing).
 
-For more information about metric data retention, see [Monitoring quotas and limits](https://docs.cloud.google.com/monitoring/quotas#data_retention_policy).
+For more information about metric data retention, see the Data retention section in [Monitoring quotas and limits](https://docs.cloud.google.com/monitoring/quotas#data_retention_policy).
 
 ## Use cases
 
-You can use Knowledge Catalog metrics in Cloud Monitoring to support the following use cases:
+You can use Knowledge Catalog metrics in Monitoring to support the following use cases:
 
   * **Ensure data pipeline reliability** : Monitor success and failure rates of Knowledge Catalog tasks, such as data ingestion or data quality jobs. Configure alerts for failures or unusual durations to minimize downtime for critical workloads.
   * **Optimize performance** : Track job durations and resource utilization metrics to identify and resolve performance bottlenecks in your data processing, data quality, and data discovery workloads.
@@ -42,7 +42,7 @@ You can use Knowledge Catalog metrics in Cloud Monitoring to support the followi
 
 ## How it works
 
-Knowledge Catalog is integrated with Cloud Monitoring, which collects metrics, events, and metadata from Knowledge Catalog services. These metrics provide insights into areas such as job execution status, API usage, and resource health. You can analyze these metrics using tools in Cloud Monitoring, such as Metrics Explorer, custom dashboards, and alerting. These tools let you visualize your service's behavior, identify performance trends, and create alerting policies that notify you when performance deviates from defined thresholds or when failures happen.
+Knowledge Catalog is integrated with Monitoring, which collects metrics, events, and metadata from Knowledge Catalog services. These metrics provide insights into areas such as job execution status, API usage, and resource health. You can analyze these metrics using tools in Monitoring, such as Metrics Explorer, custom dashboards, and alerting. These tools let you visualize your service's behavior, identify performance trends, and create alerting policies that notify you when performance deviates from defined thresholds or when failures happen.
 
 ## Access service metrics in Monitoring
 
@@ -73,7 +73,9 @@ To display information about a metric, hold the pointer over the metric name.
 
 ### REST
 
-To capture and list metrics defined by a `filter` expression, use the Monitoring [timeSeries.list](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list) method.
+To capture and list metrics defined by a `filter` expression, use the Monitoring [timeSeries.list](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list)
+
+method.
 
 To send an API request and display the response, on the API page, use the **Try this API** template.
 
@@ -81,7 +83,7 @@ To send an API request and display the response, on the API page, use the **Try 
 
 Knowledge Catalog service metrics help you monitor the health of your service.
 
-**Note:** Knowledge Catalog DataScan compute (such as auto data quality scans and data profiling scans) and data lineage Data Compute Units (DCUs) execute on serverless compute in Google-managed infrastructure and don't emit real-time time-series metrics under `dataplex.googleapis.com/*` to Cloud Monitoring. Only lakes, zones, and assets emit time-series metrics to Cloud Monitoring. To monitor, track, and attribute Knowledge Catalog SKU consumption and DCU costs across projects and scans, query Cloud Billing export tables in BigQuery using Knowledge Catalog system labels. For details and example queries, see Monitor and attribute Knowledge Catalog DCU costs with Cloud Billing export. 
+**Note:** Knowledge Catalog DataScan compute (such as auto data quality scans and data profiling scans) and data lineage Data Compute Units (DCUs) execute on serverless compute in Google-managed infrastructure and don't emit real-time time-series metrics under `dataplex.googleapis.com/*` to Monitoring. Only lakes, zones, and assets emit time-series metrics to Monitoring. To monitor, track, and attribute Knowledge Catalog SKU consumption and DCU costs across projects and scans, query Cloud Billing export tables in BigQuery using Knowledge Catalog system labels. For details and example queries, see Monitor and attribute Knowledge Catalog DCU costs with Cloud Billing export. 
 
 The "metric type" strings in this table must be prefixed with `dataplex.googleapis.com/`. That prefix has been omitted from the entries in the table. When querying a label, use the `metric.labels.` prefix; for example, `metric.labels.LABEL="VALUE"`. 
 
@@ -153,7 +155,7 @@ Table generated at 2026-10-22 02:44:18 UTC.
 
 ## Monitor and attribute Knowledge Catalog DCU costs with Cloud Billing export
 
-Because Knowledge Catalog data scans (including auto data quality and data profiling) and data lineage don't publish time-series metrics to Cloud Monitoring, you can use [Cloud Billing export to BigQuery](https://docs.cloud.google.com/billing/docs/how-to/export-data-bigquery) to track, monitor, and attribute Data Compute Unit (DCU) usage and costs across projects, scans, and data resources.
+Because Knowledge Catalog data scans (including auto data quality and data profiling) and data lineage don't publish time-series metrics to Monitoring, you can use [Cloud Billing export to BigQuery](https://docs.cloud.google.com/billing/docs/how-to/export-data-bigquery) to track, monitor, and attribute Data Compute Unit (DCU) usage and costs across projects, scans, and data resources.
 
 ### Knowledge Catalog billing labels
 
@@ -311,7 +313,7 @@ For more information about alerts, see [Incidents for metric-based alerts](https
 
 ## What's next
 
-  * Learn more about [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview).
+  * Learn more about [Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview).
   * Learn about [Cloud Billing export to BigQuery](https://docs.cloud.google.com/billing/docs/how-to/export-data-bigquery).
   * Learn how to [use auto data quality](https://docs.cloud.google.com/knowledge-catalog/docs/use-auto-data-quality).
   * Learn how to [use data profiling](https://docs.cloud.google.com/knowledge-catalog/docs/use-data-profiling).
@@ -323,6 +325,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

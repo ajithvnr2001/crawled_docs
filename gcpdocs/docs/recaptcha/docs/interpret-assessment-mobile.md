@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/interpret-assessment-mobile/
 title: Interpret assessments for mobile applications \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T05:43:52.851825+00:00
+fetched_at: 2026-10-24T11:25:43.579456+00:00
 ---
 
 # Interpret assessments for mobile applications  |  Google Cloud Fraud Defense  |  Google Cloud Documentation
@@ -45,7 +45,7 @@ To interpret an assessment, consider the following parameters:
   * `expectedAction`: the expected action from a user that you specified when creating the assessment.
   * `score`: level of risk the user interaction poses.
   * `reasons`: additional information about how reCAPTCHA has interpreted the user interaction.
-  * `extended_verdict_reasons`: advanced reasons contributing to the risk analysis verdict.
+  * `extendedVerdictReasons`: advanced reasons contributing to the risk analysis verdict.
 
 Reason codes are available after triggering an automatic security review by adding a billing account to your project. To request access to reason codes, [add a billing account](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account) to your project.
 
@@ -54,7 +54,9 @@ Assessments from projects with an Enterprise subscription also receive Advanced 
         {
          "event":{
            **** "expectedAction":"EXPECTED_ACTION",
-            "hashedAccountId":"ACCOUNT_ID",
+            "userInfo":{
+              "accountId":"ACCOUNT_ID"
+            },
             "siteKey":"KEY_ID",
             "token":"TOKEN",
             "userAgent":"(USER-PROVIDED STRING)",
@@ -63,14 +65,15 @@ Assessments from projects with an Enterprise subscription also receive Advanced 
          "name":"ASSESSMENT_ID",
          **"riskAnalysis" :{
            "reasons":[],
-           "extended_verdict_reasons":[],
+           "extendedVerdictReasons":[],
            "score":"SCORE"
          },
          **"tokenProperties":{
            **"action" :"USER_INTERACTION"**,
+           "androidPackageName":"ANDROID_PACKAGE_NAME",
            "createTime":"TIMESTAMP",
-           "hostname":"HOSTNAME",
            **"invalidReason" :"(ENUM)"**,
+           "iosBundleId":"IOS_BUNDLE_ID",
            **"valid" :(BOOLEAN)**
          }
         }
@@ -130,6 +133,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

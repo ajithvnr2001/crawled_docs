@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/downloads/
 title: Google Distributed Cloud for bare metal downloads \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:47:36.377477+00:00
+fetched_at: 2026-10-24T11:18:55.172803+00:00
 ---
 
 # Google Distributed Cloud for bare metal downloads  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,14 +22,9 @@ Send feedback
 
 #  Google Distributed Cloud for bare metal downloads Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page provides commands to download and verify the following artifacts for Distributed Cloud software only for bare metal (formerly known as Google Distributed Cloud Virtual, previously known as Anthos clusters on bare metal):
+To deploy and manage Distributed Cloud software only for bare metal, you can download and verify the required installation artifacts. These artifacts include the `bmctl` command-line tool and the Google Distributed Cloud software offline container images package.
 
-  * `bmctl` command-line tool.
-  * Google Distributed Cloud software offline container images package.
-
-
-
-This page is for Admins and architects and Operators who manage the lifecycle of the underlying tech infrastructure. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
+**Note:** Distributed Cloud software only for bare metal was formerly known as Google Distributed Cloud Virtual, which was previously known as Anthos clusters on bare metal.
 
 ## Sign in
 

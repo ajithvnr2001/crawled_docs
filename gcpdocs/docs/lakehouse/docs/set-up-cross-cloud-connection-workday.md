@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-workday/
 title: Set up cross-cloud connection for Workday Data Lake \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:47.064892+00:00
+fetched_at: 2026-10-24T08:23:13.684574+00:00
 ---
 
 # Set up cross-cloud connection for Workday Data Lake  |  Lakehouse  |  Google Cloud Documentation
@@ -211,7 +211,7 @@ The **Create Federated catalog** page appears.
 To create a federated catalog using the `gcloud` CLI, run the following command:
     
     
-    gcloud alpha biglake iceberg catalogs create FEDERATED_CATALOG_NAME \
+    gcloud biglake iceberg catalogs create FEDERATED_CATALOG_NAME \
         --project="PROJECT_ID" \
         --primary-location="REGION" \
         --catalog-type="federated" \
@@ -266,7 +266,7 @@ Lakehouse grants the `roles/secretmanager.secretAccessor` role on the secret to 
          gcloud secrets add-iam-policy-binding WORKDAY_SECRET_NAME \
            --project="PROJECT_ID" \
            --location="REGION" \
-           --member="serviceAccount:$(gcloud alpha biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
+           --member="serviceAccount:$(gcloud biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
                --project="PROJECT_ID" \
                --format='value(biglake-service-account)')" \
                --role="roles/secretmanager.secretAccessor"
@@ -298,12 +298,12 @@ Verify that the background metadata refresh completed successfully and synchroni
 
   1. Verify that the refresh status indicates success:
          
-         gcloud alpha biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
+         gcloud biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
            --project="PROJECT_ID"
 
   2. Confirm that the namespaces are synchronized:
          
-         gcloud alpha biglake iceberg namespaces list \
+         gcloud biglake iceberg namespaces list \
            --project="PROJECT_ID" \
            --catalog="FEDERATED_CATALOG_NAME"
 
@@ -328,6 +328,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

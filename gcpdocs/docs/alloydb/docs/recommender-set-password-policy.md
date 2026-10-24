@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/recommender-set-password-policy/
 title: Improve instance security by setting password policies \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:24.944633+00:00
+fetched_at: 2026-10-24T11:25:49.933812+00:00
 ---
 
 # Improve instance security by setting password policies  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Improve instance security by setting password policies Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes the AlloyDB password policy [Recommender](https://docs.cloud.google.com/recommender/docs/whatis-activeassist) which helps you identify instances without a password policy, enforce strong passwords, and meet compliance requirements.
+To identify AlloyDB for PostgreSQL instances without a password policy, enforce strong passwords, and help meet compliance requirements, you can view and apply recommendations from the AlloyDB password policy [Recommender](https://docs.cloud.google.com/recommender/docs/whatis-activeassist).
 
 The AlloyDB password policy Recommender detects instances that don't have an instance password policy enabled and provides insights and recommendations to improve your instance security.
 
@@ -29,20 +29,20 @@ Recommendations are generated daily.
 
 ## Pricing
 
-The AlloyDB password policy Recommender is available free of cost to all Google Cloud customers. For more information, see [Recommender pricing](https://docs.cloud.google.com/recommender/docs/pricing).
+The AlloyDB password policy Recommender is available at no additional charge to all Google Cloud customers. For more information, see [Recommender pricing](https://cloud.google.com/recommender/pricing).
 
 ## Before you begin
 
 Before you can view recommendations and insights, you must do the following:
 
-  * Ensure that you [enable the Recommender API](https://docs.cloud.google.com/recommender/docs/enable-api).
+  * [Enable the Recommender API](https://docs.cloud.google.com/recommender/docs/enable-api).
 
-  * To get the permissions to view and work with insights and recommendations, ensure that you have the required [Identity and Access Management (IAM) roles](https://docs.cloud.google.com/alloydb/docs/reference/iam-roles-permissions). 
+  * To get the permissions to view and work with insights and recommendations, ask your administrator to grant you the required [Identity and Access Management (IAM) roles](https://docs.cloud.google.com/alloydb/docs/reference/iam-roles-permissions): 
 
 Tasks | Roles  
 ---|---  
-View recommendations |  `roles/recommender.alloydbViewer`.   
-Apply recommendations |  One of these roles: `roles/recommender.alloydbAdmin` or `roles/alloydb.admin`.   
+View recommendations |  AlloyDB Recommender Viewer (`roles/recommender.alloydbViewer`)   
+Apply recommendations |  AlloyDB Recommender Admin (`roles/recommender.alloydbAdmin`) or AlloyDB Admin (`roles/alloydb.admin`)   
   
 See [Grant access to other users](https://docs.cloud.google.com/alloydb/docs/user-grant-access) for more information.
 
@@ -51,11 +51,11 @@ See [Grant access to other users](https://docs.cloud.google.com/alloydb/docs/use
 
 ## List the recommendations
 
-You can list the password policy recommendations using the Google Cloud console, gcloud CLI, or the Recommender API.
+You can list the password policy recommendations by using the Google Cloud console, gcloud CLI, or the Recommender API.
 
 ###  Console 
 
-To list password policy recommendations using the Google Cloud console, follow these steps:
+To list password policy recommendations by using the Google Cloud console, follow these steps:
 
   1. In the Google Cloud console, go to the AlloyDB **Clusters** page.
 
@@ -72,7 +72,7 @@ For more information, see [Getting started with Active Assist](https://docs.clou
 
 ###  gcloud CLI 
 
-To list password policy recommendations using gcloud CLI, run the [`gcloud recommender recommendations list`](https://docs.cloud.google.com/sdk/gcloud/reference/recommender/recommendations/list) command as follows:
+To list password policy recommendations by using the gcloud CLI, run the [`gcloud recommender recommendations list`](https://docs.cloud.google.com/sdk/gcloud/reference/recommender/recommendations/list) command as follows:
     
     
     gcloud recommender recommendations list \
@@ -85,13 +85,15 @@ To list password policy recommendations using gcloud CLI, run the [`gcloud recom
 Replace the following:
 
   * `PROJECT_ID`: your project ID.
+
   * `LOCATION`: the region where your instances are located, such as `us-central1`.
+
 
 
 
 ###  API 
 
-To list password policy recommendations using the [Recommender API](https://docs.cloud.google.com/recommender/docs/use-api), call the [`recommendations.list`](https://docs.cloud.google.com/recommender/docs/reference/rest/v1/projects.locations.recommenders.recommendations/list) method as follows:
+To list password policy recommendations by using the [Recommender API](https://docs.cloud.google.com/recommender/docs/use-api), call the [`recommendations.list`](https://docs.cloud.google.com/recommender/docs/reference/rest/v1/projects.locations.recommenders.recommendations/list) method as follows:
     
     
     GET https://recommender.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/recommenders/google.alloydb.instance.SecurityRecommender/recommendations?filter=recommenderSubtype=ENABLE_INSTANCE_PASSWORD_POLICY
@@ -100,17 +102,21 @@ To list password policy recommendations using the [Recommender API](https://docs
 Replace the following:
 
   * `PROJECT_ID`: your project ID.
+
   * `LOCATION`: the region where your instances are located, such as `us-central1`.
+
 
 
 
 ## View insights and detailed recommendations
 
-You can view insights and detailed recommendations about instances that require enabling instance password policies using the Google Cloud console, gcloud CLI, or the Recommender API.
+You can view insights and detailed recommendations about instances that require enabling instance password policies by using the Google Cloud console, gcloud CLI, or the Recommender API.
 
 ###  Console 
 
-To view insights and detailed recommendations about instances that require enabling instance password policies, click the recommendation link in the list of instances on the **Clusters** page.
+On the **Clusters** page, under the **Resources** table, click **View issues** in the **Issues** column for the cluster.
+
+The **Aggregated issues** panel appears on the right, which contains insights and detailed recommendations for **No password policy**.
 
 ###  gcloud CLI 
 
@@ -127,13 +133,15 @@ To view insights and detailed recommendations about instances that require enabl
 Replace the following:
 
   * `PROJECT_ID`: your project ID.
-  * `LOCATION`: a region where your instances are located, such as `us-central1`.
+
+  * `LOCATION`: the region where your instances are located, such as `us-central1`.
+
 
 
 
 ###  API 
 
-To view insights and detailed recommendations about instances that require enabling instance password policies, using the [Recommender API](https://docs.cloud.google.com/recommender/docs/use-api), call the [`insights.list`](https://docs.cloud.google.com/recommender/docs/reference/rest/v1/projects.locations.insightTypes.insights/list) method as follows:
+To view insights and detailed recommendations about instances that require enabling instance password policies by using the [Recommender API](https://docs.cloud.google.com/recommender/docs/use-api), call the [`insights.list`](https://docs.cloud.google.com/recommender/docs/reference/rest/v1/projects.locations.insightTypes.insights/list) method as follows:
     
     
     GET https://recommender.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/insightTypes/google.alloydb.instance.SecurityInsight/insights?filter=insightSubtype=INSTANCE_PASSWORD_POLICY_NOT_ENABLED
@@ -142,7 +150,9 @@ To view insights and detailed recommendations about instances that require enabl
 Replace the following:
 
   * `PROJECT_ID`: your project ID.
-  * `LOCATION`: a region where your instances are located, such as `us-central1`.
+
+  * `LOCATION`: the region where your instances are located, such as `us-central1`.
+
 
 
 
@@ -154,7 +164,7 @@ To implement this recommendation, do the following:
   2. In the **Aggregated issues** panel, select the **No password policy** recommendation card and click **Edit instance**.
   3. [Set an instance password policy](https://docs.cloud.google.com/alloydb/docs/database-users/manage-password-policy#set-password-policy).
 
-**Note:** You must carefully evaluate the recommendation before you update the instance. Applying recommendations impacts your pricing.
+**Note:** Carefully evaluate the recommendation before you update the instance to avoid disrupting existing database users whose passwords don't meet the policy requirements.
 
 ## What's next
 

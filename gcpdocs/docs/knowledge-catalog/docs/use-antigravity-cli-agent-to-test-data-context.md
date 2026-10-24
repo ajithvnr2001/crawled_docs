@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/use-antigravity-cli-agent-to-test-data-context/
 title: Use the Antigravity CLI to test data context \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:52.718945+00:00
+fetched_at: 2026-10-24T11:10:23.986689+00:00
 ---
 
 # Use the Antigravity CLI to test data context  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback
 
 #  Use the Antigravity CLI to test data context Stay organized with collections  Save and categorize content based on your preferences. 
 
-AI agents can reason, but they start with zero knowledge about your specific company. Imagine asking an agent, "What is our Q1 revenue?" Without guidance, the agent might pick from dozens of tables named "revenue" in your databases, ranging from official reports to messy test data. If the agent picks the table with the closest-sounding name, it could return convincingly wrong answers based on unverified sources.
-
-Metadata enrichment is the solution to this context problem. In this tutorial, you set up [aspects](https://docs.cloud.google.com/knowledge-catalog/docs/enrich-entries-metadata#aspects) that provide this context, and use the [Antigravity CLI](https://antigravity.google/docs/cli/overview) to test data context and verify that an agent can accurately ground its answers in trusted, certified data.
+Metadata enrichment in Knowledge Catalog (formerly Dataplex Universal Catalog) lets you provide structured data context so AI agents can ground their answers in trusted, certified sources. In this tutorial, you attach custom [aspects](https://docs.cloud.google.com/knowledge-catalog/docs/enrich-entries-metadata#aspects) to sample BigQuery tables and use the [Antigravity CLI](https://antigravity.google/docs/cli/overview) to test how an AI agent applies your governance rules.
 
 ## Objectives
 
@@ -89,9 +87,9 @@ Download the infrastructure code and scripts from GitHub. Use a sparse checkout 
 
 ## Deploy a sample data lake in BigQuery
 
-Real-world data environments are rarely clean. To simulate reality, you need a mix of "official" data marts and untrusted "sandbox" tables.
+Real-world data environments are rarely clean. AI agents can reason, but they start with zero knowledge about your specific company. Imagine asking an agent, "What is our Q1 revenue?" Without guidance, the agent might pick from dozens of tables named "revenue" in your databases, ranging from official reports to raw test data. If the agent picks the table with the closest-sounding name, it can return convincingly wrong answers based on unverified sources.
 
-You use a setup script to deploy the BigQuery datasets and tables.
+To simulate this scenario, you need a mix of "official" data marts and untrusted "sandbox" tables. You use a setup script to deploy the BigQuery datasets and tables.
 
 Make the setup script executable and run it. This creates three BigQuery datasets (`finance_mart`, `marketing_prod`, `analyst_sandbox`) and populates their tables with sample data:
     
@@ -349,6 +347,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

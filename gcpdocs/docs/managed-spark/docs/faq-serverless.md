@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/faq-serverless/
 title: Managed Service for Apache Spark serverless FAQ \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:56.499006+00:00
+fetched_at: 2026-10-24T11:25:14.255895+00:00
 ---
 
 # Managed Service for Apache Spark serverless FAQ  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  Managed Service for Apache Spark serverless FAQ Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page contains frequently asked Managed Service for Apache Spark serverless deployment questions with answers. Unless otherwise stated, this information applies only to Managed Service for Apache Spark serverless, not cluster, deployments.
+Managed Service for Apache Spark serverless lets you run Spark batch workloads and interactive sessions on fully managed infrastructure. The following questions and answers cover common deployment, configuration, and operational topics. Unless otherwise stated, this information applies only to serverless deployments, not cluster deployments.
 
 ### When should I use Managed Service for Apache Spark serverless deployment instead of Managed Service for Apache Spark cluster deployment?
 
@@ -149,6 +149,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

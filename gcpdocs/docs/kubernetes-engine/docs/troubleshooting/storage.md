@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/storage/
 title: Troubleshooting storage in GKE \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:24:11.950690+00:00
+fetched_at: 2026-10-24T11:26:06.325152+00:00
 ---
 
 # Troubleshooting storage in GKE  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -242,6 +242,21 @@ When a Pod experiences an OOM kill, you can correlate the event to the correct C
 
 
 
+## Stateful workloads stuck in `Pending` state due to insufficient compute capacity
+
+If you have stateful workloads that are stuck in a `Pending` state with error messages like `ZONE_RESOURCE_POOL_EXHAUSTED` or `GCE_STOCKOUT`, a specific zone might have limited compute capacity.
+
+When a compute node goes offline in a zone lacking sufficient capacity, replacing that node might fail. Stateful Pods that rely on pre-existing, zonal PersistentVolumes (like a standard `pd-ssd` or `pd-balanced` disk) are limited to the zone where that volume was created. Because the Pod must be scheduled in that specific zone to mount the volume, the Pod remains `Pending` until compute capacity in that zone becomes available.
+
+To mitigate this issue for future stateful workloads, consider the following:
+
+  * **Avoid same-zone fallbacks between`pd-ssd` and `pd-balanced`:** because `pd-ssd` and `pd-balanced` volumes share the same capacity limits and availability pools in a zone, changing your StorageClass from `pd-ssd` to `pd-balanced` in the _same_ zone will not resolve the lack of capacity. Don't attempt this as a fallback.
+  * **Use Hyperdisk-compatible shapes:** some machine series support [Hyperdisks](https://docs.cloud.google.com/compute/docs/disks/hyperdisks). Consider using a Hyperdisk-compatible shape because these might have different availability constraints that help when a zone lacks sufficient capacity. Before migrating workloads, ensure you have enough [Disk quotas](https://docs.cloud.google.com/compute/resource-usage#disk_quota).
+  * **Enable dynamic topology binding (`WaitForFirstConsumer`):** when you create new stateful workloads, configure your StorageClass definition with the `volumeBindingMode: WaitForFirstConsumer` field-value pair. This setting defers the creation of the volume until a Pod is scheduled to a healthy node in a zone with sufficient compute capacity, which helps prevent premature volume creation from locking your Pod into an offline or exhausted zone.
+  * **Configure automated disk type selection for VM fallbacks:** in GKE version 1.35.3-gke.1290000 and later, you can configure custom ComputeClasses for workloads that fall back across VM generations (for example, N4 to N2, or C4 to C2). By using [automated disk type selection](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/hyperdisk#automated_disk_type_selection), you can configure a `StorageClass` definition with the `parameters.type: dynamic` and `use-allowed-disk-topology: "true"` field-value pairs. This configuration allows GKE to automatically provision `hyperdisk-balanced` disks on newer machine generations and fall back to `pd-balanced` disks on older generations.
+
+
+
 ## What's next
 
   * If you can't find a solution to your problem in the documentation, see [Get support](https://docs.cloud.google.com/kubernetes-engine/docs/getting-support) for further help, including advice on the following topics:
@@ -256,6 +271,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

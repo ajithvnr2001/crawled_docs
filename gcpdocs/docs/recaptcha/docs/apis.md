@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/apis/
 title: APIs & reference \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T05:44:13.690408+00:00
+fetched_at: 2026-10-24T11:25:40.724986+00:00
 ---
 
 # APIs & reference  |  Google Cloud Fraud Defense  |  Google Cloud Documentation
@@ -23,13 +23,13 @@ Send feedback
 
 #  APIs & reference Stay organized with collections  Save and categorize content based on your preferences. 
 
-  * ### [Authenticate to reCAPTCHA Enterprise Describes authentication to reCAPTCHA. ](https://docs.cloud.google.com/recaptcha/docs/authentication)
+  * ### [Authenticate to reCAPTCHA Describes authentication to reCAPTCHA. ](https://docs.cloud.google.com/recaptcha/docs/authentication)
   * ### [Client Libraries Get started with the reCAPTCHA Enterprise API in your language of choice.  ](https://docs.cloud.google.com/recaptcha/docs/libraries)
   * ### [REST Reference Learn about the REST API.  ](https://docs.cloud.google.com/recaptcha/docs/reference/rest)
   * ### [RPC Reference Learn about the RPC API.  ](https://docs.cloud.google.com/recaptcha/docs/reference/rpc)
-  * ### [Mobile Reference Learn about the iOS and Android SDKs.  ](https://docs.cloud.google.com/recaptcha/docs/reference/rpc)
+  * ### [Mobile Reference Learn about the iOS and Android SDKs.  ](https://docs.cloud.google.com/recaptcha/docs/reference/android/com/google/android/recaptcha/package-summary)
   * ### [JavaScript API Reference Learn about the JavaScript API.  ](https://docs.cloud.google.com/recaptcha/docs/api-ref-checkbox-keys)
-  * ### [Language codes Learn about the language codes supported by reCAPTCHA Enterprise.  ](https://docs.cloud.google.com/recaptcha/docs/language)
+  * ### [Language codes Learn about the language codes supported by reCAPTCHA.  ](https://docs.cloud.google.com/recaptcha/docs/language)
 
 
 

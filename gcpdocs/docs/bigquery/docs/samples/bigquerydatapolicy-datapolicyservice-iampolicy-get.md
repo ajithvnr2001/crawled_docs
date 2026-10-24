@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatapolicy-datapolicyservice-iampolicy-get/
 title: Get the IAM policy for a data policy \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:18:44.658170+00:00
+fetched_at: 2026-10-24T09:33:23.133707+00:00
 ---
 
 # Get the IAM policy for a data policy  |  BigQuery  |  Google Cloud Documentation

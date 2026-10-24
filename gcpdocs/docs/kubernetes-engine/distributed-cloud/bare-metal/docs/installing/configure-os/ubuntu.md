@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/configure-os/ubuntu/
 title: Configure Ubuntu \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:34.735464+00:00
+fetched_at: 2026-10-24T11:18:53.810944+00:00
 ---
 
 # Configure Ubuntu  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Configure Ubuntu Stay organized with collections  Save and categorize content based on your preferences. 
 
-You must configure the base operating system of your node machines to use Google Distributed Cloud. This page contains the steps you need to take to complete the needed configuration. For more information about troubleshooting Google Distributed Cloud requirements, see the [known issues](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/known-issues).
+To use Google Distributed Cloud, you must configure the base Ubuntu operating system on your node machines. Setting up required package managers, kernel parameters, and system services prepares your nodes for cluster deployment. To troubleshoot Google Distributed Cloud requirements, see the [known issues](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/known-issues).
 
 ## Before you begin
 
@@ -30,7 +30,7 @@ Ensure that you are using a supported version of your operating system and a Ubu
 
 ## Enable cgroupsv2
 
-Google Distributed Cloud software-only for bare metal version 1.35 and later requires `cgroupsv2`. Your operating system must support `cgroupsv2` in order to upgrade or create clusters. 
+Google Distributed Cloud software-only for bare metal version 1.35 and later requires `cgroupsv2`. Your operating system must support `cgroupsv2` in order to upgrade or create clusters.
 
 Google Distributed Cloud prevents creating or upgrading clusters if `cgroupsv1` is detected during preflight checks. For instructions on how to migrate your operating system to `cgroupsv2`, see [Migrating to cgroup v2](https://kubernetes.io/docs/concepts/architecture/cgroups/#migrating-cgroupv2) in the Kubernetes documentation.
 

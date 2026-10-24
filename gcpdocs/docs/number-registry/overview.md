@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/number-registry/overview/
 title: Cloud Number Registry overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:05:02.524264+00:00
+fetched_at: 2026-10-24T11:25:44.303380+00:00
 ---
 
 # Cloud Number Registry overview  |  Google Cloud Documentation
@@ -100,13 +100,15 @@ The discovery process for Compute Engine resources creates the following realms 
 
   * A realm for each VPC network's internal IPv4 resources. The realm name starts with `vpc-global`. This realm contains discovered ranges for the following resources:
 
-    * Subnet primary IPv4 address ranges.
+    * [Subnet](https://docs.cloud.google.com/vpc/docs/subnets) primary IPv4 address ranges.
     * Subnet secondary IPv4 address ranges.
-    * Ephemeral and static internal IPv4 addresses.
+    * Ephemeral and static internal IPv4 [addresses](https://docs.cloud.google.com/vpc/docs/ip-addresses).
 
 These addresses are displayed as child ranges (`/32`) of the parent discovered range. For example, a regional internal IPv4 address that is assigned to an instance or a forwarding rule is displayed as a child range of the subnet's primary IPv4 address range.
 
     * Instances that use these IPv4 addresses.
+
+    * IPv4 [internal ranges](https://docs.cloud.google.com/vpc/docs/internal-ranges).
 
   * A realm for each VPC network's internal IPv6 resources. This realm contains discovered ranges for the following resources:
 
@@ -117,6 +119,8 @@ These addresses are displayed as child ranges (`/32`) of the parent discovered r
 These ranges are displayed as child ranges of the parent discovered range. For example, a regional internal IPv6 address range that is assigned to an instance or a forwarding rule is displayed as a child range of the subnet's internal IPv6 address range.
 
     * Instances that use these IPv6 address ranges.
+
+    * IPv6 [internal ranges](https://docs.cloud.google.com/vpc/docs/internal-ranges).
 
   * A realm named `google-owned-ipv4` that contains the following:
 
@@ -131,7 +135,7 @@ These ranges are displayed as child ranges of the parent discovered range. For e
     * Instances that use these IPv6 address ranges.
   * A realm named `byoip-ipv4` that contains the following:
 
-    * IPv4 BYOIP public advertised prefixes.
+    * IPv4 [BYOIP](https://docs.cloud.google.com/vpc/docs/bring-your-own-ip) public advertised prefixes.
     * IPv4 BYOIP public delegated prefixes.
     * Static external IPv4 addresses that are reserved from a public delegated prefix.
     * Instances that use ephemeral external IPv4 addresses that are created from a public delegated prefix.
@@ -140,7 +144,7 @@ If an instance uses a static external IPv4 address that is reserved from a publi
 
   * A realm named `byoip-ipv6` that contains the following:
 
-    * IPv6 BYOIP public advertised prefixes.
+    * IPv6 [BYOIP](https://docs.cloud.google.com/vpc/docs/bring-your-own-ip) public advertised prefixes.
     * IPv6 BYOIP public delegated prefixes.
     * External or internal IPv6 subnet ranges that are created from a public delegated prefix.
     * Ephemeral and static external IPv6 address ranges that are created from a public delegated prefix.
@@ -153,8 +157,6 @@ If an instance uses a static external IPv4 address that is reserved from a publi
 The following limitations apply to Cloud Number Registry:
 
   * Cloud Number Registry is configured in the designated project, but contains a read-only representation of IP address range information for the whole organization. To control access to the organization's IP address information, you must control access to the designated project. For more information, see Project designation for Cloud Number Registry.
-
-  * [Internal ranges](https://docs.cloud.google.com/vpc/docs/internal-ranges) aren't discovered.
 
   * If you use bring your own IP addresses (BYOIP), and have reserved an external IPv4 address from a public delegated prefix, and have assigned that static IP address to an instance, the discovered ranges are split across two realms instead of the same realm:
 
@@ -173,6 +175,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-23 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/nodes/provisioning-sole-tenant-vms/
 title: Provision VMs on sole-tenant nodes \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:30.457874+00:00
+fetched_at: 2026-10-24T08:34:21.880182+00:00
 ---
 
 # Provision VMs on sole-tenant nodes  |  Compute Engine  |  Google Cloud Documentation

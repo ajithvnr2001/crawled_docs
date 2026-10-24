@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/iceberg-external-tables/
 title: Create Apache Iceberg external tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:38.757732+00:00
+fetched_at: 2026-10-24T09:41:56.501197+00:00
 ---
 
 # Create Apache Iceberg external tables  |  BigQuery  |  Google Cloud Documentation

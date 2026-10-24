@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/sources-oracle/
 title: Stream data from Oracle databases \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:03:30.594272+00:00
+fetched_at: 2026-10-24T11:25:11.585183+00:00
 ---
 
 # Stream data from Oracle databases  |  Datastream  |  Google Cloud Documentation
@@ -194,6 +194,8 @@ Because Datastream streams these columns by querying the database, intermediate 
     * Dropping tables (relevant if the same table is then recreated with new data added)
     * Truncating tables
   * Datastream doesn't support replicating views.
+
+  * Datastream doesn't support replicating virtual columns (`GENERATED ALWAYS AS (...) VIRTUAL`), because Oracle doesn't store virtual column values on disk or write them to redo logs. Virtual columns are omitted from the destination schema. If a virtual column is part of a composite primary key, Datastream uses only the non-virtual columns as the primary key in the destination, which can cause duplicate-key overwrites if the remaining columns aren't unique.
 
   * Datastream supports materialized views. However, new views created while the stream is running aren't backfilled automatically.
 

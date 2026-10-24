@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/regional-migs/
 title: About regional MIGs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:00:30.280530+00:00
+fetched_at: 2026-10-24T08:34:49.399489+00:00
 ---
 
 # About regional MIGs  |  Compute Engine  |  Google Cloud Documentation

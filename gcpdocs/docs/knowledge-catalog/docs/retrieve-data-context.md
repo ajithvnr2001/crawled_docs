@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/retrieve-data-context/
 title: Retrieve context for data assets \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:21:33.681481+00:00
+fetched_at: 2026-10-24T11:10:24.080868+00:00
 ---
 
 # Retrieve context for data assets  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,11 +23,7 @@ Send feedback
 
 #  Retrieve context for data assets Stay organized with collections  Save and categorize content based on your preferences. 
 
-The context that surrounds your data equips your AI applications with a deep understanding of your data assets, improving the accuracy and relevance of LLM-generated responses.
-
-The [`lookupContext`](https://docs.cloud.google.com/knowledge-catalog/docs/reference/rest/v1/projects.locations/lookupContext) method bridges the context gap using a single API request to retrieve a pre-formatted bundle of data asset metadata optimized for interactive agentic workflows. You can use this compact, LLM-ready context to ground your agents in assessing and using data assets.
-
-You can use the `lookupContext` method for any data assets stored in Knowledge Catalog, for example, BigQuery tables, datasets, and routines, as well as [data domains](https://docs.cloud.google.com/knowledge-catalog/docs/data-domains-use#retrieve-domain-context) and any other [entries](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview#entries).
+The [`lookupContext`](https://docs.cloud.google.com/knowledge-catalog/docs/reference/rest/v1/projects.locations/lookupContext) method in Knowledge Catalog (formerly Dataplex Universal Catalog) lets you retrieve a compact, pre-formatted bundle of LLM-ready metadata in a single API request. You can provide this context in interactive agentic workflows to ground AI agents when they assess and use your data assets, helping improve response accuracy and relevance.
 
 ## How can agents get data context?
 
@@ -83,6 +79,8 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 [Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=dataplex.googleapis.com)
 
 ## Retrieve context for a data asset
+
+You can use the `lookupContext` method for any data assets stored in Knowledge Catalog, such as BigQuery tables, datasets, and routines, as well as [data domains](https://docs.cloud.google.com/knowledge-catalog/docs/data-domains-use#retrieve-domain-context) and any other [entries](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview#entries).
 
 To retrieve the context for a data asset, access the `lookupContext` method directly with the [Dataplex API](https://docs.cloud.google.com/knowledge-catalog/docs/reference/rest/v1/projects.locations/lookupContext) or use [Knowledge Catalog remote Model Context Protocol (MCP) server](https://docs.cloud.google.com/knowledge-catalog/docs/use-remote-mcp) or [MCP Toolbox For Databases](https://mcp-toolbox.dev/integrations/knowledge-catalog/tools/knowledge-catalog-lookup-context/).
 
@@ -253,6 +251,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

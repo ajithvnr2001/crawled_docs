@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/eol/ubuntu-eol/
 title: Ubuntu LTS end of support \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:42:45.360952+00:00
+fetched_at: 2026-10-24T08:50:29.938564+00:00
 ---
 
 # Ubuntu LTS end of support  |  Compute Engine  |  Google Cloud Documentation

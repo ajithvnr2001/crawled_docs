@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/cost-optimization/
 title: Well-Architected Framework: Cost optimization pillar \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:18:58.651054+00:00
+fetched_at: 2026-10-24T08:42:12.327478+00:00
 ---
 
 # Well-Architected Framework: Cost optimization pillar  |  Cloud Architecture Center  |  Google Cloud Documentation

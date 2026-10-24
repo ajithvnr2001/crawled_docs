@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/batch/docs/samples/batch-list-jobs/
 title: List jobs \u00a0|\u00a0 Batch \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:45:38.937742+00:00
+fetched_at: 2026-10-24T08:23:10.750224+00:00
 ---
 
 # List jobs  |  Batch  |  Google Cloud Documentation

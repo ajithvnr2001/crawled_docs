@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/publish-data-to-sap-bdc/
 title: Publish Data Products to SAP BDC \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:25.152725+00:00
+fetched_at: 2026-10-24T08:23:14.481705+00:00
 ---
 
 # Publish Data Products to SAP BDC  |  Lakehouse  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  Publish Data Products to SAP BDC Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains how to configure Google Cloud to let SAP Business Data Cloud (BDC) access BigQuery data without copying it. You do this by setting up the Apache Iceberg REST catalog endpoint in the Lakehouse runtime catalog or a [Knowledge Catalog Data Product](https://docs.cloud.google.com/dataplex/docs/data-products-overview) to share with SAP.
+Google Cloud lets you share BigQuery data with SAP Business Data Cloud (BDC) without copying it. To publish data to SAP BDC, you configure an Apache Iceberg REST catalog endpoint in the Lakehouse runtime catalog or set up a [Knowledge Catalog Data Product](https://docs.cloud.google.com/dataplex/docs/data-products-overview).
 
 For an overview of this integration and its use cases, see [About SAP BDC integration](https://docs.cloud.google.com/lakehouse/docs/sap-bdc-overview).
 
@@ -51,7 +51,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 [Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=biglake.googleapis.com,dataplex.googleapis.com)
 
   6. **Cloud Storage bucket** : Create a Cloud Storage bucket to store your Iceberg metadata and data files. For instructions, see [Create buckets](https://docs.cloud.google.com/storage/docs/creating-buckets). All resources, including the backend bucket, must exist in the same region to avoid configuration pipeline failures.
-  7. **Apache Iceberg REST catalog** : Set up an Apache Iceberg REST catalog endpoint in the Lakehouse runtime catalog with credential vending enabled, containing the namespaces and tables you want to share. This catalog uses the Cloud Storage bucket as its warehouse. For instructions, see [Set up the Iceberg REST catalog](https://docs.cloud.google.com/lakehouse/docs/lakehouse-iceberg-rest-catalog).
+  7. **Apache Iceberg REST catalog endpoint** : Set up an Apache Iceberg REST catalog endpoint in the Lakehouse runtime catalog with credential vending enabled, containing the namespaces and tables you want to share. This catalog uses the Cloud Storage bucket as its warehouse. For instructions, see [Set up the Apache Iceberg REST catalog endpoint](https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog).
   8. **Delta Sharing connection catalog** : Prepare an enrolled Delta Sharing connection catalog for your SAP BDC connection. This is the same catalog created during your initial setup for sharing data from SAP BDC to BigQuery; you don't need to create a new one. For instructions, see [Set up cross-cloud connection for SAP Business Data Cloud](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-sap-bdc).
   9. **Workload Identity Federation (WIF)** : Prepare to configure WIF to trust the SAP BDC authentication issuer. You set this up in the following section.
 
@@ -61,7 +61,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 To get the permissions that you need to configure Workload Identity Federation and publish data, ask your administrator to grant you the following IAM roles on your project: 
 
-  * Manage Workload Identity Federation: [Identity and Access Management (IAM) Workload Identity Pool Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.workloadIdentityPoolAdmin) (`roles/iam.workloadIdentityPoolAdmin`) 
+  * Manage Workload Identity Federation: [IAM Workload Identity Pool Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.workloadIdentityPoolAdmin) (`roles/iam.workloadIdentityPoolAdmin`) 
   * Publish data products: [BigLake Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/biglake#biglake.admin) (`roles/biglake.admin`) 
   * View catalog metadata (granted to the WIF principal): [BigLake Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/biglake#biglake.viewer) (`roles/biglake.viewer`) 
   * Consume service quota (granted to the WIF principal): [Service Usage Consumer ](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageConsumer) (`roles/serviceusage.serviceUsageConsumer`) 
@@ -80,7 +80,7 @@ To publish data to SAP BDC, follow these steps:
 
   1. **Configure Workload Identity Federation:** Create a Workload Identity Federation pool and provider to establish trust with the SAP BDC OIDC issuer.
   2. **Grant roles to the federated principal:** Grant the federated identity permissions to view catalog metadata and consume service quota.
-  3. **Publish data:** Publish your Apache Iceberg REST catalog or a Knowledge Catalog Data Product to SAP BDC using the `gcloud` CLI.
+  3. **Publish data:** Publish your Apache Iceberg REST catalog endpoint or a Knowledge Catalog Data Product to SAP BDC using the `gcloud` CLI.
 
 
 
@@ -154,7 +154,7 @@ To authorize every identity in the pool (less restrictive, suitable for test env
 
 ## Publish data to SAP BDC
 
-You can publish an Apache Iceberg REST catalog or a Knowledge Catalog Data Product containing Iceberg tables using Google Cloud console or Google Cloud CLI.
+You can publish an Apache Iceberg REST catalog endpoint or a Knowledge Catalog Data Product containing Iceberg tables using Google Cloud console or Google Cloud CLI.
 
 ###  Iceberg REST catalog 
 
@@ -184,7 +184,7 @@ Before publishing, verify your Iceberg tables have primary keys defined using `i
          gcloud biglake iceberg catalogs describe ICEBERG_CATALOG_ID \
              --project="PROJECT_ID"
 
-  2. Publish the Apache Iceberg REST catalog to SAP BDC. Note that the connection catalog, Iceberg catalog, and underlying Cloud Storage bucket must all reside in the same region.
+  2. Publish the Apache Iceberg REST catalog endpoint to SAP BDC. Note that the connection catalog, Iceberg catalog, and underlying Cloud Storage bucket must all reside in the same region.
          
          gcloud biglake data-product-sharing publish \
              --connection-catalog="projects/PROJECT_ID/catalogs/CONNECTION_CATALOG_ID" \
@@ -196,7 +196,7 @@ Before publishing, verify your Iceberg tables have primary keys defined using `i
              --description="DETAILED_DESCRIPTION_TEXT" \
              --project="PROJECT_ID"
 
-The published Apache Iceberg REST catalog is discoverable in SAP BDC and can be installed in SAP Datasphere as a [remote table](https://help.sap.com/docs/SAP_DATASPHERE/c8a54ee704e94e15926551293243fd1d/ea7cb802cbea47b39a441888873c3a49.html?locale=en-US&version=LATEST).
+The published Apache Iceberg REST catalog endpoint is discoverable in SAP BDC and can be installed in SAP Datasphere as a [remote table](https://help.sap.com/docs/SAP_DATASPHERE/c8a54ee704e94e15926551293243fd1d/ea7cb802cbea47b39a441888873c3a49.html?locale=en-US&version=LATEST).
 
 Replace the following:
 
@@ -239,7 +239,7 @@ Alternatively, you can publish a [Knowledge Catalog Data Product](https://docs.c
 
   1. Create the Data Product:
          
-         gcloud alpha dataplex data-products create DATA_PRODUCT_ID \
+         gcloud dataplex data-products create DATA_PRODUCT_ID \
              --location="LOCATION" \
              --display-name="TITLE_TEXT" \
              --description="SHORT_DESCRIPTION_TEXT" \
@@ -250,8 +250,8 @@ The `--display-name` maps to the `title` in SAP BDC, and `--description` maps to
 
   2. Link an Apache Iceberg table asset managed by Lakehouse to the Data Product:
          
-         gcloud alpha dataplex data-products data-assets create DATA_ASSET_ID \
-             --data_product="DATA_PRODUCT_ID" \
+         gcloud dataplex data-products data-assets create DATA_ASSET_ID \
+             --data-product="DATA_PRODUCT_ID" \
              --location="LOCATION" \
              --resource="//biglake.googleapis.com/projects/PROJECT_ID/catalogs/ICEBERG_CATALOG_ID/namespaces/NAMESPACE_NAME/tables/TABLE_NAME" \
              --project="PROJECT_ID"
@@ -260,8 +260,8 @@ When configuring assets in a Data Product, table assets must have primary keys d
 
   3. Optional: Verify the assets in your Data Product:
          
-         gcloud alpha dataplex data-products data-assets list \
-             --data_product="DATA_PRODUCT_ID" \
+         gcloud dataplex data-products data-assets list \
+             --data-product="DATA_PRODUCT_ID" \
              --location="LOCATION" \
              --project="PROJECT_ID"
 
@@ -303,6 +303,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

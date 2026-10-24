@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-get-as-map-async/
 title: Retrieve Firestore Document as Map (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:28:11.198365+00:00
+fetched_at: 2026-10-24T09:02:55.805538+00:00
 ---
 
 # Retrieve Firestore Document as Map (async)  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/translate/docs/access-control/
 title: Control access with IAM \u00a0|\u00a0 Cloud Translation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:05.817778+00:00
+fetched_at: 2026-10-24T08:46:27.062571+00:00
 ---
 
 # Control access with IAM  |  Cloud Translation  |  Google Cloud Documentation

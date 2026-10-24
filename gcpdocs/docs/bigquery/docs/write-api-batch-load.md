@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/write-api-batch-load/
 title: Batch load data using the Storage Write API (gRPC) \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T12:38:20.404189+00:00
+fetched_at: 2026-10-24T08:25:07.912348+00:00
 ---
 
 # Batch load data using the Storage Write API (gRPC)  |  BigQuery  |  Google Cloud Documentation
@@ -21,11 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Batch load data using the Storage Write API (gRPC)
 
-This document describes how to use the [BigQuery Storage Write API (gRPC)](https://docs.cloud.google.com/bigquery/docs/write-api) to batch load data into BigQuery.
+The [BigQuery Storage Write API (gRPC)](https://docs.cloud.google.com/bigquery/docs/write-api) lets you batch load records into BigQuery and commit them as a single atomic transaction. By writing to streams in _pending type_ , you can buffer records across parallel workers and make the batch visible to queries only after all streams succeed. To run batch loads without writing custom API code, you can use the [Apache Spark SQL connector for BigQuery](https://github.com/GoogleCloudDataproc/spark-bigquery-connector#writing-data-to-bigquery) with Managed Service for Apache Spark.
 
-In batch-load scenarios, an application writes data and commits it as a single atomic transaction. When using the Storage Write API (gRPC) to batch load data, create one or more streams in _pending type_. Pending type supports stream-level transactions. Records are buffered in a pending state until you commit the stream.
-
-For batch workloads, also consider using the Storage Write API (gRPC) through the [Apache Spark SQL connector for BigQuery](https://github.com/GoogleCloudDataproc/spark-bigquery-connector#writing-data-to-bigquery) using Managed Service for Apache Spark, rather than writing custom Storage Write API (gRPC) code.
+## Architectural overview
 
 The Storage Write API (gRPC) is well-suited to a _data pipeline_ architecture. A main process creates a number of streams. For each stream, it assigns a worker thread or a separate process to write a portion of the batch data. Each worker creates a connection to its stream, writes data, and finalizes its stream when it's done. After all of the workers signal successful completion to the main process, the main process commits the data. If a worker fails, its assigned portion of the data will not show up in the final results, and the whole worker can be safely retried. In a more sophisticated pipeline, workers checkpoint their progress by reporting the last offset written to the main process. This approach can result in a robust pipeline that is resilient to failures.
 
@@ -906,6 +904,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-13 UTC.
+Last updated 2026-10-22 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-13 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 

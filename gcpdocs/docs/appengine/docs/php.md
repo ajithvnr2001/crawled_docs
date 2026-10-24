@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/php/
 title: PHP on Google App Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:18:21.106105+00:00
+fetched_at: 2026-10-24T09:09:51.275861+00:00
 ---
 
 # PHP on Google App Engine  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/reliability/graceful-degradation/
 title: Design for graceful degradation \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:02:58.895974+00:00
+fetched_at: 2026-10-24T09:47:07.092384+00:00
 ---
 
 # Design for graceful degradation  |  Cloud Architecture Center  |  Google Cloud Documentation

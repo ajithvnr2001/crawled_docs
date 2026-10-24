@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/access/iam/
 title: Compute Engine IAM roles and permissions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:46:40.314071+00:00
+fetched_at: 2026-10-24T08:47:26.780400+00:00
 ---
 
 # Compute Engine IAM roles and permissions  |  Google Cloud Documentation
