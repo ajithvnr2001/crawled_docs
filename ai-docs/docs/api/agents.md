@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/agents/
 title: Gemini Agents API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:00:16.098450+00:00
+fetched_at: 2026-10-24T08:36:43.578003+00:00
 ---
 
 # Gemini Agents API
@@ -34,6 +34,22 @@ Required. The parent resource where this agent will be created. Format: `project
 ### Request body
 
 The request body contains data with the following structure:
+
+id string (optional)
+
+The unique identifier for the agent.
+
+base_agent string (optional)
+
+The base agent to extend.
+
+system_instruction string (optional)
+
+System instruction for the agent.
+
+description string (optional)
+
+Agent description for developers to quickly read and understand.
 
 agent_config AntigravityAgentConfig (optional)
 
@@ -70,27 +86,6 @@ type object (required)
 No description provided.
 
 Always set to `"remote"`.
-
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
-
-Network configuration for the environment.
-
-Network egress configuration for the environment.
-
-#### Fields
-
-allowlist array (EgressRule) or enum (string) (optional)
-
-List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-
-Possible values:
-
-  * `disabled`
-
-All network egress is blocked.
-
-
-
 
 sources array (Source) (optional)
 
@@ -137,6 +132,27 @@ encoding string (optional)
 
 Optional encoding for inline content (e.g. `base64`).
 
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
+
+Network configuration for the environment.
+
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional)
+
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
+
+Possible values:
+
+  * `disabled`
+
+All network egress is blocked.
+
+
+
+
 environment_id string (optional)
 
 Optional. The environment ID for the interaction. If specified, the request will update the existing environment instead of creating a new one.
@@ -152,22 +168,6 @@ object
 string
 
 A direct string value.
-
-id string (optional)
-
-The unique identifier for the agent.
-
-base_agent string (optional)
-
-The base agent to extend.
-
-system_instruction string (optional)
-
-System instruction for the agent.
-
-description string (optional)
-
-Agent description for developers to quickly read and understand.
 
 tools array (AgentTool) (optional)
 
@@ -246,13 +246,13 @@ No description provided.
 
 Always set to `"mcp_server"`.
 
-url string (optional)
-
-The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
-
 name string (optional)
 
 The name of the MCPServer.
+
+url string (optional)
+
+The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
 
 headers object (optional)
 
@@ -309,6 +309,22 @@ Always set to `"url_context"`.
 
 If successful, the response body contains data with the following structure:
 
+id string (optional)
+
+The unique identifier for the agent.
+
+base_agent string (optional)
+
+The base agent to extend.
+
+system_instruction string (optional)
+
+System instruction for the agent.
+
+description string (optional)
+
+Agent description for developers to quickly read and understand.
+
 agent_config AntigravityAgentConfig (optional)
 
 Configuration parameters for the agent.
@@ -344,27 +360,6 @@ type object (required)
 No description provided.
 
 Always set to `"remote"`.
-
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
-
-Network configuration for the environment.
-
-Network egress configuration for the environment.
-
-#### Fields
-
-allowlist array (EgressRule) or enum (string) (optional)
-
-List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-
-Possible values:
-
-  * `disabled`
-
-All network egress is blocked.
-
-
-
 
 sources array (Source) (optional)
 
@@ -411,6 +406,27 @@ encoding string (optional)
 
 Optional encoding for inline content (e.g. `base64`).
 
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
+
+Network configuration for the environment.
+
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional)
+
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
+
+Possible values:
+
+  * `disabled`
+
+All network egress is blocked.
+
+
+
+
 environment_id string (optional)
 
 Optional. The environment ID for the interaction. If specified, the request will update the existing environment instead of creating a new one.
@@ -426,22 +442,6 @@ object
 string
 
 A direct string value.
-
-id string (optional)
-
-The unique identifier for the agent.
-
-base_agent string (optional)
-
-The base agent to extend.
-
-system_instruction string (optional)
-
-System instruction for the agent.
-
-description string (optional)
-
-Agent description for developers to quickly read and understand.
 
 tools array (AgentTool) (optional)
 
@@ -520,13 +520,13 @@ No description provided.
 
 Always set to `"mcp_server"`.
 
-url string (optional)
-
-The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
-
 name string (optional)
 
 The name of the MCPServer.
+
+url string (optional)
+
+The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
 
 headers object (optional)
 
@@ -714,6 +714,22 @@ Required. The name of the agent to retrieve.
 
 If successful, the response body contains data with the following structure:
 
+id string (optional)
+
+The unique identifier for the agent.
+
+base_agent string (optional)
+
+The base agent to extend.
+
+system_instruction string (optional)
+
+System instruction for the agent.
+
+description string (optional)
+
+Agent description for developers to quickly read and understand.
+
 agent_config AntigravityAgentConfig (optional)
 
 Configuration parameters for the agent.
@@ -749,27 +765,6 @@ type object (required)
 No description provided.
 
 Always set to `"remote"`.
-
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
-
-Network configuration for the environment.
-
-Network egress configuration for the environment.
-
-#### Fields
-
-allowlist array (EgressRule) or enum (string) (optional)
-
-List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-
-Possible values:
-
-  * `disabled`
-
-All network egress is blocked.
-
-
-
 
 sources array (Source) (optional)
 
@@ -816,6 +811,27 @@ encoding string (optional)
 
 Optional encoding for inline content (e.g. `base64`).
 
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
+
+Network configuration for the environment.
+
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional)
+
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
+
+Possible values:
+
+  * `disabled`
+
+All network egress is blocked.
+
+
+
+
 environment_id string (optional)
 
 Optional. The environment ID for the interaction. If specified, the request will update the existing environment instead of creating a new one.
@@ -831,22 +847,6 @@ object
 string
 
 A direct string value.
-
-id string (optional)
-
-The unique identifier for the agent.
-
-base_agent string (optional)
-
-The base agent to extend.
-
-system_instruction string (optional)
-
-System instruction for the agent.
-
-description string (optional)
-
-Agent description for developers to quickly read and understand.
 
 tools array (AgentTool) (optional)
 
@@ -925,13 +925,13 @@ No description provided.
 
 Always set to `"mcp_server"`.
 
-url string (optional)
-
-The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
-
 name string (optional)
 
 The name of the MCPServer.
+
+url string (optional)
+
+The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
 
 headers object (optional)
 
@@ -1034,6 +1034,22 @@ An agent definition for the CreateAgent API. This message is the target for anno
 
 #### Fields
 
+id string (optional)
+
+The unique identifier for the agent.
+
+base_agent string (optional)
+
+The base agent to extend.
+
+system_instruction string (optional)
+
+System instruction for the agent.
+
+description string (optional)
+
+Agent description for developers to quickly read and understand.
+
 agent_config AntigravityAgentConfig (optional)
 
 Configuration parameters for the agent.
@@ -1069,27 +1085,6 @@ type object (required)
 No description provided.
 
 Always set to `"remote"`.
-
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
-
-Network configuration for the environment.
-
-Network egress configuration for the environment.
-
-#### Fields
-
-allowlist array (EgressRule) or enum (string) (optional)
-
-List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-
-Possible values:
-
-  * `disabled`
-
-All network egress is blocked.
-
-
-
 
 sources array (Source) (optional)
 
@@ -1136,6 +1131,27 @@ encoding string (optional)
 
 Optional encoding for inline content (e.g. `base64`).
 
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
+
+Network configuration for the environment.
+
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional)
+
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
+
+Possible values:
+
+  * `disabled`
+
+All network egress is blocked.
+
+
+
+
 environment_id string (optional)
 
 Optional. The environment ID for the interaction. If specified, the request will update the existing environment instead of creating a new one.
@@ -1151,22 +1167,6 @@ object
 string
 
 A direct string value.
-
-id string (optional)
-
-The unique identifier for the agent.
-
-base_agent string (optional)
-
-The base agent to extend.
-
-system_instruction string (optional)
-
-System instruction for the agent.
-
-description string (optional)
-
-Agent description for developers to quickly read and understand.
 
 tools array (AgentTool) (optional)
 
@@ -1245,13 +1245,13 @@ No description provided.
 
 Always set to `"mcp_server"`.
 
-url string (optional)
-
-The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
-
 name string (optional)
 
 The name of the MCPServer.
+
+url string (optional)
+
+The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
 
 headers object (optional)
 

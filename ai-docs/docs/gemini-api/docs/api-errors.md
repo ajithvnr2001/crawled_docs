@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/api-errors/
 title: API errors
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:42:45.293922+00:00
+fetched_at: 2026-10-24T08:36:43.962708+00:00
 ---
 
 # API errors
@@ -23,7 +23,7 @@ Code | HTTP Status | Description | Recommended action
 `parameter_unknown` | 400 Bad Request | The request contains an unknown parameter. | Remove the unrecognized parameter and retry.  
 `authentication` | 401 Unauthorized | The API key is missing, invalid, or expired. | Verify your [API key](https://ai.google.dev/gemini-api/docs/api-key).  
 `payment_required` | 402 Payment Required | Your Prepay credit balance is depleted. | [Add credits](https://ai.google.dev/gemini-api/docs/billing#buy-credits) to your billing account, or turn on [auto-reload](https://ai.google.dev/gemini-api/docs/billing#auto-reload). Don't retry: the request won't succeed until credits are added.  
-`permission_denied` | 403 Forbidden | Your API key does not have permission for this resource. | Check your API key permissions and project access.  
+`permission_denied` | 403 Forbidden | Your API key does not have permission for this resource, or your project's API access is restricted. | Check your API key permissions, project tier eligibility, and billing status. See [Troubleshoot project restricted or unavailable](https://ai.google.dev/gemini-api/docs/troubleshooting#project-unavailable).  
 `not_found` | 404 Not Found | The requested resource was not found. | Verify the resource path and parameters.  
 `model_not_found` | 404 Not Found | The specified model was not found. | Verify the model name or fall back to a different model.  
 `already_exists` | 409 Conflict | The entity you attempted to create already exists. | Check if the resource already exists before re-creating.  

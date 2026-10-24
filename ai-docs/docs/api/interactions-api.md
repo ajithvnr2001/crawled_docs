@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/interactions-api/
 title: Gemini Interactions API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:00:22.025243+00:00
+fetched_at: 2026-10-24T08:36:42.879637+00:00
 ---
 
 # Gemini Interactions API
@@ -216,6 +216,14 @@ Configuration parameters for model interactions.
 
 #### Fields
 
+seed integer (optional)
+
+Seed used in decoding for reproducibility.
+
+stop_sequences array (string) (optional)
+
+A list of character sequences that will stop output interaction.
+
 tool_choice ToolChoiceConfig or enum (string) (optional)
 
 The tool choice configuration.
@@ -240,14 +248,6 @@ Validated tool choice.
 
 
 
-
-seed integer (optional)
-
-Seed used in decoding for reproducibility.
-
-stop_sequences array (string) (optional)
-
-A list of character sequences that will stop output interaction.
 
 thinking_level ThinkingLevel (optional)
 
@@ -340,6 +340,14 @@ Configuration for speech recognition (transcription).
 
 #### Fields
 
+language_codes array (string) (optional)
+
+Optional. BCP-47 language codes providing hints about the languages present in the audio. If omitted or empty, defaults to automatic language detection.
+
+custom_vocabulary array (string) (optional)
+
+Optional. A list of custom vocabulary phrases to bias the speech recognition model toward recognizing specific terms.
+
 mode TranscriptionMode or enum (string) (optional)
 
 Discriminated transcription mode options or enum.
@@ -376,14 +384,6 @@ diarization_mode string (optional)
 
 Optional. Configures speaker diarization. Supported values: "speaker".
 
-language_codes array (string) (optional)
-
-Optional. BCP-47 language codes providing hints about the languages present in the audio. If omitted or empty, defaults to automatic language detection.
-
-custom_vocabulary array (string) (optional)
-
-Optional. A list of custom vocabulary phrases to bias the speech recognition model toward recognizing specific terms.
-
 structured_speech_config SpeakerConfig or array (SpeechConfig) (optional)
 
 Speech and multi-speaker configuration.
@@ -418,14 +418,6 @@ agent_config AntigravityAgentConfig or DeepResearchAgentConfig or DynamicAgentCo
 Configuration for the agent.   
 _Alternative to `generation_config`. Only applicable when `agent` is set._
 
-response_format ResponseFormat or array (ResponseFormat) (optional)
-
-Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
-
-environment EnvironmentConfig or string (optional)
-
-The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID.
-
 system_instruction string (optional)
 
 System instruction for the interaction.
@@ -434,9 +426,17 @@ tools array (Tool) (optional)
 
 A list of tool declarations the model may call during interaction.
 
+response_format ResponseFormat or array (ResponseFormat) (optional)
+
+Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
+
 previous_interaction_id string (optional)
 
 The ID of the previous interaction, if any.
+
+environment EnvironmentConfig or string (optional)
+
+The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID.
 
 service_tier ServiceTier (optional)
 
@@ -1186,18 +1186,6 @@ Preview release of our multimodal model for conversational video generation, edi
 
 
 
-input Content or array (Content) or array (Step) or string (optional)
-
-The input for the interaction.
-
-response_format ResponseFormat or array (ResponseFormat) (optional)
-
-Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
-
-environment EnvironmentConfig or string (optional)
-
-The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID.
-
 system_instruction string (optional)
 
 System instruction for the interaction.
@@ -1205,6 +1193,10 @@ System instruction for the interaction.
 tools array (Tool) (optional)
 
 A list of tool declarations the model may call during interaction.
+
+input Content or array (Content) or array (Step) or string (optional)
+
+The input for the interaction.
 
 usage Usage (optional)
 
@@ -1431,9 +1423,17 @@ count integer (optional)
 
 The number of grounding tool counts.
 
+response_format ResponseFormat or array (ResponseFormat) (optional)
+
+Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
+
 previous_interaction_id string (optional)
 
 The ID of the previous interaction, if any.
+
+environment EnvironmentConfig or string (optional)
+
+The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID.
 
 environment_id string (optional)
 
@@ -2081,6 +2081,31 @@ uri string (optional)
 
 The URI of the video.
 
+resolution MediaResolution (optional)
+
+The resolution of the media.
+
+#### Possible values
+
+  * `low`
+
+Low resolution.
+
+  * `medium`
+
+Medium resolution.
+
+  * `high`
+
+High resolution.
+
+  * `ultra_high`
+
+Ultra high resolution.
+
+
+
+
 processing MediaProcessing or enum (string) (optional)
 
 How the model processes this video for understanding.
@@ -2107,31 +2132,6 @@ Optional. Segment end time. Specified as a decimal number of seconds followed by
 fps number (optional)
 
 Optional. Video frame-rate sampling density.
-
-
-
-
-resolution MediaResolution (optional)
-
-The resolution of the media.
-
-#### Possible values
-
-  * `low`
-
-Low resolution.
-
-  * `medium`
-
-Medium resolution.
-
-  * `high`
-
-High resolution.
-
-  * `ultra_high`
-
-Ultra high resolution.
 
 
 
@@ -2425,13 +2425,13 @@ No description provided.
 
 Always set to `"mcp_server"`.
 
-url string (optional)
-
-The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
-
 name string (optional)
 
 The name of the MCPServer.
+
+url string (optional)
+
+The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
 
 headers object (optional)
 
@@ -3510,14 +3510,6 @@ No description provided.
 
 Always set to `"audio"`.
 
-data string (optional)
-
-No description provided.
-
-uri string (optional)
-
-No description provided.
-
 mime_type enum (string) (optional)
 
 No description provided.
@@ -3578,6 +3570,14 @@ WEBM audio format
 
 
 
+
+data string (optional)
+
+No description provided.
+
+uri string (optional)
+
+No description provided.
 
 sample_rate integer (optional)
 
@@ -3656,14 +3656,6 @@ No description provided.
 
 Always set to `"document"`.
 
-data string (optional)
-
-No description provided.
-
-uri string (optional)
-
-No description provided.
-
 mime_type enum (string) (optional)
 
 No description provided.
@@ -3680,6 +3672,14 @@ CSV document format
 
 
 
+
+data string (optional)
+
+No description provided.
+
+uri string (optional)
+
+No description provided.
 
 FileSearchCallDelta
 
@@ -3877,14 +3877,6 @@ No description provided.
 
 Always set to `"image"`.
 
-data string (optional)
-
-No description provided.
-
-uri string (optional)
-
-No description provided.
-
 mime_type enum (string) (optional)
 
 No description provided.
@@ -3925,6 +3917,14 @@ TIFF image format
 
 
 
+
+data string (optional)
+
+No description provided.
+
+uri string (optional)
+
+No description provided.
 
 resolution MediaResolution (optional)
 
@@ -4334,14 +4334,6 @@ No description provided.
 
 Always set to `"video"`.
 
-data string (optional)
-
-No description provided.
-
-uri string (optional)
-
-No description provided.
-
 mime_type enum (string) (optional)
 
 No description provided.
@@ -4390,6 +4382,14 @@ JPEG 2000 video format
 
 
 
+
+data string (optional)
+
+No description provided.
+
+uri string (optional)
+
+No description provided.
 
 resolution MediaResolution (optional)
 
@@ -6417,19 +6417,6 @@ No description provided.
 
 Always set to `"remote"`.
 
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
-
-Network configuration for the environment.
-
-Possible values:
-
-  * `disabled`
-
-All network egress is blocked.
-
-
-
-
 sources array (Source) (optional)
 
 No description provided.
@@ -6474,6 +6461,19 @@ The inline content if `type` is `INLINE`.
 encoding string (optional)
 
 Optional encoding for inline content (e.g. `base64`).
+
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
+
+Network configuration for the environment.
+
+Possible values:
+
+  * `disabled`
+
+All network egress is blocked.
+
+
+
 
 environment_id string (optional)
 

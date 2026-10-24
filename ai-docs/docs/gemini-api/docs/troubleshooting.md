@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/troubleshooting/
 title: Troubleshooting guide
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:45:19.789148+00:00
+fetched_at: 2026-10-24T08:36:44.044156+00:00
 ---
 
 # Troubleshooting guide
@@ -154,6 +154,42 @@ Repetitive text that's not part of structured output  |  This can occur if the m
 
   
   
+## Project restricted or unavailable
+
+If your API requests return `403 PERMISSION_DENIED` ("Your project has been denied access") or your project status shows **Restricted** , **Free tier unavailable** , **Payment needed** , or **Unavailable** in [Google AI Studio](https://aistudio.google.com/), check which of the following sections applies to your project:
+
+### Gemini API free tier unavailability
+
+Not all Google Cloud projects or accounts are eligible for the Gemini API free tier. If your project is restricted from using the free tier:
+
+  * **Creating a new API key in the same project won't resolve the error.** Google evaluates eligibility at the Google Cloud project level.
+  * **To use the Gemini API with this project, you must upgrade to the paid tier** by linking an active [Cloud Billing account](https://aistudio.google.com/billing).
+  * Note: Upgrading a project to the paid tier doesn't unlock free-tier quota. Google bills paid-tier usage according to [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing), or deducts it from eligible Google Cloud credits.
+
+
+
+### Cloud Billing account payment required
+
+If your project is already linked to a Cloud Billing account and shows **Payment needed** (or returns `403 PERMISSION_DENIED` citing an outstanding balance):
+
+  * Visit the [AI Studio Billing page](https://aistudio.google.com/billing) or the [Google Cloud Billing Console](https://console.cloud.google.com/billing) to resolve any past-due balance or update your payment method.
+  * Once your billing account is back in good standing, your project regains API access automatically.
+
+
+
+### Leaked or blocked API keys
+
+If the `403 PERMISSION_DENIED` error states that your API key was reported as leaked or blocked:
+
+  * Go to the [AI Studio API Keys page](https://aistudio.google.com/apikeys) to generate a new API key and update your application credentials.
+  * Never embed API keys directly in client-side code or public repositories.
+
+
+
+### Project or billing account policy suspension
+
+If Google suspends your Google Cloud project or Cloud Billing account for a policy violation, check the associated email address. Visit the [Google Cloud Console](https://console.cloud.google.com/) to review any suspension notices and follow the [Project Suspension Guidelines](https://cloud.google.com/resource-manager/docs/project-suspension-guidelines).
+
 ## Blocked or non-working API keys
 
 This section describes how to check whether your Gemini API key is blocked and what to do about it.

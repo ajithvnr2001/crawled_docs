@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/triggers/
 title: Gemini Triggers API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:00:14.136181+00:00
+fetched_at: 2026-10-24T08:36:42.134143+00:00
 ---
 
 # Gemini Triggers API
@@ -78,6 +78,311 @@ The input for the interaction.
 agent_config AntigravityAgentConfig or DeepResearchAgentConfig or DynamicAgentConfig (optional)
 
 Configuration parameters for the agent interaction.
+
+id string (optional)
+
+Required. Output only. A unique identifier for the interaction completion.
+
+status enum (string) (optional)
+
+Required. Output only. The status of the interaction.
+
+Possible values:
+
+  * `in_progress`
+
+The interaction is in progress.
+
+  * `requires_action`
+
+The interaction requires action/input from the user.
+
+  * `completed`
+
+The interaction is completed.
+
+  * `failed`
+
+The interaction failed.
+
+  * `cancelled`
+
+The interaction was cancelled.
+
+  * `incomplete`
+
+The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
+
+
+
+
+created string (optional)
+
+Required. Output only. The time at which the response was created in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
+
+updated string (optional)
+
+Required. Output only. The time at which the response was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
+
+system_instruction string (optional)
+
+System instruction for the interaction.
+
+tools array (Tool) (optional)
+
+A list of tool declarations the model may call during interaction.
+
+A tool that can be used by the model.
+
+#### Possible Types
+
+CodeExecution
+
+A tool that can be used by the model to execute code.
+
+type object (required)
+
+No description provided.
+
+Always set to `"code_execution"`.
+
+ComputerUse
+
+A tool that can be used by the model to interact with the computer.
+
+type object (required)
+
+No description provided.
+
+Always set to `"computer_use"`.
+
+environment enum (string) (optional)
+
+The environment being operated.
+
+Possible values:
+
+  * `browser`
+
+Operates in a web browser.
+
+  * `mobile`
+
+Operates in a mobile environment.
+
+  * `desktop`
+
+Operates in a desktop environment.
+
+
+
+
+excluded_predefined_functions array (string) (optional)
+
+The list of predefined functions that are excluded from the model call.
+
+enable_prompt_injection_detection boolean (optional)
+
+Whether enable the prompt injection detection check on computer-use request.
+
+disabled_safety_policies array (enum (string)) (optional)
+
+Optional. Disabled safety policies for computer use.
+
+Possible values:
+
+  * `financial_transactions`
+
+Safety policy for financial transactions.
+
+  * `sensitive_data_modification`
+
+Safety policy for sensitive data modification.
+
+  * `communication_tool`
+
+Safety policy for communication tools (e.g. Gmail, Chat, Meet).
+
+  * `account_creation`
+
+Safety policy for account creation.
+
+  * `data_modification`
+
+Safety policy for data modification.
+
+  * `user_consent_management`
+
+Safety policy for user consent management.
+
+  * `legal_terms_and_agreements`
+
+Safety policy for legal terms and agreements.
+
+
+
+
+FileSearch
+
+A tool that can be used by the model to search files.
+
+type object (required)
+
+No description provided.
+
+Always set to `"file_search"`.
+
+file_search_store_names array (string) (optional)
+
+The file search store names to search.
+
+top_k integer (optional)
+
+The number of semantic retrieval chunks to retrieve.
+
+metadata_filter string (optional)
+
+Metadata filter to apply to the semantic retrieval documents and chunks.
+
+Function
+
+A tool that can be used by the model.
+
+type object (required)
+
+No description provided.
+
+Always set to `"function"`.
+
+name string (optional)
+
+The name of the function.
+
+description string (optional)
+
+A description of the function.
+
+parameters object (optional)
+
+The JSON Schema for the function's parameters. Supports a subset of JSON Schema. `minLength`, `maxLength`, `minProperties`, `maxProperties`, `uniqueItems`, `contains`, `minContains`, and `maxContains` are ignored and not enforced.
+
+GoogleMaps
+
+A tool that can be used by the model to call Google Maps.
+
+type object (required)
+
+No description provided.
+
+Always set to `"google_maps"`.
+
+enable_widget boolean (optional)
+
+Whether to return a widget context token in the tool call result of the response.
+
+latitude number (optional)
+
+The latitude of the user's location.
+
+longitude number (optional)
+
+The longitude of the user's location.
+
+GoogleSearch
+
+A tool that can be used by the model to search Google.
+
+type object (required)
+
+No description provided.
+
+Always set to `"google_search"`.
+
+search_types array (enum (string)) (optional)
+
+The types of search grounding to enable.
+
+Possible values:
+
+  * `web_search`
+
+Setting this field enables web search. Only text results are returned.
+
+  * `image_search`
+
+Setting this field enables image search. Image bytes are returned.
+
+
+
+
+McpServer
+
+A MCPServer is a server that can be called by the model to perform actions.
+
+type object (required)
+
+No description provided.
+
+Always set to `"mcp_server"`.
+
+name string (optional)
+
+The name of the MCPServer.
+
+url string (optional)
+
+The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
+
+headers object (optional)
+
+Optional: Fields for authentication headers, timeouts, etc., if needed.
+
+allowed_tools array (AllowedTools) (optional)
+
+The allowed tools.
+
+The configuration for allowed tools.
+
+#### Fields
+
+mode enum (string) (optional)
+
+The mode of the tool choice.
+
+Possible values:
+
+  * `auto`
+
+Auto tool choice.
+
+  * `any`
+
+Any tool choice.
+
+  * `none`
+
+No tool choice.
+
+  * `validated`
+
+Validated tool choice.
+
+
+
+
+tools array (string) (optional)
+
+The names of the allowed tools.
+
+UrlContext
+
+A tool that can be used by the model to fetch URL context.
+
+type object (required)
+
+No description provided.
+
+Always set to `"url_context"`.
 
 response_format ResponseFormat or array (ResponseFormat) (optional)
 
@@ -387,6 +692,10 @@ Possible values:
 
 
 
+previous_interaction_id string (optional)
+
+The ID of the previous interaction, if any.
+
 environment EnvironmentConfig or string (optional)
 
 The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID.
@@ -400,27 +709,6 @@ type object (required)
 No description provided.
 
 Always set to `"remote"`.
-
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
-
-Network configuration for the environment.
-
-Network egress configuration for the environment.
-
-#### Fields
-
-allowlist array (EgressRule) or enum (string) (optional)
-
-List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-
-Possible values:
-
-  * `disabled`
-
-All network egress is blocked.
-
-
-
 
 sources array (Source) (optional)
 
@@ -467,6 +755,27 @@ encoding string (optional)
 
 Optional encoding for inline content (e.g. `base64`).
 
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
+
+Network configuration for the environment.
+
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional)
+
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
+
+Possible values:
+
+  * `disabled`
+
+All network egress is blocked.
+
+
+
+
 environment_id string (optional)
 
 Optional. The environment ID for the interaction. If specified, the request will update the existing environment instead of creating a new one.
@@ -482,315 +791,6 @@ object
 string
 
 A direct string value.
-
-id string (optional)
-
-Required. Output only. A unique identifier for the interaction completion.
-
-status enum (string) (optional)
-
-Required. Output only. The status of the interaction.
-
-Possible values:
-
-  * `in_progress`
-
-The interaction is in progress.
-
-  * `requires_action`
-
-The interaction requires action/input from the user.
-
-  * `completed`
-
-The interaction is completed.
-
-  * `failed`
-
-The interaction failed.
-
-  * `cancelled`
-
-The interaction was cancelled.
-
-  * `incomplete`
-
-The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
-
-
-
-
-created string (optional)
-
-Required. Output only. The time at which the response was created in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
-
-updated string (optional)
-
-Required. Output only. The time at which the response was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
-
-system_instruction string (optional)
-
-System instruction for the interaction.
-
-tools array (Tool) (optional)
-
-A list of tool declarations the model may call during interaction.
-
-A tool that can be used by the model.
-
-#### Possible Types
-
-CodeExecution
-
-A tool that can be used by the model to execute code.
-
-type object (required)
-
-No description provided.
-
-Always set to `"code_execution"`.
-
-ComputerUse
-
-A tool that can be used by the model to interact with the computer.
-
-type object (required)
-
-No description provided.
-
-Always set to `"computer_use"`.
-
-environment enum (string) (optional)
-
-The environment being operated.
-
-Possible values:
-
-  * `browser`
-
-Operates in a web browser.
-
-  * `mobile`
-
-Operates in a mobile environment.
-
-  * `desktop`
-
-Operates in a desktop environment.
-
-
-
-
-excluded_predefined_functions array (string) (optional)
-
-The list of predefined functions that are excluded from the model call.
-
-enable_prompt_injection_detection boolean (optional)
-
-Whether enable the prompt injection detection check on computer-use request.
-
-disabled_safety_policies array (enum (string)) (optional)
-
-Optional. Disabled safety policies for computer use.
-
-Possible values:
-
-  * `financial_transactions`
-
-Safety policy for financial transactions.
-
-  * `sensitive_data_modification`
-
-Safety policy for sensitive data modification.
-
-  * `communication_tool`
-
-Safety policy for communication tools (e.g. Gmail, Chat, Meet).
-
-  * `account_creation`
-
-Safety policy for account creation.
-
-  * `data_modification`
-
-Safety policy for data modification.
-
-  * `user_consent_management`
-
-Safety policy for user consent management.
-
-  * `legal_terms_and_agreements`
-
-Safety policy for legal terms and agreements.
-
-
-
-
-FileSearch
-
-A tool that can be used by the model to search files.
-
-type object (required)
-
-No description provided.
-
-Always set to `"file_search"`.
-
-file_search_store_names array (string) (optional)
-
-The file search store names to search.
-
-top_k integer (optional)
-
-The number of semantic retrieval chunks to retrieve.
-
-metadata_filter string (optional)
-
-Metadata filter to apply to the semantic retrieval documents and chunks.
-
-Function
-
-A tool that can be used by the model.
-
-type object (required)
-
-No description provided.
-
-Always set to `"function"`.
-
-name string (optional)
-
-The name of the function.
-
-description string (optional)
-
-A description of the function.
-
-parameters object (optional)
-
-The JSON Schema for the function's parameters. Supports a subset of JSON Schema. `minLength`, `maxLength`, `minProperties`, `maxProperties`, `uniqueItems`, `contains`, `minContains`, and `maxContains` are ignored and not enforced.
-
-GoogleMaps
-
-A tool that can be used by the model to call Google Maps.
-
-type object (required)
-
-No description provided.
-
-Always set to `"google_maps"`.
-
-enable_widget boolean (optional)
-
-Whether to return a widget context token in the tool call result of the response.
-
-latitude number (optional)
-
-The latitude of the user's location.
-
-longitude number (optional)
-
-The longitude of the user's location.
-
-GoogleSearch
-
-A tool that can be used by the model to search Google.
-
-type object (required)
-
-No description provided.
-
-Always set to `"google_search"`.
-
-search_types array (enum (string)) (optional)
-
-The types of search grounding to enable.
-
-Possible values:
-
-  * `web_search`
-
-Setting this field enables web search. Only text results are returned.
-
-  * `image_search`
-
-Setting this field enables image search. Image bytes are returned.
-
-
-
-
-McpServer
-
-A MCPServer is a server that can be called by the model to perform actions.
-
-type object (required)
-
-No description provided.
-
-Always set to `"mcp_server"`.
-
-url string (optional)
-
-The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
-
-name string (optional)
-
-The name of the MCPServer.
-
-headers object (optional)
-
-Optional: Fields for authentication headers, timeouts, etc., if needed.
-
-allowed_tools array (AllowedTools) (optional)
-
-The allowed tools.
-
-The configuration for allowed tools.
-
-#### Fields
-
-mode enum (string) (optional)
-
-The mode of the tool choice.
-
-Possible values:
-
-  * `auto`
-
-Auto tool choice.
-
-  * `any`
-
-Any tool choice.
-
-  * `none`
-
-No tool choice.
-
-  * `validated`
-
-Validated tool choice.
-
-
-
-
-tools array (string) (optional)
-
-The names of the allowed tools.
-
-UrlContext
-
-A tool that can be used by the model to fetch URL context.
-
-type object (required)
-
-No description provided.
-
-Always set to `"url_context"`.
-
-previous_interaction_id string (optional)
-
-The ID of the previous interaction, if any.
 
 environment_id string (optional)
 
@@ -987,6 +987,311 @@ agent_config AntigravityAgentConfig or DeepResearchAgentConfig or DynamicAgentCo
 
 Configuration parameters for the agent interaction.
 
+id string (optional)
+
+Required. Output only. A unique identifier for the interaction completion.
+
+status enum (string) (optional)
+
+Required. Output only. The status of the interaction.
+
+Possible values:
+
+  * `in_progress`
+
+The interaction is in progress.
+
+  * `requires_action`
+
+The interaction requires action/input from the user.
+
+  * `completed`
+
+The interaction is completed.
+
+  * `failed`
+
+The interaction failed.
+
+  * `cancelled`
+
+The interaction was cancelled.
+
+  * `incomplete`
+
+The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
+
+
+
+
+created string (optional)
+
+Required. Output only. The time at which the response was created in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
+
+updated string (optional)
+
+Required. Output only. The time at which the response was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
+
+system_instruction string (optional)
+
+System instruction for the interaction.
+
+tools array (Tool) (optional)
+
+A list of tool declarations the model may call during interaction.
+
+A tool that can be used by the model.
+
+#### Possible Types
+
+CodeExecution
+
+A tool that can be used by the model to execute code.
+
+type object (required)
+
+No description provided.
+
+Always set to `"code_execution"`.
+
+ComputerUse
+
+A tool that can be used by the model to interact with the computer.
+
+type object (required)
+
+No description provided.
+
+Always set to `"computer_use"`.
+
+environment enum (string) (optional)
+
+The environment being operated.
+
+Possible values:
+
+  * `browser`
+
+Operates in a web browser.
+
+  * `mobile`
+
+Operates in a mobile environment.
+
+  * `desktop`
+
+Operates in a desktop environment.
+
+
+
+
+excluded_predefined_functions array (string) (optional)
+
+The list of predefined functions that are excluded from the model call.
+
+enable_prompt_injection_detection boolean (optional)
+
+Whether enable the prompt injection detection check on computer-use request.
+
+disabled_safety_policies array (enum (string)) (optional)
+
+Optional. Disabled safety policies for computer use.
+
+Possible values:
+
+  * `financial_transactions`
+
+Safety policy for financial transactions.
+
+  * `sensitive_data_modification`
+
+Safety policy for sensitive data modification.
+
+  * `communication_tool`
+
+Safety policy for communication tools (e.g. Gmail, Chat, Meet).
+
+  * `account_creation`
+
+Safety policy for account creation.
+
+  * `data_modification`
+
+Safety policy for data modification.
+
+  * `user_consent_management`
+
+Safety policy for user consent management.
+
+  * `legal_terms_and_agreements`
+
+Safety policy for legal terms and agreements.
+
+
+
+
+FileSearch
+
+A tool that can be used by the model to search files.
+
+type object (required)
+
+No description provided.
+
+Always set to `"file_search"`.
+
+file_search_store_names array (string) (optional)
+
+The file search store names to search.
+
+top_k integer (optional)
+
+The number of semantic retrieval chunks to retrieve.
+
+metadata_filter string (optional)
+
+Metadata filter to apply to the semantic retrieval documents and chunks.
+
+Function
+
+A tool that can be used by the model.
+
+type object (required)
+
+No description provided.
+
+Always set to `"function"`.
+
+name string (optional)
+
+The name of the function.
+
+description string (optional)
+
+A description of the function.
+
+parameters object (optional)
+
+The JSON Schema for the function's parameters. Supports a subset of JSON Schema. `minLength`, `maxLength`, `minProperties`, `maxProperties`, `uniqueItems`, `contains`, `minContains`, and `maxContains` are ignored and not enforced.
+
+GoogleMaps
+
+A tool that can be used by the model to call Google Maps.
+
+type object (required)
+
+No description provided.
+
+Always set to `"google_maps"`.
+
+enable_widget boolean (optional)
+
+Whether to return a widget context token in the tool call result of the response.
+
+latitude number (optional)
+
+The latitude of the user's location.
+
+longitude number (optional)
+
+The longitude of the user's location.
+
+GoogleSearch
+
+A tool that can be used by the model to search Google.
+
+type object (required)
+
+No description provided.
+
+Always set to `"google_search"`.
+
+search_types array (enum (string)) (optional)
+
+The types of search grounding to enable.
+
+Possible values:
+
+  * `web_search`
+
+Setting this field enables web search. Only text results are returned.
+
+  * `image_search`
+
+Setting this field enables image search. Image bytes are returned.
+
+
+
+
+McpServer
+
+A MCPServer is a server that can be called by the model to perform actions.
+
+type object (required)
+
+No description provided.
+
+Always set to `"mcp_server"`.
+
+name string (optional)
+
+The name of the MCPServer.
+
+url string (optional)
+
+The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
+
+headers object (optional)
+
+Optional: Fields for authentication headers, timeouts, etc., if needed.
+
+allowed_tools array (AllowedTools) (optional)
+
+The allowed tools.
+
+The configuration for allowed tools.
+
+#### Fields
+
+mode enum (string) (optional)
+
+The mode of the tool choice.
+
+Possible values:
+
+  * `auto`
+
+Auto tool choice.
+
+  * `any`
+
+Any tool choice.
+
+  * `none`
+
+No tool choice.
+
+  * `validated`
+
+Validated tool choice.
+
+
+
+
+tools array (string) (optional)
+
+The names of the allowed tools.
+
+UrlContext
+
+A tool that can be used by the model to fetch URL context.
+
+type object (required)
+
+No description provided.
+
+Always set to `"url_context"`.
+
 response_format ResponseFormat or array (ResponseFormat) (optional)
 
 Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
@@ -1295,6 +1600,10 @@ Possible values:
 
 
 
+previous_interaction_id string (optional)
+
+The ID of the previous interaction, if any.
+
 environment EnvironmentConfig or string (optional)
 
 The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID.
@@ -1308,27 +1617,6 @@ type object (required)
 No description provided.
 
 Always set to `"remote"`.
-
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
-
-Network configuration for the environment.
-
-Network egress configuration for the environment.
-
-#### Fields
-
-allowlist array (EgressRule) or enum (string) (optional)
-
-List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-
-Possible values:
-
-  * `disabled`
-
-All network egress is blocked.
-
-
-
 
 sources array (Source) (optional)
 
@@ -1375,6 +1663,27 @@ encoding string (optional)
 
 Optional encoding for inline content (e.g. `base64`).
 
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
+
+Network configuration for the environment.
+
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional)
+
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
+
+Possible values:
+
+  * `disabled`
+
+All network egress is blocked.
+
+
+
+
 environment_id string (optional)
 
 Optional. The environment ID for the interaction. If specified, the request will update the existing environment instead of creating a new one.
@@ -1390,315 +1699,6 @@ object
 string
 
 A direct string value.
-
-id string (optional)
-
-Required. Output only. A unique identifier for the interaction completion.
-
-status enum (string) (optional)
-
-Required. Output only. The status of the interaction.
-
-Possible values:
-
-  * `in_progress`
-
-The interaction is in progress.
-
-  * `requires_action`
-
-The interaction requires action/input from the user.
-
-  * `completed`
-
-The interaction is completed.
-
-  * `failed`
-
-The interaction failed.
-
-  * `cancelled`
-
-The interaction was cancelled.
-
-  * `incomplete`
-
-The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
-
-
-
-
-created string (optional)
-
-Required. Output only. The time at which the response was created in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
-
-updated string (optional)
-
-Required. Output only. The time at which the response was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
-
-system_instruction string (optional)
-
-System instruction for the interaction.
-
-tools array (Tool) (optional)
-
-A list of tool declarations the model may call during interaction.
-
-A tool that can be used by the model.
-
-#### Possible Types
-
-CodeExecution
-
-A tool that can be used by the model to execute code.
-
-type object (required)
-
-No description provided.
-
-Always set to `"code_execution"`.
-
-ComputerUse
-
-A tool that can be used by the model to interact with the computer.
-
-type object (required)
-
-No description provided.
-
-Always set to `"computer_use"`.
-
-environment enum (string) (optional)
-
-The environment being operated.
-
-Possible values:
-
-  * `browser`
-
-Operates in a web browser.
-
-  * `mobile`
-
-Operates in a mobile environment.
-
-  * `desktop`
-
-Operates in a desktop environment.
-
-
-
-
-excluded_predefined_functions array (string) (optional)
-
-The list of predefined functions that are excluded from the model call.
-
-enable_prompt_injection_detection boolean (optional)
-
-Whether enable the prompt injection detection check on computer-use request.
-
-disabled_safety_policies array (enum (string)) (optional)
-
-Optional. Disabled safety policies for computer use.
-
-Possible values:
-
-  * `financial_transactions`
-
-Safety policy for financial transactions.
-
-  * `sensitive_data_modification`
-
-Safety policy for sensitive data modification.
-
-  * `communication_tool`
-
-Safety policy for communication tools (e.g. Gmail, Chat, Meet).
-
-  * `account_creation`
-
-Safety policy for account creation.
-
-  * `data_modification`
-
-Safety policy for data modification.
-
-  * `user_consent_management`
-
-Safety policy for user consent management.
-
-  * `legal_terms_and_agreements`
-
-Safety policy for legal terms and agreements.
-
-
-
-
-FileSearch
-
-A tool that can be used by the model to search files.
-
-type object (required)
-
-No description provided.
-
-Always set to `"file_search"`.
-
-file_search_store_names array (string) (optional)
-
-The file search store names to search.
-
-top_k integer (optional)
-
-The number of semantic retrieval chunks to retrieve.
-
-metadata_filter string (optional)
-
-Metadata filter to apply to the semantic retrieval documents and chunks.
-
-Function
-
-A tool that can be used by the model.
-
-type object (required)
-
-No description provided.
-
-Always set to `"function"`.
-
-name string (optional)
-
-The name of the function.
-
-description string (optional)
-
-A description of the function.
-
-parameters object (optional)
-
-The JSON Schema for the function's parameters. Supports a subset of JSON Schema. `minLength`, `maxLength`, `minProperties`, `maxProperties`, `uniqueItems`, `contains`, `minContains`, and `maxContains` are ignored and not enforced.
-
-GoogleMaps
-
-A tool that can be used by the model to call Google Maps.
-
-type object (required)
-
-No description provided.
-
-Always set to `"google_maps"`.
-
-enable_widget boolean (optional)
-
-Whether to return a widget context token in the tool call result of the response.
-
-latitude number (optional)
-
-The latitude of the user's location.
-
-longitude number (optional)
-
-The longitude of the user's location.
-
-GoogleSearch
-
-A tool that can be used by the model to search Google.
-
-type object (required)
-
-No description provided.
-
-Always set to `"google_search"`.
-
-search_types array (enum (string)) (optional)
-
-The types of search grounding to enable.
-
-Possible values:
-
-  * `web_search`
-
-Setting this field enables web search. Only text results are returned.
-
-  * `image_search`
-
-Setting this field enables image search. Image bytes are returned.
-
-
-
-
-McpServer
-
-A MCPServer is a server that can be called by the model to perform actions.
-
-type object (required)
-
-No description provided.
-
-Always set to `"mcp_server"`.
-
-url string (optional)
-
-The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
-
-name string (optional)
-
-The name of the MCPServer.
-
-headers object (optional)
-
-Optional: Fields for authentication headers, timeouts, etc., if needed.
-
-allowed_tools array (AllowedTools) (optional)
-
-The allowed tools.
-
-The configuration for allowed tools.
-
-#### Fields
-
-mode enum (string) (optional)
-
-The mode of the tool choice.
-
-Possible values:
-
-  * `auto`
-
-Auto tool choice.
-
-  * `any`
-
-Any tool choice.
-
-  * `none`
-
-No tool choice.
-
-  * `validated`
-
-Validated tool choice.
-
-
-
-
-tools array (string) (optional)
-
-The names of the allowed tools.
-
-UrlContext
-
-A tool that can be used by the model to fetch URL context.
-
-type object (required)
-
-No description provided.
-
-Always set to `"url_context"`.
-
-previous_interaction_id string (optional)
-
-The ID of the previous interaction, if any.
 
 environment_id string (optional)
 
@@ -2060,24 +2060,6 @@ A page token, received from a previous `ListTriggers` call. Provide this to retr
               "model": "string",
               "max_total_tokens": "string"
             },
-            "response_format": {
-              "type": {},
-              "mime_type": "audio/mp3",
-              "delivery": "inline",
-              "sample_rate": 0,
-              "bit_rate": 0
-            },
-            "environment": {
-              "type": {},
-              "network": {
-                "allowlist": "..."
-              },
-              "sources": [
-                "..."
-              ],
-              "environment_id": "string",
-              "env": {}
-            },
             "id": "string",
             "status": "in_progress",
             "created": "string",
@@ -2088,7 +2070,25 @@ A page token, received from a previous `ListTriggers` call. Provide this to retr
                 "type": "..."
               }
             ],
+            "response_format": {
+              "type": {},
+              "mime_type": "audio/mp3",
+              "delivery": "inline",
+              "sample_rate": 0,
+              "bit_rate": 0
+            },
             "previous_interaction_id": "string",
+            "environment": {
+              "type": {},
+              "sources": [
+                "..."
+              ],
+              "network": {
+                "allowlist": "..."
+              },
+              "environment_id": "string",
+              "env": {}
+            },
             "environment_id": "string",
             "service_tier": "flex",
             "webhook_config": {
@@ -2199,6 +2199,311 @@ The input for the interaction.
 agent_config AntigravityAgentConfig or DeepResearchAgentConfig or DynamicAgentConfig (optional)
 
 Configuration parameters for the agent interaction.
+
+id string (optional)
+
+Required. Output only. A unique identifier for the interaction completion.
+
+status enum (string) (optional)
+
+Required. Output only. The status of the interaction.
+
+Possible values:
+
+  * `in_progress`
+
+The interaction is in progress.
+
+  * `requires_action`
+
+The interaction requires action/input from the user.
+
+  * `completed`
+
+The interaction is completed.
+
+  * `failed`
+
+The interaction failed.
+
+  * `cancelled`
+
+The interaction was cancelled.
+
+  * `incomplete`
+
+The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
+
+
+
+
+created string (optional)
+
+Required. Output only. The time at which the response was created in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
+
+updated string (optional)
+
+Required. Output only. The time at which the response was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
+
+system_instruction string (optional)
+
+System instruction for the interaction.
+
+tools array (Tool) (optional)
+
+A list of tool declarations the model may call during interaction.
+
+A tool that can be used by the model.
+
+#### Possible Types
+
+CodeExecution
+
+A tool that can be used by the model to execute code.
+
+type object (required)
+
+No description provided.
+
+Always set to `"code_execution"`.
+
+ComputerUse
+
+A tool that can be used by the model to interact with the computer.
+
+type object (required)
+
+No description provided.
+
+Always set to `"computer_use"`.
+
+environment enum (string) (optional)
+
+The environment being operated.
+
+Possible values:
+
+  * `browser`
+
+Operates in a web browser.
+
+  * `mobile`
+
+Operates in a mobile environment.
+
+  * `desktop`
+
+Operates in a desktop environment.
+
+
+
+
+excluded_predefined_functions array (string) (optional)
+
+The list of predefined functions that are excluded from the model call.
+
+enable_prompt_injection_detection boolean (optional)
+
+Whether enable the prompt injection detection check on computer-use request.
+
+disabled_safety_policies array (enum (string)) (optional)
+
+Optional. Disabled safety policies for computer use.
+
+Possible values:
+
+  * `financial_transactions`
+
+Safety policy for financial transactions.
+
+  * `sensitive_data_modification`
+
+Safety policy for sensitive data modification.
+
+  * `communication_tool`
+
+Safety policy for communication tools (e.g. Gmail, Chat, Meet).
+
+  * `account_creation`
+
+Safety policy for account creation.
+
+  * `data_modification`
+
+Safety policy for data modification.
+
+  * `user_consent_management`
+
+Safety policy for user consent management.
+
+  * `legal_terms_and_agreements`
+
+Safety policy for legal terms and agreements.
+
+
+
+
+FileSearch
+
+A tool that can be used by the model to search files.
+
+type object (required)
+
+No description provided.
+
+Always set to `"file_search"`.
+
+file_search_store_names array (string) (optional)
+
+The file search store names to search.
+
+top_k integer (optional)
+
+The number of semantic retrieval chunks to retrieve.
+
+metadata_filter string (optional)
+
+Metadata filter to apply to the semantic retrieval documents and chunks.
+
+Function
+
+A tool that can be used by the model.
+
+type object (required)
+
+No description provided.
+
+Always set to `"function"`.
+
+name string (optional)
+
+The name of the function.
+
+description string (optional)
+
+A description of the function.
+
+parameters object (optional)
+
+The JSON Schema for the function's parameters. Supports a subset of JSON Schema. `minLength`, `maxLength`, `minProperties`, `maxProperties`, `uniqueItems`, `contains`, `minContains`, and `maxContains` are ignored and not enforced.
+
+GoogleMaps
+
+A tool that can be used by the model to call Google Maps.
+
+type object (required)
+
+No description provided.
+
+Always set to `"google_maps"`.
+
+enable_widget boolean (optional)
+
+Whether to return a widget context token in the tool call result of the response.
+
+latitude number (optional)
+
+The latitude of the user's location.
+
+longitude number (optional)
+
+The longitude of the user's location.
+
+GoogleSearch
+
+A tool that can be used by the model to search Google.
+
+type object (required)
+
+No description provided.
+
+Always set to `"google_search"`.
+
+search_types array (enum (string)) (optional)
+
+The types of search grounding to enable.
+
+Possible values:
+
+  * `web_search`
+
+Setting this field enables web search. Only text results are returned.
+
+  * `image_search`
+
+Setting this field enables image search. Image bytes are returned.
+
+
+
+
+McpServer
+
+A MCPServer is a server that can be called by the model to perform actions.
+
+type object (required)
+
+No description provided.
+
+Always set to `"mcp_server"`.
+
+name string (optional)
+
+The name of the MCPServer.
+
+url string (optional)
+
+The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
+
+headers object (optional)
+
+Optional: Fields for authentication headers, timeouts, etc., if needed.
+
+allowed_tools array (AllowedTools) (optional)
+
+The allowed tools.
+
+The configuration for allowed tools.
+
+#### Fields
+
+mode enum (string) (optional)
+
+The mode of the tool choice.
+
+Possible values:
+
+  * `auto`
+
+Auto tool choice.
+
+  * `any`
+
+Any tool choice.
+
+  * `none`
+
+No tool choice.
+
+  * `validated`
+
+Validated tool choice.
+
+
+
+
+tools array (string) (optional)
+
+The names of the allowed tools.
+
+UrlContext
+
+A tool that can be used by the model to fetch URL context.
+
+type object (required)
+
+No description provided.
+
+Always set to `"url_context"`.
 
 response_format ResponseFormat or array (ResponseFormat) (optional)
 
@@ -2508,6 +2813,10 @@ Possible values:
 
 
 
+previous_interaction_id string (optional)
+
+The ID of the previous interaction, if any.
+
 environment EnvironmentConfig or string (optional)
 
 The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID.
@@ -2521,27 +2830,6 @@ type object (required)
 No description provided.
 
 Always set to `"remote"`.
-
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
-
-Network configuration for the environment.
-
-Network egress configuration for the environment.
-
-#### Fields
-
-allowlist array (EgressRule) or enum (string) (optional)
-
-List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-
-Possible values:
-
-  * `disabled`
-
-All network egress is blocked.
-
-
-
 
 sources array (Source) (optional)
 
@@ -2588,6 +2876,27 @@ encoding string (optional)
 
 Optional encoding for inline content (e.g. `base64`).
 
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
+
+Network configuration for the environment.
+
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional)
+
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
+
+Possible values:
+
+  * `disabled`
+
+All network egress is blocked.
+
+
+
+
 environment_id string (optional)
 
 Optional. The environment ID for the interaction. If specified, the request will update the existing environment instead of creating a new one.
@@ -2603,315 +2912,6 @@ object
 string
 
 A direct string value.
-
-id string (optional)
-
-Required. Output only. A unique identifier for the interaction completion.
-
-status enum (string) (optional)
-
-Required. Output only. The status of the interaction.
-
-Possible values:
-
-  * `in_progress`
-
-The interaction is in progress.
-
-  * `requires_action`
-
-The interaction requires action/input from the user.
-
-  * `completed`
-
-The interaction is completed.
-
-  * `failed`
-
-The interaction failed.
-
-  * `cancelled`
-
-The interaction was cancelled.
-
-  * `incomplete`
-
-The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
-
-
-
-
-created string (optional)
-
-Required. Output only. The time at which the response was created in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
-
-updated string (optional)
-
-Required. Output only. The time at which the response was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
-
-system_instruction string (optional)
-
-System instruction for the interaction.
-
-tools array (Tool) (optional)
-
-A list of tool declarations the model may call during interaction.
-
-A tool that can be used by the model.
-
-#### Possible Types
-
-CodeExecution
-
-A tool that can be used by the model to execute code.
-
-type object (required)
-
-No description provided.
-
-Always set to `"code_execution"`.
-
-ComputerUse
-
-A tool that can be used by the model to interact with the computer.
-
-type object (required)
-
-No description provided.
-
-Always set to `"computer_use"`.
-
-environment enum (string) (optional)
-
-The environment being operated.
-
-Possible values:
-
-  * `browser`
-
-Operates in a web browser.
-
-  * `mobile`
-
-Operates in a mobile environment.
-
-  * `desktop`
-
-Operates in a desktop environment.
-
-
-
-
-excluded_predefined_functions array (string) (optional)
-
-The list of predefined functions that are excluded from the model call.
-
-enable_prompt_injection_detection boolean (optional)
-
-Whether enable the prompt injection detection check on computer-use request.
-
-disabled_safety_policies array (enum (string)) (optional)
-
-Optional. Disabled safety policies for computer use.
-
-Possible values:
-
-  * `financial_transactions`
-
-Safety policy for financial transactions.
-
-  * `sensitive_data_modification`
-
-Safety policy for sensitive data modification.
-
-  * `communication_tool`
-
-Safety policy for communication tools (e.g. Gmail, Chat, Meet).
-
-  * `account_creation`
-
-Safety policy for account creation.
-
-  * `data_modification`
-
-Safety policy for data modification.
-
-  * `user_consent_management`
-
-Safety policy for user consent management.
-
-  * `legal_terms_and_agreements`
-
-Safety policy for legal terms and agreements.
-
-
-
-
-FileSearch
-
-A tool that can be used by the model to search files.
-
-type object (required)
-
-No description provided.
-
-Always set to `"file_search"`.
-
-file_search_store_names array (string) (optional)
-
-The file search store names to search.
-
-top_k integer (optional)
-
-The number of semantic retrieval chunks to retrieve.
-
-metadata_filter string (optional)
-
-Metadata filter to apply to the semantic retrieval documents and chunks.
-
-Function
-
-A tool that can be used by the model.
-
-type object (required)
-
-No description provided.
-
-Always set to `"function"`.
-
-name string (optional)
-
-The name of the function.
-
-description string (optional)
-
-A description of the function.
-
-parameters object (optional)
-
-The JSON Schema for the function's parameters. Supports a subset of JSON Schema. `minLength`, `maxLength`, `minProperties`, `maxProperties`, `uniqueItems`, `contains`, `minContains`, and `maxContains` are ignored and not enforced.
-
-GoogleMaps
-
-A tool that can be used by the model to call Google Maps.
-
-type object (required)
-
-No description provided.
-
-Always set to `"google_maps"`.
-
-enable_widget boolean (optional)
-
-Whether to return a widget context token in the tool call result of the response.
-
-latitude number (optional)
-
-The latitude of the user's location.
-
-longitude number (optional)
-
-The longitude of the user's location.
-
-GoogleSearch
-
-A tool that can be used by the model to search Google.
-
-type object (required)
-
-No description provided.
-
-Always set to `"google_search"`.
-
-search_types array (enum (string)) (optional)
-
-The types of search grounding to enable.
-
-Possible values:
-
-  * `web_search`
-
-Setting this field enables web search. Only text results are returned.
-
-  * `image_search`
-
-Setting this field enables image search. Image bytes are returned.
-
-
-
-
-McpServer
-
-A MCPServer is a server that can be called by the model to perform actions.
-
-type object (required)
-
-No description provided.
-
-Always set to `"mcp_server"`.
-
-url string (optional)
-
-The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
-
-name string (optional)
-
-The name of the MCPServer.
-
-headers object (optional)
-
-Optional: Fields for authentication headers, timeouts, etc., if needed.
-
-allowed_tools array (AllowedTools) (optional)
-
-The allowed tools.
-
-The configuration for allowed tools.
-
-#### Fields
-
-mode enum (string) (optional)
-
-The mode of the tool choice.
-
-Possible values:
-
-  * `auto`
-
-Auto tool choice.
-
-  * `any`
-
-Any tool choice.
-
-  * `none`
-
-No tool choice.
-
-  * `validated`
-
-Validated tool choice.
-
-
-
-
-tools array (string) (optional)
-
-The names of the allowed tools.
-
-UrlContext
-
-A tool that can be used by the model to fetch URL context.
-
-type object (required)
-
-No description provided.
-
-Always set to `"url_context"`.
-
-previous_interaction_id string (optional)
-
-The ID of the previous interaction, if any.
 
 environment_id string (optional)
 
@@ -3133,36 +3133,6 @@ The trigger has entered an error state due to consecutive failures.
           "model": "string",
           "max_total_tokens": "string"
         },
-        "response_format": {
-          "type": {},
-          "mime_type": "audio/mp3",
-          "delivery": "inline",
-          "sample_rate": 0,
-          "bit_rate": 0
-        },
-        "environment": {
-          "type": {},
-          "network": {
-            "allowlist": [
-              {
-                "domain": "...",
-                "transform": "...",
-                "credential": "..."
-              }
-            ]
-          },
-          "sources": [
-            {
-              "type": "gcs",
-              "source": "string",
-              "target": "string",
-              "content": "string",
-              "encoding": "string"
-            }
-          ],
-          "environment_id": "string",
-          "env": {}
-        },
         "id": "string",
         "status": "in_progress",
         "created": "string",
@@ -3173,7 +3143,37 @@ The trigger has entered an error state due to consecutive failures.
             "type": {}
           }
         ],
+        "response_format": {
+          "type": {},
+          "mime_type": "audio/mp3",
+          "delivery": "inline",
+          "sample_rate": 0,
+          "bit_rate": 0
+        },
         "previous_interaction_id": "string",
+        "environment": {
+          "type": {},
+          "sources": [
+            {
+              "type": "gcs",
+              "source": "string",
+              "target": "string",
+              "content": "string",
+              "encoding": "string"
+            }
+          ],
+          "network": {
+            "allowlist": [
+              {
+                "domain": "...",
+                "transform": "...",
+                "credential": "..."
+              }
+            ]
+          },
+          "environment_id": "string",
+          "env": {}
+        },
         "environment_id": "string",
         "service_tier": "flex",
         "webhook_config": {
@@ -3456,6 +3456,311 @@ agent_config AntigravityAgentConfig or DeepResearchAgentConfig or DynamicAgentCo
 
 Configuration parameters for the agent interaction.
 
+id string (optional)
+
+Required. Output only. A unique identifier for the interaction completion.
+
+status enum (string) (optional)
+
+Required. Output only. The status of the interaction.
+
+Possible values:
+
+  * `in_progress`
+
+The interaction is in progress.
+
+  * `requires_action`
+
+The interaction requires action/input from the user.
+
+  * `completed`
+
+The interaction is completed.
+
+  * `failed`
+
+The interaction failed.
+
+  * `cancelled`
+
+The interaction was cancelled.
+
+  * `incomplete`
+
+The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
+
+
+
+
+created string (optional)
+
+Required. Output only. The time at which the response was created in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
+
+updated string (optional)
+
+Required. Output only. The time at which the response was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
+
+system_instruction string (optional)
+
+System instruction for the interaction.
+
+tools array (Tool) (optional)
+
+A list of tool declarations the model may call during interaction.
+
+A tool that can be used by the model.
+
+#### Possible Types
+
+CodeExecution
+
+A tool that can be used by the model to execute code.
+
+type object (required)
+
+No description provided.
+
+Always set to `"code_execution"`.
+
+ComputerUse
+
+A tool that can be used by the model to interact with the computer.
+
+type object (required)
+
+No description provided.
+
+Always set to `"computer_use"`.
+
+environment enum (string) (optional)
+
+The environment being operated.
+
+Possible values:
+
+  * `browser`
+
+Operates in a web browser.
+
+  * `mobile`
+
+Operates in a mobile environment.
+
+  * `desktop`
+
+Operates in a desktop environment.
+
+
+
+
+excluded_predefined_functions array (string) (optional)
+
+The list of predefined functions that are excluded from the model call.
+
+enable_prompt_injection_detection boolean (optional)
+
+Whether enable the prompt injection detection check on computer-use request.
+
+disabled_safety_policies array (enum (string)) (optional)
+
+Optional. Disabled safety policies for computer use.
+
+Possible values:
+
+  * `financial_transactions`
+
+Safety policy for financial transactions.
+
+  * `sensitive_data_modification`
+
+Safety policy for sensitive data modification.
+
+  * `communication_tool`
+
+Safety policy for communication tools (e.g. Gmail, Chat, Meet).
+
+  * `account_creation`
+
+Safety policy for account creation.
+
+  * `data_modification`
+
+Safety policy for data modification.
+
+  * `user_consent_management`
+
+Safety policy for user consent management.
+
+  * `legal_terms_and_agreements`
+
+Safety policy for legal terms and agreements.
+
+
+
+
+FileSearch
+
+A tool that can be used by the model to search files.
+
+type object (required)
+
+No description provided.
+
+Always set to `"file_search"`.
+
+file_search_store_names array (string) (optional)
+
+The file search store names to search.
+
+top_k integer (optional)
+
+The number of semantic retrieval chunks to retrieve.
+
+metadata_filter string (optional)
+
+Metadata filter to apply to the semantic retrieval documents and chunks.
+
+Function
+
+A tool that can be used by the model.
+
+type object (required)
+
+No description provided.
+
+Always set to `"function"`.
+
+name string (optional)
+
+The name of the function.
+
+description string (optional)
+
+A description of the function.
+
+parameters object (optional)
+
+The JSON Schema for the function's parameters. Supports a subset of JSON Schema. `minLength`, `maxLength`, `minProperties`, `maxProperties`, `uniqueItems`, `contains`, `minContains`, and `maxContains` are ignored and not enforced.
+
+GoogleMaps
+
+A tool that can be used by the model to call Google Maps.
+
+type object (required)
+
+No description provided.
+
+Always set to `"google_maps"`.
+
+enable_widget boolean (optional)
+
+Whether to return a widget context token in the tool call result of the response.
+
+latitude number (optional)
+
+The latitude of the user's location.
+
+longitude number (optional)
+
+The longitude of the user's location.
+
+GoogleSearch
+
+A tool that can be used by the model to search Google.
+
+type object (required)
+
+No description provided.
+
+Always set to `"google_search"`.
+
+search_types array (enum (string)) (optional)
+
+The types of search grounding to enable.
+
+Possible values:
+
+  * `web_search`
+
+Setting this field enables web search. Only text results are returned.
+
+  * `image_search`
+
+Setting this field enables image search. Image bytes are returned.
+
+
+
+
+McpServer
+
+A MCPServer is a server that can be called by the model to perform actions.
+
+type object (required)
+
+No description provided.
+
+Always set to `"mcp_server"`.
+
+name string (optional)
+
+The name of the MCPServer.
+
+url string (optional)
+
+The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
+
+headers object (optional)
+
+Optional: Fields for authentication headers, timeouts, etc., if needed.
+
+allowed_tools array (AllowedTools) (optional)
+
+The allowed tools.
+
+The configuration for allowed tools.
+
+#### Fields
+
+mode enum (string) (optional)
+
+The mode of the tool choice.
+
+Possible values:
+
+  * `auto`
+
+Auto tool choice.
+
+  * `any`
+
+Any tool choice.
+
+  * `none`
+
+No tool choice.
+
+  * `validated`
+
+Validated tool choice.
+
+
+
+
+tools array (string) (optional)
+
+The names of the allowed tools.
+
+UrlContext
+
+A tool that can be used by the model to fetch URL context.
+
+type object (required)
+
+No description provided.
+
+Always set to `"url_context"`.
+
 response_format ResponseFormat or array (ResponseFormat) (optional)
 
 Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
@@ -3764,6 +4069,10 @@ Possible values:
 
 
 
+previous_interaction_id string (optional)
+
+The ID of the previous interaction, if any.
+
 environment EnvironmentConfig or string (optional)
 
 The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID.
@@ -3777,27 +4086,6 @@ type object (required)
 No description provided.
 
 Always set to `"remote"`.
-
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
-
-Network configuration for the environment.
-
-Network egress configuration for the environment.
-
-#### Fields
-
-allowlist array (EgressRule) or enum (string) (optional)
-
-List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-
-Possible values:
-
-  * `disabled`
-
-All network egress is blocked.
-
-
-
 
 sources array (Source) (optional)
 
@@ -3844,6 +4132,27 @@ encoding string (optional)
 
 Optional encoding for inline content (e.g. `base64`).
 
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
+
+Network configuration for the environment.
+
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional)
+
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
+
+Possible values:
+
+  * `disabled`
+
+All network egress is blocked.
+
+
+
+
 environment_id string (optional)
 
 Optional. The environment ID for the interaction. If specified, the request will update the existing environment instead of creating a new one.
@@ -3859,315 +4168,6 @@ object
 string
 
 A direct string value.
-
-id string (optional)
-
-Required. Output only. A unique identifier for the interaction completion.
-
-status enum (string) (optional)
-
-Required. Output only. The status of the interaction.
-
-Possible values:
-
-  * `in_progress`
-
-The interaction is in progress.
-
-  * `requires_action`
-
-The interaction requires action/input from the user.
-
-  * `completed`
-
-The interaction is completed.
-
-  * `failed`
-
-The interaction failed.
-
-  * `cancelled`
-
-The interaction was cancelled.
-
-  * `incomplete`
-
-The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
-
-
-
-
-created string (optional)
-
-Required. Output only. The time at which the response was created in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
-
-updated string (optional)
-
-Required. Output only. The time at which the response was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
-
-system_instruction string (optional)
-
-System instruction for the interaction.
-
-tools array (Tool) (optional)
-
-A list of tool declarations the model may call during interaction.
-
-A tool that can be used by the model.
-
-#### Possible Types
-
-CodeExecution
-
-A tool that can be used by the model to execute code.
-
-type object (required)
-
-No description provided.
-
-Always set to `"code_execution"`.
-
-ComputerUse
-
-A tool that can be used by the model to interact with the computer.
-
-type object (required)
-
-No description provided.
-
-Always set to `"computer_use"`.
-
-environment enum (string) (optional)
-
-The environment being operated.
-
-Possible values:
-
-  * `browser`
-
-Operates in a web browser.
-
-  * `mobile`
-
-Operates in a mobile environment.
-
-  * `desktop`
-
-Operates in a desktop environment.
-
-
-
-
-excluded_predefined_functions array (string) (optional)
-
-The list of predefined functions that are excluded from the model call.
-
-enable_prompt_injection_detection boolean (optional)
-
-Whether enable the prompt injection detection check on computer-use request.
-
-disabled_safety_policies array (enum (string)) (optional)
-
-Optional. Disabled safety policies for computer use.
-
-Possible values:
-
-  * `financial_transactions`
-
-Safety policy for financial transactions.
-
-  * `sensitive_data_modification`
-
-Safety policy for sensitive data modification.
-
-  * `communication_tool`
-
-Safety policy for communication tools (e.g. Gmail, Chat, Meet).
-
-  * `account_creation`
-
-Safety policy for account creation.
-
-  * `data_modification`
-
-Safety policy for data modification.
-
-  * `user_consent_management`
-
-Safety policy for user consent management.
-
-  * `legal_terms_and_agreements`
-
-Safety policy for legal terms and agreements.
-
-
-
-
-FileSearch
-
-A tool that can be used by the model to search files.
-
-type object (required)
-
-No description provided.
-
-Always set to `"file_search"`.
-
-file_search_store_names array (string) (optional)
-
-The file search store names to search.
-
-top_k integer (optional)
-
-The number of semantic retrieval chunks to retrieve.
-
-metadata_filter string (optional)
-
-Metadata filter to apply to the semantic retrieval documents and chunks.
-
-Function
-
-A tool that can be used by the model.
-
-type object (required)
-
-No description provided.
-
-Always set to `"function"`.
-
-name string (optional)
-
-The name of the function.
-
-description string (optional)
-
-A description of the function.
-
-parameters object (optional)
-
-The JSON Schema for the function's parameters. Supports a subset of JSON Schema. `minLength`, `maxLength`, `minProperties`, `maxProperties`, `uniqueItems`, `contains`, `minContains`, and `maxContains` are ignored and not enforced.
-
-GoogleMaps
-
-A tool that can be used by the model to call Google Maps.
-
-type object (required)
-
-No description provided.
-
-Always set to `"google_maps"`.
-
-enable_widget boolean (optional)
-
-Whether to return a widget context token in the tool call result of the response.
-
-latitude number (optional)
-
-The latitude of the user's location.
-
-longitude number (optional)
-
-The longitude of the user's location.
-
-GoogleSearch
-
-A tool that can be used by the model to search Google.
-
-type object (required)
-
-No description provided.
-
-Always set to `"google_search"`.
-
-search_types array (enum (string)) (optional)
-
-The types of search grounding to enable.
-
-Possible values:
-
-  * `web_search`
-
-Setting this field enables web search. Only text results are returned.
-
-  * `image_search`
-
-Setting this field enables image search. Image bytes are returned.
-
-
-
-
-McpServer
-
-A MCPServer is a server that can be called by the model to perform actions.
-
-type object (required)
-
-No description provided.
-
-Always set to `"mcp_server"`.
-
-url string (optional)
-
-The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
-
-name string (optional)
-
-The name of the MCPServer.
-
-headers object (optional)
-
-Optional: Fields for authentication headers, timeouts, etc., if needed.
-
-allowed_tools array (AllowedTools) (optional)
-
-The allowed tools.
-
-The configuration for allowed tools.
-
-#### Fields
-
-mode enum (string) (optional)
-
-The mode of the tool choice.
-
-Possible values:
-
-  * `auto`
-
-Auto tool choice.
-
-  * `any`
-
-Any tool choice.
-
-  * `none`
-
-No tool choice.
-
-  * `validated`
-
-Validated tool choice.
-
-
-
-
-tools array (string) (optional)
-
-The names of the allowed tools.
-
-UrlContext
-
-A tool that can be used by the model to fetch URL context.
-
-type object (required)
-
-No description provided.
-
-Always set to `"url_context"`.
-
-previous_interaction_id string (optional)
-
-The ID of the previous interaction, if any.
 
 environment_id string (optional)
 
@@ -4389,36 +4389,6 @@ The trigger has entered an error state due to consecutive failures.
           "model": "string",
           "max_total_tokens": "string"
         },
-        "response_format": {
-          "type": {},
-          "mime_type": "audio/mp3",
-          "delivery": "inline",
-          "sample_rate": 0,
-          "bit_rate": 0
-        },
-        "environment": {
-          "type": {},
-          "network": {
-            "allowlist": [
-              {
-                "domain": "...",
-                "transform": "...",
-                "credential": "..."
-              }
-            ]
-          },
-          "sources": [
-            {
-              "type": "gcs",
-              "source": "string",
-              "target": "string",
-              "content": "string",
-              "encoding": "string"
-            }
-          ],
-          "environment_id": "string",
-          "env": {}
-        },
         "id": "string",
         "status": "in_progress",
         "created": "string",
@@ -4429,7 +4399,37 @@ The trigger has entered an error state due to consecutive failures.
             "type": {}
           }
         ],
+        "response_format": {
+          "type": {},
+          "mime_type": "audio/mp3",
+          "delivery": "inline",
+          "sample_rate": 0,
+          "bit_rate": 0
+        },
         "previous_interaction_id": "string",
+        "environment": {
+          "type": {},
+          "sources": [
+            {
+              "type": "gcs",
+              "source": "string",
+              "target": "string",
+              "content": "string",
+              "encoding": "string"
+            }
+          ],
+          "network": {
+            "allowlist": [
+              {
+                "domain": "...",
+                "transform": "...",
+                "credential": "..."
+              }
+            ]
+          },
+          "environment_id": "string",
+          "env": {}
+        },
         "environment_id": "string",
         "service_tier": "flex",
         "webhook_config": {
@@ -4547,6 +4547,311 @@ The input for the interaction.
 agent_config AntigravityAgentConfig or DeepResearchAgentConfig or DynamicAgentConfig (optional)
 
 Configuration parameters for the agent interaction.
+
+id string (optional)
+
+Required. Output only. A unique identifier for the interaction completion.
+
+status enum (string) (optional)
+
+Required. Output only. The status of the interaction.
+
+Possible values:
+
+  * `in_progress`
+
+The interaction is in progress.
+
+  * `requires_action`
+
+The interaction requires action/input from the user.
+
+  * `completed`
+
+The interaction is completed.
+
+  * `failed`
+
+The interaction failed.
+
+  * `cancelled`
+
+The interaction was cancelled.
+
+  * `incomplete`
+
+The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
+
+
+
+
+created string (optional)
+
+Required. Output only. The time at which the response was created in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
+
+updated string (optional)
+
+Required. Output only. The time at which the response was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
+
+system_instruction string (optional)
+
+System instruction for the interaction.
+
+tools array (Tool) (optional)
+
+A list of tool declarations the model may call during interaction.
+
+A tool that can be used by the model.
+
+#### Possible Types
+
+CodeExecution
+
+A tool that can be used by the model to execute code.
+
+type object (required)
+
+No description provided.
+
+Always set to `"code_execution"`.
+
+ComputerUse
+
+A tool that can be used by the model to interact with the computer.
+
+type object (required)
+
+No description provided.
+
+Always set to `"computer_use"`.
+
+environment enum (string) (optional)
+
+The environment being operated.
+
+Possible values:
+
+  * `browser`
+
+Operates in a web browser.
+
+  * `mobile`
+
+Operates in a mobile environment.
+
+  * `desktop`
+
+Operates in a desktop environment.
+
+
+
+
+excluded_predefined_functions array (string) (optional)
+
+The list of predefined functions that are excluded from the model call.
+
+enable_prompt_injection_detection boolean (optional)
+
+Whether enable the prompt injection detection check on computer-use request.
+
+disabled_safety_policies array (enum (string)) (optional)
+
+Optional. Disabled safety policies for computer use.
+
+Possible values:
+
+  * `financial_transactions`
+
+Safety policy for financial transactions.
+
+  * `sensitive_data_modification`
+
+Safety policy for sensitive data modification.
+
+  * `communication_tool`
+
+Safety policy for communication tools (e.g. Gmail, Chat, Meet).
+
+  * `account_creation`
+
+Safety policy for account creation.
+
+  * `data_modification`
+
+Safety policy for data modification.
+
+  * `user_consent_management`
+
+Safety policy for user consent management.
+
+  * `legal_terms_and_agreements`
+
+Safety policy for legal terms and agreements.
+
+
+
+
+FileSearch
+
+A tool that can be used by the model to search files.
+
+type object (required)
+
+No description provided.
+
+Always set to `"file_search"`.
+
+file_search_store_names array (string) (optional)
+
+The file search store names to search.
+
+top_k integer (optional)
+
+The number of semantic retrieval chunks to retrieve.
+
+metadata_filter string (optional)
+
+Metadata filter to apply to the semantic retrieval documents and chunks.
+
+Function
+
+A tool that can be used by the model.
+
+type object (required)
+
+No description provided.
+
+Always set to `"function"`.
+
+name string (optional)
+
+The name of the function.
+
+description string (optional)
+
+A description of the function.
+
+parameters object (optional)
+
+The JSON Schema for the function's parameters. Supports a subset of JSON Schema. `minLength`, `maxLength`, `minProperties`, `maxProperties`, `uniqueItems`, `contains`, `minContains`, and `maxContains` are ignored and not enforced.
+
+GoogleMaps
+
+A tool that can be used by the model to call Google Maps.
+
+type object (required)
+
+No description provided.
+
+Always set to `"google_maps"`.
+
+enable_widget boolean (optional)
+
+Whether to return a widget context token in the tool call result of the response.
+
+latitude number (optional)
+
+The latitude of the user's location.
+
+longitude number (optional)
+
+The longitude of the user's location.
+
+GoogleSearch
+
+A tool that can be used by the model to search Google.
+
+type object (required)
+
+No description provided.
+
+Always set to `"google_search"`.
+
+search_types array (enum (string)) (optional)
+
+The types of search grounding to enable.
+
+Possible values:
+
+  * `web_search`
+
+Setting this field enables web search. Only text results are returned.
+
+  * `image_search`
+
+Setting this field enables image search. Image bytes are returned.
+
+
+
+
+McpServer
+
+A MCPServer is a server that can be called by the model to perform actions.
+
+type object (required)
+
+No description provided.
+
+Always set to `"mcp_server"`.
+
+name string (optional)
+
+The name of the MCPServer.
+
+url string (optional)
+
+The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
+
+headers object (optional)
+
+Optional: Fields for authentication headers, timeouts, etc., if needed.
+
+allowed_tools array (AllowedTools) (optional)
+
+The allowed tools.
+
+The configuration for allowed tools.
+
+#### Fields
+
+mode enum (string) (optional)
+
+The mode of the tool choice.
+
+Possible values:
+
+  * `auto`
+
+Auto tool choice.
+
+  * `any`
+
+Any tool choice.
+
+  * `none`
+
+No tool choice.
+
+  * `validated`
+
+Validated tool choice.
+
+
+
+
+tools array (string) (optional)
+
+The names of the allowed tools.
+
+UrlContext
+
+A tool that can be used by the model to fetch URL context.
+
+type object (required)
+
+No description provided.
+
+Always set to `"url_context"`.
 
 response_format ResponseFormat or array (ResponseFormat) (optional)
 
@@ -4856,6 +5161,10 @@ Possible values:
 
 
 
+previous_interaction_id string (optional)
+
+The ID of the previous interaction, if any.
+
 environment EnvironmentConfig or string (optional)
 
 The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID.
@@ -4869,27 +5178,6 @@ type object (required)
 No description provided.
 
 Always set to `"remote"`.
-
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
-
-Network configuration for the environment.
-
-Network egress configuration for the environment.
-
-#### Fields
-
-allowlist array (EgressRule) or enum (string) (optional)
-
-List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-
-Possible values:
-
-  * `disabled`
-
-All network egress is blocked.
-
-
-
 
 sources array (Source) (optional)
 
@@ -4936,6 +5224,27 @@ encoding string (optional)
 
 Optional encoding for inline content (e.g. `base64`).
 
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
+
+Network configuration for the environment.
+
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional)
+
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
+
+Possible values:
+
+  * `disabled`
+
+All network egress is blocked.
+
+
+
+
 environment_id string (optional)
 
 Optional. The environment ID for the interaction. If specified, the request will update the existing environment instead of creating a new one.
@@ -4951,315 +5260,6 @@ object
 string
 
 A direct string value.
-
-id string (optional)
-
-Required. Output only. A unique identifier for the interaction completion.
-
-status enum (string) (optional)
-
-Required. Output only. The status of the interaction.
-
-Possible values:
-
-  * `in_progress`
-
-The interaction is in progress.
-
-  * `requires_action`
-
-The interaction requires action/input from the user.
-
-  * `completed`
-
-The interaction is completed.
-
-  * `failed`
-
-The interaction failed.
-
-  * `cancelled`
-
-The interaction was cancelled.
-
-  * `incomplete`
-
-The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
-
-
-
-
-created string (optional)
-
-Required. Output only. The time at which the response was created in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
-
-updated string (optional)
-
-Required. Output only. The time at which the response was last updated in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
-
-system_instruction string (optional)
-
-System instruction for the interaction.
-
-tools array (Tool) (optional)
-
-A list of tool declarations the model may call during interaction.
-
-A tool that can be used by the model.
-
-#### Possible Types
-
-CodeExecution
-
-A tool that can be used by the model to execute code.
-
-type object (required)
-
-No description provided.
-
-Always set to `"code_execution"`.
-
-ComputerUse
-
-A tool that can be used by the model to interact with the computer.
-
-type object (required)
-
-No description provided.
-
-Always set to `"computer_use"`.
-
-environment enum (string) (optional)
-
-The environment being operated.
-
-Possible values:
-
-  * `browser`
-
-Operates in a web browser.
-
-  * `mobile`
-
-Operates in a mobile environment.
-
-  * `desktop`
-
-Operates in a desktop environment.
-
-
-
-
-excluded_predefined_functions array (string) (optional)
-
-The list of predefined functions that are excluded from the model call.
-
-enable_prompt_injection_detection boolean (optional)
-
-Whether enable the prompt injection detection check on computer-use request.
-
-disabled_safety_policies array (enum (string)) (optional)
-
-Optional. Disabled safety policies for computer use.
-
-Possible values:
-
-  * `financial_transactions`
-
-Safety policy for financial transactions.
-
-  * `sensitive_data_modification`
-
-Safety policy for sensitive data modification.
-
-  * `communication_tool`
-
-Safety policy for communication tools (e.g. Gmail, Chat, Meet).
-
-  * `account_creation`
-
-Safety policy for account creation.
-
-  * `data_modification`
-
-Safety policy for data modification.
-
-  * `user_consent_management`
-
-Safety policy for user consent management.
-
-  * `legal_terms_and_agreements`
-
-Safety policy for legal terms and agreements.
-
-
-
-
-FileSearch
-
-A tool that can be used by the model to search files.
-
-type object (required)
-
-No description provided.
-
-Always set to `"file_search"`.
-
-file_search_store_names array (string) (optional)
-
-The file search store names to search.
-
-top_k integer (optional)
-
-The number of semantic retrieval chunks to retrieve.
-
-metadata_filter string (optional)
-
-Metadata filter to apply to the semantic retrieval documents and chunks.
-
-Function
-
-A tool that can be used by the model.
-
-type object (required)
-
-No description provided.
-
-Always set to `"function"`.
-
-name string (optional)
-
-The name of the function.
-
-description string (optional)
-
-A description of the function.
-
-parameters object (optional)
-
-The JSON Schema for the function's parameters. Supports a subset of JSON Schema. `minLength`, `maxLength`, `minProperties`, `maxProperties`, `uniqueItems`, `contains`, `minContains`, and `maxContains` are ignored and not enforced.
-
-GoogleMaps
-
-A tool that can be used by the model to call Google Maps.
-
-type object (required)
-
-No description provided.
-
-Always set to `"google_maps"`.
-
-enable_widget boolean (optional)
-
-Whether to return a widget context token in the tool call result of the response.
-
-latitude number (optional)
-
-The latitude of the user's location.
-
-longitude number (optional)
-
-The longitude of the user's location.
-
-GoogleSearch
-
-A tool that can be used by the model to search Google.
-
-type object (required)
-
-No description provided.
-
-Always set to `"google_search"`.
-
-search_types array (enum (string)) (optional)
-
-The types of search grounding to enable.
-
-Possible values:
-
-  * `web_search`
-
-Setting this field enables web search. Only text results are returned.
-
-  * `image_search`
-
-Setting this field enables image search. Image bytes are returned.
-
-
-
-
-McpServer
-
-A MCPServer is a server that can be called by the model to perform actions.
-
-type object (required)
-
-No description provided.
-
-Always set to `"mcp_server"`.
-
-url string (optional)
-
-The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
-
-name string (optional)
-
-The name of the MCPServer.
-
-headers object (optional)
-
-Optional: Fields for authentication headers, timeouts, etc., if needed.
-
-allowed_tools array (AllowedTools) (optional)
-
-The allowed tools.
-
-The configuration for allowed tools.
-
-#### Fields
-
-mode enum (string) (optional)
-
-The mode of the tool choice.
-
-Possible values:
-
-  * `auto`
-
-Auto tool choice.
-
-  * `any`
-
-Any tool choice.
-
-  * `none`
-
-No tool choice.
-
-  * `validated`
-
-Validated tool choice.
-
-
-
-
-tools array (string) (optional)
-
-The names of the allowed tools.
-
-UrlContext
-
-A tool that can be used by the model to fetch URL context.
-
-type object (required)
-
-No description provided.
-
-Always set to `"url_context"`.
-
-previous_interaction_id string (optional)
-
-The ID of the previous interaction, if any.
 
 environment_id string (optional)
 

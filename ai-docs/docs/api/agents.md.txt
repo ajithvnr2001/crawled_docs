@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/agents.md.txt
 title: agents
 method: httpx-raw-text
-fetched_at: 2026-10-23T16:39:42.118367+00:00
+fetched_at: 2026-10-24T08:36:43.800397+00:00
 ---
 
 # agents
@@ -30,6 +30,10 @@ Format: \`projects/{project}/locations/{location}\`
 ### Request body
 
 The request body contains data with the following structure:
+id string (optional) The unique identifier for the agent.
+base_agent string (optional) The base agent to extend.
+system_instruction string (optional) System instruction for the agent.
+description string (optional) Agent description for developers to quickly read and understand.
 agent_config AntigravityAgentConfig (optional) Configuration parameters for the agent.
 Configuration for the Antigravity agent runtime.
 Provides server-side control over the agent's execution environment
@@ -50,20 +54,6 @@ Configuration for a custom environment.
 type object (required) No description provided.
 
 Always set to `"remote"`.
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional) Network configuration for the environment.
-Network egress configuration for the environment.
-
-#### Fields
-
-allowlist array (EgressRule) or enum (string) (optional) List of allowed domains and their configurations. Set to \`"disabled"\`
-to block all network egress.
-
-Possible
-values:
-
-- `disabled`
-
-  All network egress is blocked.
 sources array (Source) (optional) No description provided.
 A source to be mounted into the environment.
 
@@ -90,6 +80,20 @@ For GitHub, this is the GitHub path.
 target string (optional) Where the source should appear in the environment.
 content string (optional) The inline content if \`type\` is \`INLINE\`.
 encoding string (optional) Optional encoding for inline content (e.g. \`base64\`).
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional) Network configuration for the environment.
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional) List of allowed domains and their configurations. Set to \`"disabled"\`
+to block all network egress.
+
+Possible
+values:
+
+- `disabled`
+
+  All network egress is blocked.
 environment_id string (optional) Optional. The environment ID for the interaction. If specified, the request will
 update the existing environment instead of creating a new one.
 env object or string (optional) Environment variables to set in the sandbox environment.
@@ -99,10 +103,6 @@ env object or string (optional) Environment variables to set in the sandbox envi
 object <br />
 
 string A direct string value.
-id string (optional) The unique identifier for the agent.
-base_agent string (optional) The base agent to extend.
-system_instruction string (optional) System instruction for the agent.
-description string (optional) Agent description for developers to quickly read and understand.
 tools array (AgentTool) (optional) The tools available to the agent.
 A tool that the agent can use.
 
@@ -142,9 +142,9 @@ McpServer A MCPServer is a server that can be called by the model to perform act
 type object (required) No description provided.
 
 Always set to `"mcp_server"`.
+name string (optional) The name of the MCPServer.
 url string (optional) The full URL for the MCPServer endpoint.
 Example: "https://api.example.com/mcp"
-name string (optional) The name of the MCPServer.
 headers object (optional) Optional: Fields for authentication headers, timeouts, etc., if needed.
 allowed_tools array (AllowedTools) (optional) The allowed tools.
 The configuration for allowed tools.
@@ -177,6 +177,10 @@ Always set to `"url_context"`.
 ### Response
 
 If successful, the response body contains data with the following structure:
+id string (optional) The unique identifier for the agent.
+base_agent string (optional) The base agent to extend.
+system_instruction string (optional) System instruction for the agent.
+description string (optional) Agent description for developers to quickly read and understand.
 agent_config AntigravityAgentConfig (optional) Configuration parameters for the agent.
 Configuration for the Antigravity agent runtime.
 Provides server-side control over the agent's execution environment
@@ -197,20 +201,6 @@ Configuration for a custom environment.
 type object (required) No description provided.
 
 Always set to `"remote"`.
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional) Network configuration for the environment.
-Network egress configuration for the environment.
-
-#### Fields
-
-allowlist array (EgressRule) or enum (string) (optional) List of allowed domains and their configurations. Set to \`"disabled"\`
-to block all network egress.
-
-Possible
-values:
-
-- `disabled`
-
-  All network egress is blocked.
 sources array (Source) (optional) No description provided.
 A source to be mounted into the environment.
 
@@ -237,6 +227,20 @@ For GitHub, this is the GitHub path.
 target string (optional) Where the source should appear in the environment.
 content string (optional) The inline content if \`type\` is \`INLINE\`.
 encoding string (optional) Optional encoding for inline content (e.g. \`base64\`).
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional) Network configuration for the environment.
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional) List of allowed domains and their configurations. Set to \`"disabled"\`
+to block all network egress.
+
+Possible
+values:
+
+- `disabled`
+
+  All network egress is blocked.
 environment_id string (optional) Optional. The environment ID for the interaction. If specified, the request will
 update the existing environment instead of creating a new one.
 env object or string (optional) Environment variables to set in the sandbox environment.
@@ -246,10 +250,6 @@ env object or string (optional) Environment variables to set in the sandbox envi
 object <br />
 
 string A direct string value.
-id string (optional) The unique identifier for the agent.
-base_agent string (optional) The base agent to extend.
-system_instruction string (optional) System instruction for the agent.
-description string (optional) Agent description for developers to quickly read and understand.
 tools array (AgentTool) (optional) The tools available to the agent.
 A tool that the agent can use.
 
@@ -289,9 +289,9 @@ McpServer A MCPServer is a server that can be called by the model to perform act
 type object (required) No description provided.
 
 Always set to `"mcp_server"`.
+name string (optional) The name of the MCPServer.
 url string (optional) The full URL for the MCPServer endpoint.
 Example: "https://api.example.com/mcp"
-name string (optional) The name of the MCPServer.
 headers object (optional) Optional: Fields for authentication headers, timeouts, etc., if needed.
 allowed_tools array (AllowedTools) (optional) The allowed tools.
 The configuration for allowed tools.
@@ -442,6 +442,10 @@ agentsId string (required) Required. The name of the agent to retrieve.
 ### Response
 
 If successful, the response body contains data with the following structure:
+id string (optional) The unique identifier for the agent.
+base_agent string (optional) The base agent to extend.
+system_instruction string (optional) System instruction for the agent.
+description string (optional) Agent description for developers to quickly read and understand.
 agent_config AntigravityAgentConfig (optional) Configuration parameters for the agent.
 Configuration for the Antigravity agent runtime.
 Provides server-side control over the agent's execution environment
@@ -462,20 +466,6 @@ Configuration for a custom environment.
 type object (required) No description provided.
 
 Always set to `"remote"`.
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional) Network configuration for the environment.
-Network egress configuration for the environment.
-
-#### Fields
-
-allowlist array (EgressRule) or enum (string) (optional) List of allowed domains and their configurations. Set to \`"disabled"\`
-to block all network egress.
-
-Possible
-values:
-
-- `disabled`
-
-  All network egress is blocked.
 sources array (Source) (optional) No description provided.
 A source to be mounted into the environment.
 
@@ -502,6 +492,20 @@ For GitHub, this is the GitHub path.
 target string (optional) Where the source should appear in the environment.
 content string (optional) The inline content if \`type\` is \`INLINE\`.
 encoding string (optional) Optional encoding for inline content (e.g. \`base64\`).
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional) Network configuration for the environment.
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional) List of allowed domains and their configurations. Set to \`"disabled"\`
+to block all network egress.
+
+Possible
+values:
+
+- `disabled`
+
+  All network egress is blocked.
 environment_id string (optional) Optional. The environment ID for the interaction. If specified, the request will
 update the existing environment instead of creating a new one.
 env object or string (optional) Environment variables to set in the sandbox environment.
@@ -511,10 +515,6 @@ env object or string (optional) Environment variables to set in the sandbox envi
 object <br />
 
 string A direct string value.
-id string (optional) The unique identifier for the agent.
-base_agent string (optional) The base agent to extend.
-system_instruction string (optional) System instruction for the agent.
-description string (optional) Agent description for developers to quickly read and understand.
 tools array (AgentTool) (optional) The tools available to the agent.
 A tool that the agent can use.
 
@@ -554,9 +554,9 @@ McpServer A MCPServer is a server that can be called by the model to perform act
 type object (required) No description provided.
 
 Always set to `"mcp_server"`.
+name string (optional) The name of the MCPServer.
 url string (optional) The full URL for the MCPServer endpoint.
 Example: "https://api.example.com/mcp"
-name string (optional) The name of the MCPServer.
 headers object (optional) Optional: Fields for authentication headers, timeouts, etc., if needed.
 allowed_tools array (AllowedTools) (optional) The allowed tools.
 The configuration for allowed tools.
@@ -643,6 +643,10 @@ New format:
 
 #### Fields
 
+id string (optional) The unique identifier for the agent.
+base_agent string (optional) The base agent to extend.
+system_instruction string (optional) System instruction for the agent.
+description string (optional) Agent description for developers to quickly read and understand.
 agent_config AntigravityAgentConfig (optional) Configuration parameters for the agent.
 Configuration for the Antigravity agent runtime.
 Provides server-side control over the agent's execution environment
@@ -663,20 +667,6 @@ Configuration for a custom environment.
 type object (required) No description provided.
 
 Always set to `"remote"`.
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional) Network configuration for the environment.
-Network egress configuration for the environment.
-
-#### Fields
-
-allowlist array (EgressRule) or enum (string) (optional) List of allowed domains and their configurations. Set to \`"disabled"\`
-to block all network egress.
-
-Possible
-values:
-
-- `disabled`
-
-  All network egress is blocked.
 sources array (Source) (optional) No description provided.
 A source to be mounted into the environment.
 
@@ -703,6 +693,20 @@ For GitHub, this is the GitHub path.
 target string (optional) Where the source should appear in the environment.
 content string (optional) The inline content if \`type\` is \`INLINE\`.
 encoding string (optional) Optional encoding for inline content (e.g. \`base64\`).
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional) Network configuration for the environment.
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional) List of allowed domains and their configurations. Set to \`"disabled"\`
+to block all network egress.
+
+Possible
+values:
+
+- `disabled`
+
+  All network egress is blocked.
 environment_id string (optional) Optional. The environment ID for the interaction. If specified, the request will
 update the existing environment instead of creating a new one.
 env object or string (optional) Environment variables to set in the sandbox environment.
@@ -712,10 +716,6 @@ env object or string (optional) Environment variables to set in the sandbox envi
 object <br />
 
 string A direct string value.
-id string (optional) The unique identifier for the agent.
-base_agent string (optional) The base agent to extend.
-system_instruction string (optional) System instruction for the agent.
-description string (optional) Agent description for developers to quickly read and understand.
 tools array (AgentTool) (optional) The tools available to the agent.
 A tool that the agent can use.
 
@@ -755,9 +755,9 @@ McpServer A MCPServer is a server that can be called by the model to perform act
 type object (required) No description provided.
 
 Always set to `"mcp_server"`.
+name string (optional) The name of the MCPServer.
 url string (optional) The full URL for the MCPServer endpoint.
 Example: "https://api.example.com/mcp"
-name string (optional) The name of the MCPServer.
 headers object (optional) Optional: Fields for authentication headers, timeouts, etc., if needed.
 allowed_tools array (AllowedTools) (optional) The allowed tools.
 The configuration for allowed tools.

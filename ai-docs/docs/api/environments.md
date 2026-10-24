@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/environments/
 title: Gemini Environments API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:00:14.381485+00:00
+fetched_at: 2026-10-24T08:36:40.558446+00:00
 ---
 
 # Gemini Environments API
@@ -106,27 +106,6 @@ id string (required)
 
 Required. Output only. The ID of the environment.
 
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
-
-Network configuration for the environment.
-
-Network egress configuration for the environment.
-
-#### Fields
-
-allowlist array (EgressRule) or enum (string) (optional)
-
-List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-
-Possible values:
-
-  * `disabled`
-
-All network egress is blocked.
-
-
-
-
 sources array (Source) (optional)
 
 Sources to be mounted into the environment.
@@ -197,6 +176,27 @@ Output only. The status of the environment container.
   * `expired`
 
 Output only. The status of the environment container.
+
+
+
+
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
+
+Network configuration for the environment.
+
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional)
+
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
+
+Possible values:
+
+  * `disabled`
+
+All network egress is blocked.
 
 
 
@@ -361,27 +361,6 @@ id string (required)
 
 Required. Output only. The ID of the environment.
 
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
-
-Network configuration for the environment.
-
-Network egress configuration for the environment.
-
-#### Fields
-
-allowlist array (EgressRule) or enum (string) (optional)
-
-List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-
-Possible values:
-
-  * `disabled`
-
-All network egress is blocked.
-
-
-
-
 sources array (Source) (optional)
 
 Sources to be mounted into the environment.
@@ -452,6 +431,27 @@ Output only. The status of the environment container.
   * `expired`
 
 Output only. The status of the environment container.
+
+
+
+
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
+
+Network configuration for the environment.
+
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional)
+
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
+
+Possible values:
+
+  * `disabled`
+
+All network egress is blocked.
 
 
 
@@ -548,27 +548,6 @@ id string (required)
 
 Required. Output only. The ID of the environment.
 
-network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
-
-Network configuration for the environment.
-
-Network egress configuration for the environment.
-
-#### Fields
-
-allowlist array (EgressRule) or enum (string) (optional)
-
-List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
-
-Possible values:
-
-  * `disabled`
-
-All network egress is blocked.
-
-
-
-
 sources array (Source) (optional)
 
 Sources to be mounted into the environment.
@@ -639,6 +618,27 @@ Output only. The status of the environment container.
   * `expired`
 
 Output only. The status of the environment container.
+
+
+
+
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
+
+Network configuration for the environment.
+
+Network egress configuration for the environment.
+
+#### Fields
+
+allowlist array (EgressRule) or enum (string) (optional)
+
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
+
+Possible values:
+
+  * `disabled`
+
+All network egress is blocked.
 
 
 

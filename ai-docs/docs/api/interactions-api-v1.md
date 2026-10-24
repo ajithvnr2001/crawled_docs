@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/interactions-api-v1/
 title: Gemini Interactions API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:00:19.939464+00:00
+fetched_at: 2026-10-24T08:36:43.450274+00:00
 ---
 
 # Gemini Interactions API
@@ -112,6 +112,14 @@ Configuration parameters for model interactions.
 
 #### Fields
 
+seed integer (optional)
+
+Seed used in decoding for reproducibility.
+
+stop_sequences array (string) (optional)
+
+A list of character sequences that will stop output interaction.
+
 tool_choice ToolChoiceConfig or enum (string) (optional)
 
 The tool choice configuration.
@@ -136,14 +144,6 @@ Validated tool choice.
 
 
 
-
-seed integer (optional)
-
-Seed used in decoding for reproducibility.
-
-stop_sequences array (string) (optional)
-
-A list of character sequences that will stop output interaction.
 
 thinking_level ThinkingLevel (optional)
 
@@ -244,10 +244,6 @@ No description provided.
 
 Always set to `"dynamic"`.
 
-response_format ResponseFormat or array (ResponseFormat) (optional)
-
-Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
-
 system_instruction string (optional)
 
 System instruction for the interaction.
@@ -255,6 +251,10 @@ System instruction for the interaction.
 tools array (Tool) (optional)
 
 A list of tool declarations the model may call during interaction.
+
+response_format ResponseFormat or array (ResponseFormat) (optional)
+
+Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
 
 previous_interaction_id string (optional)
 
@@ -771,14 +771,6 @@ Our most intelligent model for sustained frontier performance in agentic and cod
 
 
 
-input Content or array (Content) or array (Step) or string (optional)
-
-The input for the interaction.
-
-response_format ResponseFormat or array (ResponseFormat) (optional)
-
-Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
-
 system_instruction string (optional)
 
 System instruction for the interaction.
@@ -786,6 +778,10 @@ System instruction for the interaction.
 tools array (Tool) (optional)
 
 A list of tool declarations the model may call during interaction.
+
+input Content or array (Content) or array (Step) or string (optional)
+
+The input for the interaction.
 
 usage Usage (optional)
 
@@ -1011,6 +1007,10 @@ Grounding with Google Maps.
 count integer (optional)
 
 The number of grounding tool counts.
+
+response_format ResponseFormat or array (ResponseFormat) (optional)
+
+Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
 
 previous_interaction_id string (optional)
 
@@ -1588,6 +1588,31 @@ uri string (optional)
 
 The URI of the video.
 
+resolution MediaResolution (optional)
+
+The resolution of the media.
+
+#### Possible values
+
+  * `low`
+
+Low resolution.
+
+  * `medium`
+
+Medium resolution.
+
+  * `high`
+
+High resolution.
+
+  * `ultra_high`
+
+Ultra high resolution.
+
+
+
+
 processing MediaProcessing or enum (string) (optional)
 
 How the model processes this video for understanding.
@@ -1614,31 +1639,6 @@ Optional. Segment end time. Specified as a decimal number of seconds followed by
 fps number (optional)
 
 Optional. Video frame-rate sampling density.
-
-
-
-
-resolution MediaResolution (optional)
-
-The resolution of the media.
-
-#### Possible values
-
-  * `low`
-
-Low resolution.
-
-  * `medium`
-
-Medium resolution.
-
-  * `high`
-
-High resolution.
-
-  * `ultra_high`
-
-Ultra high resolution.
 
 
 
@@ -1856,13 +1856,13 @@ No description provided.
 
 Always set to `"mcp_server"`.
 
-url string (optional)
-
-The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
-
 name string (optional)
 
 The name of the MCPServer.
+
+url string (optional)
+
+The full URL for the MCPServer endpoint. Example: "https://api.example.com/mcp"
 
 headers object (optional)
 
@@ -2931,14 +2931,6 @@ No description provided.
 
 Always set to `"audio"`.
 
-data string (optional)
-
-No description provided.
-
-uri string (optional)
-
-No description provided.
-
 mime_type enum (string) (optional)
 
 No description provided.
@@ -2999,6 +2991,14 @@ WEBM audio format
 
 
 
+
+data string (optional)
+
+No description provided.
+
+uri string (optional)
+
+No description provided.
 
 sample_rate integer (optional)
 
@@ -3077,14 +3077,6 @@ No description provided.
 
 Always set to `"document"`.
 
-data string (optional)
-
-No description provided.
-
-uri string (optional)
-
-No description provided.
-
 mime_type enum (string) (optional)
 
 No description provided.
@@ -3101,6 +3093,14 @@ CSV document format
 
 
 
+
+data string (optional)
+
+No description provided.
+
+uri string (optional)
+
+No description provided.
 
 FileSearchCallDelta
 
@@ -3298,14 +3298,6 @@ No description provided.
 
 Always set to `"image"`.
 
-data string (optional)
-
-No description provided.
-
-uri string (optional)
-
-No description provided.
-
 mime_type enum (string) (optional)
 
 No description provided.
@@ -3346,6 +3338,14 @@ TIFF image format
 
 
 
+
+data string (optional)
+
+No description provided.
+
+uri string (optional)
+
+No description provided.
 
 resolution MediaResolution (optional)
 
@@ -3667,14 +3667,6 @@ No description provided.
 
 Always set to `"video"`.
 
-data string (optional)
-
-No description provided.
-
-uri string (optional)
-
-No description provided.
-
 mime_type enum (string) (optional)
 
 No description provided.
@@ -3723,6 +3715,14 @@ JPEG 2000 video format
 
 
 
+
+data string (optional)
+
+No description provided.
+
+uri string (optional)
+
+No description provided.
 
 resolution MediaResolution (optional)
 
