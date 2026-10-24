@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/agentic-ai-system-with-grounding-using-maps/
 title: Build trusted AI agents with Google Maps Platform \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:10:28.737170+00:00
+fetched_at: 2026-10-24T05:51:58.720605+00:00
 ---
 
 # Build trusted AI agents with Google Maps Platform  |  Cloud Architecture Center  |  Google Cloud Documentation

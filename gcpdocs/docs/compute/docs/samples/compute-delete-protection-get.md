@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-delete-protection-get/
 title: Get the deletion protection status of a VM \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:17:40.032298+00:00
+fetched_at: 2026-10-24T05:47:25.168280+00:00
 ---
 
 # Get the deletion protection status of a VM  |  Compute Engine  |  Google Cloud Documentation

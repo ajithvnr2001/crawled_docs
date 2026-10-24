@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-get-model/
 title: Get a model \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:16:58.411943+00:00
+fetched_at: 2026-10-24T05:51:55.986176+00:00
 ---
 
 # Get a model  |  BigQuery  |  Google Cloud Documentation

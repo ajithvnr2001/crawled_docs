@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/billing-questions/
 title: Billing questions \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:33:09.568358+00:00
+fetched_at: 2026-10-24T05:44:48.941589+00:00
 ---
 
 # Billing questions  |  Lakehouse  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  Billing questions Stay organized with collections  Save and categorize content based on your preferences. 
 
-To get help with billing questions for _borderless Lakehouse_ , use the following resources:
+Cloud Billing tools and support channels let you monitor costs, resolve account inquiries, and manage finances for borderless Lakehouse. These resources help you track spending trends, troubleshoot issues, and adjust account settings:
 
   * To view billing reports, see [View your billing reports and cost trends](https://docs.cloud.google.com/billing/docs/how-to/reports#overview).
 
@@ -31,7 +31,7 @@ To get help with billing questions for _borderless Lakehouse_ , use the followin
 
   * To resolve billing concerns, use the [Google Cloud Billing Troubleshooter](https://support.google.com/cloud/troubleshooter/7279311).
 
-  * To request help with billing questions, contact [Cloud Billing Support](https://docs.cloud.google.com/support/billing).
+  * To request help with billing inquiries, contact [Cloud Billing Support](https://docs.cloud.google.com/support/billing).
 
   * To change or disable billing on a project, go to the **Billing** page in the Google Cloud console. For more information, see [Enable, disable, or change billing for a project](https://docs.cloud.google.com/billing/docs/how-to/modify-project).
 
@@ -43,6 +43,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

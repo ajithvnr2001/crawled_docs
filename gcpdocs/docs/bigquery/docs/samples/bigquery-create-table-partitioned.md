@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-create-table-partitioned/
 title: Column-based time partitioning \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:17:20.195796+00:00
+fetched_at: 2026-10-24T05:47:33.593168+00:00
 ---
 
 # Column-based time partitioning  |  BigQuery  |  Google Cloud Documentation

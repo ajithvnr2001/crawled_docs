@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/container-optimized-os/docs/how-to/
 title: How-to guides \u00a0|\u00a0 Container-Optimized OS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:11:37.054277+00:00
+fetched_at: 2026-10-24T05:51:24.378100+00:00
 ---
 
 # How-to guides  |  Container-Optimized OS  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/custom-quotas/
 title: Create custom query quotas \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:49:24.099203+00:00
+fetched_at: 2026-10-24T05:43:22.033205+00:00
 ---
 
 # Create custom query quotas  |  BigQuery  |  Google Cloud Documentation

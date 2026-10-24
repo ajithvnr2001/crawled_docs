@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/default-values/
 title: Specify default column values \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:43.843852+00:00
+fetched_at: 2026-10-24T05:47:49.382096+00:00
 ---
 
 # Specify default column values  |  BigQuery  |  Google Cloud Documentation

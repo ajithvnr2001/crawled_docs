@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/create-notebooks/
 title: Create notebooks \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:15.807387+00:00
+fetched_at: 2026-10-24T05:45:50.714994+00:00
 ---
 
 # Create notebooks  |  BigQuery  |  Google Cloud Documentation

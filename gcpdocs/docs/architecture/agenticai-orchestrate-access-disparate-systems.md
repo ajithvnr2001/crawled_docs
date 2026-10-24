@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/agenticai-orchestrate-access-disparate-systems/
 title: Agentic AI use case: Orchestrate access to disparate enterprise systems \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:20:03.039402+00:00
+fetched_at: 2026-10-24T05:52:41.808238+00:00
 ---
 
 # Agentic AI use case: Orchestrate access to disparate enterprise systems  |  Cloud Architecture Center  |  Google Cloud Documentation

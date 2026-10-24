@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-warehouse/docs/samples/contentwarehouse-set-acl/
 title: Set access control list (ACL) \u00a0|\u00a0 Document AI Warehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:23:36.926409+00:00
+fetched_at: 2026-10-24T08:19:14.910306+00:00
 ---
 
 # Set access control list (ACL)  |  Document AI Warehouse  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/creating-partitioned-tables/
 title: Create partitioned tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:45.103898+00:00
+fetched_at: 2026-10-24T05:47:43.364687+00:00
 ---
 
 # Create partitioned tables  |  BigQuery  |  Google Cloud Documentation

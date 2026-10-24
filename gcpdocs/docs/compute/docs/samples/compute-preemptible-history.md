@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-preemptible-history/
 title: List preemption history of a Google Compute Engine instance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:47:44.067439+00:00
+fetched_at: 2026-10-24T05:50:02.306649+00:00
 ---
 
 # List preemption history of a Google Compute Engine instance  |  Google Cloud Documentation

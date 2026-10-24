@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-revoke-dataset-access/
 title: Revoke access to a dataset \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:49:10.967061+00:00
+fetched_at: 2026-10-24T05:47:36.233109+00:00
 ---
 
 # Revoke access to a dataset  |  BigQuery  |  Google Cloud Documentation

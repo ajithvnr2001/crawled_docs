@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/landing-zones/decide-resource-hierarchy/
 title: Decide a resource hierarchy for your Google Cloud landing zone \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:17:40.977852+00:00
+fetched_at: 2026-10-24T05:43:54.007875+00:00
 ---
 
 # Decide a resource hierarchy for your Google Cloud landing zone  |  Cloud Architecture Center  |  Google Cloud Documentation

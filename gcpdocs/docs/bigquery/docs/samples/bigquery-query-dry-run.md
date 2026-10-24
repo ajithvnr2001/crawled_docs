@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-query-dry-run/
 title: Dry run query \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:49:49.047407+00:00
+fetched_at: 2026-10-24T05:48:29.820886+00:00
 ---
 
 # Dry run query  |  BigQuery  |  Google Cloud Documentation

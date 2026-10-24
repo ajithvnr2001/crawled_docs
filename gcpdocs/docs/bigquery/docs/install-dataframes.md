@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/install-dataframes/
 title: Install BigQuery DataFrames \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:20.527424+00:00
+fetched_at: 2026-10-24T05:50:55.808828+00:00
 ---
 
 # Install BigQuery DataFrames  |  Google Cloud Documentation

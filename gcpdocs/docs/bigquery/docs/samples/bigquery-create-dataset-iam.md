@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-create-dataset-iam/
 title: Create a dataset and grant access to it \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:17:15.497079+00:00
+fetched_at: 2026-10-24T05:47:55.238228+00:00
 ---
 
 # Create a dataset and grant access to it  |  BigQuery  |  Google Cloud Documentation

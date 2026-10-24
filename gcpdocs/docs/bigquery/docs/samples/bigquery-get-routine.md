@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-get-routine/
 title: Get a routine \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:50:02.030647+00:00
+fetched_at: 2026-10-24T05:51:40.062786+00:00
 ---
 
 # Get a routine  |  BigQuery  |  Google Cloud Documentation
@@ -59,7 +59,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     	fmt.Fprintf(w, "Routine %s:\n", routineID)
     	fmt.Fprintf(w, "\tType %s:\n", meta.Type)
     	fmt.Fprintf(w, "\tLanguage %s:\n", meta.Language)
-    	fmt.Fprintln(w, "\tArguments:")
+    	fmt.Fprintln(w, &quot;\tArguments:")
     	for _, v := range meta.Arguments {
     		fmt.Fprintf(w, "\t\tName: %s\tType: %v", v.Name, v.DataType)
     	}
@@ -93,13 +93,13 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
       public static void getRoutine(String datasetName, String routineName) {
         try {
           // Initialize client that will be used to send requests. This client only needs to be created
-          // once, and can be reused for multiple requests.
-          [BigQuery](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html) bigquery = [BigQueryOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryOptions.html).getDefaultInstance().getService();
+          // once, and can be reused for multi[ple requ](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html)ests.
+          [BigQuery bigque](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryOptions.html)ry = BigQueryOptions.getDefaultInstance().g[etService](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.RoutineId.html)();
     
-          [RoutineId](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.RoutineId.html) routineId = [RoutineId](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.RoutineId.html).of(datasetName, routineName);
-          [Routine](https://docs.cloud.google.com/java/docs/reference/google-cloud-analyticshub/latest/com.google.cloud.bigquery.analyticshub.v1.Routine.html) routine = bigquery.[getRoutine](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html#com_google_cloud_bigquery_BigQuery_getRoutine_com_google_cloud_bigquery_RoutineId_com_google_cloud_bigquery_BigQuery_RoutineOption____)(routineId);
-          System.out.println("Routine retrieved successfully" + routine.getDescription());
-        } catch ([BigQueryException](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryException.html) e) {
+          Ro[utineId](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.RoutineId.html) routineId = RoutineId.of(datasetName, [routine](https://docs.cloud.google.com/java/docs/reference/google-cloud-analyticshub/latest/com.google.cloud.bigquery.analyticshub.v1.Routine.html)Name);
+          Routine[ routine =](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQuery.html#com_google_cloud_bigquery_BigQuery_getRoutine_com_google_cloud_bigquery_RoutineId_com_google_cloud_bigquery_BigQuery_RoutineOption____) bigquery.getRoutine(routineId);
+          System.out.println("Routine retrieved successfully" + routine.ge[tDescription](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.BigQueryException.html)());
+        } catch (BigQueryException e) {
           System.out.println("Routine not retrieved. \n" + e.toString());
         }
       }
@@ -120,16 +120,16 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     # TODO(developer): Set the fully-qualified ID for the routine.
     # routine_id = "my-project.my_dataset.my_routine"
     
-    routine = client.[get_routine](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_get_routine)(routine_id)  # Make an API request.
+    routine[ = client.g](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.client.Client.html#google_cloud_bigquery_client_Client_get_routine)et_routine(routine_id)  # Make an API request.
     
     print("Routine '{}':".format(routine.reference))
-    print("\tType: '{}'".format(routine.type_))
-    print("\tLanguage: '{}'".format(routine.[language](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.routine.Routine.html#google_cloud_bigquery_routine_Routine_language)))
+    print("\tType: '{}'".format(routine.ty[pe_](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.routine.Routine.html#google_cloud_bigquery_routine_Routine_language)))
+    print("\tLanguage: '{}'".format(ro[utine](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.routine.Routine.html#google_cloud_bigquery_routine_Routine_arguments).language))
     print("\tArguments:")
     
-    for argument in routine.[arguments](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.routine.Routine.html#google_cloud_bigquery_routine_Routine_arguments):
-        print("\t\tName: '{}'".format(argument.name))
-        print("\t\tType: '{}'".format(argument.[data_type](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.routine.RoutineArgument.html#google_cloud_bigquery_routine_RoutineArgument_data_type)))
+    for argument in routine.arguments:
+        print("\t\[t](https://docs.cloud.google.com/python/docs/reference/bigquery/latest/google.cloud.bigquery.routine.RoutineArgument.html#google_cloud_bigquery_routine_RoutineArgument_data_type)Name: &#39;{}'".format(argument.name))
+        print("\t\tType: '{}'".format(argument.data_type))
 
 ## What's next
 

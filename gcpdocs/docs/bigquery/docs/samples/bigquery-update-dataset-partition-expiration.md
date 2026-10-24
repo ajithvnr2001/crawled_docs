@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-update-dataset-partition-expiration/
 title: Update partition expiration \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:49:49.605948+00:00
+fetched_at: 2026-10-24T05:46:57.330481+00:00
 ---
 
 # Update partition expiration  |  BigQuery  |  Google Cloud Documentation

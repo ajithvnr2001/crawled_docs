@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/config-connector/docs/resources/
 title: Resources \u00a0|\u00a0 Config Connector \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:09:49.038103+00:00
+fetched_at: 2026-10-24T05:41:55.572770+00:00
 ---
 
 # Resources  |  Config Connector  |  Google Cloud Documentation

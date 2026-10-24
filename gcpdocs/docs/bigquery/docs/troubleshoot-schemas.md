@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/troubleshoot-schemas/
 title: Troubleshoot schema errors \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:38:26.899508+00:00
+fetched_at: 2026-10-24T05:42:16.600153+00:00
 ---
 
 # Troubleshoot schema errors  |  BigQuery  |  Google Cloud Documentation

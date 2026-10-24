@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/configure-alloydb/
 title: Configure an AlloyDB for PostgreSQL cluster and instance \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:31.278791+00:00
+fetched_at: 2026-10-24T05:48:20.033440+00:00
 ---
 
 # Configure an AlloyDB for PostgreSQL cluster and instance  |  Application Design Center  |  Google Cloud Documentation

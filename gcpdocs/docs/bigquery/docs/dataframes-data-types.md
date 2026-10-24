@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/dataframes-data-types/
 title: Use the BigQuery DataFrames data type system \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:12.068494+00:00
+fetched_at: 2026-10-24T05:45:51.467808+00:00
 ---
 
 # Use the BigQuery DataFrames data type system  |  Google Cloud Documentation

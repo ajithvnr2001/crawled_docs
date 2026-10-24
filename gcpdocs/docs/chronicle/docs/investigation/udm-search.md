@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/investigation/udm-search/
 title: Understand search \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:44.672744+00:00
+fetched_at: 2026-10-24T05:43:21.750464+00:00
 ---
 
 # Understand search  |  Google Security Operations  |  Google Cloud Documentation

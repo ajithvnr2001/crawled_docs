@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-route-list/
 title: Retrieves the list of Route resources available in the specified project \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:48:31.302831+00:00
+fetched_at: 2026-10-24T05:49:43.024898+00:00
 ---
 
 # Retrieves the list of Route resources available in the specified project  |  Compute Engine  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-pandas-public-data/
 title: Download public table data to DataFrame \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:50:04.152249+00:00
+fetched_at: 2026-10-24T05:51:06.343790+00:00
 ---
 
 # Download public table data to DataFrame  |  BigQuery  |  Google Cloud Documentation

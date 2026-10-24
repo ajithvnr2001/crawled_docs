@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/columnar-engine/configure/
 title: Configure the columnar engine in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using containers: 16.11.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:53:10.932668+00:00
+fetched_at: 2026-10-24T05:48:56.668968+00:00
 ---
 
 # Configure the columnar engine in AlloyDB Omni  |  AlloyDB Omni using containers: 16.11.0  |  Google Cloud Documentation
@@ -135,8 +135,8 @@ To provision disks and create a file system for AlloyDB Omni columnar engine sto
 
   1. Create a volume group from all available physical devices:
          
-         nvme_prefix="STORAGE_PREFIX"
-         nvme_list=$(ls "$nvme_prefix"*)
+         nvme_prefix=&quot;STORAGE_PREFIX"
+         nvme_list=$(ls "$nvme_prefix&quot;*)
          sudo vgcreate VOLUME_GROUP ${nvme_list}
 
 Replace the following:
@@ -306,7 +306,7 @@ By default, when the columnar engine is enabled it refreshes the column store in
 To manually refresh the column engine, run the following SQL query:
     
     
-    SELECT google_columnar_engine_refresh(relation =>'TABLE_NAME');
+    SELECT google_columnar_engine_refresh(relation =>&#39;TABLE_NAME');
     
 
 Replace `TABLE_NAME` with the name of the table or the materialized view you want to manually refresh.

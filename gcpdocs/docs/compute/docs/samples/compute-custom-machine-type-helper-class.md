@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-custom-machine-type-helper-class/
 title: Create VMs with custom machine types \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:50:35.153821+00:00
+fetched_at: 2026-10-24T05:48:05.938857+00:00
 ---
 
 # Create VMs with custom machine types  |  Compute Engine  |  Google Cloud Documentation

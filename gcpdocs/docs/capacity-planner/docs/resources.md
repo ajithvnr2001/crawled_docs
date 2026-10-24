@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/capacity-planner/docs/resources/
 title: Resources \u00a0|\u00a0 Capacity Planner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:56:51.961376+00:00
+fetched_at: 2026-10-24T05:49:27.080531+00:00
 ---
 
 # Resources  |  Capacity Planner  |  Google Cloud Documentation

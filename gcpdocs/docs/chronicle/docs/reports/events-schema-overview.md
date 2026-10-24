@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/reports/events-schema-overview/
 title: Google SecOps events schema \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:29.421530+00:00
+fetched_at: 2026-10-24T05:46:03.074850+00:00
 ---
 
 # Google SecOps events schema  |  Google Security Operations  |  Google Cloud Documentation

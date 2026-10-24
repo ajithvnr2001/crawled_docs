@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-warehouse/docs/samples/contentwarehouse-quickstart/
 title: Quickstart \u00a0|\u00a0 Document AI Warehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:23:28.643391+00:00
+fetched_at: 2026-10-24T08:18:58.362483+00:00
 ---
 
 # Quickstart  |  Document AI Warehouse  |  Google Cloud Documentation

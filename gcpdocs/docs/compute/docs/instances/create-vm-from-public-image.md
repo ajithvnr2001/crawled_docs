@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/create-vm-from-public-image/
 title: Create an instance from a public image \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T05:48:36.931037+00:00
+fetched_at: 2026-10-24T05:43:04.117980+00:00
 ---
 
 # Create an instance from a public image  |  Compute Engine  |  Google Cloud Documentation
@@ -117,7 +117,7 @@ Before trying this sample, follow the C# setup instructions in the [Compute Engi
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/compute/docs/authentication#client-libs). 
     
     
-    using [Google.Cloud.Compute.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.html);
+    using Google.Cloud.Compute.V1;
     using System;
     using System.Threading.Tasks;
     
@@ -129,10 +129,10 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         {
             // Initialize client that will be used to send requests. This client only needs to be created
             // once, and can be reused for multiple requests.
-            [ImagesClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ImagesClient.html) client = await [ImagesClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ImagesClient.html).[CreateAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ImagesClient.html#Google_Cloud_Compute_V1_ImagesClient_CreateAsync_System_Threading_CancellationToken_)();
+            ImagesClient client = await ImagesClient.CreateAsync();
     
             // Make the request to list all non-deprecated images in a project.
-            [ListImagesRequest](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ListImagesRequest.html) request = new [ListImagesRequest](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ListImagesRequest.html)
+            ListImagesRequest request = new ListImagesRequest
             {
                 Project = projectId,
                 // Listing only non-deprecated images to reduce the size of the reply.
@@ -144,7 +144,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
             // Although the MaxResults parameter is specified in the request, the sequence returned
             // by the ListAsync() method hides the pagination mechanic. The library makes multiple
             // requests to the API for you, so you can simply iterate over all the images.
-            await foreach (var image in client.[ListAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ImagesClient.html#Google_Cloud_Compute_V1_ImagesClient_ListAsync_Google_Cloud_Compute_V1_ListImagesRequest_Google_Api_Gax_Grpc_CallSettings_)(request))
+            await foreach (var image in client.ListAsync(request))
             {
                 // The result is an Image collection.
                 Console.WriteLine($"Image: {image.Name}");
@@ -175,7 +175,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     func printImagesList(w io.Writer, projectID string) error {
     	// projectID := "your_project_id"
     	ctx := context.Background()
-    	imagesClient, err := compute.[NewImagesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_ImagesClient_NewImagesRESTClient)(ctx)
+    	imagesClient, err := compute.NewImagesRESTClient(ctx)
     	if err != nil {
     		return fmt.Errorf("NewImagesRESTClient: %w", err)
     	}
@@ -194,7 +194,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	it := imagesClient.List(ctx, req)
     	for {
     		image, err := it.Next()
-    		if err == iterator.[Done](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_Operation_Done) {
+    		if err == iterator.Done {
     			break
     		}
     		if err != nil {
@@ -213,10 +213,10 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/compute/docs/authentication#client-libs). 
     
     
-    import com.google.cloud.compute.v1.[Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html);
-    import com.google.cloud.compute.v1.[ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html);
-    import com.google.cloud.compute.v1.[ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html).ListPage;
-    import com.google.cloud.compute.v1.[ListImagesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListImagesRequest.html);
+    import com.google.cloud.compute.v1.Image;
+    import com.google.cloud.compute.v1.ImagesClient;
+    import com.google.cloud.compute.v1.ImagesClient.ListPage;
+    import com.google.cloud.compute.v1.ListImagesRequest;
     import java.io.IOException;
       // Prints a list of all non-deprecated image names available in given project.
       public static void listImages(String project) throws IOException {
@@ -224,10 +224,10 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the `instancesClient.close()` method on the client to
         // safely clean up any remaining background resources.
-        try ([ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html) imagesClient = [ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html).create()) {
+        try (ImagesClient imagesClient = ImagesClient.create()) {
     
           // Listing only non-deprecated images to reduce the size of the reply.
-          [ListImagesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListImagesRequest.html) imagesRequest = [ListImagesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListImagesRequest.html).newBuilder()
+          ListImagesRequest imagesRequest = ListImagesRequest.newBuilder()
               .setProject(project)
               .setMaxResults(100)
               .setFilter("deprecated.state != DEPRECATED")
@@ -237,7 +237,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
           // by the `list()` method hides the pagination mechanic. The library makes multiple
           // requests to the API for you, so you can simply iterate over all the images.
           int imageCount = 0;
-          for ([Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html) image : imagesClient.list(imagesRequest).iterateAll()) {
+          for (Image image : imagesClient.list(imagesRequest).iterateAll()) {
             imageCount++;
             System.out.println(image.getName());
           }
@@ -257,10 +257,10 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
      */
     // const projectId = 'YOUR_PROJECT_ID';
     
-    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
+    const compute = require('@google-cloud/compute');
     
     async function listImages() {
-      const imagesClient = new compute.[ImagesClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
+      const imagesClient = new compute.ImagesClient();
     
       // Listing only non-deprecated images to reduce the size of the reply.
       const images = imagesClient.listAsync({
@@ -578,7 +578,7 @@ Before trying this sample, follow the C# setup instructions in the [Compute Engi
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/compute/docs/authentication#client-libs). 
     
     
-    using [Google.Cloud.Compute.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.html);
+    using Google.Cloud.Compute.V1;
     using System.Threading.Tasks;
     
     public class CreateInstanceAsyncSample
@@ -593,7 +593,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
             long diskSizeGb = 10,
             string networkName = "default")
         {
-            [Instance](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.Instance.html) instance = new [Instance](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.Instance.html)
+            Instance instance = new Instance
             {
                 Name = machineName,
                 // See https://cloud.google.com/compute/docs/machine-types for more information on machine types.
@@ -601,12 +601,12 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
                 // Instance creation requires at least one persistent disk.
                 Disks =
                 {
-                    new [AttachedDisk](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.AttachedDisk.html)
+                    new AttachedDisk
                     {
                         AutoDelete = true,
                         Boot = true,
-                        Type = [ComputeEnumConstants](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ComputeEnumConstants.html).[AttachedDisk](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ComputeEnumConstants.AttachedDisk.html).[Type](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ComputeEnumConstants.AttachedDisk.Type.html).[Persistent](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.ComputeEnumConstants.AttachedDisk.Type.html#Google_Cloud_Compute_V1_ComputeEnumConstants_AttachedDisk_Type_Persistent),
-                        InitializeParams = new [AttachedDiskInitializeParams](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.AttachedDiskInitializeParams.html) 
+                        Type = ComputeEnumConstants.AttachedDisk.Type.Persistent,
+                        InitializeParams = new AttachedDiskInitializeParams 
                         {
                             // See https://cloud.google.com/compute/docs/images for more information on available images.
                             SourceImage = diskImage,
@@ -614,15 +614,15 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
                         }
                     }
                 },
-                NetworkInterfaces = { new [NetworkInterface](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.NetworkInterface.html) { Name = networkName } }
+                NetworkInterfaces = { new NetworkInterface { Name = networkName } }
             };
     
             // Initialize client that will be used to send requests. This client only needs to be created
             // once, and can be reused for multiple requests.
-            [InstancesClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.InstancesClient.html) client = await [InstancesClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.InstancesClient.html).[CreateAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.InstancesClient.html#Google_Cloud_Compute_V1_InstancesClient_CreateAsync_System_Threading_CancellationToken_)();
+            InstancesClient client = await InstancesClient.CreateAsync();
     
             // Insert the instance in the specified project and zone.
-            var instanceCreation = await client.[InsertAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.InstancesClient.html#Google_Cloud_Compute_V1_InstancesClient_InsertAsync_Google_Cloud_Compute_V1_InsertInstanceRequest_Google_Api_Gax_Grpc_CallSettings_)(projectId, zone, instance);
+            var instanceCreation = await client.InsertAsync(projectId, zone, instance);
     
             // Wait for the operation to complete using client-side polling.
             // The server-side operation is not affected by polling,
@@ -661,7 +661,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// networkName := "global/networks/default"
     
     	ctx := context.Background()
-    	instancesClient, err := compute.[NewInstancesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_InstancesClient_NewInstancesRESTClient)(ctx)
+    	instancesClient, err := compute.NewInstancesRESTClient(ctx)
     	if err != nil {
     		return fmt.Errorf("NewInstancesRESTClient: %w", err)
     	}
@@ -680,7 +680,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     					},
     					AutoDelete: proto.Bool(true),
     					Boot:       proto.Bool(true),
-    					Type:       proto.String(computepb.[AttachedDisk_PERSISTENT](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1/computepb.html#cloud_google_com_go_compute_apiv1_computepb_AttachedDisk_UNDEFINED_TYPE_AttachedDisk_PERSISTENT_AttachedDisk_SCRATCH).String()),
+    					Type:       proto.String(computepb.AttachedDisk_PERSISTENT.String()),
     				},
     			},
     			MachineType: proto.String(fmt.Sprintf("zones/%s/machineTypes/%s", zone, machineType)),
@@ -714,15 +714,15 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/compute/docs/authentication#client-libs). 
     
     
-    import com.google.api.gax.longrunning.[OperationFuture](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFuture.html);
-    import com.google.cloud.compute.v1.[AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html);
-    import com.google.cloud.compute.v1.[AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html).Type;
-    import com.google.cloud.compute.v1.[AttachedDiskInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDiskInitializeParams.html);
-    import com.google.cloud.compute.v1.[InsertInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceRequest.html);
-    import com.google.cloud.compute.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html);
-    import com.google.cloud.compute.v1.[InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html);
-    import com.google.cloud.compute.v1.[NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html);
-    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
+    import com.google.api.gax.longrunning.OperationFuture;
+    import com.google.cloud.compute.v1.AttachedDisk;
+    import com.google.cloud.compute.v1.AttachedDisk.Type;
+    import com.google.cloud.compute.v1.AttachedDiskInitializeParams;
+    import com.google.cloud.compute.v1.InsertInstanceRequest;
+    import com.google.cloud.compute.v1.Instance;
+    import com.google.cloud.compute.v1.InstancesClient;
+    import com.google.cloud.compute.v1.NetworkInterface;
+    import com.google.cloud.compute.v1.Operation;
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -761,29 +761,29 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the `instancesClient.close()` method on the client to safely
         // clean up any remaining background resources.
-        try ([InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html) instancesClient = [InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html).create()) {
+        try (InstancesClient instancesClient = InstancesClient.create()) {
           // Instance creation requires at least one persistent disk and one network interface.
-          [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html) disk =
-              [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html).newBuilder()
+          AttachedDisk disk =
+              AttachedDisk.newBuilder()
                   .setBoot(true)
                   .setAutoDelete(true)
                   .setType(Type.PERSISTENT.toString())
                   .setDeviceName("disk-1")
-                  .[setInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.Builder.html#com_google_cloud_compute_v1_AttachedDisk_Builder_setInitializeParams_com_google_cloud_compute_v1_AttachedDiskInitializeParams_)(
-                      [AttachedDiskInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDiskInitializeParams.html).newBuilder()
+                  .setInitializeParams(
+                      AttachedDiskInitializeParams.newBuilder()
                           .setSourceImage(sourceImage)
                           .setDiskSizeGb(diskSizeGb)
                           .build())
                   .build();
     
           // Use the network interface provided in the networkName argument.
-          [NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html) networkInterface = [NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html).newBuilder()
+          NetworkInterface networkInterface = NetworkInterface.newBuilder()
               .setName(networkName)
               .build();
     
           // Bind `instanceName`, `machineType`, `disk`, and `networkInterface` to an instance.
-          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html) instanceResource =
-              [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html).newBuilder()
+          Instance instanceResource =
+              Instance.newBuilder()
                   .setName(instanceName)
                   .setMachineType(machineType)
                   .addDisks(disk)
@@ -793,7 +793,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
           System.out.printf("Creating instance: %s at %s %n", instanceName, zone);
     
           // Insert the instance in the specified project and zone.
-          [InsertInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceRequest.html) insertInstanceRequest = [InsertInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceRequest.html).newBuilder()
+          InsertInstanceRequest insertInstanceRequest = InsertInstanceRequest.newBuilder()
               .setProject(project)
               .setZone(zone)
               .setInstanceResource(instanceResource)
@@ -803,13 +803,13 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
               insertInstanceRequest);
     
           // Wait for the operation to complete.
-          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = operation.get(3, TimeUnit.MINUTES);
+          Operation response = operation.get(3, TimeUnit.MINUTES);
     
-          if (response.[hasError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_hasError__)()) {
+          if (response.hasError()) {
             System.out.println("Instance creation failed ! ! " + response);
             return;
           }
-          System.out.println("Operation Status: " + response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)());
+          System.out.println("Operation Status: " + response.getStatus());
         }
       }
     }
@@ -831,11 +831,11 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     // const sourceImage = 'projects/debian-cloud/global/images/family/debian-11';
     // const networkName = 'global/networks/default';
     
-    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
+    const compute = require('@google-cloud/compute');
     
     // Create a new instance with the values provided above in the specified project and zone.
     async function createInstance() {
-      const instancesClient = new compute.[InstancesClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
+      const instancesClient = new compute.InstancesClient();
     
       console.log(`Creating the ${instanceName} instance in ${zone}...`);
     
@@ -866,7 +866,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         zone,
       });
       let operation = response.latestResponse;
-      const operationsClient = new compute.[ZoneOperationsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
+      const operationsClient = new compute.ZoneOperationsClient();
     
       // Wait for the create operation to complete.
       while (operation.status !== 'DONE') {
@@ -1515,6 +1515,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-22 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 

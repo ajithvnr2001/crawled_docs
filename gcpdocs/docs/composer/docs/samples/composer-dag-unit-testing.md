@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/samples/composer-dag-unit-testing/
 title: DAG unit testing \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T09:47:48.719221+00:00
+fetched_at: 2026-10-24T05:50:42.405421+00:00
 ---
 
 # DAG unit testing  |  Managed Service for Apache Airflow  |  Google Cloud Documentation

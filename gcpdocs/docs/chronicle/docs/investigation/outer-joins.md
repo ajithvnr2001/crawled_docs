@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/investigation/outer-joins/
 title: Correlate data using outer joins \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:28.737421+00:00
+fetched_at: 2026-10-24T05:43:13.100540+00:00
 ---
 
 # Correlate data using outer joins  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-create-view/
 title: Create a view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:17:38.616455+00:00
+fetched_at: 2026-10-24T05:47:15.049800+00:00
 ---
 
 # Create a view  |  BigQuery  |  Google Cloud Documentation

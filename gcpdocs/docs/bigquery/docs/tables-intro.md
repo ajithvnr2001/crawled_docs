@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/tables-intro/
 title: Introduction to tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:44.376933+00:00
+fetched_at: 2026-10-24T05:41:39.330472+00:00
 ---
 
 # Introduction to tables  |  BigQuery  |  Google Cloud Documentation
