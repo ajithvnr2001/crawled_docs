@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/reference/
 title: Comfy Router API reference - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:38.017106+00:00
+fetched_at: 2026-10-24T11:54:42.463724+00:00
 ---
 
 # Comfy Router API reference - ComfyUI
@@ -754,6 +754,14 @@ The request’s contents were rejected against the model’s schema.Body: `Route
 
 ​
 
+429
+
+RouterErrorResponse
+
+Inspect `X-Comfy-Error-Type`: `queue_backlog_full` means you already hold as many unfinished queued requests as you are allowed, so submit again once one of them finishes; `rate_limited` means wait for the allowance window.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
+
+​
+
 503
 
 RouterErrorResponse
@@ -871,14 +879,6 @@ The request is in a state that conflicts with the operation. Check the error typ
 RouterErrorResponse
 
 The request exceeded a deadline. Check the error type before retrying.Body: `RouterErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`
-
-​
-
-422
-
-RouterValidationErrorResponse
-
-The request’s contents were rejected against the model’s schema.Body: `RouterValidationErrorResponse` — Headers: `X-Comfy-Error-Type`, `X-Comfy-Request-Id`, `Idempotent-Replayed`
 
 ​
 
@@ -1038,7 +1038,7 @@ The queued request to address - the `request_id` the submission returned in its 
 
 RouterQueueStatusResponse
 
-OK - the request’s current queue state.Body: `RouterQueueStatusResponse` — Headers: `X-Comfy-Request-Id`, `Retry-After`
+OK - the request’s current queue state.Body: `RouterQueueStatusResponse` — Headers: `X-Comfy-Request-Id`, `Retry-After`, `X-Comfy-Estimated-Duration-Seconds`, `X-Comfy-Estimated-Duration-P90-Seconds`, `X-Comfy-Estimate-Source`
 
 ​
 
@@ -1224,6 +1224,30 @@ X-Comfy-Error-Type
 RouterErrorType
 
 Coarse, machine-readable bucket for the failure, set by Router on every error response.Type: `RouterErrorType`
+
+​
+
+X-Comfy-Estimate-Source
+
+string
+
+Sent only on the status read while `status` is `IN_PROGRESS`, beside `X-Comfy-Estimated-Duration-Seconds`: where that generation-duration estimate came from (not the cost estimate’s `source`), `historical` (measured on recent runs) or `default` (a per-media-kind fallback, used while too few recent runs are recorded).
+
+​
+
+X-Comfy-Estimated-Duration-P90-Seconds
+
+integer
+
+Sent only on the status read while `status` is `IN_PROGRESS`, beside `X-Comfy-Estimated-Duration-Seconds`: the 90th percentile, in whole seconds, of that generation-duration estimate.
+
+​
+
+X-Comfy-Estimated-Duration-Seconds
+
+integer
+
+Sent only on the status read while `status` is `IN_PROGRESS`: Router’s estimate, in whole seconds, of the generation’s whole run once the provider has accepted it (not the time remaining, and never time spent `IN_QUEUE`).
 
 ​
 
@@ -1794,7 +1818,7 @@ The provider portion of a `{provider}/{model}` model ID. Type: `string` — Alph
 
 RouterQueueCancelResponse
 
-The answer to a cancellation ask on the two statuses that describe a request this route resolved - the `202` and the `400`. One body shape across both rather than a success envelope plus an error envelope, because both are the same statement - what cancelling found - and a client that has to parse a different type per status code gains nothing from the split. **Fields**
+The answer to a cancellation ask on the two statuses that describe a request this route resolved - the `202` and the `409`. One body shape across both rather than a success envelope plus an error envelope, because both are the same statement - what cancelling found - and a client that has to parse a different type per status code gains nothing from the split. **Fields**
 
 ​
 

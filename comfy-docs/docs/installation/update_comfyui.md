@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/update_comfyui/
 title: How to Update ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:59.556275+00:00
+fetched_at: 2026-10-24T11:54:47.212515+00:00
 ---
 
 # How to Update ComfyUI - ComfyUI
@@ -99,7 +99,7 @@ Ensure a stable internet connection during updates.
 
 
 
-Comfy Desktop uses Comfy Engine as a package manager to manage ComfyUI. To update the ComfyUI engine, open the [Manage panel](https://docs.comfy.org/installation/desktop/usage/manage#update-tab) and use the Update tab. You can choose between **Stable** (default) and **Latest on GitHub** update channels.The Desktop app itself updates automatically and is separate from ComfyUI engine updates.
+To update ComfyUI, open the [Manage panel](https://docs.comfy.org/installation/desktop/usage/manage#update-tab) and use the Update tab. You can choose between **Stable** (default) and **Latest on GitHub** update channels.The Desktop app itself updates automatically and is separate from ComfyUI instance updates.
 
 Manually installed ComfyUI requires Git commands to complete updates.
 
@@ -277,7 +277,7 @@ It’s important to understand the difference between development (nightly) and 
   * **Development version (nightly)** : Latest commit code, giving you access to the newest features, but may contain potential issues
   * **Stable version (release)** : Built on stable releases, usually lags behind development versions but offers higher stability. We support stable versions after features are tested and stabilized
 
-Many users often find themselves on release versions or desktop versions during updates, but discover that needed features are only available in development versions. In such cases, check if your local `ComfyUI/requirements.txt` matches the [nightly version dependencies](https://github.com/Comfy-Org/ComfyUI/blob/master/requirements.txt) to determine if all dependencies support the latest features.
+Many users often find themselves on release versions or on Desktop’s default **Stable** channel during updates, but discover that needed features are only available in development / nightly builds. On **Desktop** , switch to **Latest on GitHub** in [Manage → Update](https://docs.comfy.org/installation/desktop/usage/manage#update-tab). For portable or manual installs, check if your local `ComfyUI/requirements.txt` matches the [nightly version dependencies](https://github.com/Comfy-Org/ComfyUI/blob/master/requirements.txt) to determine if all dependencies support the latest features.
 
 ## 
 
@@ -375,11 +375,9 @@ Update ComfyUI dependencies - this step is crucial, especially for the `comfyui-
     pip install -r requirements.txt
     
 
-Desktop version usually handles dependency updates automatically. If you encounter issues:
-
-  1. **Check if auto-update** is enabled
-  2. **Manually trigger update** : Menu → Help → Check for Updates
-  3. **Reinstall desktop version** (in extreme cases)
+  * **ComfyUI instance + Python deps:** use [Manage → Update](https://docs.comfy.org/installation/desktop/usage/manage#update-tab) (**Stable** or **Latest on GitHub**). Dependency updates are normally applied as part of that flow.
+  * **Desktop app itself:** use the app menu **Check for Updates** (separate from the ComfyUI update channel).
+  * Reinstall Desktop only as a last resort.
 
 
 
@@ -426,8 +424,8 @@ Why Can’t I Find New Features After Updating?
 
 This is one of the most common issues:
 
-  * If you’re using the **Desktop version** , features may lag behind because the desktop version is built on stable releases
-  * Ensure you’re using the **development version (nightly)** , not the **stable version (release)**
+  * If you’re using **Desktop** on the **Stable** update channel, features may lag behind newer GitHub commits. Switch the channel to **Latest on GitHub** in the [Manage → Update](https://docs.comfy.org/installation/desktop/usage/manage#update-tab) tab when you need newer features (Latest may be less stable).
+  * For Portable or manual installs, ensure you’re on the **development version (nightly)** , not the **stable version (release)** , when you need the newest commits.
 
 Additionally, ensure that corresponding dependencies have been successfully updated during the update process. If issues persist after updating, refer to the Dependency Update Troubleshooting section to diagnose problems.
 
@@ -489,12 +487,12 @@ Use `update_comfyui.bat` instead of `update_comfyui_stable.bat`:
     git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
     
 
-Desktop version is typically built on stable releases and doesn’t currently support version switching. If you need the latest features, we recommend:
+Open the [Manage panel](https://docs.comfy.org/installation/desktop/usage/manage#update-tab) and use the Update tab to switch channels:
 
-  1. Wait for desktop version updates
-  2. Or use portable/manual installation to experience the latest features
+  * **Stable** (default): tested releases, may lag behind newer GitHub commits
+  * **Latest on GitHub** : tracks newer commits on GitHub; may be less stable
 
-
+Use **Switch Channel** , **Update Now** , or **Copy & Update** depending on whether the selected channel has a newer build. Details are on the [Manage Update tab](https://docs.comfy.org/installation/desktop/usage/manage#update-tab) page.
 
 ### 
 
@@ -530,26 +528,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/update_comfyui.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/update_comfyui)
 
-[Install ComfyUI Manually (Windows, macOS, Linux)Previous](https://docs.comfy.org/installation/manual_install)[Comfy Cloud - Official ComfyUI Cloud Platform Powered by RTX 6000 ProNext](https://docs.comfy.org/get_started/cloud)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Manual (Local)](https://docs.comfy.org/installation/manual_install)[Custom nodes](https://docs.comfy.org/installation/install_custom_node)

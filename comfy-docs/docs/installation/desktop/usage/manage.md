@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/desktop/usage/manage/
 title: Managing Installations - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:40:22.633230+00:00
+fetched_at: 2026-10-24T11:54:47.811725+00:00
 ---
 
 # Managing Installations - ComfyUI
@@ -13,6 +13,8 @@ fetched_at: 2026-10-20T12:40:22.633230+00:00
 
   * The Manage Panel
     * Update Tab
+    * ComfyUI
+    * PyTorch
     * Startup Args Tab
     * Snapshots Tab
     * Storage Tab
@@ -54,17 +56,36 @@ The panel has six tabs:
 
 Update Tab
 
-![Manage Update tab: ComfyUI version, update channel, and PyTorch package](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/instance_settings_01_update.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=1577f0d4aa21028a22285ba1b2abeadf) This tab shows the current version, lets you check for updates, and configure the update channel.
+![Manage Update tab: the ComfyUI update card with installed and latest versions, above the PyTorch package card](https://mintcdn.com/dripart/F-AxcFxHxG0_LsqS/images/desktop/usage/instance_settings_01_update.png?fit=max&auto=format&n=F-AxcFxHxG0_LsqS&q=85&s=f85b067f43615c3692142a5807623279) The tab holds one card for ComfyUI and one for PyTorch. Both work the same way: a headline shows what you are on, the dropdowns pick the channel or the torch stack, and the buttons under the card act on that choice.
 
-  * **Version** : Shows the current installed version and whether it’s up to date.
-  * **Last checked** : Displays when updates were last checked.
-  * **Check for update** : Manually check for a new version.
-  * **Update Channel** : Choose the update channel from the dropdown: 
-    * **Stable** : Tested releases, recommended for most users. Default option.
-    * **Latest on GitHub** : Newest commits from the master branch.
-  * **PyTorch** : The installed PyTorch build. **Change PyTorch** switches to an official stack tested with this install type (CUDA, ROCm, Intel XPU, CPU, or Apple MPS). The rest of the environment is kept. Nightly builds are marked unstable.
+#### 
 
+​
 
+ComfyUI
+
+The headline is the ComfyUI version, with an **Up to date** badge while the selected channel has nothing newer. Once a newer release exists, the headline shows that release with an **Update available** badge, and the card adds an **Installed Version** row and a **Latest Version** row. **Last checked** shows how long ago Comfy Desktop looked; hover it for the exact time.
+
+  * **Update Channel** : **Stable** (tested releases, the default) or **Latest on GitHub** (newest commits from the master branch). The dropdown marks the channel the instance is on with **Current**.
+  * **Check for updates** : appears while the selected channel has nothing newer, and re-checks immediately. Comfy Desktop also runs this check on its own, see [the FAQ](https://docs.comfy.org/installation/desktop/faq#general-questions).
+  * **Update Now** : appears while the selected channel has something newer. The confirmation shows the versions it moves between, or the channel it switches to, includes any release notes the channel publishes, and points at the Snapshots tab, because Comfy Desktop saves a snapshot before it updates. If the new version breaks a custom node, restore the previous state from there.
+  * **Copy & Update**: copies the instance, updates the copy, and leaves the original untouched. Use it to try a new version against the node set you already have.
+  * **Switch Channel** : appears when you select a channel that has nothing newer to install, and moves the instance to that channel without updating it.
+
+Selecting **Stable** on an instance that runs ahead of the stable release is a rollback: the confirmation says so, and the newer commits are removed.
+
+#### 
+
+​
+
+PyTorch
+
+The card shows the installed torch build and lists the official stacks Comfy Desktop can install for this instance. When the catalog spans several backends, a second dropdown picks the backend first (**CUDA 13.0** , **CUDA 12.8** , and so on, plus **ROCm** , **Intel XPU** , and **CPU**). Each option lists its torchvision and torchaudio versions and, when the stack ships as a bundle, its download size. It also warns when the stack lacks torchaudio, because switching removes it and custom nodes that need it stop working.
+
+  * **Change PyTorch** switches this instance to the selected stack. The confirmation shows the download, and Comfy Desktop backs up the current environment during the change and restores it if anything fails.
+  * **Copy & Change PyTorch** makes the same switch on a new copy of the instance and leaves the original alone.
+
+Nightly builds are marked unstable. The picker offers them for about 45 days after their wheel date, short of the roughly 60 days after which PyTorch removes a dated nightly from its index.
 
 ### 
 
@@ -195,26 +216,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/desktop/usage/manage.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/desktop/usage/manage)
 
-[Model Downloads in Comfy DesktopPrevious](https://docs.comfy.org/installation/desktop/usage/downloads)[Comfy Desktop SettingsNext](https://docs.comfy.org/installation/desktop/usage/settings)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Downloads](https://docs.comfy.org/installation/desktop/usage/downloads)[Settings](https://docs.comfy.org/installation/desktop/usage/settings)

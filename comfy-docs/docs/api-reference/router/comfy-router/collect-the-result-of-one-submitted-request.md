@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/router/comfy-router/collect-the-result-of-one-submitted-request/
 title: Collect the result of one submitted request. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:38.175730+00:00
+fetched_at: 2026-10-24T11:54:43.082440+00:00
 ---
 
 # Collect the result of one submitted request. - ComfyUI
@@ -126,8 +126,6 @@ cURL
 
 410
 
-422
-
 503
 
 504
@@ -186,21 +184,6 @@ default
       "error_type": "invalid_input",
       "upstream_detail": "<string>",
       "refusal_subject": "<string>"
-    }
-    
-    
-    {
-      "detail": [
-        {
-          "loc": [
-            "<string>"
-          ],
-          "msg": "<string>",
-          "type": "image_too_small",
-          "ctx": {},
-          "input": "<unknown>"
-        }
-      ]
     }
     
     
@@ -382,8 +365,6 @@ cURL
 
 410
 
-422
-
 503
 
 504
@@ -442,21 +423,6 @@ default
       "error_type": "invalid_input",
       "upstream_detail": "<string>",
       "refusal_subject": "<string>"
-    }
-    
-    
-    {
-      "detail": [
-        {
-          "loc": [
-            "<string>"
-          ],
-          "msg": "<string>",
-          "type": "image_too_small",
-          "ctx": {},
-          "input": "<unknown>"
-        }
-      ]
     }
     
     

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/router/comfy-router/ask-for-one-submitted-request-to-be-cancelled/
 title: Ask for one submitted request to be cancelled. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:38.449665+00:00
+fetched_at: 2026-10-24T11:54:42.127701+00:00
 ---
 
 # Ask for one submitted request to be cancelled. - ComfyUI
@@ -489,7 +489,7 @@ application/json
 
 Accepted - `CANCELLATION_REQUESTED`. The ask was accepted for a request that had not yet reached a terminal state. It is not a statement that the run has stopped; read the status endpoint to learn what it did.
 
-The answer to a cancellation ask on the two statuses that describe a request this route resolved - the `202` and the `400`. One body shape across both rather than a success envelope plus an error envelope, because both are the same statement - what cancelling found - and a client that has to parse a different type per status code gains nothing from the split.
+The answer to a cancellation ask on the two statuses that describe a request this route resolved - the `202` and the `409`. One body shape across both rather than a success envelope plus an error envelope, because both are the same statement - what cancelling found - and a client that has to parse a different type per status code gains nothing from the split.
 
 ​
 

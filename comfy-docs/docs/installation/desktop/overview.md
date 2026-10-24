@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/desktop/overview/
 title: Comfy Desktop Overview - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:57.477764+00:00
+fetched_at: 2026-10-24T11:54:47.605353+00:00
 ---
 
 # Comfy Desktop Overview - ComfyUI
@@ -35,7 +35,7 @@ Comfy Desktop overview: a desktop app that installs, manages, and launches multi
 
 Copy pageCopy page
 
-**Comfy Desktop** is a desktop application that lets you install, manage, and launch multiple ComfyUI instances from a single launcher. To put it simply: **Comfy Desktop** is the app that manages and launches **ComfyUI** , the node-based engine for generative AI. You don’t install ComfyUI separately — Comfy Desktop handles the installation, Python environment, and dependencies for you. Each ComfyUI instance runs independently with its own version, custom nodes, and settings. ![Comfy Desktop dashboard with instance cards](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/01-homepage.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=3e4bf3a9d50aef3ab85fba271b1c945e) Comfy Desktop runs on **Windows 10+** , **macOS 13+ (Apple Silicon)** , and **Linux** (official `.deb` and AppImage packages). Each standalone installation requires at least **4.85 GB** of disk space and **8 GB RAM (16 GB recommended)**. Check the platform-specific pages for full details.
+**Comfy Desktop** is a desktop application that lets you install, manage, and launch multiple ComfyUI instances from a single launcher. To put it simply: **Comfy Desktop** is the app that manages and launches **ComfyUI** , the node-based engine for generative AI. You don’t install ComfyUI separately — Comfy Desktop handles the installation, Python environment, and dependencies for you. Each ComfyUI instance runs independently with its own version, custom nodes, and settings. ![Comfy Desktop dashboard with instance cards](https://mintcdn.com/dripart/WYfylXoCKnX5Ph8a/images/desktop/usage/01-homepage.png?fit=max&auto=format&n=WYfylXoCKnX5Ph8a&q=85&s=31c2d1e320e37dad01de4ca0236f2c2a) Comfy Desktop runs on **Windows 10+** , **macOS 13+ (Apple Silicon)** , and **Linux** (official `.deb` and AppImage packages). Each standalone installation requires at least **4.85 GB** of disk space and **8 GB RAM (16 GB recommended)**. Check the platform-specific pages for full details.
 
 ## 
 
@@ -167,26 +167,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/desktop/overview.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/desktop/overview)
 
-[System RequirementsPrevious](https://docs.comfy.org/installation/system_requirements)[Comfy Desktop for WindowsNext](https://docs.comfy.org/installation/desktop/windows)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[System Requirements](https://docs.comfy.org/installation/system_requirements)[Windows](https://docs.comfy.org/installation/desktop/windows)

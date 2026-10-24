@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/registry/retrieve-a-specific-node-by-id/
 title: Retrieve a specific node by ID - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:41.043156+00:00
+fetched_at: 2026-10-24T11:54:48.789942+00:00
 ---
 
 # Retrieve a specific node by ID - ComfyUI

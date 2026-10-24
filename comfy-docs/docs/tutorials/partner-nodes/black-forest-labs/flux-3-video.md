@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/black-forest-labs/flux-3-video/
 title: FLUX 3 Video - AI video generation with native audio - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:26.216093+00:00
+fetched_at: 2026-10-24T11:54:47.314521+00:00
 ---
 
 # FLUX 3 Video - AI video generation with native audio - ComfyUI
@@ -41,7 +41,7 @@ What FLUX 3 Video is good at
   * **Native audio** : Every video comes with synchronized audio, including ambient sound, speech, and effects
   * **Up to 20 seconds** : Generates long clips in a single pass
   * **Text and image input** : Generates video from a text prompt, or continues from a starting frame image
-  * **Flexible formats** : 720p or 1080p resolution, 24fps, aspect ratios from 9:16 to 21:9
+  * **Flexible formats** : 720p, 1080p, 1440p, or 2160p resolution, 24fps, aspect ratios from 9:16 to 21:9
   * **Multi-shot output** : Chains individual clips into longer sequences for extended storytelling
 
 
@@ -142,26 +142,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/black-forest-labs/flux-3-video.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/black-forest-labs/flux-3-video)
 
-[Video ModelsPrevious](https://docs.comfy.org/tutorials/partner-nodes/video/overview)[FLUX Video Edit: Text-Prompt Video Editing in ComfyUINext](https://docs.comfy.org/tutorials/partner-nodes/black-forest-labs/flux-video-edit)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Flux 3 Max](https://docs.comfy.org/tutorials/partner-nodes/black-forest-labs/flux-3-max)[Flux Video Edit](https://docs.comfy.org/tutorials/partner-nodes/black-forest-labs/flux-video-edit)

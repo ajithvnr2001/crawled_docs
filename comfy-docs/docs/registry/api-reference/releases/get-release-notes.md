@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/releases/get-release-notes/
 title: Get release notes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:39.835949+00:00
+fetched_at: 2026-10-24T11:54:47.978953+00:00
 ---
 
 # Get release notes - ComfyUI
@@ -429,4 +429,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/registry/api-reference/releases/get-release-notes.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/registry/api-reference/releases/get-release-notes)
 
-[Get server feature flags](https://docs.comfy.org/registry/api-reference/registry/get-server-feature-flags)[Overview](https://docs.comfy.org/built-in-nodes/overview)
+[Get server feature flags](https://docs.comfy.org/registry/api-reference/registry/get-server-feature-flags)

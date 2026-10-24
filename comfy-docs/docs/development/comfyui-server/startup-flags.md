@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfyui-server/startup-flags/
 title: Startup Flags - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:55.596330+00:00
+fetched_at: 2026-10-24T11:54:46.857230+00:00
 ---
 
 # Startup Flags - ComfyUI
@@ -106,9 +106,9 @@ Flag| Default| Description
 ---|---|---  
 `--auto-launch`| disabled| Automatically open ComfyUI in the default browser on startup.  
 `--disable-auto-launch`| disabled| Disable auto-launching the browser.  
-`--windows-standalone-build`| disabled| Windows portable build convenience mode. Enables auto-launch on startup (equivalent to `--auto-launch`).  
+`--windows-standalone-build`| disabled| Windows portable build convenience mode. Enables auto-launch on startup (equivalent to `--auto-launch`) and turns on the assets system.  
   
-`--windows-standalone-build` sets `auto_launch` to `true`. `--disable-auto-launch` overrides it. To run as a server without opening a browser, use `--disable-auto-launch`.
+`--windows-standalone-build` sets `auto_launch` to `true` and enables the assets system. `--disable-auto-launch` overrides the browser launch and `--disable-assets` overrides the assets system. To run as a server without opening a browser, use `--disable-auto-launch`.
     
     
     # Run server without opening browser
@@ -291,8 +291,8 @@ Flag| Default| Description
 `--disable-async-offload`| —| Disable async weight offloading.  
 `--disable-dynamic-vram`| —| Disable dynamic VRAM; use estimate-based model loading.  
 `--enable-dynamic-vram`| auto on Nvidia, ROCm 7.14+| Enable dynamic VRAM on systems where it is not enabled by default.  
-`--fast-disk`| disabled| Prefer disk-backed dynamic loading over unpinned RAM. Useful with fast NVMe.  
-`--disable-fast-disk`| disabled| Disable disk-backed dynamic loading and offload, so unpinned RAM is used instead. Overrides `--fast-disk`.  
+`--fast-disk`| false| Force disk-backed dynamic loading and offload over unpinned RAM. Useful with fast NVMe. When neither this flag nor `--disable-fast-disk` is set, disk-backed loading and offload are enabled automatically if every model file is on storage detected as fast.  
+`--disable-fast-disk`| disabled| Disable disk-backed dynamic loading and offload, so unpinned RAM is used instead. Overrides `--fast-disk` and the automatic detection.  
 `--disable-cuda-graphs`| disabled| Disable CUDA graphs.  
 `--disable-comfy-compiler`| disabled| Disable the Comfy model compiler, including its CUDA graph subfeature.  
 `--assert-graph-breaks`| disabled| Fail on Comfy model compiler graph breaks.  
@@ -347,6 +347,7 @@ Flag| Default| Description
 ---|---|---  
 `--disable-all-custom-nodes`| disabled| Disable loading all custom nodes.  
 `--whitelist-custom-nodes` `FOLDER...`| —| Custom node folders to load even when `--disable-all-custom-nodes` is set.  
+`--disabled-nodes-config` `PATH`| —| Path to a YAML file that lists node IDs to disable. The file must contain a `disabled_nodes` list of node ID strings.  
 `--disable-partner-nodes`| disabled| Disable loading Partner Nodes (the paid API nodes). The frontend keeps its internet access.  
 `--offline`| disabled| Prevent the frontend from communicating with the internet by adding a restrictive Content-Security-Policy. Also disables Partner Nodes.  
 `--disable-api-nodes`| disabled| Deprecated alias for `--offline`. Use `--offline`, or `--disable-partner-nodes` to only disable Partner Nodes.  
@@ -375,7 +376,8 @@ Flag| Default| Description
 `--comfy-api-base`| `https://api.comfy.org`| Base URL for the ComfyUI API.  
 `--database-url`| `sqlite:///<ComfyUI>/user/comfyui.db`| Database URL. Use `sqlite:///:memory:` for in-memory.  
 `--enable-assets`| disabled| Enable the assets system (API routes, database sync, background scanning).  
-`--enable-asset-hashing`| disabled| Compute blake3 content hashes when scanning assets. Enables future asset portability features such as deduplication and cross-machine model resolution, at the cost of startup time and per-output hashing on large model directories. Off by default.  
+`--disable-assets`| disabled| Disable the assets system, even when `--enable-assets` or `--windows-standalone-build` is turned on.  
+`--enable-asset-hashing`| disabled| Compute blake3 content hashes when scanning assets. Enables future asset portability features such as deduplication and cross-machine model resolution, at the cost of startup time and per-output hashing on large model directories. Off by default; requires the assets system (`--enable-assets` or `--windows-standalone-build`).  
 `--feature-flag` `KEY[=VALUE]`| —| Set a server feature flag. Bare `KEY` sets true. Can be repeated. Booleans and numbers are auto-converted.  
 `--list-feature-flags`| —| Print known CLI-settable feature flags as JSON and exit.  
       
@@ -411,26 +413,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/comfyui-server/startup-flags.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/comfyui-server/startup-flags)
 
-[ComfyUI Server Messages (WebSocket API)Previous](https://docs.comfy.org/development/comfyui-server/comms_messages)[ComfyUI Account API Key IntegrationNext](https://docs.comfy.org/development/comfyui-server/api-key-integration)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[WebSocket messages](https://docs.comfy.org/development/comfyui-server/comms_messages)[Partner Node authentication](https://docs.comfy.org/development/comfyui-server/api-key-integration)

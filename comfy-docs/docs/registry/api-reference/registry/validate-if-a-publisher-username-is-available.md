@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/registry/validate-if-a-publisher-username-is-available/
 title: Validate if a publisher username is available - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:41.998001+00:00
+fetched_at: 2026-10-24T11:54:49.227498+00:00
 ---
 
 # Validate if a publisher username is available - ComfyUI
