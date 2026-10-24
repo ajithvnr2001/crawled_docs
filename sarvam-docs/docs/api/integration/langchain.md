@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/integration/langchain/
 title: Build with Sarvam AI in LangChain | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:41.802802+00:00
+fetched_at: 2026-10-24T06:33:36.134323+00:00
 ---
 
 # Build with Sarvam AI in LangChain | Sarvam API Docs
@@ -58,7 +58,7 @@ Requires Python 3.10+. `python-dotenv` loads `SARVAM_API_KEY` from a local `.env
 
 ### 2\. Set your API key
 
-Get an API key from **[dashboard.sarvam.ai](https://dashboard.sarvam.ai/)** and add it to your environment:
+Get an API key from **[indus.sarvam.ai](https://indus.sarvam.ai/key-management?ref=docs)** and add it to your environment:
 
 .env
     

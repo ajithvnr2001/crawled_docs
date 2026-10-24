@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription/
 title: Live Video Transcription | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:30.438995+00:00
+fetched_at: 2026-10-24T06:33:39.072302+00:00
 ---
 
 # Live Video Transcription | Sarvam API Docs
@@ -112,7 +112,7 @@ Transcription and translation run as two independent streaming connections, so y
 ## **1\. Prerequisites**
 
   * Python 3.8 or higher
-  * A Sarvam API key, sign up on the [Sarvam AI Dashboard](https://dashboard.sarvam.ai/) to get one
+  * A Sarvam API key, sign up on the [Sarvam AI Dashboard](https://indus.sarvam.ai/key-management?ref=docs) to get one
   * A modern browser (Web Audio API and `HTMLMediaElement.captureStream()` support)
   * A video file with speech to try it on
 
@@ -367,7 +367,7 @@ The browser buffers and sends audio roughly once a second (`currentTime - lastCh
 
 You may encounter these errors while using the underlying API:
 
-  * **403 Forbidden** (`invalid_api_key_error`), invalid API key. Use a valid key from the [Sarvam AI Dashboard](https://dashboard.sarvam.ai/).
+  * **403 Forbidden** (`invalid_api_key_error`), invalid API key. Use a valid key from the [Sarvam AI Dashboard](https://indus.sarvam.ai/key-management?ref=docs).
   * **429 Too Many Requests** (`rate_limit_exceeded_error`), too many concurrent streaming connections or requests. Check [Credits & Rate Limits](https://docs.sarvam.ai/api/getting-started/ratelimits) for streaming concurrency limits.
   * **WebSocket close`1006` / `1011`**, abnormal closure or server error. Reconnect with exponential backoff rather than retrying immediately, see [Handling Disconnects](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/streaming-api#handling-disconnects).
   * **WebSocket close`4xxx`**, application-specific, usually auth or quota. Read the close reason before retrying; blind-retrying an auth failure will just fail again.

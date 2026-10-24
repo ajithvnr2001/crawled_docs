@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/authentication/
 title: Authentication | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:13:42.443514+00:00
+fetched_at: 2026-10-24T06:33:35.218438+00:00
 ---
 
 # Authentication | Sarvam API Docs
@@ -47,7 +47,7 @@ This is useful with OpenAI-compatible tooling pointed at the [Chat Completions e
 
 ### Obtaining Your API Subscription Key
 
-  1. **Sign Up** : Create an account on the [Sarvam Dashboard](https://dashboard.sarvam.ai/)
+  1. **Sign Up** : Create an account on the [Sarvam Dashboard](https://indus.sarvam.ai/key-management?ref=docs)
   2. **Generate Key** : After signing up, you must manually generate your API key from the dashboard. Navigate to the API Keys section and create a new key for your account.
   3. **Organisation Key Management** : Creating Organisational level keys is not currently supported and will be available soon.
 
@@ -126,13 +126,13 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api-reference/introduction)[Access to Beta APIsNext](https://docs.sarvam.ai/api-reference/beta-apis)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api-reference/introduction)[Beta APIs and ModelsNext](https://docs.sarvam.ai/api-reference/beta-apis)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * API Reference
 
     * [Introduction](https://docs.sarvam.ai/api-reference/introduction)
     * [Authentication](https://docs.sarvam.ai/api-reference/authentication)
-    * [Access to Beta APIs](https://docs.sarvam.ai/api-reference/beta-apis)
+    * [Beta APIs and Models](https://docs.sarvam.ai/api-reference/beta-apis)
     * [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt)
   * APIs
 
@@ -148,7 +148,7 @@ YesNo
 
     * Chat Completion
 
-    * Responses APIBeta
+    * Responses API
 
     * Content Studio - Dubbing
 
@@ -184,7 +184,7 @@ YesNo
 
   * [Introduction](https://docs.sarvam.ai/api-reference/introduction)
   * [Authentication](https://docs.sarvam.ai/api-reference/authentication)
-  * [Access to Beta APIs](https://docs.sarvam.ai/api-reference/beta-apis)
+  * [Beta APIs and Models](https://docs.sarvam.ai/api-reference/beta-apis)
   * [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt)
   * [REST](https://docs.sarvam.ai/api-reference/speech-to-text/transcribe)
   * [Batch - Initiate Job](https://docs.sarvam.ai/api-reference/speech-to-text/stt/job/initiate)
@@ -273,7 +273,9 @@ YesNo
   * [Get attempts](https://docs.sarvam.ai/api-reference/analytics/attempts)
   * [Get interactions](https://docs.sarvam.ai/api-reference/analytics/interactions)
   * [Get recordings](https://docs.sarvam.ai/api-reference/analytics/recordings)
+  * [Get forwarded recordings](https://docs.sarvam.ai/api-reference/analytics/forwarded-recordings)
   * [Get transcripts](https://docs.sarvam.ai/api-reference/analytics/transcripts)
+  * [Get traces](https://docs.sarvam.ai/api-reference/analytics/traces)
   * [Overview](https://docs.sarvam.ai/api-reference/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/api-reference/boards/sql)
   * [Best practices](https://docs.sarvam.ai/api-reference/boards/best-practices)

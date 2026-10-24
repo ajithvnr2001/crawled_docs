@@ -3,8 +3,5 @@
   "file": "api/api-guides-tutorials/doc-translation/guides/translate-a-pdf.md",
   "title": "Translate a PDF to Hindi (or any Indic language) | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:14:15.267758+00:00",
-  "html_len": 175721,
-  "md_len": 23440,
-  "depth": 0
+  "fetched_at": "2026-10-24T06:33:43.420439+00:00"
 }

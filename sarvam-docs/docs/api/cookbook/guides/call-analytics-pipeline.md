@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/cookbook/guides/call-analytics-pipeline/
 title: Call Analytics Pipeline | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:31.385513+00:00
+fetched_at: 2026-10-24T06:33:39.811918+00:00
 ---
 
 # Call Analytics Pipeline | Sarvam API Docs
@@ -104,7 +104,7 @@ Query any specific detail across all processed calls, and generate a concise, da
 ## **1\. Prerequisites**
 
   * Python 3.8+
-  * A Sarvam API key, sign up on the [Sarvam AI Dashboard](https://dashboard.sarvam.ai/) to get one
+  * A Sarvam API key, sign up on the [Sarvam AI Dashboard](https://indus.sarvam.ai/key-management?ref=docs) to get one
   * [FFmpeg](https://ffmpeg.org/download.html) installed and on your `PATH`, required by `pydub` to read and split audio files
   * One or more call recordings (`.mp3`, `.wav`, etc.). You can use the [sample call recording](https://github.com/sarvamai/sarvam-ai-cookbook/blob/main/sample_data/call_analytics_audios/Sample_product_refund.mp3) to follow along
 
@@ -119,7 +119,7 @@ Query any specific detail across all processed calls, and generate a concise, da
 
 ## **3\. Authentication**
 
-  1. **Obtain your API key** : If you don’t have one, sign up on the [Sarvam AI Dashboard](https://dashboard.sarvam.ai/).
+  1. **Obtain your API key** : If you don’t have one, sign up on the [Sarvam AI Dashboard](https://indus.sarvam.ai/key-management?ref=docs).
   2. **Set your API key** : Export it as an environment variable, `export SARVAM_API_KEY="your-key-here"` (macOS/Linux) or `setx SARVAM_API_KEY "your-key-here"` (Windows). The [script](https://docs.sarvam.ai/api/cookbook/guides/call-analytics-pipeline#4-the-full-pipeline-script) below reads it via `os.environ["SARVAM_API_KEY"]`.
 
 
@@ -674,7 +674,7 @@ Below is the analysis you’d get by running the pipeline on the sample [Sample_
 
 You may encounter these errors while using the API:
 
-  * **403 Forbidden** (`invalid_api_key_error`), invalid API key. Use a valid key from the [Sarvam AI Dashboard](https://dashboard.sarvam.ai/).
+  * **403 Forbidden** (`invalid_api_key_error`), invalid API key. Use a valid key from the [Sarvam AI Dashboard](https://indus.sarvam.ai/key-management?ref=docs).
   * **429 Too Many Requests** (`insufficient_quota_error` / `rate_limit_exceeded_error`), credits exhausted or rate limit hit. Retry with exponential backoff.
   * **500 Internal Server Error** (`internal_server_error`), issue on our servers. Try again later; contact support if persistent.
 

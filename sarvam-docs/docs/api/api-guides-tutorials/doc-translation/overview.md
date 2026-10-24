@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview/
 title: Document Translation API Overview | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:15.519176+00:00
+fetched_at: 2026-10-24T06:33:42.991054+00:00
 ---
 
 # Document Translation API Overview | Sarvam API Docs
@@ -44,7 +44,7 @@ This page is for Model APIs.
 
 The Document Translation API takes a source document and returns it translated into one or more Indian languages, in its original file format. The layout, formatting, and structure of the source file are preserved.
 
-Authentication: send your API key in the `api-subscription-key` header. Generate a key from [Key Management](https://dashboard.sarvam.ai/key-management) in the dashboard.
+Authentication: send your API key in the `api-subscription-key` header. Generate a key from [Key Management](https://indus.sarvam.ai/key-management?ref=docs) in the dashboard.
 
 ## What you get from one job
 

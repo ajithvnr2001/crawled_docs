@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/integration/build-voice-agent-with-twilio/
 title: Build a Voice Agent or WhatsApp Bot using Twilio | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:40.126686+00:00
+fetched_at: 2026-10-24T06:33:37.877605+00:00
 ---
 
 # Build a Voice Agent or WhatsApp Bot using Twilio | Sarvam API Docs
@@ -111,7 +111,7 @@ A voice agent that can:
   * [ngrok](https://ngrok.com/download), to expose your local server during development
   * Accounts and keys from: 
     * [Twilio](https://console.twilio.com/): an Account SID, an Auth Token, and a phone number with voice capability
-    * [Sarvam AI](https://dashboard.sarvam.ai/): an API key from your dashboard
+    * [Sarvam AI](https://indus.sarvam.ai/key-management?ref=docs): an API key from your dashboard
 
 
 
@@ -135,7 +135,7 @@ Create a file named `.env` in your project folder:
     
     TWILIO_AUTH_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-Then replace each placeholder with your real credentials from the [Sarvam dashboard](https://dashboard.sarvam.ai/) and the [Twilio Console](https://console.twilio.com/).
+Then replace each placeholder with your real credentials from the [Sarvam dashboard](https://indus.sarvam.ai/key-management?ref=docs) and the [Twilio Console](https://console.twilio.com/).
 
 `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` aren’t optional here. Pipecat’s Twilio transport uses them to authenticate with Twilio’s REST API and to hang up the call cleanly when your agent ends the conversation.
 
@@ -695,7 +695,7 @@ Unlike the phone agent, this path doesn’t use Pipecat. WhatsApp messages arriv
   * [ngrok](https://ngrok.com/download), to expose your local server during development
   * Accounts and keys from: 
     * [Twilio](https://console.twilio.com/): an Account SID and an Auth Token
-    * [Sarvam AI](https://dashboard.sarvam.ai/): an API key from your dashboard
+    * [Sarvam AI](https://indus.sarvam.ai/key-management?ref=docs): an API key from your dashboard
 
 
 
@@ -717,7 +717,7 @@ Create a file named `.env` in your project folder:
     
     TWILIO_AUTH_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-Then replace each placeholder with your real credentials from the [Sarvam dashboard](https://dashboard.sarvam.ai/) and the [Twilio Console](https://console.twilio.com/).
+Then replace each placeholder with your real credentials from the [Sarvam dashboard](https://indus.sarvam.ai/key-management?ref=docs) and the [Twilio Console](https://console.twilio.com/).
 
 `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` are used to authenticate when downloading voice-note media from Twilio, which requires HTTP Basic Auth with these credentials.
 

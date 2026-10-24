@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/pricing/
 title: Pricing | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T06:32:45.269203+00:00
+fetched_at: 2026-10-24T06:33:33.304472+00:00
 ---
 
 # Pricing | Sarvam API Docs
@@ -13,10 +13,11 @@ Skip to navigation
 
 On this page
 
+  * Plans
   * Language Models
-  * Speech Recognition
+  * Speech to Text
+  * Text to Speech
   * Text Processing
-  * Speech Synthesis
   * Document Intelligence
   * Document Translation
   * Dubbing
@@ -34,11 +35,23 @@ Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/api/getting-s
 
 This page is for Model APIs.
 
-All prices are in Indian Rupees (₹). Usage is rounded as described in the billing notes for each service.
+All prices are in Indian Rupees (₹) and exclude GST. Usage is rounded as described in the billing notes for each service.
+
+## Plans
+
+Plan| Monthly fee  
+---|---  
+Pay as you go| None  
+Pro| ₹9,999  
+Growth| ₹49,999  
+Business| ₹1,99,999  
+Enterprise| Custom  
+  
+Rates below are listed for each self-serve plan. Choose or change a plan from the [Sarvam Dashboard](https://indus.sarvam.ai/pricing/?ref=docs). For Enterprise pricing, [contact us](https://docs.sarvam.ai/api/getting-started/help).
 
 ## Language Models
 
-All prices are ₹ per 1M tokens. GLM-5.3 and DeepSeek V4.1 Flash reasoning tokens are billed as output tokens.
+All prices are ₹ per 1M tokens and are the same on every plan. Reasoning tokens are billed as output tokens.
 
 Model| Input| Cached input| Output| Status  
 ---|---|---|---|---  
@@ -46,69 +59,68 @@ Sarvam 105B (`sarvam-105b`)| ₹15| ₹5| ₹60| Available
 Sarvam 105B Chat (`sarvam-105b-conversations`)| ₹15| ₹5| ₹60| Available  
 Gemma 4 31B (`gemma4`)| ₹35| ₹10| ₹90| Available  
 GLM-5.3 (`glm5.3`)| ₹126| ₹20| ₹390| Available  
-DeepSeek V4.1 Flash (`deepseekv4.1-flash`)| ₹25| ₹0.5| ₹105| Available  
+DeepSeek V4.1 Flash (`deepseekv4.1-flash`)| ₹25| ₹0.50| ₹105| Available  
+DeepSeek V4 Pro (`deepseekv4-pro`)| ₹115| ₹4| ₹350| [Beta](https://docs.sarvam.ai/api-reference/beta-apis)  
+Kimi K3 (`kimi-k3`)| ₹270| ₹27| ₹1,350| [Beta](https://docs.sarvam.ai/api-reference/beta-apis)  
+MiMo V2.6 Flash (`mimo-v2.6-flash`)| ₹12.50| ₹0.25| ₹25| [Beta](https://docs.sarvam.ai/api-reference/beta-apis)  
+MiMo V2.6 Pro (`mimo-v2.6-pro`)| ₹40| ₹0.30| ₹80| [Beta](https://docs.sarvam.ai/api-reference/beta-apis)  
   
-GLM-5.3, Gemma 4 31B, and DeepSeek V4.1 Flash are [available in beta](https://docs.sarvam.ai/api-reference/beta-apis).
+## Speech to Text
 
-## Speech Recognition
+Priced per minute, billed per second.
 
-Priced per hour, billed per second.
+Service| Pay as you go| Pro| Growth  
+---|---|---|---  
+Speech to Text (real-time, streaming, batch)| ₹0.49| ₹0.45| ₹0.41  
+Speech to Text with Diarization (batch)| ₹0.59| ₹0.54| ₹0.50  
+  
+## Text to Speech
 
-Service| Price per hour  
----|---  
-Speech to Text| ₹30  
-Speech to Text with Diarization| ₹36  
-Speech to Text and Translate| ₹30  
-Speech to Text, Translate, and Diarization| ₹36  
+Priced per 1,000 characters, rounded to the nearest character. Rates apply to REST, HTTP streaming, and WebSocket streaming.
+
+Service| Pay as you go| Pro| Growth  
+---|---|---|---  
+Bulbul v4 Flash| ₹1.00| ₹0.925| ₹0.85  
+Bulbul v3| ₹3.00| ₹2.85| ₹2.70  
+Instant Voice Cloning| ₹2.00| ₹2.00| ₹2.00  
   
 ## Text Processing
 
-Priced per 10K characters, rounded to the nearest character.
+Priced per 1,000 characters, rounded to the nearest character.
 
-Service| Price per 10K characters  
----|---  
-Sarvam Translate V1| ₹20  
-Mayura Translate V1| ₹20  
-Transliteration| ₹20  
-Language Identification| ₹3.5  
+Service| Pay as you go| Pro| Growth  
+---|---|---|---  
+Translate (formal and colloquial)| ₹2.00| ₹1.70| ₹1.50  
+Transliteration| ₹2.00| ₹2.00| ₹1.80  
+Language Identification| ₹0.35| ₹0.35| ₹0.31  
   
-## Speech Synthesis
-
-Service| Price per 10K characters  
----|---  
-Bulbul v3| ₹30  
-Instant Voice Cloning| ₹30  
-  
-Rounded to the nearest character.
-
 ## Document Intelligence
 
-Service| Price per page  
----|---  
-Document Digitization API| ₹0.5  
-Document Extraction API| ₹1  
-  
-Maximum 10 pages per job.
+Priced per page. Maximum 10 pages per job.
 
+Service| Pay as you go| Pro| Growth  
+---|---|---|---  
+Document Digitization API| ₹0.50| ₹0.50| ₹0.50  
+Document Extraction API| ₹1.00| ₹1.00| ₹1.00  
+  
 ## Document Translation
 
-Billed per billable character, per target language. Character count is computed after parsing; each target language in a job is billed separately. Charges round up to the nearest rupee; minimum ₹1 when any billable text is present.
+Priced per 1,000 billable characters, per target language. Character count is computed after parsing; each target language in a job is billed separately. Charges round up to the nearest rupee; minimum ₹1 when any billable text is present.
 
-Service| Price| Billing unit  
----|---|---  
-Document Translation API| ₹5| per 1K billable characters  
+Service| Pay as you go| Pro| Growth  
+---|---|---|---  
+Document Translation API| ₹5.00| ₹5.00| ₹4.50  
   
 ## Dubbing
 
 Priced per minute of source media, multiplied by the number of target languages. Duration is rounded to whole seconds before billing.
 
-Plan| API rate (`editor_flow: false`)| Editor flow rate (`editor_flow: true`)  
----|---|---  
-Starter| ₹40/min| ₹80/min  
-Pro| ₹38/min| ₹75/min  
-Enterprise| ₹36/min| ₹72/min  
+Service| Pay as you go| Pro| Growth  
+---|---|---|---  
+Dubbing API (`editor_flow: false`)| ₹40| ₹40| ₹38  
+Dubbing with Editor Flow (`editor_flow: true`)| ₹80| ₹80| ₹75  
   
-Editor Flow costs twice the standard API rate and should only be enabled when the interactive editor workflow is required. See the [Dubbing overview](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview).
+Editor Flow costs about twice the standard API rate and should only be enabled when the interactive editor workflow is required. See the [Dubbing overview](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview).
 
 * * *
 
@@ -118,7 +130,7 @@ See [Credits & Rate Limits](https://docs.sarvam.ai/api/getting-started/ratelimit
 
 For volume pricing, custom rate limits, or dedicated support, [contact us](https://docs.sarvam.ai/api/getting-started/help).
 
-**Free credits:** Every new user receives ₹100 in credits. For commercial production rights when shipping generated audio, see [Commercial Licensing](https://docs.sarvam.ai/api/getting-started/commercial-licensing).
+**Free credits:** Every verified user receives ₹100 in credits. For commercial production rights when shipping generated audio, see [Commercial Licensing](https://docs.sarvam.ai/api/getting-started/commercial-licensing).
 
 Was this page helpful?
 

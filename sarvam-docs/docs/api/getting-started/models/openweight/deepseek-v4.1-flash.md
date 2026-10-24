@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/models/openweight/deepseek-v4.1-flash
 title: DeepSeek V4.1 Flash | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T06:32:58.333296+00:00
+fetched_at: 2026-10-24T06:33:38.207786+00:00
 ---
 
 # DeepSeek V4.1 Flash | Sarvam API Docs
@@ -140,7 +140,7 @@ Structured output| `response_format` is used while reasoning is enabled| `200` w
 Tools| A named `tool_choice` is provided without `tools`| `422 unprocessable_entity_error`| Include the matching function in `tools`.  
 Authentication| API key is missing or invalid| `403 invalid_api_key_error`| Check the `api-subscription-key` header.  
 Model| Model ID is unknown or unavailable| `404 not_found_error`| Confirm the ID with [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2).  
-Quota| No credits remain| `402 insufficient_quota_error`| Add credits in the [dashboard](https://dashboard.sarvam.ai/).  
+Quota| No credits remain| `402 insufficient_quota_error`| Add credits in the [dashboard](https://indus.sarvam.ai/billing?ref=docs).  
 Rate limit| Request or concurrency limit is exceeded| `429 rate_limit_exceeded_error`| Back off and retry.  
 Availability| Model remains overloaded after retries| `503 model_overloaded`| Retry later.  
   

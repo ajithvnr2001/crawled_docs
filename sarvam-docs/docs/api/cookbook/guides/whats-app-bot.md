@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot/
 title: WhatsApp Bot | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:31.992609+00:00
+fetched_at: 2026-10-24T06:33:38.894898+00:00
 ---
 
 # WhatsApp Bot | Sarvam API Docs
@@ -107,7 +107,7 @@ Return the reply as WhatsApp text, and optionally synthesize it with **Bulbul TT
 ## **1\. Prerequisites**
 
   * Python 3.9 or higher
-  * A Sarvam API key, sign up on the [Sarvam AI Dashboard](https://dashboard.sarvam.ai/) to get one
+  * A Sarvam API key, sign up on the [Sarvam AI Dashboard](https://indus.sarvam.ai/key-management?ref=docs) to get one
   * A [Twilio](https://console.twilio.com/) account, with an Account SID, an Auth Token, and access to the WhatsApp Sandbox (or a WhatsApp-enabled Sender for production)
   * [ngrok](https://ngrok.com/download), to expose your local server during development
 
@@ -420,7 +420,7 @@ Before real users message your bot, register a WhatsApp Sender under **Messaging
 
 You may encounter these errors while using the underlying APIs:
 
-  * **403 Forbidden** (`invalid_api_key_error`), invalid Sarvam API key. Use a valid key from the [Sarvam AI Dashboard](https://dashboard.sarvam.ai/).
+  * **403 Forbidden** (`invalid_api_key_error`), invalid Sarvam API key. Use a valid key from the [Sarvam AI Dashboard](https://indus.sarvam.ai/key-management?ref=docs).
   * **429 Too Many Requests** (`insufficient_quota_error` / `rate_limit_exceeded_error`), Sarvam credits exhausted or rate limit hit. Retry with exponential backoff.
   * **500 Internal Server Error** (`internal_server_error`), issue on Sarvam’s servers. Try again later; contact support if persistent.
   * **Twilio error 63015** , “recipient has not joined the Sandbox.” The sending number needs to send the `join <code>` message first (or its 3-day opt-in has expired), see Step 3 above.
@@ -452,7 +452,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)[Collection Agent using LiveKitNext](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)[Hindi collections voice agent with LiveKitNext](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/cowork/overview/
 title: Overview | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:56.892581+00:00
+fetched_at: 2026-10-24T06:33:33.093069+00:00
 ---
 
 # Overview | Sarvam API Docs
@@ -49,7 +49,7 @@ The Cowork workspace: one prompt bar, one sidebar, everything you need to put AI
 
 Cowork lives in the Sarvam platform. Log in with your Sarvam account and open **Cowork** to start working:
 
-[Open CoworkLog in at indus.sarvam.ai/indus to put AI to work, build agents, and automate your workflows.](https://indus.sarvam.ai/indus)
+[Open CoworkLog in at indus.sarvam.ai/indus to put AI to work, build agents, and automate your workflows.](https://indus.sarvam.ai/indus?ref=docs)
 
 ## Two ways to work: Chat and Agents
 

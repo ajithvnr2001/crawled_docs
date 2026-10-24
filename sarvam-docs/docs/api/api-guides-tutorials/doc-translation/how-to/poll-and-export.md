@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/poll-and-export/
 title: How to poll status and export results | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:15.033892+00:00
+fetched_at: 2026-10-24T06:33:43.101519+00:00
 ---
 
 # How to poll status and export results | Sarvam API Docs
@@ -53,7 +53,7 @@ A job can stay `Running` or `PartiallyCompleted` while some languages in `transl
 
 ## Example
 
-Replace `YOUR_SARVAM_API_KEY` with your key from [Key Management](https://dashboard.sarvam.ai/key-management). This example assumes you already created a job, uploaded the file, and called `start`. See the [Overview quickstart](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview#quickstart).
+Replace `YOUR_SARVAM_API_KEY` with your key from [Key Management](https://indus.sarvam.ai/key-management?ref=docs). This example assumes you already created a job, uploaded the file, and called `start`. See the [Overview quickstart](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview#quickstart).
 
 PythonJavaScript
     

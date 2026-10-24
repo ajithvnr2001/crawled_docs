@@ -1,6 +1,6 @@
 # Sarvam AI Developer Documentation
 
-> Build with Sarvam AI. Voice Agents: a managed platform for production voice agents in 11 Indian languages, from ₹3 per minute. Plus speech-to-text, text-to-speech, translation, chat, and document intelligence APIs for 22 Indian languages, and no-code platforms for coding agents, Cowork, and Content Studio.
+> Sarvam Voice Agents (Samvaad): build, test and deploy AI calling agents in Indian languages from ₹3 a minute. Plus model APIs for speech, text and documents.
 
 Indus: Full Stack AI Platform
 
@@ -76,6 +76,37 @@ An agentic workspace for real work: email triage, morning briefings, internal he
 [Coding Agent](/api/sarvam-code)
 
 An agentic coding assistant for your terminal and IDE, built on Sarvam models for development tasks.
+
+## Build voice agents
+
+Guides for AI voice agents in 11 Indian languages, from a first agent to outbound
+campaigns at scale.
+
+[All Voice Agents docs →](/voice-agents/overview)
+
+[Quickstart](/voice-agents/quickstart)
+
+Build your first AI calling agent, test it, and put it on a phone number in minutes.
+
+[Build an agent](/voice-agents/build/overview)
+
+Write the instruction, add variables, tools, and a knowledge base, and pick a voice.
+
+[Tests](/voice-agents/build/tests)
+
+Run simulated calls against scripted scenarios, with an AI judge grading each conversation.
+
+[Phone numbers](/voice-agents/deploy/telephony)
+
+Bring your own Exotel, Twilio, Plivo, or other provider, or rent a number from Sarvam.
+
+[Campaigns](/voice-agents/deploy/campaigns)
+
+Dial a contact list for outbound calls, with schedules, retries, and concurrency control.
+
+[Monitor](/voice-agents/monitor/overview)
+
+Track connect rates and goals, read call logs and transcripts, and build SQL boards.
 
 ## Build with the APIs
 
@@ -259,7 +290,7 @@ Community
 * [GitHub](https://github.com/sarvamai/sarvam-ai-cookbook)
 * [Talk to us](/api/getting-started/help)
 
-> Build with Sarvam AI. Voice Agents: a managed platform for production voice agents in 11 Indian languages, from ₹3 per minute. Plus speech-to-text, text-to-speech, translation, chat, and document intelligence APIs for 22 Indian languages, and no-code platforms for coding agents, Cowork, and Content Studio.
+> Sarvam Voice Agents (Samvaad): build, test and deploy AI calling agents in Indian languages from ₹3 a minute. Plus model APIs for speech, text and documents.
 
 ## Instructions for AI Agents
 

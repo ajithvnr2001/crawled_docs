@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/commercial-licensing/
 title: Commercial Licensing | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:32.842943+00:00
+fetched_at: 2026-10-24T06:33:34.960389+00:00
 ---
 
 # Commercial Licensing | Sarvam API Docs
@@ -36,7 +36,7 @@ This page is for Model APIs.
 
 This page explains how commercial production rights work when you generate audio with **Bulbul v3** , **Content Studio** (Text to Speech, Dubbing, Instant Voice Cloning), or the **Text-to-Speech API**. It covers credits, the Production License under our [End User License Agreement (EULA)](https://www.sarvam.ai/eula), voice-cloning consent, and what happens if you stop using Sarvam later.
 
-**Summary:** You may use exported audio in shipped, sold products, including games, apps, and commercial media, when generation runs on your account and credits are consumed, including from your **₹100 signup credit pool**. No separate production tier or commercial registration step is required beyond normal credit usage and voice-cloning consent.
+**Summary:** You may use exported audio in shipped, sold products, including games, apps, and commercial media, when generation runs on your account and credits are consumed, including from the **₹100 free credits for verified users**. No separate production tier or commercial registration step is required beyond normal credit usage and voice-cloning consent.
 
 * * *
 
@@ -46,8 +46,8 @@ Sarvam grants a **Production License** when you pay applicable fees for the Soft
 
 That means:
 
-  * **Signup credits count.** Every new account receives [₹100 in free credits](https://docs.sarvam.ai/api/getting-started/ratelimits). These credits are **not** limited to evaluation-only or non-commercial use. Audio you generate while those credits are consumed carries the same production rights as audio generated from a paid top-up.
-  * **Paid top-ups count the same way.** Any credit purchase from the [Billing page](https://dashboard.sarvam.ai/billing) activates production rights for Output generated while those credits are used.
+  * **Free credits count.** Verified users receive [₹100 in free credits](https://docs.sarvam.ai/api/getting-started/ratelimits). These credits are **not** limited to evaluation-only or non-commercial use. Audio you generate while those credits are consumed carries the same production rights as audio generated from a paid top-up.
+  * **Paid top-ups count the same way.** Any credit purchase from the [Billing page](https://indus.sarvam.ai/billing?ref=docs) activates production rights for Output generated while those credits are used.
   * **There is no separate Production License SKU.** You do not need a special plan name or add-on beyond having credits available and using the service in compliance with our terms.
 
 
@@ -60,9 +60,9 @@ The Production License applies to **Output you generate while credits are consum
 
 **No minimum purchase is required** beyond normal credit usage.
 
-  * Use your **₹100 signup credits** , or top up any amount from the dashboard when you need more.
+  * Use the **₹100 free credits for verified users** , or top up any amount from the dashboard when you need more.
   * [Plan tiers](https://docs.sarvam.ai/api/getting-started/ratelimits#plan-overview) (Starter, Pro, Business) mainly affect **rate limits** and **bonus credits** : not whether you may ship commercial Output.
-  * Bulbul v3 is billed at [₹30 per 10,000 characters](https://docs.sarvam.ai/api/getting-started/pricing). Generate and export only what your project needs; each billed generation is licensed for production use.
+  * Bulbul v3 is billed at [₹3 per 1,000 characters on pay as you go](https://docs.sarvam.ai/api/getting-started/pricing). Generate and export only what your project needs; each billed generation is licensed for production use.
 
 
 
@@ -125,7 +125,7 @@ Re-selling Sarvam voices or models as a standalone product| No. See EULA restric
   * [End User License Agreement (EULA)](https://www.sarvam.ai/eula): Production License, Output assignment, and restrictions
   * [Terms of Service](https://www.sarvam.ai/terms-of-service): governs in case of conflict with the EULA
   * [Pricing](https://docs.sarvam.ai/api/getting-started/pricing): Bulbul v3 and other API rates
-  * [Credits & Rate Limits](https://docs.sarvam.ai/api/getting-started/ratelimits): signup credits, plans, and top-ups
+  * [Credits & Rate Limits](https://docs.sarvam.ai/api/getting-started/ratelimits): free credits for verified users, plans, and top-ups
 
 
 

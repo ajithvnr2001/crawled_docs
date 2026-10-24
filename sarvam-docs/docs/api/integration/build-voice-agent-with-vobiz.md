@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/integration/build-voice-agent-with-vobiz/
 title: Build a Voice Agent using Vobiz | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:41.503150+00:00
+fetched_at: 2026-10-24T06:33:36.897108+00:00
 ---
 
 # Build a Voice Agent using Vobiz | Sarvam API Docs
@@ -86,7 +86,7 @@ A voice agent that can:
   * Python 3.9 or higher
   * [ngrok](https://ngrok.com/download), to expose your local server during development
   * A [Vobiz](https://vobiz.ai/) account with a provisioned voice number
-  * A [Sarvam AI](https://dashboard.sarvam.ai/) API key from your dashboard
+  * A [Sarvam AI](https://indus.sarvam.ai/key-management?ref=docs) API key from your dashboard
 
 
 
@@ -130,7 +130,7 @@ Create a file named `.env` in your project folder:
     
     OUTBOUND_SAMPLE_RATE=8000
 
-Replace `SARVAM_API_KEY` with your real key from the [Sarvam dashboard](https://dashboard.sarvam.ai/), and `PUBLIC_URL` with your ngrok URL once you have one (Step 5).
+Replace `SARVAM_API_KEY` with your real key from the [Sarvam dashboard](https://indus.sarvam.ai/key-management?ref=docs), and `PUBLIC_URL` with your ngrok URL once you have one (Step 5).
 
 `sarvam-30b` has been deprecated. `sarvam-105b` is now the only supported chat model, and the `/v1/chat/completions` API rejects the `model="sarvam-30b"` value. If you have existing agents pinned to `sarvam-30b`, update them to `sarvam-105b` before it stops responding entirely.
 
@@ -867,7 +867,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/integration/build-voice-agent-with-exotel)[Build Your First Voice Agent using VapiNext](https://docs.sarvam.ai/api/integration/build-voice-agent-with-vapi)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/integration/build-voice-agent-with-exotel)[Build a Vapi voice agent with Sarvam modelsNext](https://docs.sarvam.ai/api/integration/build-voice-agent-with-vapi)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/voices/
 title: Voices | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T14:23:20.004897+00:00
+fetched_at: 2026-10-24T06:33:41.351876+00:00
 ---
 
 # Voices | Sarvam API Docs
@@ -36,7 +36,7 @@ This page is for Model APIs.
 
 Listen to every voice before you pick one for your product. Each sample below reads the same expressive line, **“वाह, यह तो कमाल है! Sarvam AI के साथ अपनी भाषा में बात करना अब बहुत आसान हो गया है।”** (“Wow, this is amazing! Talking in your own language with Sarvam AI has become so easy now.”), so you can compare voices directly and hear how each one handles natural emotion and prosody. Use the `speaker` parameter to select any of these in your API calls; see [How to change the speaker voice](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/how-to/change-the-speaker-voice) for code samples.
 
-Want to test your own text? Head to [dashboard.sarvam.ai](https://dashboard.sarvam.ai/text-to-speech) to generate live previews with custom input.
+Want to test your own text? Head to [indus.sarvam.ai](https://indus.sarvam.ai/api-playground/text-to-speech?ref=docs) to generate live previews with custom input.
 
 Not sure which voice to pick? [Bulbul v4 Flash best practices](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/best-practices#recommended-voices-by-use-case) lists expert-ranked personas for English and Hindi by use case.
 
@@ -378,7 +378,7 @@ Low · Lively · Expressive
 
 `shubh_enhi_companion`Copy
 
-Use in code[Try in dashboard ↗](https://dashboard.sarvam.ai/text-to-speech)
+Use in code[Try in dashboard ↗](https://indus.sarvam.ai/api-playground/text-to-speech?ref=docs)
 
 Shubh
 
@@ -392,7 +392,7 @@ Soft-Spoken · Expressive
 
 `shubh_enhi_banking`Copy
 
-Use in code[Try in dashboard ↗](https://dashboard.sarvam.ai/text-to-speech)
+Use in code[Try in dashboard ↗](https://indus.sarvam.ai/api-playground/text-to-speech?ref=docs)
 
 Shubh
 
@@ -406,7 +406,7 @@ Hushed · Brisk · Expressive · Dark
 
 `shubh_hi_ecomm`Copy
 
-Use in code[Try in dashboard ↗](https://dashboard.sarvam.ai/text-to-speech)
+Use in code[Try in dashboard ↗](https://indus.sarvam.ai/api-playground/text-to-speech?ref=docs)
 
 Aparna
 
@@ -420,7 +420,7 @@ Breathy · Low · Lively · Full · Flowing
 
 `aparna_hi_customer`Copy
 
-Use in code[Try in dashboard ↗](https://dashboard.sarvam.ai/text-to-speech)
+Use in code[Try in dashboard ↗](https://indus.sarvam.ai/api-playground/text-to-speech?ref=docs)
 
 Shalini
 
@@ -434,7 +434,7 @@ Rough · Slow · Expressive · Deliberate
 
 `shalini_enhi_companion`Copy
 
-Use in code[Try in dashboard ↗](https://dashboard.sarvam.ai/text-to-speech)
+Use in code[Try in dashboard ↗](https://indus.sarvam.ai/api-playground/text-to-speech?ref=docs)
 
 Ishita
 
@@ -448,7 +448,7 @@ Breathy · Rough · Slow · Expressive · Dark
 
 `ishita_enhi_companion`Copy
 
-Use in code[Try in dashboard ↗](https://dashboard.sarvam.ai/text-to-speech)
+Use in code[Try in dashboard ↗](https://indus.sarvam.ai/api-playground/text-to-speech?ref=docs)
 
 Sanchita
 
@@ -462,7 +462,7 @@ Lively · Full
 
 `sanchita_en_companion`Copy
 
-Use in code[Try in dashboard ↗](https://dashboard.sarvam.ai/text-to-speech)
+Use in code[Try in dashboard ↗](https://indus.sarvam.ai/api-playground/text-to-speech?ref=docs)
 
 Roopa
 
@@ -476,7 +476,7 @@ Soft-Spoken · Expressive · Full
 
 `roopa_hi_companion`Copy
 
-Use in code[Try in dashboard ↗](https://dashboard.sarvam.ai/text-to-speech)
+Use in code[Try in dashboard ↗](https://indus.sarvam.ai/api-playground/text-to-speech?ref=docs)
 
 Ashok
 
@@ -490,7 +490,7 @@ Breathy · Brisk · Expressive · Bright
 
 `ashok_hi_news`Copy
 
-Use in code[Try in dashboard ↗](https://dashboard.sarvam.ai/text-to-speech)
+Use in code[Try in dashboard ↗](https://indus.sarvam.ai/api-playground/text-to-speech?ref=docs)
 
 Anand
 
@@ -504,7 +504,7 @@ Low · Slow · Expressive
 
 `anand_hi_documentary`Copy
 
-Use in code[Try in dashboard ↗](https://dashboard.sarvam.ai/text-to-speech)
+Use in code[Try in dashboard ↗](https://indus.sarvam.ai/api-playground/text-to-speech?ref=docs)
 
 Aparna
 
@@ -518,9 +518,9 @@ Low · Lively · Slow · Expressive
 
 `aparna_en_edtech`Copy
 
-Use in code[Try in dashboard ↗](https://dashboard.sarvam.ai/text-to-speech)
+Use in code[Try in dashboard ↗](https://indus.sarvam.ai/api-playground/text-to-speech?ref=docs)
 
-Audio previews for `bulbul:v4-flash` voices are not available on this page yet. Generate a live preview from [dashboard.sarvam.ai](https://dashboard.sarvam.ai/text-to-speech) or with a quick API call using the `speaker` value from the cards above or the tables below.
+Audio previews for `bulbul:v4-flash` voices are not available on this page yet. Generate a live preview from [indus.sarvam.ai](https://indus.sarvam.ai/api-playground/text-to-speech?ref=docs) or with a quick API call using the `speaker` value from the cards above or the tables below.
 
 ### All v4 Flash voices
 

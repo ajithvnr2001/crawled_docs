@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/creative/resources/faq/
 title: Frequently Asked Questions | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:15:01.307401+00:00
+fetched_at: 2026-10-24T06:33:34.367423+00:00
 ---
 
 # Frequently Asked Questions | Sarvam API Docs
@@ -195,7 +195,7 @@ In order:
 
 ###### Can I use Bulbul v3 or cloned-voice audio in a commercial product (game, app, paid media)?
 
-Yes. Output you generate on your account — including Text to Speech exports, Dubbing exports, and API audio from **Bulbul v3** — may be used in shipped, sold products when generation runs while credits are consumed on your account. That includes your **₹100 signup credits** ; there is no separate production tier or minimum top-up beyond normal credit usage.
+Yes. Output you generate on your account — including Text to Speech exports, Dubbing exports, and API audio from **Bulbul v3** — may be used in shipped, sold products when generation runs while credits are consumed on your account. That includes the **₹100 free credits for verified users** ; there is no separate production tier or minimum top-up beyond normal credit usage.
 
 Cloned voices require the mandatory dashboard consent confirming you hold rights to the voice. No additional commercial registration is needed.
 

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/how-to/change-the-speaker-voice/
 title: How to change the speaker voice | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:24.522240+00:00
+fetched_at: 2026-10-24T06:33:40.560657+00:00
 ---
 
 # How to change the speaker voice | Sarvam API Docs
@@ -118,7 +118,7 @@ Gujarati| `gu-IN`| ratan| priya, ritu
   
 **Top picks:** `priya` & `ishita` (best female. Use across Hindi, Telugu, Kannada, Tamil, Marathi, Gujarati, English) · `mani` (best male overall, Punjabi) · `shubh` (best male for hi, te, kn, od, ml) · `ratan` (best male for en, te, kn, ta, mr, gu).
 
-Listen to every voice on the [Voices](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/voices) page, or test custom text live on our dashboard: [Voice Samples – Sarvam TTS](https://dashboard.sarvam.ai/text-to-speech)
+Listen to every voice on the [Voices](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/voices) page, or test custom text live on our dashboard: [Voice Samples – Sarvam TTS](https://indus.sarvam.ai/api-playground/text-to-speech?ref=docs)
 
 ### Example Code
 

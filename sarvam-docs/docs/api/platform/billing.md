@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/platform/billing/
 title: Billing & payments | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:47.038263+00:00
+fetched_at: 2026-10-24T06:33:33.636410+00:00
 ---
 
 # Billing & payments | Sarvam API Docs
@@ -47,7 +47,7 @@ Credits are a single prepaid balance shown as **Credits Left** on **Settings →
 
 
 
-New accounts start with free credits to explore with. See [Credits & Rate Limits](https://docs.sarvam.ai/api/getting-started/ratelimits) for the current signup grant and how rate limits work.
+Verified users start with free credits to explore with. See [Credits & Rate Limits](https://docs.sarvam.ai/api/getting-started/ratelimits) for the current signup grant and how rate limits work.
 
 ## Add credits
 

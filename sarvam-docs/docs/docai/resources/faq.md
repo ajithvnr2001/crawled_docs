@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/docai/resources/faq/
 title: FAQs | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:15:02.738453+00:00
+fetched_at: 2026-10-24T06:33:33.209657+00:00
 ---
 
 # FAQs | Sarvam API Docs
@@ -85,7 +85,7 @@ Treat the prompt like a prompt to the model, because it is. 2\. **Tune the schem
 
 ###### How much does a project cost?
 
-To learn more about project costs, visit [Sarvam pricing](https://indus.sarvam.ai/pricing).
+To learn more about project costs, visit [Sarvam pricing](https://indus.sarvam.ai/pricing/?ref=docs).
 
 ###### What do the different project statuses mean?
 

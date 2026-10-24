@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/metaprompt/
 title: Meta Prompt Guide | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:00.255876+00:00
+fetched_at: 2026-10-24T06:33:43.312321+00:00
 ---
 
 # Meta Prompt Guide | Sarvam API Docs
@@ -84,7 +84,7 @@ This block is written for an LLM to read, not a human. Paste it as-is. It assume
     
     - Assume the API key is in the environment variable SARVAM_API_KEY. In every code sample, add the comment:
     
-      "Get your Sarvam AI API subscription key here: https://dashboard.sarvam.ai/admin"
+      "Get your Sarvam AI API subscription key here: https://indus.sarvam.ai/key-management?ref=docs"
     
     - Use the official `sarvamai` SDK (Python or JavaScript/TypeScript), not raw HTTP calls, unless the developer asks for cURL or another language.
     
@@ -365,7 +365,7 @@ Here’s what a typical conversation looks like after loading the meta-prompt:
     
     from sarvamai import SarvamAI
     
-    # Get your Sarvam AI API subscription key here: https://dashboard.sarvam.ai/admin
+    # Get your Sarvam AI API subscription key here: https://indus.sarvam.ai/key-management?ref=docs
     
     client = SarvamAI(api_subscription_key=os.getenv("SARVAM_API_KEY"))
     
@@ -415,7 +415,7 @@ YesNo
 
     * [Introduction](https://docs.sarvam.ai/api-reference/introduction)
     * [Authentication](https://docs.sarvam.ai/api-reference/authentication)
-    * [Access to Beta APIs](https://docs.sarvam.ai/api-reference/beta-apis)
+    * [Beta APIs and Models](https://docs.sarvam.ai/api-reference/beta-apis)
     * [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt)
   * APIs
 
@@ -431,7 +431,7 @@ YesNo
 
     * Chat Completion
 
-    * Responses APIBeta
+    * Responses API
 
     * Content Studio - Dubbing
 
@@ -467,7 +467,7 @@ YesNo
 
   * [Introduction](https://docs.sarvam.ai/api-reference/introduction)
   * [Authentication](https://docs.sarvam.ai/api-reference/authentication)
-  * [Access to Beta APIs](https://docs.sarvam.ai/api-reference/beta-apis)
+  * [Beta APIs and Models](https://docs.sarvam.ai/api-reference/beta-apis)
   * [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt)
   * [REST](https://docs.sarvam.ai/api-reference/speech-to-text/transcribe)
   * [Batch - Initiate Job](https://docs.sarvam.ai/api-reference/speech-to-text/stt/job/initiate)
@@ -556,7 +556,9 @@ YesNo
   * [Get attempts](https://docs.sarvam.ai/api-reference/analytics/attempts)
   * [Get interactions](https://docs.sarvam.ai/api-reference/analytics/interactions)
   * [Get recordings](https://docs.sarvam.ai/api-reference/analytics/recordings)
+  * [Get forwarded recordings](https://docs.sarvam.ai/api-reference/analytics/forwarded-recordings)
   * [Get transcripts](https://docs.sarvam.ai/api-reference/analytics/transcripts)
+  * [Get traces](https://docs.sarvam.ai/api-reference/analytics/traces)
   * [Overview](https://docs.sarvam.ai/api-reference/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/api-reference/boards/sql)
   * [Best practices](https://docs.sarvam.ai/api-reference/boards/best-practices)

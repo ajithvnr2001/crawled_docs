@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/faq/
 title: FAQs | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:15.976320+00:00
+fetched_at: 2026-10-24T06:33:42.383621+00:00
 ---
 
 # FAQs | Sarvam API Docs
@@ -55,7 +55,7 @@ Multiply source duration in whole seconds by the number of target languages, the
 
 ###### Which host and auth header does dubbing use?
 
-See the [API Reference](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub) for the current base URL. Send your key in the `api-subscription-key` header, not `Authorization: Bearer`. Generate a key at [Key Management](https://dashboard.sarvam.ai/key-management) using the same email as your Sarvam account.
+See the [API Reference](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub) for the current base URL. Send your key in the `api-subscription-key` header, not `Authorization: Bearer`. Generate a key at [Key Management](https://indus.sarvam.ai/key-management?ref=docs) using the same email as your Sarvam account.
 
 If you’re using the Python SDK, none of this needs configuring: the client resolves the dubbing endpoint from its default environment, so `SarvamAI(api_subscription_key=...)` is enough. You do not need to pass a custom `SarvamAIEnvironment`.
 

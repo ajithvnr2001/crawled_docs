@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/quickstart/
 title: Developer Quickstart | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:37.864755+00:00
+fetched_at: 2026-10-24T06:33:37.396299+00:00
 ---
 
 # Developer Quickstart | Sarvam API Docs
@@ -33,7 +33,7 @@ This page is for Model APIs.
 
 **Prerequisites:**
 
-  * A Sarvam AI account and API key. [Create one on the dashboard](https://dashboard.sarvam.ai/) if you don’t have one yet.
+  * A Sarvam AI account and API key. [Create one on the dashboard](https://indus.sarvam.ai/key-management?ref=docs) if you don’t have one yet.
   * Python 3.9+ or Node.js 18+ (or skip both and call the REST API directly with `curl`).
 
 
@@ -46,7 +46,7 @@ This page is for Model APIs.
 
 ### Create an API Key
 
-Visit the [Sarvam AI dashboard](https://dashboard.sarvam.ai/) and create a new API key. Keep this key secure; you’ll need it to authenticate your requests.
+Visit the [Sarvam AI dashboard](https://indus.sarvam.ai/key-management?ref=docs) and create a new API key. Keep this key secure; you’ll need it to authenticate your requests.
 
 [2](https://docs.sarvam.ai/api/getting-started/quickstart#set-up-your-environment)
 

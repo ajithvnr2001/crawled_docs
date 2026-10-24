@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/integration/vercel-ai-sdk/
 title: Build with Sarvam AI in the Vercel AI SDK | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:43.298422+00:00
+fetched_at: 2026-10-24T06:33:36.367434+00:00
 ---
 
 # Build with Sarvam AI in the Vercel AI SDK | Sarvam API Docs
@@ -72,7 +72,7 @@ Sarvam AI SDK version| Vercel AI SDK version
 
 ### 2\. Set your API key
 
-Get an API key from **[dashboard.sarvam.ai](https://dashboard.sarvam.ai/)** and add it to your environment:
+Get an API key from **[indus.sarvam.ai](https://indus.sarvam.ai/key-management?ref=docs)** and add it to your environment:
 
 .env
     

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview/
 title: Document Intelligence Overview | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:16.382039+00:00
+fetched_at: 2026-10-24T06:33:42.841413+00:00
 ---
 
 # Document Intelligence Overview | Sarvam API Docs
@@ -507,7 +507,7 @@ Rate limit| Varies by plan — see [Rate Limits](https://docs.sarvam.ai/api/gett
   
 ## Next Steps
 
-[Sarvam Vision 1.5Learn about the upgraded model powering Document AI.](https://docs.sarvam.ai/api/getting-started/models/sarvam-vision)[API ReferenceComplete API documentation with all parameters and options.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[Try in API DashboardUpload and process documents in the API Dashboard.](https://dashboard.sarvam.ai/)
+[Sarvam Vision 1.5Learn about the upgraded model powering Document AI.](https://docs.sarvam.ai/api/getting-started/models/sarvam-vision)[API ReferenceComplete API documentation with all parameters and options.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[Try in API DashboardUpload and process documents in the API Dashboard.](https://indus.sarvam.ai/?ref=docs)
 
 Was this page helpful?
 

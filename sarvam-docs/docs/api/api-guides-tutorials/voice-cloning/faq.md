@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/faq/
 title: FAQs | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:26.944899+00:00
+fetched_at: 2026-10-24T06:33:40.062066+00:00
 ---
 
 # FAQs | Sarvam API Docs
@@ -38,7 +38,7 @@ Common questions about the [Instant Voice Cloning API](https://docs.sarvam.ai/ap
 
 ###### Which host and auth header does Instant Voice Cloning use?
 
-See the [API Reference](https://docs.sarvam.ai/api-reference/voice-cloning) for the current base URL. Send your key in the `api-subscription-key` header (recommended); `Authorization: Bearer <key>` is also accepted. Generate a key at [Key Management](https://dashboard.sarvam.ai/key-management) using the same email as your Sarvam account. The [Python and TypeScript SDKs](https://docs.sarvam.ai/api/getting-started/sdks) take the same key as `api_subscription_key` / `apiSubscriptionKey`.
+See the [API Reference](https://docs.sarvam.ai/api-reference/voice-cloning) for the current base URL. Send your key in the `api-subscription-key` header (recommended); `Authorization: Bearer <key>` is also accepted. Generate a key at [Key Management](https://indus.sarvam.ai/key-management?ref=docs) using the same email as your Sarvam account. The [Python and TypeScript SDKs](https://docs.sarvam.ai/api/getting-started/sdks) take the same key as `api_subscription_key` / `apiSubscriptionKey`.
 
 ###### Is there an SDK for Instant Voice Cloning?
 
@@ -118,7 +118,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/supported-languages)[Build Your First Voice Agent using LiveKitNext](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/supported-languages)[Build a LiveKit voice agent with SarvamNext](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 

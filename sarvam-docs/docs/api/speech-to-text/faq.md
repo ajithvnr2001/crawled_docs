@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/speech-to-text/faq/
 title: FAQs | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:50.809884+00:00
+fetched_at: 2026-10-24T06:33:33.993095+00:00
 ---
 
 # FAQs | Sarvam API Docs
@@ -518,7 +518,7 @@ Example calculation:
 
 ###### How do I check my credit usage?
 
-You can check your credit usage directly on the [Billing page](https://indus.sarvam.ai/billing) in your Sarvam dashboard. It shows your total credits, how much has been consumed, and the remaining balance.
+You can check your credit usage directly on the [Billing page](https://indus.sarvam.ai/billing?ref=docs) in your Sarvam dashboard. It shows your total credits, how much has been consumed, and the remaining balance.
 
 ###### How do I get support?
 

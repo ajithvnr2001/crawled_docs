@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection/
 title: Language Identification API | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:21.949181+00:00
+fetched_at: 2026-10-24T06:33:40.261383+00:00
 ---
 
 # Language Identification API | Sarvam API Docs
@@ -215,7 +215,7 @@ HTTP Status| Error Code| When This Happens| What To Do
 
 Check out our detailed [API Reference](https://docs.sarvam.ai/api-reference/text/identify-language) to explore Language Identification and all available options.
 
-For detailed pricing information and usage tiers, visit our [pricing page](https://dashboard.sarvam.ai/pricing).
+For detailed pricing information and usage tiers, visit our [pricing page](https://indus.sarvam.ai/pricing/?ref=docs).
 
 Was this page helpful?
 

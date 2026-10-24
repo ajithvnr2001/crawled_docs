@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/models/openweight/
 title: Open-Weight Models | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T06:32:45.611375+00:00
+fetched_at: 2026-10-24T06:33:39.206801+00:00
 ---
 
 # Open-Weight Models | Sarvam API Docs
@@ -73,7 +73,7 @@ Log probabilities or `n > 1` with fast answers| `gemma4`| Not supported on `glm5
 
 ### Get an API key
 
-Create an API key in the [dashboard](https://dashboard.sarvam.ai/).
+Create an API key in the [dashboard](https://indus.sarvam.ai/key-management?ref=docs).
 
 [2](https://docs.sarvam.ai/api/getting-started/models/openweight#set-your-key)
 
@@ -185,7 +185,7 @@ Symptom| Likely cause| Fix
 `404 not_found_error`| Unknown or wrongly cased model ID| IDs are case-sensitive. List them with [`GET /v2/models`](https://docs.sarvam.ai/api-reference/chat/models-v2)  
 Empty `content`, `finish_reason: "length"`| Reasoning used the token budget| Raise `max_tokens` or lower `reasoning_effort`  
 `400` on `logprobs` or `n > 1`| Unsupported on `glm5.3`| See the comparison table above  
-`402 insufficient_quota_error`| No credits left| Add credits in the [dashboard](https://dashboard.sarvam.ai/)  
+`402 insufficient_quota_error`| No credits left| Add credits in the [dashboard](https://indus.sarvam.ai/billing?ref=docs)  
 `429 rate_limit_exceeded_error` or `503`| Rate limit or overload| Retry with exponential backoff  
   
 ## Production tips

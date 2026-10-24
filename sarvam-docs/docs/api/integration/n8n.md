@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/integration/n8n/
 title: Build workflows with Sarvam AI in n8n | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:44.715466+00:00
+fetched_at: 2026-10-24T06:33:34.737294+00:00
 ---
 
 # Build workflows with Sarvam AI in n8n | Sarvam API Docs
@@ -96,7 +96,7 @@ You will be able to:
 ## Quick overview
 
   1. **Watch** the [video walkthrough](https://docs.sarvam.ai/api/integration/n8n#video-walkthrough) at the top of this page, community node install, credentials, and a **TTS → STT → Chat** demo.
-  2. Create a [Sarvam AI](https://dashboard.sarvam.ai/) account and copy an **API key**.
+  2. Create a [Sarvam AI](https://indus.sarvam.ai/key-management?ref=docs) account and copy an **API key**.
   3. Install the community package **`n8n-nodes-sarvam`** from **Settings → Community Nodes** (or npm on self-hosted).
   4. Create a **Sarvam AI API** credential in n8n and attach it to each Sarvam node.
   5. Add a **Sarvam AI** node: pick **Resource** (Speech or Chat) and **Operation** , then map **binary** or **text** fields from upstream nodes.
@@ -113,7 +113,7 @@ You will be able to:
 ### 1\. Prerequisites
 
   * **n8n** : [n8n Cloud](https://n8n.io/cloud/) or self-hosted **v1.x / v2.x** (with permission to install **community nodes** if you are not the admin).
-  * **Sarvam AI API key** : from [dashboard.sarvam.ai](https://dashboard.sarvam.ai/) (includes credits for new accounts).
+  * **Sarvam AI API key** : from [indus.sarvam.ai](https://indus.sarvam.ai/key-management?ref=docs) (includes free credits for verified users).
   * Basic familiarity with n8n: **triggers** , **connections** , and opening the **JSON** tab on a node’s output.
 
 
@@ -152,7 +152,7 @@ You reuse this credential on every Sarvam AI node in the workspace.
     
     Credential type : Sarvam AI API
     
-    API Key         : <your-key-from-dashboard.sarvam.ai>
+    API Key         : <your-key-from-indus.sarvam.ai>
 
 ### 4\. Run your first node (manual test)
 

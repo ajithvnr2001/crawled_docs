@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview/
 title: Instant Voice Cloning API | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:28.205273+00:00
+fetched_at: 2026-10-24T06:33:39.951072+00:00
 ---
 
 # Instant Voice Cloning API | Sarvam API Docs
@@ -55,7 +55,7 @@ Generate speech with one of:
 
 Send **exactly one** of `ref_audio` or `voice_id` on each generate request. Sending both returns `400`.
 
-**Base URL and authentication.** See the [API Reference](https://docs.sarvam.ai/api-reference/voice-cloning) for the current base URL and auth header. Generate a key from [Key Management](https://dashboard.sarvam.ai/key-management) in the dashboard. The SDKs take the same key as `api_subscription_key` / `apiSubscriptionKey`.
+**Base URL and authentication.** See the [API Reference](https://docs.sarvam.ai/api-reference/voice-cloning) for the current base URL and auth header. Generate a key from [Key Management](https://indus.sarvam.ai/key-management?ref=docs) in the dashboard. The SDKs take the same key as `api_subscription_key` / `apiSubscriptionKey`.
 
 ## What you get
 

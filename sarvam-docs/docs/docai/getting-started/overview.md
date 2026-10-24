@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/docai/getting-started/overview/
 title: Welcome to Doc Agents | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:15:02.843932+00:00
+fetched_at: 2026-10-24T06:33:35.027475+00:00
 ---
 
 # Welcome to Doc Agents | Sarvam API Docs
@@ -48,7 +48,7 @@ Extract, digitise, and translate any document in Hindi, Bengali, Tamil, Telugu, 
 
 The Doc Agents dashboard: Extract, Digitise, and Translate, all in one place.
 
-**Doc Agents** is a document-intelligence workbench for turning real-world documents into data you can use. From BFSI paperwork (invoices, KYC, bank and credit-card statements, insurance claims) to government records (land deeds, licensing forms), legal filings, HR resumes, healthcare intake, printed books, and handwritten multilingual manuscripts, the workbench handles it all. Every workflow is one dashboard click at [dashboard.sarvam.ai](https://dashboard.sarvam.ai/akshar/dashboard). No code required.
+**Doc Agents** is a document-intelligence workbench for turning real-world documents into data you can use. From BFSI paperwork (invoices, KYC, bank and credit-card statements, insurance claims) to government records (land deeds, licensing forms), legal filings, HR resumes, healthcare intake, printed books, and handwritten multilingual manuscripts, the workbench handles it all. Every workflow is one dashboard click at [indus.sarvam.ai](https://indus.sarvam.ai/akshar/dashboard?ref=docs). No code required.
 
 Under the hood, **Sarvam Vision** powers extraction and digitisation, and **Sarvam Document Translation** powers whole-document translation — all with SOTA accuracy on **22 Indian languages plus English**.
 
@@ -96,7 +96,7 @@ Built for anyone whose day-to-day involves documents:
 
 ## Home Page
 
-Open [dashboard.sarvam.ai/akshar/dashboard](https://dashboard.sarvam.ai/akshar/dashboard) and sign in. You land on **Home** , which shows your credit balance, quick-start cards for Extract, Digitise, and Translate, and a shelf of ready-made template configs organised by category. The sidebar has three working groups: **Products** (Extract, Digitise, Translate) and **Workspace** (Projects, Configs).
+Open [indus.sarvam.ai/akshar/dashboard](https://indus.sarvam.ai/akshar/dashboard?ref=docs) and sign in. You land on **Home** , which shows your credit balance, quick-start cards for Extract, Digitise, and Translate, and a shelf of ready-made template configs organised by category. The sidebar has three working groups: **Products** (Extract, Digitise, Translate) and **Workspace** (Projects, Configs).
 
 ![Doc Agents Home page with quick-start cards for Extract and Digitise, a credit balance, and a template shelf organised by category.](https://docs.sarvam.ai/_fern-img/d4c6a12b0f4108238f81046e661ca11952f5d810de8b2583adcb6875ed077c56.webp)
 

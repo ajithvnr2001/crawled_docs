@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/developer-tools/mcp/
 title: MCP Server | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:32.288539+00:00
+fetched_at: 2026-10-24T06:33:38.319698+00:00
 ---
 
 # MCP Server | Sarvam API Docs
@@ -47,7 +47,7 @@ Cross-platform Python package: macOS, Windows, and Linux (Python 3.11+).
 
 #### 1\. Get your API key
 
-Sign up or log in at [dashboard.sarvam.ai/key-management](https://dashboard.sarvam.ai/key-management) and copy your API key.
+Sign up or log in at [indus.sarvam.ai/key-management](https://indus.sarvam.ai/key-management?ref=docs) and copy your API key.
 
 #### 2\. Add to your MCP client
 
@@ -109,7 +109,7 @@ Tool| What it does| Default model
 
 Env var| Default| Description  
 ---|---|---  
-`SARVAM_API_KEY`| —| **Required.** API key from [dashboard.sarvam.ai](https://dashboard.sarvam.ai/).  
+`SARVAM_API_KEY`| —| **Required.** API key from [indus.sarvam.ai](https://indus.sarvam.ai/key-management?ref=docs).  
 `SARVAM_API_BASE_URL`| `https://api.sarvam.ai`| Override for testing/staging.  
 `SARVAM_MCP_BASE_PATH`| `~/Desktop`| Where audio/document files land.  
   

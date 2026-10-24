@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/cowork/quickstart/
 title: Quickstart | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:56.774101+00:00
+fetched_at: 2026-10-24T06:33:33.353384+00:00
 ---
 
 # Quickstart | Sarvam API Docs
@@ -36,9 +36,9 @@ Run your first task, then turn it into a reusable agent, connect a tool, and sch
 
 ## Start working
 
-Open [indus.sarvam.ai/indus](https://indus.sarvam.ai/indus) and sign in. You land on **Home** , with a prompt bar in the centre and a sidebar for **Connectors** , **Skills** , **Agents** , **Scheduled Tasks** , and **Knowledge Bases**.
+Open [indus.sarvam.ai/indus](https://indus.sarvam.ai/indus?ref=docs) and sign in. You land on **Home** , with a prompt bar in the centre and a sidebar for **Connectors** , **Skills** , **Agents** , **Scheduled Tasks** , and **Knowledge Bases**.
 
-[Open CoworkType a task in the prompt bar to start immediately, or open Agents to build something reusable.](https://indus.sarvam.ai/indus)
+[Open CoworkType a task in the prompt bar to start immediately, or open Agents to build something reusable.](https://indus.sarvam.ai/indus?ref=docs)
 
 ## Step 1: Run a task in Chat
 

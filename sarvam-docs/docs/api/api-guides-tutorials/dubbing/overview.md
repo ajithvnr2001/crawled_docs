@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview/
 title: Dubbing API | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:17.781319+00:00
+fetched_at: 2026-10-24T06:33:34.234942+00:00
 ---
 
 # Dubbing API | Sarvam API Docs
@@ -35,13 +35,13 @@ This page is for Model APIs.
 
 Sarvam’s Dubbing API seamlessly translates your audio and video content into every language you target. By leveraging state-of-the-art voice cloning technology, it delivers broadcast-ready dubs while preserving the original vocal identity of every speaker.
 
-It is part of **Content Studio** , and is the programmatic equivalent of the Dubbing workspace in [Creator Studio](https://indus.sarvam.ai/creator-studio).
+It is part of **Content Studio** , and is the programmatic equivalent of the Dubbing workspace in [Creator Studio](https://indus.sarvam.ai/creator-studio?ref=docs).
 
 Watch the product explainer for a full walkthrough of the Dubbing API - from uploading source media to exporting dubbed video, audio, and subtitles:
 
 Your browser does not support embedded video.
 
-**Base URL and authentication.** See the [API Reference](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub) for the current base URL and auth header. Generate a key from [Key Management](https://dashboard.sarvam.ai/key-management) in the dashboard.
+**Base URL and authentication.** See the [API Reference](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub) for the current base URL and auth header. Generate a key from [Key Management](https://indus.sarvam.ai/key-management?ref=docs) in the dashboard.
 
 ## What one job gives you
 

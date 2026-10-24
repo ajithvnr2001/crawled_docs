@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/integration/build-voice-agent-with-exotel/
 title: Build Your First Voice Agent using Exotel | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:40.533191+00:00
+fetched_at: 2026-10-24T06:33:37.126202+00:00
 ---
 
 # Build Your First Voice Agent using Exotel | Sarvam API Docs
@@ -88,7 +88,7 @@ A voice agent that can:
   * Python 3.9 or higher
   * [ngrok](https://ngrok.com/download), to expose your local server during development
   * An [Exotel](https://my.exotel.com/) account with voice streaming enabled and a provisioned ExoPhone
-  * A [Sarvam AI](https://dashboard.sarvam.ai/) API key from your dashboard
+  * A [Sarvam AI](https://indus.sarvam.ai/key-management?ref=docs) API key from your dashboard
 
 
 
@@ -110,7 +110,7 @@ Create a file named `.env` in your project folder:
     
     SARVAM_API_KEY=sk_xxxxxxxxxxxxxxxxxxxxxxxx
 
-Replace the placeholder with your real key from the [Sarvam dashboard](https://dashboard.sarvam.ai/).
+Replace the placeholder with your real key from the [Sarvam dashboard](https://indus.sarvam.ai/key-management?ref=docs).
 
 ### 4\. Write Your Agent
 

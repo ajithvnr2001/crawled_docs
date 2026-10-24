@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/rest-api/
 title: Speech-to-Text Rest API | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:20.136644+00:00
+fetched_at: 2026-10-24T06:33:41.879521+00:00
 ---
 
 # Speech-to-Text Rest API | Sarvam API Docs
@@ -223,7 +223,7 @@ HTTP Status| Error Code| When This Happens| What To Do
 
 ### Get API Key
 
-Sign up and get your API key from the [dashboard](https://dashboard.sarvam.ai/).
+Sign up and get your API key from the [dashboard](https://indus.sarvam.ai/key-management?ref=docs).
 
 [2](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/rest-api#test-integration)
 

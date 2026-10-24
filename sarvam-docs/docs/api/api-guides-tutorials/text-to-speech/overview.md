@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/overview/
 title: Text-to-Speech Overview | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:25.181014+00:00
+fetched_at: 2026-10-24T06:33:40.765187+00:00
 ---
 
 # Text-to-Speech Overview | Sarvam API Docs
@@ -66,7 +66,7 @@ Format Group| Supported MIME Types
 **MULAW (μ-law)**| `mulaw`  
 **ALAW (A-law)**| `alaw`  
   
-**Experience the voices** : See the [Voices](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/voices) page for embedded audio samples of every speaker, or head to [dashboard.sarvam.ai](https://dashboard.sarvam.ai/text-to-speech) to test different languages and generate audio samples with custom input.
+**Experience the voices** : See the [Voices](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/voices) page for embedded audio samples of every speaker, or head to [indus.sarvam.ai](https://indus.sarvam.ai/api-playground/text-to-speech?ref=docs) to test different languages and generate audio samples with custom input.
 
 ## Limits
 
@@ -90,7 +90,7 @@ Select the appropriate API type based on your use case.
 
 ### Get API Key
 
-Sign up and get your API key from the [dashboard](https://dashboard.sarvam.ai/).
+Sign up and get your API key from the [dashboard](https://indus.sarvam.ai/key-management?ref=docs).
 
 [3](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/overview#go-live)
 

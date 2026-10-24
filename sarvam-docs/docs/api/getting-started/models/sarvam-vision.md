@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/models/sarvam-vision/
 title: Sarvam Vision | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:37.692979+00:00
+fetched_at: 2026-10-24T06:33:37.277319+00:00
 ---
 
 # Sarvam Vision | Sarvam API Docs
@@ -251,7 +251,7 @@ Rate limit| 10 requests/minute (all plans). See [Rate Limits](https://docs.sarva
 
 ## Next Steps
 
-[Developer QuickstartLearn how to integrate Document Intelligence into your application.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[API ReferenceComplete API documentation for Document Intelligence endpoints.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[Try in API DashboardGet your API key and start processing documents.](https://dashboard.sarvam.ai/)
+[Developer QuickstartLearn how to integrate Document Intelligence into your application.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[API ReferenceComplete API documentation for Document Intelligence endpoints.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[Try in API DashboardGet your API key and start processing documents.](https://indus.sarvam.ai/key-management?ref=docs)
 
 Was this page helpful?
 
@@ -269,7 +269,7 @@ YesNo
       * [Saaras](https://docs.sarvam.ai/api/getting-started/models/saaras)
       * [Bulbul](https://docs.sarvam.ai/api/getting-started/models/bulbul)
       * [Sarvam 105B](https://docs.sarvam.ai/api/getting-started/models/sarvam-105b)
-      * [Open-Weight ModelsBeta](https://docs.sarvam.ai/api/getting-started/models/openweight)
+      * [Open-Weight Models](https://docs.sarvam.ai/api/getting-started/models/openweight)
 
       * [Mayura](https://docs.sarvam.ai/api/getting-started/models/mayura)
       * [Sarvam Translate](https://docs.sarvam.ai/api/getting-started/models/sarvam-translate)

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/docai/how-to/extract-fields-from-a-document/create-a-reusable-config/
 title: Create a Config | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:15:02.454116+00:00
+fetched_at: 2026-10-24T06:33:33.154582+00:00
 ---
 
 # Create a Config | Sarvam API Docs
@@ -45,7 +45,7 @@ Already ran an Extract project and happy with the results? Save the configuratio
 
 ### Start an Extract project
 
-In the [Doc Agents](https://docs.sarvam.ai/docai/getting-started/overview) dashboard at [indus.sarvam.ai](https://indus.sarvam.ai/akshar/dashboard), upload a document, describe what you want to extract, and run the project.
+In the [Doc Agents](https://docs.sarvam.ai/docai/getting-started/overview) dashboard at [indus.sarvam.ai](https://indus.sarvam.ai/akshar/dashboard?ref=docs), upload a document, describe what you want to extract, and run the project.
 
 ![Doc Agents Extract project setup showing a document upload and an extraction prompt describing the fields to extract.](https://docs.sarvam.ai/_fern-img/158cdd21708730e59e9489fa5dcd97f9b3859e0c7a88ebcc9b18065be26d2979.webp)
 

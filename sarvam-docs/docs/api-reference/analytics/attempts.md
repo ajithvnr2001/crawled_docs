@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/analytics/attempts/
 title: Get attempts | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:13:43.246758+00:00
+fetched_at: 2026-10-24T06:33:53.217894+00:00
 ---
 
 # Get attempts | Sarvam API Docs
@@ -95,9 +95,11 @@ Try it
     
           "channel_protocol": "websocket",
     
+          "channel_provider": "exotel",
+    
           "retry_attempt": 1,
     
-          "server_retry_attempt": 0,
+          "server_retry_attempt": 1,
     
           "campaign_id": "emi-reminder-oct-2026",
     
@@ -109,6 +111,18 @@ Try it
     
           "audio_url": "https://agents.sarvam.ai/media?org_id=acme-corp-7c2e9f&workspace_id=support-ws-4b1d8a&app_id=support-bot-3f9a1c2e-7b4d&interaction_id=20261007/9f1c2a7e-4b3d-4e8a-a1f0-6c2d9b7e5a14&audio_hash=merged_audio",
     
+          "deployment_id": null,
+    
+          "app_version": 4,
+    
+          "bot_contact_identifier": "+918069470000",
+    
+          "provider_identifier": "c3f8a2d1-6b4e-4f9a-8d2c-1e7b5a9f0d34",
+    
+          "goal_overall_status": "no_criteria",
+    
+          "goal_criteria": [],
+    
           "agent_variables": {
     
             "customer_name": "Priya Sharma",
@@ -119,9 +133,7 @@ Try it
     
             "promised_payment_date": "2026-10-10"
     
-          },
-    
-          "channel_provider": null
+          }
     
         }
     
@@ -169,7 +181,7 @@ sort_byenumOptionalDefaults to `attempt_id`
 
 Field to sort by. Default `attempt_id`. Unknown values return `422`.
 
-Show 7 enum values
+Show 8 enum values
 
 sort_orderenumOptionalDefaults to `asc`
 
@@ -211,7 +223,7 @@ itemslist of objects
 
 The attempts on this page.
 
-Show 30 properties
+Show 36 properties
 
 totalinteger
 
@@ -273,7 +285,7 @@ YesNo
 
     * [Introduction](https://docs.sarvam.ai/api-reference/introduction)
     * [Authentication](https://docs.sarvam.ai/api-reference/authentication)
-    * [Access to Beta APIs](https://docs.sarvam.ai/api-reference/beta-apis)
+    * [Beta APIs and Models](https://docs.sarvam.ai/api-reference/beta-apis)
     * [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt)
   * APIs
 
@@ -289,7 +301,7 @@ YesNo
 
     * Chat Completion
 
-    * Responses APIBeta
+    * Responses API
 
     * Content Studio - Dubbing
 
@@ -314,7 +326,9 @@ YesNo
       * [GETGet attempts](https://docs.sarvam.ai/api-reference/analytics/attempts)
       * [GETGet interactions](https://docs.sarvam.ai/api-reference/analytics/interactions)
       * [GETGet recordings](https://docs.sarvam.ai/api-reference/analytics/recordings)
+      * [GETGet forwarded recordings](https://docs.sarvam.ai/api-reference/analytics/forwarded-recordings)
       * [GETGet transcripts](https://docs.sarvam.ai/api-reference/analytics/transcripts)
+      * [GETGet traces](https://docs.sarvam.ai/api-reference/analytics/traces)
 
     * Boards
 
@@ -329,7 +343,7 @@ YesNo
 
   * [Introduction](https://docs.sarvam.ai/api-reference/introduction)
   * [Authentication](https://docs.sarvam.ai/api-reference/authentication)
-  * [Access to Beta APIs](https://docs.sarvam.ai/api-reference/beta-apis)
+  * [Beta APIs and Models](https://docs.sarvam.ai/api-reference/beta-apis)
   * [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt)
   * [REST](https://docs.sarvam.ai/api-reference/speech-to-text/transcribe)
   * [Batch - Initiate Job](https://docs.sarvam.ai/api-reference/speech-to-text/stt/job/initiate)
@@ -418,7 +432,9 @@ YesNo
   * [Get attempts](https://docs.sarvam.ai/api-reference/analytics/attempts)
   * [Get interactions](https://docs.sarvam.ai/api-reference/analytics/interactions)
   * [Get recordings](https://docs.sarvam.ai/api-reference/analytics/recordings)
+  * [Get forwarded recordings](https://docs.sarvam.ai/api-reference/analytics/forwarded-recordings)
   * [Get transcripts](https://docs.sarvam.ai/api-reference/analytics/transcripts)
+  * [Get traces](https://docs.sarvam.ai/api-reference/analytics/traces)
   * [Overview](https://docs.sarvam.ai/api-reference/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/api-reference/boards/sql)
   * [Best practices](https://docs.sarvam.ai/api-reference/boards/best-practices)

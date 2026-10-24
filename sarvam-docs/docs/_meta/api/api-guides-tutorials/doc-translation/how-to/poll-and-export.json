@@ -3,8 +3,5 @@
   "file": "api/api-guides-tutorials/doc-translation/how-to/poll-and-export.md",
   "title": "How to poll status and export results | Sarvam API Docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-14T08:14:15.034190+00:00",
-  "html_len": 185176,
-  "md_len": 23991,
-  "depth": 0
+  "fetched_at": "2026-10-24T06:33:43.105345+00:00"
 }

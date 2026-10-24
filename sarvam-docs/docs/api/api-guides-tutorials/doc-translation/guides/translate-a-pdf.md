@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/guides/translate-a-pdf/
 title: Translate a PDF to Hindi (or any Indic language) | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:15.267484+00:00
+fetched_at: 2026-10-24T06:33:43.416650+00:00
 ---
 
 # Translate a PDF to Hindi (or any Indic language) | Sarvam API Docs
@@ -36,7 +36,7 @@ Need to translate a **sentence or paragraph** instead of a file? Use the [Text T
 
 ## Prerequisites
 
-  * A Sarvam API key from [Key Management](https://dashboard.sarvam.ai/key-management)
+  * A Sarvam API key from [Key Management](https://indus.sarvam.ai/key-management?ref=docs)
   * Python 3.10+ with `pip install sarvamai httpx`
   * A PDF file on disk (example: `report.pdf`)
 

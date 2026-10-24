@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/ratelimits/
 title: Credits & Rate Limits | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:38.527054+00:00
+fetched_at: 2026-10-24T06:33:34.871207+00:00
 ---
 
 # Credits & Rate Limits | Sarvam API Docs
@@ -21,7 +21,7 @@ On this page
   * WebSocket Streaming
   * Batch
   * Text to Speech
-  * Real-time REST
+  * Real-time REST and HTTP Streaming
   * WebSocket Streaming
   * Instant Voice Cloning
   * Translation & Text Services
@@ -30,6 +30,7 @@ On this page
   * Chat Completion (LLM)
   * Default models
   * Sarvam-105B model
+  * Dubbing
   * Document AI
   * Digitise
   * Extract
@@ -54,9 +55,9 @@ This page is for Model APIs.
 
 ## Credits
 
-Sarvam offers **₹100 worth of free credits** for every user on signup. These credits can be used across any of our APIs, explore, prototype, and build without upfront cost.
+Sarvam offers **₹100 worth of free credits** for every verified user on signup. These credits can be used across any of our APIs, explore, prototype, and build without upfront cost.
 
-Credits are universal and never expire. Once exhausted, add more credits or upgrade your plan from the [Sarvam Dashboard](https://dashboard.sarvam.ai/billing).
+Credits are universal and never expire. Once exhausted, add more credits or upgrade your plan from the [Sarvam Dashboard](https://indus.sarvam.ai/billing?ref=docs).
 
 For commercial production rights when you ship generated audio (Bulbul v3, Content Studio exports, cloned voices), see [Commercial Licensing](https://docs.sarvam.ai/api/getting-started/commercial-licensing).
 
@@ -82,23 +83,23 @@ Rate limits vary significantly by API type and plan. Review the limits for each 
 
 #### Real-time REST
 
-| Starter| Pro| Business  
+| Pay as you go| Pro| Growth  
 ---|---|---|---  
 **Rate Limit**|  60 req/min| 100 req/min| 4,000 req/min  
   
 #### WebSocket Streaming
 
-| Starter| Pro| Business  
+| Pay as you go| Pro| Growth  
 ---|---|---|---  
 **Rate Limit**|  20 concurrent| 100 concurrent| 100 concurrent  
   
 #### Batch
 
-| Starter| Pro| Business  
+| Pay as you go| Pro| Growth  
 ---|---|---|---  
 **Rate Limit**|  20 req/min| 100 req/min| 500 req/min  
   
-For batch endpoints, avoid tight polling loops. Poll no faster than your plan’s rate limit allows, for example every 3 seconds on Starter’s 20 req/min.
+For batch endpoints, avoid tight polling loops. Poll no faster than your plan’s rate limit allows, for example every 3 seconds on Pay as you go’s 20 req/min.
 
 The SDK’s `wait_until_complete()` uses safe defaults out of the box:
 
@@ -115,30 +116,28 @@ If you poll manually instead of using the SDK helper, match or exceed these inte
 
 ### Text to Speech
 
-#### Real-time REST
+Limits are the same for Bulbul v3 and Bulbul v4 Flash.
 
-| Starter| Pro| Business  
+#### Real-time REST and HTTP Streaming
+
+| Pay as you go| Pro| Growth  
 ---|---|---|---  
 **Rate Limit**|  60 req/min| 200 req/min| 1,000 req/min  
   
-For `bulbul:v3` model specifically, Starter rate limit is **30 req/min**. Pro and Business limits are the same as the default above.
-
 #### WebSocket Streaming
 
-| Starter| Pro| Business  
+| Pay as you go| Pro| Growth  
 ---|---|---|---  
 **Rate Limit**|  60 concurrent| 200 concurrent| 1,000 concurrent  
   
-For `bulbul:v3` model specifically, Starter rate limit is **30 concurrent**. Pro and Business limits are the same as the default above.
-
 ### Instant Voice Cloning
 
-| Starter| Pro| Business  
+| Pay as you go| Pro| Growth  
 ---|---|---|---  
-**Sustained**|  10 req/min| 50 req/min| 500 req/min  
-**Burst**|  50 req| 100 req| 600 req  
+**Sustained**|  60 req/min| 200 req/min| 1,000 req/min  
+**Burst**|  100 req| 300 req| 1,200 req  
   
-Instant Voice Cloning limits are lower than Text to Speech because each request runs the full cloning pipeline (transcription, generation, quality control). The sustained figure is the steady-state rate; short spikes are allowed up to the burst figure before requests are rejected with a `429`. Limits are subject to change.
+The sustained figure is the steady-state rate; short spikes are allowed up to the burst figure before requests are rejected with a `429`. Limits are subject to change.
 
 * * *
 
@@ -146,17 +145,19 @@ Instant Voice Cloning limits are lower than Text to Speech because each request 
 
 #### Text translation (`POST /translate`)
 
-| Starter| Pro| Business  
+| Pay as you go| Pro| Growth  
 ---|---|---|---  
 **Rate Limit**|  60 req/min| 200 req/min| 1,000 req/min  
   
+Transliteration and Language Identification share the same limits.
+
 #### Document Translation
 
 Job lifecycle endpoints (`POST /translate/document/jobs`, `start`, `live-status`, `export`, `export/status`):
 
-| Starter| Pro| Business  
+| Pay as you go| Pro| Growth  
 ---|---|---|---  
-**Rate Limit**|  60 req/min| 200 req/min| 1,000 req/min  
+**Rate Limit**|  200 req/min| 500 req/min| 1,000 req/min  
   
 Document Translation is asynchronous. Poll `live-status` every **10–15 seconds** (see the [overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview#how-it-works)) rather than tight loops that burn your per-minute quota.
 
@@ -166,20 +167,30 @@ Document Translation is asynchronous. Poll `live-status` every **10–15 seconds
 
 #### Default models
 
-| Starter| Pro| Business  
+| Pay as you go| Pro| Growth  
 ---|---|---|---  
-**Rate Limit**|  60 req/min| 200 req/min| 1,000 req/min  
+**Rate Limit**|  50 req/min| 200 req/min| 1,000 req/min  
   
+Applies to: `gemma4`, `glm5.3`, `deepseekv4.1-flash`
+
 #### Sarvam-105B model
 
 This large model has lower limits due to its compute requirements.
 
-| Starter| Pro| Business  
+| Pay as you go| Pro| Growth  
 ---|---|---|---  
-**Rate Limit**|  40 req/min| 60 req/min| 120 req/min  
+**Rate Limit**|  60 req/min| 200 req/min| 300 req/min  
   
 Applies to: `sarvam-105b`, `sarvam-105b-conversations`
 
+* * *
+
+### Dubbing
+
+| Pay as you go| Pro| Growth  
+---|---|---|---  
+**Rate Limit**|  5 req/min| 50 req/min| 300 req/min  
+  
 * * *
 
 ### Document AI
@@ -247,14 +258,15 @@ The burst threshold is not a fixed number and can vary between runs at the same 
 
 ## Plan Overview
 
-| Starter| Pro| Business| Enterprise  
----|---|---|---|---  
-**Price**|  Pay as you go| ₹10,000| ₹50,000| Custom  
-**Bonus Credits**|  —| ₹100| ₹7,500| Custom  
-**Support**|  Community| Email| Email| Dedicated  
-**Best For**|  Prototyping & testing| Startups & POCs| Production workloads| Scale deployments  
+| Pay as you go| Pro| Growth| Business| Enterprise  
+---|---|---|---|---|---  
+**Monthly fee**|  None| ₹9,999| ₹49,999| ₹1,99,999| Custom  
+**Support**|  Community| Email| Email| Priority| Dedicated  
+**Best For**|  Prototyping & testing| Startups & POCs| Production workloads| Sustained high-volume production| Scale deployments  
   
-Rate limits are measured per account, not per API key. All keys under an account share the same limit pool. Your current limits are visible on the [Dashboard → Rate Limits](https://dashboard.sarvam.ai/rate-limits) page.
+Business includes everything in Growth, plus ₹1,99,999 worth of credits included and the best public API rates.
+
+Rate limits are measured per account, not per API key. All keys under an account share the same limit pool. Your current limits are visible on the [Dashboard → Rate Limits](https://indus.sarvam.ai/rate-limits?ref=docs) page.
 
 * * *
 
@@ -264,7 +276,7 @@ Rate limits are measured per account, not per API key. All keys under an account
 
 ### Check your current limits
 
-Visit the [Dashboard → Rate Limits](https://dashboard.sarvam.ai/rate-limits) to see your exact per-API limits.
+Visit the [Dashboard → Rate Limits](https://indus.sarvam.ai/rate-limits?ref=docs) to see your exact per-API limits.
 
 [2](https://docs.sarvam.ai/api/getting-started/ratelimits#upgrade-your-plan)
 
@@ -276,9 +288,9 @@ Purchase a higher plan directly from the dashboard. Your rate limits increase im
 
 ### Need custom limits?
 
-For limits beyond Business tier, contact our team for an Enterprise arrangement.
+For limits beyond the Growth plan, contact our team for an Enterprise arrangement.
 
-[Upgrade PlanView plans and upgrade directly from the dashboard. Rate limits update instantly.](https://dashboard.sarvam.ai/pricing)[Enterprise & Custom LimitsNeed higher rate limits, dedicated infrastructure, or custom SLAs? Talk to our team.](https://docs.sarvam.ai/api/getting-started/help)
+[Upgrade PlanView plans and upgrade directly from the dashboard. Rate limits update instantly.](https://indus.sarvam.ai/pricing/?ref=docs)[Enterprise & Custom LimitsNeed higher rate limits, dedicated infrastructure, or custom SLAs? Talk to our team.](https://docs.sarvam.ai/api/getting-started/help)
 
 * * *
 
@@ -286,7 +298,7 @@ For limits beyond Business tier, contact our team for an Enterprise arrangement.
 
 If your credits are exhausted, API requests will return errors. You can add credits at any time, adding credits does **not** change your plan or rate limits.
 
-  1. **Add Credits** : Top up from the [Billing page](https://dashboard.sarvam.ai/billing) at any time. Credits never expire.
+  1. **Add Credits** : Top up from the [Billing page](https://indus.sarvam.ai/billing?ref=docs) at any time. Credits never expire.
   2. **Upgrade Your Plan** : Higher plans include bonus credits and increased rate limits.
   3. **Enterprise** : For volume discounts and custom billing arrangements, email [support@sarvam.ai](mailto:support@sarvam.ai?subject=Enterprise%20API%20Access%20Request&body=Hi%20Sarvam%20Team%2C%0A%0AI'm%20reaching%20out%20from%20%5BYour%20Company%20Name%5D%20to%20explore%20enterprise%20access%20to%20Sarvam%20AI%20APIs.%0A%0ACompany%20Details%3A%0A-%20Company%20Name%3A%20%5BYour%20Company%5D%0A-%20Industry%3A%20%5BYour%20Industry%5D%0A-%20Website%3A%20%5BYour%20Website%5D%0A%0AUse%20Case%3A%0A%5BDescribe%20your%20use%20case%20and%20how%20you%20plan%20to%20use%20our%20APIs%5D%0A%0AAPIs%20of%20Interest%3A%0A%5B%5D%20Speech-to-Text%0A%5B%5D%20Text-to-Speech%0A%5B%5D%20Translation%0A%5B%5D%20Chat%20Completion%0A%5B%5D%20Other%20\(please%20specify\)%0A%0AExpected%20Usage%3A%0A-%20Estimated%20API%20calls%20per%20month%3A%20%5BNumber%5D%0A-%20Expected%20audio%20duration%2Ftext%20volume%3A%20%5BDetails%5D%0A-%20Languages%20needed%3A%20%5BList%20languages%5D%0A%0ASpecific%20Requirements%3A%0A%5BShare%20any%20specific%20features%2C%20SLAs%2C%20or%20support%20needs%5D%0A%0ATimeline%3A%0A%5BWhen%20do%20you%20plan%20to%20start%20testing%2Fdeployment%3F%5D%0A%0ALooking%20forward%20to%20discussing%20this%20further.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D%0A%5BYour%20Title%5D%0A%5BContact%20Information%5D).
 

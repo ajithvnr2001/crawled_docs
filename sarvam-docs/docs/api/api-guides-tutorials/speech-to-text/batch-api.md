@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/batch-api/
 title: Batch Speech-to-Text API | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:18.794914+00:00
+fetched_at: 2026-10-24T06:33:42.271443+00:00
 ---
 
 # Batch Speech-to-Text API | Sarvam API Docs
@@ -500,7 +500,7 @@ Select the appropriate API type based on your use case.
 
 ### Get API Key
 
-Sign up and get your API key from the [dashboard](https://dashboard.sarvam.ai/).
+Sign up and get your API key from the [dashboard](https://indus.sarvam.ai/key-management?ref=docs).
 
 [3](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/batch-api#go-live)
 

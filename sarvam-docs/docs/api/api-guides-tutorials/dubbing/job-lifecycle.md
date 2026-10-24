@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/job-lifecycle/
 title: Job Lifecycle | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:17.581305+00:00
+fetched_at: 2026-10-24T06:33:42.627692+00:00
 ---
 
 # Job Lifecycle | Sarvam API Docs
@@ -158,7 +158,7 @@ Here is one job carried from an empty script to downloaded files, a block at a t
     
     export SARVAM_API_KEY="your-key-here"
 
-Reading the key from an environment variable keeps it out of your source code, so you can share the script without sharing your credentials. Generate a key at [Key Management](https://dashboard.sarvam.ai/key-management).
+Reading the key from an environment variable keeps it out of your source code, so you can share the script without sharing your credentials. Generate a key at [Key Management](https://indus.sarvam.ai/key-management?ref=docs).
 
 [2](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/job-lifecycle#set-up-the-client-and-your-inputs)
 

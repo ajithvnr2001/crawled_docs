@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/cookbook/guides/podcast-generator/
 title: Podcast Generator | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:30.913568+00:00
+fetched_at: 2026-10-24T06:33:39.422571+00:00
 ---
 
 # Podcast Generator | Sarvam API Docs
@@ -112,7 +112,7 @@ All four steps run inside a background job orchestrated by [Inngest](https://inn
 ## **1\. Prerequisites**
 
   * Node.js 18 or higher
-  * A Sarvam API key, sign up on the [Sarvam AI Dashboard](https://dashboard.sarvam.ai/) to get one
+  * A Sarvam API key, sign up on the [Sarvam AI Dashboard](https://indus.sarvam.ai/key-management?ref=docs) to get one
   * A free [Inngest](https://inngest.com/) account, used to run the PDF-to-podcast pipeline as a durable background job
   * A PDF you want to turn into a podcast
 
@@ -527,7 +527,7 @@ Before deploying beyond local testing, replace the in-memory `Map` in `lib/job-s
 
 You may encounter these errors while using the underlying APIs:
 
-  * **403 Forbidden** (`invalid_api_key_error`), invalid API key. Use a valid key from the [Sarvam AI Dashboard](https://dashboard.sarvam.ai/).
+  * **403 Forbidden** (`invalid_api_key_error`), invalid API key. Use a valid key from the [Sarvam AI Dashboard](https://indus.sarvam.ai/key-management?ref=docs).
   * **429 Too Many Requests** (`insufficient_quota_error` / `rate_limit_exceeded_error`), credits exhausted or rate limit hit. The app already retries both chat completion and TTS calls with exponential backoff; if it still fails, slow down the pipeline further.
   * **400 Bad Request** (`invalid_request_error`), the uploaded PDF exceeds Document Digitization’s page limit for a single job.
   * **500 Internal Server Error** (`internal_server_error`), issue on our servers. Try again later; contact support if persistent.

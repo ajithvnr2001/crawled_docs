@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview/
 title: Speech-to-Text APIs | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:19.750730+00:00
+fetched_at: 2026-10-24T06:33:41.545205+00:00
 ---
 
 # Speech-to-Text APIs | Sarvam API Docs
@@ -136,7 +136,7 @@ Select the appropriate API type based on your use case.
 
 ### Get API Key
 
-Sign up and get your API key from the [dashboard](https://dashboard.sarvam.ai/).
+Sign up and get your API key from the [dashboard](https://indus.sarvam.ai/key-management?ref=docs).
 
 [3](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview#go-live)
 
