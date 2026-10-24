@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/upgrades-and-migrations/design-editor-migration-guide/
 title: Design Editor intent upgrade guide - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:56:45.926930+00:00
+fetched_at: 2026-10-24T13:39:37.055686+00:00
 ---
 
 # Design Editor intent upgrade guide - Canva Developers SDK Documentation
@@ -40,6 +40,10 @@ How to upgrade to the Design Editor intent pattern.
 Copy page
 
 This guide explains all of the code changes required to upgrade from the legacy direct render pattern to the new Design Editor intent pattern. The Design Editor intent provides a standardized way to render apps within the Canva editor and ensures better compatibility with future Canva features.
+
+## Prerequisites
+
+The Design Editor intent requires Apps SDK v2 or later. If your app still uses v1, upgrade it first by following the [Apps SDK v2 upgrade guide](https://www.canva.dev/docs/apps/upgrades-and-migrations/v2-migration-guide/).
 
 ## Automated migration tool
 
