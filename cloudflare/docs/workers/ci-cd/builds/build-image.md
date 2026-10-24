@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/ci-cd/builds/build-image/
 title: Build image \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:09.394045+00:00
+fetched_at: 2026-10-24T07:00:54.245256+00:00
 ---
 
 # Build image · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-15T14:53:09.394045+00:00
 
 # Build image
 
-Last updated Oct 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSupported Tooling Runtime Tools and languagesAdvanced Settings Overriding Default Versions Skip dependency installPre-installed PackagesBuild EnvironmentBuild Image Policy Preinstalled Software Updates Best Practices
 
@@ -49,19 +49,21 @@ The build image preinstalls Node.js 22.23.2 and 24.18.0.
 
 ### Tools and languages
 
-Tool | Default version | Environment variable  
----|---|---  
-**Bun** | 1.2.15 | `BUN_VERSION`  
-**Hugo** | extended_0.147.7 | `HUGO_VERSION`  
-**npm** | 10.9.2 |   
-**yarn** | 4.9.1 | `YARN_VERSION`  
-**pnpm** | 10.11.1 | `PNPM_VERSION`  
-**pip** | 25.1.1 |   
-**gem** | 3.6.9 |   
-**poetry** | 2.1.3 |   
-**pipx** | 1.7.1 |   
-**bundler** | 2.6.9 |   
+Tool | Default version | Environment variable | File  
+---|---|---|---  
+**Bun** | 1.2.15 | `BUN_VERSION` | `packageManager` field in `package.json`  
+**Hugo** | extended_0.147.7 | `HUGO_VERSION` |   
+**npm** | 10.9.2 |  | `packageManager` field in `package.json`  
+**yarn** | 4.9.1 | `YARN_VERSION` | `packageManager` field in `package.json`  
+**pnpm** | 10.11.1 | `PNPM_VERSION` | `packageManager` field in `package.json`  
+**pip** | 25.1.1 |  |   
+**gem** | 3.6.9 |  |   
+**poetry** | 2.1.3 |  |   
+**pipx** | 1.7.1 |  |   
+**bundler** | 2.6.9 |  |   
   
+For details on the `packageManager` field, refer to [Package manager versions](https://developers.cloudflare.com/workers/ci-cd/builds/build-image/#package-manager-versions).
+
 ## Advanced Settings
 
 ### Overriding Default Versions
@@ -79,6 +81,24 @@ Or, to set the version by adding a file to your project, you can:
 
   1. Find the filename for the language or tool (e.g. `.nvmrc`)
   2. Add the specified file name to the root directory and set the desired version number as the file's content. For example, if the version number is 22, the file should contain '22'.
+
+
+
+#### Package manager versions
+
+To set the version of npm, yarn, pnpm, or Bun, add the [`packageManager` ↗︎](https://nodejs.org/api/packages.html#packagemanager) field to your `package.json`. This is the only way to change the npm version.
+
+package.jsonjson
+    
+    
+    {
+    	"packageManager": "npm@11.19.1"
+    }
+
+  * Workers Builds reads `packageManager` from the `package.json` in your project's [root directory](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/#build-settings). If the root directory is not the top level of your repository, Workers Builds also reads the `package.json` at the top level of the repository. If both files set `packageManager`, use the same value in each.
+  * Use an exact version, such as `npm@11.19.1`. Do not use ranges such as `npm@^11`. If Workers Builds cannot parse the version, it uses the default version.
+  * The `engines.npm` field in `package.json` does **not** set the npm version. If you only set `engines.npm`, Workers Builds uses the default npm version, and npm prints an `EBADENGINE` warning instead of failing.
+  * `packageManager` sets the version of the package manager. The lockfile in your repository still determines which package manager installs your dependencies.
 
 
 

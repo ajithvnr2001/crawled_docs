@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/api/get-started/token-formats/
 title: Token formats \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:20.483622+00:00
+fetched_at: 2026-10-24T07:00:53.732053+00:00
 ---
 
 # Token formats · Cloudflare Fundamentals docs
@@ -22,11 +22,11 @@ Cloudflare's API
 
 # Token formats
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/api/get-started/token-formats/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewLeaked token detection GitHub Secret ScanningPre-2026 formats
+OverviewLeaked token detection GitHub Secret ScanningPre-2026 formatsWrangler OAuth access tokensVerify a token
 
-Cloudflare API credentials use a prefixed, scannable format that makes them identifiable by credential scanning tools. Each credential type has a distinct prefix followed by 40 characters and a checksum.
+Cloudflare API keys and API tokens use a prefixed, scannable format that makes them identifiable by credential scanning tools. Each credential type in the following table has a distinct prefix followed by 40 characters and a checksum.
 
 Credential type | Description | Format  
 ---|---|---  
@@ -59,6 +59,23 @@ Global API Key | 37–45 character lowercase hex string
 User API Token | 40-character alphanumeric string  
 Account API Token | 40-character alphanumeric string  
   
+## Wrangler OAuth access tokens
+
+When you authenticate with [`wrangler login`](https://developers.cloudflare.com/workers/wrangler/commands/general/#login), Wrangler receives a user OAuth access token that starts with `cfoat_`. Run [`wrangler auth token`](https://developers.cloudflare.com/workers/wrangler/commands/general/#auth-token) to retrieve the current token for use with another tool or script. The command automatically refreshes the token if it has expired.
+
+Treat the returned value as a secret. Do not commit it to source control or share it.
+
+## Verify a token
+
+To check that a user API token is valid, send it to the [Verify Token](https://developers.cloudflare.com/api/resources/user/subresources/tokens/methods/verify/) endpoint:
+    
+    
+    curl "https://api.cloudflare.com/client/v4/user/tokens/verify" \
+    	--request GET \
+    	--header "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+
+If the token is valid, the response includes the token's `id` and a `status` of `active`.
+
 [PreviousGet Origin CA keys](https://developers.cloudflare.com/fundamentals/api/get-started/ca-keys/)[NextAccount API tokens](https://developers.cloudflare.com/fundamentals/api/get-started/account-owned-tokens/)
 
 Was this helpful?

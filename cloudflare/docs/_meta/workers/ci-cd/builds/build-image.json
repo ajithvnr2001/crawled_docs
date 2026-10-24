@@ -3,5 +3,5 @@
   "file": "workers/ci-cd/builds/build-image.md",
   "title": "Build image \u00b7 Cloudflare Workers docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-15T14:53:09.394396+00:00"
+  "fetched_at": "2026-10-24T07:00:54.245577+00:00"
 }

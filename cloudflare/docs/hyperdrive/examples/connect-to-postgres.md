@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/
 title: Connect to PostgreSQL \u00b7 Cloudflare Hyperdrive docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:29.548008+00:00
+fetched_at: 2026-10-24T07:00:53.924159+00:00
 ---
 
 # Connect to PostgreSQL · Cloudflare Hyperdrive docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-16T06:38:29.548008+00:00
 
 # Connect to PostgreSQL
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate a HyperdriveSupported drivers Database drivers and Node.js compatibilityDriver examples node-postgres / pg Postgres.jsIdentify connections from HyperdriveNext steps
 
@@ -47,7 +47,7 @@ The command above will output the ID of your Hyperdrive, which you will need to 
     		"nodejs_compat"
     	],
     	// Set this to today's date
-    	"compatibility_date": "2026-10-16",
+    	"compatibility_date": "2026-10-24",
     	"hyperdrive": [
     		{
     			"binding": "HYPERDRIVE",
@@ -59,7 +59,7 @@ The command above will output the ID of your Hyperdrive, which you will need to 
     
     compatibility_flags = [ "nodejs_compat" ]
     # Set this to today's date
-    compatibility_date = "2026-10-16"
+    compatibility_date = "2026-10-24"
     
     [[hyperdrive]]
     binding = "HYPERDRIVE"
@@ -170,7 +170,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     		"nodejs_compat"
     	],
     	// Set this to today's date
-    	"compatibility_date": "2026-10-16",
+    	"compatibility_date": "2026-10-24",
     	"hyperdrive": [
     		{
     			"binding": "HYPERDRIVE",
@@ -182,7 +182,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     
     compatibility_flags = [ "nodejs_compat" ]
     # Set this to today's date
-    compatibility_date = "2026-10-16"
+    compatibility_date = "2026-10-24"
     
     [[hyperdrive]]
     binding = "HYPERDRIVE"
@@ -256,7 +256,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     		"nodejs_compat"
     	],
     	// Set this to today's date
-    	"compatibility_date": "2026-10-16",
+    	"compatibility_date": "2026-10-24",
     	"hyperdrive": [
     		{
     			"binding": "HYPERDRIVE",
@@ -268,7 +268,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     
     compatibility_flags = [ "nodejs_compat" ]
     # Set this to today's date
-    compatibility_date = "2026-10-16"
+    compatibility_date = "2026-10-24"
     
     [[hyperdrive]]
     binding = "HYPERDRIVE"
@@ -321,6 +321,21 @@ To identify active connections to your Postgres database server from Hyperdrive:
   * Run `SELECT DISTINCT usename, application_name FROM pg_stat_activity WHERE application_name = 'Cloudflare Hyperdrive'` to show whether Hyperdrive is currently holding a connection (or connections) open to your database.
 
 
+
+Note
+
+Hyperdrive only sets the `application_name` to `Cloudflare Hyperdrive` when your driver does not send its own. Some drivers set a default `application_name` — for example, [Postgres.js ↗︎](https://github.com/porsager/postgres) sends `postgres.js` unless you override it. Hyperdrive forwards the driver-provided value to your database, so those connections appear under that name (for example, `postgres.js`) instead of `Cloudflare Hyperdrive`. This does **not** mean the connection is bypassing Hyperdrive.
+
+To keep these connections identifiable as Hyperdrive, set the `application_name` explicitly in your driver. With Postgres.js:
+    
+    
+    const sql = postgres(env.HYPERDRIVE.connectionString, {
+    	max: 5,
+    	fetch_types: false,
+    	connection: {
+    		application_name: "Cloudflare Hyperdrive",
+    	},
+    });
 
 ## Next steps
 

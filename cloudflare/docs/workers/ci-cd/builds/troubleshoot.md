@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/ci-cd/builds/troubleshoot/
 title: Troubleshooting builds \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:28.301050+00:00
+fetched_at: 2026-10-24T07:00:53.820613+00:00
 ---
 
 # Troubleshooting builds · Cloudflare Workers docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-10T14:39:28.301050+00:00
 
 # Troubleshooting builds
 
-Last updated Oct 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewKnown issues or limitations Workers name requirement Missing Wrangler configuration file Incorrect account_id Stale API token Build timed out Build succeeds but the site returns a 404 or blank page Git integration issuesFor additional support
+OverviewKnown issues or limitations Workers name requirement Missing Wrangler configuration file Incorrect account_id Stale API token Build timed out Build succeeds but the site returns a 404 or blank page npm ci reports that package.json and package-lock.json are out of sync Git integration issuesFor additional support
 
 This guide explains how to identify and resolve build errors, as well as troubleshoot common issues in the Workers Builds deployment process.
 
@@ -81,6 +81,12 @@ If the build and deployment succeed but requests to your Worker return a `404` o
   * For a single-page application, [`assets.not_found_handling`](https://developers.cloudflare.com/workers/static-assets/routing/single-page-application/) is set to `single-page-application` so that client-side routes do not return `404`.
 
 
+
+### `npm ci` reports that `package.json` and `package-lock.json` are out of sync
+
+`npm error `npm ci` can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync.`
+
+If this error appears in Workers Builds but `npm ci` works on your machine, your lockfile was probably written by a newer npm version than the build image's default. Workers Builds does not use the `engines.npm` field to choose an npm version. To use the same npm version as your local machine, set the [`packageManager`](https://developers.cloudflare.com/workers/ci-cd/builds/build-image/#package-manager-versions) field in your `package.json` to an exact version, for example `"packageManager": "npm@11.19.1"`. To check your local npm version, run `npm -v`.
 
 ### Git integration issues
 

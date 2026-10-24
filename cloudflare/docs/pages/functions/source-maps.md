@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/functions/source-maps/
 title: Source maps and stack traces \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:34.440161+00:00
+fetched_at: 2026-10-24T07:00:53.679091+00:00
 ---
 
 # Source maps and stack traces · Cloudflare Pages docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:34.440161+00:00
 
 # Source maps and stack traces
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/functions/source-maps/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSource MapsStack tracesLimitsRelated resources
 
@@ -60,7 +60,8 @@ The source map is retrieved after your Pages Function invocation completes — i
 
 Description | Limit  
 ---|---  
-Maximum Source Map Size | 15 MB gzipped  
+Maximum source map size, gzipped | 15 MiB  
+Maximum source map size, encoded (uncompressed) | 60 MiB  
   
 ## Related resources
 

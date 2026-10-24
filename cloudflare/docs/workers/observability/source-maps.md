@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/observability/source-maps/
 title: Source maps and stack traces \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:29.574561+00:00
+fetched_at: 2026-10-24T07:00:54.149168+00:00
 ---
 
 # Source maps and stack traces · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-21T06:51:29.574561+00:00
 
 # Source maps and stack traces
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEnable source maps Frameworks and custom builds Disable source mapsStack tracesLimitsExampleRelated resources
 
@@ -115,7 +115,8 @@ Minimum required Wrangler version for source maps: 3.46.0. Check your version by
 
 Description | Limit  
 ---|---  
-Maximum Source Map Size | 15 MB gzipped  
+Maximum source map size, gzipped | 15 MiB  
+Maximum source map size, encoded (uncompressed) | 60 MiB  
   
 ## Example
 
