@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/custom-llm/
 title: Custom LLM - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:40.275910+00:00
+fetched_at: 2026-10-24T12:07:52.240957+00:00
 ---
 
 # Custom LLM - Fish Audio
@@ -15,6 +15,7 @@ fetched_at: 2026-10-17T10:46:40.275910+00:00
     * Example request
   * Point the agent at your endpoint
   * Failure behavior
+    * See what your endpoint returned
   * Limitations
 
 
@@ -118,7 +119,7 @@ When your model returns a `lookup_order` tool call, the platform executes it and
     { "role": "tool", "tool_call_id": "call_1", "content": "{\"status\":\"shipped\",\"eta\":\"2026-08-28\"}" }
     
 
-Reply to that request with the spoken answer as ordinary `delta.content` chunks ending in `finish_reason: "stop"`. Requests authenticate with `Authorization: Bearer <your API key>`. The endpoint must use `https` on a publicly reachable host, and must support function calling if the agent has tools configured.
+Reply to that request with the spoken answer as ordinary `delta.content` chunks ending in `finish_reason: "stop"`. Requests authenticate with `Authorization: Bearer <your API key>`. If your endpoint needs other headers, add them with `headers`. The endpoint must use `https` on a publicly reachable host, and must support function calling if the agent has tools configured.
 
 ## 
 
@@ -141,7 +142,7 @@ To set it up in the console:
   * Whether it accepted the tools.
   * The time to first token.
 
-The saved endpoint appears under **Custom** in the selector. You can edit or remove it there. If you pick a platform model again, the endpoint and the stored key are removed. Through the API, set the `llm.custom` section on the agent’s [configuration](https://docs.fish.audio/agents/build/configuration#configure-through-the-api):
+The saved endpoint appears under **Custom** in the selector. You can edit or remove it there. If you pick a platform model again, the endpoint, the stored key and any headers are removed. Through the API, set the `llm.custom` section on the agent’s [configuration](https://docs.fish.audio/agents/build/configuration#configure-through-the-api):
     
     
     curl --request PATCH "https://api.fish.audio/v1/agent/agents/$AGENT_ID/config" \
@@ -152,7 +153,10 @@ The saved endpoint appears under **Custom** in the selector. You can edit or rem
           "custom": {
             "base_url": "https://llm.example.com/v1",
             "model": "persona-70b",
-            "api_key": "sk-your-endpoint-key"
+            "api_key": "sk-your-endpoint-key",
+            "headers": {
+              "your-header-key": "your-header-value"
+            }
           }
         }
       }'
@@ -163,8 +167,9 @@ Field| Rules
 `base_url`| `https` only, publicly reachable host, no query string or fragment. A trailing `/chat/completions` is stripped.  
 `model`| Sent to your endpoint verbatim as the request’s `model` field.  
 `api_key`| Sent to your endpoint as the `Authorization` bearer token. The field is write-only, so config and version reads return it as `null`. Omit it (or send `null`) on later patches to keep the stored key.  
+`headers`| Optional. Extra headers sent on every request to your endpoint. Names are case-insensitive, and values are printable ASCII. You can’t set headers the platform sends itself, such as `Authorization`, `Content-Type` or `Host`. Write-only like `api_key`: reads return `null`. Sending it replaces all stored headers, so include every header you want to keep. Omit it (or send `null`) to keep them; send `{}` to clear them.  
   
-Once [published](https://docs.fish.audio/agents/deploy/versions-publishing), every session of the agent generates on your endpoint, whether it starts from the web, a phone call, or a [preview call](https://docs.fish.audio/agents/test/preview-calls) in the Builder. Rotating the key works the same way as any other config change. Patch a new `api_key` into the draft, then publish; sessions started after the publish use the new key. Send `{ "llm": { "custom": null } }` to switch back to platform models.
+The console doesn’t show or edit headers, so set them through the API. Saving the endpoint in the console keeps them, and **Run test** sends them while the base URL matches the saved one. Once [published](https://docs.fish.audio/agents/deploy/versions-publishing), every session of the agent generates on your endpoint, whether it starts from the web, a phone call, or a [preview call](https://docs.fish.audio/agents/test/preview-calls) in the Builder. Rotating the key or headers works the same way as any other config change. Patch the new values into the draft, then publish; sessions started after the publish use them. Send `{ "llm": { "custom": null } }` to switch back to platform models.
 
 ## 
 
@@ -176,9 +181,32 @@ A custom LLM never silently falls back to a platform model, because a platform m
 
   * Each request gets one retry and a 10 second response cap.
   * When a generation still fails, the agent speaks a brief hold line and stays on the call.
-  * After three consecutive failed generations the agent apologizes, hangs up, and the session ends with `end_reason: llm_endpoint_failure` (in the [sessions API](https://docs.fish.audio/agents/monitor/conversation-history#status-and-end-reason), the dashboard, and the `call.ended` webhook’s `ended_reason`). Each failure also emits an `llm.endpoint_error` event on the session timeline.
+  * After three consecutive failed generations the agent apologizes, hangs up, and the session ends with `end_reason: llm_endpoint_failure` (in the [sessions API](https://docs.fish.audio/agents/monitor/conversation-history#status-and-end-reason), the dashboard, and the `call.ended` webhook’s `ended_reason`).
 
 
+
+### 
+
+​
+
+See what your endpoint returned
+
+Every failed generation is recorded, whether or not the call ended because of it. You can find them in three places:
+
+  * **Conversations** in the dashboard shows each failure in the transcript, where it happened.
+  * The [sessions API](https://docs.fish.audio/agents/monitor/conversation-history#llm-endpoint-errors) returns them as `llm_endpoint_errors`.
+  * The [`call.ended` webhook](https://docs.fish.audio/agents/monitor/webhooks#payload) carries the same list.
+
+Each failure has a type:
+
+`type`| Meaning  
+---|---  
+`http_error`| Your endpoint answered with a non-2xx status  
+`timeout`| No response within 10 seconds  
+`connection_error`| The request got no answer, for example a DNS, TLS or refused connection  
+`invalid_response`| A 2xx response that was not a usable reply, such as a broken stream  
+  
+For `http_error`, `response_body` holds the start of your response body, up to 300 characters. Your API key is masked. `connection_error` and `invalid_response` also carry a `reason`, such as `dns_failed` or `not_event_stream`. The lines the agent spoke in place of a reply have `fallback_reason: "llm_error"`.
 
 Voice conversations are latency sensitive:
 

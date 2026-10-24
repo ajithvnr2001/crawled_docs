@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/versions-publishing/
 title: Versions & Publishing - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:43.480374+00:00
+fetched_at: 2026-10-24T12:07:52.492860+00:00
 ---
 
 # Versions & Publishing - Fish Audio
@@ -151,7 +151,7 @@ Field| Description
   
 Fetching a single version returns the full configuration as it was published. Because `GET .../config` always shows the draft, the snapshot endpoint is how you read back what is actually running in production.
 
-Version snapshots never echo credential secrets. Write-only fields (such as webhook secrets and tool authorization headers) return a `has_secret: true` marker instead of the value, and the custom LLM [`api_key`](https://docs.fish.audio/agents/build/custom-llm) reads back as `null`, in every version including historical ones.
+Version snapshots never echo credential secrets. Write-only fields (such as webhook secrets and tool authorization headers) return a `has_secret: true` marker instead of the value, and the custom LLM [`api_key` and `headers`](https://docs.fish.audio/agents/build/custom-llm) read back as `null`, in every version including historical ones.
 
 ## 
 
