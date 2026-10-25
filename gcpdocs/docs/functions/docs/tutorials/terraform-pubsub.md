@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/tutorials/terraform-pubsub/
 title: Terraform Pub/Sub Tutorial \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:29.814326+00:00
+fetched_at: 2026-10-25T06:25:09.228032+00:00
 ---
 
 # Terraform Pub/Sub Tutorial  |  Cloud Run functions  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/sap-bdc-overview/
 title: About SAP Business Data Cloud integration \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:13.940475+00:00
+fetched_at: 2026-10-25T05:53:32.072321+00:00
 ---
 
 # About SAP Business Data Cloud integration  |  Lakehouse  |  Google Cloud Documentation

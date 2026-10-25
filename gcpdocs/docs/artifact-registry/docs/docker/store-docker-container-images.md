@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/docker/store-docker-container-images/
 title: Quickstart: Store Docker container images in Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:24:33.548447+00:00
+fetched_at: 2026-10-25T06:36:42.629888+00:00
 ---
 
 # Quickstart: Store Docker container images in Artifact Registry  |  Google Cloud Documentation

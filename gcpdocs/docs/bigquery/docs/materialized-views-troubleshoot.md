@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/materialized-views-troubleshoot/
 title: Troubleshoot materialized views \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:10.522328+00:00
+fetched_at: 2026-10-25T06:43:35.678136+00:00
 ---
 
 # Troubleshoot materialized views  |  BigQuery  |  Google Cloud Documentation

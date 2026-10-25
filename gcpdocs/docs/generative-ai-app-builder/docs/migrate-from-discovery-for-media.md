@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/migrate-from-discovery-for-media/
 title: Switch from Discovery for Media to media recommendations \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:35.617505+00:00
+fetched_at: 2026-10-25T06:25:33.792883+00:00
 ---
 
 # Switch from Discovery for Media to media recommendations  |  Agent Search  |  Google Cloud Documentation

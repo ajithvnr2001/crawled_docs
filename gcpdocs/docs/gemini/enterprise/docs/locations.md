@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/locations/
 title: Data residency for Gemini Enterprise Standard and Plus Editions and Gemini Notebook Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:08.352553+00:00
+fetched_at: 2026-10-25T06:22:32.168361+00:00
 ---
 
 # Data residency for Gemini Enterprise Standard and Plus Editions and Gemini Notebook Enterprise  |  Google Cloud Documentation

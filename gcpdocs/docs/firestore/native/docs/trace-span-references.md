@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/trace-span-references/
 title: Trace span attributes and events \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:31.169210+00:00
+fetched_at: 2026-10-25T06:19:35.372463+00:00
 ---
 
 # Trace span attributes and events  |  Firestore in Native mode  |  Google Cloud Documentation

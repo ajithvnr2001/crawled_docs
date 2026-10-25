@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/gsc_google_sheets/configure/
 title: Google Sheets \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:46.170266+00:00
+fetched_at: 2026-10-25T05:57:03.890752+00:00
 ---
 
 # Google Sheets  |  Integration Connectors  |  Google Cloud Documentation

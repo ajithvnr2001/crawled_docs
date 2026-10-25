@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/answer-generation-models/
 title: Answer generation model versions and lifecycle for the Answer API (Legacy) \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:07.267271+00:00
+fetched_at: 2026-10-25T06:22:11.265589+00:00
 ---
 
 # Answer generation model versions and lifecycle for the Answer API (Legacy)  |  Gemini Enterprise  |  Google Cloud Documentation

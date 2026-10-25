@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/migrating-to-credentials-api/
 title: Migrating to the Service Account Credentials API \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:49:36.044619+00:00
+fetched_at: 2026-10-25T06:21:06.454587+00:00
 ---
 
 # Migrating to the Service Account Credentials API  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

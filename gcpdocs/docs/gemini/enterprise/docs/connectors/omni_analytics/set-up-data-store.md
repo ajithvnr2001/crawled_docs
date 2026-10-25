@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/omni_analytics/set-up-data-store/
 title: Set up an Omni Analytics data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:26.655889+00:00
+fetched_at: 2026-10-25T06:23:26.103924+00:00
 ---
 
 # Set up an Omni Analytics data store  |  Gemini Enterprise  |  Google Cloud Documentation

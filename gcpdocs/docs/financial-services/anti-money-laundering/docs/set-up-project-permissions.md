@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/financial-services/anti-money-laundering/docs/set-up-project-permissions/
 title: Set up a project and permissions \u00a0|\u00a0 Anti Money Laundering AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:56.766127+00:00
+fetched_at: 2026-10-25T06:19:53.079777+00:00
 ---
 
 # Set up a project and permissions  |  Anti Money Laundering AI  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details/
 title: Firewall policy rule components \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:27.289444+00:00
+fetched_at: 2026-10-25T06:19:23.103638+00:00
 ---
 
 # Firewall policy rule components  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/configuration-files/
 title: Structuring web services in App Engine \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:48:13.853821+00:00
+fetched_at: 2026-10-25T06:33:38.532699+00:00
 ---
 
 # Structuring web services in App Engine  |  App Engine standard environment  |  Google Cloud Documentation

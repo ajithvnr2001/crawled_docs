@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/e2e-automl-batch-predictions/
 title: Get batch inferences and explanations \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:20.160235+00:00
+fetched_at: 2026-10-25T06:26:59.103654+00:00
 ---
 
 # Get batch inferences and explanations  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vertex-psc-vector-search/
 title: Use Private Service Connect to access a Vector Search index from on-premises \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:44.811098+00:00
+fetched_at: 2026-10-25T06:26:36.888328+00:00
 ---
 
 # Use Private Service Connect to access a Vector Search index from on-premises  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/gsc_search_ads_360/configure/
 title: Search Ads 360 \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:45.509342+00:00
+fetched_at: 2026-10-25T06:20:18.474487+00:00
 ---
 
 # Search Ads 360  |  Integration Connectors  |  Google Cloud Documentation

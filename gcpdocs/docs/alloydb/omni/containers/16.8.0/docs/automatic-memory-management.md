@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.8.0/docs/automatic-memory-management/
 title: About automatic memory management \u00a0|\u00a0 AlloyDB Omni for containers: 16.8.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:59:58.689731+00:00
+fetched_at: 2026-10-25T05:54:12.999840+00:00
 ---
 
 # About automatic memory management  |  AlloyDB Omni for containers: 16.8.0  |  Google Cloud Documentation

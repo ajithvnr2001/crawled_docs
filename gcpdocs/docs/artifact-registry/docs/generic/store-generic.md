@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/generic/store-generic/
 title: Quickstart: Store other formats in Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:19.168984+00:00
+fetched_at: 2026-10-25T06:37:31.822959+00:00
 ---
 
 # Quickstart: Store other formats in Artifact Registry  |  Google Cloud Documentation

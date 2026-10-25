@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/backup-kubernetes/
 title: Back up and restore in Kubernetes \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 16.8.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:48:41.408429+00:00
+fetched_at: 2026-10-25T06:34:54.828785+00:00
 ---
 
 # Back up and restore in Kubernetes  |  AlloyDB Omni for Kubernetes: 16.8.0  |  Google Cloud Documentation

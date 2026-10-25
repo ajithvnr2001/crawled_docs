@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/error-reporting/docs/setup/apps-script/
 title: Setting up on Apps Script \u00a0|\u00a0 Error Reporting \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:46:20.195803+00:00
+fetched_at: 2026-10-25T06:17:50.327772+00:00
 ---
 
 # Setting up on Apps Script  |  Error Reporting  |  Google Cloud Documentation

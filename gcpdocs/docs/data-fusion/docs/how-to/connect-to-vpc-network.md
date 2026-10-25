@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/connect-to-vpc-network/
 title: Connect to an external network \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:04.511271+00:00
+fetched_at: 2026-10-25T06:44:18.533650+00:00
 ---
 
 # Connect to an external network  |  Cloud Data Fusion  |  Google Cloud Documentation

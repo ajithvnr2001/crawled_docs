@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/food-ai/menu-integration/
 title: Integrating menu data using the Food Ordering AI Agent API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:25.548682+00:00
+fetched_at: 2026-10-25T06:25:19.551019+00:00
 ---
 
 # Integrating menu data using the Food Ordering AI Agent API  |  Google Cloud Documentation

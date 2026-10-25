@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/enable-and-disable-gemini-in-data-studio/
 title: Enable and disable Gemini in Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:17.074519+00:00
+fetched_at: 2026-10-25T06:42:25.785005+00:00
 ---
 
 # Enable and disable Gemini in Data Studio  |  Google Cloud Documentation

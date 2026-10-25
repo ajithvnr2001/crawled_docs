@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/binary-authorization/docs/creating-attestors-console/
 title: Create attestors using the Google Cloud console \u00a0|\u00a0 Binary Authorization \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:58.673711+00:00
+fetched_at: 2026-10-25T06:41:29.787388+00:00
 ---
 
 # Create attestors using the Google Cloud console  |  Binary Authorization  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-custom/overview/
 title: Hello image data \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:59.304657+00:00
+fetched_at: 2026-10-25T06:26:17.655246+00:00
 ---
 
 # Hello image data  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

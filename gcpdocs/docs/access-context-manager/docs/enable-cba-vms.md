@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/access-context-manager/docs/enable-cba-vms/
 title: Enable certificate-based access for VMs \u00a0|\u00a0 Access Context Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:13.352398+00:00
+fetched_at: 2026-10-25T06:33:28.607293+00:00
 ---
 
 # Enable certificate-based access for VMs  |  Access Context Manager  |  Google Cloud Documentation

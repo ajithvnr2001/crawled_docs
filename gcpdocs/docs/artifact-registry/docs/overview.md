@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/overview/
 title: Artifact Registry overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:17.526476+00:00
+fetched_at: 2026-10-25T06:36:04.092903+00:00
 ---
 
 # Artifact Registry overview  |  Google Cloud Documentation

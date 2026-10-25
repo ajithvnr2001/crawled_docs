@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.4.0/docs/ai/evaluate-semantic-queries-ai-operators/
 title: Perform intelligent SQL queries using AI functions \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:46:46.111811+00:00
+fetched_at: 2026-10-25T06:34:20.396041+00:00
 ---
 
 # Perform intelligent SQL queries using AI functions  |  AlloyDB Omni using the RPM orchestrator: 18.4.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/address-groups-firewall-policies/
 title: Address groups for firewall policies \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:38.303701+00:00
+fetched_at: 2026-10-25T06:24:44.871021+00:00
 ---
 
 # Address groups for firewall policies  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

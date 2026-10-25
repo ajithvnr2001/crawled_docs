@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/batch-operations/overview/
 title: Storage batch operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:51:53.113363+00:00
+fetched_at: 2026-10-25T05:43:56.266507+00:00
 ---
 
 # Storage batch operations  |  Google Cloud Documentation

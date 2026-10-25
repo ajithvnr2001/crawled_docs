@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/concepts/macros/
 title: Macros and macro functions \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:28.916848+00:00
+fetched_at: 2026-10-25T06:43:46.092444+00:00
 ---
 
 # Macros and macro functions  |  Cloud Data Fusion  |  Google Cloud Documentation

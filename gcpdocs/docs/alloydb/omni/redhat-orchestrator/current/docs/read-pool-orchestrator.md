@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/current/docs/read-pool-orchestrator/
 title: Create an asynchronous replicated read pool instance using the RPM orchestrator \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:50.298645+00:00
+fetched_at: 2026-10-25T06:32:52.692046+00:00
 ---
 
 # Create an asynchronous replicated read pool instance using the RPM orchestrator  |  AlloyDB Omni using the RPM orchestrator: Current (18.4.0)  |  Google Cloud Documentation

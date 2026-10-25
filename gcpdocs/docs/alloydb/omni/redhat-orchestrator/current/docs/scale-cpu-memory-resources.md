@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/current/docs/scale-cpu-memory-resources/
 title: Scale CPU and memory resources \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:50.144626+00:00
+fetched_at: 2026-10-25T06:27:37.776318+00:00
 ---
 
 # Scale CPU and memory resources  |  AlloyDB Omni using the RPM orchestrator: Current (18.4.0)  |  Google Cloud Documentation

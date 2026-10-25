@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/audit-manager/docs/audit-status/
 title: Get the status of an audit \u00a0|\u00a0 Audit Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:50.114131+00:00
+fetched_at: 2026-10-25T06:35:51.241699+00:00
 ---
 
 # Get the status of an audit  |  Audit Manager  |  Google Cloud Documentation

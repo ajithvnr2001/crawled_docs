@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/workflows/quickstart-pubsub/
 title: Quickstart: Trigger Workflows using Pub/Sub messages (Google Cloud CLI) \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:49.459617+00:00
+fetched_at: 2026-10-25T06:18:50.161144+00:00
 ---
 
 # Quickstart: Trigger Workflows using Pub/Sub messages (Google Cloud CLI)  |  Eventarc Standard  |  Google Cloud Documentation

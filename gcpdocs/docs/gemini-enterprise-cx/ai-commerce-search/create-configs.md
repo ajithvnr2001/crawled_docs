@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/create-configs/
 title: Create serving configs \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:28.665729+00:00
+fetched_at: 2026-10-25T06:23:46.505105+00:00
 ---
 
 # Create serving configs  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/concepts/manage-pipeline-configurations/
 title: Manage pipeline configurations \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:28.546471+00:00
+fetched_at: 2026-10-25T06:44:22.187048+00:00
 ---
 
 # Manage pipeline configurations  |  Cloud Data Fusion  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/firestore-mongodb-compatibility/context-sets-overview/
 title: Context sets overview \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:36.049860+00:00
+fetched_at: 2026-10-25T05:56:34.339505+00:00
 ---
 
 # Context sets overview  |  Data Agents  |  Google Cloud Documentation

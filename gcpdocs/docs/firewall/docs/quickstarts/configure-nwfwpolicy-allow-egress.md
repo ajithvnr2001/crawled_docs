@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/quickstarts/configure-nwfwpolicy-allow-egress/
 title: Quickstart: Allow egress traffic using a global network firewall policy \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:29.717131+00:00
+fetched_at: 2026-10-25T06:25:21.504229+00:00
 ---
 
 # Quickstart: Allow egress traffic using a global network firewall policy  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

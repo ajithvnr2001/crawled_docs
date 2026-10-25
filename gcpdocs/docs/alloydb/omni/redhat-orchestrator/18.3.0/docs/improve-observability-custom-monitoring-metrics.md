@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.3.0/docs/improve-observability-custom-monitoring-metrics/
 title: Improve observability using custom monitoring metrics \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:50:21.273554+00:00
+fetched_at: 2026-10-25T06:26:19.024567+00:00
 ---
 
 # Improve observability using custom monitoring metrics  |  AlloyDB Omni using the RPM orchestrator: 18.3.0  |  Google Cloud Documentation

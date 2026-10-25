@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/financial-services/anti-money-laundering/docs/concepts/architectural-overview/
 title: Architectural overview \u00a0|\u00a0 Anti Money Laundering AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:57:00.316795+00:00
+fetched_at: 2026-10-25T06:20:16.454597+00:00
 ---
 
 # Architectural overview  |  Anti Money Laundering AI  |  Google Cloud Documentation

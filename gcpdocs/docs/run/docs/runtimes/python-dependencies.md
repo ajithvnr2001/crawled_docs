@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/runtimes/python-dependencies/
 title: Specify dependencies in Python \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:58:31.821461+00:00
+fetched_at: 2026-10-25T05:45:16.082299+00:00
 ---
 
 # Specify dependencies in Python  |  Cloud Run  |  Google Cloud Documentation
@@ -233,7 +233,12 @@ The Python buildpack installs the following Python packages when you deploy your
 To avoid issues with dependency version updates, pin the package to a specific version.
     
     
-    anyio==4.14.2
+    # Install anyio 4.5.2 for Python 3.8
+    anyio==4.5.2; python_version == '3.8'
+    # Install anyio 4.12.1 for Python 3.9
+    anyio==4.12.1; python_version == '3.9'
+    # Install anyio 4.14.2 for Python 3.10+
+    anyio==4.14.2; python_version >= '3.10'
     blinker==1.8.2
     click==8.1.8
     cloudevents==1.11.0

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/deploy-app-in-console/
 title: Quickstart: Create a pipeline and release in the Google Cloud console \u00a0|\u00a0 Cloud Deploy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:21:42.457331+00:00
+fetched_at: 2026-10-25T05:53:29.177664+00:00
 ---
 
 # Quickstart: Create a pipeline and release in the Google Cloud console  |  Cloud Deploy  |  Google Cloud Documentation

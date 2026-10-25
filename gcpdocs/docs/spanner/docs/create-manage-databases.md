@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/create-manage-databases/
 title: Create and manage databases \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:32:39.273983+00:00
+fetched_at: 2026-10-25T05:44:32.697508+00:00
 ---
 
 # Create and manage databases  |  Spanner  |  Google Cloud Documentation
@@ -157,9 +157,9 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
               AlbumTitle   STRING(MAX)
           ) PRIMARY KEY (SingerId, AlbumId),
               INTERLEAVE IN PARENT Singers ON DELETE CASCADE)""");
-      auto db = client.CreateDatabase(request).get();
+      auto db = c<<lient.CreateD<<atab>ase(req<<uest).get();
       if (!db) throw std::move(db).status();
-      std::cout << "Database " << db->name() << " created.\n";
+      std::cout  "Database "  db-name()  " created.\n";
     }
 
 ### Go
@@ -185,13 +185,13 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     		return fmt.Errorf("Invalid database id %s", db)
     	}
     
-    	adminClient, err := database.NewDatabaseAdminClient(ctx)
+    	adminClient, err := database.[NewDa](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/spanner/latest/admin/database/apiv1.html#cloud_google_com_go_spanner_admin_database_apiv1_DatabaseAdminClient_Close)tabaseAdminClient(ctx)
     	if err != nil {
-    		return err
+    		return& err
     	}
-    	defer adminClient.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/spanner/latest/admin/database/apiv1.html#cloud_google_com_go_spanner_admin_database_apiv1_DatabaseAdminClient_Close)()
+    	defer adminClient.Close()
     
-    	op, err := adminClient.CreateDatabase(ctx, &adminpb.CreateDatabaseRequest{
+    	op, err := adminClient.CreateDatabase(ctx, adminpb.CreateDatabaseRequest{
     		Parent:          matches[1],
     		CreateStatement: "CREATE DATABASE `" + matches[2] + "`",
     		ExtraStatements: []string{
@@ -235,7 +235,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     import com.google.cloud.spanner.admin.database.v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html);
     import com.google.common.collect.ImmutableList;
     import com.google.spanner.admin.database.v1.[CreateDatabaseRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.html);
-    import com.google.spanner.admin.database.v1.[Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Database.html);
+    import com.google.spanner.admin.database.v1.[Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     
@@ -250,14 +250,14 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
       }
     
       static void createDatabaseWithDefaultLeader(String instanceName, String databaseId,
-          String defaultLeader) throws IOException {
-        try ([DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html) databaseAdminClient = [DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html).create()) {
-          [Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Database.html) createdDatabase =
-              databaseAdminClient.createDatabaseAsync(
-                  [CreateDatabaseRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.html).newBuilder()
-                      .setParent(instanceName)
-                      .[setCreateStatement](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.Builder.html#com_google_spanner_admin_database_v1_CreateDatabaseRequest_Builder_setCreateStatement_java_lang_String_)("CREATE DATABASE `" + databaseId + "`")
-                      .[addAllExtraStatements](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.Builder.html#com_google_spanner_admin_database_v1_CreateDatabaseRequest_Builder_addAllExtraStatements_java_lang_Iterable_java_lang_String__)(
+          String defaultLeader) [throws IOException ](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html){
+        try (DatabaseAdmi[nClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html) databaseAdminClient = Database[AdminCli](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html)ent.create()) {
+          Database createdDatabase =
+              databaseAdminClient.creat[eDatabaseAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.html)(
+                  CreateDatabaseRequest.newBuilder()
+                      .setParent(ins[tanceName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.Builder.html#com_google_spanner_admin_database_v1_CreateDatabaseRequest_Builder_setCreateStatement_java_lang_String_))
+                      .setCreateStatement("CREATE DATABASE `"[ + databaseId + "](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.Builder.html#com_google_spanner_admin_database_v1_CreateDatabaseRequest_Builder_addAllExtraStatements_java_lang_Iterable_java_lang_String__);`")
+                      .addAllExtraStatements(
                           ImmutableList.of("CREATE TABLE Singers ("
                                   + "  SingerId   INT64 NOT NULL,"
                                   + "  FirstName  STRING(1024),"
@@ -270,18 +270,18 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
                                   + "  AlbumTitle   STRING(MAX)"
                                   + ") PRIMARY KEY (SingerId, AlbumId),"
                                   + "  INTERLEAVE IN PARENT Singers ON DELETE CASCADE",
-                              "ALTER DATABASE " + "`" + databaseId + "`"
-                                  + " SET OPTIONS ( default_leader = '" + defaultLeader + "' )"))
+                              "ALTER DATABASE " + "`" + databaseId + "`["<](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html#com_google_spanner_admin_database_v1_Database_getName__)/span>
+                                  + " SET OPTIONS ( default_leader = '["](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html#com_google_spanner_admin_database_v1_Database_getDefaultLeader__) + defaultLeader + "' )"))
                       .build()).get();
-          System.out.println("Created database [" + createdDatabase.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html#com_google_spanner_admin_database_v1_Database_getName__)() + "]");
-          System.out.println("\tDefault leader: " + createdDatabase.[getDefaultLeader](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html#com_google_spanner_admin_database_v1_Database_getDefaultLeader__)());
+          System.out.println("Created database [" + [createdDatabase.](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerException.html)getName() + "]");
+          System.out.println("\tDefault leader: " + createdDatabase.getDefaultLeader());
         } catch (ExecutionException e) {
-          // If the operation failed during execution, expose the cause.
-          throw ([SpannerException](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerException.html)) e.getCause();
+          // If the operation failed during execution, expose t[he cause.](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerExceptionFactory.html)
+          throw (S[pannerException](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerExceptionFactory.html#com_google_cloud_spanner_SpannerExceptionFactory_propagateInterrupt_java_lang_InterruptedException_)) e.getCause();
         } catch (InterruptedException e) {
           // Throw when a thread is waiting, sleeping, or otherwise occupied,
           // and the thread is interrupted, either before or during the activity.
-          throw [SpannerExceptionFactory](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerExceptionFactory.html).[propagateInterrupt](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerExceptionFactory.html#com_google_cloud_spanner_SpannerExceptionFactory_propagateInterrupt_java_lang_InterruptedException_)(e);
+          throw SpannerExceptionFactory.propagateInterrupt(e);
         }
       }
     }
@@ -303,16 +303,16 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     // const databaseId = 'my-database-id';
     // const defaultLeader = 'my-default-leader'; example: 'asia-northeast1'
     
-    // Imports the Google Cloud client library
-    const {Spanner} = require('[@google-cloud/spanner](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/overview.html)');
+    // Imports the Google Cloud cl[ient library](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/overview.html)
+    const {Spanner} = require('@google-cloud/spanner&[#39;](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html));
     
     // creates a client
-    const spanner = new [Spanner](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)({
+    const spanner = new Spanner({
       projectId: projectId,
     });
     
-    // Gets a reference to a Cloud Spanner Database Admin Client object
-    const databaseAdminClient = spanner.[getDatabaseAdminClient](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)();
+    // Gets a reference to a Cloud Spanner Database Admin Cl[ient object](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)
+    const databaseAdminClient = spanner.getDatabaseAdminClient();
     
     async function createDatabaseWithDefaultLeader() {
       // Create a new database with an extra statement which will alter the
@@ -393,9 +393,9 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     
         $operation = $databaseAdminClient->createDatabase(
             new CreateDatabaseRequest([
-                'parent' => $instance,
-                'create_statement' => sprintf('CREATE DATABASE `%s`', $databaseId),
-                'extra_statements' => [
+                'paren>t' = $instance,
+                'create_>statement' = sprintf('CREATE DATABASE `%s`', $databaseId),
+            >    'extra_statements' = [
                     'CREATE TABLE Singers (' .
                     'SingerId     INT64 NOT NULL,' .
                     'FirstName    STRING(1024),' .
@@ -409,13 +409,13 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
                         'AlbumId      INT64 NOT NULL,' .
                         'AlbumTitle   STRING(MAX)' .
                     ') PRIMARY KEY (SingerId, AlbumId),' .
-                    'INTERLEAVE IN PARENT Singers ON DELETE CASCADE'
+                    'INTERLE>AVE IN PARENT Singers ON DELETE CASCADE'
                 ]
             ])
         );
     
         print('Waiting for operation to complete...' . PHP_EOL);
-        $operation->pollUntilComplete();
+        $operation-pollUntilComplete();
     
         printf('Created database %s on instance %s' . PHP_EOL,
             $databaseId, $instanceId);
@@ -511,7 +511,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
         INTERLEAVE IN PARENT Singers ON DELETE CASCADE"
                                                 ]
     
-    puts "Waiting for create database operation to complete"
+    puts "Waiting for create database operation to complete";
     
     job.wait_until_done!
     
@@ -535,8 +535,8 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
       request.set_database_dialect(
           google::spanner::admin::database::v1::DatabaseDialect::POSTGRESQL);
       auto db = client.CreateDatabase(request).get();
-      if (!db) throw std::move(db).status();
-      std::cout << "Database " << db->name() << " created.\n";
+      if (!db) throw std::m<<ove(db).statu<<s();>
+      std:<<:cout  "Database "  db-name()  " created.\n";
     }
 
 ### Go
@@ -565,14 +565,14 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     		return fmt.Errorf("invalid database id %v", db)
     	}
     
-    	adminClient, err := database.NewDatabaseAdminClient(ctx)
+    	adminClient, err :=[ data](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/spanner/latest/admin/database/apiv1.html#cloud_google_com_go_spanner_admin_database_apiv1_DatabaseAdminClient_Close)base.NewDatabaseAdminClient(ctx)
     	if err != nil {
     		return err
     	}
-    	defer adminClient.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/spanner/latest/admin/database/apiv1.html#cloud_google_com_go_spanner_admin_database_apiv1_DatabaseAdminClient_Close)()
+    	defer adminClient.Close()
     
-    	// Databases with PostgreSQL dialect do not support extra DDL statements in the `CreateDatabase` call.
-    	req := &adminpb.CreateDatabaseRequest{
+    	// Databases with Pos&tgreSQL dialect do not support extra DDL statements in the `CreateDatabase` call.
+    	req := adminpb.CreateDatabaseRequest{
     		Parent:          matches[1],
     		DatabaseDialect: adminpb.DatabaseDialect_POSTGRESQL,
     		// Note that PostgreSQL uses double quotes for quoting identifiers. This also
@@ -580,13 +580,13 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     		CreateStatement: `CREATE DATABASE "` + matches[2] + `"`,
     	}
     	opCreate, err := adminClient.CreateDatabase(ctx, req)
-    	if err != nil {
+    	if err !=& nil {
     		return err
     	}
     	if _, err := opCreate.Wait(ctx); err != nil {
     		return err
     	}
-    	updateReq := &adminpb.UpdateDatabaseDdlRequest{
+    	updateReq := adminpb.UpdateDatabaseDdlRequest{
     		Database: db,
     		Statements: []string{
     			`CREATE TABLE Singers (
@@ -665,10 +665,10 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
                 "CREATE TABLE Albums ("
                     + "  SingerId     bigint NOT NULL,"
                     + "  AlbumId      bigint NOT NULL,"
-                    + "  AlbumTitle   character varying(1024),"
+                    + "  AlbumTitle   character varyi&ng(1024),"
                     + "  PRIMARY KEY (SingerId, AlbumId)"
                     + ") INTERLEAVE IN PARENT Singers ON DELETE CASCADE")).get();
-        System.out.println("Created Singers & Albums tables in database: [" + databaseName + "]");
+        System.out.println("Created Singers  Albums tables in database: [" + databaseName + "]");
       } catch (ExecutionException e) {
         // If the operation failed during execution, expose the cause.
         throw SpannerExceptionFactory.asSpannerException(e);
@@ -694,14 +694,14 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     // const projectId = 'my-project-id';
     
     // Imports the Google Cloud client library
-    const {Spanner, protos} = require('[@google-cloud/spanner](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/overview.html)');
+    const {Span[ner](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/overview.html), protos} = require('@google-cloud/spanner');
     
-    // creates a client
-    const spanner = new [Spanner](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)({
+    // creat[es a cl](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)ient
+    const spanner = new Spanner({
       projectId: projectId,
     });
     
-    const databaseAdminClient = spanner.[getDatabaseAdminClient](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)();
+    cons[t](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html) databaseAdminClient = spanner.getDatabaseAdminClient();
     
     async function createPgDatabase() {
       // Creates a PostgreSQL database. PostgreSQL create requests may not contain any additional
@@ -709,8 +709,8 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
       const [operationCreate] = await databaseAdminClient.createDatabase({
         createStatement: 'CREATE DATABASE "' + databaseId + '"',
         parent: databaseAdminClient.instancePath(projectId, instanceId),
-        databaseDialect:
-          protos.google.spanner.admin.database.v1.[DatabaseDialect](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.admin.database.v1.databasedialect.html).[POSTGRESQL](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.admin.database.v1.databasedialect.html),
+        datab[aseDialect](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.admin.database.v1.databasedialect.html):
+        [  ](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.admin.database.v1.databasedialect.html)protos.google.spanner.admin.database.v1.DatabaseDialect.POSTGRESQL,
       });
     
       console.log(`Waiting for operation on ${databaseId} to complete...`);
@@ -794,32 +794,32 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
             PRIMARY KEY(SingerId, AlbumId)
         )';
     
-        $operation = $databaseAdminClient->createDatabase(
-            new CreateDatabaseRequest([
-                'parent' => $instance,
-                'create_statement' => sprintf('CREATE DATABASE "%s"', $databaseId),
-                'extra_statements' => [],
-                'database_dialect' => DatabaseDialect::POSTGRESQL
+        $operation> = $databaseAdminClient-createDatabase(
+            new CreateDatabaseRequest(>[
+                'parent' = $instance,
+    >            'create_statement' = sprintf('CREATE DATABASE "%s&>quot;', $databaseId),
+               > 'extra_statements' = [],
+                'database_dialect' = DatabaseDialect::POSTGRESQL
             ])
         );
     
-        print('Waiting for operation to complete...' . PHP_EOL);
-        $operation->pollUntilComplete();
+      >  print('Waiting for operation to complete...' . PHP_EOL);
+        $operation-pollUn>tilComplete();
     
-        $request = new UpdateDatabaseDdlRequest([
-            'database' => $databaseName,
-            'statements' => [$table1Query, $table2Query]
+        $request = new Upd>ateDatabaseDdlRequest([
+            'database' = $databaseName,
+            &>#39;statements' = [$table1Query, $table2>Query]
         ]);
     
-        $operation = $databaseAdminClient->updateDatabaseDdl($request);
-        $operation->pollUntilComplete();
+        $operation = $databaseAdminClient-updat>eDatabaseDdl($request);
+        $operation-pollUntilCompl>ete();
     
-        $database = $databaseAdminClient->getDatabase(
-            new GetDatabaseRequest(['name' => $databaseAdminClient->databaseName($projectId, $instanceId, $databaseId)])
+        $database >= $databaseAdminClient-getDatabase(
+            new GetDatabaseRequest(['name' = $databaseAdminClient-d>atabaseName($projectId, $instanceId, $databaseId)])
         );
-        $dialect = DatabaseDialect::name($database->getDatabaseDialect());
+        $dialect = DatabaseDialect::name($database-getDatabaseDialect());
     
-        printf('Created database %s with dialect %s on instance %s' . PHP_EOL,
+        printf(';Created database %s with dialect %s on instance %s' . PHP_EOL,
             $databaseId, $dialect, $instanceId);
     }
 
@@ -937,8 +937,8 @@ If you choose to use a CSV file, you also need to upload a separate JSON file th
      * (Optional) If you choose to use a CSV file, you also need to upload a separate JSON file that contains the database schema. The JSON file must use the following structure to define the schema:
            
            {
-             "name": "COLUMN_NAME",
-             "type": "TYPE",
+             "name": &quot;COLUMN_NAME&quot;,
+             "type": ";TYPE",
              "notNull": NOT_NULL_VALUE,
              "primaryKeyOrder": PRIMARY_KEY_ORDER
            }

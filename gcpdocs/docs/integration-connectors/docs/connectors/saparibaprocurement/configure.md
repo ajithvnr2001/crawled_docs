@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/saparibaprocurement/configure/
 title: SAP Ariba Procurement \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:39.441314+00:00
+fetched_at: 2026-10-25T06:17:44.872394+00:00
 ---
 
 # SAP Ariba Procurement  |  Integration Connectors  |  Google Cloud Documentation

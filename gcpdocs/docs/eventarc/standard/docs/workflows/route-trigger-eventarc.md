@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/workflows/route-trigger-eventarc/
 title: Route Eventarc events to Workflows \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:01.064256+00:00
+fetched_at: 2026-10-25T06:17:30.618441+00:00
 ---
 
 # Route Eventarc events to Workflows  |  Eventarc Standard  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/enterprise-edition/
 title: Turn Enterprise edition on or off for search apps \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:58.992706+00:00
+fetched_at: 2026-10-25T06:24:49.471400+00:00
 ---
 
 # Turn Enterprise edition on or off for search apps  |  Agent Search  |  Google Cloud Documentation

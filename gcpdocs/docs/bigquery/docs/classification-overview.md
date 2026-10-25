@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/classification-overview/
 title: Classification overview \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:29.841089+00:00
+fetched_at: 2026-10-25T06:39:10.603968+00:00
 ---
 
 # Classification overview  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/billing-questions/
 title: Billing questions \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:16.807724+00:00
+fetched_at: 2026-10-25T05:53:37.380150+00:00
 ---
 
 # Billing questions  |  Lakehouse  |  Google Cloud Documentation

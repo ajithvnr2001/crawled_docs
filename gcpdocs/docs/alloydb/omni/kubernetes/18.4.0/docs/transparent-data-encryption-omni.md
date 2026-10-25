@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/transparent-data-encryption-omni/
 title: Transparent data encryption for AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:56:39.005067+00:00
+fetched_at: 2026-10-25T05:56:53.712650+00:00
 ---
 
 # Transparent data encryption for AlloyDB Omni  |  AlloyDB Omni using the container orchestrator: 18.4.0  |  Google Cloud Documentation

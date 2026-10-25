@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.3.0/docs/db-version-policies/
 title: Database version policies \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:50:21.552070+00:00
+fetched_at: 2026-10-25T06:25:27.738771+00:00
 ---
 
 # Database version policies  |  AlloyDB Omni using the RPM orchestrator: 18.3.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.8.0/docs/key-terms/
 title: AlloyDB Omni and AlloyDB Omni Kubernetes operator key terms \u00a0|\u00a0 AlloyDB Omni for containers: 16.8.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:59:54.739226+00:00
+fetched_at: 2026-10-25T05:54:25.524431+00:00
 ---
 
 # AlloyDB Omni and AlloyDB Omni Kubernetes operator key terms  |  AlloyDB Omni for containers: 16.8.0  |  Google Cloud Documentation

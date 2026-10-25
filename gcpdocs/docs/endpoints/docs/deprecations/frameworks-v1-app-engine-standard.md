@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/deprecations/frameworks-v1-app-engine-standard/
 title: Cloud Endpoints Framework v1 for App Engine standard environment deprecation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:52.229478+00:00
+fetched_at: 2026-10-25T06:18:32.821271+00:00
 ---
 
 # Cloud Endpoints Framework v1 for App Engine standard environment deprecation  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/about-lakehouse-catalogs/
 title: About the Lakehouse runtime catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:17.264134+00:00
+fetched_at: 2026-10-25T05:53:35.628060+00:00
 ---
 
 # About the Lakehouse runtime catalog  |  Google Cloud Documentation

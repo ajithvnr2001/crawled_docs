@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/console-video-learning/
 title: BigQuery interactive walkthroughs and videos \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:24.297066+00:00
+fetched_at: 2026-10-25T06:39:44.135568+00:00
 ---
 
 # BigQuery interactive walkthroughs and videos  |  Google Cloud Documentation

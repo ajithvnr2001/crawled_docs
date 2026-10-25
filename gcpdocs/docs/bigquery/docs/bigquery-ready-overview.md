@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/bigquery-ready-overview/
 title: Google Cloud Ready - BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:35.279851+00:00
+fetched_at: 2026-10-25T06:39:08.616588+00:00
 ---
 
 # Google Cloud Ready - BigQuery  |  Google Cloud Documentation

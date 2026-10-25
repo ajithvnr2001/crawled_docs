@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/openapi/when-why-api-key/
 title: Why and when to use API keys \u00a0|\u00a0 Cloud Endpoints with OpenAPI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:41.527519+00:00
+fetched_at: 2026-10-25T06:18:21.774547+00:00
 ---
 
 # Why and when to use API keys  |  Cloud Endpoints with OpenAPI  |  Google Cloud Documentation

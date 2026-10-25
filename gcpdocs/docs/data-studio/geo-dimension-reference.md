@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/geo-dimension-reference/
 title: Geo dimension reference \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:13.777461+00:00
+fetched_at: 2026-10-25T06:41:09.618405+00:00
 ---
 
 # Geo dimension reference  |  Data Studio  |  Google Cloud Documentation

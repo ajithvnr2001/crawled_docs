@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/
 title: Commerce agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:39.579319+00:00
+fetched_at: 2026-10-25T06:26:39.227890+00:00
 ---
 
 # Commerce agents  |  Google Cloud Documentation

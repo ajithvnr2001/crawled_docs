@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/oasv2-extensions/
 title: OpenAPI 2.0 extensions in API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:43.373549+00:00
+fetched_at: 2026-10-25T06:33:09.407878+00:00
 ---
 
 # OpenAPI 2.0 extensions in API Gateway  |  Google Cloud Documentation

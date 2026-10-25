@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/deploy-a-plugin/
 title: Deploy a plugin from the Cloud Data Fusion Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:00.989197+00:00
+fetched_at: 2026-10-25T06:42:59.068578+00:00
 ---
 
 # Deploy a plugin from the Cloud Data Fusion Hub  |  Google Cloud Documentation

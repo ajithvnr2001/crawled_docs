@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/multiple-range-optimize-indexes/
 title: Optimize queries with range and inequality filters on multiple fields \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:43.955581+00:00
+fetched_at: 2026-10-25T06:24:43.792070+00:00
 ---
 
 # Optimize queries with range and inequality filters on multiple fields  |  Firestore in Native mode  |  Google Cloud Documentation

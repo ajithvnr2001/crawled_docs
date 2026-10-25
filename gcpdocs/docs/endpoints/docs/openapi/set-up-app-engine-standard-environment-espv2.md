@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/openapi/set-up-app-engine-standard-environment-espv2/
 title: Quickstart: Set up Endpoints OpenAPI for standard environment with ESPv2 \u00a0|\u00a0 Cloud Endpoints with OpenAPI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:15.114104+00:00
+fetched_at: 2026-10-25T06:18:36.568862+00:00
 ---
 
 # Quickstart: Set up Endpoints OpenAPI for standard environment with ESPv2  |  Cloud Endpoints with OpenAPI  |  Google Cloud Documentation

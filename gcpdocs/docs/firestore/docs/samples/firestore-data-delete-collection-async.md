@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-delete-collection-async/
 title: Delete a Firestore collection (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:57.203231+00:00
+fetched_at: 2026-10-25T06:20:15.097904+00:00
 ---
 
 # Delete a Firestore collection (async)  |  Google Cloud Documentation

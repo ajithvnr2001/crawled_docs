@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-concepts-requests/
 title: Send HTTP requests \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:23.994353+00:00
+fetched_at: 2026-10-25T06:25:21.877688+00:00
 ---
 
 # Send HTTP requests  |  Cloud Run functions  |  Google Cloud Documentation

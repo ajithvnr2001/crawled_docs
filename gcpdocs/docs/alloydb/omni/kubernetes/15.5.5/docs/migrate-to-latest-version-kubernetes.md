@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/migrate-to-latest-version-kubernetes/
 title: Migrate to the latest version of the AlloyDB Omni Kubernetes Operator \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.5.5 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:44:09.075408+00:00
+fetched_at: 2026-10-25T06:38:00.449490+00:00
 ---
 
 # Migrate to the latest version of the AlloyDB Omni Kubernetes Operator  |  AlloyDB Omni for Kubernetes: 15.5.5  |  Google Cloud Documentation

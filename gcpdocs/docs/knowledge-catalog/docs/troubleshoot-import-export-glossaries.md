@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/troubleshoot-import-export-glossaries/
 title: Troubleshoot business glossary and entry link import errors \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:29:49.316068+00:00
+fetched_at: 2026-10-25T05:52:59.982207+00:00
 ---
 
 # Troubleshoot business glossary and entry link import errors  |  Knowledge Catalog  |  Google Cloud Documentation

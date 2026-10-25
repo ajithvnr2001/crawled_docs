@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bare-metal/docs/solutions/oracle/data-guard-setup/overview/
 title: Deploy Oracle Data Guard on Bare Metal Solution \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:42:57.829677+00:00
+fetched_at: 2026-10-25T06:38:57.871220+00:00
 ---
 
 # Deploy Oracle Data Guard on Bare Metal Solution  |  Google Cloud Documentation

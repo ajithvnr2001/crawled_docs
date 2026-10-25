@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.5.0/docs/deploy-kubernetes/
 title: Install AlloyDB Omni on Kubernetes \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 17.5.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:43:35.252671+00:00
+fetched_at: 2026-10-25T06:37:30.204295+00:00
 ---
 
 # Install AlloyDB Omni on Kubernetes  |  AlloyDB Omni for Kubernetes: 17.5.0  |  Google Cloud Documentation

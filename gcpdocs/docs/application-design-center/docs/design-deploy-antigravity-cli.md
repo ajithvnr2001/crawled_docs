@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/design-deploy-antigravity-cli/
 title: Design and deploy an application using Antigravity CLI \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:42.937795+00:00
+fetched_at: 2026-10-25T06:34:15.371728+00:00
 ---
 
 # Design and deploy an application using Antigravity CLI  |  Application Design Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/sql-mysql/
 title: Conversational analytics for Cloud SQL for MySQL overview \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:49.930092+00:00
+fetched_at: 2026-10-25T06:22:58.854992+00:00
 ---
 
 # Conversational analytics for Cloud SQL for MySQL overview  |  Data Agents  |  Google Cloud Documentation

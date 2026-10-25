@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/configure-redshift-batch-source/
 title: Redshift batch source \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:09.037575+00:00
+fetched_at: 2026-10-25T06:44:18.877768+00:00
 ---
 
 # Redshift batch source  |  Cloud Data Fusion  |  Google Cloud Documentation

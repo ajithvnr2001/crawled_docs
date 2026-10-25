@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/cloud-run-sign-in/
 title: Hosting a sign-in page with Cloud Run \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:02.668770+00:00
+fetched_at: 2026-10-25T06:20:44.169138+00:00
 ---
 
 # Hosting a sign-in page with Cloud Run  |  Identity-Aware Proxy  |  Google Cloud Documentation

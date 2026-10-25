@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/sketches/
 title: Sketches \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:55.601467+00:00
+fetched_at: 2026-10-25T06:41:19.008532+00:00
 ---
 
 # Sketches  |  BigQuery  |  Google Cloud Documentation

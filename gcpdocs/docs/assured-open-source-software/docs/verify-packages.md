@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-open-source-software/docs/verify-packages/
 title: Verify signatures in the Assured OSS free tier \u00a0|\u00a0 Assured Open Source Software \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:47.690781+00:00
+fetched_at: 2026-10-25T06:37:02.857287+00:00
 ---
 
 # Verify signatures in the Assured OSS free tier  |  Assured Open Source Software  |  Google Cloud Documentation

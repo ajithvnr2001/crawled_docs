@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/vpc-endpoints/receive-gke-private-endpoint/
 title: Receive Pub/Sub events at a private HTTP endpoint in a private GKE cluster \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:50.714362+00:00
+fetched_at: 2026-10-25T06:18:02.682320+00:00
 ---
 
 # Receive Pub/Sub events at a private HTTP endpoint in a private GKE cluster  |  Eventarc Standard  |  Google Cloud Documentation

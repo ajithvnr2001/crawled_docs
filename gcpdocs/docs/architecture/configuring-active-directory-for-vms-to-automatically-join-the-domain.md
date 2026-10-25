@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/configuring-active-directory-for-vms-to-automatically-join-the-domain/
 title: Configure Active Directory for VMs to automatically join a domain \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:27.544979+00:00
+fetched_at: 2026-10-25T06:32:54.048285+00:00
 ---
 
 # Configure Active Directory for VMs to automatically join a domain  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/binary-authorization/docs/getting-started-console/
 title: Get started using the Google Cloud console (GKE) \u00a0|\u00a0 Binary Authorization \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:54.903712+00:00
+fetched_at: 2026-10-25T06:41:07.014746+00:00
 ---
 
 # Get started using the Google Cloud console (GKE)  |  Binary Authorization  |  Google Cloud Documentation

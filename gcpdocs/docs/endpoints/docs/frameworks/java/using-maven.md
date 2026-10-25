@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/frameworks/java/using-maven/
 title: Using Apache Maven and the App Engine plugin (Google Cloud CLI-based) \u00a0|\u00a0 Cloud Endpoints Frameworks for App Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:05:00.019405+00:00
+fetched_at: 2026-10-25T06:17:37.838807+00:00
 ---
 
 # Using Apache Maven and the App Engine plugin (Google Cloud CLI-based)  |  Cloud Endpoints Frameworks for App Engine  |  Google Cloud Documentation

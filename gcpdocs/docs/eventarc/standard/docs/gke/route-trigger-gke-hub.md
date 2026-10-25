@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/gke/route-trigger-gke-hub/
 title: Route GKE GKE Fleet events to GKE \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:47.573102+00:00
+fetched_at: 2026-10-25T06:19:22.236448+00:00
 ---
 
 # Route GKE GKE Fleet events to GKE  |  Eventarc Standard  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.3.0/docs/kubernetes-dr-backup-k8-local/
 title: Clone a database cluster in Kubernetes using a local backup \u00a0|\u00a0 AlloyDB Omni for containers: 16.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:46:17.752451+00:00
+fetched_at: 2026-10-25T06:36:10.862233+00:00
 ---
 
 # Clone a database cluster in Kubernetes using a local backup  |  AlloyDB Omni for containers: 16.3.0  |  Google Cloud Documentation

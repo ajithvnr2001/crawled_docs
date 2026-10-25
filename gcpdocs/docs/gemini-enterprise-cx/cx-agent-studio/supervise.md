@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/supervise/
 title: Supervise agents \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:00.577190+00:00
+fetched_at: 2026-10-25T06:26:49.056379+00:00
 ---
 
 # Supervise agents  |  CX Agent Studio  |  Google Cloud Documentation

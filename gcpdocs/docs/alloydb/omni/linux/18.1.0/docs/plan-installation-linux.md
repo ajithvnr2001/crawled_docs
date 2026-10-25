@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.0/docs/plan-installation-linux/
 title: Plan your AlloyDB Omni installation \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:16.960415+00:00
+fetched_at: 2026-10-25T06:41:58.308489+00:00
 ---
 
 # Plan your AlloyDB Omni installation  |  AlloyDB Omni using RPM: 18.1.0  |  Google Cloud Documentation

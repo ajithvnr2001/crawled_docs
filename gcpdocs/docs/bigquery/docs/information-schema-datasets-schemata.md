@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-datasets-schemata/
 title: SCHEMATA view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:51.664956+00:00
+fetched_at: 2026-10-25T06:39:12.042556+00:00
 ---
 
 # SCHEMATA view  |  BigQuery  |  Google Cloud Documentation

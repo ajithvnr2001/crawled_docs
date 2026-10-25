@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/reuse-data-quality-rules/
 title: Reuse data quality rules \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:17.289195+00:00
+fetched_at: 2026-10-25T05:54:29.519013+00:00
 ---
 
 # Reuse data quality rules  |  Knowledge Catalog  |  Google Cloud Documentation

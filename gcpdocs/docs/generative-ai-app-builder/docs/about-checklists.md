@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/about-checklists/
 title: About the checklists \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:52.571880+00:00
+fetched_at: 2026-10-25T06:25:58.020214+00:00
 ---
 
 # About the checklists  |  Agent Search  |  Google Cloud Documentation

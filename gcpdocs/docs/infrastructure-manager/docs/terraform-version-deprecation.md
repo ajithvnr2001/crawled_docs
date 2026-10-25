@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/infrastructure-manager/docs/terraform-version-deprecation/
 title: Terraform version management policy \u00a0|\u00a0 Infrastructure Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:28.428353+00:00
+fetched_at: 2026-10-25T06:21:47.945060+00:00
 ---
 
 # Terraform version management policy  |  Infrastructure Manager  |  Google Cloud Documentation

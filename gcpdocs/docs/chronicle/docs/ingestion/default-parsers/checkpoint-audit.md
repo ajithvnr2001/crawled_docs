@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/checkpoint-audit/
 title: Collect Check Point Audit logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:31:25.814372+00:00
+fetched_at: 2026-10-25T06:43:59.078449+00:00
 ---
 
 # Collect Check Point Audit logs  |  Google Security Operations  |  Google Cloud Documentation

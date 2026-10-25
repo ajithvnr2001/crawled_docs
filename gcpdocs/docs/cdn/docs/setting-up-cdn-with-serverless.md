@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cdn/docs/setting-up-cdn-with-serverless/
 title: Set up Cloud Run, Cloud Functions, or App Engine \u00a0|\u00a0 Cloud CDN \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:50.739078+00:00
+fetched_at: 2026-10-25T06:42:04.637973+00:00
 ---
 
 # Set up Cloud Run, Cloud Functions, or App Engine  |  Cloud CDN  |  Google Cloud Documentation

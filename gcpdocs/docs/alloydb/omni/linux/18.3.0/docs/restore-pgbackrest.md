@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.3.0/docs/restore-pgbackrest/
 title: Restore from a pgBackRest-based backup for AlloyDB Omni on Linux \u00a0|\u00a0 AlloyDB Omni using RPM: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:47.462346+00:00
+fetched_at: 2026-10-25T06:41:38.201292+00:00
 ---
 
 # Restore from a pgBackRest-based backup for AlloyDB Omni on Linux  |  AlloyDB Omni using RPM: 18.3.0  |  Google Cloud Documentation

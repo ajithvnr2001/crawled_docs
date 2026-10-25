@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/active-directory-overview/
 title: Active Directory overview \u00a0|\u00a0 AlloyDB Omni using containers: 16.14.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:25.626265+00:00
+fetched_at: 2026-10-25T06:33:45.948725+00:00
 ---
 
 # Active Directory overview  |  AlloyDB Omni using containers: 16.14.0  |  Google Cloud Documentation

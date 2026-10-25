@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/batch-write/
 title: Modify data using batch write \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:10:40.123216+00:00
+fetched_at: 2026-10-25T05:44:37.522367+00:00
 ---
 
 # Modify data using batch write  |  Spanner  |  Google Cloud Documentation
@@ -274,7 +274,7 @@ You can also batch write using the Spanner client libraries. The following code 
     import com.google.api.gax.rpc.[ServerStream](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ServerStream.html);
     import com.google.cloud.spanner.[DatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.DatabaseClient.html);
     import com.google.cloud.spanner.[DatabaseId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.DatabaseId.html);
-    import com.google.cloud.spanner.[Mutation](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.v1.Mutation.html);
+    import com.google.cloud.spanner.[Mutation](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Mutation.html);
     import com.google.cloud.spanner.[MutationGroup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.MutationGroup.html);
     import com.google.cloud.spanner.[Options](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Options.html);
     import com.google.cloud.spanner.[Spanner](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html);
@@ -305,7 +305,7 @@ You can also batch write using the Spanner client libraries. The following code 
     
       private static final [MutationGroup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.MutationGroup.html) MUTATION_GROUP1 =
           [MutationGroup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.MutationGroup.html).of(
-              [Mutation](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.v1.Mutation.html).[newInsertOrUpdateBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Mutation.html#com_google_cloud_spanner_Mutation_newInsertOrUpdateBuilder_java_lang_String_)("Singers")
+              [Mutation](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Mutation.html).[newInsertOrUpdateBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Mutation.html#com_google_cloud_spanner_Mutation_newInsertOrUpdateBuilder_java_lang_String_)("Singers")
                   .set("SingerId")
                   .[to](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.ValueBinder.html#com_google_cloud_spanner_ValueBinder_to_boolean_)(16)
                   .set("FirstName")
@@ -315,13 +315,13 @@ You can also batch write using the Spanner client libraries. The following code 
                   .build());
       private static final [MutationGroup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.MutationGroup.html) MUTATION_GROUP2 =
           [MutationGroup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.MutationGroup.html).of(
-              [Mutation](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.v1.Mutation.html).[newInsertOrUpdateBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Mutation.html#com_google_cloud_spanner_Mutation_newInsertOrUpdateBuilder_java_lang_String_)("Singers")
+              [Mutation](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Mutation.html).[newInsertOrUpdateBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Mutation.html#com_google_cloud_spanner_Mutation_newInsertOrUpdateBuilder_java_lang_String_)("Singers")
                   .set("SingerId")
                   .[to](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.ValueBinder.html#com_google_cloud_spanner_ValueBinder_to_boolean_)(17)
                   .set("FirstName")
                   .[to](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.ValueBinder.html#com_google_cloud_spanner_ValueBinder_to_boolean_)("Marc")
                   .build(),
-              [Mutation](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.v1.Mutation.html).[newInsertOrUpdateBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Mutation.html#com_google_cloud_spanner_Mutation_newInsertOrUpdateBuilder_java_lang_String_)("Singers")
+              [Mutation](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Mutation.html).[newInsertOrUpdateBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Mutation.html#com_google_cloud_spanner_Mutation_newInsertOrUpdateBuilder_java_lang_String_)("Singers")
                   .set("SingerId")
                   .[to](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.ValueBinder.html#com_google_cloud_spanner_ValueBinder_to_boolean_)(18)
                   .set("FirstName")
@@ -329,7 +329,7 @@ You can also batch write using the Spanner client libraries. The following code 
                   .set("LastName")
                   .[to](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.ValueBinder.html#com_google_cloud_spanner_ValueBinder_to_boolean_)("Smith")
                   .build(),
-              [Mutation](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.v1.Mutation.html).[newInsertOrUpdateBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Mutation.html#com_google_cloud_spanner_Mutation_newInsertOrUpdateBuilder_java_lang_String_)("Albums")
+              [Mutation](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Mutation.html).[newInsertOrUpdateBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Mutation.html#com_google_cloud_spanner_Mutation_newInsertOrUpdateBuilder_java_lang_String_)("Albums")
                   .set("SingerId")
                   .[to](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.ValueBinder.html#com_google_cloud_spanner_ValueBinder_to_boolean_)(17)
                   .set("AlbumId")
@@ -337,7 +337,7 @@ You can also batch write using the Spanner client libraries. The following code 
                   .set("AlbumTitle")
                   .[to](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.ValueBinder.html#com_google_cloud_spanner_ValueBinder_to_boolean_)("Total Junk")
                   .build(),
-              [Mutation](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.v1.Mutation.html).[newInsertOrUpdateBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Mutation.html#com_google_cloud_spanner_Mutation_newInsertOrUpdateBuilder_java_lang_String_)("Albums")
+              [Mutation](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Mutation.html).[newInsertOrUpdateBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Mutation.html#com_google_cloud_spanner_Mutation_newInsertOrUpdateBuilder_java_lang_String_)("Albums")
                   .set("SingerId")
                   .[to](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.ValueBinder.html#com_google_cloud_spanner_ValueBinder_to_boolean_)(18)
                   .set("AlbumId")

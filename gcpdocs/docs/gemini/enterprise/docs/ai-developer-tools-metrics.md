@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-metrics/
 title: View AI developer tools metrics \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:08.663391+00:00
+fetched_at: 2026-10-25T06:23:26.451431+00:00
 ---
 
 # View AI developer tools metrics  |  Gemini Enterprise  |  Google Cloud Documentation

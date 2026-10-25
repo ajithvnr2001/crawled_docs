@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/fault-injection-testing/billing-questions/
 title: Billing questions \u00a0|\u00a0 Fault Injection Testing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:58.222985+00:00
+fetched_at: 2026-10-25T05:56:20.986933+00:00
 ---
 
 # Billing questions  |  Fault Injection Testing  |  Google Cloud Documentation

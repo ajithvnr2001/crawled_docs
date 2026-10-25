@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/jiraservicemanagement/configure/
 title: Jira Service Management \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:43.745975+00:00
+fetched_at: 2026-10-25T05:57:03.003594+00:00
 ---
 
 # Jira Service Management  |  Integration Connectors  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-create-training-pipeline-custom-training-managed-dataset-sample/
 title: Create a training pipeline for custom training managed dataset \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:27:04.086318+00:00
+fetched_at: 2026-10-25T05:44:10.771974+00:00
 ---
 
 # Create a training pipeline for custom training managed dataset  |  Vertex AI  |  Google Cloud Documentation
@@ -34,18 +34,18 @@ Before trying this sample, follow the Java setup instructions in the [Vertex AI 
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.aiplatform.v1.[GcsDestination](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.GcsDestination.html);
-    import com.google.cloud.aiplatform.v1.[InputDataConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.InputDataConfig.html);
-    import com.google.cloud.aiplatform.v1.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.LocationName.html);
-    import com.google.cloud.aiplatform.v1.[Model](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Model.html);
-    import com.google.cloud.aiplatform.v1.[ModelContainerSpec](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelContainerSpec.html);
-    import com.google.cloud.aiplatform.v1.[PipelineServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PipelineServiceClient.html);
-    import com.google.cloud.aiplatform.v1.[PipelineServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PipelineServiceSettings.html);
-    import com.google.cloud.aiplatform.v1.[TrainingPipeline](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.TrainingPipeline.html);
+    import com.google.cloud.aiplatform.v1.GcsDestination;
+    import com.google.cloud.aiplatform.v1.InputDataConfig;
+    import com.google.cloud.aiplatform.v1.LocationName;
+    import com.google.cloud.aiplatform.v1.Model;
+    import com.google.cloud.aiplatform.v1.ModelContainerSpec;
+    import com.google.cloud.aiplatform.v1.PipelineServiceClient;
+    import com.google.cloud.aiplatform.v1.PipelineServiceSettings;
+    import com.google.cloud.aiplatform.v1.TrainingPipeline;
     import com.google.gson.JsonArray;
     import com.google.gson.JsonObject;
-    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html);
-    import com.google.protobuf.util.[JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html);
+    import com.google.protobuf.Value;
+    import com.google.protobuf.util.JsonFormat;
     import java.io.IOException;
     
     public class CreateTrainingPipelineCustomTrainingManagedDatasetSample {
@@ -81,8 +81,8 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
           String modelContainerSpecImageUri,
           String baseOutputUriPrefix)
           throws IOException {
-        [PipelineServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PipelineServiceSettings.html) settings =
-            [PipelineServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PipelineServiceSettings.html).newBuilder()
+        PipelineServiceSettings settings =
+            PipelineServiceSettings.newBuilder()
                 .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
         String location = "us-central1";
@@ -90,7 +90,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try ([PipelineServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PipelineServiceClient.html) client = [PipelineServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PipelineServiceClient.html).create(settings)) {
+        try (PipelineServiceClient client = PipelineServiceClient.create(settings)) {
           JsonArray jsonArgs = new JsonArray();
           jsonArgs.add("--model-dir=$(AIP_MODEL_DIR)");
           // training_task_inputs
@@ -117,24 +117,24 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
           jsonTrainingTaskInputs.add("workerPoolSpecs", jsonWorkerPoolSpecs);
           jsonTrainingTaskInputs.add("baseOutputDirectory", jsonBaseOutputDirectory);
     
-          [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).Builder trainingTaskInputsBuilder = [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).newBuilder();
-          [JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html).parser().merge(jsonTrainingTaskInputs.toString(), trainingTaskInputsBuilder);
-          [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html) trainingTaskInputs = trainingTaskInputsBuilder.build();
+          Value.Builder trainingTaskInputsBuilder = Value.newBuilder();
+          JsonFormat.parser().merge(jsonTrainingTaskInputs.toString(), trainingTaskInputsBuilder);
+          Value trainingTaskInputs = trainingTaskInputsBuilder.build();
           // model_to_upload
-          [ModelContainerSpec](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelContainerSpec.html) modelContainerSpec =
-              [ModelContainerSpec](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelContainerSpec.html).newBuilder().setImageUri(modelContainerSpecImageUri).build();
-          [Model](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Model.html) model =
-              [Model](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Model.html).newBuilder()
+          ModelContainerSpec modelContainerSpec =
+              ModelContainerSpec.newBuilder().setImageUri(modelContainerSpecImageUri).build();
+          Model model =
+              Model.newBuilder()
                   .setDisplayName(modelDisplayName)
                   .setContainerSpec(modelContainerSpec)
                   .build();
-          [GcsDestination](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.GcsDestination.html) gcsDestination =
-              [GcsDestination](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.GcsDestination.html).newBuilder().[setOutputUriPrefix](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.GcsDestination.Builder.html#com_google_cloud_aiplatform_v1_GcsDestination_Builder_setOutputUriPrefix_java_lang_String_)(baseOutputUriPrefix).build();
+          GcsDestination gcsDestination =
+              GcsDestination.newBuilder().setOutputUriPrefix(baseOutputUriPrefix).build();
     
           // input_data_config
-          [InputDataConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.InputDataConfig.html) inputDataConfig =
-              [InputDataConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.InputDataConfig.html).newBuilder()
-                  .[setDatasetId](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.InputDataConfig.Builder.html#com_google_cloud_aiplatform_v1_InputDataConfig_Builder_setDatasetId_java_lang_String_)(datasetId)
+          InputDataConfig inputDataConfig =
+              InputDataConfig.newBuilder()
+                  .setDatasetId(datasetId)
                   .setAnnotationSchemaUri(annotationSchemaUri)
                   .setGcsDestination(gcsDestination)
                   .build();
@@ -143,18 +143,18 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
           String customTaskDefinition =
               "gs://google-cloud-aiplatform/schema/trainingjob/definition/custom_task_1.0.0.yaml";
     
-          [TrainingPipeline](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.TrainingPipeline.html) trainingPipeline =
-              [TrainingPipeline](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.TrainingPipeline.html).newBuilder()
+          TrainingPipeline trainingPipeline =
+              TrainingPipeline.newBuilder()
                   .setDisplayName(displayName)
-                  .[setInputDataConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.TrainingPipeline.Builder.html#com_google_cloud_aiplatform_v1_TrainingPipeline_Builder_setInputDataConfig_com_google_cloud_aiplatform_v1_InputDataConfig_)(inputDataConfig)
-                  .[setTrainingTaskDefinition](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.TrainingPipeline.Builder.html#com_google_cloud_aiplatform_v1_TrainingPipeline_Builder_setTrainingTaskDefinition_java_lang_String_)(customTaskDefinition)
-                  .[setTrainingTaskInputs](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.TrainingPipeline.Builder.html#com_google_cloud_aiplatform_v1_TrainingPipeline_Builder_setTrainingTaskInputs_com_google_protobuf_Value_)(trainingTaskInputs)
-                  .[setModelToUpload](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.TrainingPipeline.Builder.html#com_google_cloud_aiplatform_v1_TrainingPipeline_Builder_setModelToUpload_com_google_cloud_aiplatform_v1_Model_)(model)
+                  .setInputDataConfig(inputDataConfig)
+                  .setTrainingTaskDefinition(customTaskDefinition)
+                  .setTrainingTaskInputs(trainingTaskInputs)
+                  .setModelToUpload(model)
                   .build();
-          [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.LocationName.html) parent = [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.LocationName.html).of(project, location);
-          [TrainingPipeline](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.TrainingPipeline.html) response = client.createTrainingPipeline(parent, trainingPipeline);
+          LocationName parent = LocationName.of(project, location);
+          TrainingPipeline response = client.createTrainingPipeline(parent, trainingPipeline);
           System.out.format("response: %s\n", response);
-          System.out.format("Name: %s\n", response.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.TrainingPipeline.html#com_google_cloud_aiplatform_v1_TrainingPipeline_getName__)());
+          System.out.format("Name: %s\n", response.getName());
         }
       }
     }
@@ -188,7 +188,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         client_options = {"api_endpoint": api_endpoint}
         # Initialize client that will be used to create and send requests.
         # This client only needs to be created once, and can be reused for multiple requests.
-        client = aiplatform.gapic.[PipelineServiceClient](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.pipeline_service.PipelineServiceClient.html)(client_options=client_options)
+        client = aiplatform.gapic.PipelineServiceClient(client_options=client_options)
     
         # input_data_config
         input_data_config = {
@@ -237,7 +237,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
             "model_to_upload": model,
         }
         parent = f"projects/{project}/locations/{location}"
-        response = client.[create_training_pipeline](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.pipeline_service.PipelineServiceClient.html#google_cloud_aiplatform_v1_services_pipeline_service_PipelineServiceClient_create_training_pipeline)(
+        response = client.create_training_pipeline(
             parent=parent, training_pipeline=training_pipeline
         )
         print("response:", response)

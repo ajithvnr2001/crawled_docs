@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/workforce-sign-in-microsoft-entra-id/
 title: Configure Workforce Identity Federation with Microsoft Entra ID and sign in users \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:21.836518+00:00
+fetched_at: 2026-10-25T06:20:48.317035+00:00
 ---
 
 # Configure Workforce Identity Federation with Microsoft Entra ID and sign in users  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

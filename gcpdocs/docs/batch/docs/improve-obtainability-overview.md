@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/batch/docs/improve-obtainability-overview/
 title: Improve resource obtainability for jobs \u00a0|\u00a0 Batch \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:42:20.987233+00:00
+fetched_at: 2026-10-25T06:39:28.529295+00:00
 ---
 
 # Improve resource obtainability for jobs  |  Batch  |  Google Cloud Documentation

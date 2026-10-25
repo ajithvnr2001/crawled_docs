@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.1/docs/available-download-install-options/
 title: Available AlloyDB Omni download and installation options \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:56:11.749759+00:00
+fetched_at: 2026-10-25T06:27:40.009720+00:00
 ---
 
 # Available AlloyDB Omni download and installation options  |  AlloyDB Omni using RPM: 18.1.1  |  Google Cloud Documentation

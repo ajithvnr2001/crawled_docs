@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/troubleshoot-sap-bdc-access/
 title: Troubleshoot SAP BDC access \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:12.738228+00:00
+fetched_at: 2026-10-25T05:53:31.614328+00:00
 ---
 
 # Troubleshoot SAP BDC access  |  Lakehouse  |  Google Cloud Documentation

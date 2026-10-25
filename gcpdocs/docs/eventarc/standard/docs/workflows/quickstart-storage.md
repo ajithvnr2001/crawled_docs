@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/workflows/quickstart-storage/
 title: Trigger Workflows with direct events from Cloud Storage (gcloud CLI) \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:05.178645+00:00
+fetched_at: 2026-10-25T06:17:28.385722+00:00
 ---
 
 # Trigger Workflows with direct events from Cloud Storage (gcloud CLI)  |  Eventarc Standard  |  Google Cloud Documentation

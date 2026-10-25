@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/distinct/
 title: Distinct (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:10.621198+00:00
+fetched_at: 2026-10-25T06:23:24.648761+00:00
 ---
 
 # Distinct (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation

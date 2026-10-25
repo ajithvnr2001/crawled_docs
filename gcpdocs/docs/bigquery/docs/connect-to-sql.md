@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/connect-to-sql/
 title: Connect to Cloud SQL \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:24.691908+00:00
+fetched_at: 2026-10-25T06:39:43.567404+00:00
 ---
 
 # Connect to Cloud SQL  |  BigQuery  |  Google Cloud Documentation

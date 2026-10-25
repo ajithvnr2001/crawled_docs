@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/integrate-cloud-run/
 title: Deploying to Cloud Run \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:18.625003+00:00
+fetched_at: 2026-10-25T06:36:07.191773+00:00
 ---
 
 # Deploying to Cloud Run  |  Artifact Registry  |  Google Cloud Documentation

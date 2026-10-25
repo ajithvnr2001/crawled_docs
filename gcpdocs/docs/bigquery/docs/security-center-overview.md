@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/security-center-overview/
 title: Security center overview \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:55.992388+00:00
+fetched_at: 2026-10-25T06:40:49.139243+00:00
 ---
 
 # Security center overview  |  BigQuery  |  Google Cloud Documentation

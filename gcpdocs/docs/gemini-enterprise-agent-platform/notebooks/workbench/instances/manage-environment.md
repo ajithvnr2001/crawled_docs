@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-environment/
 title: Manage the conda environment in your Agent Platform Workbench instance \u00a0|\u00a0 Gemini Enterprise Agent Platform Workbench \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:33.363076+00:00
+fetched_at: 2026-10-25T06:26:37.731465+00:00
 ---
 
 # Manage the conda environment in your Agent Platform Workbench instance  |  Gemini Enterprise Agent Platform Workbench  |  Google Cloud Documentation

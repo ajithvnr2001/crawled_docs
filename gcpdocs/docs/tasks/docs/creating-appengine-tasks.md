@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tasks/docs/creating-appengine-tasks/
 title: Create App Engine tasks programmatically \u00a0|\u00a0 Cloud Tasks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:34:49.210350+00:00
+fetched_at: 2026-10-25T05:44:14.073928+00:00
 ---
 
 # Create App Engine tasks programmatically  |  Cloud Tasks  |  Google Cloud Documentation
@@ -543,8 +543,8 @@ Note the `requirements.txt` file:
     
       # Add scheduled time to task.
       if seconds
-        timestamp = Google::Protobuf::[Timestamp](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-network_services-v1/latest/Google-Protobuf-Timestamp.html).new
-        timestamp.[seconds](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-network_services-v1/latest/Google-Protobuf-Timestamp.html) = Time.now.to_i + seconds.to_i
+        timestamp = Google::Protobuf::[Timestamp](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dataqna-v1alpha/latest/Google-Protobuf-Timestamp.html).new
+        timestamp.[seconds](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dataqna-v1alpha/latest/Google-Protobuf-Timestamp.html) = Time.now.to_i + seconds.to_i
         task[:schedule_time] = timestamp
       end
     

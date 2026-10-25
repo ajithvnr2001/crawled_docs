@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/openapi-limitations/
 title: OpenAPI 2.0 feature limitations \u00a0|\u00a0 API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:43.129422+00:00
+fetched_at: 2026-10-25T06:33:43.713214+00:00
 ---
 
 # OpenAPI 2.0 feature limitations  |  API Gateway  |  Google Cloud Documentation

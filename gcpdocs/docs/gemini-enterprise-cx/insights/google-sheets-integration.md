@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/google-sheets-integration/
 title: Enable Sheets integration \u00a0|\u00a0 Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:15.040434+00:00
+fetched_at: 2026-10-25T06:26:29.098874+00:00
 ---
 
 # Enable Sheets integration  |  Customer Experience Insights  |  Google Cloud Documentation

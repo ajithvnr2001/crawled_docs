@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/wildfire-logs/
 title: Advanced malware sandbox logs \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:26.558931+00:00
+fetched_at: 2026-10-25T06:24:22.955568+00:00
 ---
 
 # Advanced malware sandbox logs  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

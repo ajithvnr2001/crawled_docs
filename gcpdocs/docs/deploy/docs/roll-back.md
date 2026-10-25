@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/roll-back/
 title: Roll back a target \u00a0|\u00a0 Cloud Deploy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:24.556124+00:00
+fetched_at: 2026-10-25T05:53:30.697440+00:00
 ---
 
 # Roll back a target  |  Cloud Deploy  |  Google Cloud Documentation

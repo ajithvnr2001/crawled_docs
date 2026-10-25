@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/deploy-and-inference-tutorial/
 title: Deploy and inference Gemma using Model Garden and Gemini Enterprise Agent Platform GPU-backed endpoints \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:06.921340+00:00
+fetched_at: 2026-10-25T06:27:07.202389+00:00
 ---
 
 # Deploy and inference Gemma using Model Garden and Gemini Enterprise Agent Platform GPU-backed endpoints  |  Google Cloud Documentation

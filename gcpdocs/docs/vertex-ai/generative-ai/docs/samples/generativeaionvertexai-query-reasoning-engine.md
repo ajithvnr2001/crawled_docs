@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-query-reasoning-engine/
 title: Query a Reasoning Engine \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:48.233162+00:00
+fetched_at: 2026-10-25T05:44:08.509770+00:00
 ---
 
 # Query a Reasoning Engine  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -35,13 +35,13 @@ Before trying this sample, follow the Python setup instructions in the [Vertex A
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.preview import reasoning_engines
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
     # reasoning_engine_id = "1234567890123456"
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="us-central1")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="us-central1")
     reasoning_engine = reasoning_engines.ReasoningEngine(reasoning_engine_id)
     
     # Replace with kwargs for `.query()` method.

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/requirements/
 title: Requirements \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:30.496239+00:00
+fetched_at: 2026-10-25T06:18:17.583327+00:00
 ---
 
 # Requirements  |  Cloud Healthcare API  |  Google Cloud Documentation

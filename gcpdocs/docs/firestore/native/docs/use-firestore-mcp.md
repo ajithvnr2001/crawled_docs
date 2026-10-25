@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/use-firestore-mcp/
 title: Use the Firestore remote MCP server \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:30.207241+00:00
+fetched_at: 2026-10-25T05:55:30.259698+00:00
 ---
 
 # Use the Firestore remote MCP server  |  Firestore in Native mode  |  Google Cloud Documentation

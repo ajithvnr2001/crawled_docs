@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.1/docs/deploy-vm/
 title: Install AlloyDB Omni using RPM \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:26.484672+00:00
+fetched_at: 2026-10-25T06:41:30.568996+00:00
 ---
 
 # Install AlloyDB Omni using RPM  |  AlloyDB Omni using RPM: 18.1.1  |  Google Cloud Documentation

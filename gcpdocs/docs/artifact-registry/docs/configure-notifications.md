@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/configure-notifications/
 title: Configuring Pub/Sub notifications \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:21.102870+00:00
+fetched_at: 2026-10-25T06:36:26.546824+00:00
 ---
 
 # Configuring Pub/Sub notifications  |  Artifact Registry  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/workflows/route-trigger-apigee-api-hub/
 title: Route Apigee API hub events to Workflows \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:04.893360+00:00
+fetched_at: 2026-10-25T06:18:41.498874+00:00
 ---
 
 # Route Apigee API hub events to Workflows  |  Eventarc Standard  |  Google Cloud Documentation

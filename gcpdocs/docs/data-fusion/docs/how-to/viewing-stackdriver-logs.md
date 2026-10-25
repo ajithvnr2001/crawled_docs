@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/viewing-stackdriver-logs/
 title: View advanced pipeline logs in Cloud Logging \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:56.288753+00:00
+fetched_at: 2026-10-25T06:43:27.533927+00:00
 ---
 
 # View advanced pipeline logs in Cloud Logging  |  Cloud Data Fusion  |  Google Cloud Documentation

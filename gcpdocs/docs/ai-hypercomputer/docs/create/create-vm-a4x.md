@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-vm-a4x/
 title: Create an AI-optimized instance with A4X \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:35.170661+00:00
+fetched_at: 2026-10-25T06:34:03.857563+00:00
 ---
 
 # Create an AI-optimized instance with A4X  |  AI Hypercomputer  |  Google Cloud Documentation

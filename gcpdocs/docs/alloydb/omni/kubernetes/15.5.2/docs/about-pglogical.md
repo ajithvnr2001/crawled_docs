@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.2/docs/about-pglogical/
 title: About the pglogical extension \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.5.2 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:00.311418+00:00
+fetched_at: 2026-10-25T06:37:45.113583+00:00
 ---
 
 # About the pglogical extension  |  AlloyDB Omni for Kubernetes: 15.5.2  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/gke/quickstart-cal/
 title: Quickstart: Receive events using Cloud Audit Logs (Google Cloud CLI) \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:31.926741+00:00
+fetched_at: 2026-10-25T05:57:17.530529+00:00
 ---
 
 # Quickstart: Receive events using Cloud Audit Logs (Google Cloud CLI)  |  Eventarc Standard  |  Google Cloud Documentation

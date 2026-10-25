@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/data-cloud-security/
 title: Secure Data Cloud connectors \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:29.555328+00:00
+fetched_at: 2026-10-25T06:23:18.249677+00:00
 ---
 
 # Secure Data Cloud connectors  |  Gemini Enterprise  |  Google Cloud Documentation

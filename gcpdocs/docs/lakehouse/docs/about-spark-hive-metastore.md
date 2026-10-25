@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/about-spark-hive-metastore/
 title: About the Hive catalog endpoint \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:16.884565+00:00
+fetched_at: 2026-10-25T05:53:34.535751+00:00
 ---
 
 # About the Hive catalog endpoint  |  Lakehouse  |  Google Cloud Documentation

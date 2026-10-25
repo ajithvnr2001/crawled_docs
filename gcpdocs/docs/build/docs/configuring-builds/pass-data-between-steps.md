@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/configuring-builds/pass-data-between-steps/
 title: Passing data between build steps \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:09.004079+00:00
+fetched_at: 2026-10-25T06:41:28.756651+00:00
 ---
 
 # Passing data between build steps  |  Cloud Build  |  Google Cloud Documentation

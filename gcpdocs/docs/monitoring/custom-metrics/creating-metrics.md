@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/custom-metrics/creating-metrics/
 title: Create user-defined metrics with the API \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:54:48.969307+00:00
+fetched_at: 2026-10-25T05:53:07.287335+00:00
 ---
 
 # Create user-defined metrics with the API  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -860,7 +860,7 @@ To authenticate to Monitoring, set up Application Default Credentials. For more 
     point = Google::Cloud::[Monitoring](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-monitoring/latest/Google-Cloud-Monitoring.html)::[V3](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-monitoring-v3/latest/Google-Cloud-Monitoring-V3.html)::Point.new
     point.value = Google::Cloud::[Monitoring](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-monitoring/latest/Google-Cloud-Monitoring.html)::[V3](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-monitoring-v3/latest/Google-Cloud-Monitoring-V3.html)::TypedValue.new double_value: 3.14
     now = Time.now
-    end_time = Google::Protobuf::[Timestamp](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dataqna-v1alpha/latest/Google-Protobuf-Timestamp.html).new seconds: now.to_i, nanos: now.nsec
+    end_time = Google::Protobuf::[Timestamp](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-certificate_manager-v1/latest/Google-Protobuf-Timestamp.html).new seconds: now.to_i, nanos: now.nsec
     point.interval = Google::Cloud::[Monitoring](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-monitoring/latest/Google-Cloud-Monitoring.html)::[V3](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-monitoring-v3/latest/Google-Cloud-Monitoring-V3.html)::TimeInterval.new end_time: end_time
     series.[points](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-monitoring-v3/latest/Google-Cloud-Monitoring-V3-TimeSeries.html) << point
     

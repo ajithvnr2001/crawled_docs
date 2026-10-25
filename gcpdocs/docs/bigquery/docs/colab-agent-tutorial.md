@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/colab-agent-tutorial/
 title: Use natural language to analyze data with the Data Science Agent \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:29.133726+00:00
+fetched_at: 2026-10-25T06:39:08.303093+00:00
 ---
 
 # Use natural language to analyze data with the Data Science Agent  |  BigQuery  |  Google Cloud Documentation

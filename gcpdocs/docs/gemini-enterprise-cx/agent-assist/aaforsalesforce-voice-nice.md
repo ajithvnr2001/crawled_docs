@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/aaforsalesforce-voice-nice/
 title: Agent Assist for Salesforce voice integration with NiCE CXone \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:35.146685+00:00
+fetched_at: 2026-10-25T06:27:22.456220+00:00
 ---
 
 # Agent Assist for Salesforce voice integration with NiCE CXone  |  Google Cloud Documentation

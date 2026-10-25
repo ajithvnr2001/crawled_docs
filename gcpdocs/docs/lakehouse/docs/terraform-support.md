@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/terraform-support/
 title: Use Terraform with borderless Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:09.933929+00:00
+fetched_at: 2026-10-25T05:54:04.763926+00:00
 ---
 
 # Use Terraform with borderless Lakehouse  |  Google Cloud Documentation

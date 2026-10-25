@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/delete-instance/
 title: Delete a Cloud Data Fusion instance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:03.580236+00:00
+fetched_at: 2026-10-25T06:43:34.299491+00:00
 ---
 
 # Delete a Cloud Data Fusion instance  |  Google Cloud Documentation

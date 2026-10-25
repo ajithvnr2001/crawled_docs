@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/enabling-gcs-cloud-run/
 title: Enable IAP for Cloud Storage buckets \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:10.643134+00:00
+fetched_at: 2026-10-25T06:18:47.433769+00:00
 ---
 
 # Enable IAP for Cloud Storage buckets  |  Identity-Aware Proxy  |  Google Cloud Documentation

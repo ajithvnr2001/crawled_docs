@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/go/authentication/
 title: Set up authentication for Go \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:19.017993+00:00
+fetched_at: 2026-10-25T06:36:45.707302+00:00
 ---
 
 # Set up authentication for Go  |  Artifact Registry  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/access-context-manager/docs/access-level-attributes/
 title: Access level attributes \u00a0|\u00a0 Access Context Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:16.739113+00:00
+fetched_at: 2026-10-25T06:33:43.811760+00:00
 ---
 
 # Access level attributes  |  Access Context Manager  |  Google Cloud Documentation

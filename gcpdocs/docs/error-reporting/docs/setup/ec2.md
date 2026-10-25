@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/error-reporting/docs/setup/ec2/
 title: Setting up Error Reporting on Amazon EC2 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:46:19.606430+00:00
+fetched_at: 2026-10-25T05:56:25.510385+00:00
 ---
 
 # Setting up Error Reporting on Amazon EC2  |  Google Cloud Documentation

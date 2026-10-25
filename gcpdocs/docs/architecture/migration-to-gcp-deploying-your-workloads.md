@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migration-to-gcp-deploying-your-workloads/
 title: Migrate to Google Cloud: Deploy your workloads \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:17.997843+00:00
+fetched_at: 2026-10-25T06:28:17.590361+00:00
 ---
 
 # Migrate to Google Cloud: Deploy your workloads  |  Cloud Architecture Center  |  Google Cloud Documentation

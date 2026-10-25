@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/food-ai/console/
 title: Food Ordering AI Agent console overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:25.624825+00:00
+fetched_at: 2026-10-25T06:24:52.597588+00:00
 ---
 
 # Food Ordering AI Agent console overview  |  Google Cloud Documentation

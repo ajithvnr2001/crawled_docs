@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/instrument-android-apps/
 title: Integrate Google Cloud Fraud Defense with Android apps \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:25:43.855227+00:00
+fetched_at: 2026-10-25T05:45:18.240967+00:00
 ---
 
 # Integrate Google Cloud Fraud Defense with Android apps  |  Google Cloud Documentation

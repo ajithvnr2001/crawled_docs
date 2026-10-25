@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/private-pools/access-resources-in-private-jfrog-artifactory/
 title: Access resources in a private JFrog Artifactory with private pools \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:05.957365+00:00
+fetched_at: 2026-10-25T06:41:25.065199+00:00
 ---
 
 # Access resources in a private JFrog Artifactory with private pools  |  Cloud Build  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/centripetal-ioc/
 title: Collect Centripetal Networks IOC logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:31:27.607466+00:00
+fetched_at: 2026-10-25T06:40:04.200788+00:00
 ---
 
 # Collect Centripetal Networks IOC logs  |  Google Security Operations  |  Google Cloud Documentation

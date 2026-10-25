@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/services/datastore/retrieving-query-results/
 title: Retrieving query results \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:52.987541+00:00
+fetched_at: 2026-10-25T06:34:50.880660+00:00
 ---
 
 # Retrieving query results  |  App Engine standard environment  |  Google Cloud Documentation

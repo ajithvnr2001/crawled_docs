@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/viewing-grantable-roles/
 title: Viewing the grantable roles on resources \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:24.974546+00:00
+fetched_at: 2026-10-25T06:21:14.559067+00:00
 ---
 
 # Viewing the grantable roles on resources  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

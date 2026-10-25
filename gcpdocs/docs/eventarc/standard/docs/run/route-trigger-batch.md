@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/run/route-trigger-batch/
 title: Route Batch events to Cloud Run \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:42.991480+00:00
+fetched_at: 2026-10-25T06:19:06.884428+00:00
 ---
 
 # Route Batch events to Cloud Run  |  Eventarc Standard  |  Google Cloud Documentation

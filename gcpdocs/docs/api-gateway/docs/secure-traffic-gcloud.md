@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/secure-traffic-gcloud/
 title: Quickstart: Secure traffic to a service with the gcloud CLI \u00a0|\u00a0 API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:41.563215+00:00
+fetched_at: 2026-10-25T06:33:37.904898+00:00
 ---
 
 # Quickstart: Secure traffic to a service with the gcloud CLI  |  API Gateway  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/prepare-data/
 title: Prepare data for custom data sources \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:18.611434+00:00
+fetched_at: 2026-10-25T06:23:47.560975+00:00
 ---
 
 # Prepare data for custom data sources  |  Gemini Enterprise  |  Google Cloud Documentation

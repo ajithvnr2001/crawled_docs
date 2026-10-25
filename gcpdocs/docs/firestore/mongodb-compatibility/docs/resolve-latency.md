@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/resolve-latency/
 title: Resolve latency issues \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:44.331090+00:00
+fetched_at: 2026-10-25T05:57:10.010239+00:00
 ---
 
 # Resolve latency issues  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

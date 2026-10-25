@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cisco-dnac/
 title: Collect Cisco Catalyst Center (formerly DNA Center) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:31:10.349481+00:00
+fetched_at: 2026-10-25T06:41:00.944927+00:00
 ---
 
 # Collect Cisco Catalyst Center (formerly DNA Center) logs  |  Google Security Operations  |  Google Cloud Documentation

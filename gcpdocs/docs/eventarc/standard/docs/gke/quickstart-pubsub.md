@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/gke/quickstart-pubsub/
 title: Quickstart: Receive events using Pub/Sub message (Google Cloud CLI) \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:32.111440+00:00
+fetched_at: 2026-10-25T06:18:31.050532+00:00
 ---
 
 # Quickstart: Receive events using Pub/Sub message (Google Cloud CLI)  |  Eventarc Standard  |  Google Cloud Documentation

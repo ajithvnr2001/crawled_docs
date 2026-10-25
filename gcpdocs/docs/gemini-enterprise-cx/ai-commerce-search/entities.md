@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/entities/
 title: Entities \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:27.889322+00:00
+fetched_at: 2026-10-25T06:23:48.632743+00:00
 ---
 
 # Entities  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

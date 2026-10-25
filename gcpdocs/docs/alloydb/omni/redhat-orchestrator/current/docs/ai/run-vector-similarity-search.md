@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/current/docs/ai/run-vector-similarity-search/
 title: Run a vector similarity search \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:39.194191+00:00
+fetched_at: 2026-10-25T06:43:17.867290+00:00
 ---
 
 # Run a vector similarity search  |  AlloyDB Omni using the RPM orchestrator: Current (18.4.0)  |  Google Cloud Documentation

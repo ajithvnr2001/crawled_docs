@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/best-practices-for-multi-tenant-workloads-on-bigquery/
 title: Best practices for multi-tenant workloads on BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:03.397431+00:00
+fetched_at: 2026-10-25T06:41:42.682452+00:00
 ---
 
 # Best practices for multi-tenant workloads on BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/docs/codeassist/manage-licenses/
 title: Manage Gemini Code Assist Standard and Enterprise licenses \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:54.462869+00:00
+fetched_at: 2026-10-25T06:22:52.987828+00:00
 ---
 
 # Manage Gemini Code Assist Standard and Enterprise licenses  |  Gemini for Google Cloud  |  Google Cloud Documentation

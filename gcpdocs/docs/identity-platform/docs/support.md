@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/support/
 title: Getting support \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:55.809290+00:00
+fetched_at: 2026-10-25T06:22:01.400776+00:00
 ---
 
 # Getting support  |  Identity Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/plan-storage-kubernetes/
 title: Plan storage and PVC sizes \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:10.689567+00:00
+fetched_at: 2026-10-25T06:39:21.178314+00:00
 ---
 
 # Plan storage and PVC sizes  |  AlloyDB Omni using the container orchestrator: Current (18.4.0)  |  Google Cloud Documentation

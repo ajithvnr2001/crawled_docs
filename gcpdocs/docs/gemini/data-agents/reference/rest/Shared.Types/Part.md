@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/reference/rest/Shared.Types/Part/
 title: Part \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:07.073400+00:00
+fetched_at: 2026-10-25T06:19:26.544585+00:00
 ---
 
 # Part  |  Data Agents  |  Google Cloud Documentation

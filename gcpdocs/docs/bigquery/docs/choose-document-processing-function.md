@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/choose-document-processing-function/
 title: Choose a document processing function \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:31.502692+00:00
+fetched_at: 2026-10-25T06:40:48.449767+00:00
 ---
 
 # Choose a document processing function  |  BigQuery  |  Google Cloud Documentation

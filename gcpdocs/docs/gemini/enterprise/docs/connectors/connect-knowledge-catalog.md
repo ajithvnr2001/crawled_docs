@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-knowledge-catalog/
 title: Connect to Knowledge Catalog \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:31.711209+00:00
+fetched_at: 2026-10-25T06:24:04.131441+00:00
 ---
 
 # Connect to Knowledge Catalog  |  Gemini Enterprise  |  Google Cloud Documentation

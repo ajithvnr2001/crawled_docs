@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/openapi-overview/
 title: OpenAPI overview \u00a0|\u00a0 API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:42.577706+00:00
+fetched_at: 2026-10-25T06:33:08.656763+00:00
 ---
 
 # OpenAPI overview  |  API Gateway  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/arima-speed-up-tutorial/
 title: Scale an ARIMA_PLUS univariate time series model to millions of time series \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:09.849011+00:00
+fetched_at: 2026-10-25T06:42:46.372908+00:00
 ---
 
 # Scale an ARIMA_PLUS univariate time series model to millions of time series  |  BigQuery  |  Google Cloud Documentation

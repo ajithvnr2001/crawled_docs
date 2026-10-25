@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/rename-reports-data-sources-and-blends/
 title: Rename reports, data sources, and blends \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:13.447589+00:00
+fetched_at: 2026-10-25T06:43:12.795672+00:00
 ---
 
 # Rename reports, data sources, and blends  |  Data Studio  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/upgrading/
 title: Manage version upgrades for instances and pipelines \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:58.713741+00:00
+fetched_at: 2026-10-25T06:43:26.950118+00:00
 ---
 
 # Manage version upgrades for instances and pipelines  |  Cloud Data Fusion  |  Google Cloud Documentation

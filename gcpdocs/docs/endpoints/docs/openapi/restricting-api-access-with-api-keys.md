@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/openapi/restricting-api-access-with-api-keys/
 title: Restricting API access with API keys \u00a0|\u00a0 Cloud Endpoints with OpenAPI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:16.462321+00:00
+fetched_at: 2026-10-25T06:17:40.315770+00:00
 ---
 
 # Restricting API access with API keys  |  Cloud Endpoints with OpenAPI  |  Google Cloud Documentation

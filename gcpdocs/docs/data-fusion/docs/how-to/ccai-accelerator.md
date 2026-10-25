@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/ccai-accelerator/
 title: Work with Contact Center data \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:25.342246+00:00
+fetched_at: 2026-10-25T06:44:21.649377+00:00
 ---
 
 # Work with Contact Center data  |  Cloud Data Fusion  |  Google Cloud Documentation

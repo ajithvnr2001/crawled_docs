@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/food-ai/pricing/
 title: Food Ordering AI Agent pricing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:24.717530+00:00
+fetched_at: 2026-10-25T06:24:34.173509+00:00
 ---
 
 # Food Ordering AI Agent pricing  |  Google Cloud Documentation

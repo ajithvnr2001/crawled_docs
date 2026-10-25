@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/food-ai/quotas/
 title: Quotas and system limits \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:24.893911+00:00
+fetched_at: 2026-10-25T06:24:49.166726+00:00
 ---
 
 # Quotas and system limits  |  Food Ordering AI Agent  |  Google Cloud Documentation

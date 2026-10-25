@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/recaptcha-troubleshooting/
 title: Troubleshooting the Identity Platform integration with the reCAPTCHA Enterprise API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:56.270539+00:00
+fetched_at: 2026-10-25T06:21:27.373876+00:00
 ---
 
 # Troubleshooting the Identity Platform integration with the reCAPTCHA Enterprise API  |  Google Cloud Documentation

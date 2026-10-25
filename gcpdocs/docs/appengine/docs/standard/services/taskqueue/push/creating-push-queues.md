@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/services/taskqueue/push/creating-push-queues/
 title: Create Push Queues \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:48.230002+00:00
+fetched_at: 2026-10-25T06:35:23.772890+00:00
 ---
 
 # Create Push Queues  |  App Engine standard environment  |  Google Cloud Documentation

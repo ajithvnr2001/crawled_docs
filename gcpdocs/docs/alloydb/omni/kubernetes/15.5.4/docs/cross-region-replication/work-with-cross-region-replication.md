@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.4/docs/cross-region-replication/work-with-cross-region-replication/
 title: Work with cross-region replication \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.5.4 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:44:13.418850+00:00
+fetched_at: 2026-10-25T06:38:19.744062+00:00
 ---
 
 # Work with cross-region replication  |  AlloyDB Omni for Kubernetes: 15.5.4  |  Google Cloud Documentation

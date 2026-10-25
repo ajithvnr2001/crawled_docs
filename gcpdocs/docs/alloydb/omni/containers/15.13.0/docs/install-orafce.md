@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/15.13.0/docs/install-orafce/
 title: Install orafce for AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni for containers: 15.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:46:32.004634+00:00
+fetched_at: 2026-10-25T06:35:53.062463+00:00
 ---
 
 # Install orafce for AlloyDB Omni  |  AlloyDB Omni for containers: 15.13.0  |  Google Cloud Documentation

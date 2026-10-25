@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/arima-plus-xreg-single-time-series-forecasting-tutorial/
 title: Forecast a single time series with a multivariate model \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:11.759620+00:00
+fetched_at: 2026-10-25T06:38:55.751761+00:00
 ---
 
 # Forecast a single time series with a multivariate model  |  BigQuery  |  Google Cloud Documentation

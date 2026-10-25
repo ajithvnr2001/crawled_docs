@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/ingest-conversations-api/
 title: Use the API to import conversations \u00a0|\u00a0 Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:14.774837+00:00
+fetched_at: 2026-10-25T06:26:38.846138+00:00
 ---
 
 # Use the API to import conversations  |  Customer Experience Insights  |  Google Cloud Documentation

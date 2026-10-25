@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/android/apple/
 title: Signing in users with Apple on Android \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:04.802802+00:00
+fetched_at: 2026-10-25T06:21:34.669961+00:00
 ---
 
 # Signing in users with Apple on Android  |  Identity Platform  |  Google Cloud Documentation

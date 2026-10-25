@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.3.0/docs/configure-log-redirection/
 title: Configure log redirection \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:50:23.063310+00:00
+fetched_at: 2026-10-25T06:25:27.520250+00:00
 ---
 
 # Configure log redirection  |  AlloyDB Omni using the RPM orchestrator: 18.3.0  |  Google Cloud Documentation

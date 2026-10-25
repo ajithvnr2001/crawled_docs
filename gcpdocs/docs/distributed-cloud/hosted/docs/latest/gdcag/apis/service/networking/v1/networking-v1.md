@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/service/networking/v1/networking-v1/
 title: KRM API networking.gdc.goog/v1 \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:08:48.487337+00:00
+fetched_at: 2026-10-25T06:43:42.584321+00:00
 ---
 
 # KRM API networking.gdc.goog/v1  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

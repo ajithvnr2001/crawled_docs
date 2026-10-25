@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/reading-from-sqlserver/
 title: Read from a SQL Server table \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:02.339911+00:00
+fetched_at: 2026-10-25T06:43:53.806643+00:00
 ---
 
 # Read from a SQL Server table  |  Cloud Data Fusion  |  Google Cloud Documentation

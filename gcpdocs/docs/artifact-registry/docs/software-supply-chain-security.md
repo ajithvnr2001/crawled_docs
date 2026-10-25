@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/software-supply-chain-security/
 title: Software supply chain security \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:16.785147+00:00
+fetched_at: 2026-10-25T06:36:27.229551+00:00
 ---
 
 # Software supply chain security  |  Artifact Registry  |  Google Cloud Documentation

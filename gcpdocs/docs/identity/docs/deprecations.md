@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity/docs/deprecations/
 title: Feature deprecations \u00a0|\u00a0 Cloud Identity \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:52.886408+00:00
+fetched_at: 2026-10-25T06:22:04.771796+00:00
 ---
 
 # Feature deprecations  |  Cloud Identity  |  Google Cloud Documentation

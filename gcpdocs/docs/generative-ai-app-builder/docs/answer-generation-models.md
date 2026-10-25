@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/answer-generation-models/
 title: Answer generation model versions and lifecycle \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:49.343987+00:00
+fetched_at: 2026-10-25T06:25:56.997313+00:00
 ---
 
 # Answer generation model versions and lifecycle  |  Agent Search  |  Google Cloud Documentation

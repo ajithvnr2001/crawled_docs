@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/concepts-best-practices/
 title: Best practices \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:02.195945+00:00
+fetched_at: 2026-10-25T06:20:30.582726+00:00
 ---
 
 # Best practices  |  Identity-Aware Proxy  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/private-pools/run-builds-in-private-pool/
 title: Run builds in a private pool \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:04.353312+00:00
+fetched_at: 2026-10-25T06:42:04.736836+00:00
 ---
 
 # Run builds in a private pool  |  Cloud Build  |  Google Cloud Documentation

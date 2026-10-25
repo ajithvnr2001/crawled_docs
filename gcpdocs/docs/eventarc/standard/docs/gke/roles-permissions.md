@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/gke/roles-permissions/
 title: Roles and permissions for Google Kubernetes Engine (GKE) targets \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:31.576102+00:00
+fetched_at: 2026-10-25T06:17:24.936933+00:00
 ---
 
 # Roles and permissions for Google Kubernetes Engine (GKE) targets  |  Eventarc Standard  |  Google Cloud Documentation

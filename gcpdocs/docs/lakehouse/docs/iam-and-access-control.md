@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/iam-and-access-control/
 title: Borderless Lakehouse: Access control with IAM \u00a0|\u00a0 BigLake API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:15.872775+00:00
+fetched_at: 2026-10-25T05:53:34.274299+00:00
 ---
 
 # Borderless Lakehouse: Access control with IAM  |  BigLake API  |  Google Cloud Documentation

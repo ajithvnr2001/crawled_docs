@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/support/getting-support/
 title: Getting support \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:38.201644+00:00
+fetched_at: 2026-10-25T06:24:37.474685+00:00
 ---
 
 # Getting support  |  CX Agent Studio  |  Google Cloud Documentation

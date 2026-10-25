@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/use-authorized-views/
 title: Use authorized views \u00a0|\u00a0 Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:08.428164+00:00
+fetched_at: 2026-10-25T06:25:51.098594+00:00
 ---
 
 # Use authorized views  |  Customer Experience Insights  |  Google Cloud Documentation

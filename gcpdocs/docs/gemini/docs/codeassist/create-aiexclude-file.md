@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/docs/codeassist/create-aiexclude-file/
 title: Exclude files from Gemini Code Assist use \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:18.213910+00:00
+fetched_at: 2026-10-25T06:19:49.140012+00:00
 ---
 
 # Exclude files from Gemini Code Assist use  |  Gemini for Google Cloud  |  Google Cloud Documentation

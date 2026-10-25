@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/dell-switch/
 title: Collect Dell switch logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:14.083212+00:00
+fetched_at: 2026-10-25T06:44:12.753535+00:00
 ---
 
 # Collect Dell switch logs  |  Google Security Operations  |  Google Cloud Documentation

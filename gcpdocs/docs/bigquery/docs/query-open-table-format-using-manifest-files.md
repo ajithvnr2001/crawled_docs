@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/query-open-table-format-using-manifest-files/
 title: Query open table formats with manifests \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:35.424664+00:00
+fetched_at: 2026-10-25T06:42:44.429777+00:00
 ---
 
 # Query open table formats with manifests  |  BigQuery  |  Google Cloud Documentation

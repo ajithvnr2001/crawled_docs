@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migration-to-google-cloud-best-practices/
 title: Migrate to Google Cloud: Best practices for validating a migration plan \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:17.768884+00:00
+fetched_at: 2026-10-25T06:28:13.729890+00:00
 ---
 
 # Migrate to Google Cloud: Best practices for validating a migration plan  |  Cloud Architecture Center  |  Google Cloud Documentation

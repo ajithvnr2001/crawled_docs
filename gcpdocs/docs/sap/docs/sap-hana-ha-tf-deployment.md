@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-ha-tf-deployment/
 title: Terraform: SAP HANA scale-up high-availability cluster configuration guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:01:39.766401+00:00
+fetched_at: 2026-10-25T05:45:12.862040+00:00
 ---
 
 # Terraform: SAP HANA scale-up high-availability cluster configuration guide  |  SAP on Google Cloud  |  Google Cloud Documentation

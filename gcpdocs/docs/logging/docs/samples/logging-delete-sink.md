@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/samples/logging-delete-sink/
 title: Delete a sink \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:36:47.345450+00:00
+fetched_at: 2026-10-25T05:52:57.104385+00:00
 ---
 
 # Delete a sink  |  Cloud Logging  |  Google Cloud Documentation
@@ -130,7 +130,7 @@ To authenticate to Logging, set up Application Default Credentials. For more inf
     
     require "google/cloud/logging"
     
-    logging = Google::Cloud::[Logging](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging/latest/Google-Cloud-Logging.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging/latest/Google-Cloud-Logging.html)
+    logging = Google::Cloud::[Logging](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_control-v1/latest/Google-Cloud-Logging.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging/latest/Google-Cloud-Logging.html)
     
     # sink_name = "name-of-my-sink"
     sink = logging.sink sink_name

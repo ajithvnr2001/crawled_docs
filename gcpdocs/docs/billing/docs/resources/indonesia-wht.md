@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/billing/docs/resources/indonesia-wht/
 title: PT Google Cloud Indonesia Withholding Tax (WHT) \u00a0|\u00a0 Cloud Billing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:34:00.646488+00:00
+fetched_at: 2026-10-25T06:42:34.467699+00:00
 ---
 
 # PT Google Cloud Indonesia Withholding Tax (WHT)  |  Cloud Billing  |  Google Cloud Documentation

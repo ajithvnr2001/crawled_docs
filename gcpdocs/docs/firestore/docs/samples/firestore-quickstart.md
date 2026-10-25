@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-quickstart/
 title: Getting started with Firestore \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:11.739125+00:00
+fetched_at: 2026-10-25T06:19:00.841763+00:00
 ---
 
 # Getting started with Firestore  |  Google Cloud Documentation

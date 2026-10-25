@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/enable-dialogflow-runtime-integration/
 title: Enable Dialogflow runtime integration \u00a0|\u00a0 Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:15.807608+00:00
+fetched_at: 2026-10-25T06:25:30.334841+00:00
 ---
 
 # Enable Dialogflow runtime integration  |  Customer Experience Insights  |  Google Cloud Documentation

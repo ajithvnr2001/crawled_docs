@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/advanced/docs/publish-events/create-bus/
 title: Create a bus to route messages \u00a0|\u00a0 Eventarc Advanced \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:46:17.255275+00:00
+fetched_at: 2026-10-25T06:17:53.213104+00:00
 ---
 
 # Create a bus to route messages  |  Eventarc Advanced  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/support/
 title: Get support for Application Design Center issues \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:39.381728+00:00
+fetched_at: 2026-10-25T06:34:14.661649+00:00
 ---
 
 # Get support for Application Design Center issues  |  Google Cloud Documentation

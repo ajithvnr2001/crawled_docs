@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.1.0/docs/ai/troubleshoot-scann-indexes/
 title: Troubleshoot ScaNN index errors \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:50:15.944141+00:00
+fetched_at: 2026-10-25T06:27:43.654247+00:00
 ---
 
 # Troubleshoot ScaNN index errors  |  AlloyDB Omni using the RPM orchestrator: 18.1.0  |  Google Cloud Documentation

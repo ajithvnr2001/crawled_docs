@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/fault-injection-testing/schedule-experiment/
 title: Schedule an experiment \u00a0|\u00a0 Fault Injection Testing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:12.645165+00:00
+fetched_at: 2026-10-25T06:26:00.509397+00:00
 ---
 
 # Schedule an experiment  |  Fault Injection Testing  |  Google Cloud Documentation

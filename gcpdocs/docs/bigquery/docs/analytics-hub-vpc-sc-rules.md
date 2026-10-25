@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/analytics-hub-vpc-sc-rules/
 title: Configure VPC Service Controls rules for BigQuery sharing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:12.462987+00:00
+fetched_at: 2026-10-25T06:38:53.619048+00:00
 ---
 
 # Configure VPC Service Controls rules for BigQuery sharing  |  Google Cloud Documentation

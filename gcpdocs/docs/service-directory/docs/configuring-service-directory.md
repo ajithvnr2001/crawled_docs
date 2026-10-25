@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-directory/docs/configuring-service-directory/
 title: Configure Service Directory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:33:34.523464+00:00
+fetched_at: 2026-10-25T05:44:42.433877+00:00
 ---
 
 # Configure Service Directory  |  Google Cloud Documentation
@@ -368,7 +368,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     require "google/cloud/service_directory"
     
     # Initialize the client
-    registration_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1/latest/Google-Cloud-ServiceDirectory.html).[registration_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
+    registration_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1beta1/latest/Google-Cloud-ServiceDirectory.html).[registration_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
     
     # The parent path of the namespace
     parent = registration_service.location_path(
@@ -702,7 +702,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     require "google/cloud/service_directory"
     
     # Initialize the client
-    registration_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1/latest/Google-Cloud-ServiceDirectory.html).[registration_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
+    registration_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1beta1/latest/Google-Cloud-ServiceDirectory.html).[registration_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
     
     # The parent path of the service
     parent = registration_service.namespace_path(
@@ -1057,7 +1057,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     require "google/cloud/service_directory"
     
     # Initialize the client
-    registration_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1/latest/Google-Cloud-ServiceDirectory.html).[registration_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
+    registration_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1beta1/latest/Google-Cloud-ServiceDirectory.html).[registration_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
     
     # The parent path of the endpoint
     parent = registration_service.service_path(
@@ -1068,7 +1068,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     )
     
     # Set the IP Address and Port on the Endpoint
-    endpoint_data = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1/latest/Google-Cloud-ServiceDirectory.html)::[V1](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1/latest/Google-Cloud-ServiceDirectory-V1.html)::Endpoint.new(
+    endpoint_data = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1beta1/latest/Google-Cloud-ServiceDirectory.html)::[V1](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1/latest/Google-Cloud-ServiceDirectory-V1.html)::Endpoint.new(
       address: "10.0.0.1",
       port:    443
     )
@@ -1360,7 +1360,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     require "google/cloud/service_directory"
     
     # Initialize the client
-    lookup_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1/latest/Google-Cloud-ServiceDirectory.html).[lookup_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
+    lookup_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1beta1/latest/Google-Cloud-ServiceDirectory.html).[lookup_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
     
     # The name of the service
     service_path = lookup_service.service_path(
@@ -1649,7 +1649,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     require "google/cloud/service_directory"
     
     # Initialize the client
-    registration_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1/latest/Google-Cloud-ServiceDirectory.html).[registration_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
+    registration_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1beta1/latest/Google-Cloud-ServiceDirectory.html).[registration_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
     
     # The path of the endpoint
     endpoint_path = registration_service.endpoint_path(
@@ -1916,7 +1916,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     require "google/cloud/service_directory"
     
     # Initialize the client
-    registration_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1/latest/Google-Cloud-ServiceDirectory.html).[registration_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
+    registration_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1beta1/latest/Google-Cloud-ServiceDirectory.html).[registration_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
     
     # The path of the service
     service_path = registration_service.service_path(
@@ -2168,7 +2168,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     require "google/cloud/service_directory"
     
     # Initialize the client
-    registration_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1/latest/Google-Cloud-ServiceDirectory.html).[registration_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
+    registration_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1beta1/latest/Google-Cloud-ServiceDirectory.html).[registration_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
     
     # The path of the namespace
     namespace_name = registration_service.namespace_path(

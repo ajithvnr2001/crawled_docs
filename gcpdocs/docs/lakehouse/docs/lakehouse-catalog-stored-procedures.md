@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/lakehouse-catalog-stored-procedures/
 title: Use the Lakehouse runtime catalog with Apache Spark stored procedures \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:15.361723+00:00
+fetched_at: 2026-10-25T05:53:32.520998+00:00
 ---
 
 # Use the Lakehouse runtime catalog with Apache Spark stored procedures  |  Google Cloud Documentation

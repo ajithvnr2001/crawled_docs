@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/metadata-change-feeds-overview/
 title: About metadata change feeds \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:41:38.988617+00:00
+fetched_at: 2026-10-25T05:56:52.968916+00:00
 ---
 
 # About metadata change feeds  |  Knowledge Catalog  |  Google Cloud Documentation

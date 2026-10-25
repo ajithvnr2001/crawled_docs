@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/hdfs-data-lake-transfer/
 title: Migrate Apache Hive Metastore tables to Google Cloud \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:58.876428+00:00
+fetched_at: 2026-10-25T06:39:48.240090+00:00
 ---
 
 # Migrate Apache Hive Metastore tables to Google Cloud  |  BigQuery  |  Google Cloud Documentation

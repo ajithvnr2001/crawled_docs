@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/networking-for-ai-inference/
 title: Networking for AI inference model serving on all backends \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:14.363054+00:00
+fetched_at: 2026-10-25T06:33:13.329244+00:00
 ---
 
 # Networking for AI inference model serving on all backends  |  Cloud Architecture Center  |  Google Cloud Documentation

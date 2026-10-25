@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/configure-global-fw-policies/
 title: Configure a global network firewall policy to enable ingress traffic \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:36.861774+00:00
+fetched_at: 2026-10-25T06:24:43.060073+00:00
 ---
 
 # Configure a global network firewall policy to enable ingress traffic  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/enabling-kubernetes-howto/
 title: Enabling IAP for GKE \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:10.502872+00:00
+fetched_at: 2026-10-25T06:17:49.443665+00:00
 ---
 
 # Enabling IAP for GKE  |  Identity-Aware Proxy  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/current/docs/ai/best-practices-tuning-scann/
 title: Best practices for tuning ScaNN indexes in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:42.298517+00:00
+fetched_at: 2026-10-25T06:42:05.895759+00:00
 ---
 
 # Best practices for tuning ScaNN indexes in AlloyDB Omni  |  AlloyDB Omni using the RPM orchestrator: Current (18.4.0)  |  Google Cloud Documentation

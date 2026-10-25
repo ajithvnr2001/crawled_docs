@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/receive-metadata-notifications/
 title: Receive notifications with metadata change feeds \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:31:03.893691+00:00
+fetched_at: 2026-10-25T05:53:39.056774+00:00
 ---
 
 # Receive notifications with metadata change feeds  |  Knowledge Catalog  |  Google Cloud Documentation

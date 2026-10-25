@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/build-policy-as-code-data-quality-workflow/
 title: Build a policy-as-code data quality workflow \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:27:37.616979+00:00
+fetched_at: 2026-10-25T05:53:37.320707+00:00
 ---
 
 # Build a policy-as-code data quality workflow  |  Knowledge Catalog  |  Google Cloud Documentation

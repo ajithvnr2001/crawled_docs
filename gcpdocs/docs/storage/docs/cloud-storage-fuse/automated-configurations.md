@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/automated-configurations/
 title: Automated configuration values for high-performance machine types \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:57.475981+00:00
+fetched_at: 2026-10-25T05:43:56.877419+00:00
 ---
 
 # Automated configuration values for high-performance machine types  |  Cloud Storage  |  Google Cloud Documentation

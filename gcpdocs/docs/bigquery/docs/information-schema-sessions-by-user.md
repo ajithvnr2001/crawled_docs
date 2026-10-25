@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-sessions-by-user/
 title: SESSIONS_BY_USER view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:43:52.080947+00:00
+fetched_at: 2026-10-25T06:39:18.636106+00:00
 ---
 
 # SESSIONS_BY_USER view  |  BigQuery  |  Google Cloud Documentation

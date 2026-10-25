@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/run/create-trigger-pub-sub-gcloud/
 title: Quickstart: Receive events using Pub/Sub messages (Google Cloud CLI) \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:44.804418+00:00
+fetched_at: 2026-10-25T06:20:07.625651+00:00
 ---
 
 # Quickstart: Receive events using Pub/Sub messages (Google Cloud CLI)  |  Eventarc Standard  |  Google Cloud Documentation

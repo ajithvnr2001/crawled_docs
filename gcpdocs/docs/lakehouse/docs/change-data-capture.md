@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/change-data-capture/
 title: Change data capture ingestion \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:16.691205+00:00
+fetched_at: 2026-10-25T05:53:31.929721+00:00
 ---
 
 # Change data capture ingestion  |  Lakehouse  |  Google Cloud Documentation

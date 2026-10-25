@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/install-web-ui/
 title: Install the web UI \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:57:14.137992+00:00
+fetched_at: 2026-10-25T05:56:15.846471+00:00
 ---
 
 # Install the web UI  |  AlloyDB Omni using the container orchestrator: 18.3.0  |  Google Cloud Documentation

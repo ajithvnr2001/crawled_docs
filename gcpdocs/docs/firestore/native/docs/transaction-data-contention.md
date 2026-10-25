@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/transaction-data-contention/
 title: Data contention in transactions \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:31.269612+00:00
+fetched_at: 2026-10-25T06:18:15.708252+00:00
 ---
 
 # Data contention in transactions  |  Firestore in Native mode  |  Google Cloud Documentation

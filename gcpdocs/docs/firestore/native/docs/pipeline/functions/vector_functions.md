@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/vector_functions/
 title: Vector Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:13.422798+00:00
+fetched_at: 2026-10-25T06:22:23.804111+00:00
 ---
 
 # Vector Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation

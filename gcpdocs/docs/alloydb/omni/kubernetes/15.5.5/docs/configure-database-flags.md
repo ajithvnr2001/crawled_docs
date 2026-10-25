@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/configure-database-flags/
 title: Configure AlloyDB Omni database flags \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.5.5 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:44:13.229487+00:00
+fetched_at: 2026-10-25T06:38:43.668241+00:00
 ---
 
 # Configure AlloyDB Omni database flags  |  AlloyDB Omni for Kubernetes: 15.5.5  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/function-list/
 title: Function list \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:14.562419+00:00
+fetched_at: 2026-10-25T06:42:27.582653+00:00
 ---
 
 # Function list  |  Data Studio  |  Google Cloud Documentation

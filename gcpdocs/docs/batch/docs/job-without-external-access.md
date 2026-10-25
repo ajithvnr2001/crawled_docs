@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/batch/docs/job-without-external-access/
 title: Block external access for a job \u00a0|\u00a0 Batch \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:42:20.916098+00:00
+fetched_at: 2026-10-25T06:38:29.462153+00:00
 ---
 
 # Block external access for a job  |  Batch  |  Google Cloud Documentation

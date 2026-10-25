@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/current/docs/ai/run-hybrid-vector-similarity-search/
 title: Run a hybrid vector similarity search \u00a0|\u00a0 AlloyDB Omni using containers: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:35.076434+00:00
+fetched_at: 2026-10-25T06:36:23.209077+00:00
 ---
 
 # Run a hybrid vector similarity search  |  AlloyDB Omni using containers: Current (18.4.0)  |  Google Cloud Documentation

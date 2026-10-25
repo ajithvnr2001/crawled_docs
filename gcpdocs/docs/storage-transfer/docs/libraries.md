@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/libraries/
 title: Storage Transfer Service client libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:37:02.073046+00:00
+fetched_at: 2026-10-25T05:44:32.390231+00:00
 ---
 
 # Storage Transfer Service client libraries  |  Google Cloud Documentation
@@ -513,7 +513,7 @@ To authenticate to Storage Transfer Service, set up Application Default Credenti
         status: :ENABLED
       }
     
-      client = Google::Cloud::[StorageTransfer](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage_transfer-v1/latest/Google-Cloud-StorageTransfer.html).[storage_transfer_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage_transfer/latest/Google-Cloud-StorageTransfer.html)
+      client = Google::Cloud::[StorageTransfer](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage_transfer/latest/Google-Cloud-StorageTransfer.html).[storage_transfer_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage_transfer/latest/Google-Cloud-StorageTransfer.html)
     
       transfer_job_response = client.create_transfer_job transfer_job: transfer_job
     

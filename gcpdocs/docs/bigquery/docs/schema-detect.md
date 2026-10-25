@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/schema-detect/
 title: Using schema auto-detection \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:59.897608+00:00
+fetched_at: 2026-10-25T06:41:47.899576+00:00
 ---
 
 # Using schema auto-detection  |  BigQuery  |  Google Cloud Documentation

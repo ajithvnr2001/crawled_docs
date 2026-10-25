@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/iam-policy-for-apps-and-data-stores/
 title: Configure granular access controls for apps and data stores \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:11.193283+00:00
+fetched_at: 2026-10-25T06:23:35.313016+00:00
 ---
 
 # Configure granular access controls for apps and data stores  |  Gemini Enterprise  |  Google Cloud Documentation

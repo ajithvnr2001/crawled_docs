@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/configure-pubsub/
 title: Configure a Pub/Sub topic and subscription \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:43.634465+00:00
+fetched_at: 2026-10-25T06:35:30.883542+00:00
 ---
 
 # Configure a Pub/Sub topic and subscription  |  Application Design Center  |  Google Cloud Documentation

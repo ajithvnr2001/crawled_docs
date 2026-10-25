@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-shared-dataset-usage/
 title: INFORMATION_SCHEMA.SHARED_DATASET_USAGE view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:43:52.738151+00:00
+fetched_at: 2026-10-25T06:38:13.739732+00:00
 ---
 
 # INFORMATION_SCHEMA.SHARED_DATASET_USAGE view  |  BigQuery  |  Google Cloud Documentation

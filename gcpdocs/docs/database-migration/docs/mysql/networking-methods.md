@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/mysql/networking-methods/
 title: Network connectivity for homogeneous MySQL migrations \u00a0|\u00a0 Database Migration Service for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:42.185528+00:00
+fetched_at: 2026-10-25T06:44:07.340734+00:00
 ---
 
 # Network connectivity for homogeneous MySQL migrations  |  Database Migration Service for MySQL  |  Google Cloud Documentation

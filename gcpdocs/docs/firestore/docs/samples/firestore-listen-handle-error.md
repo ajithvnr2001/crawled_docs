@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-listen-handle-error/
 title: Handle Firestore watch listener errors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:10.152629+00:00
+fetched_at: 2026-10-25T06:18:08.879925+00:00
 ---
 
 # Handle Firestore watch listener errors  |  Google Cloud Documentation

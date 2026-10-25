@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/bluecat-edge/
 title: Collect BlueCat Edge DNS Resolver logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:31.836138+00:00
+fetched_at: 2026-10-25T06:41:13.765500+00:00
 ---
 
 # Collect BlueCat Edge DNS Resolver logs  |  Google Security Operations  |  Google Cloud Documentation

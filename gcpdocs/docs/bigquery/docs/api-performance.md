@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/api-performance/
 title: API performance tips \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:10.800169+00:00
+fetched_at: 2026-10-25T06:42:50.676062+00:00
 ---
 
 # API performance tips  |  BigQuery  |  Google Cloud Documentation

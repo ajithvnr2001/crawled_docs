@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/docs/codeassist/business-audit-logging/
 title: Business AI Code audit logging \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:19.123982+00:00
+fetched_at: 2026-10-25T06:20:23.460031+00:00
 ---
 
 # Business AI Code audit logging  |  Gemini for Google Cloud  |  Google Cloud Documentation

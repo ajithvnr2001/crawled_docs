@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/
 title: Firestore in Native mode documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:08.830073+00:00
+fetched_at: 2026-10-25T06:27:27.103859+00:00
 ---
 
 # Firestore in Native mode documentation  |  Google Cloud Documentation

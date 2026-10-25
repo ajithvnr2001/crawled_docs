@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/configure-salesforce-batch-source/
 title: Salesforce batch source \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:05.247888+00:00
+fetched_at: 2026-10-25T06:43:32.965346+00:00
 ---
 
 # Salesforce batch source  |  Cloud Data Fusion  |  Google Cloud Documentation

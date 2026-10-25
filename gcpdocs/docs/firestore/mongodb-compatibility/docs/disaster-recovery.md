@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/disaster-recovery/
 title: Plan disaster recovery \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:48.186084+00:00
+fetched_at: 2026-10-25T06:17:31.537912+00:00
 ---
 
 # Plan disaster recovery  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

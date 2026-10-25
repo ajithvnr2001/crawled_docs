@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.7.0/docs/ai/choose-index-strategy/
 title: Choose a vector index in AlloyDB AI \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.7.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:44:38.583620+00:00
+fetched_at: 2026-10-25T06:37:05.648118+00:00
 ---
 
 # Choose a vector index in AlloyDB AI  |  AlloyDB Omni for Kubernetes: 15.7.0  |  Google Cloud Documentation

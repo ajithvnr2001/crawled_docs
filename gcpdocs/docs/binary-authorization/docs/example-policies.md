@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/binary-authorization/docs/example-policies/
 title: Example policies \u00a0|\u00a0 Binary Authorization \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:56.125020+00:00
+fetched_at: 2026-10-25T06:41:30.992402+00:00
 ---
 
 # Example policies  |  Binary Authorization  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/delete-secrets/
 title: Delete a secret \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:34:23.415819+00:00
+fetched_at: 2026-10-25T05:44:35.278126+00:00
 ---
 
 # Delete a secret  |  Secret Manager  |  Google Cloud Documentation
@@ -332,7 +332,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     require "google/cloud/secret_manager"
     
     # Create a Secret Manager client.
-    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta2/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
+    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
     
     # Build the resource name of the secret.
     name = client.secret_path project: project_id, secret: secret_id

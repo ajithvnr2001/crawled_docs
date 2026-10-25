@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/configure-static-ip-egress/
 title: Configure static IP egress for third-party connectors \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:33.280070+00:00
+fetched_at: 2026-10-25T06:24:05.212957+00:00
 ---
 
 # Configure static IP egress for third-party connectors  |  Gemini Enterprise  |  Google Cloud Documentation

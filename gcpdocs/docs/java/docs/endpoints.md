@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/java/docs/endpoints/
 title: Configure client library endpoints \u00a0|\u00a0 Java \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:31.826188+00:00
+fetched_at: 2026-10-25T05:55:12.450602+00:00
 ---
 
 # Configure client library endpoints  |  Java  |  Google Cloud Documentation

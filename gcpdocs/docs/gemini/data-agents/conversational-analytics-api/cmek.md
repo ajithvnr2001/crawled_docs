@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/cmek/
 title: Customer-managed encryption keys (CMEK) \u00a0|\u00a0 Conversational Analytics API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:28.892813+00:00
+fetched_at: 2026-10-25T06:22:29.853268+00:00
 ---
 
 # Customer-managed encryption keys (CMEK)  |  Conversational Analytics API  |  Google Cloud Documentation

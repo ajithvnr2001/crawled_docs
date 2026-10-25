@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/manage-data-quality-rules-as-code/
 title: Manage data quality rules as code with Terraform, Cloud Build, and GitHub \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:28:04.668494+00:00
+fetched_at: 2026-10-25T05:53:33.749438+00:00
 ---
 
 # Manage data quality rules as code with Terraform, Cloud Build, and GitHub  |  Knowledge Catalog  |  Google Cloud Documentation

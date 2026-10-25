@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/pylon/set-up-data-store/
 title: Set up a Pylon data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:24.666549+00:00
+fetched_at: 2026-10-25T06:22:33.231101+00:00
 ---
 
 # Set up a Pylon data store  |  Gemini Enterprise  |  Google Cloud Documentation

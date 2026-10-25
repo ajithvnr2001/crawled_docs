@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/manage-connector-jobs/
 title: Manage connector jobs \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:22:02.571881+00:00
+fetched_at: 2026-10-25T05:53:06.841605+00:00
 ---
 
 # Manage connector jobs  |  Knowledge Catalog  |  Google Cloud Documentation

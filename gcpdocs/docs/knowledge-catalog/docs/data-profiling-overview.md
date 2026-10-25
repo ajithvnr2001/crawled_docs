@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/data-profiling-overview/
 title: About data profiling \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:55.671084+00:00
+fetched_at: 2026-10-25T05:53:37.873727+00:00
 ---
 
 # About data profiling  |  Knowledge Catalog  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/integrate-gke/
 title: Deploying to Google Kubernetes Engine \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:18.044946+00:00
+fetched_at: 2026-10-25T06:37:03.673230+00:00
 ---
 
 # Deploying to Google Kubernetes Engine  |  Artifact Registry  |  Google Cloud Documentation

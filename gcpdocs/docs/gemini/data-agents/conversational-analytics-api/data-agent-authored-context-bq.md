@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/data-agent-authored-context-bq/
 title: Define data agent context for BigQuery data sources \u00a0|\u00a0 Conversational Analytics API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:41.580292+00:00
+fetched_at: 2026-10-25T06:17:58.668708+00:00
 ---
 
 # Define data agent context for BigQuery data sources  |  Conversational Analytics API  |  Google Cloud Documentation

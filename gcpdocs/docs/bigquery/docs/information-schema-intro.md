@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-intro/
 title: Introduction to INFORMATION_SCHEMA \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:44:00.930647+00:00
+fetched_at: 2026-10-25T06:38:38.683931+00:00
 ---
 
 # Introduction to INFORMATION_SCHEMA  |  BigQuery  |  Google Cloud Documentation

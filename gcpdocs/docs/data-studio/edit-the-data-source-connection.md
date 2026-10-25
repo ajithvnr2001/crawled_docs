@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/edit-the-data-source-connection/
 title: Edit the data source connection \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:17.670067+00:00
+fetched_at: 2026-10-25T06:41:12.038397+00:00
 ---
 
 # Edit the data source connection  |  Data Studio  |  Google Cloud Documentation

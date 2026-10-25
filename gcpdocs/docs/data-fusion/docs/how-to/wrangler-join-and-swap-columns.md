@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/wrangler-join-and-swap-columns/
 title: Join and swap two columns \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:55.230205+00:00
+fetched_at: 2026-10-25T06:42:18.450941+00:00
 ---
 
 # Join and swap two columns  |  Cloud Data Fusion  |  Google Cloud Documentation

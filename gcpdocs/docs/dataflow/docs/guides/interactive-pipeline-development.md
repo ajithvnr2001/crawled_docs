@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/interactive-pipeline-development/
 title: Develop Apache Beam notebooks with the interactive runner \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:13:03.354545+00:00
+fetched_at: 2026-10-25T06:44:00.131654+00:00
 ---
 
 # Develop Apache Beam notebooks with the interactive runner  |  Cloud Dataflow  |  Google Cloud Documentation

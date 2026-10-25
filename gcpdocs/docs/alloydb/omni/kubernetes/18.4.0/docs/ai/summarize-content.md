@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/ai/summarize-content/
 title: Summarize content \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:04.426840+00:00
+fetched_at: 2026-10-25T06:41:20.693955+00:00
 ---
 
 # Summarize content  |  AlloyDB Omni using the container orchestrator: 18.4.0  |  Google Cloud Documentation

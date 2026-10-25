@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/enable-replication/
 title: Enable Replication in an instance \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:03.498607+00:00
+fetched_at: 2026-10-25T06:43:34.218394+00:00
 ---
 
 # Enable Replication in an instance  |  Cloud Data Fusion  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/how-tos/consent-registering-user-data/
 title: Registering user data \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:37.155801+00:00
+fetched_at: 2026-10-25T06:17:44.731674+00:00
 ---
 
 # Registering user data  |  Cloud Healthcare API  |  Google Cloud Documentation

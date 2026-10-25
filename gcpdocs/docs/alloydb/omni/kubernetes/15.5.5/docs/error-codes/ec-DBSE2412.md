@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/error-codes/ec-DBSE2412/
 title: DBSE2412. PostgreSQL: Failed to query replication slots \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.5.5 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:44:41.097515+00:00
+fetched_at: 2026-10-25T06:36:56.177091+00:00
 ---
 
 # DBSE2412. PostgreSQL: Failed to query replication slots  |  AlloyDB Omni for Kubernetes: 15.5.5  |  Google Cloud Documentation

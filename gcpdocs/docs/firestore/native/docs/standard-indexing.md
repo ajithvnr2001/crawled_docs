@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/standard-indexing/
 title: Manage Standard edition indexes \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:31.938631+00:00
+fetched_at: 2026-10-25T06:18:16.854274+00:00
 ---
 
 # Manage Standard edition indexes  |  Firestore in Native mode  |  Google Cloud Documentation

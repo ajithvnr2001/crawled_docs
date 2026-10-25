@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/services/ndb/creating-entity-models/
 title: Creating entity models \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:50.421051+00:00
+fetched_at: 2026-10-25T06:34:55.663381+00:00
 ---
 
 # Creating entity models  |  App Engine standard environment  |  Google Cloud Documentation

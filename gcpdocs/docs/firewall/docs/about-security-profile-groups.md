@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/about-security-profile-groups/
 title: Security profile group overview \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:38.945247+00:00
+fetched_at: 2026-10-25T06:25:16.459780+00:00
 ---
 
 # Security profile group overview  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/dell-cybersense/
 title: Collect Dell CyberSense logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:18.350335+00:00
+fetched_at: 2026-10-25T06:43:08.350807+00:00
 ---
 
 # Collect Dell CyberSense logs  |  Google Security Operations  |  Google Cloud Documentation

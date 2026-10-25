@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/images-overview/
 title: Agent Platform Workbench images \u00a0|\u00a0 Gemini Enterprise Agent Platform Workbench \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:33.958731+00:00
+fetched_at: 2026-10-25T06:26:35.585485+00:00
 ---
 
 # Agent Platform Workbench images  |  Gemini Enterprise Agent Platform Workbench  |  Google Cloud Documentation

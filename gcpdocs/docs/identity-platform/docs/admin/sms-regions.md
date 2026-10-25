@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/admin/sms-regions/
 title: Use SMS regions to protect your app from SMS abuse \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:04.873902+00:00
+fetched_at: 2026-10-25T06:21:36.139825+00:00
 ---
 
 # Use SMS regions to protect your app from SMS abuse  |  Identity Platform  |  Google Cloud Documentation

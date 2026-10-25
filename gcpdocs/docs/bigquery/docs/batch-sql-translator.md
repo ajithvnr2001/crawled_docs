@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/batch-sql-translator/
 title: Migrate code with the batch SQL translator \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:04.668167+00:00
+fetched_at: 2026-10-25T06:41:39.929847+00:00
 ---
 
 # Migrate code with the batch SQL translator  |  BigQuery  |  Google Cloud Documentation

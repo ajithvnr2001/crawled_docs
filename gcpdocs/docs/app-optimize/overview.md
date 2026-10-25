@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-optimize/overview/
 title: Cost optimization using App Optimize API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:48:05.677817+00:00
+fetched_at: 2026-10-25T06:35:18.492667+00:00
 ---
 
 # Cost optimization using App Optimize API  |  Google Cloud Documentation

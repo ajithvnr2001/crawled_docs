@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/saphana/configure/
 title: SAP HANA \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:38.525672+00:00
+fetched_at: 2026-10-25T06:17:22.333161+00:00
 ---
 
 # SAP HANA  |  Integration Connectors  |  Google Cloud Documentation

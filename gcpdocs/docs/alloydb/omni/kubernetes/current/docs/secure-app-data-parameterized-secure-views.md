@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/secure-app-data-parameterized-secure-views/
 title: Secure and control access to application data using parameterized secure views \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:08.968976+00:00
+fetched_at: 2026-10-25T06:39:21.652647+00:00
 ---
 
 # Secure and control access to application data using parameterized secure views  |  AlloyDB Omni using the container orchestrator: Current (18.4.0)  |  Google Cloud Documentation

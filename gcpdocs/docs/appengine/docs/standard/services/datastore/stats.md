@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/services/datastore/stats/
 title: Datastore staticstics \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:53.066170+00:00
+fetched_at: 2026-10-25T06:34:35.032080+00:00
 ---
 
 # Datastore staticstics  |  App Engine standard environment  |  Google Cloud Documentation

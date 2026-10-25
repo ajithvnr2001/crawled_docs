@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/oraclesalescloud/configure/
 title: Oracle Sales Cloud \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:42.708373+00:00
+fetched_at: 2026-10-25T06:17:41.280769+00:00
 ---
 
 # Oracle Sales Cloud  |  Integration Connectors  |  Google Cloud Documentation

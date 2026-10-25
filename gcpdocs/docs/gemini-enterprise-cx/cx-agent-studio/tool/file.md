@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/tool/file/
 title: File search tools \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:37.235780+00:00
+fetched_at: 2026-10-25T06:25:19.228369+00:00
 ---
 
 # File search tools  |  CX Agent Studio  |  Google Cloud Documentation

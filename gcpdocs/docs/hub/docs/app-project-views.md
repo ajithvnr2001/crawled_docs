@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/hub/docs/app-project-views/
 title: Application views and project views \u00a0|\u00a0 Cloud Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:48:35.506726+00:00
+fetched_at: 2026-10-25T06:20:25.736962+00:00
 ---
 
 # Application views and project views  |  Cloud Hub  |  Google Cloud Documentation

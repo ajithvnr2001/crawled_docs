@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/about-wildfire/
 title: Advanced malware sandbox overview \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:37.434427+00:00
+fetched_at: 2026-10-25T06:22:53.446143+00:00
 ---
 
 # Advanced malware sandbox overview  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

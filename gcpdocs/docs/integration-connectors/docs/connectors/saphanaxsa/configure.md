@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/saphanaxsa/configure/
 title: SAP HANA XS Advanced \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:39.106051+00:00
+fetched_at: 2026-10-25T06:17:20.647270+00:00
 ---
 
 # SAP HANA XS Advanced  |  Integration Connectors  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/pubsub-notifications/
 title: Skip Pub/Sub notifications for empty suggestions \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:29.200755+00:00
+fetched_at: 2026-10-25T06:26:35.494110+00:00
 ---
 
 # Skip Pub/Sub notifications for empty suggestions  |  Agent Assist  |  Google Cloud Documentation

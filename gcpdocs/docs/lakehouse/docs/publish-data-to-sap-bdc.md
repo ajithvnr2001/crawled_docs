@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/publish-data-to-sap-bdc/
 title: Publish Data Products to SAP BDC \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:14.481705+00:00
+fetched_at: 2026-10-25T05:53:32.679449+00:00
 ---
 
 # Publish Data Products to SAP BDC  |  Lakehouse  |  Google Cloud Documentation

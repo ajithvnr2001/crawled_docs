@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/attribute-config/
 title: About product attributes \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:32.660680+00:00
+fetched_at: 2026-10-25T06:24:18.046003+00:00
 ---
 
 # About product attributes  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

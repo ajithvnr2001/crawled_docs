@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/data-retention/
 title: Data retention in Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:17.017341+00:00
+fetched_at: 2026-10-25T06:26:26.236865+00:00
 ---
 
 # Data retention in Customer Experience Insights  |  Google Cloud Documentation

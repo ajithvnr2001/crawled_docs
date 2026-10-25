@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/extend-with-cloud-run-functions/
 title: Extend Firestore with event triggers using Cloud Run functions \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:37.975893+00:00
+fetched_at: 2026-10-25T06:21:22.633907+00:00
 ---
 
 # Extend Firestore with event triggers using Cloud Run functions  |  Firestore in Native mode  |  Google Cloud Documentation

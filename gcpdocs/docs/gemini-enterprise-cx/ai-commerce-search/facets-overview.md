@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/facets-overview/
 title: Facets for search \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:26.903533+00:00
+fetched_at: 2026-10-25T06:25:38.745892+00:00
 ---
 
 # Facets for search  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

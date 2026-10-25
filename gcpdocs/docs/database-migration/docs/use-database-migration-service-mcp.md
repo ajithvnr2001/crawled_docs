@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/use-database-migration-service-mcp/
 title: Use the Database Migration Service remote MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:20.972874+00:00
+fetched_at: 2026-10-25T06:43:23.085786+00:00
 ---
 
 # Use the Database Migration Service remote MCP server  |  Google Cloud Documentation

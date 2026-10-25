@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dotnet/docs/getting-started/getting-started-on-compute-engine/
 title: Getting started with .NET on Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:57.491635+00:00
+fetched_at: 2026-10-25T06:17:27.751065+00:00
 ---
 
 # Getting started with .NET on Compute Engine  |  Google Cloud Documentation

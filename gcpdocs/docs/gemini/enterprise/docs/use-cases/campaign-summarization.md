@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/use-cases/campaign-summarization/
 title: Summarize a campaign \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:55.715619+00:00
+fetched_at: 2026-10-25T06:23:38.369467+00:00
 ---
 
 # Summarize a campaign  |  Gemini Enterprise  |  Google Cloud Documentation

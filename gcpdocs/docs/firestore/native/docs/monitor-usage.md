@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/monitor-usage/
 title: Monitor usage \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:33.934726+00:00
+fetched_at: 2026-10-25T06:17:36.604580+00:00
 ---
 
 # Monitor usage  |  Firestore in Native mode  |  Google Cloud Documentation

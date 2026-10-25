@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.11.0/docs/logical-replication/
 title: Configure subscriber cluster for logical replication \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 16.11.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:48:54.443760+00:00
+fetched_at: 2026-10-25T06:33:57.666089+00:00
 ---
 
 # Configure subscriber cluster for logical replication  |  AlloyDB Omni using the container orchestrator: 16.11.0  |  Google Cloud Documentation

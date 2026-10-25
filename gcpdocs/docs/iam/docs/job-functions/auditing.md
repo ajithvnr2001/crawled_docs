@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/job-functions/auditing/
 title: IAM roles for auditing-related job functions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:25.890993+00:00
+fetched_at: 2026-10-25T06:20:31.802658+00:00
 ---
 
 # IAM roles for auditing-related job functions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

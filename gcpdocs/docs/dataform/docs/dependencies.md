@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/dependencies/
 title: Set dependencies \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:27.643182+00:00
+fetched_at: 2026-10-25T06:44:13.349079+00:00
 ---
 
 # Set dependencies  |  Dataform  |  Google Cloud Documentation

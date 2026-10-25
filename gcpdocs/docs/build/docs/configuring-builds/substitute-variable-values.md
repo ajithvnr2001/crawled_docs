@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/configuring-builds/substitute-variable-values/
 title: Substituting variable values \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:09.770286+00:00
+fetched_at: 2026-10-25T06:42:32.564066+00:00
 ---
 
 # Substituting variable values  |  Cloud Build  |  Google Cloud Documentation

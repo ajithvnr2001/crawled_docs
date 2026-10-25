@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/docs/configure-logging/
 title: Configure Gemini Code Assist Standard and Enterprise logging \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:17.785061+00:00
+fetched_at: 2026-10-25T06:20:19.433836+00:00
 ---
 
 # Configure Gemini Code Assist Standard and Enterprise logging  |  Gemini for Google Cloud  |  Google Cloud Documentation

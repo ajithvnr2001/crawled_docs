@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.28/docs/security/iap-integration/
 title: Integrating IAP with Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:31:28.965823+00:00
+fetched_at: 2026-10-25T05:44:52.877698+00:00
 ---
 
 # Integrating IAP with Cloud Service Mesh  |  Google Cloud Documentation
@@ -440,8 +440,8 @@ The expected output is similar to `"{\"BACKEND_SERVICE_ID\":\"HEALTHY\"}"`. For 
   4. Update `IapSettings` with the RCToken audience.
          
          cat iapSettings.json | jq --arg RCTOKEN_AUD_STR $RCTOKEN_AUD \
-         '. + {applicationSettings: {csmSettings: {rctokenAud: $RCTOKEN_AUD_STR}}}' \
-         > updatedIapSettings.json
+         '. + {applicationSettings: {csmSettings: {rctokenAud: $RCTOKEN_AUD_STR}}}>' \
+          updatedIapSettings.json
          
          
          gcloud iap settings set updatedIapSettings.json --format json \
@@ -507,8 +507,8 @@ To test the policy:
   1. Create an [`IapSettings`](https://docs.cloud.google.com/iap/docs/reference/rest/v1/IapSettings) request object, but set the `rctokenAud` to a different string:
          
          cat iapSettings.json | jq --arg RCTOKEN_AUD_STR wrong-rctoken-aud \
-         '. + {applicationSettings: {csmSettings: {rctokenAud: $RCTOKEN_AUD_STR}}}' \
-         > wrongIapSettings.json
+         '. + {applicationSettings: {csmSettings: {rctokenAud: $RCTOKEN_AUD_STR}}}>' \
+          wrongIapSettings.json
          
 
   2. Call the `IapSettings` API to set the RCtoken audience.

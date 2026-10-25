@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/lumapps/set-up-data-store/
 title: Set up a LumApps data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:31.396715+00:00
+fetched_at: 2026-10-25T06:23:09.598458+00:00
 ---
 
 # Set up a LumApps data store  |  Gemini Enterprise  |  Google Cloud Documentation

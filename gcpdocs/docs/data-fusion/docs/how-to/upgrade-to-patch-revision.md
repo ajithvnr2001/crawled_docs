@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/upgrade-to-patch-revision/
 title: Manage patch revisions for instances \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:58.100740+00:00
+fetched_at: 2026-10-25T06:44:00.779193+00:00
 ---
 
 # Manage patch revisions for instances  |  Cloud Data Fusion  |  Google Cloud Documentation

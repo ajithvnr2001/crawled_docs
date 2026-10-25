@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/org-policy-custom-constraints/
 title: Use custom organization policies for allow policies \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:49:36.416321+00:00
+fetched_at: 2026-10-25T06:21:49.116500+00:00
 ---
 
 # Use custom organization policies for allow policies  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

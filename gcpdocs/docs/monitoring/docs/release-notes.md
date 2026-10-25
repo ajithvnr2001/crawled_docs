@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/docs/release-notes/
 title: Monitoring release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:38:50.458230+00:00
+fetched_at: 2026-10-25T05:53:23.430236+00:00
 ---
 
 # Monitoring release notes  |  Google Cloud Documentation
@@ -28,6 +28,12 @@ For a combined list of all release notes for the products in Google Cloud Observ
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/stackdriver-release-notes.xml) directly. 
+
+## October 23, 2026
+
+Fixed
+
+Ops Agent version 2.73.0 includes patches for a Go vulnerability involving system root certificates, [CVE-2026-111943](https://www.cve.org/CVERecord?id=CVE-2026-111943). For more information, see [Ops Agent 2.73.0 notes](https://github.com/GoogleCloudPlatform/ops-agent/releases/tag/2.73.0).
 
 ## October 06, 2026
 

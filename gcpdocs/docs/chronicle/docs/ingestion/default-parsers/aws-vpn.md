@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-vpn/
 title: Collect AWS VPN logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:45.299782+00:00
+fetched_at: 2026-10-25T06:42:22.503510+00:00
 ---
 
 # Collect AWS VPN logs  |  Google Security Operations  |  Google Cloud Documentation

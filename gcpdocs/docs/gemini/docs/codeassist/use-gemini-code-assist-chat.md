@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/docs/codeassist/use-gemini-code-assist-chat/
 title: Use the Gemini Code Assist chat \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:52.096879+00:00
+fetched_at: 2026-10-25T06:22:38.800920+00:00
 ---
 
 # Use the Gemini Code Assist chat  |  Gemini for Google Cloud  |  Google Cloud Documentation

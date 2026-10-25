@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/sql-postgres/build-context-sets/
 title: Build context sets using the context engineering agent \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:30.440162+00:00
+fetched_at: 2026-10-25T06:19:14.882946+00:00
 ---
 
 # Build context sets using the context engineering agent  |  Data Agents  |  Google Cloud Documentation

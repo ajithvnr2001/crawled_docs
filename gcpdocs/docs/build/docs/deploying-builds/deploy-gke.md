@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/deploying-builds/deploy-gke/
 title: Deploying to GKE \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:06.538115+00:00
+fetched_at: 2026-10-25T06:43:25.700405+00:00
 ---
 
 # Deploying to GKE  |  Cloud Build  |  Google Cloud Documentation

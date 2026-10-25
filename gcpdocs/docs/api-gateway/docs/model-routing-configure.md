@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/model-routing-configure/
 title: Configure model routing \u00a0|\u00a0 API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:43.813036+00:00
+fetched_at: 2026-10-25T06:33:22.320006+00:00
 ---
 
 # Configure model routing  |  API Gateway  |  Google Cloud Documentation

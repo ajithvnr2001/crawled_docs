@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/merchant-center-query-your-data/
 title: Query your Google Merchant Center Transfers data \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:07.707034+00:00
+fetched_at: 2026-10-25T06:41:48.490861+00:00
 ---
 
 # Query your Google Merchant Center Transfers data  |  BigQuery  |  Google Cloud Documentation

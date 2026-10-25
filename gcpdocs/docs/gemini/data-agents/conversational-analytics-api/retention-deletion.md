@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/retention-deletion/
 title: Data retention and deletion \u00a0|\u00a0 Conversational Analytics API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:39.032053+00:00
+fetched_at: 2026-10-25T06:17:54.598490+00:00
 ---
 
 # Data retention and deletion  |  Conversational Analytics API  |  Google Cloud Documentation

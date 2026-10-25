@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/service/networking/networking-api-overview/
 title: Overview of Networking API \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:08:49.240815+00:00
+fetched_at: 2026-10-25T06:43:42.974489+00:00
 ---
 
 # Overview of Networking API  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/manage-tables-acl/
 title: Manage Apache Iceberg REST catalog endpoint ACLs \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:14.804563+00:00
+fetched_at: 2026-10-25T05:53:31.795255+00:00
 ---
 
 # Manage Apache Iceberg REST catalog endpoint ACLs  |  Lakehouse  |  Google Cloud Documentation

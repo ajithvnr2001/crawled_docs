@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/infrastructure-manager/docs/export-view-preview-results/
 title: Export and view preview results \u00a0|\u00a0 Infrastructure Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:29.454937+00:00
+fetched_at: 2026-10-25T06:21:50.740254+00:00
 ---
 
 # Export and view preview results  |  Infrastructure Manager  |  Google Cloud Documentation

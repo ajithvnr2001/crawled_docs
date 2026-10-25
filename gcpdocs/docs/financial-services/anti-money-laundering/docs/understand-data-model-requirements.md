@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/financial-services/anti-money-laundering/docs/understand-data-model-requirements/
 title: Understand the AML data model and requirements \u00a0|\u00a0 Anti Money Laundering AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:55.819962+00:00
+fetched_at: 2026-10-25T06:19:02.188959+00:00
 ---
 
 # Understand the AML data model and requirements  |  Anti Money Laundering AI  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/lineage-audit-logging/
 title: Data Lineage API audit logging \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:34:34.709155+00:00
+fetched_at: 2026-10-25T05:53:40.902540+00:00
 ---
 
 # Data Lineage API audit logging  |  Knowledge Catalog  |  Google Cloud Documentation

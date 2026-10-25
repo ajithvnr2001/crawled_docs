@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/column-aliases/
 title: Work with reusable column aliases \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:27.801951+00:00
+fetched_at: 2026-10-25T06:40:44.740409+00:00
 ---
 
 # Work with reusable column aliases  |  BigQuery  |  Google Cloud Documentation

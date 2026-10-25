@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/migrate-configure-env-vars/
 title: Configure environment variables \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:46.764368+00:00
+fetched_at: 2026-10-25T06:18:47.742271+00:00
 ---
 
 # Configure environment variables  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

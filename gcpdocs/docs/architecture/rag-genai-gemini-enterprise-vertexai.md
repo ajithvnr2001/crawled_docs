@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/rag-genai-gemini-enterprise-vertexai/
 title: RAG infrastructure for generative AI using Gemini Enterprise and Agent Platform \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:10.489667+00:00
+fetched_at: 2026-10-25T06:35:09.500060+00:00
 ---
 
 # RAG infrastructure for generative AI using Gemini Enterprise and Agent Platform  |  Cloud Architecture Center  |  Google Cloud Documentation

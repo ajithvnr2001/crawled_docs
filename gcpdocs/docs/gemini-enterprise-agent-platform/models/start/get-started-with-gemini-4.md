@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/get-started-with-gemini-4/
 title: Get started with Gemini 4 \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:44:48.359531+00:00
+fetched_at: 2026-10-25T05:45:47.305639+00:00
 ---
 
 # Get started with Gemini 4  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -132,7 +132,7 @@ We recommend migrating from `gemini-3.1-pro-preview` to `gemini-4-argon`. The fo
 
 Area | Gemini 3.1 Pro | Gemini 4 Argon | What to do  
 ---|---|---|---  
-Input and output token limits | Separate input (1,048,576) and output (65,535) limits | Unified 1,048,576-token limit across input and output (where output includes thinking, function calls, and the final response); 65,536-token default single-request output limit (32,768 tokens for non-streaming direct HTTP requests), extensible up to 1,048,576 tokens using long decodes | Budget input and output together. Upgrade to the latest Google Gen AI SDK and set `max_output_tokens` greater than 65,536 (or use `continuation_token` in custom `GenerateContent` loops) for outputs over the single-request limit.  
+Input and output token limits | Separate input (1,048,576) and output (65,536) limits | Unified 1,048,576-token limit across input and output (where output includes thinking, function calls, and the final response); 65,536-token default single-request output limit (32,768 tokens for non-streaming direct HTTP requests), extensible up to 1,048,576 tokens using long decodes | Budget input and output together. Upgrade to the latest Google Gen AI SDK and set `max_output_tokens` greater than 65,536 (or use `continuation_token` in custom `GenerateContent` loops) for outputs over the single-request limit.  
 `thinking_budget` | Mapped to a thinking level | Returns an HTTP `400` error | Use `thinking_level`.  
 `thinking_level="MINIMAL"` | Supported | Returns an HTTP `400` error | Use `LOW`.  
 Explicit context caching | Supported | Not supported | Remove `cached_content` references and put static content (6,144 tokens or more) at the start of your prompts.  
@@ -165,6 +165,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

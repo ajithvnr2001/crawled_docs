@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-constraint-column-usage/
 title: CONSTRAINT_COLUMN_USAGE view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:53.166529+00:00
+fetched_at: 2026-10-25T06:39:16.732533+00:00
 ---
 
 # CONSTRAINT_COLUMN_USAGE view  |  BigQuery  |  Google Cloud Documentation

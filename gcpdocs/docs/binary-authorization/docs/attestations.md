@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/binary-authorization/docs/attestations/
 title: Attestations overview \u00a0|\u00a0 Binary Authorization \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:59.770927+00:00
+fetched_at: 2026-10-25T06:42:30.202019+00:00
 ---
 
 # Attestations overview  |  Binary Authorization  |  Google Cloud Documentation

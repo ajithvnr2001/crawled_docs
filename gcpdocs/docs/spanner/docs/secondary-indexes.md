@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/secondary-indexes/
 title: Secondary indexes \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:34:32.594948+00:00
+fetched_at: 2026-10-25T05:45:19.274969+00:00
 ---
 
 # Secondary indexes  |  Spanner  |  Google Cloud Documentation
@@ -546,7 +546,7 @@ When you use SQL to query a Spanner table, Spanner automatically uses any indexe
 
 **Note:** After you make significant changes to the data or schema of your database, [constructing a new statistics package](https://docs.cloud.google.com/spanner/docs/query-optimizer/overview#construct-statistics-package) can improve the query optimizer's automatic index selection.
 
-In a few cases, Spanner might choose an index that causes query latency to increase. If you've followed the [troubleshooting steps for performance regressions](https://docs.cloud.google.com/spanner/docs/troubleshooting-performance-regressions) and confirmed that it makes sense to try a different index for the query, you can specify the index as part of your query.
+In a few cases, Spanner might choose an index that causes query latency to increase. If you follow the [troubleshooting steps for performance regressions][troubleshooting-query-performance-regressions] and decide to try a different index for the query, then you can specify the index as part of your query.
 
 To specify an index in a SQL statement, use the [`FORCE_INDEX`](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/query-syntax#table-hints) hint to provide an _index directive_. Index directives use the following syntax:
 
@@ -1998,6 +1998,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

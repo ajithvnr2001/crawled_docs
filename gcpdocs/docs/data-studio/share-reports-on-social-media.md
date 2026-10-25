@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/share-reports-on-social-media/
 title: Share reports on social media \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:08.941096+00:00
+fetched_at: 2026-10-25T06:42:52.165800+00:00
 ---
 
 # Share reports on social media  |  Data Studio  |  Google Cloud Documentation

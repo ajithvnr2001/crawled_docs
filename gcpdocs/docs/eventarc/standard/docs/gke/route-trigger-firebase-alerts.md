@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/gke/route-trigger-firebase-alerts/
 title: Route Firebase Alerts events to GKE \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:48.531631+00:00
+fetched_at: 2026-10-25T06:19:06.208651+00:00
 ---
 
 # Route Firebase Alerts events to GKE  |  Eventarc Standard  |  Google Cloud Documentation

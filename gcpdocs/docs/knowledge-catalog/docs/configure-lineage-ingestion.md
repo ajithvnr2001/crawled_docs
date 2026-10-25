@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/configure-lineage-ingestion/
 title: Configure data lineage ingestion for a service \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:24:19.958931+00:00
+fetched_at: 2026-10-25T05:53:39.329127+00:00
 ---
 
 # Configure data lineage ingestion for a service  |  Knowledge Catalog  |  Google Cloud Documentation

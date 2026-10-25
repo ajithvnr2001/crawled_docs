@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.15.0/docs/run-alloydb-omni-production/
 title: Run AlloyDB Omni in a production environment \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 15.15.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:44:42.730687+00:00
+fetched_at: 2026-10-25T06:37:17.005377+00:00
 ---
 
 # Run AlloyDB Omni in a production environment  |  AlloyDB Omni using the container orchestrator: 15.15.0  |  Google Cloud Documentation

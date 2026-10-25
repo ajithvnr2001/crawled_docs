@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/use-iam-mcp/
 title: Use the IAM remote MCP server \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:24.274549+00:00
+fetched_at: 2026-10-25T05:57:19.303141+00:00
 ---
 
 # Use the IAM remote MCP server  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

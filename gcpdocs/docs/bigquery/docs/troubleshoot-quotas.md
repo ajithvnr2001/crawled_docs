@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/troubleshoot-quotas/
 title: Troubleshoot quota and limit errors \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:25:07.180727+00:00
+fetched_at: 2026-10-25T05:52:56.538673+00:00
 ---
 
 # Troubleshoot quota and limit errors  |  BigQuery  |  Google Cloud Documentation
@@ -986,11 +986,17 @@ A dataset's access control list can have up to 2,500 total authorized resources,
 
 ### Too many DML statements outstanding against table
 
-This error means that the number of [concurrent mutating DML statements](https://docs.cloud.google.com/bigquery/docs/data-manipulation-language#update_delete_merge_dml_concurrency) (`UPDATE`, `DELETE`, `MERGE`) running against the same table has exceeded the [data manipulation language (DML) quota limit](https://docs.cloud.google.com/bigquery/quotas#data-manipulation-language-statements). This quota limit is per table, and applies to mutating DML statements only, which does not include `INSERT`.
+Error string: `Resources exceeded during query execution: Too many DML statements outstanding against table PROJECT_ID:DATASET.TABLE, limit is 20.`
+
+This error means that the number of [concurrent mutating DML statements](https://docs.cloud.google.com/bigquery/docs/data-manipulation-language#update_delete_merge_dml_concurrency) (`UPDATE`, `DELETE`, and `MERGE`), plus `TRUNCATE TABLE` statements, queued in `PENDING` status against a single table has exceeded the [data manipulation language (DML) quota limit](https://docs.cloud.google.com/bigquery/quotas#data-manipulation-language-statements) of 20. `INSERT` statements use a separate queue with a limit of 100.
 
 #### Resolution
 
-Batch the DML jobs by following [Best practices for DML statements](https://docs.cloud.google.com/bigquery/docs/data-manipulation-language#best_practices).
+  * Query the [`INFORMATION_SCHEMA.JOBS` view](https://docs.cloud.google.com/bigquery/docs/troubleshoot-queries#too_many_DML) for `RUNNING` and `PENDING` jobs with `statement_type IN ('UPDATE', 'DELETE', 'MERGE', 'TRUNCATE_TABLE')` to identify the jobs filling the table's DML queue.
+  * Group multiple smaller mutating DML operations into fewer, larger jobs—for example, by combining separate `UPDATE` statements into a single `UPDATE ... SET column = CASE WHEN ... END` statement, or by staging frequent updates in a separate table and periodically applying them to the target table with a single `MERGE` statement. See [Avoid DML statements that update or insert single rows](https://docs.cloud.google.com/bigquery/docs/best-practices-performance-compute#avoid-dml-update-single-rows) and [Too many DML statements](https://docs.cloud.google.com/bigquery/docs/troubleshoot-queries#too_many_DML).
+  * Partition or cluster the target table to improve DML execution speed so queued jobs drain faster. For more information, see [Best practices for DML statements](https://docs.cloud.google.com/bigquery/docs/data-manipulation-language#best_practices).
+
+
 
 ### Loading CSV files quota errors
 
@@ -1158,6 +1164,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

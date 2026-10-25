@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/filter-by-relevance/
 title: Filter searches by document-level relevance \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:58.609916+00:00
+fetched_at: 2026-10-25T06:25:56.532810+00:00
 ---
 
 # Filter searches by document-level relevance  |  Agent Search  |  Google Cloud Documentation

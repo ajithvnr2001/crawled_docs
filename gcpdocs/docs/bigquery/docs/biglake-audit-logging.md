@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/biglake-audit-logging/
 title: BigLake audit logging \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:01.738976+00:00
+fetched_at: 2026-10-25T06:40:09.317029+00:00
 ---
 
 # BigLake audit logging  |  BigQuery  |  Google Cloud Documentation

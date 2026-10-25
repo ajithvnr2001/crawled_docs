@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/manage-workload-identity-pools-providers/
 title: Manage workload identity pools and providers \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:49:43.947363+00:00
+fetched_at: 2026-10-25T06:22:11.027812+00:00
 ---
 
 # Manage workload identity pools and providers  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

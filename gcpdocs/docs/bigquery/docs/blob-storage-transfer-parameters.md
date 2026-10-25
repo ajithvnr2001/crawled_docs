@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/blob-storage-transfer-parameters/
 title: Runtime parameters in Blob Storage transfers \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:31.977645+00:00
+fetched_at: 2026-10-25T06:37:56.360689+00:00
 ---
 
 # Runtime parameters in Blob Storage transfers  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.29/docs/service-routing/custom-constraints/
 title: Set up custom constraints \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:53:10.010814+00:00
+fetched_at: 2026-10-25T05:44:45.811358+00:00
 ---
 
 # Set up custom constraints  |  Cloud Service Mesh  |  Google Cloud Documentation
@@ -333,7 +333,7 @@ When you have entered a value into each field, the equivalent YAML configuration
     methodTypes:
       - CREATE  
       - UPDATE 
-    condition: "CONDITION"
+    condition: &quot;CONDITION"
     actionType: ACTION
     displayName: DISPLAY_NAME
     description: DESCRIPTION

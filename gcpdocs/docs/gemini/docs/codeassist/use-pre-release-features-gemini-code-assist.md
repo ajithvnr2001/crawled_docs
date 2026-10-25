@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/docs/codeassist/use-pre-release-features-gemini-code-assist/
 title: Use pre-release features in Gemini Code Assist for VS Code \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:52.042838+00:00
+fetched_at: 2026-10-25T06:23:05.600825+00:00
 ---
 
 # Use pre-release features in Gemini Code Assist for VS Code  |  Gemini for Google Cloud  |  Google Cloud Documentation

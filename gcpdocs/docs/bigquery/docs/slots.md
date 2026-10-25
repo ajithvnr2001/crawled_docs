@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/slots/
 title: Understand slots \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:53.852153+00:00
+fetched_at: 2026-10-25T06:42:27.805313+00:00
 ---
 
 # Understand slots  |  BigQuery  |  Google Cloud Documentation

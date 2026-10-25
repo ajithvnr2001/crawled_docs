@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/rpc/
 title: RPC overview \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:38.890527+00:00
+fetched_at: 2026-10-25T06:26:54.875196+00:00
 ---
 
 # RPC overview  |  CX Agent Studio  |  Google Cloud Documentation

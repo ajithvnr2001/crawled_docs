@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-get-resource/
 title: Get FHIR resource \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:50:06.902387+00:00
+fetched_at: 2026-10-25T06:21:44.798499+00:00
 ---
 
 # Get FHIR resource  |  Cloud Healthcare API  |  Google Cloud Documentation

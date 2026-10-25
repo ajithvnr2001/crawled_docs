@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/quickstart-synthetic-data/
 title: Quickstart: Generate synthetic data for Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:56.890903+00:00
+fetched_at: 2026-10-25T05:53:09.227757+00:00
 ---
 
 # Quickstart: Generate synthetic data for Managed Service for Apache Kafka  |  Google Cloud Documentation
@@ -202,7 +202,7 @@ To consume messages directly from your cluster using Kafka CLI tools on a client
   3. On your client VM, set the environment variable:
          
          ```sh
-         export BOOTSTRAP="BOOTSTRAP_URL&quot;
+         export BOOTSTRAP="BOOTSTRAP_URL"
          ```
          
 
@@ -237,7 +237,7 @@ To stream data from your Kafka topic into BigQuery and view the records:
            {"name": "eventTimestamp", "type": "INTEGER"},
            {"name": "ipv4", "type": "STRING"},
            {"name": "ipv6", "type": "STRING"},
-           {"name": "country", ";type": "STRING"},
+           {"name": "country", "type": "STRING"},
            {"name": "username", "type": "STRING"},
            {"name": "quest", "type": "STRING"},
            {"name": "score", "type": "INTEGER"},

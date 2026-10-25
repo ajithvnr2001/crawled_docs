@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/terraform/
 title: Provision Agent Platform Workbench resources with Terraform \u00a0|\u00a0 Gemini Enterprise Agent Platform Workbench \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:33.930870+00:00
+fetched_at: 2026-10-25T06:27:15.748130+00:00
 ---
 
 # Provision Agent Platform Workbench resources with Terraform  |  Gemini Enterprise Agent Platform Workbench  |  Google Cloud Documentation

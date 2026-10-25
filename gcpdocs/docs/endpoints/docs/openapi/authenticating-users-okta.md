@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/openapi/authenticating-users-okta/
 title: Using Okta to authenticate users \u00a0|\u00a0 Cloud Endpoints with OpenAPI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:36.717104+00:00
+fetched_at: 2026-10-25T06:17:25.020486+00:00
 ---
 
 # Using Okta to authenticate users  |  Cloud Endpoints with OpenAPI  |  Google Cloud Documentation

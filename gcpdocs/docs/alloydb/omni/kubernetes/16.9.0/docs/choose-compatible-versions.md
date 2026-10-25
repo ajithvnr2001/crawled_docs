@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/choose-compatible-versions/
 title: Choose compatible Kubernetes operator and database cluster versions \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 16.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:07.320545+00:00
+fetched_at: 2026-10-25T06:33:04.628532+00:00
 ---
 
 # Choose compatible Kubernetes operator and database cluster versions  |  AlloyDB Omni for Kubernetes: 16.9.0  |  Google Cloud Documentation

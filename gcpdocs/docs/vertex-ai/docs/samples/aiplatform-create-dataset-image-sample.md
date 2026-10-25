@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-create-dataset-image-sample/
 title: Create a dataset for image \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:27:04.840369+00:00
+fetched_at: 2026-10-25T05:44:07.833642+00:00
 ---
 
 # Create a dataset for image  |  Vertex AI  |  Google Cloud Documentation
@@ -43,12 +43,12 @@ Before trying this sample, follow the Java setup instructions in the [Vertex AI 
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.api.gax.longrunning.[OperationFuture](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFuture.html);
-    import com.google.cloud.aiplatform.v1.[CreateDatasetOperationMetadata](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.CreateDatasetOperationMetadata.html);
-    import com.google.cloud.aiplatform.v1.[Dataset](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Dataset.html);
-    import com.google.cloud.aiplatform.v1.[DatasetServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceClient.html);
-    import com.google.cloud.aiplatform.v1.[DatasetServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceSettings.html);
-    import com.google.cloud.aiplatform.v1.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.LocationName.html);
+    import com.google.api.gax.longrunning.OperationFuture;
+    import com.google.cloud.aiplatform.v1.CreateDatasetOperationMetadata;
+    import com.google.cloud.aiplatform.v1.Dataset;
+    import com.google.cloud.aiplatform.v1.DatasetServiceClient;
+    import com.google.cloud.aiplatform.v1.DatasetServiceSettings;
+    import com.google.cloud.aiplatform.v1.LocationName;
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -66,40 +66,40 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
       static void createDatasetImageSample(String project, String datasetDisplayName)
           throws IOException, InterruptedException, ExecutionException, TimeoutException {
-        [DatasetServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceSettings.html) datasetServiceSettings =
-            [DatasetServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceSettings.html).newBuilder()
+        DatasetServiceSettings datasetServiceSettings =
+            DatasetServiceSettings.newBuilder()
                 .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try ([DatasetServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceClient.html) datasetServiceClient =
-            [DatasetServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceClient.html).create(datasetServiceSettings)) {
+        try (DatasetServiceClient datasetServiceClient =
+            DatasetServiceClient.create(datasetServiceSettings)) {
           String location = "us-central1";
           String metadataSchemaUri =
               "gs://google-cloud-aiplatform/schema/dataset/metadata/image_1.0.0.yaml";
-          [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.LocationName.html) locationName = [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.LocationName.html).of(project, location);
-          [Dataset](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Dataset.html) dataset =
-              [Dataset](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Dataset.html).newBuilder()
+          LocationName locationName = LocationName.of(project, location);
+          Dataset dataset =
+              Dataset.newBuilder()
                   .setDisplayName(datasetDisplayName)
                   .setMetadataSchemaUri(metadataSchemaUri)
                   .build();
     
           OperationFuture<Dataset, CreateDatasetOperationMetadata> datasetFuture =
-              datasetServiceClient.[createDatasetAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetServiceClient.html#com_google_cloud_aiplatform_v1_DatasetServiceClient_createDatasetAsync__org_jspecify_annotations_Nullable_com_google_cloud_aiplatform_v1_LocationName_com_google_cloud_aiplatform_v1_Dataset_)(locationName, dataset);
-          System.out.format("Operation name: %s\n", datasetFuture.getInitialFuture().[get](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFutureImpl.html#com_google_api_gax_longrunning_OperationFutureImpl_get__)().getName());
+              datasetServiceClient.createDatasetAsync(locationName, dataset);
+          System.out.format("Operation name: %s\n", datasetFuture.getInitialFuture().get().getName());
           System.out.println("Waiting for operation to finish...");
-          [Dataset](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Dataset.html) datasetResponse = datasetFuture.[get](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFutureImpl.html#com_google_api_gax_longrunning_OperationFutureImpl_get__)(120, TimeUnit.SECONDS);
+          Dataset datasetResponse = datasetFuture.get(120, TimeUnit.SECONDS);
     
           System.out.println("Create Image Dataset Response");
-          System.out.format("Name: %s\n", datasetResponse.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Dataset.html#com_google_cloud_aiplatform_v1_Dataset_getName__)());
-          System.out.format("Display Name: %s\n", datasetResponse.[getDisplayName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Dataset.html#com_google_cloud_aiplatform_v1_Dataset_getDisplayName__)());
-          System.out.format("Metadata Schema Uri: %s\n", datasetResponse.[getMetadataSchemaUri](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Dataset.html#com_google_cloud_aiplatform_v1_Dataset_getMetadataSchemaUri__)());
-          System.out.format("Metadata: %s\n", datasetResponse.[getMetadata](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Dataset.html#com_google_cloud_aiplatform_v1_Dataset_getMetadata__)());
-          System.out.format("Create Time: %s\n", datasetResponse.[getCreateTime](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Dataset.html#com_google_cloud_aiplatform_v1_Dataset_getCreateTime__)());
-          System.out.format("Update Time: %s\n", datasetResponse.[getUpdateTime](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Dataset.html#com_google_cloud_aiplatform_v1_Dataset_getUpdateTime__)());
-          System.out.format("Labels: %s\n", datasetResponse.[getLabelsMap](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Dataset.html#com_google_cloud_aiplatform_v1_Dataset_getLabelsMap__)());
+          System.out.format("Name: %s\n", datasetResponse.getName());
+          System.out.format("Display Name: %s\n", datasetResponse.getDisplayName());
+          System.out.format("Metadata Schema Uri: %s\n", datasetResponse.getMetadataSchemaUri());
+          System.out.format("Metadata: %s\n", datasetResponse.getMetadata());
+          System.out.format("Create Time: %s\n", datasetResponse.getCreateTime());
+          System.out.format("Update Time: %s\n", datasetResponse.getUpdateTime());
+          System.out.format("Labels: %s\n", datasetResponse.getLabelsMap());
         }
       }
     }
@@ -121,7 +121,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     // const location = 'YOUR_PROJECT_LOCATION';
     
     // Imports the Google Cloud Dataset Service Client library
-    const {DatasetServiceClient} = require('[@google-cloud/aiplatform](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)');
+    const {DatasetServiceClient} = require('@google-cloud/aiplatform');
     
     // Specifies the location of the api endpoint
     const clientOptions = {
@@ -129,7 +129,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     };
     
     // Instantiates a client
-    const datasetServiceClient = new [DatasetServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)(clientOptions);
+    const datasetServiceClient = new DatasetServiceClient(clientOptions);
     
     async function createDatasetImage() {
       // Configure the parent resource
@@ -183,13 +183,13 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         client_options = {"api_endpoint": api_endpoint}
         # Initialize client that will be used to create and send requests.
         # This client only needs to be created once, and can be reused for multiple requests.
-        client = aiplatform.gapic.[DatasetServiceClient](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.dataset_service.DatasetServiceClient.html)(client_options=client_options)
+        client = aiplatform.gapic.DatasetServiceClient(client_options=client_options)
         dataset = {
             "display_name": display_name,
             "metadata_schema_uri": "gs://google-cloud-aiplatform/schema/dataset/metadata/image_1.0.0.yaml",
         }
         parent = f"projects/{project}/locations/{location}"
-        response = client.[create_dataset](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.dataset_service.DatasetServiceClient.html#google_cloud_aiplatform_v1_services_dataset_service_DatasetServiceClient_create_dataset)(parent=parent, dataset=dataset)
+        response = client.create_dataset(parent=parent, dataset=dataset)
         print("Long running operation:", response.operation.name)
         create_dataset_response = response.result(timeout=timeout)
         print("create_dataset_response:", create_dataset_response)

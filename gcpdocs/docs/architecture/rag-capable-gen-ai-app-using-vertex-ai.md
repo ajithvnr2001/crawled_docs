@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/rag-capable-gen-ai-app-using-vertex-ai/
 title: RAG infrastructure for generative AI using Agent Platform and AlloyDB for PostgreSQL \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:10.352762+00:00
+fetched_at: 2026-10-25T06:27:26.066260+00:00
 ---
 
 # RAG infrastructure for generative AI using Agent Platform and AlloyDB for PostgreSQL  |  Cloud Architecture Center  |  Google Cloud Documentation

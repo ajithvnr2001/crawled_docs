@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/binary-authorization/docs/deploying-containers/
 title: Deploy containers (GKE, Distributed Cloud) \u00a0|\u00a0 Binary Authorization \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:56.186693+00:00
+fetched_at: 2026-10-25T06:42:01.229136+00:00
 ---
 
 # Deploy containers (GKE, Distributed Cloud)  |  Binary Authorization  |  Google Cloud Documentation

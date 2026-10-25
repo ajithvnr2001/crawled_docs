@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.1/docs/ai/model-endpoint-overview/
 title: Register and call remote AI models in AlloyDB Omni overview \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:45.095790+00:00
+fetched_at: 2026-10-25T06:39:33.383768+00:00
 ---
 
 # Register and call remote AI models in AlloyDB Omni overview  |  AlloyDB Omni using RPM: 18.1.1  |  Google Cloud Documentation

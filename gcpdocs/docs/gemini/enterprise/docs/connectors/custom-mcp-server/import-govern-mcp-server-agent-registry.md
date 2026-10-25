@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/custom-mcp-server/import-govern-mcp-server-agent-registry/
 title: Import MCP servers from Agent Registry \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:40.175410+00:00
+fetched_at: 2026-10-25T06:23:00.262299+00:00
 ---
 
 # Import MCP servers from Agent Registry  |  Gemini Enterprise  |  Google Cloud Documentation

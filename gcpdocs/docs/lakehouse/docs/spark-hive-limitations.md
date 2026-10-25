@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/spark-hive-limitations/
 title: Limitations and considerations \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:13.028097+00:00
+fetched_at: 2026-10-25T05:53:32.582940+00:00
 ---
 
 # Limitations and considerations  |  Lakehouse  |  Google Cloud Documentation

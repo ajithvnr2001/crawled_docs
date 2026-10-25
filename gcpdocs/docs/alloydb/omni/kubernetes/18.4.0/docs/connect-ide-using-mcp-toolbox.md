@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/connect-ide-using-mcp-toolbox/
 title: Use AlloyDB Omni with MCP, Gemini CLI, and other agents \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:14.572286+00:00
+fetched_at: 2026-10-25T06:40:36.712221+00:00
 ---
 
 # Use AlloyDB Omni with MCP, Gemini CLI, and other agents  |  AlloyDB Omni using the container orchestrator: 18.4.0  |  Google Cloud Documentation

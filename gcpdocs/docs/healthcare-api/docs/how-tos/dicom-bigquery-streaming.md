@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/how-tos/dicom-bigquery-streaming/
 title: Stream DICOM metadata to BigQuery \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:36.344816+00:00
+fetched_at: 2026-10-25T06:19:10.811177+00:00
 ---
 
 # Stream DICOM metadata to BigQuery  |  Cloud Healthcare API  |  Google Cloud Documentation

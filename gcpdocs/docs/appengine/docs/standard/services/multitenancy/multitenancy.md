@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/services/multitenancy/multitenancy/
 title: Implementing multitenancy using Namespaces \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:57.915227+00:00
+fetched_at: 2026-10-25T06:35:21.517401+00:00
 ---
 
 # Implementing multitenancy using Namespaces  |  App Engine standard environment  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/agent/ops-agent/third-party/zookeeper/
 title: Apache ZooKeeper \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:38:19.377196+00:00
+fetched_at: 2026-10-25T05:53:15.649677+00:00
 ---
 
 # Apache ZooKeeper  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -60,7 +60,7 @@ The following commands create the configuration to collect and ingest telemetry 
     sudo cp /etc/google-cloud-ops-agent/config.yaml /etc/google-cloud-ops-agent/config.yaml.bak
     
     # Configure the Ops Agent.
-    sudo tee /etc/google-cloud-ops-agent/config.y>aml  /dev/n<<ull  EOF
+    sudo tee /etc/google-cloud-ops-agent/config.yaml > /dev/null << EOF
     metrics:
       receivers:
         zookeeper:

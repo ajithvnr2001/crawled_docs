@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/securing-with-vpc-sc/
 title: Protect repositories in a service perimeter \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:16.647600+00:00
+fetched_at: 2026-10-25T06:36:43.723797+00:00
 ---
 
 # Protect repositories in a service perimeter  |  Artifact Registry  |  Google Cloud Documentation

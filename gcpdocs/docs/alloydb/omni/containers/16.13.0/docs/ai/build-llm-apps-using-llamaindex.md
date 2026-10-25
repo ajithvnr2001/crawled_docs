@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.13.0/docs/ai/build-llm-apps-using-llamaindex/
 title: Build LLM-powered applications using LlamaIndex \u00a0|\u00a0 AlloyDB Omni using containers: 16.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:46:27.427487+00:00
+fetched_at: 2026-10-25T06:36:01.415442+00:00
 ---
 
 # Build LLM-powered applications using LlamaIndex  |  AlloyDB Omni using containers: 16.13.0  |  Google Cloud Documentation

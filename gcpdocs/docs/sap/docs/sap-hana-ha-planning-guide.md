@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-ha-planning-guide/
 title: SAP HANA high-availability planning guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:01:40.981297+00:00
+fetched_at: 2026-10-25T05:45:13.644118+00:00
 ---
 
 # SAP HANA high-availability planning guide  |  SAP on Google Cloud  |  Google Cloud Documentation

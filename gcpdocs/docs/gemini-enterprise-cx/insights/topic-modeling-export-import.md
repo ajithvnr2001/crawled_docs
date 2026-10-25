@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/topic-modeling-export-import/
 title: Export and import a topic model \u00a0|\u00a0 Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:10.145188+00:00
+fetched_at: 2026-10-25T06:25:26.232672+00:00
 ---
 
 # Export and import a topic model  |  Customer Experience Insights  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/creating-api-config/
 title: Create an API config \u00a0|\u00a0 API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:46.731820+00:00
+fetched_at: 2026-10-25T06:33:20.957021+00:00
 ---
 
 # Create an API config  |  API Gateway  |  Google Cloud Documentation

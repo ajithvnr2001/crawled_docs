@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/web/mfa/
 title: Adding multi-factor authentication to your web app \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:02.754785+00:00
+fetched_at: 2026-10-25T06:19:46.805973+00:00
 ---
 
 # Adding multi-factor authentication to your web app  |  Identity Platform  |  Google Cloud Documentation

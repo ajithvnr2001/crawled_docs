@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/darktrace/
 title: Collect Darktrace logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:21.746518+00:00
+fetched_at: 2026-10-25T06:43:47.829703+00:00
 ---
 
 # Collect Darktrace logs  |  Google Security Operations  |  Google Cloud Documentation

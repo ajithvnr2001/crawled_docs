@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/complete-data-source-ownership-transfer/
 title: Complete data source ownership transfer \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:51.549573+00:00
+fetched_at: 2026-10-25T06:44:03.499651+00:00
 ---
 
 # Complete data source ownership transfer  |  Data Studio  |  Google Cloud Documentation

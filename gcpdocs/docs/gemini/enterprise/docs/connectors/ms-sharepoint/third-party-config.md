@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/ms-sharepoint/third-party-config/
 title: Microsoft SharePoint configuration \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:29.116354+00:00
+fetched_at: 2026-10-25T06:22:49.712630+00:00
 ---
 
 # Microsoft SharePoint configuration  |  Gemini Enterprise  |  Google Cloud Documentation

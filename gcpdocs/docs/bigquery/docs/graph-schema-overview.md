@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/graph-schema-overview/
 title: Schema overview \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:59.663840+00:00
+fetched_at: 2026-10-25T06:39:20.996125+00:00
 ---
 
 # Schema overview  |  BigQuery  |  Google Cloud Documentation

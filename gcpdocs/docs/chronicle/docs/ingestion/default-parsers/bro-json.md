@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/bro-json/
 title: Collect Zeek (Bro) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:31:34.887996+00:00
+fetched_at: 2026-10-25T06:43:05.582975+00:00
 ---
 
 # Collect Zeek (Bro) logs  |  Google Security Operations  |  Google Cloud Documentation

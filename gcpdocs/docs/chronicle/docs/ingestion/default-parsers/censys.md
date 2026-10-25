@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/censys/
 title: Collect Censys ASM logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:31:27.253183+00:00
+fetched_at: 2026-10-25T06:43:02.981806+00:00
 ---
 
 # Collect Censys ASM logs  |  Google Security Operations  |  Google Cloud Documentation

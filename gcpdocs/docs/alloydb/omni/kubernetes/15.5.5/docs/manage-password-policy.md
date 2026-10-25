@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/manage-password-policy/
 title: Manage built-in authentication using password policies \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.5.5 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:44:10.018934+00:00
+fetched_at: 2026-10-25T06:38:19.661383+00:00
 ---
 
 # Manage built-in authentication using password policies  |  AlloyDB Omni for Kubernetes: 15.5.5  |  Google Cloud Documentation

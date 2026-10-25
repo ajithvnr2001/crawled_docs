@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/broadcom-ca-pam/
 title: Collect Broadcom CA PAM logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:31:32.423932+00:00
+fetched_at: 2026-10-25T06:39:59.236791+00:00
 ---
 
 # Collect Broadcom CA PAM logs  |  Google Security Operations  |  Google Cloud Documentation

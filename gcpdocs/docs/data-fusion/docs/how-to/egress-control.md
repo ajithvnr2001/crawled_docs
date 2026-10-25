@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/egress-control/
 title: Control egress in a private instance \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:03.786382+00:00
+fetched_at: 2026-10-25T06:42:57.677960+00:00
 ---
 
 # Control egress in a private instance  |  Cloud Data Fusion  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.0/docs/ai/generate-multimodal-embeddings/
 title: Generate multimodal embeddings \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:20.233504+00:00
+fetched_at: 2026-10-25T06:43:15.274009+00:00
 ---
 
 # Generate multimodal embeddings  |  AlloyDB Omni using RPM: 18.1.0  |  Google Cloud Documentation

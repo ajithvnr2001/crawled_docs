@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/connect-to-firebase-via-bigquery/
 title: Connect to Firebase (via BigQuery) \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:49.863330+00:00
+fetched_at: 2026-10-25T06:44:08.814028+00:00
 ---
 
 # Connect to Firebase (via BigQuery)  |  Data Studio  |  Google Cloud Documentation

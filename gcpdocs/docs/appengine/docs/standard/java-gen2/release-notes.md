@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/java-gen2/release-notes/
 title: App Engine standard environment for Java gen2 release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:59.059966+00:00
+fetched_at: 2026-10-25T05:44:00.220128+00:00
 ---
 
 # App Engine standard environment for Java gen2 release notes  |  Google Cloud Documentation
@@ -25,6 +25,27 @@ Send feedback
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gaestd-java-release-notes.xml) directly. 
+
+## October 24, 2026
+
+Security
+
+The following runtime language contains important security updates:
+
+  * [Java 17 and later](https://docs.cloud.google.com/appengine/docs/standard/lifecycle/support-schedule#java): `17.0.20_101`, `21.0.12_101.0.LTS`, `25.0.5_8.0.LTS`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
 
 ## September 29, 2026
 

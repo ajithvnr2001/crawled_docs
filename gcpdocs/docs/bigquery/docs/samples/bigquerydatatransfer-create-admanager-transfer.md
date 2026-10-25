@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatatransfer-create-admanager-transfer/
 title: Load data from Google Ad Manager \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:22.464016+00:00
+fetched_at: 2026-10-25T06:42:44.198298+00:00
 ---
 
 # Load data from Google Ad Manager  |  BigQuery  |  Google Cloud Documentation

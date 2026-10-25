@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/financial-services/anti-money-laundering/docs/data-residency/
 title: Data residency \u00a0|\u00a0 Anti Money Laundering AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:58.421695+00:00
+fetched_at: 2026-10-25T06:19:53.349793+00:00
 ---
 
 # Data residency  |  Anti Money Laundering AI  |  Google Cloud Documentation

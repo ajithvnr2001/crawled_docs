@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/product-search/docs/get-list-resources/
 title: Getting and listing resources \u00a0|\u00a0 Vision API Product Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:58:09.764784+00:00
+fetched_at: 2026-10-25T05:44:12.001415+00:00
 ---
 
 # Getting and listing resources  |  Vision API Product Search  |  Google Cloud Documentation
@@ -135,11 +135,11 @@ To authenticate to Vision API Product Search, set up Application Default Credent
     	ctx := context.Background()
     	c, err := vision.NewProductSearchClient(ctx)
     	if err != nil {
-    		return fmt.Errorf(&quo&t;NewProd[uctSearchClient: %w&qu](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_ListProductSetsRequest)ot;, err)
+    		return fmt.Errorf("NewProductSearchClient: %w", err)
     	}
     	defer c.Close()
     
-    	req := visionpb.ListProductSetsRequest{
+    	req := &visionpb.[ListProductSetsRequest](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_ListProductSetsRequest){
     		Parent: fmt.Sprintf("projects/%s/locations/%s", projectID, location),
     	}
     
@@ -207,10 +207,10 @@ To authenticate to Vision API Product Search, set up Application Default Credent
     
     
     // Imports the Google Cloud client library
-    const vision = require(&[#39;@google-cloud/vi](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)sion');
+    const vision = require('[@google-cloud/vision](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)');
     
     // Creates a client
-    const client = new[ vision.ProductSear](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)chClient();
+    const client = new vision.[ProductSearchClient](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)();
     
     async function listProductSets() {
       /**
@@ -223,7 +223,7 @@ To authenticate to Vision API Product Search, set up Application Default Credent
       const locationPath = client.locationPath(projectId, location);
     
       const [productSets] = await client.listProductSets({parent: locationPath});
-      productS>ets.forEach(productSet = {
+      productSets.forEach(productSet => {
         console.log(`Product Set name: ${productSet.name}`);
         console.log(`Product Set display name: ${productSet.displayName}`);
       });
@@ -244,21 +244,21 @@ To authenticate to Vision API Product Search, set up Application Default Credent
         Args:
             project_id: Id of the project.
             location: A compute region name.
-        "&qu[ot;"](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html)
-        client = vision.ProductSearchClient()
+        """
+        client = vision.[ProductSearchClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html)()
     
         # A resource that represents Google Cloud Platform location.
         location_path = f"projects/{project_id}/locations/{location}"
     
-        # List all the product sets available i[n the region.an>
-        product_sets = client.list_product_sets(parent=location_path)
+        # List all the product sets available in the region.
+        product_sets = client.[list_product_sets](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_list_product_sets)(parent=location_path)
     
         # Display the product set information.
         for product_set in product_sets:
             print(f"Product set name: {product_set.name}")
             print("Product set id: {}".format(product_set.name.split("/")[-1]))
             print(f"Product set display name: {product_set.display_name}")
-     ](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_list_product_sets)       print("Product set index time: ")
+            print("Product set index time: ")
             print(product_set.index_time)
     
     
@@ -351,11 +351,11 @@ To authenticate to Vision API Product Search, set up Application Default Credent
     	ctx := context.Background()
     	c, err := vision.NewProductSearchClient(ctx)
     	if err != nil {
-    		return fmt.Errorf("NewProdu&ctSearchC[lient: %w"](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_GetProductSetRequest), err)
+    		return fmt.Errorf("NewProductSearchClient: %w", err)
     	}
     	defer c.Close()
     
-    	req := visionpb.GetProductSetRequest{
+    	req := &visionpb.[GetProductSetRequest](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_GetProductSetRequest){
     		Name: fmt.Sprintf("projects/%s/locations/%s/productSets/%s", projectID, location, productSetID),
     	}
     
@@ -407,7 +407,7 @@ To authenticate to Vision API Product Search, set up Application Default Credent
             String.format("Product set display name: %s", productSet.getDisplayName()));
         System.out.println("Product set index time:");
         System.out.println(String.format("\tseconds: %s", productSet.getIndexTime().getSeconds()));
-        System.out.println(String.format(&quot;\tnanos: %s", productSet.getIndexTime().getNanos()));
+        System.out.println(String.format("\tnanos: %s", productSet.getIndexTime().getNanos()));
       }
     }
 
@@ -419,10 +419,10 @@ To authenticate to Vision API Product Search, set up Application Default Credent
     
     
     // Imports the Google Cloud client library
-    const vision = require(&[#39;@google-cloud/vi](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)sion');
+    const vision = require('[@google-cloud/vision](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)');
     
     // Creates a client
-    const client = new[ vision.ProductSear](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)chClient();
+    const client = new vision.[ProductSearchClient](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)();
     
     async function getProductSet() {
       /**
@@ -460,16 +460,16 @@ To authenticate to Vision API Product Search, set up Application Default Credent
             project_id: Id of the project.
             location: A compute region name.
             product_set_id: Id of the product set.
-        "&qu[ot;"](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html)
-        client = vision.ProductSearchClient()
+        """
+        client = vision.[ProductSearchClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html)()
     
         # Get the full path of the product set.
-    [    product_set_](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_product_set_path)path = client.product_set_path(
+        product_set_path = client.[product_set_path](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_product_set_path)(
             project=project_id, location=location, product_set=product_set_id
         )
     
-        # Get complete detail of the product [set.](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_get_product_set)
-        product_set = client.get_product_set(name=product_set_path)
+        # Get complete detail of the product set.
+        product_set = client.[get_product_set](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_get_product_set)(name=product_set_path)
     
         # Display the product set information.
         print(f"Product set name: {product_set.name}")
@@ -731,11 +731,11 @@ To authenticate to Vision API Product Search, set up Application Default Credent
     	ctx := context.Background()
     	c, err := vision.NewProductSearchClient(ctx)
     	if err != nil {
-    		return fmt.Errorf(&quo&t;NewProd[uctSearchClient: %w](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_ListProductsRequest)", err)
+    		return fmt.Errorf("NewProductSearchClient: %w", err)
     	}
     	defer c.Close()
     
-    	req := visionpb.ListProductsRequest{
+    	req := &visionpb.[ListProductsRequest](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_ListProductsRequest){
     		Parent: fmt.Sprintf("projects/%s/locations/%s", projectID, location),
     	}
     
@@ -804,10 +804,10 @@ To authenticate to Vision API Product Search, set up Application Default Credent
     
     
     // Imports the Google Cloud client library
-    const vision = require(&[#39;@google-cloud/vi](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)sion');
+    const vision = require('[@google-cloud/vision](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)');
     
     // Creates a client
-    const client = new[ vision.ProductSear](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)chClient();
+    const client = new vision.[ProductSearchClient](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)();
     
     async function listProducts() {
       /**
@@ -820,7 +820,7 @@ To authenticate to Vision API Product Search, set up Application Default Credent
       const locationPath = client.locationPath(projectId, location);
     
       const [products] = await client.listProducts({parent: locationPath});
-      pr>oducts.forEach(product = {
+      products.forEach(product => {
         console.log(`Product name: ${product.name}`);
         console.log(`Product id: ${product.name.split('/').pop()}`);
         console.log(`Product display name: ${product.displayName}`);
@@ -828,7 +828,7 @@ To authenticate to Vision API Product Search, set up Application Default Credent
         console.log(`Product category: ${product.productCategory}`);
         if (product.productLabels.length) {
           console.log('Product labels:');
-          prod>uct.productLabels.forEach(productLabel = {
+          product.productLabels.forEach(productLabel => {
             console.log(`${productLabel.key}: ${productLabel.value}`);
           });
         }
@@ -851,14 +851,14 @@ To authenticate to Vision API Product Search, set up Application Default Credent
         Args:
             project_id: Id of the project.
             location: A compute region name.
-        "&qu[ot;"](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html)
-        client = vision.ProductSearchClient()
+        """
+        client = vision.[ProductSearchClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html)()
     
         # A resource that represents Google Cloud Platform location.
         location_path = f"projects/{project_id}/locations/{location}"
     
-        # List all the products availab[le in the reg](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_list_products)ion.
-        products = client.list_products(parent=location_path)
+        # List all the products available in the region.
+        products = client.[list_products](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_list_products)(parent=location_path)
     
         # Display the product information.
         for product in products:
@@ -1119,11 +1119,11 @@ To authenticate to Vision API Product Search, set up Application Default Credent
     	ctx := context.Background()
     	c, err := vision.NewProductSearchClient(ctx)
     	if err != nil {
-    		return fmt.Errorf(&quo&t;NewProd[uctSearchClient: %w"](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_ListProductsInProductSetRequest), err)
+    		return fmt.Errorf("NewProductSearchClient: %w", err)
     	}
     	defer c.Close()
     
-    	req := visionpb.ListProductsInProductSetRequest{
+    	req := &visionpb.[ListProductsInProductSetRequest](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_ListProductsInProductSetRequest){
     		Name: fmt.Sprintf("projects/%s/locations/%s/productSets/%s", projectID, location, productSetID),
     	}
     
@@ -1181,7 +1181,7 @@ To authenticate to Vision API Product Search, set up Application Default Credent
           System.out.println(String.format("Product category: %s", product.getProductCategory()));
           System.out.println("Product labels: ");
           for (Product.KeyValue element : product.getProductLabelsList()) {
-            System.out.println(String.format(&quot;%s: %s", element.getKey(), element.getValue()));
+            System.out.println(String.format("%s: %s", element.getKey(), element.getValue()));
           }
         }
       }
@@ -1194,9 +1194,9 @@ To learn how to install and use the client library for Vision API Product Search
 To authenticate to Vision API Product Search, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    const vision = require(&[#39;@google-cloud/vi](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)sion');
+    const vision = require('[@google-cloud/vision](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)');
     
-    const client = new[ vision.ProductSear](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)chClient();
+    const client = new vision.[ProductSearchClient](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)();
     
     async function listProductsInProductSet() {
       /**
@@ -1214,8 +1214,8 @@ To authenticate to Vision API Product Search, set up Application Default Credent
         name: productSetPath,
       };
     
-      const [products] = await client.listProductsInProductSet(reques>t);
-      products.forEach(product = {
+      const [products] = await client.listProductsInProductSet(request);
+      products.forEach(product => {
         console.log(`Product name: ${product.name}`);
         console.log(`Product display name: ${product.displayName}`);
       });
@@ -1354,11 +1354,11 @@ To authenticate to Vision API Product Search, set up Application Default Credent
     	ctx := context.Background()
     	c, err := vision.NewProductSearchClient(ctx)
     	if err != nil {
-    		return fmt.Errorf("NewProdu&ctSearchC[lient: %w"](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_GetProductRequest), err)
+    		return fmt.Errorf("NewProductSearchClient: %w", err)
     	}
     	defer c.Close()
     
-    	req := visionpb.GetProductRequest{
+    	req := &visionpb.[GetProductRequest](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_GetProductRequest){
     		Name: fmt.Sprintf("projects/%s/locations/%s/products/%s", projectID, location, productID),
     	}
     
@@ -1423,10 +1423,10 @@ To authenticate to Vision API Product Search, set up Application Default Credent
     
     
     // Imports the Google Cloud client library
-    const vision = require(&[#39;@google-cloud/vi](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)sion');
+    const vision = require('[@google-cloud/vision](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)');
     
     // Creates a client
-    const client = new[ vision.ProductSear](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)chClient();
+    const client = new vision.[ProductSearchClient](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)();
     
     async function getProduct() {
       /**
@@ -1465,23 +1465,23 @@ To authenticate to Vision API Product Search, set up Application Default Credent
             project_id: Id of the project.
             location: A compute region name.
             product_id: Id of the product.
-        "&qu[ot;"](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html)
-        client = vision.ProductSearchClient()
+        """
+        client = vision.[ProductSearchClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html)()
     
-        # Get the full path of the produ[ct.](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_product_path)
-        product_path = client.product_path(
+        # Get the full path of the product.
+        product_path = client.[product_path](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_product_path)(
             project=project_id, location=location, product=product_id
         )
     
-        # Get complete detail of the [product.pan>
-        product = client.get_product(name=product_path)
+        # Get complete detail of the product.
+        product = client.[get_product](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_get_product)(name=product_path)
     
         # Display the product information.
         print(f"Product name: {product.name}")
         print("Product id: {}".format(product.name.split("/")[-1]))
         print(f"Product display name: {product.display_name}")
         print(f"Product description: {product.description}")
-        print(f"Product category: ](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_get_product){product.product_category}")
+        print(f"Product category: {product.product_category}")
         print(f"Product labels: {product.product_labels}")
     
     
@@ -1614,11 +1614,11 @@ To authenticate to Vision API Product Search, set up Application Default Credent
     	ctx := context.Background()
     	c, err := vision.NewProductSearchClient(ctx)
     	if err != nil {
-    		return fmt.Errorf(&quo&t;NewProd[uctSearchClient: %w"](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_ListReferenceImagesRequest), err)
+    		return fmt.Errorf("NewProductSearchClient: %w", err)
     	}
     	defer c.Close()
     
-    	req := visionpb.ListReferenceImagesRequest{
+    	req := &visionpb.[ListReferenceImagesRequest](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_ListReferenceImagesRequest){
     		Parent: fmt.Sprintf("projects/%s/locations/%s/products/%s", projectID, location, productID),
     	}
     
@@ -1685,9 +1685,9 @@ To learn how to install and use the client library for Vision API Product Search
 To authenticate to Vision API Product Search, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    const vision = require(&[#39;@google-cloud/vi](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)sion');
+    const vision = require('[@google-cloud/vision](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)');
     
-    const client = new[ vision.ProductSear](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)chClient();
+    const client = new vision.[ProductSearchClient](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)();
     
     async function listReferenceImage() {
       /**
@@ -1703,8 +1703,8 @@ To authenticate to Vision API Product Search, set up Application Default Credent
         parent: formattedParent,
       };
     
-      const [response] = await client.listReferenceImages(requ>est);
-      response.forEach(image = {
+      const [response] = await client.listReferenceImages(request);
+      response.forEach(image => {
         console.log(`image.name: ${image.name}`);
         console.log(`image.uri: ${image.uri}`);
       });
@@ -1726,23 +1726,23 @@ To authenticate to Vision API Product Search, set up Application Default Credent
             project_id: Id of the project.
             location: A compute region name.
             product_id: Id of the product.
-        "&qu[ot;"](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html)
-        client = vision.ProductSearchClient()
+        """
+        client = vision.[ProductSearchClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html)()
     
-        # Get the full path of the produ[ct.](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_product_path)
-        product_path = client.product_path(
+        # Get the full path of the product.
+        product_path = client.[product_path](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_product_path)(
             project=project_id, location=location, product=product_id
         )
     
         # List all the reference images available in the product.
-    [    reference_images ](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_list_reference_images)= client.list_reference_images(parent=product_path)
+        reference_images = client.[list_reference_images](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_list_reference_images)(parent=product_path)
     
         # Display the reference image information.
         for image in reference_images:
             print(f"Reference image name: {image.name}")
             print("Reference image id: {}".format(image.name.split("/")[-1]))
             print(f"Reference image uri: {image.uri}")
-            print(&quot;Reference image bounding polygons: {}".format(image.bounding_polys))
+            print("Reference image bounding polygons: {}".format(image.bounding_polys))
     
     
 
@@ -1859,11 +1859,11 @@ To authenticate to Vision API Product Search, set up Application Default Credent
     	ctx := context.Background()
     	c, err := vision.NewProductSearchClient(ctx)
     	if err != nil {
-    		return fmt.Errorf("NewProdu&ctSearchC[lient: %w"](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_GetReferenceImageRequest), err)
+    		return fmt.Errorf("NewProductSearchClient: %w", err)
     	}
     	defer c.Close()
     
-    	req := visionpb.GetReferenceImageRequest{
+    	req := &visionpb.[GetReferenceImageRequest](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_GetReferenceImageRequest){
     		Name: fmt.Sprintf("projects/%s/locations/%s/products/%s/referenceImages/%s", projectID, location, productID, referenceImageID),
     	}
     
@@ -1926,9 +1926,9 @@ To learn how to install and use the client library for Vision API Product Search
 To authenticate to Vision API Product Search, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    const vision = require(&[#39;@google-cloud/vi](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)sion');
+    const vision = require('[@google-cloud/vision](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)');
     
-    const client = new[ vision.ProductSear](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)chClient();
+    const client = new vision.[ProductSearchClient](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)();
     
     async function getReferenceImage() {
       /**
@@ -1972,19 +1972,19 @@ To authenticate to Vision API Product Search, set up Application Default Credent
             location: A compute region name.
             product_id: Id of the product.
             reference_image_id: Id of the reference image.
-        "&qu[ot;"](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html)
-        client = vision.ProductSearchClient()
+        """
+        client = vision.[ProductSearchClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html)()
     
         # Get the full path of the reference image.
-        [reference_image_path](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_reference_image_path) = client.reference_image_path(
+        reference_image_path = client.[reference_image_path](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_reference_image_path)(
             project=project_id,
             location=location,
             product=product_id,
             reference_image=reference_image_id,
         )
     
-        # Get complete detail of the refere[nce image.](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_get_reference_image)
-        image = client.get_reference_image(name=reference_image_path)
+        # Get complete detail of the reference image.
+        image = client.[get_reference_image](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_get_reference_image)(name=reference_image_path)
     
         # Display the reference image information.
         print(f"Reference image name: {image.name}")

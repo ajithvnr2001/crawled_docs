@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-directory/docs/samples/servicedirectory-resolve-service/
 title: Resolve service \u00a0|\u00a0 Service Directory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:32:28.136133+00:00
+fetched_at: 2026-10-25T05:44:46.327159+00:00
 ---
 
 # Resolve service  |  Service Directory  |  Google Cloud Documentation
@@ -304,7 +304,7 @@ To authenticate to Service Directory, set up Application Default Credentials. Fo
     require "google/cloud/service_directory"
     
     # Initialize the client
-    lookup_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1/latest/Google-Cloud-ServiceDirectory.html).[lookup_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
+    lookup_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1beta1/latest/Google-Cloud-ServiceDirectory.html).[lookup_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
     
     # The name of the service
     service_path = lookup_service.service_path(

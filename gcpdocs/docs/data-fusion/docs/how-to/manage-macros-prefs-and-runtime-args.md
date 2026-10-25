@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/manage-macros-prefs-and-runtime-args/
 title: Manage macros, preferences, and runtime arguments \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:02.834669+00:00
+fetched_at: 2026-10-25T06:43:33.751046+00:00
 ---
 
 # Manage macros, preferences, and runtime arguments  |  Cloud Data Fusion  |  Google Cloud Documentation

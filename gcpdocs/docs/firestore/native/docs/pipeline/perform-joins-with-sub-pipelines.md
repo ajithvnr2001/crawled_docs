@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/perform-joins-with-sub-pipelines/
 title: Perform joins with subqueries \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:12.635737+00:00
+fetched_at: 2026-10-25T06:23:19.708839+00:00
 ---
 
 # Perform joins with subqueries  |  Firestore in Native mode  |  Google Cloud Documentation

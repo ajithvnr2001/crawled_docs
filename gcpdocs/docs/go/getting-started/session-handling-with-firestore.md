@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/go/getting-started/session-handling-with-firestore/
 title: Handling sessions with Firestore \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:50:16.798470+00:00
+fetched_at: 2026-10-25T06:21:24.355009+00:00
 ---
 
 # Handling sessions with Firestore  |  Google Cloud Documentation

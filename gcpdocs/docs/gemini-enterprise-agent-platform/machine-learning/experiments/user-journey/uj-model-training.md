@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-model-training/
 title: Model training with prebuilt data pre-processing code: Notebook \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:34.782097+00:00
+fetched_at: 2026-10-25T06:27:04.025979+00:00
 ---
 
 # Model training with prebuilt data pre-processing code: Notebook  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

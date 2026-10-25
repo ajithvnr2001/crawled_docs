@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/hub/docs/key-concepts/
 title: Key concepts \u00a0|\u00a0 Cloud Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:48:34.892825+00:00
+fetched_at: 2026-10-25T06:20:28.456904+00:00
 ---
 
 # Key concepts  |  Cloud Hub  |  Google Cloud Documentation

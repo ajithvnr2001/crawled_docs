@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/samples/secretmanager-iam-revoke-access-with-regional-secret/
 title: IAM revoke access with regional secret \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:40:34.527200+00:00
+fetched_at: 2026-10-25T05:44:48.943012+00:00
 ---
 
 # IAM revoke access with regional secret  |  Secret Manager  |  Google Cloud Documentation
@@ -345,7 +345,7 @@ To authenticate to Secret Manager, set up Application Default Credentials. For m
     api_endpoint = "secretmanager.#{location_id}.rep.googleapis.com"
     
     # Create the Secret Manager client.
-    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta2/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html) do |config|
+    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html) do |config|
       config.endpoint = api_endpoint
     end
     

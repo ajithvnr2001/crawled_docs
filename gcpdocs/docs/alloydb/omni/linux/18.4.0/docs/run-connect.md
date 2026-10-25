@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/run-connect/
 title: Run and connect to AlloyDB Omni using RPM \u00a0|\u00a0 AlloyDB Omni using RPM: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:34:02.521305+00:00
+fetched_at: 2026-10-25T06:40:32.631277+00:00
 ---
 
 # Run and connect to AlloyDB Omni using RPM  |  AlloyDB Omni using RPM: 18.4.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/salesforce-required-resources/
 title: Agent Assist for Salesforce required resources \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:27.725528+00:00
+fetched_at: 2026-10-25T06:25:52.172041+00:00
 ---
 
 # Agent Assist for Salesforce required resources  |  Google Cloud Documentation

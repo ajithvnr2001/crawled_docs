@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-network-firewall/
 title: Collect AWS Network Firewall logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:48.587091+00:00
+fetched_at: 2026-10-25T06:43:20.901549+00:00
 ---
 
 # Collect AWS Network Firewall logs  |  Google Security Operations  |  Google Cloud Documentation

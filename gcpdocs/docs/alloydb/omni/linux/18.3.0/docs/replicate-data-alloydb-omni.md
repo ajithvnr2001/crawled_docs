@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.3.0/docs/replicate-data-alloydb-omni/
 title: Replicate data between AlloyDB for PostgreSQL and AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using RPM: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:31.379726+00:00
+fetched_at: 2026-10-25T06:41:05.449698+00:00
 ---
 
 # Replicate data between AlloyDB for PostgreSQL and AlloyDB Omni  |  AlloyDB Omni using RPM: 18.3.0  |  Google Cloud Documentation

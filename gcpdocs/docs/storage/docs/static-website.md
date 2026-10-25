@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/static-website/
 title: Static website examples and tips \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:26.369946+00:00
+fetched_at: 2026-10-25T05:44:37.833449+00:00
 ---
 
 # Static website examples and tips  |  Cloud Storage  |  Google Cloud Documentation
@@ -170,9 +170,9 @@ If you are serving assets from a bucket configured as a static website or servin
 
 You may also incur networking charges if you use an external Application Load Balancer to set up HTTPS. See [Network Pricing](https://docs.cloud.google.com/vpc/network-pricing#lb) for more details.
 
-The [simple pricing example](https://docs.cloud.google.com/storage/pricing-examples#simple) on the pricing examples page can be used as an approximation for the use case of a low-traffic, static website. Note, however, that the example does not account for charges associated with the external Application Load Balancer, which can often be the largest charge for static website hosting. You can use the [Pricing Calculator](https://cloud.google.com/products/calculator/) to generate a cost estimate based on your projected usage.
+The [simple pricing example](https://docs.cloud.google.com/storage/pricing-examples#simple) on the pricing examples page can be used as an approximation for the use case of a low-traffic, static website. Note, however, that the example does not account for charges associated with the external Application Load Balancer, which can often be the largest charge for static website hosting. You can use the [Pricing Calculator](https://docs.cloud.google.com/products/calculator) to generate a cost estimate based on your projected usage.
 
-New Google Cloud users might be eligible for a [free trial](https://cloud.google.com/free/). 
+New Google Cloud users might be eligible for a [free trial](https://docs.cloud.google.com/free). 
 
 If you are a current Google Cloud user, you can get a detailed breakdown of your project costs on the [billing page](https://console.cloud.google.com/billing).
 

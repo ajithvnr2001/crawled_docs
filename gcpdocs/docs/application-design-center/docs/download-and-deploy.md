@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/download-and-deploy/
 title: Download and deploy Terraform \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:42.380360+00:00
+fetched_at: 2026-10-25T06:35:15.032740+00:00
 ---
 
 # Download and deploy Terraform  |  Application Design Center  |  Google Cloud Documentation

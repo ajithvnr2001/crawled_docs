@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/ask-effective-questions/
 title: Conversational Analytics API: Ask effective questions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:28.800451+00:00
+fetched_at: 2026-10-25T06:22:31.209309+00:00
 ---
 
 # Conversational Analytics API: Ask effective questions  |  Google Cloud Documentation

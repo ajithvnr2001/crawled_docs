@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/prepare-data/
 title: Prepare data for ingesting \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:35.167274+00:00
+fetched_at: 2026-10-25T06:25:34.571605+00:00
 ---
 
 # Prepare data for ingesting  |  Agent Search  |  Google Cloud Documentation

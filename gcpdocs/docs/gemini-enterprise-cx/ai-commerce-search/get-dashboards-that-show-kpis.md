@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/get-dashboards-that-show-kpis/
 title: Get dashboards that show key performance indicators \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:25.259809+00:00
+fetched_at: 2026-10-25T06:26:14.269116+00:00
 ---
 
 # Get dashboards that show key performance indicators  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

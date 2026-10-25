@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-center/docs/fleet-maintenance/
 title: View maintenance events and windows for your database fleet \u00a0|\u00a0 Database Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:10.564106+00:00
+fetched_at: 2026-10-25T06:44:00.693020+00:00
 ---
 
 # View maintenance events and windows for your database fleet  |  Database Center  |  Google Cloud Documentation

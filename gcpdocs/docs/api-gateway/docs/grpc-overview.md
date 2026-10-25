@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/grpc-overview/
 title: gRPC overview \u00a0|\u00a0 API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:44.694487+00:00
+fetched_at: 2026-10-25T06:32:58.499501+00:00
 ---
 
 # gRPC overview  |  API Gateway  |  Google Cloud Documentation

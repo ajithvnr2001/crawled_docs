@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/concepts/available-upgrades/
 title: Available upgrades \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:29.877376+00:00
+fetched_at: 2026-10-25T06:43:46.600822+00:00
 ---
 
 # Available upgrades  |  Cloud Data Fusion  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/configure-load-balancing-regional-frontend/
 title: Configure a regional Cloud Load Balancing frontend \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:44.307457+00:00
+fetched_at: 2026-10-25T06:35:19.698571+00:00
 ---
 
 # Configure a regional Cloud Load Balancing frontend  |  Application Design Center  |  Google Cloud Documentation

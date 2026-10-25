@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/table-decorators/
 title: Table decorators in legacy SQL \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:51.270789+00:00
+fetched_at: 2026-10-25T06:43:27.755933+00:00
 ---
 
 # Table decorators in legacy SQL  |  BigQuery  |  Google Cloud Documentation

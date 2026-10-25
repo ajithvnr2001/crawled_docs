@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/bigqueryml-mf-implicit-tutorial/
 title: Create recommendations based on implicit feedback with a matrix factorization model \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:33.900351+00:00
+fetched_at: 2026-10-25T06:39:42.452755+00:00
 ---
 
 # Create recommendations based on implicit feedback with a matrix factorization model  |  BigQuery  |  Google Cloud Documentation

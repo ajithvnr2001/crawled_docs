@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/infrastructure-manager/docs/configure-service-account/
 title: Configure the service account \u00a0|\u00a0 Infrastructure Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:30.669999+00:00
+fetched_at: 2026-10-25T06:21:18.678630+00:00
 ---
 
 # Configure the service account  |  Infrastructure Manager  |  Google Cloud Documentation

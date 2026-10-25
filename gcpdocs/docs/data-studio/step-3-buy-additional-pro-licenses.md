@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/step-3-buy-additional-pro-licenses/
 title: Step 3: Purchase Data Studio Pro licenses \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:06.989191+00:00
+fetched_at: 2026-10-25T06:43:17.799681+00:00
 ---
 
 # Step 3: Purchase Data Studio Pro licenses  |  Google Cloud Documentation

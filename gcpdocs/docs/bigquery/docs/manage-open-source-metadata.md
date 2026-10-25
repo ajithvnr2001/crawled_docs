@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/manage-open-source-metadata/
 title: Manage open source metadata with BigLake metastore (classic) \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:17.320673+00:00
+fetched_at: 2026-10-25T06:42:24.536149+00:00
 ---
 
 # Manage open source metadata with BigLake metastore (classic)  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/binary-authorization/docs/integrations/
 title: Integrate with third-party tools \u00a0|\u00a0 Binary Authorization \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:55.189603+00:00
+fetched_at: 2026-10-25T06:41:08.468556+00:00
 ---
 
 # Integrate with third-party tools  |  Binary Authorization  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/histogram-reference/
 title: Histogram reference \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:39.022014+00:00
+fetched_at: 2026-10-25T06:43:26.875655+00:00
 ---
 
 # Histogram reference  |  Data Studio  |  Google Cloud Documentation

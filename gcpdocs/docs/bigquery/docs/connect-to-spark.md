@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/connect-to-spark/
 title: Connect to Apache Spark \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:23.992190+00:00
+fetched_at: 2026-10-25T06:40:11.758009+00:00
 ---
 
 # Connect to Apache Spark  |  BigQuery  |  Google Cloud Documentation

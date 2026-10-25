@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/configure-firewall-endpoints/
 title: Create firewall endpoints and endpoint associations \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:36.495965+00:00
+fetched_at: 2026-10-25T06:24:42.661790+00:00
 ---
 
 # Create firewall endpoints and endpoint associations  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

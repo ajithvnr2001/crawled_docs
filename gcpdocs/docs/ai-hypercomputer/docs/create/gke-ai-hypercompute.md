@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/gke-ai-hypercompute/
 title: Create an AI-optimized GKE cluster with Cluster Toolkit \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:31.802011+00:00
+fetched_at: 2026-10-25T06:33:33.551429+00:00
 ---
 
 # Create an AI-optimized GKE cluster with Cluster Toolkit  |  AI Hypercomputer  |  Google Cloud Documentation

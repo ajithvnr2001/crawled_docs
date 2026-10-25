@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/frameworks/java/calling-from-android/
 title: Calling backend APIs from an Android client \u00a0|\u00a0 Cloud Endpoints Frameworks for App Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:05:02.939353+00:00
+fetched_at: 2026-10-25T06:17:57.970547+00:00
 ---
 
 # Calling backend APIs from an Android client  |  Cloud Endpoints Frameworks for App Engine  |  Google Cloud Documentation

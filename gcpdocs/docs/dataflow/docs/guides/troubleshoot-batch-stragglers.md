@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/troubleshoot-batch-stragglers/
 title: Troubleshoot stragglers in batch jobs \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:54.851916+00:00
+fetched_at: 2026-10-25T06:44:21.161894+00:00
 ---
 
 # Troubleshoot stragglers in batch jobs  |  Cloud Dataflow  |  Google Cloud Documentation

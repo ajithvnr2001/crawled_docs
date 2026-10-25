@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/usage-insights/
 title: Analyze usage insights \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:30.580497+00:00
+fetched_at: 2026-10-25T06:18:42.597149+00:00
 ---
 
 # Analyze usage insights  |  Firestore in Native mode  |  Google Cloud Documentation

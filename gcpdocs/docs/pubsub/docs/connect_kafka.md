@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/connect_kafka/
 title: Connect Pub/Sub to Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:04.459650+00:00
+fetched_at: 2026-10-25T05:45:42.963866+00:00
 ---
 
 # Connect Pub/Sub to Apache Kafka  |  Google Cloud Documentation

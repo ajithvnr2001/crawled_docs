@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/web/chrome-extension/
 title: Signing in users from a Chrome extension \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:03.410138+00:00
+fetched_at: 2026-10-25T06:21:34.281859+00:00
 ---
 
 # Signing in users from a Chrome extension  |  Identity Platform  |  Google Cloud Documentation

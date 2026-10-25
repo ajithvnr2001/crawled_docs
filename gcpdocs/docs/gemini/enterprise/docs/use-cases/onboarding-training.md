@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/use-cases/onboarding-training/
 title: Streamline onboarding and training \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:53.082943+00:00
+fetched_at: 2026-10-25T06:22:46.956774+00:00
 ---
 
 # Streamline onboarding and training  |  Gemini Enterprise  |  Google Cloud Documentation

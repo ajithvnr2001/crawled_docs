@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/migrate-import-from-source/
 title: Import from the source Mongo database \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:46.360371+00:00
+fetched_at: 2026-10-25T06:18:35.505152+00:00
 ---
 
 # Import from the source Mongo database  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

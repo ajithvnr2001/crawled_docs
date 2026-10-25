@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/network-connectivity-managed-services/
 title: Network connectivity in Google Cloud managed services \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:48.084230+00:00
+fetched_at: 2026-10-25T06:20:59.623239+00:00
 ---
 
 # Network connectivity in Google Cloud managed services  |  Integration Connectors  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/patterns-for-floating-ip-addresses-in-compute-engine/
 title: Patterns for using floating IP addresses in Compute Engine \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:12.092409+00:00
+fetched_at: 2026-10-25T06:28:16.781328+00:00
 ---
 
 # Patterns for using floating IP addresses in Compute Engine  |  Cloud Architecture Center  |  Google Cloud Documentation

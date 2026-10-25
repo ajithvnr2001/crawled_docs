@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/scatter-chart-reference/
 title: Scatter chart reference \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:11.092246+00:00
+fetched_at: 2026-10-25T06:44:14.746317+00:00
 ---
 
 # Scatter chart reference  |  Data Studio  |  Google Cloud Documentation

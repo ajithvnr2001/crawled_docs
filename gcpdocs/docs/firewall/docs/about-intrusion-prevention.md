@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/about-intrusion-prevention/
 title: Intrusion detection and prevention service overview \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:39.010239+00:00
+fetched_at: 2026-10-25T06:23:50.602225+00:00
 ---
 
 # Intrusion detection and prevention service overview  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

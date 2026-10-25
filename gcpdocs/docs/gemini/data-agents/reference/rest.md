@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/reference/rest/
 title: Data Analytics API with Gemini \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:50.606344+00:00
+fetched_at: 2026-10-25T06:23:08.746775+00:00
 ---
 
 # Data Analytics API with Gemini  |  Data Agents  |  Google Cloud Documentation

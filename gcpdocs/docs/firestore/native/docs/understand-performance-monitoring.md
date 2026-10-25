@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/understand-performance-monitoring/
 title: Understand performance monitoring in Firestore \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:30.669851+00:00
+fetched_at: 2026-10-25T06:19:36.942247+00:00
 ---
 
 # Understand performance monitoring in Firestore  |  Firestore in Native mode  |  Google Cloud Documentation

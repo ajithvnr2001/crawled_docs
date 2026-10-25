@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/manual-preprocessing/
 title: Manual feature preprocessing \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:11.480991+00:00
+fetched_at: 2026-10-25T06:42:23.770879+00:00
 ---
 
 # Manual feature preprocessing  |  BigQuery  |  Google Cloud Documentation

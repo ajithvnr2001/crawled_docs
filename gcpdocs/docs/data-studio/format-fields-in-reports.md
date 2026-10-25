@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/format-fields-in-reports/
 title: Format fields in reports \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:15.178451+00:00
+fetched_at: 2026-10-25T06:41:12.666026+00:00
 ---
 
 # Format fields in reports  |  Data Studio  |  Google Cloud Documentation

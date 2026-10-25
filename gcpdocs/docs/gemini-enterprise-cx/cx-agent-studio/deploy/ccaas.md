@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/deploy/ccaas/
 title: Google Cloud CCaaS \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:42.567537+00:00
+fetched_at: 2026-10-25T06:24:54.636763+00:00
 ---
 
 # Google Cloud CCaaS  |  CX Agent Studio  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/bi-engine-reserve-capacity/
 title: Reserve BI Engine capacity \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:01.921416+00:00
+fetched_at: 2026-10-25T06:40:10.148768+00:00
 ---
 
 # Reserve BI Engine capacity  |  BigQuery  |  Google Cloud Documentation

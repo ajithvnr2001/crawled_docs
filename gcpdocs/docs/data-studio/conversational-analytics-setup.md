@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/conversational-analytics-setup/
 title: Set up Conversational Analytics in Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:45.639585+00:00
+fetched_at: 2026-10-25T06:44:01.630085+00:00
 ---
 
 # Set up Conversational Analytics in Data Studio  |  Google Cloud Documentation

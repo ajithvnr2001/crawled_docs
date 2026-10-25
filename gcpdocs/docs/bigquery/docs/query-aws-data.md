@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/query-aws-data/
 title: Query Amazon S3 BigLake tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:36.132599+00:00
+fetched_at: 2026-10-25T06:43:02.421664+00:00
 ---
 
 # Query Amazon S3 BigLake tables  |  BigQuery  |  Google Cloud Documentation

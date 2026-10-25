@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/suspend-resume-connection/
 title: Suspend and resume a connection \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:45:39.056744+00:00
+fetched_at: 2026-10-25T06:18:29.669425+00:00
 ---
 
 # Suspend and resume a connection  |  Integration Connectors  |  Google Cloud Documentation

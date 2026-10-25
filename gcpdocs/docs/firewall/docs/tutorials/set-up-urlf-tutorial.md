@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/tutorials/set-up-urlf-tutorial/
 title: Set up URL filtering service in your network \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:28.631681+00:00
+fetched_at: 2026-10-25T06:25:43.578031+00:00
 ---
 
 # Set up URL filtering service in your network  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

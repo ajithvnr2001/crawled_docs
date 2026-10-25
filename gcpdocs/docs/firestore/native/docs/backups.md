@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/backups/
 title: Back up and restore data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:41.053705+00:00
+fetched_at: 2026-10-25T06:20:59.217672+00:00
 ---
 
 # Back up and restore data  |  Firestore in Native mode  |  Google Cloud Documentation

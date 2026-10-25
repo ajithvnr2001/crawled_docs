@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.27/docs/release-notes/
 title: Cloud Service Mesh version 1.27 release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:45:28.868938+00:00
+fetched_at: 2026-10-25T05:45:01.243968+00:00
 ---
 
 # Cloud Service Mesh version 1.27 release notes  |  Google Cloud Documentation
@@ -44,6 +44,12 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/servicemesh-release-notes.xml) directly. 
 
 ## October 19, 2026
+
+1.28.x
+
+Announcement
+
+In-cluster Cloud Service Mesh 1.28 is no longer supported. For more information and to view the earliest end-of-life dates for other versions, see [Supported versions](https://docs.cloud.google.com/service-mesh/docs/supported-features-in-cluster#supported_versions).
 
 Managed Cloud Service Mesh
 

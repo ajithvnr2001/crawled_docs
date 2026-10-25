@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatapolicy-datapolicyservice-datapolicy-update/
 title: Update a data policy \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:22.947818+00:00
+fetched_at: 2026-10-25T06:43:10.180184+00:00
 ---
 
 # Update a data policy  |  BigQuery  |  Google Cloud Documentation

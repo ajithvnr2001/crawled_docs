@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/docs/event-driven-architectures/
 title: Event-driven architectures \u00a0|\u00a0 Eventarc \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:57.534837+00:00
+fetched_at: 2026-10-25T06:25:28.461724+00:00
 ---
 
 # Event-driven architectures  |  Eventarc  |  Google Cloud Documentation

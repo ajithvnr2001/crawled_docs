@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/enterprise-knowledge-graph/docs/
 title: Enterprise Knowledge Graph documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:44.246651+00:00
+fetched_at: 2026-10-25T06:28:06.848593+00:00
 ---
 
 # Enterprise Knowledge Graph documentation  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/gke/route-trigger-firebase-realtime-database/
 title: Route Firebase Realtime Database events to GKE \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:48.191171+00:00
+fetched_at: 2026-10-25T06:20:07.733945+00:00
 ---
 
 # Route Firebase Realtime Database events to GKE  |  Eventarc Standard  |  Google Cloud Documentation

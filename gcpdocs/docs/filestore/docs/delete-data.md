@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/filestore/docs/delete-data/
 title: Delete data from a file share \u00a0|\u00a0 Filestore \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:27.460956+00:00
+fetched_at: 2026-10-25T05:57:04.952496+00:00
 ---
 
 # Delete data from a file share  |  Filestore  |  Google Cloud Documentation

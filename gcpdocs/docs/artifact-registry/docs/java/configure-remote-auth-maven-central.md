@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/java/configure-remote-auth-maven-central/
 title: Configure remote repository authentication to Maven Central \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:24:32.564207+00:00
+fetched_at: 2026-10-25T06:37:19.916963+00:00
 ---
 
 # Configure remote repository authentication to Maven Central  |  Artifact Registry  |  Google Cloud Documentation

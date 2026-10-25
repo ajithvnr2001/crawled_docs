@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/agent-assist-metrics/
 title: Compute metrics using Agent Assist conversation data \u00a0|\u00a0 Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:48.124251+00:00
+fetched_at: 2026-10-25T06:26:03.795839+00:00
 ---
 
 # Compute metrics using Agent Assist conversation data  |  Customer Experience Insights  |  Google Cloud Documentation

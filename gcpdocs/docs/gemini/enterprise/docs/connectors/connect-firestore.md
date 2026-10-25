@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-firestore/
 title: Import from Firestore \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:31.841552+00:00
+fetched_at: 2026-10-25T06:24:29.700041+00:00
 ---
 
 # Import from Firestore  |  Gemini Enterprise  |  Google Cloud Documentation

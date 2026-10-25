@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/advanced/docs/quickstarts/publish-events-google-api-source/
 title: Quickstart: Publish events from a Google source \u00a0|\u00a0 Eventarc Advanced \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:46:16.082529+00:00
+fetched_at: 2026-10-25T06:17:53.758895+00:00
 ---
 
 # Quickstart: Publish events from a Google source  |  Eventarc Advanced  |  Google Cloud Documentation

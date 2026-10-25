@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/access-control/
 title: Access control with IAM \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:01.568682+00:00
+fetched_at: 2026-10-25T06:21:03.412558+00:00
 ---
 
 # Access control with IAM  |  Identity Platform  |  Google Cloud Documentation

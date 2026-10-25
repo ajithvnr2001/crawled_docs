@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/snippets/
 title: Get snippets and extracted content (Legacy) \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:49.389654+00:00
+fetched_at: 2026-10-25T06:24:47.735258+00:00
 ---
 
 # Get snippets and extracted content (Legacy)  |  Gemini Enterprise  |  Google Cloud Documentation

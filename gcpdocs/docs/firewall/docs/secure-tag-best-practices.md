@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/secure-tag-best-practices/
 title: Best practices for secure tags in Cloud NGFW \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:22.284200+00:00
+fetched_at: 2026-10-25T06:18:33.236339+00:00
 ---
 
 # Best practices for secure tags in Cloud NGFW  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/quickstart-create-template/
 title: Create and verify a template \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:40.440924+00:00
+fetched_at: 2026-10-25T06:34:10.881367+00:00
 ---
 
 # Create and verify a template  |  Application Design Center  |  Google Cloud Documentation

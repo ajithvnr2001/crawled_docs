@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/billing-questions/
 title: Understanding your billing report \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:40.819249+00:00
+fetched_at: 2026-10-25T06:23:03.056414+00:00
 ---
 
 # Understanding your billing report  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/merchant-center-top-brands-schema/
 title: Google Merchant Center top brands table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:06.700152+00:00
+fetched_at: 2026-10-25T06:42:20.153741+00:00
 ---
 
 # Google Merchant Center top brands table  |  BigQuery  |  Google Cloud Documentation

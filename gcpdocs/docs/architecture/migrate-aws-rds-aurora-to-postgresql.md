@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migrate-aws-rds-aurora-to-postgresql/
 title: Migrate from AWS to Google Cloud: Migrate from Amazon RDS and Amazon Aurora for PostgreSQL to Cloud SQL and AlloyDB for PostgreSQL \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:20.428878+00:00
+fetched_at: 2026-10-25T06:35:05.528148+00:00
 ---
 
 # Migrate from AWS to Google Cloud: Migrate from Amazon RDS and Amazon Aurora for PostgreSQL to Cloud SQL and AlloyDB for PostgreSQL  |  Cloud Architecture Center  |  Google Cloud Documentation

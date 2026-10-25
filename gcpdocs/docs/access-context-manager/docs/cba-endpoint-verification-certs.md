@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/access-context-manager/docs/cba-endpoint-verification-certs/
 title: Enable certificate-based access with Endpoint Verification certificates \u00a0|\u00a0 Access Context Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:15.803225+00:00
+fetched_at: 2026-10-25T06:33:34.300015+00:00
 ---
 
 # Enable certificate-based access with Endpoint Verification certificates  |  Access Context Manager  |  Google Cloud Documentation

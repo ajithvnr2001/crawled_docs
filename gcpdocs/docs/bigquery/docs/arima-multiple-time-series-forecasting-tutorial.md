@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/arima-multiple-time-series-forecasting-tutorial/
 title: Forecast multiple time series with an ARIMA_PLUS univariate model \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:09.055159+00:00
+fetched_at: 2026-10-25T06:41:41.317565+00:00
 ---
 
 # Forecast multiple time series with an ARIMA_PLUS univariate model  |  BigQuery  |  Google Cloud Documentation

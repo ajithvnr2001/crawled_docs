@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/food-ai/evaluation/
 title: Evaluate ordering agents using the evaluation framework \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:25.862584+00:00
+fetched_at: 2026-10-25T06:24:38.048798+00:00
 ---
 
 # Evaluate ordering agents using the evaluation framework  |  Food Ordering AI Agent  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/concepts/plugin-types/
 title: Types of plugins \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:27.825598+00:00
+fetched_at: 2026-10-25T06:44:08.399598+00:00
 ---
 
 # Types of plugins  |  Cloud Data Fusion  |  Google Cloud Documentation

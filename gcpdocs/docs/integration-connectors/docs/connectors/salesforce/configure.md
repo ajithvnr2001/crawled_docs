@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/salesforce/configure/
 title: Salesforce \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:39.976737+00:00
+fetched_at: 2026-10-25T06:21:10.123245+00:00
 ---
 
 # Salesforce  |  Integration Connectors  |  Google Cloud Documentation

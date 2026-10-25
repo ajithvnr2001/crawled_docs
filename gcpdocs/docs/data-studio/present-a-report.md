@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/present-a-report/
 title: Present a report \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:18.432880+00:00
+fetched_at: 2026-10-25T06:43:11.015271+00:00
 ---
 
 # Present a report  |  Data Studio  |  Google Cloud Documentation

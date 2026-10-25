@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/create-edit-and-manage-blends/
 title: Create, edit, and manage blends \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:43.183576+00:00
+fetched_at: 2026-10-25T06:44:09.059950+00:00
 ---
 
 # Create, edit, and manage blends  |  Data Studio  |  Google Cloud Documentation

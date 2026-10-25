@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/gdrive/config/
 title: Configure OAuth for Google Drive \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:04.340084+00:00
+fetched_at: 2026-10-25T06:23:17.211878+00:00
 ---
 
 # Configure OAuth for Google Drive  |  Gemini Enterprise  |  Google Cloud Documentation

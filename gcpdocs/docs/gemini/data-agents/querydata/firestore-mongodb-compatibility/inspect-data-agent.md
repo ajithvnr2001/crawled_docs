@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/firestore-mongodb-compatibility/inspect-data-agent/
 title: Test QueryData in Firestore Studio \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:34.212510+00:00
+fetched_at: 2026-10-25T05:56:34.822752+00:00
 ---
 
 # Test QueryData in Firestore Studio  |  Data Agents  |  Google Cloud Documentation

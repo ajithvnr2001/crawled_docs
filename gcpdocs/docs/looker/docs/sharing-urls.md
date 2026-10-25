@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/sharing-urls/
 title: Sharing data from URLs \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:35:12.599423+00:00
+fetched_at: 2026-10-25T05:53:25.039635+00:00
 ---
 
 # Sharing data from URLs  |  Looker  |  Google Cloud Documentation

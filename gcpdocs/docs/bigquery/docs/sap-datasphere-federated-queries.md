@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/sap-datasphere-federated-queries/
 title: SAP Datasphere federated queries \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:01.015062+00:00
+fetched_at: 2026-10-25T06:40:48.057548+00:00
 ---
 
 # SAP Datasphere federated queries  |  BigQuery  |  Google Cloud Documentation

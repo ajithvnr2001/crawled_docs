@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/inference-overview/
 title: Model inference overview \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:54.592780+00:00
+fetched_at: 2026-10-25T06:39:54.052596+00:00
 ---
 
 # Model inference overview  |  BigQuery  |  Google Cloud Documentation

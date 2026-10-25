@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/workflows/route-trigger-notebooks/
 title: Route user-managed notebooks events to Workflows \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:59.017751+00:00
+fetched_at: 2026-10-25T05:55:35.729636+00:00
 ---
 
 # Route user-managed notebooks events to Workflows  |  Eventarc Standard  |  Google Cloud Documentation

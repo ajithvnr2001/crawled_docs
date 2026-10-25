@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/import-terraform/
 title: Import existing Terraform \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:41.832289+00:00
+fetched_at: 2026-10-25T06:35:30.786744+00:00
 ---
 
 # Import existing Terraform  |  Application Design Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/ai/model-endpoint-overview/
 title: Register and call remote AI models in AlloyDB Omni overview \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:57:22.315069+00:00
+fetched_at: 2026-10-25T05:55:38.687189+00:00
 ---
 
 # Register and call remote AI models in AlloyDB Omni overview  |  AlloyDB Omni using the container orchestrator: 18.1.0  |  Google Cloud Documentation

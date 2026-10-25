@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.0/docs/ai/generate-manage-auto-embeddings-for-tables/
 title: Generate and manage auto vector embeddings for large tables \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:20.378725+00:00
+fetched_at: 2026-10-25T06:42:40.499999+00:00
 ---
 
 # Generate and manage auto vector embeddings for large tables  |  AlloyDB Omni using RPM: 18.1.0  |  Google Cloud Documentation

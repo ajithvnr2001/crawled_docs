@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/redis/configure/
 title: Redis \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:41.896664+00:00
+fetched_at: 2026-10-25T06:19:32.875646+00:00
 ---
 
 # Redis  |  Integration Connectors  |  Google Cloud Documentation

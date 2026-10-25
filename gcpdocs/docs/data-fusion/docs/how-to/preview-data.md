@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/preview-data/
 title: Preview data \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:02.043512+00:00
+fetched_at: 2026-10-25T06:43:38.486178+00:00
 ---
 
 # Preview data  |  Cloud Data Fusion  |  Google Cloud Documentation

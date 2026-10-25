@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/inspecting-text/
 title: Inspecting text for sensitive data \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:10:00.040109+00:00
+fetched_at: 2026-10-25T05:44:44.656952+00:00
 ---
 
 # Inspecting text for sensitive data  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -523,7 +523,7 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     
     require "google/cloud/dlp"
     
-    dlp = Google::Cloud::[Dlp](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dlp-v2/latest/Google-Cloud-Dlp.html).[dlp_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dlp/latest/Google-Cloud-Dlp.html)
+    dlp = Google::Cloud::[Dlp](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dlp/latest/Google-Cloud-Dlp.html).[dlp_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dlp/latest/Google-Cloud-Dlp.html)
     inspect_config = {
       # The types of information to match
       info_types:     [{ name: "PERSON_NAME" }, { name: "US_STATE" }],
@@ -1085,7 +1085,7 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     
     require "google/cloud/dlp"
     
-    dlp = Google::Cloud::[Dlp](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dlp-v2/latest/Google-Cloud-Dlp.html).[dlp_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dlp/latest/Google-Cloud-Dlp.html)
+    dlp = Google::Cloud::[Dlp](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dlp/latest/Google-Cloud-Dlp.html).[dlp_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-dlp/latest/Google-Cloud-Dlp.html)
     inspect_config = {
       # The types of information to match
       info_types:     [{ name: "PERSON_NAME" }, { name: "PHONE_NUMBER" }],

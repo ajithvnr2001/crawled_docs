@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/ai/full-text-search-overview/
 title: Full-text search overview \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:57:50.907119+00:00
+fetched_at: 2026-10-25T05:55:11.393651+00:00
 ---
 
 # Full-text search overview  |  AlloyDB Omni using the container orchestrator: 18.3.0  |  Google Cloud Documentation

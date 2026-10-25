@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/concepts/best-practice-salesforce/
 title: Best practices for the Salesforce batch source \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:29.807231+00:00
+fetched_at: 2026-10-25T06:42:33.841748+00:00
 ---
 
 # Best practices for the Salesforce batch source  |  Cloud Data Fusion  |  Google Cloud Documentation

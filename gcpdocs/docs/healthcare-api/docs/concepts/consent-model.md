@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/concepts/consent-model/
 title: Consent Management API data model \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:41.221675+00:00
+fetched_at: 2026-10-25T06:20:18.842261+00:00
 ---
 
 # Consent Management API data model  |  Cloud Healthcare API  |  Google Cloud Documentation

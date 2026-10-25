@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/ai/create-scann-index/
 title: Create a ScaNN index \u00a0|\u00a0 AlloyDB Omni using RPM: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:02.515505+00:00
+fetched_at: 2026-10-25T06:43:25.438750+00:00
 ---
 
 # Create a ScaNN index  |  AlloyDB Omni using RPM: 18.4.0  |  Google Cloud Documentation

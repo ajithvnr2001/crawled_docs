@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/materialized-view-replicas-manage/
 title: Manage materialized view replicas \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:11.799166+00:00
+fetched_at: 2026-10-25T06:41:42.448732+00:00
 ---
 
 # Manage materialized view replicas  |  BigQuery  |  Google Cloud Documentation

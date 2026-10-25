@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/fingerprint/
 title: Use fingerprints to verify package version identities \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:24:33.415431+00:00
+fetched_at: 2026-10-25T06:36:44.898503+00:00
 ---
 
 # Use fingerprints to verify package version identities  |  Artifact Registry  |  Google Cloud Documentation

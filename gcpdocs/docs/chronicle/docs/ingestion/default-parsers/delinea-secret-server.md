@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/delinea-secret-server/
 title: Collect Delinea Secret Server logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:17.731954+00:00
+fetched_at: 2026-10-25T06:41:24.849464+00:00
 ---
 
 # Collect Delinea Secret Server logs  |  Google Security Operations  |  Google Cloud Documentation

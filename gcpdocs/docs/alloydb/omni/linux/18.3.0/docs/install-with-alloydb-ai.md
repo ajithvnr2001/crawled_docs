@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.3.0/docs/install-with-alloydb-ai/
 title: Install AlloyDB Omni with AlloyDB AI \u00a0|\u00a0 AlloyDB Omni using RPM: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:36.120472+00:00
+fetched_at: 2026-10-25T06:41:29.573978+00:00
 ---
 
 # Install AlloyDB Omni with AlloyDB AI  |  AlloyDB Omni using RPM: 18.3.0  |  Google Cloud Documentation

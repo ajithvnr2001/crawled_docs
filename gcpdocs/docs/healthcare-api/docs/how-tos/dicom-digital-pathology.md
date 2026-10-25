@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/how-tos/dicom-digital-pathology/
 title: Using the Cloud Healthcare API for digital pathology \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:35.102294+00:00
+fetched_at: 2026-10-25T06:19:10.039842+00:00
 ---
 
 # Using the Cloud Healthcare API for digital pathology  |  Google Cloud Documentation

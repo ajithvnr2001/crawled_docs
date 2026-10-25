@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/cloudsqlforsqlserver/configure/
 title: Cloud SQL for SQL Server \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:45:44.290965+00:00
+fetched_at: 2026-10-25T06:19:14.607447+00:00
 ---
 
 # Cloud SQL for SQL Server  |  Integration Connectors  |  Google Cloud Documentation

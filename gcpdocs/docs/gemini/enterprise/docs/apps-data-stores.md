@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/apps-data-stores/
 title: About apps and data stores \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:05.770561+00:00
+fetched_at: 2026-10-25T06:22:43.280643+00:00
 ---
 
 # About apps and data stores  |  Gemini Enterprise  |  Google Cloud Documentation

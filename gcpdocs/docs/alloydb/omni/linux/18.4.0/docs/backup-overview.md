@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/backup-overview/
 title: Back up and restore AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using RPM: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:30.594660+00:00
+fetched_at: 2026-10-25T06:41:15.105345+00:00
 ---
 
 # Back up and restore AlloyDB Omni  |  AlloyDB Omni using RPM: 18.4.0  |  Google Cloud Documentation

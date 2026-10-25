@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.0/docs/ai/summarize-content/
 title: Summarize content \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:56:15.118211+00:00
+fetched_at: 2026-10-25T06:27:41.554013+00:00
 ---
 
 # Summarize content  |  AlloyDB Omni using RPM: 18.1.0  |  Google Cloud Documentation

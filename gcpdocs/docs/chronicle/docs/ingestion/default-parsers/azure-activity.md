@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/azure-activity/
 title: Collect Microsoft Azure Activity and Entra ID logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:45.120942+00:00
+fetched_at: 2026-10-25T06:41:15.519762+00:00
 ---
 
 # Collect Microsoft Azure Activity and Entra ID logs  |  Google Security Operations  |  Google Cloud Documentation

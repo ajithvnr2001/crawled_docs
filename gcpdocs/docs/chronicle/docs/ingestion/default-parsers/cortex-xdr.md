@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cortex-xdr/
 title: Collect Palo Alto Cortex XDR alerts logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:30.959712+00:00
+fetched_at: 2026-10-25T06:41:21.276309+00:00
 ---
 
 # Collect Palo Alto Cortex XDR alerts logs  |  Google Security Operations  |  Google Cloud Documentation

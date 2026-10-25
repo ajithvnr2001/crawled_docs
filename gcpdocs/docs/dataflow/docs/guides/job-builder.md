@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/job-builder/
 title: Job builder UI overview \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:13:02.559053+00:00
+fetched_at: 2026-10-25T06:44:01.100056+00:00
 ---
 
 # Job builder UI overview  |  Cloud Dataflow  |  Google Cloud Documentation

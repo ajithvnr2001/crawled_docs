@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/run/create-trigger-pub-sub-terraform/
 title: Quickstart: Receive events using Pub/Sub messages (Terraform) \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:44.387566+00:00
+fetched_at: 2026-10-25T06:20:10.122393+00:00
 ---
 
 # Quickstart: Receive events using Pub/Sub messages (Terraform)  |  Eventarc Standard  |  Google Cloud Documentation

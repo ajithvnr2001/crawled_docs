@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/read-lease/
 title: Read lease \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:51:42.787339+00:00
+fetched_at: 2026-10-25T05:44:42.947029+00:00
 ---
 
 # Read lease  |  Spanner  |  Google Cloud Documentation

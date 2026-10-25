@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/email/configure/
 title: Email \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:45:41.164936+00:00
+fetched_at: 2026-10-25T06:19:14.191155+00:00
 ---
 
 # Email  |  Integration Connectors  |  Google Cloud Documentation

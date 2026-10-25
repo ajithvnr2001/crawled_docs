@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/database-availability-reference-architecture-overview/
 title: AlloyDB Omni availability reference architecture overview \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 17.10.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:43:07.659926+00:00
+fetched_at: 2026-10-25T06:39:22.308338+00:00
 ---
 
 # AlloyDB Omni availability reference architecture overview  |  AlloyDB Omni using the container orchestrator: 17.10.0  |  Google Cloud Documentation

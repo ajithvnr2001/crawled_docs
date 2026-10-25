@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.7.0/docs/deploy-kubernetes/
 title: Install AlloyDB Omni using the container orchestrator \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 17.7.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:58:02.254107+00:00
+fetched_at: 2026-10-25T05:55:28.967899+00:00
 ---
 
 # Install AlloyDB Omni using the container orchestrator  |  AlloyDB Omni using the container orchestrator: 17.7.0  |  Google Cloud Documentation

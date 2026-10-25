@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/design-secure-deployment-pipelines-bp/
 title: Design secure deployment pipelines \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:25.893243+00:00
+fetched_at: 2026-10-25T06:34:06.102998+00:00
 ---
 
 # Design secure deployment pipelines  |  Cloud Architecture Center  |  Google Cloud Documentation

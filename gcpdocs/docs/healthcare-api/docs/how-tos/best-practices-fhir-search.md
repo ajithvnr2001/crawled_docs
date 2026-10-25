@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/how-tos/best-practices-fhir-search/
 title: Implementing pagination and search totals with FHIR search \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:37.987214+00:00
+fetched_at: 2026-10-25T06:18:11.856855+00:00
 ---
 
 # Implementing pagination and search totals with FHIR search  |  Cloud Healthcare API  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/stop-sharing-your-reports-and-data-sources/
 title: Stop sharing your reports and data sources \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:07.093795+00:00
+fetched_at: 2026-10-25T06:43:56.167116+00:00
 ---
 
 # Stop sharing your reports and data sources  |  Data Studio  |  Google Cloud Documentation

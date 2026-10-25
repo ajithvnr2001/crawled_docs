@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.5.0/docs/create-replication-slots/
 title: Create a replication slot and publication \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 17.5.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:35.057785+00:00
+fetched_at: 2026-10-25T06:40:18.280261+00:00
 ---
 
 # Create a replication slot and publication  |  AlloyDB Omni for Kubernetes: 17.5.0  |  Google Cloud Documentation

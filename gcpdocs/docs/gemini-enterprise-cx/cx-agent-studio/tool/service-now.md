@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/tool/service-now/
 title: ServiceNow tools \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:49.609592+00:00
+fetched_at: 2026-10-25T06:26:38.217554+00:00
 ---
 
 # ServiceNow tools  |  CX Agent Studio  |  Google Cloud Documentation

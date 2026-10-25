@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/handoff-cxas/
 title: CX Agent Studio handoff \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:38.727004+00:00
+fetched_at: 2026-10-25T06:24:59.754713+00:00
 ---
 
 # CX Agent Studio handoff  |  Agent Assist  |  Google Cloud Documentation

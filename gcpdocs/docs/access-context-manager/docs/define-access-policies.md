@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/access-context-manager/docs/define-access-policies/
 title: Define access policies using access levels \u00a0|\u00a0 Access Context Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:14.119367+00:00
+fetched_at: 2026-10-25T06:33:57.567068+00:00
 ---
 
 # Define access policies using access levels  |  Access Context Manager  |  Google Cloud Documentation

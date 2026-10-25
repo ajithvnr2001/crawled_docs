@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/access-context-manager/docs/enable-cba-vpcsc/
 title: Enforce certificate-based access with VPC Service Controls \u00a0|\u00a0 Access Context Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:13.202908+00:00
+fetched_at: 2026-10-25T06:33:53.816942+00:00
 ---
 
 # Enforce certificate-based access with VPC Service Controls  |  Access Context Manager  |  Google Cloud Documentation

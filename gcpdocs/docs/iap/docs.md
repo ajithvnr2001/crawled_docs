@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/
 title: Identity-Aware Proxy documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:53.621155+00:00
+fetched_at: 2026-10-25T06:22:09.644377+00:00
 ---
 
 # Identity-Aware Proxy documentation  |  Google Cloud Documentation

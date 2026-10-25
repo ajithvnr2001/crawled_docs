@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/docs/using-vpc-service-controls/
 title: Set up a service perimeter using VPC Service Controls \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:52.924542+00:00
+fetched_at: 2026-10-25T06:25:11.632723+00:00
 ---
 
 # Set up a service perimeter using VPC Service Controls  |  Eventarc Standard  |  Google Cloud Documentation

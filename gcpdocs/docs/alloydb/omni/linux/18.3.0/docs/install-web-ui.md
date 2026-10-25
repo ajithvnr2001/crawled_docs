@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.3.0/docs/install-web-ui/
 title: Install the web UI \u00a0|\u00a0 AlloyDB Omni using RPM: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:35.529293+00:00
+fetched_at: 2026-10-25T06:41:28.371795+00:00
 ---
 
 # Install the web UI  |  AlloyDB Omni using RPM: 18.3.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/current/docs/columnar-engine/tune-columnar-engine/
 title: Tune the columnar engine for AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:37.868713+00:00
+fetched_at: 2026-10-25T06:42:41.958791+00:00
 ---
 
 # Tune the columnar engine for AlloyDB Omni  |  AlloyDB Omni using the RPM orchestrator: Current (18.4.0)  |  Google Cloud Documentation

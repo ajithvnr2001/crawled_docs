@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/exporting-pipelines/
 title: Export and import pipelines \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:00.200176+00:00
+fetched_at: 2026-10-25T06:43:53.691044+00:00
 ---
 
 # Export and import pipelines  |  Cloud Data Fusion  |  Google Cloud Documentation

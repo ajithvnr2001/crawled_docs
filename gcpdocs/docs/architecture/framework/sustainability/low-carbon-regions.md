@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/sustainability/low-carbon-regions/
 title: Use regions that consume low-carbon energy \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:04.258715+00:00
+fetched_at: 2026-10-25T06:27:42.023731+00:00
 ---
 
 # Use regions that consume low-carbon energy  |  Cloud Architecture Center  |  Google Cloud Documentation

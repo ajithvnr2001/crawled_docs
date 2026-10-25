@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/vertex-ai/prediction/python/overview/
 title: Vertex AI API \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:08:42.473829+00:00
+fetched_at: 2026-10-25T06:41:42.242669+00:00
 ---
 
 # Vertex AI API  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

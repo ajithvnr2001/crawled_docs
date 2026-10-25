@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/filestore/docs/service-tiers-regional/
 title: Regional service tier \u00a0|\u00a0 Filestore \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:33.226281+00:00
+fetched_at: 2026-10-25T06:23:07.055753+00:00
 ---
 
 # Regional service tier  |  Filestore  |  Google Cloud Documentation

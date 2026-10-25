@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-vm-g2/
 title: Create an AI-optimized G2 instance \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:35.021923+00:00
+fetched_at: 2026-10-25T06:27:44.952933+00:00
 ---
 
 # Create an AI-optimized G2 instance  |  AI Hypercomputer  |  Google Cloud Documentation

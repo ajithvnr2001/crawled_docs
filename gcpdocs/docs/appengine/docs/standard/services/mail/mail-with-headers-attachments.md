@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/services/mail/mail-with-headers-attachments/
 title: Mail with headers or attachments \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:52.155088+00:00
+fetched_at: 2026-10-25T06:35:38.746631+00:00
 ---
 
 # Mail with headers or attachments  |  App Engine standard environment  |  Google Cloud Documentation

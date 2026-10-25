@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/roles/
 title: Roles that grant access to App Engine \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:45:27.647178+00:00
+fetched_at: 2026-10-25T06:33:38.094507+00:00
 ---
 
 # Roles that grant access to App Engine  |  App Engine standard environment  |  Google Cloud Documentation

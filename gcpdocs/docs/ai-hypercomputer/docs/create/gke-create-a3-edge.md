@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/gke-create-a3-edge/
 title: Create an AI-optimized GKE cluster that uses A3 Edge \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:32.727902+00:00
+fetched_at: 2026-10-25T06:27:49.896736+00:00
 ---
 
 # Create an AI-optimized GKE cluster that uses A3 Edge  |  AI Hypercomputer  |  Google Cloud Documentation

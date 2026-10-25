@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/concepts/deploy-and-run-pipelines/
 title: Deploy and run pipelines \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:29.335053+00:00
+fetched_at: 2026-10-25T06:44:10.573682+00:00
 ---
 
 # Deploy and run pipelines  |  Cloud Data Fusion  |  Google Cloud Documentation

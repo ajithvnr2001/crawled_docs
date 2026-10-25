@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/ingest-user-events-overview/
 title: User events ingestion starter guide \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:23.737214+00:00
+fetched_at: 2026-10-25T06:26:14.675230+00:00
 ---
 
 # User events ingestion starter guide  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

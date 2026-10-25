@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/monitor-cluster-high-availability/
 title: Monitor cluster high availability \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:42:14.477111+00:00
+fetched_at: 2026-10-25T06:39:44.202281+00:00
 ---
 
 # Monitor cluster high availability  |  AlloyDB Omni using the container orchestrator: 18.1.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/geospatial-query/
 title: Use geospatial queries \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:37.445243+00:00
+fetched_at: 2026-10-25T06:21:49.412987+00:00
 ---
 
 # Use geospatial queries  |  Firestore in Native mode  |  Google Cloud Documentation

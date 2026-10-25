@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/security-bulletins/security-bulletins/
 title: Security bulletins \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T10:30:04.767271+00:00
+fetched_at: 2026-10-25T05:53:28.388792+00:00
 ---
 
 # Security bulletins  |  Apigee  |  Google Cloud Documentation
@@ -30,6 +30,106 @@ To get the latest security bulletins delivered to you, do one of the following:
 
 
 
+## GCP-2026-072
+
+**Published:** 2026-10-24
+
+### Description
+
+Description | Severity | Notes  
+---|---|---  
+Two vulnerabilities in PHP core, CVE-2026-109618 and CVE-2026-109619 ("PHP2Shell"), allow an unauthenticated attacker to execute code remotely on a server running a vulnerable PHP version. They are fixed in PHP 8.2.35, 8.3.36, 8.4.27, and 8.5.12. No fixed release exists for PHP 8.1 or earlier. Apigee, Apigee Hybrid, Apigee Edge for Public Cloud, API hub, and the Apigee integrated portal don't use PHP and aren't affected. Apigee Edge for Private Cloud isn't affected, apart from its optional Drupal developer portal, covered later in this bulletin. The impact is limited to Drupal-based Apigee developer portals, which customers deploy and operate. Updating the Apigee Drupal modules doesn't fix these vulnerabilities; only updating PHP does. The latest module releases (`apigee_edge` 3.1.2 and 4.1.2, `apigee_m10n` 2.2.1, `apigee_api_catalog` 3.1.1) require a fixed PHP version, so update PHP first.
+
+#### Affected products
+
+  * Apigee Developer Portal Kickstart from Google Cloud Marketplace
+  * Apigee Developer Portal Kickstart Docker image (`ghcr.io/apigee/docker-apigee-drupal-kickstart`)
+  * Self-hosted Drupal 10 and Drupal 11 developer portals built with Apigee Developer Portal Kickstart or the Apigee Edge Drupal module
+  * Apigee Edge for Private Cloud Drupal 7 and Drupal 9 developer portals (all versions)
+  * Apigee Edge for Public Cloud Drupal 7 developer portals that customers have hosted themselves since Apigee ended portal hosting on 2020-05-31
+
+
+
+#### What should I do?
+
+##### Apigee Developer Portal Kickstart from Google Cloud Marketplace
+
+New deployments from Google Cloud Marketplace use a patched image with PHP 8.3.36. Existing deployments aren't updated automatically: patch the running VMs, then update the image. Step 1 - Patch the running VMs now. Your site, database, and files stay where they are. On each existing portal VM, run:
+    
+    
+    sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y -o Dpkg::Options::=--force-confold
+    sudo supervisorctl restart php-fpm
+    sudo supervisorctl status php-fpm
+    sudo php-fpm8.3 -v
+    
+
+Confirm that php-fpm shows as RUNNING with a short uptime and that the last command reports PHP 8.3.36. Restart PHP-FPM with `supervisorctl`, not `systemctl`. Step 2 - Move the instance group to the patched image, so VMs the group creates later are also patched. A Marketplace portal runs in a regional managed instance group with autoscaling and autohealing; a VM the group creates later boots from the instance template's image, which `startup.sh` doesn't upgrade. The database is in Cloud SQL and the files are on Filestore, so replacing the VMs keeps your site. In the following commands, replace DEPLOYMENT with your deployment name and REGION with its region.
+
+  * Find the image the group uses: `gcloud compute instance-groups managed describe DEPLOYMENT-igm --region REGION --format='value(versions[0].instanceTemplate)'`, then run `gcloud compute instance-templates describe TEMPLATE --format='value(properties.disks[0].initializeParams.sourceImage)'`, where TEMPLATE is the output of the first command.
+  * If the image ends in `images/apigee-devportal-drupal` with no date, that name now points to the patched image and no template change is needed. Optionally, replace the VMs so that they boot from the patched image: `gcloud compute instance-groups managed rolling-action replace DEPLOYMENT-igm --region REGION --max-unavailable=0`.
+  * If the image name includes a date, check it. `apigee-devportal-drupal-202610231240` and later images are patched and need no template change. Older images (for example `apigee-devportal-drupal-202610060628`) are vulnerable. In the Google Cloud console, open the current instance template, click **Create similar** , set the boot disk image to `projects/bap-marketplace/global/images/apigee-devportal-drupal`, and save the new template as NEW_TEMPLATE. Then run `gcloud compute instance-groups managed rolling-action start-update DEPLOYMENT-igm --version=template=NEW_TEMPLATE --region REGION --max-unavailable=0`. If you manage the deployment with Terraform, set `source_image_path` to the patched image and apply instead; a manual template change is reverted on the next apply.
+
+Then confirm that `sudo php-fpm8.3 -v` reports PHP 8.3.36 on every VM in the group.
+
+##### Apigee Developer Portal Kickstart Docker image
+
+The `:latest`, `:main`, and `:nightly` tags have been republished with PHP 8.3.36. Your database and uploaded files are kept as long as they are stored on Docker volumes or bind mounts, not inside the container. Check `docker-compose.yml` before you recreate the container, and back them up first. If you use the prebuilt image, pull it before restarting:
+    
+    
+    docker-compose pull apigee-kickstart
+    docker-compose up -d apigee-kickstart
+    
+
+If you build the image yourself:
+    
+    
+    docker-compose build --pull apigee-kickstart
+    docker-compose up -d apigee-kickstart
+    
+
+Then confirm that `docker-compose exec apigee-kickstart php -v` reports PHP 8.3.36. On Kubernetes, run `kubectl rollout restart deployment/DEPLOYMENT_NAME -n NAMESPACE` so that the pods pull the republished image.
+
+##### Self-hosted Drupal 10 and Drupal 11 portals
+
+Update PHP on every portal server to 8.2.35, 8.3.36, 8.4.27, 8.5.12, or a later release in the same branch. Then restart PHP-FPM or your web server.
+
+  * PHP 8.1: no fix is available. Upgrade to PHP 8.2 or later.
+  * CentOS 7 or RHEL 7 with PHP from Remi: no packaged fix is available. Move to a supported OS with a maintained PHP package, or build PHP from source.
+
+
+
+##### Apigee Edge for Private Cloud Drupal 7 and Drupal 9 portals
+
+These portals run PHP 7.3 or 7.4 on RHEL/CentOS 7, RHEL 8, or Amazon Linux 2, where no packaged fix is available. Drupal 7 and Drupal 9 are end of life.
+
+  * Don't install the developer-portal profile (`setup.sh -p dp`). Upcoming `apigee-setup` releases for Apigee Edge for Private Cloud 4.53.01 and 4.54.00 will block it.
+  * Take the portal offline, or restrict access to internal networks.
+  * Apply the interim mitigations later in this bulletin.
+  * Migrate to a Drupal 10 or Drupal 11 portal on a supported PHP version.
+
+
+
+##### Apigee Edge for Public Cloud self-hosted Drupal 7 portals
+
+After Apigee ended hosting of Drupal 7 developer portals on 2020-05-31, Apigee Edge for Public Cloud customers who kept their portals took over hosting them. If your portal is hosted on Pantheon or Acquia, confirm with your provider that your site runs a patched PHP version. Portals moved to a customer's own servers run whatever PHP the customer installed: on Debian or Ubuntu, PHP 7.4 can be updated in place with Sury packages, while PHP 7.3 and earlier have no fix - move to PHP 8.2 or later. Then restart PHP-FPM.
+
+##### Interim mitigations
+
+These settings reduce exposure until you can update PHP; they don't fix the vulnerabilities. Set them administratively, as `php_admin_value` or `php_admin_flag` entries in the PHP-FPM pool configuration (or with `php_admin_value` in your Apache configuration), so that the application can't override them. Then restart all PHP-FPM workers, and confirm that no other pool, directory, or application setting restores a finite memory limit.
+
+  * `session.upload_progress.enabled=0`
+  * `memory_limit=-1`. On the Marketplace image, change the existing `php_admin_value[memory_limit]` line in `/etc/php/8.3/fpm/pool.d/www.conf` to -1 rather than adding a second one; when a pool file sets the same value twice, only one of them takes effect. VM-level changes don't survive managed-instance-group VM replacement; update the image (Step 2 of the Marketplace instructions) for a durable fix.
+  * A small `post_max_size` (for example 8M), with `upload_max_filesize` below it. Because `post_max_size` can be bypassed and `memory_limit=-1` removes PHP's per-request memory cap, also enforce a request body size limit at your web server or load balancer (for example, `client_max_body_size` in nginx).
+  * On PHP 8.5: `fatal_error_backtraces=0`
+  * If your portal doesn't accept file uploads, block `multipart/form-data` requests at your load balancer or web server.
+
+For more information, see the PHP advisories [GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w) and [GHSA-6wmf-4rv5-p3rp](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp). For help, contact Apigee Support: for Apigee and Apigee Hybrid, see [Getting started with Apigee support](https://docs.cloud.google.com/apigee/docs/support/getting-started-with-support); for Apigee Edge and Apigee Edge for Private Cloud, see [Getting started with Apigee Edge support](https://docs.apigee.com/api-platform/troubleshoot/getting-started-with-support).
+
+##### Check for compromise
+
+Updating PHP doesn't remove an attacker who exploited the portal before it was patched. Look for PHP-FPM worker processes that started shells, interpreters, `curl`, or `wget`; new or changed files in the web root, `sites/default/files`, or the private files directory; multipart requests followed by memory-limit errors or bursts of HTTP 500 in the web server and PHP-FPM logs; and malformed or oversized `PHPSESSID` cookies in requests. If you find any of these, or can't rule them out for an internet-facing portal, rotate the Apigee credentials stored in the portal (the Apigee Edge module's connection credentials, or the service account key for Apigee), the Drupal administrator passwords, and the database password, and rebuild the portal VMs from a patched image. | Critical |  [CVE-2026-109618](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-109618)  
+[CVE-2026-109619](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-109619)  
+  
 ## GCP-2026-041
 
 **Published:** 2026-06-24

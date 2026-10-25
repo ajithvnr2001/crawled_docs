@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/lakehouse-catalog-tables/
 title: Use the Lakehouse runtime catalog with tables in BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:15.266081+00:00
+fetched_at: 2026-10-25T05:53:33.169162+00:00
 ---
 
 # Use the Lakehouse runtime catalog with tables in BigQuery  |  Google Cloud Documentation

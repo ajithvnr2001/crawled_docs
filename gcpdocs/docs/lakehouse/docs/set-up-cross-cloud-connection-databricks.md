@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-databricks/
 title: Set up cross-cloud connection for Databricks Unity Catalog \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:13.578872+00:00
+fetched_at: 2026-10-25T05:53:35.806826+00:00
 ---
 
 # Set up cross-cloud connection for Databricks Unity Catalog  |  Lakehouse  |  Google Cloud Documentation

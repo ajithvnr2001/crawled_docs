@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-mig-with-a3-edge/
 title: Create an AI-optimized MIG with A3 Edge machine type \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:38.816145+00:00
+fetched_at: 2026-10-25T06:34:04.243264+00:00
 ---
 
 # Create an AI-optimized MIG with A3 Edge machine type  |  AI Hypercomputer  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/sa-virtual-agent/
 title: User guide: Supervisor assist for virtual agents \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:28.258265+00:00
+fetched_at: 2026-10-25T06:26:36.518198+00:00
 ---
 
 # User guide: Supervisor assist for virtual agents  |  Agent Assist  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/fqdn-objects-overview/
 title: Fully qualified domain name objects overview \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:25.938814+00:00
+fetched_at: 2026-10-25T06:19:23.641563+00:00
 ---
 
 # Fully qualified domain name objects overview  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/current/docs/backup-restore/
 title: Backup and restore data using RPM Orchestrator \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:54.079930+00:00
+fetched_at: 2026-10-25T06:33:13.190422+00:00
 ---
 
 # Backup and restore data using RPM Orchestrator  |  AlloyDB Omni using the RPM orchestrator: Current (18.4.0)  |  Google Cloud Documentation

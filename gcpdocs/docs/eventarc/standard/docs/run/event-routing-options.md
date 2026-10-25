@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/run/event-routing-options/
 title: Event routes \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:43.836907+00:00
+fetched_at: 2026-10-25T06:20:23.541648+00:00
 ---
 
 # Event routes  |  Eventarc Standard  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/authentication/
 title: Authenticate user identity and connect to a data source \u00a0|\u00a0 Conversational Analytics API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:29.447247+00:00
+fetched_at: 2026-10-25T06:22:28.801502+00:00
 ---
 
 # Authenticate user identity and connect to a data source  |  Conversational Analytics API  |  Google Cloud Documentation

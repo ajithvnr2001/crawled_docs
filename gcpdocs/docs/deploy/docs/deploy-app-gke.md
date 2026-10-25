@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/deploy-app-gke/
 title: Quickstart: Deploy an app to GKE using Cloud Deploy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:25.404645+00:00
+fetched_at: 2026-10-25T05:53:30.217737+00:00
 ---
 
 # Quickstart: Deploy an app to GKE using Cloud Deploy  |  Google Cloud Documentation

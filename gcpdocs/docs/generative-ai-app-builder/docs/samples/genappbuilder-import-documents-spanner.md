@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/samples/genappbuilder-import-documents-spanner/
 title: Import documents from Spanner \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:50:18.175928+00:00
+fetched_at: 2026-10-25T06:20:42.149234+00:00
 ---
 
 # Import documents from Spanner  |  Agent Search  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/use-cases/pitch-feedback/
 title: Get feedback on a pitch \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:52.149795+00:00
+fetched_at: 2026-10-25T06:21:37.633862+00:00
 ---
 
 # Get feedback on a pitch  |  Gemini Enterprise  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/ml-pipelines-overview/
 title: ML pipelines overview \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:03.504098+00:00
+fetched_at: 2026-10-25T06:43:37.381186+00:00
 ---
 
 # ML pipelines overview  |  BigQuery  |  Google Cloud Documentation

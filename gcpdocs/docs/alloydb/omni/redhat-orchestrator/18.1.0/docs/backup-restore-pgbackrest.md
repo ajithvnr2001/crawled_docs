@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.1.0/docs/backup-restore-pgbackrest/
 title: Back up and restore data using pgBackRest \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:31.968401+00:00
+fetched_at: 2026-10-25T06:33:39.292044+00:00
 ---
 
 # Back up and restore data using pgBackRest  |  AlloyDB Omni using the RPM orchestrator: 18.1.0  |  Google Cloud Documentation

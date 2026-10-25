@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/mcp-overview/
 title: Model Context Protocol overview \u00a0|\u00a0 API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:43.968544+00:00
+fetched_at: 2026-10-25T06:28:19.282770+00:00
 ---
 
 # Model Context Protocol overview  |  API Gateway  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/redshift/configure/
 title: Redshift \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:40.507861+00:00
+fetched_at: 2026-10-25T06:21:37.981058+00:00
 ---
 
 # Redshift  |  Integration Connectors  |  Google Cloud Documentation

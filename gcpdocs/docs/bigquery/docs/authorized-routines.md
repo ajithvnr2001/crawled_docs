@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/authorized-routines/
 title: Authorized routines \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:06.493081+00:00
+fetched_at: 2026-10-25T06:41:47.223794+00:00
 ---
 
 # Authorized routines  |  BigQuery  |  Google Cloud Documentation

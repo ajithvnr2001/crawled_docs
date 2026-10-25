@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/about-media/
 title: Introduction to media search and recommendations \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:52.183120+00:00
+fetched_at: 2026-10-25T06:25:20.824344+00:00
 ---
 
 # Introduction to media search and recommendations  |  Agent Search  |  Google Cloud Documentation

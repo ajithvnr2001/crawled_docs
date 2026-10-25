@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/firestore-mongodb-compatibility/build-context-sets/
 title: Build context sets for Firestore with MongoDB compatibility using the context engineering agent \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:36.131788+00:00
+fetched_at: 2026-10-25T06:17:58.177923+00:00
 ---
 
 # Build context sets for Firestore with MongoDB compatibility using the context engineering agent  |  Data Agents  |  Google Cloud Documentation

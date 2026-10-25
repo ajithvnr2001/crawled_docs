@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/service/resourcemanager/resource-manager-api-overview/
 title: Resource Manager API overview \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:08:47.365933+00:00
+fetched_at: 2026-10-25T06:43:38.908934+00:00
 ---
 
 # Resource Manager API overview  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

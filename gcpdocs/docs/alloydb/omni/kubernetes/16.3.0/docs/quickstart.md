@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.3.0/docs/quickstart/
 title: Install AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 16.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:58:45.984219+00:00
+fetched_at: 2026-10-25T05:54:00.673942+00:00
 ---
 
 # Install AlloyDB Omni  |  AlloyDB Omni for Kubernetes: 16.3.0  |  Google Cloud Documentation

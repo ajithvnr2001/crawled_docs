@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-project-options-changes/
 title: PROJECT_OPTIONS_CHANGES view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:43:56.049428+00:00
+fetched_at: 2026-10-25T06:37:56.733081+00:00
 ---
 
 # PROJECT_OPTIONS_CHANGES view  |  BigQuery  |  Google Cloud Documentation

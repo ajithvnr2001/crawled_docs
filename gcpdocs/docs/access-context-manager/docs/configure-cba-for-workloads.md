@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/access-context-manager/docs/configure-cba-for-workloads/
 title: Configure certificate-based access for Workload Identity Federation \u00a0|\u00a0 Access Context Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:15.684542+00:00
+fetched_at: 2026-10-25T06:33:10.308683+00:00
 ---
 
 # Configure certificate-based access for Workload Identity Federation  |  Access Context Manager  |  Google Cloud Documentation

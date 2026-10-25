@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/alphaevolve/developer-guide/reward-hacking-prevention/
 title: Reward hacking prevention \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:35.034726+00:00
+fetched_at: 2026-10-25T06:23:18.532744+00:00
 ---
 
 # Reward hacking prevention  |  Gemini Enterprise  |  Google Cloud Documentation

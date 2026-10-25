@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/promote-release/
 title: Promote your release and manage approvals \u00a0|\u00a0 Cloud Deploy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:22:02.585120+00:00
+fetched_at: 2026-10-25T05:53:28.656912+00:00
 ---
 
 # Promote your release and manage approvals  |  Cloud Deploy  |  Google Cloud Documentation

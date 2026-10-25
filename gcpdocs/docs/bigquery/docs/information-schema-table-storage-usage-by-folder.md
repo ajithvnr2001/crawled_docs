@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-table-storage-usage-by-folder/
 title: TABLE_STORAGE_USAGE_TIMELINE_BY_FOLDER view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:43:48.765655+00:00
+fetched_at: 2026-10-25T06:39:03.681372+00:00
 ---
 
 # TABLE_STORAGE_USAGE_TIMELINE_BY_FOLDER view  |  BigQuery  |  Google Cloud Documentation

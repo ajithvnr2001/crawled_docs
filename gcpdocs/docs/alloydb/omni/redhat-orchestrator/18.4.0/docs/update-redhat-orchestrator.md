@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.4.0/docs/update-redhat-orchestrator/
 title: Update your RPM orchestrator cluster components \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:50:24.798671+00:00
+fetched_at: 2026-10-25T06:25:52.039707+00:00
 ---
 
 # Update your RPM orchestrator cluster components  |  AlloyDB Omni using the RPM orchestrator: 18.4.0  |  Google Cloud Documentation

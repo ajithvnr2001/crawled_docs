@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/filestore/docs/setting-nfs-ports/
 title: Configure NFS ports on client VMs \u00a0|\u00a0 Filestore \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:32.574075+00:00
+fetched_at: 2026-10-25T06:22:36.237419+00:00
 ---
 
 # Configure NFS ports on client VMs  |  Filestore  |  Google Cloud Documentation

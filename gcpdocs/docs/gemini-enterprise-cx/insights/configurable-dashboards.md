@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/configurable-dashboards/
 title: Configurable dashboards \u00a0|\u00a0 Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:18.695220+00:00
+fetched_at: 2026-10-25T06:25:35.552776+00:00
 ---
 
 # Configurable dashboards  |  Customer Experience Insights  |  Google Cloud Documentation

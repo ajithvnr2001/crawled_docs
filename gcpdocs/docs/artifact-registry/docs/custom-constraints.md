@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/custom-constraints/
 title: Use custom organization policies \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:20.390420+00:00
+fetched_at: 2026-10-25T06:37:03.478353+00:00
 ---
 
 # Use custom organization policies  |  Artifact Registry  |  Google Cloud Documentation

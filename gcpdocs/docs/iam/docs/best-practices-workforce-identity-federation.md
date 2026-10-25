@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/best-practices-workforce-identity-federation/
 title: Best practices for using Workforce Identity Federation \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:49:19.581283+00:00
+fetched_at: 2026-10-25T06:19:30.088196+00:00
 ---
 
 # Best practices for using Workforce Identity Federation  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

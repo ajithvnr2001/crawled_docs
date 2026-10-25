@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/access-external-resources/
 title: Accessing non-Google resources programmatically \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:03.816094+00:00
+fetched_at: 2026-10-25T06:21:10.779341+00:00
 ---
 
 # Accessing non-Google resources programmatically  |  Identity-Aware Proxy  |  Google Cloud Documentation

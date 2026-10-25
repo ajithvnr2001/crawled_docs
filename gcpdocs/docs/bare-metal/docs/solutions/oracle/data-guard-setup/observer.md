@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bare-metal/docs/solutions/oracle/data-guard-setup/observer/
 title: Set up a Data Guard observer on Google Cloud Compute Engine \u00a0|\u00a0 Bare Metal Solution \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:42:57.780732+00:00
+fetched_at: 2026-10-25T06:39:39.992352+00:00
 ---
 
 # Set up a Data Guard observer on Google Cloud Compute Engine  |  Bare Metal Solution  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-import-dicom-instance/
 title: Import DICOM data from Cloud Storage \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:50:06.278114+00:00
+fetched_at: 2026-10-25T06:22:00.926213+00:00
 ---
 
 # Import DICOM data from Cloud Storage  |  Cloud Healthcare API  |  Google Cloud Documentation

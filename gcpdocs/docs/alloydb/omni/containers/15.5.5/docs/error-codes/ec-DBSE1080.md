@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/15.5.5/docs/error-codes/ec-DBSE1080/
 title: DBSE1080. HA: Failed to stop primary database \u00a0|\u00a0 AlloyDB Omni for containers: 15.5.5 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:58:36.861392+00:00
+fetched_at: 2026-10-25T05:54:41.387950+00:00
 ---
 
 # DBSE1080. HA: Failed to stop primary database  |  AlloyDB Omni for containers: 15.5.5  |  Google Cloud Documentation

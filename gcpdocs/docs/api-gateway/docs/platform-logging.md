@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/platform-logging/
 title: Platform logs \u00a0|\u00a0 API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:42.205181+00:00
+fetched_at: 2026-10-25T06:33:22.766471+00:00
 ---
 
 # Platform logs  |  API Gateway  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/remove_fields/
 title: Remove Fields (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:10.050404+00:00
+fetched_at: 2026-10-25T06:20:36.725707+00:00
 ---
 
 # Remove Fields (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation

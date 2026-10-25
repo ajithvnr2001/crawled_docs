@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/search-lineage-streaming-api/
 title: Search multi-region lineage using server-side automation \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:34:36.297464+00:00
+fetched_at: 2026-10-25T05:53:40.717269+00:00
 ---
 
 # Search multi-region lineage using server-side automation  |  Knowledge Catalog  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/terminology/
 title: Cloud Deploy Terminology \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:23.317758+00:00
+fetched_at: 2026-10-25T05:53:30.806643+00:00
 ---
 
 # Cloud Deploy Terminology  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/use-spark-hive-metastore/
 title: Set up Spark and Hive with the Lakehouse runtime catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:11.758715+00:00
+fetched_at: 2026-10-25T05:53:31.437696+00:00
 ---
 
 # Set up Spark and Hive with the Lakehouse runtime catalog  |  Google Cloud Documentation

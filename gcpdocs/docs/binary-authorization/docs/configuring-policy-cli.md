@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/binary-authorization/docs/configuring-policy-cli/
 title: Configure a policy using the gcloud CLI \u00a0|\u00a0 Binary Authorization \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:59.442217+00:00
+fetched_at: 2026-10-25T06:41:30.406603+00:00
 ---
 
 # Configure a policy using the gcloud CLI  |  Binary Authorization  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/build-your-own-genai-assist/
 title: Build your own GenAI assist \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:48.043682+00:00
+fetched_at: 2026-10-25T06:25:22.241752+00:00
 ---
 
 # Build your own GenAI assist  |  Agent Assist  |  Google Cloud Documentation

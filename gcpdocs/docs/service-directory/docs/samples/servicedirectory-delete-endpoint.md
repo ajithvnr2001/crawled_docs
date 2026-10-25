@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-directory/docs/samples/servicedirectory-delete-endpoint/
 title: Delete endpoint \u00a0|\u00a0 Service Directory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:32:28.284809+00:00
+fetched_at: 2026-10-25T05:44:43.624618+00:00
 ---
 
 # Delete endpoint  |  Service Directory  |  Google Cloud Documentation
@@ -277,7 +277,7 @@ To authenticate to Service Directory, set up Application Default Credentials. Fo
     require "google/cloud/service_directory"
     
     # Initialize the client
-    registration_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1/latest/Google-Cloud-ServiceDirectory.html).[registration_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
+    registration_service = Google::Cloud::[ServiceDirectory](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1beta1/latest/Google-Cloud-ServiceDirectory.html).[registration_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory/latest/Google-Cloud-ServiceDirectory.html)
     
     # The path of the endpoint
     endpoint_path = registration_service.endpoint_path(

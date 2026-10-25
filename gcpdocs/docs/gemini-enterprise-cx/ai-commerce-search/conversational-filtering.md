@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/conversational-filtering/
 title: Conversational product filtering overview \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:30.389106+00:00
+fetched_at: 2026-10-25T06:26:17.493472+00:00
 ---
 
 # Conversational product filtering overview  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

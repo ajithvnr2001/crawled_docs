@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/merchant-center-transfer-schedule-transfers/
 title: Schedule Merchant Center Transfers \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:06.277550+00:00
+fetched_at: 2026-10-25T06:41:40.607773+00:00
 ---
 
 # Schedule Merchant Center Transfers  |  BigQuery  |  Google Cloud Documentation

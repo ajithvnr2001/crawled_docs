@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/force-login/
 title: Use IAP as an authentication proxy \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:09.750760+00:00
+fetched_at: 2026-10-25T06:21:12.145744+00:00
 ---
 
 # Use IAP as an authentication proxy  |  Identity-Aware Proxy  |  Google Cloud Documentation

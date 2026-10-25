@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/merchant-center-products-schema/
 title: Google Merchant Center products table schema \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:08.511193+00:00
+fetched_at: 2026-10-25T06:43:46.384238+00:00
 ---
 
 # Google Merchant Center products table schema  |  BigQuery  |  Google Cloud Documentation

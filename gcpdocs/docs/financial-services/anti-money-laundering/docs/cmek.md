@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/financial-services/anti-money-laundering/docs/cmek/
 title: Encrypt data using customer-managed encryption keys (CMEK) \u00a0|\u00a0 Anti Money Laundering AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:16.292452+00:00
+fetched_at: 2026-10-25T06:20:12.454549+00:00
 ---
 
 # Encrypt data using customer-managed encryption keys (CMEK)  |  Anti Money Laundering AI  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/custom-constraints-fw-policy/
 title: Manage firewall policy resources by using custom constraints \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:28.211154+00:00
+fetched_at: 2026-10-25T06:19:55.141194+00:00
 ---
 
 # Manage firewall policy resources by using custom constraints  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

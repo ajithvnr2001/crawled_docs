@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.3.0/docs/kubernetes-read-pool/
 title: Create an asynchronous read pool instance in Kubernetes \u00a0|\u00a0 AlloyDB Omni for containers: 16.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:46:17.196389+00:00
+fetched_at: 2026-10-25T06:35:56.552364+00:00
 ---
 
 # Create an asynchronous read pool instance in Kubernetes  |  AlloyDB Omni for containers: 16.3.0  |  Google Cloud Documentation

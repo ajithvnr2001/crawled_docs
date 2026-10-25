@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/ai-coach-usage/
 title: Create and configure an AI coach generator \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:49.743633+00:00
+fetched_at: 2026-10-25T06:26:06.820248+00:00
 ---
 
 # Create and configure an AI coach generator  |  Agent Assist  |  Google Cloud Documentation

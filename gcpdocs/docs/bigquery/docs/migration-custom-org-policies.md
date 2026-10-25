@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration-custom-org-policies/
 title: Custom Org Policies for BigQuery Migration Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:05.234140+00:00
+fetched_at: 2026-10-25T06:43:33.460173+00:00
 ---
 
 # Custom Org Policies for BigQuery Migration Service  |  Google Cloud Documentation

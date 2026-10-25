@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.7.1/docs/available-download-install-options/
 title: Available AlloyDB Omni download and installation options \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.7.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:58:41.036802+00:00
+fetched_at: 2026-10-25T05:55:01.595481+00:00
 ---
 
 # Available AlloyDB Omni download and installation options  |  AlloyDB Omni for Kubernetes: 15.7.1  |  Google Cloud Documentation

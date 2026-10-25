@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/looker-core-scheduled-export/
 title: Create a scheduled export job for a Looker (Google Cloud core) instance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:35:37.632841+00:00
+fetched_at: 2026-10-25T05:53:26.167095+00:00
 ---
 
 # Create a scheduled export job for a Looker (Google Cloud core) instance  |  Google Cloud Documentation

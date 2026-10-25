@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/deprecated-use-universal-analytics-segments/
 title: Use Universal Analytics segments \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:18.913618+00:00
+fetched_at: 2026-10-25T06:41:10.419675+00:00
 ---
 
 # Use Universal Analytics segments  |  Data Studio  |  Google Cloud Documentation

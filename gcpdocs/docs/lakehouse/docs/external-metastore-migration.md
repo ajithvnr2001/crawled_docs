@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/external-metastore-migration/
 title: Migrate metadata from external catalogs to Apache Iceberg tables managed by Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:16.530578+00:00
+fetched_at: 2026-10-25T05:53:36.805061+00:00
 ---
 
 # Migrate metadata from external catalogs to Apache Iceberg tables managed by Lakehouse  |  Google Cloud Documentation

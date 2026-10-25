@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/docs/path-patterns/
 title: Understand path patterns \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:56.320570+00:00
+fetched_at: 2026-10-25T06:25:09.928225+00:00
 ---
 
 # Understand path patterns  |  Eventarc Standard  |  Google Cloud Documentation

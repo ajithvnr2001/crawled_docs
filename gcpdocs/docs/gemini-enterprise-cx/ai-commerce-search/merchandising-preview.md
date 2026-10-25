@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/merchandising-preview/
 title: Preview search results \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:21.086622+00:00
+fetched_at: 2026-10-25T06:23:46.834829+00:00
 ---
 
 # Preview search results  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

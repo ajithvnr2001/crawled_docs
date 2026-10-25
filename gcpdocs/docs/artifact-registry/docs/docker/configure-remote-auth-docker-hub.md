@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/docker/configure-remote-auth-docker-hub/
 title: Authenticate remote repositories to upstream Docker Hub sources \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:24:33.875440+00:00
+fetched_at: 2026-10-25T06:36:26.014292+00:00
 ---
 
 # Authenticate remote repositories to upstream Docker Hub sources  |  Artifact Registry  |  Google Cloud Documentation

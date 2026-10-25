@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/workload-identity-federation-with-other-providers/
 title: Configure Workload Identity Federation with other identity providers \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:20.185369+00:00
+fetched_at: 2026-10-25T06:21:16.129801+00:00
 ---
 
 # Configure Workload Identity Federation with other identity providers  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

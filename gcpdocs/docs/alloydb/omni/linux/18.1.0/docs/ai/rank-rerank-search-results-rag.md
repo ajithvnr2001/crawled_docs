@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.0/docs/ai/rank-rerank-search-results-rag/
 title: Rank search results \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:18.099059+00:00
+fetched_at: 2026-10-25T06:41:55.591829+00:00
 ---
 
 # Rank search results  |  AlloyDB Omni using RPM: 18.1.0  |  Google Cloud Documentation

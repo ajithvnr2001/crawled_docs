@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/monitor-query-insights/
 title: Monitor query performance using advanced query insights \u00a0|\u00a0 AlloyDB Omni using RPM: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:34:04.147438+00:00
+fetched_at: 2026-10-25T06:43:23.385728+00:00
 ---
 
 # Monitor query performance using advanced query insights  |  AlloyDB Omni using RPM: 18.4.0  |  Google Cloud Documentation

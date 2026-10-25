@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/topic-properties/
 title: Topic properties \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:03:54.963090+00:00
+fetched_at: 2026-10-25T05:45:41.872802+00:00
 ---
 
 # Topic properties  |  Pub/Sub  |  Google Cloud Documentation

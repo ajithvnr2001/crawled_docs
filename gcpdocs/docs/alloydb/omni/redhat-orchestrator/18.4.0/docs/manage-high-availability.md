@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.4.0/docs/manage-high-availability/
 title: Manage high availability \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:50:26.714172+00:00
+fetched_at: 2026-10-25T06:25:51.742942+00:00
 ---
 
 # Manage high availability  |  AlloyDB Omni using the RPM orchestrator: 18.4.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/about-data-lineage/
 title: About data lineage \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:27:39.191785+00:00
+fetched_at: 2026-10-25T05:53:38.065068+00:00
 ---
 
 # About data lineage  |  Knowledge Catalog  |  Google Cloud Documentation

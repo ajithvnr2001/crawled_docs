@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.4.0/docs/ai/maintain-vector-indexes/
 title: Maintain vector indexes \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:46:44.790457+00:00
+fetched_at: 2026-10-25T06:34:49.879345+00:00
 ---
 
 # Maintain vector indexes  |  AlloyDB Omni using the RPM orchestrator: 18.4.0  |  Google Cloud Documentation

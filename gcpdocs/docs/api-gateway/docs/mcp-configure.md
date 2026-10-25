@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/mcp-configure/
 title: Configure Model Context Protocol \u00a0|\u00a0 API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:44.394664+00:00
+fetched_at: 2026-10-25T06:33:37.412797+00:00
 ---
 
 # Configure Model Context Protocol  |  API Gateway  |  Google Cloud Documentation

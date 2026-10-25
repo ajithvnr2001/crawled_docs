@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/reference/rest/v1/a2a.projects.locations.dataAgents.v1
 title: REST Resource: a2a.projects.locations.dataAgents.v1 \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:04.734308+00:00
+fetched_at: 2026-10-25T06:18:46.658766+00:00
 ---
 
 # REST Resource: a2a.projects.locations.dataAgents.v1  |  Data Agents  |  Google Cloud Documentation

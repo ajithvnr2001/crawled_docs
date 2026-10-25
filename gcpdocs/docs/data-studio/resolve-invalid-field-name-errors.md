@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/resolve-invalid-field-name-errors/
 title: Resolve invalid field name errors \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:11.642763+00:00
+fetched_at: 2026-10-25T06:42:55.253372+00:00
 ---
 
 # Resolve invalid field name errors  |  Data Studio  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/import-components/
 title: Import components \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:41.518553+00:00
+fetched_at: 2026-10-25T06:34:10.130725+00:00
 ---
 
 # Import components  |  Application Design Center  |  Google Cloud Documentation

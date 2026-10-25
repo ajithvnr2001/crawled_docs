@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/15.13.0/docs/upgrade-vm-alloydb-omni-version/
 title: Upgrade to AlloyDB Omni version 15.13.0 on a VM \u00a0|\u00a0 AlloyDB Omni for containers: 15.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:46:47.168862+00:00
+fetched_at: 2026-10-25T06:34:14.526361+00:00
 ---
 
 # Upgrade to AlloyDB Omni version 15.13.0 on a VM  |  AlloyDB Omni for containers: 15.13.0  |  Google Cloud Documentation

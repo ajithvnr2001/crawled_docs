@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.8.0/docs/high-availability/test/
 title: Test your high availability setup \u00a0|\u00a0 AlloyDB Omni for containers: 16.8.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:59:46.670901+00:00
+fetched_at: 2026-10-25T05:53:41.998654+00:00
 ---
 
 # Test your high availability setup  |  AlloyDB Omni for containers: 16.8.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/kiwi/set-up-data-store/
 title: Set up a Kiwi data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:57.668095+00:00
+fetched_at: 2026-10-25T06:23:14.450117+00:00
 ---
 
 # Set up a Kiwi data store  |  Gemini Enterprise  |  Google Cloud Documentation

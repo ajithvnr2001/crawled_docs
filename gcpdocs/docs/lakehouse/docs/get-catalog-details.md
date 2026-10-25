@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/get-catalog-details/
 title: Get catalog details \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:18.888153+00:00
+fetched_at: 2026-10-25T05:53:36.739630+00:00
 ---
 
 # Get catalog details  |  Lakehouse  |  Google Cloud Documentation

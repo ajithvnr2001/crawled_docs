@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/query-cloud-storage-data/
 title: Query Cloud Storage data in external tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:34.913703+00:00
+fetched_at: 2026-10-25T06:43:32.250372+00:00
 ---
 
 # Query Cloud Storage data in external tables  |  BigQuery  |  Google Cloud Documentation

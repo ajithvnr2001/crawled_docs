@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/web/saml/
 title: Signing in users with SAML \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:01.194744+00:00
+fetched_at: 2026-10-25T06:19:45.967381+00:00
 ---
 
 # Signing in users with SAML  |  Identity Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/windsor-ai/
 title: Overview \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:59.268225+00:00
+fetched_at: 2026-10-25T06:24:13.088166+00:00
 ---
 
 # Overview  |  Gemini Enterprise  |  Google Cloud Documentation

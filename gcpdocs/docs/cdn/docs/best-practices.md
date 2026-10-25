@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cdn/docs/best-practices/
 title: Content delivery best practices \u00a0|\u00a0 Cloud CDN \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:54.558512+00:00
+fetched_at: 2026-10-25T06:43:43.881824+00:00
 ---
 
 # Content delivery best practices  |  Cloud CDN  |  Google Cloud Documentation

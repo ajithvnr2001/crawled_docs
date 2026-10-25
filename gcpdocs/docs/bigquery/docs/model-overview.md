@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/model-overview/
 title: Model creation \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:03.206592+00:00
+fetched_at: 2026-10-25T06:43:34.122586+00:00
 ---
 
 # Model creation  |  BigQuery  |  Google Cloud Documentation

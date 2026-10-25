@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bare-metal/docs/solutions/oracle/bms-filestore-oracle-backups/
 title: Create Oracle backups with Filestore on Bare Metal Solution \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:42:58.051783+00:00
+fetched_at: 2026-10-25T06:38:57.220323+00:00
 ---
 
 # Create Oracle backups with Filestore on Bare Metal Solution  |  Google Cloud Documentation

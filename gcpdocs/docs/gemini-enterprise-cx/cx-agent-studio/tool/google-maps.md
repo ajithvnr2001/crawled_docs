@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/tool/google-maps/
 title: Google Maps tools \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:36.964227+00:00
+fetched_at: 2026-10-25T06:25:43.375898+00:00
 ---
 
 # Google Maps tools  |  CX Agent Studio  |  Google Cloud Documentation

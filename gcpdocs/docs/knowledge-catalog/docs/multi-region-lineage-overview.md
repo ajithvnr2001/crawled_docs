@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/multi-region-lineage-overview/
 title: About multi-region lineage search \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:26:48.906348+00:00
+fetched_at: 2026-10-25T05:53:39.916997+00:00
 ---
 
 # About multi-region lineage search  |  Knowledge Catalog  |  Google Cloud Documentation

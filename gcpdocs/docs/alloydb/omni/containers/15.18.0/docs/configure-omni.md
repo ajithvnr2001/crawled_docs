@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/15.18.0/docs/configure-omni/
 title: Set up AlloyDB Omni for production \u00a0|\u00a0 AlloyDB Omni using containers: 15.18.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:27.913756+00:00
+fetched_at: 2026-10-25T06:35:52.397369+00:00
 ---
 
 # Set up AlloyDB Omni for production  |  AlloyDB Omni using containers: 15.18.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/best-practices-spatial-analysis/
 title: Best practices for spatial analysis \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:02.590487+00:00
+fetched_at: 2026-10-25T06:42:47.047127+00:00
 ---
 
 # Best practices for spatial analysis  |  BigQuery  |  Google Cloud Documentation

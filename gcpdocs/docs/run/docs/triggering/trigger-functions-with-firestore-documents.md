@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/triggering/trigger-functions-with-firestore-documents/
 title: Trigger functions with Firestore documents \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:03:19.922349+00:00
+fetched_at: 2026-10-25T05:45:15.938503+00:00
 ---
 
 # Trigger functions with Firestore documents  |  Cloud Run  |  Google Cloud Documentation
@@ -563,7 +563,7 @@ Use [protobufjs](https://www.npmjs.com/package/protobufjs) to decode the event d
     import com.google.cloud.firestore.[SetOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.SetOptions.html);
     import com.google.cloud.functions.CloudEventsFunction;
     import com.google.events.cloud.firestore.v1.[DocumentEventData](https://docs.cloud.google.com/java/docs/reference/google-cloudevent-types/latest/com.google.events.cloud.firestore.v1.DocumentEventData.html);
-    import com.google.events.cloud.firestore.v1.[Value](https://docs.cloud.google.com/java/docs/reference/google-cloudevent-types/latest/com.google.events.cloud.firestore.v1.Value.html);
+    import com.google.events.cloud.firestore.v1.[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html);
     import com.google.protobuf.[InvalidProtocolBufferException](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.InvalidProtocolBufferException.html);
     import io.cloudevents.CloudEvent;
     import java.util.Map;
@@ -645,7 +645,7 @@ Use [protobufjs](https://www.npmjs.com/package/protobufjs) to decode the event d
     using Google.Cloud.Functions.Hosting;
     using Google.Events.Protobuf.Cloud.Firestore.V1;
     using Microsoft.AspNetCore.Hosting;
-    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.LifeSciences.V2Beta/latest/Microsoft.Extensions.DependencyInjection.html);
+    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Commerce.Consumer.Procurement.V1/latest/Microsoft.Extensions.DependencyInjection.html);
     using Microsoft.Extensions.Logging;
     using System.Collections.Generic;
     using System.Threading;

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/three-tier-web-app/
 title: Three-tier web app template \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:39.681119+00:00
+fetched_at: 2026-10-25T06:35:16.412068+00:00
 ---
 
 # Three-tier web app template  |  Application Design Center  |  Google Cloud Documentation

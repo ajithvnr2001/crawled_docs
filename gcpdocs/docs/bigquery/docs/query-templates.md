@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/query-templates/
 title: Use query templates \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:34.123485+00:00
+fetched_at: 2026-10-25T06:41:33.358989+00:00
 ---
 
 # Use query templates  |  BigQuery  |  Google Cloud Documentation

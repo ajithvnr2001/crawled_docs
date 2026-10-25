@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.8.0/docs/ai/perform-vector-search/
 title: Perform vector search in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni for containers: 16.8.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:56.777143+00:00
+fetched_at: 2026-10-25T06:36:53.104312+00:00
 ---
 
 # Perform vector search in AlloyDB Omni  |  AlloyDB Omni for containers: 16.8.0  |  Google Cloud Documentation

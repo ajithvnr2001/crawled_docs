@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.1/docs/documented-versions/
 title: AlloyDB Omni using RPM documentation versions \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:26.596275+00:00
+fetched_at: 2026-10-25T06:41:55.463085+00:00
 ---
 
 # AlloyDB Omni using RPM documentation versions  |  AlloyDB Omni using RPM: 18.1.1  |  Google Cloud Documentation

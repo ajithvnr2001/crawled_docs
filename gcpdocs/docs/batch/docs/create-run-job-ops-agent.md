@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/batch/docs/create-run-job-ops-agent/
 title: Collect additional resource metrics using the Ops Agent \u00a0|\u00a0 Batch \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:42:25.685768+00:00
+fetched_at: 2026-10-25T06:38:33.191705+00:00
 ---
 
 # Collect additional resource metrics using the Ops Agent  |  Batch  |  Google Cloud Documentation

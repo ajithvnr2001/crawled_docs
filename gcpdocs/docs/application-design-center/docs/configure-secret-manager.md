@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/configure-secret-manager/
 title: Configure a Secret Manager secret \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:43.535445+00:00
+fetched_at: 2026-10-25T06:34:14.376752+00:00
 ---
 
 # Configure a Secret Manager secret  |  Application Design Center  |  Google Cloud Documentation

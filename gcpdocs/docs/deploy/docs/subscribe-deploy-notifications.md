@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/subscribe-deploy-notifications/
 title: Using Cloud Deploy notifications \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:23.517540+00:00
+fetched_at: 2026-10-25T05:53:30.886622+00:00
 ---
 
 # Using Cloud Deploy notifications  |  Google Cloud Documentation

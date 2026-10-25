@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/connect-to-alloydb/
 title: Connect to AlloyDB for PostgreSQL \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:25.464427+00:00
+fetched_at: 2026-10-25T06:39:41.707670+00:00
 ---
 
 # Connect to AlloyDB for PostgreSQL  |  BigQuery  |  Google Cloud Documentation

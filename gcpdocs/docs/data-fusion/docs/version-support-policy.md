@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/version-support-policy/
 title: Version support policy \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:23.727776+00:00
+fetched_at: 2026-10-25T06:43:01.781736+00:00
 ---
 
 # Version support policy  |  Cloud Data Fusion  |  Google Cloud Documentation

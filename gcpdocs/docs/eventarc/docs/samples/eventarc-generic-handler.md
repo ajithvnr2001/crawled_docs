@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/docs/samples/eventarc-generic-handler/
 title: Create a generic event handler \u00a0|\u00a0 Eventarc \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:35.613858+00:00
+fetched_at: 2026-10-25T06:18:27.039036+00:00
 ---
 
 # Create a generic event handler  |  Eventarc  |  Google Cloud Documentation

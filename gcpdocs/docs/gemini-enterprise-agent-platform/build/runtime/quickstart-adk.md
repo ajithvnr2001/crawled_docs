@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart-adk/
 title: Quickstart: Develop and deploy agents on Agent Runtime with Agent Development Kit \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:08.171162+00:00
+fetched_at: 2026-10-25T06:27:09.409781+00:00
 ---
 
 # Quickstart: Develop and deploy agents on Agent Runtime with Agent Development Kit  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

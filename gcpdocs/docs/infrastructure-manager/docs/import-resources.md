@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/infrastructure-manager/docs/import-resources/
 title: Import deployed resources into Infrastructure Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:29.978943+00:00
+fetched_at: 2026-10-25T06:22:06.784988+00:00
 ---
 
 # Import deployed resources into Infrastructure Manager  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.4.0/docs/shared-responsibility/
 title: AlloyDB Omni shared responsibility \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:50:25.597838+00:00
+fetched_at: 2026-10-25T06:25:13.446494+00:00
 ---
 
 # AlloyDB Omni shared responsibility  |  AlloyDB Omni using the RPM orchestrator: 18.4.0  |  Google Cloud Documentation

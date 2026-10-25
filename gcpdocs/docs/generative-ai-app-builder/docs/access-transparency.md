@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/access-transparency/
 title: Enable Access Transparency in Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:52.243789+00:00
+fetched_at: 2026-10-25T06:25:58.846103+00:00
 ---
 
 # Enable Access Transparency in Agent Search  |  Google Cloud Documentation

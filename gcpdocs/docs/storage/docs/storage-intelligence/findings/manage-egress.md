@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/storage-intelligence/findings/manage-egress/
 title: Manage cross-region egress \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T13:08:28.760657+00:00
+fetched_at: 2026-10-25T05:44:00.405459+00:00
 ---
 
 # Manage cross-region egress  |  Cloud Storage  |  Google Cloud Documentation

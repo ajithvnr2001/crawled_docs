@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/gke/route-trigger-cloud-firestore/
 title: Route Cloud Firestore events to GKE \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:50.248256+00:00
+fetched_at: 2026-10-25T06:20:10.721039+00:00
 ---
 
 # Route Cloud Firestore events to GKE  |  Eventarc Standard  |  Google Cloud Documentation

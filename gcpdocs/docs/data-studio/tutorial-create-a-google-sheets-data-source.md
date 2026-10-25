@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/tutorial-create-a-google-sheets-data-source/
 title: Tutorial: Create a Google Sheets data source \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:31.682562+00:00
+fetched_at: 2026-10-25T06:44:17.808513+00:00
 ---
 
 # Tutorial: Create a Google Sheets data source  |  Data Studio  |  Google Cloud Documentation

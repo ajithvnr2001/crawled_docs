@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/use-lakehouse-metastore-iceberg-rest-catalog/
 title: Quickstart: Use the Iceberg REST catalog with Cloud Storage \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:12.657952+00:00
+fetched_at: 2026-10-25T05:53:36.418161+00:00
 ---
 
 # Quickstart: Use the Iceberg REST catalog with Cloud Storage  |  Lakehouse  |  Google Cloud Documentation

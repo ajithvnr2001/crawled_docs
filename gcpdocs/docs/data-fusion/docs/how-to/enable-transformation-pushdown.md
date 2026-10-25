@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/enable-transformation-pushdown/
 title: Execute transformations in BigQuery \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:00.756136+00:00
+fetched_at: 2026-10-25T06:43:55.206166+00:00
 ---
 
 # Execute transformations in BigQuery  |  Cloud Data Fusion  |  Google Cloud Documentation

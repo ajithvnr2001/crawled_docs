@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/filter-search-metadata/
 title: Filter custom search for structured or unstructured data (Legacy) \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:13.710876+00:00
+fetched_at: 2026-10-25T06:21:46.868440+00:00
 ---
 
 # Filter custom search for structured or unstructured data (Legacy)  |  Gemini Enterprise  |  Google Cloud Documentation

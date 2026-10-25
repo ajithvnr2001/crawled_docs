@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/services/urlfetch/outbound-requests/
 title: URL Fetch for legacy bundled services \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:47.496862+00:00
+fetched_at: 2026-10-25T06:34:34.647938+00:00
 ---
 
 # URL Fetch for legacy bundled services  |  App Engine standard environment  |  Google Cloud Documentation

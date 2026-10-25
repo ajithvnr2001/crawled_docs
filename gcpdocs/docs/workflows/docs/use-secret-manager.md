@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/use-secret-manager/
 title: Secure and store sensitive data using the Secret Manager connector \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:58:01.831322+00:00
+fetched_at: 2026-10-25T05:44:11.302828+00:00
 ---
 
 # Secure and store sensitive data using the Secret Manager connector  |  Workflows  |  Google Cloud Documentation

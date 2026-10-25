@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity/docs/how-to/approve-device/
 title: Approving a device \u00a0|\u00a0 Cloud Identity \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:51.986642+00:00
+fetched_at: 2026-10-25T06:22:27.823448+00:00
 ---
 
 # Approving a device  |  Cloud Identity  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/data-engineering-agent/agent-overview/
 title: Data Engineering Agent overview \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:37.792612+00:00
+fetched_at: 2026-10-25T05:56:30.190177+00:00
 ---
 
 # Data Engineering Agent overview  |  Data Agents  |  Google Cloud Documentation

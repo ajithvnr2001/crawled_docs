@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/oracledb/configure/
 title: Oracle DB (version 2) \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:42.452441+00:00
+fetched_at: 2026-10-25T06:21:08.794733+00:00
 ---
 
 # Oracle DB (version 2)  |  Integration Connectors  |  Google Cloud Documentation

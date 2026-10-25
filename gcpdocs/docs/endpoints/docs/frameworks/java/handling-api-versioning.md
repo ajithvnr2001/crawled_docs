@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/frameworks/java/handling-api-versioning/
 title: Handling API versioning \u00a0|\u00a0 Cloud Endpoints Frameworks for App Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:05:02.056867+00:00
+fetched_at: 2026-10-25T06:18:19.357377+00:00
 ---
 
 # Handling API versioning  |  Cloud Endpoints Frameworks for App Engine  |  Google Cloud Documentation

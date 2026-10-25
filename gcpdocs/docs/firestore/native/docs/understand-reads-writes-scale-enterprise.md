@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/understand-reads-writes-scale-enterprise/
 title: Understand reads and writes at scale \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:29.965619+00:00
+fetched_at: 2026-10-25T06:19:12.911358+00:00
 ---
 
 # Understand reads and writes at scale  |  Firestore in Native mode  |  Google Cloud Documentation

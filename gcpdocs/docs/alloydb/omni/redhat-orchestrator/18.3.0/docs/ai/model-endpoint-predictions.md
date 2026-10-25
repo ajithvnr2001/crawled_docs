@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.3.0/docs/ai/model-endpoint-predictions/
 title: Invoke predictions with model endpoint management \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:50:10.364533+00:00
+fetched_at: 2026-10-25T06:28:17.792428+00:00
 ---
 
 # Invoke predictions with model endpoint management  |  AlloyDB Omni using the RPM orchestrator: 18.3.0  |  Google Cloud Documentation

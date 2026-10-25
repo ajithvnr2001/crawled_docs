@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/optimize-builds/speeding-up-builds/
 title: Best practices for speeding up builds \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:05.834236+00:00
+fetched_at: 2026-10-25T06:42:01.452764+00:00
 ---
 
 # Best practices for speeding up builds  |  Cloud Build  |  Google Cloud Documentation

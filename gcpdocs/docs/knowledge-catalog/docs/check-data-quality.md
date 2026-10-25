@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/check-data-quality/
 title: Use data quality tasks \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:27:12.047300+00:00
+fetched_at: 2026-10-25T05:53:38.613354+00:00
 ---
 
 # Use data quality tasks  |  Knowledge Catalog  |  Google Cloud Documentation

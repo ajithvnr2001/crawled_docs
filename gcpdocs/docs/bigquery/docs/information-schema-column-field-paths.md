@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-column-field-paths/
 title: COLUMN_FIELD_PATHS view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:52.508567+00:00
+fetched_at: 2026-10-25T06:38:39.125554+00:00
 ---
 
 # COLUMN_FIELD_PATHS view  |  BigQuery  |  Google Cloud Documentation

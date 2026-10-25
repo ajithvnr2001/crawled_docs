@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/faq/
 title: Frequently asked questions \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:26.694087+00:00
+fetched_at: 2026-10-25T06:25:34.920216+00:00
 ---
 
 # Frequently asked questions  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

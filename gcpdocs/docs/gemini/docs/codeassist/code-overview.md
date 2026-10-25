@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/docs/codeassist/code-overview/
 title: Gemini Code Assist code features overview \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:18.565983+00:00
+fetched_at: 2026-10-25T06:19:29.248719+00:00
 ---
 
 # Gemini Code Assist code features overview  |  Gemini for Google Cloud  |  Google Cloud Documentation

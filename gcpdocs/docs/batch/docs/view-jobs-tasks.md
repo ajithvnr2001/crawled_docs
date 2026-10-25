@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/batch/docs/view-jobs-tasks/
 title: View jobs and tasks \u00a0|\u00a0 Batch \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:42:18.913634+00:00
+fetched_at: 2026-10-25T06:39:53.534098+00:00
 ---
 
 # View jobs and tasks  |  Batch  |  Google Cloud Documentation

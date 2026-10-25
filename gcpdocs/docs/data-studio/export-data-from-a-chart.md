@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/export-data-from-a-chart/
 title: Export data from a chart \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:16.046923+00:00
+fetched_at: 2026-10-25T06:42:26.009659+00:00
 ---
 
 # Export data from a chart  |  Data Studio  |  Google Cloud Documentation

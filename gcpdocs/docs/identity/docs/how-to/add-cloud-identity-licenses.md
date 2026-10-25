@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity/docs/how-to/add-cloud-identity-licenses/
 title: Add Cloud Identity licenses to your organization's Google Workspace account \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:51.581730+00:00
+fetched_at: 2026-10-25T06:22:14.955150+00:00
 ---
 
 # Add Cloud Identity licenses to your organization's Google Workspace account  |  Google Cloud Documentation

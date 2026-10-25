@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/access-secret-version/
 title: Access a secret version \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:58:26.007974+00:00
+fetched_at: 2026-10-25T05:44:48.781559+00:00
 ---
 
 # Access a secret version  |  Secret Manager  |  Google Cloud Documentation
@@ -499,7 +499,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     require "google/cloud/secret_manager"
     
     # Create a Secret Manager client.
-    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta2/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
+    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
     
     # Build the resource name of the secret version.
     name = client.secret_version_path(

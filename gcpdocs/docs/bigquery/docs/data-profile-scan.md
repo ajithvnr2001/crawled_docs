@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/data-profile-scan/
 title: Profile your data \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:41:37.282108+00:00
+fetched_at: 2026-10-25T05:56:17.737870+00:00
 ---
 
 # Profile your data  |  BigQuery  |  Google Cloud Documentation

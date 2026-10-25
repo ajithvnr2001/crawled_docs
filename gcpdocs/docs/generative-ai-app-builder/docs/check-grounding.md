@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/check-grounding/
 title: Check grounding with RAG \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:47.948648+00:00
+fetched_at: 2026-10-25T06:23:36.115193+00:00
 ---
 
 # Check grounding with RAG  |  Agent Search  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/kafka-iceberg-performance/
 title: Performance characteristics of Kafka to Iceberg pipelines \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:13:01.694479+00:00
+fetched_at: 2026-10-25T06:44:20.137043+00:00
 ---
 
 # Performance characteristics of Kafka to Iceberg pipelines  |  Cloud Dataflow  |  Google Cloud Documentation

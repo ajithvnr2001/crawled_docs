@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/gitlab/gitlab-configuration/
 title: GitLab configuration \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:02.883919+00:00
+fetched_at: 2026-10-25T06:23:08.245981+00:00
 ---
 
 # GitLab configuration  |  Gemini Enterprise  |  Google Cloud Documentation

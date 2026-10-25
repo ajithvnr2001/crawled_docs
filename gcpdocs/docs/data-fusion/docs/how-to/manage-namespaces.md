@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/manage-namespaces/
 title: Create and manage namespaces \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:00.072849+00:00
+fetched_at: 2026-10-25T06:43:44.494843+00:00
 ---
 
 # Create and manage namespaces  |  Cloud Data Fusion  |  Google Cloud Documentation

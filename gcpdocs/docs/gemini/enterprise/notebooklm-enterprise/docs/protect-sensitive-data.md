@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/protect-sensitive-data/
 title: Protect sensitive data in Gemini Notebook Enterprise sources \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:46.852191+00:00
+fetched_at: 2026-10-25T06:23:05.386063+00:00
 ---
 
 # Protect sensitive data in Gemini Notebook Enterprise sources  |  Gemini Enterprise  |  Google Cloud Documentation

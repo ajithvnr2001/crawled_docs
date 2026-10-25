@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/sanity/set-up-data-store/
 title: Set up a Sanity data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:22.980066+00:00
+fetched_at: 2026-10-25T06:23:38.721418+00:00
 ---
 
 # Set up a Sanity data store  |  Gemini Enterprise  |  Google Cloud Documentation

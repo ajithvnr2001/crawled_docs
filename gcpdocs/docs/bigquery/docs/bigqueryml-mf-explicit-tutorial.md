@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/bigqueryml-mf-explicit-tutorial/
 title: Create recommendations based on explicit feedback with a matrix factorization model \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:34.322562+00:00
+fetched_at: 2026-10-25T06:39:41.418053+00:00
 ---
 
 # Create recommendations based on explicit feedback with a matrix factorization model  |  BigQuery  |  Google Cloud Documentation

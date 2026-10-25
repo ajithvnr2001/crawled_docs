@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/resources/
 title: Resources \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:48:10.687936+00:00
+fetched_at: 2026-10-25T06:33:35.376063+00:00
 ---
 
 # Resources  |  App Engine standard environment  |  Google Cloud Documentation

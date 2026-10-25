@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/bigquery-v11-schema/
 title: BigQuery V11 schema \u00a0|\u00a0 Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:44.911795+00:00
+fetched_at: 2026-10-25T06:24:00.663481+00:00
 ---
 
 # BigQuery V11 schema  |  Customer Experience Insights  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.8.0/docs/configure-disk-cache/
 title: Accelerate database performance using disk cache \u00a0|\u00a0 AlloyDB Omni for containers: 16.8.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:59:57.227154+00:00
+fetched_at: 2026-10-25T05:54:40.469597+00:00
 ---
 
 # Accelerate database performance using disk cache  |  AlloyDB Omni for containers: 16.8.0  |  Google Cloud Documentation

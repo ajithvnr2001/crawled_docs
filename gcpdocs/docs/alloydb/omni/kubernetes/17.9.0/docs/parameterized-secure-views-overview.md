@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.9.0/docs/parameterized-secure-views-overview/
 title: Parameterized secure views overview \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 17.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:56:26.729439+00:00
+fetched_at: 2026-10-25T06:27:30.452289+00:00
 ---
 
 # Parameterized secure views overview  |  AlloyDB Omni using the container orchestrator: 17.9.0  |  Google Cloud Documentation

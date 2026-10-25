@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/connect-gitlab/
 title: Connect GitLab to Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:21.010154+00:00
+fetched_at: 2026-10-25T06:37:31.962999+00:00
 ---
 
 # Connect GitLab to Artifact Registry  |  Google Cloud Documentation

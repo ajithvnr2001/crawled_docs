@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/1stgendocs/tutorials/ocr-1st-gen/
 title: Optical Character Recognition (OCR) Tutorial (1st gen) \u00a0|\u00a0 Cloud Run functions (1st gen) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:37.089685+00:00
+fetched_at: 2026-10-25T06:19:54.424879+00:00
 ---
 
 # Optical Character Recognition (OCR) Tutorial (1st gen)  |  Cloud Run functions (1st gen)  |  Google Cloud Documentation

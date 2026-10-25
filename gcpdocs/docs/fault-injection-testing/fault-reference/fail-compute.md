@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/fault-injection-testing/fault-reference/fail-compute/
 title: Fail Compute fault reference \u00a0|\u00a0 Fault Injection Testing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:13.760800+00:00
+fetched_at: 2026-10-25T06:26:23.236417+00:00
 ---
 
 # Fail Compute fault reference  |  Fault Injection Testing  |  Google Cloud Documentation

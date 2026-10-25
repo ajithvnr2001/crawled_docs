@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics/looker/
 title: Conversational analytics in Looker \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:27.231097+00:00
+fetched_at: 2026-10-25T06:25:11.825202+00:00
 ---
 
 # Conversational analytics in Looker  |  Data Agents  |  Google Cloud Documentation

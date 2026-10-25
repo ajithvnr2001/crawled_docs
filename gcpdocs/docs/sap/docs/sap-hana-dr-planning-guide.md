@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-dr-planning-guide/
 title: SAP HANA disaster recovery planning guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:01:41.770115+00:00
+fetched_at: 2026-10-25T05:45:15.365194+00:00
 ---
 
 # SAP HANA disaster recovery planning guide  |  SAP on Google Cloud  |  Google Cloud Documentation

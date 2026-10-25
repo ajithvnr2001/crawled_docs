@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/embedded-data-sources/
 title: Embedded data sources \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:16.832672+00:00
+fetched_at: 2026-10-25T06:43:07.545585+00:00
 ---
 
 # Embedded data sources  |  Data Studio  |  Google Cloud Documentation

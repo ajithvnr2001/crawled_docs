@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/private-pools/using-vpc-service-controls/
 title: Use VPC Service Controls \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:03.666097+00:00
+fetched_at: 2026-10-25T06:41:24.282799+00:00
 ---
 
 # Use VPC Service Controls  |  Cloud Build  |  Google Cloud Documentation

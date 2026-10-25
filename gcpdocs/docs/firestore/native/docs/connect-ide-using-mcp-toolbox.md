@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/connect-ide-using-mcp-toolbox/
 title: Use Firestore with MCP, Gemini CLI, and other agents \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:40.401055+00:00
+fetched_at: 2026-10-25T06:21:52.941253+00:00
 ---
 
 # Use Firestore with MCP, Gemini CLI, and other agents  |  Firestore in Native mode  |  Google Cloud Documentation

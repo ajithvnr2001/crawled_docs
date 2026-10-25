@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/custom-mcp-server/set-up-custom-mcp-server/
 title: Set up your custom MCP server data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:39.789384+00:00
+fetched_at: 2026-10-25T06:22:50.998716+00:00
 ---
 
 # Set up your custom MCP server data store  |  Gemini Enterprise  |  Google Cloud Documentation

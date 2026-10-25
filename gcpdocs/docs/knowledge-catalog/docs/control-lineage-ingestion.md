@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/control-lineage-ingestion/
 title: About data lineage ingestion control \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:35:34.687789+00:00
+fetched_at: 2026-10-25T05:53:39.991254+00:00
 ---
 
 # About data lineage ingestion control  |  Knowledge Catalog  |  Google Cloud Documentation

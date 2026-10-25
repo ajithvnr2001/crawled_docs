@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/ca-sso-web/
 title: Collect Broadcom SiteMinder Web Access Management (formerly CA SSO) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:31:28.975407+00:00
+fetched_at: 2026-10-25T06:40:02.731114+00:00
 ---
 
 # Collect Broadcom SiteMinder Web Access Management (formerly CA SSO) logs  |  Google Security Operations  |  Google Cloud Documentation

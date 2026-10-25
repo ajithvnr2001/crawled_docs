@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/enterprise-grade-production-gke/
 title: Enterprise-grade production GKE cluster and workload \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:41.963854+00:00
+fetched_at: 2026-10-25T06:34:45.451505+00:00
 ---
 
 # Enterprise-grade production GKE cluster and workload  |  Application Design Center  |  Google Cloud Documentation

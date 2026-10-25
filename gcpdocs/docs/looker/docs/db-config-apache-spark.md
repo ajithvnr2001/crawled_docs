@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/db-config-apache-spark/
 title: Apache Spark \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:36.787940+00:00
+fetched_at: 2026-10-25T05:53:26.558116+00:00
 ---
 
 # Apache Spark  |  Looker  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/connections-api-intro/
 title: Introduction to connections \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:24.427577+00:00
+fetched_at: 2026-10-25T06:40:15.370060+00:00
 ---
 
 # Introduction to connections  |  BigQuery  |  Google Cloud Documentation

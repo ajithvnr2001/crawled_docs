@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-third-party-instance/
 title: Create a Agent Platform Workbench instance with third party credentials \u00a0|\u00a0 Gemini Enterprise Agent Platform Workbench \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:33.624710+00:00
+fetched_at: 2026-10-25T06:26:49.668880+00:00
 ---
 
 # Create a Agent Platform Workbench instance with third party credentials  |  Gemini Enterprise Agent Platform Workbench  |  Google Cloud Documentation

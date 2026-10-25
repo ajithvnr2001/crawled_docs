@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/manage-tables/
 title: Overview of Apache Iceberg tables \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:14.621645+00:00
+fetched_at: 2026-10-25T05:53:36.125074+00:00
 ---
 
 # Overview of Apache Iceberg tables  |  Lakehouse  |  Google Cloud Documentation

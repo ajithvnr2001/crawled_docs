@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cybereason-edr/
 title: Collect LevelBlue Cybereason EDR (formerly Cybereason EDR) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:24.473507+00:00
+fetched_at: 2026-10-25T06:40:47.467093+00:00
 ---
 
 # Collect LevelBlue Cybereason EDR (formerly Cybereason EDR) logs  |  Google Security Operations  |  Google Cloud Documentation

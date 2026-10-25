@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.3.0/docs/protect-data-using-backups/
 title: Protect your data using backups \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:50:19.587786+00:00
+fetched_at: 2026-10-25T06:27:46.162543+00:00
 ---
 
 # Protect your data using backups  |  AlloyDB Omni using the RPM orchestrator: 18.3.0  |  Google Cloud Documentation

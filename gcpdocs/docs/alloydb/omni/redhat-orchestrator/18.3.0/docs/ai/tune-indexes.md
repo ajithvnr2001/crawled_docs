@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.3.0/docs/ai/tune-indexes/
 title: Tune vector query performance in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:50:09.349271+00:00
+fetched_at: 2026-10-25T06:32:55.117143+00:00
 ---
 
 # Tune vector query performance in AlloyDB Omni  |  AlloyDB Omni using the RPM orchestrator: 18.3.0  |  Google Cloud Documentation

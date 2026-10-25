@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/access-context-manager/docs/create-custom-access-level/
 title: Creating a custom access level \u00a0|\u00a0 Access Context Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:14.700853+00:00
+fetched_at: 2026-10-25T06:33:44.459281+00:00
 ---
 
 # Creating a custom access level  |  Access Context Manager  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/regional-endpoints/
 title: Lakehouse regional endpoints \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:14.027561+00:00
+fetched_at: 2026-10-25T05:53:32.774907+00:00
 ---
 
 # Lakehouse regional endpoints  |  Google Cloud Documentation

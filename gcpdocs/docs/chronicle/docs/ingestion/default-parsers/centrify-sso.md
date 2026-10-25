@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/centrify-sso/
 title: Collect Delinea Single Sign-On (SSO) (formerly Centrify) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:31:26.261800+00:00
+fetched_at: 2026-10-25T06:41:51.528445+00:00
 ---
 
 # Collect Delinea Single Sign-On (SSO) (formerly Centrify) logs  |  Google Security Operations  |  Google Cloud Documentation

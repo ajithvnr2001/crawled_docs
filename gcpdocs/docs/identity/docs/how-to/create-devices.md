@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity/docs/how-to/create-devices/
 title: Creating devices \u00a0|\u00a0 Cloud Identity \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:42.899130+00:00
+fetched_at: 2026-10-25T06:20:45.570050+00:00
 ---
 
 # Creating devices  |  Cloud Identity  |  Google Cloud Documentation

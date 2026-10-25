@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/reference/rest/v1alpha/projects.locations.operations/list/
 title: Method: projects.locations.operations.list \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:24.140258+00:00
+fetched_at: 2026-10-25T06:20:39.130720+00:00
 ---
 
 # Method: projects.locations.operations.list  |  Data Agents  |  Google Cloud Documentation

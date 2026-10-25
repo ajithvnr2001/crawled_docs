@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.8.0/docs/ai/example-embeddings/
 title: An example embedding workflow \u00a0|\u00a0 AlloyDB Omni for containers: 16.8.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:57.832712+00:00
+fetched_at: 2026-10-25T06:35:56.668051+00:00
 ---
 
 # An example embedding workflow  |  AlloyDB Omni for containers: 16.8.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.1/docs/columnar-engine/tune-columnar-engine/
 title: Tune the columnar engine for AlloyDB Omni on a VM \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:41.783997+00:00
+fetched_at: 2026-10-25T06:39:25.828566+00:00
 ---
 
 # Tune the columnar engine for AlloyDB Omni on a VM  |  AlloyDB Omni using RPM: 18.1.1  |  Google Cloud Documentation

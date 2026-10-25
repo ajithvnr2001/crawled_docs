@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/audit-logging/audit-logging-sts/
 title: Security Token Service audit logging \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:26.242275+00:00
+fetched_at: 2026-10-25T06:20:31.429362+00:00
 ---
 
 # Security Token Service audit logging  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

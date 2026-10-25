@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/upload-content/
 title: Upload content to the assistant \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:47.944205+00:00
+fetched_at: 2026-10-25T06:23:48.856033+00:00
 ---
 
 # Upload content to the assistant  |  Gemini Enterprise  |  Google Cloud Documentation

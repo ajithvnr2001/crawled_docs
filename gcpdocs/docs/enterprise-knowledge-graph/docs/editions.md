@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/enterprise-knowledge-graph/docs/editions/
 title: Compare Basic and Advanced editions \u00a0|\u00a0 Enterprise Knowledge Graph \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:40.268494+00:00
+fetched_at: 2026-10-25T06:18:22.036688+00:00
 ---
 
 # Compare Basic and Advanced editions  |  Enterprise Knowledge Graph  |  Google Cloud Documentation

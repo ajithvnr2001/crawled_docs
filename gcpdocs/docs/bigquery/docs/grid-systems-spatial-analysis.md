@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/grid-systems-spatial-analysis/
 title: Grid systems for spatial analysis \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:58.534442+00:00
+fetched_at: 2026-10-25T06:39:52.573803+00:00
 ---
 
 # Grid systems for spatial analysis  |  BigQuery  |  Google Cloud Documentation

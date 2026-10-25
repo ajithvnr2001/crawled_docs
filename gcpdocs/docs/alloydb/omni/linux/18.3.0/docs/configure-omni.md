@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.3.0/docs/configure-omni/
 title: Set up AlloyDB Omni using RPM for production \u00a0|\u00a0 AlloyDB Omni using RPM: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:39.167486+00:00
+fetched_at: 2026-10-25T06:41:27.156372+00:00
 ---
 
 # Set up AlloyDB Omni using RPM for production  |  AlloyDB Omni using RPM: 18.3.0  |  Google Cloud Documentation

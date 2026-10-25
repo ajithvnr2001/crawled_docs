@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/billing-questions/
 title: Billing questions \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:36.566113+00:00
+fetched_at: 2026-10-25T06:24:16.362547+00:00
 ---
 
 # Billing questions  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

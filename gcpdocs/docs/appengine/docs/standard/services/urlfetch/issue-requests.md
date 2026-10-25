@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/services/urlfetch/issue-requests/
 title: Issue HTTPS requests \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:47.157026+00:00
+fetched_at: 2026-10-25T06:34:12.529535+00:00
 ---
 
 # Issue HTTPS requests  |  App Engine standard environment  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.11.0/docs/troubleshoot-active-directory-integration/
 title: Troubleshoot Active Directory integration in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 16.11.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:48:52.294165+00:00
+fetched_at: 2026-10-25T06:33:21.608163+00:00
 ---
 
 # Troubleshoot Active Directory integration in AlloyDB Omni  |  AlloyDB Omni using the container orchestrator: 16.11.0  |  Google Cloud Documentation

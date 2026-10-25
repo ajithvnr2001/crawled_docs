@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/15.7.0/docs/about-pglogical/
 title: About the pglogical extension \u00a0|\u00a0 AlloyDB Omni for containers: 15.7.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:58:35.503675+00:00
+fetched_at: 2026-10-25T05:54:42.061894+00:00
 ---
 
 # About the pglogical extension  |  AlloyDB Omni for containers: 15.7.0  |  Google Cloud Documentation

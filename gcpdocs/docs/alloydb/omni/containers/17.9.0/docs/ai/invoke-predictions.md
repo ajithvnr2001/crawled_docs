@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/17.9.0/docs/ai/invoke-predictions/
 title: Invoke online predictions from AlloyDB databases \u00a0|\u00a0 AlloyDB Omni using containers: 17.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:08.326372+00:00
+fetched_at: 2026-10-25T06:35:33.646138+00:00
 ---
 
 # Invoke online predictions from AlloyDB databases  |  AlloyDB Omni using containers: 17.9.0  |  Google Cloud Documentation

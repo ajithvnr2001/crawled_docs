@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/15.13.0/docs/ai/store-index-query-vectors/
 title: Create indexes and query vectors \u00a0|\u00a0 AlloyDB Omni for containers: 15.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:46:50.495643+00:00
+fetched_at: 2026-10-25T06:35:47.594137+00:00
 ---
 
 # Create indexes and query vectors  |  AlloyDB Omni for containers: 15.13.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-index-columns/
 title: SEARCH_INDEX_COLUMNS view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:50.236631+00:00
+fetched_at: 2026-10-25T06:39:49.743170+00:00
 ---
 
 # SEARCH_INDEX_COLUMNS view  |  BigQuery  |  Google Cloud Documentation

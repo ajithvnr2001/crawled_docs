@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/docs/turn-off-gemini/
 title: Turn off Gemini products in Google Cloud \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:17.027428+00:00
+fetched_at: 2026-10-25T06:19:27.833180+00:00
 ---
 
 # Turn off Gemini products in Google Cloud  |  Gemini for Google Cloud  |  Google Cloud Documentation

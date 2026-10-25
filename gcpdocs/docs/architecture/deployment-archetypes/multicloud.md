@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/deployment-archetypes/multicloud/
 title: Google Cloud multicloud deployment archetype \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:46:55.233329+00:00
+fetched_at: 2026-10-25T06:35:29.715547+00:00
 ---
 
 # Google Cloud multicloud deployment archetype  |  Cloud Architecture Center  |  Google Cloud Documentation

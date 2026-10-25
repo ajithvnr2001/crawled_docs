@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/communicating-between-services/
 title: Communicating between your services \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:48:14.136918+00:00
+fetched_at: 2026-10-25T06:34:26.535160+00:00
 ---
 
 # Communicating between your services  |  App Engine standard environment  |  Google Cloud Documentation

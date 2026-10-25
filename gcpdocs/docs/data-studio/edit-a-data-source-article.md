@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/edit-a-data-source-article/
 title: Edit a data source \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:18.761762+00:00
+fetched_at: 2026-10-25T06:41:33.928192+00:00
 ---
 
 # Edit a data source  |  Data Studio  |  Google Cloud Documentation

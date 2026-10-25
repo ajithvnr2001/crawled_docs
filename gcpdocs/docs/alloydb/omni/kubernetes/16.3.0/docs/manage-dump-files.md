@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.3.0/docs/manage-dump-files/
 title: Generate and diagnose AlloyDB Omni dump files \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 16.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:58:48.360917+00:00
+fetched_at: 2026-10-25T05:55:12.590656+00:00
 ---
 
 # Generate and diagnose AlloyDB Omni dump files  |  AlloyDB Omni for Kubernetes: 16.3.0  |  Google Cloud Documentation

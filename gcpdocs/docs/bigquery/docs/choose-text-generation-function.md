@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/choose-text-generation-function/
 title: Choose a text generation function \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:29.965787+00:00
+fetched_at: 2026-10-25T06:39:13.383494+00:00
 ---
 
 # Choose a text generation function  |  BigQuery  |  Google Cloud Documentation

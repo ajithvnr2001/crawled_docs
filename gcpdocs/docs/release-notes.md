@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T10:00:06.953986+00:00
+fetched_at: 2026-10-25T05:43:55.827944+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -24,6 +24,362 @@ You can also see and filter all release notes in the [Google Cloud console](http
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gcp-release-notes.xml) directly. 
 
+## October 24, 2026
+
+**App Engine flexible environment .NET**
+
+Security
+
+The following runtime language contains important security updates:
+
+  * [.NET 6 and later](https://docs.cloud.google.com/appengine/docs/flexible/lifecycle/support-schedule#net): `6.0.428`, `8.0.415`, `10.0.100`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
+
+**App Engine flexible environment Go**
+
+Security
+
+The following runtime language contains important security updates:
+
+  * [Go 1.24 and later](https://docs.cloud.google.com/appengine/docs/flexible/lifecycle/support-schedule#go): `1.24.13`, `1.25.14`, `1.26.10`, `1.27.3`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
+
+**App Engine flexible environment Java**
+
+Security
+
+The following runtime language contains important security updates:
+
+  * [Java 17 and later](https://docs.cloud.google.com/appengine/docs/flexible/lifecycle/support-schedule#java): `17.0.20_101`, `21.0.12_101.0.LTS`, `25.0.5_8.0.LTS`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
+
+**App Engine flexible environment Node.js**
+
+Security
+
+The following runtime language contains important security updates:
+
+  * [Node.js 22 and later](https://docs.cloud.google.com/appengine/docs/flexible/lifecycle/support-schedule#nodejs): `22.23.4`, `24.22.1`, `26.12.1`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
+
+**App Engine flexible environment PHP**
+
+Security
+
+The following runtime language contains important security updates:
+
+  * [PHP 8.2 and later](https://docs.cloud.google.com/appengine/docs/flexible/lifecycle/support-schedule#php): `8.2.35`, `8.3.36`, `8.4.27`, `8.5.12`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
+
+**App Engine flexible environment Python**
+
+Security
+
+The following runtime language contains important security updates:
+
+  * [Python 3.10 and later](https://docs.cloud.google.com/appengine/docs/flexible/lifecycle/support-schedule#python): `3.10.22`, `3.11.17`, `3.12.15`, `3.13.15`, `3.14.6`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
+
+**App Engine flexible environment Ruby**
+
+Security
+
+The following runtime language contains important security updates:
+
+  * [Ruby 3.3 and later](https://docs.cloud.google.com/appengine/docs/flexible/lifecycle/support-schedule#ruby): `3.3.12`, `3.4.11`, `4.0.7`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
+
+**App Engine standard environment Go**
+
+Security
+
+The following runtime language contains important security updates:
+
+  * [Go 1.24 and later](https://docs.cloud.google.com/appengine/docs/standard/lifecycle/support-schedule#go): `1.24.13`, `1.25.14`, `1.26.10`, `1.27.3`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
+
+**App Engine standard environment Java**
+
+Security
+
+The following runtime language contains important security updates:
+
+  * [Java 17 and later](https://docs.cloud.google.com/appengine/docs/standard/lifecycle/support-schedule#java): `17.0.20_101`, `21.0.12_101.0.LTS`, `25.0.5_8.0.LTS`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
+
+**App Engine standard environment Node.js**
+
+Security
+
+The following runtime language contains important security updates:
+
+  * [Node.js 22 and later](https://docs.cloud.google.com/appengine/docs/standard/lifecycle/support-schedule#nodejs): `22.23.4`, `24.22.1`, `26.12.1`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
+
+**App Engine standard environment PHP**
+
+Security
+
+The following runtime language contains important security updates:
+
+  * [PHP 8.2 and later](https://docs.cloud.google.com/appengine/docs/standard/lifecycle/support-schedule#php): `8.2.35`, `8.3.36`, `8.4.27`, `8.5.12`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
+
+**App Engine standard environment Python**
+
+Security
+
+The following runtime language contains important security updates:
+
+  * [Python 3.10 and later](https://docs.cloud.google.com/appengine/docs/standard/lifecycle/support-schedule#python): `3.10.22`, `3.11.17`, `3.12.15`, `3.13.15`, `3.14.6`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
+
+**App Engine standard environment Ruby**
+
+Security
+
+The following runtime language contains important security updates:
+
+  * [Ruby 3.3 and later](https://docs.cloud.google.com/appengine/docs/standard/lifecycle/support-schedule#ruby): `3.3.12`, `3.4.11`, `4.0.7`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
+
+**Buildpacks**
+
+Security
+
+The following runtime languages contain important security updates:
+
+  * [Go 1.24 and later](https://docs.cloud.google.com/docs/buildpacks/runtime-support#go): `1.24.13`, `1.25.14`, `1.26.10`, `1.27.3`
+  * [Node.js 22 and later](https://docs.cloud.google.com/static/docs/buildpacks/runtime-support#node.js): `22.23.4`, `24.22.1`, `26.12.1`
+  * [Java 17 and later](https://docs.cloud.google.com/docs/buildpacks/runtime-support#java): `17.0.20_101`, `21.0.12_101.0.LTS`, `25.0.5_8.0.LTS`
+  * [PHP 8.2 and later](https://docs.cloud.google.com/docs/buildpacks/runtime-support#php): `8.2.35`, `8.3.36`, `8.4.27`, `8.5.12`
+  * [Python 3.10 and later](https://docs.cloud.google.com/docs/buildpacks/runtime-support#python): `3.10.22`, `3.11.17`, `3.12.15`, `3.13.15`, `3.14.6`
+  * [Ruby 3.3 and later](https://docs.cloud.google.com/docs/buildpacks/runtime-support#ruby): `3.3.12`, `3.4.11`, `4.0.7`
+  * [.NET 6 and later](https://docs.cloud.google.com/docs/buildpacks/runtime-support#.net): `6.0.428`, `8.0.415`, `10.0.100`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
+
+**Cloud Run**
+
+Security
+
+The following runtime languages contain important security updates:
+
+  * [Go 1.24 and later](https://docs.cloud.google.com/run/docs/runtime-support#go): `1.24.13`, `1.25.14`, `1.26.10`, `1.27.3`
+  * [Node.js 22 and later](https://docs.cloud.google.com/static/run/docs/runtime-support#node.js): `22.23.4`, `24.22.1`, `26.12.1`
+  * [Java 17 and later](https://docs.cloud.google.com/run/docs/runtime-support#java): `17.0.20_101`, `21.0.12_101.0.LTS`, `25.0.5_8.0.LTS`
+  * [PHP 8.2 and later](https://docs.cloud.google.com/run/docs/runtime-support#php): `8.2.35`, `8.3.36`, `8.4.27`, `8.5.12`
+  * [Python 3.10 and later](https://docs.cloud.google.com/run/docs/runtime-support#python): `3.10.22`, `3.11.17`, `3.12.15`, `3.13.15`, `3.14.6`
+  * [Ruby 3.3 and later](https://docs.cloud.google.com/run/docs/runtime-support#ruby): `3.3.12`, `3.4.11`, `4.0.7`
+  * [.NET 6 and later](https://docs.cloud.google.com/run/docs/runtime-support#.net): `6.0.428`, `8.0.415`, `10.0.100`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
+
+**Cloud Run functions**
+
+Security
+
+The following runtime languages contain important security updates:
+
+  * [Go 1.24 and later](https://docs.cloud.google.com/functions/docs/runtime-support#go): `1.24.13`, `1.25.14`, `1.26.10`, `1.27.3`
+  * [Node.js 22 and later](https://docs.cloud.google.com/static/functions/docs/runtime-support#node.js): `22.23.4`, `24.22.1`, `26.12.1`
+  * [Java 17 and later](https://docs.cloud.google.com/functions/docs/runtime-support#java): `17.0.20_101`, `21.0.12_101.0.LTS`, `25.0.5_8.0.LTS`
+  * [PHP 8.2 and later](https://docs.cloud.google.com/functions/docs/runtime-support#php): `8.2.35`, `8.3.36`, `8.4.27`, `8.5.12`
+  * [Python 3.10 and later](https://docs.cloud.google.com/functions/docs/runtime-support#python): `3.10.22`, `3.11.17`, `3.12.15`, `3.13.15`, `3.14.6`
+  * [Ruby 3.3 and later](https://docs.cloud.google.com/functions/docs/runtime-support#ruby): `3.3.12`, `3.4.11`, `4.0.7`
+  * [.NET 6 and later](https://docs.cloud.google.com/functions/docs/runtime-support#.net): `6.0.428`, `8.0.415`, `10.0.100`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
+
 ## October 23, 2026
 
 **Cloud Monitoring**
@@ -31,6 +387,166 @@ To get the latest product updates delivered to you, add the URL of this page to 
 Fixed
 
 Ops Agent version 2.73.0 includes patches for a Go vulnerability involving system root certificates, [CVE-2026-111943](https://www.cve.org/CVERecord?id=CVE-2026-111943). For more information, see [Ops Agent 2.73.0 notes](https://github.com/GoogleCloudPlatform/ops-agent/releases/tag/2.73.0).
+
+**Cloud SQL for MySQL**
+
+Security
+
+In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071), Google is updating Cloud SQL's managed components. No manual updates to the certificate store are required for Cloud SQL-managed instances. The fix is shipping in a new maintenance version that will be applied during [scheduled maintenance](https://docs.cloud.google.com/sql/docs/mysql/maintenance). You can also apply the fix by [performing self-service maintenance](https://docs.cloud.google.com/sql/docs/mysql/self-service-maintenance). An announcement will be published when the self-service maintenance fix is available.
+
+**What should I do?**
+
+  * If you use the Cloud SQL Auth Proxy, then upgrade the Cloud SQL Auth Proxy to [2.26.3 or later](https://docs.cloud.google.com/sql/docs/mysql/sql-proxy#install) and the Cloud SQL Proxy Operator to [1.8.4 or later](https://docs.cloud.google.com/sql/docs/mysql/connect-proxy-operator). If you run the standalone proxy binary, then also update the host's certificate authority (CA) certificates.
+
+  * If you use a Cloud SQL Language Connector, then update the language runtime and operating system CA certificates used with the [Cloud SQL Language Connector](https://docs.cloud.google.com/sql/docs/mysql/connect-connectors) (for example, Go 1.26.10 or 1.27.3 or later, certifi 2026.10.19 or later).
+
+  * If you're using the gcloud CLI to install the Cloud SQL Auth Proxy, then update the gcloud CLI to [590.0.1](https://docs.cloud.google.com/sdk/gcloud#download_and_install_the).
+
+
+
+
+**Cloud SQL for PostgreSQL**
+
+Security
+
+In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071), Google is updating Cloud SQL's managed components. No manual updates to the certificate store are required for Cloud SQL-managed instances. The fix is shipping in a new maintenance version that will be applied during [scheduled maintenance](https://docs.cloud.google.com/sql/docs/postgres/maintenance). You can also apply the fix by [performing self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance). An announcement will be published when the self-service maintenance fix is available.
+
+**What should I do?**
+
+  * If you use the Cloud SQL Auth Proxy, then upgrade the Cloud SQL Auth Proxy to [2.26.3 or later](https://docs.cloud.google.com/sql/docs/postgres/sql-proxy#install) and the Cloud SQL Proxy Operator to [1.8.4 or later](https://docs.cloud.google.com/sql/docs/postgres/connect-proxy-operator). If you run the standalone proxy binary, then also update the host's certificate authority (CA) certificates.
+
+  * If you use a Cloud SQL Language Connector, then update the language runtime and operating system CA certificates used with the [Cloud SQL Language Connector](https://docs.cloud.google.com/sql/docs/postgres/connect-connectors) (for example, Go 1.26.10 or 1.27.3 or later, certifi 2026.10.19 or later).
+
+  * If you're using the gcloud CLI to install the Cloud SQL Auth Proxy, then update the gcloud CLI to [590.0.1](https://docs.cloud.google.com/sdk/gcloud#download_and_install_the).
+
+
+
+
+**Cloud SQL for SQL Server**
+
+Security
+
+In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071), Google is updating Cloud SQL's managed components. No manual updates to the certificate store are required for Cloud SQL-managed instances. The fix is shipping in a new maintenance version that will be applied during [scheduled maintenance](https://docs.cloud.google.com/sql/docs/sqlserver/maintenance). You can also apply the fix by [performing self-service maintenance](https://docs.cloud.google.com/sql/docs/sqlserver/self-service-maintenance). An announcement will be published when the self-service maintenance fix is available.
+
+**What should I do?**
+
+  * If you use the Cloud SQL Auth Proxy, then upgrade the Cloud SQL Auth Proxy to [2.26.3 or later](https://docs.cloud.google.com/sql/docs/sqlserver/sql-proxy#install) and the Cloud SQL Proxy Operator to [1.8.4 or later](https://docs.cloud.google.com/sql/docs/sqlserver/connect-proxy-operator). If you run the standalone proxy binary, then also update the host's certificate authority (CA) certificates.
+
+  * If you use a Cloud SQL Language Connector, then update the language runtime and operating system CA certificates used with the [Cloud SQL Language Connector](https://docs.cloud.google.com/sql/docs/sqlserver/connect-connectors) (for example, Go 1.26.10 or 1.27.3 or later, certifi 2026.10.19 or later).
+
+  * If you're using the gcloud CLI to install the Cloud SQL Auth Proxy, then update the gcloud CLI to [590.0.1](https://docs.cloud.google.com/sdk/gcloud#download_and_install_the).
+
+
+
+
+**Google Cloud Contact Center as a Service**
+
+Announcement
+
+**Google Cloud CCaaS prerelease notes 6.26**
+
+Here are the prerelease notes for the next version of Google Cloud CCaaS. When we release this version, we expect the new capabilities to be as shown here.
+
+Feature
+
+**Scheduled callback for IVR overcapacity**
+
+Scheduled callback is now available as an overcapacity deflection option for IVR queues. When a queue is over capacity, callers can choose to schedule a callback. Google Cloud CCaaS then hands the call to your configured virtual agent, which books the callback through the Callback call API. Administrators choose the virtual agent, an optional greeting, and the data parameters to pass at the global or queue level. Reporting shows whether each caller submitted a callback or left without one.
+
+Administrators: You can configure scheduled callback for overcapacity deflection globally at **Settings > Call > Overcapacity Deflection**, or per queue at **Settings > Queue > IVR (Interactive Voice Response) > Edit / View > [QUEUE] > Overcapacity Deflection > Configure**.
+
+For more information, see [Overcapacity deflection per-queue](https://docs.cloud.google.com/contact-center/ccai-platform/docs/overcapacity-deflection-per-queue) and [Callback call API](https://docs.cloud.google.com/contact-center/ccai-platform/docs/callback-call-api).
+
+By default, this capability is inactive. Contact Google Cloud Support to turn it on for your instance.
+
+Feature
+
+**Salesforce: PKCE and refresh token rotation support**
+
+You can now connect Google Cloud CCaaS to Salesforce apps that require Proof Key for Code Exchange (PKCE) and refresh token rotation. Salesforce turns both settings on automatically for newly created connected apps and external client apps. Google Cloud CCaaS uses PKCE when authorizing Salesforce administrator and agent connections. It also saves replacement refresh tokens returned by Salesforce, keeping connections working across subsequent token refreshes. Salesforce apps that don't use these settings keep working as before. This update adds no new configuration steps in Google Cloud CCaaS.
+
+For more information, see [Salesforce integration guide](https://docs.cloud.google.com/contact-center/ccai-platform/docs/salesforce-integration-guide).
+
+By default, this capability is inactive. Contact Google Cloud Support to turn it on for your instance.
+
+Fixed
+
+This release addresses the following issues:
+
+  * Fixed an issue where the **Branded caller ID** label was truncated in the **Outbound Number** selector when the agent application language was set to French Canadian.
+
+  * Fixed an issue where inbound calls experienced significant delays in connecting after being assigned to an agent.
+
+  * Fixed an issue where whisper announcements played more than once and the call panel was slow to load in the agent desktop.
+
+  * Fixed an issue where Salesforce case creation was delayed until the end of a call for inbound callers without a matching contact record.
+
+  * Fixed an issue where callbacks to Norwegian, Danish, and Swedish landline numbers were incorrectly dialed with a +1 prefix, causing the calls to fail.
+
+  * Fixed an issue where merged call recordings incorrectly reported only the duration of the first segment in the Calls API.
+
+  * Salesforce account linking now completes only in the browser that started it. An authorization link opened in another browser or an incognito window is refused and can't be reused afterwards, and an administrator's **Link New User** action must be finished by the same signed-in administrator. Android and iOS agent apps link as before. This behavior is off by default and can be enabled per instance.
+
+  * Fixed an issue that affected call connection stability during active calls for instances using Agent Assist.
+
+  * Fixed an issue where virtual agent callback calls incorrectly required manual acceptance even when queues were configured for **Auto-Answer**.
+
+  * Fixed an issue where Telnyx and Twilio virtual agent calls remained stuck in a connected state for an extended period if the carrier didn't send a terminal status callback.
+
+  * Fixed an issue where SMS replies to auto-dismissed chats were incorrectly recorded as an agent timeout instead of an end-user timeout.
+
+  * Fixed an issue where the **Unanswered Transferred Call Expiration** setting wasn't enforced for calls parked in an overcapacity deflection state.
+
+  * Fixed an issue that affected connection stability and prevented calls from being accurately recorded as end-user hangups when callers hung up while waiting in a queue.
+
+  * Fixed an issue where the external Dynamic Contact Routing (DCR) new call event payload was missing the queue service level field.
+
+  * Fixed an issue where callers were disconnected when an agent finished their wrap-up following a queue transfer to a virtual agent.
+
+  * Fixed an issue where voice calls escalated from a virtual agent to a human agent reported inaccurate call-level queue and wait durations in reporting and data exports.
+
+  * Fixed an issue where unrecorded voicemails incorrectly created Salesforce cases even when the **Create CRM records for abandoned calls** setting was disabled.
+
+  * Fixed an issue where activating a new language in the CCaaS portal caused the **Languages & Messages** page to crash or display an infinite loading spinner.
+
+  * Fixed an issue where session metadata files were duplicated across different day folders in external storage when re-uploads occurred after midnight.
+
+  * Fixed an issue where voice calls became permanently stuck in a queued status without reaching a terminal state.
+
+  * Fixed an issue where active agents were incorrectly signed out due to inactivity because the system didn't recognize activity outside the embedded call panel.
+
+  * Fixed an issue where a permanent loading spinner appeared in the agent desktop top bar for instances with the email channel disabled.
+
+  * Fixed an issue where inbound keypad (DTMF) entries didn't reach the virtual agent during periods of stream instability or reconnection.
+
+  * Fixed an issue where the external Dynamic Contact Routing (DCR) new call event payload was missing required parameters.
+
+  * Fixed an issue where inbound calls involving a virtual agent didn't record an end time and duration when deflected to an overcapacity queue.
+
+  * Fixed an issue where call recordings weren't fetched or saved when CRM ticket creation failed.
+
+  * Fixed an issue where after-hours phone deflections didn't appear in the **Deflections** dashboard if the outbound dial timed out or failed.
+
+  * Fixed an issue where scheduled phone number obfuscation caused degraded performance for live calls.
+
+  * Fixed an issue where CRM ticket assignees weren't consistently updated following an agent's pickup of a chat.
+
+  * Fixed an issue where voice calls became stuck in a queued state after a caller selected a callback during a cold transfer to a specific agent.
+
+  * Fixed an issue where Smart Disposition suggestions weren't pre-selected on the wrap-up screen, causing the disposition field to remain empty after a call ended.
+
+  * Fixed an issue where calls were incorrectly routed to agents even when the minimum available agent floor wasn't met.
+
+  * Fixed an issue where cold transfers to a direct agent extension didn't trigger overcapacity deflection, leaving callers on hold until they disconnected.
+
+  * Fixed an issue where virtual agent replies were cut off or silenced when using bidirectional streaming with barge-in disabled.
+
+  * Fixed an issue where JSON chat transcripts in external storage contained unredacted message text even when the setting to store unredacted transcripts was disabled.
+
+  * Fixed an issue where the **Keep Waiting** label in the overcapacity deflection screen displayed an inconsistent font style compared to other menu options.
+
+
+
 
 ## October 22, 2026
 
@@ -558,6 +1074,19 @@ The following issues were fixed in 1.34.1000-gke.111:
   * Fixed vulnerabilities listed in [Vulnerability fixes](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/vulnerabilities).
   * Fixed `BareMetalMachine` conditions during maintenance mode transitions. 
   * Fixed an issue where updating control plane configurations caused multiple API servers to restart simultaneously, leading to transient control plane unavailability. 
+
+
+
+**Google SecOps**
+
+Feature
+
+**Bulk case selection**
+
+In the enhanced Investigation Management experience, you can select up to 50 cases at a time in the case queue to perform bulk operations:
+
+  * **Range selection:** Hold `Shift` while clicking to select a range of cases.
+  * **Select all:** Click the header checkbox to select up to 50 loaded cases; this action automatically scrolls your view back to the top of the list.
 
 
 
@@ -18837,226 +19366,10 @@ Feature
 
 
 
-## August 25, 2026
-
-**Access Approval**
-
-Feature
-
-Gemini Data Analytics is generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
-
-**Access Transparency**
-
-Feature
-
-Gemini Data Analytics is generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
-
-**BigQuery**
-
-Feature
-
-BigQuery [data governance tags](https://docs.cloud.google.com/bigquery/docs/tags#data-governance-tags) are supported in Terraform. This feature is in [Preview](https://cloud.google.com/products#product-launch-stages).
-
-**Cloud Run**
-
-Feature
-
-[Cloud Run instances](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run#cloud-run-instances) are available in [Preview](https://cloud.google.com/products#product-launch-stages). Instances are specifically designed for running long-lived and individually addressable workloads. To learn more, see the [product overview](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run), [resource comparison](https://docs.cloud.google.com/run/docs/resource-model#resource-comparison), and [instance lifecycle](https://docs.cloud.google.com/run/docs/instances/instance-lifecycle) pages.
-
-**Cloud SQL for PostgreSQL**
-
-Feature
-
-Use assessments ([Preview](https://cloud.google.com/products#product-launch-stages)) in [Database Center](https://docs.cloud.google.com/database-center/docs/overview) to assess and test the performance impact of database recommendations before you apply them to your production database fleet.
-
-The assessments workflow performs these operations:
-
-  * Clones your database instance.
-  * Runs benchmarking simulation tests on the clone.
-  * Compares the baseline performance of the clone against the performance after you apply the recommended configuration changes.
-
-
-
-For more information, see [Assessments in Database Center](https://docs.cloud.google.com/sql/docs/postgres/assessments-overview).
-
-**Database Center**
-
-Feature
-
-Use assessments ([Preview](https://cloud.google.com/products/#product-launch-stages)) in Database Center to assess and test the performance impact of database recommendations before you apply them to your production database fleet.
-
-The assessments workflow performs these operations:
-
-  * Clones your database instance.
-  * Runs benchmarking simulation tests on the clone.
-  * Compares the baseline performance of the clone against the performance after you apply the recommended configuration changes.
-
-
-
-Database Center assessments are available only for Cloud SQL for PostgreSQL instances.
-
-For more information, see [Create an assessment of a recommendation](https://docs.cloud.google.com/database-center/docs/assessments).
-
-**Google Distributed Cloud (software only) for VMware**
-
-Announcement
-
-Google Distributed Cloud (software only) for VMware 1.36.0-gke.532 is now available for download. To upgrade, see [Upgrade a cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/upgrading). Google Distributed Cloud 1.36.0-gke.532 runs on Kubernetes v1.36.0-gke.2800.
-
-If you use a third-party storage vendor, check the listing of our previously-qualified [storage partners](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/resources/partner-storage).
-
-After a release, it takes approximately 7 to 14 days for the version to become available for use with GKE On-Prem API clients: the Google Cloud console, the gcloud CLI, and Terraform.
-
-Feature
-
-Google Distributed Cloud (software only) for VMware includes the following feature enhancements:
-
-  * Updated the Kubernetes version to 1.36. 
-  * Upgraded containerd from 2.1 to 2.2 
-  * Updates vSphere support to vSphere version 9.0 and 9.1 and removes support for vSphere version 7.0. 
-  * Updated `gkectl` to perform an empty reconciliation health check prior to running the `gkectl update` or `gkectl upgrade` commands. The health check prevents starting cluster lifecycle updates when a cluster is in an unhealthy state. 
-  * Improved the `status` and `conditions` fields in `OnPrem` custom resources to provide clearer visibility into cluster reconciliation phases and state transitions during cluster management operations. 
-  * Updated `gkectl` to provide more specific error messages and actionable troubleshooting recommendations when operations encounter failures. 
-  * Expanded pre-upgrade validation checks to proactively identify potential configuration or cluster health blockers prior to upgrade initiation. 
-  * This release supports resilient, idempotent migrations to advanced clusters, enabling interrupted upgrades to safely resume without risking cluster degradation or state loss. This update also introduces preflight health checks, improves gkectl error diagnostics, and resolves key behavioral discrepancies in workload scheduling, proxy parsing, and logging. 
-
-
-
-Fixed
-
-The following issues were fixed in 1.36.0-gke.532:
-
-  * Fixed vulnerabilities listed in [Vulnerability fixes](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/vulnerabilities).
-  * Fixed an issue where user clusters remained stuck in a `Reconciling` state after an admin cluster upgrade. The admin cluster controller skipped reconciling legacy cluster lifecycle components during upgrades unless an initial migration annotation was set. If legacy user clusters still existed on the admin cluster, missing legacy API discovery (`cluster.k8s.io/v1alpha1`) caused controller reconciliation to stall. With this fix, the controller preserves legacy components as long as any legacy user clusters exist, and prunes them only after all user clusters have migrated to advanced clusters. 
-  * Fixed an issue where `gkectl prepare` failed with a permission denied error when attempting to read a private registry CA certificate. The certificate file permissions are now set to `644` so non-root processes can read it. 
-  * Fixed an issue where retrying a failed upgrade to an Advanced Cluster (such as re-running with an existing bootstrap cluster) could wipe or strip the encryption keys in the generated-key-kms-plugin-config secret, preventing the control plane from decrypting existing Kubernetes secrets in etcd. 
-  * Fixed an issue where upgrading a user cluster with Anthos Network Gateway (ANG) enabled to an Advanced Cluster would stall or fail. Previously, the upgrade process attempted to modify immutable `spec.selector` fields on existing ANG resources. The upgrade operator now preserves existing label selectors during reconciliation so that V1 to V2 cluster migrations complete successfully. 
-  * Updated `cluster-proportional-autoscaler` to address security vulnerabilities. 
-  * Fixed an issue where recreating a user cluster using a previously used name caused cluster provisioning to stall indefinitely in the `PROVISIONING` state because of a missing `k8s-health-check` service account. 
-  * Fixed an issue where `gkectl diagnose` failed to run on non-advanced user clusters managed by an advanced admin cluster. 
-  * Fixed an issue where creating a cluster on the root of a vSAN datastore failed during data disk creation because the installer used an unsupported API for top-level vSAN directory creation. 
-  * Fixed an issue where control plane quorum restore stalled or failed due to IP address collisions. After the fix, `gkectl restore quorum` recreates missing `IPAddress` objects for `VSphereMachine` resources before waiting for cluster readiness. 
-  * Fixed an issue where enabling generated key secrets encryption (KMSv1) during Day 2 cluster updates failed or got stuck in an infinite reconciliation loop. 
-  * Fixed an issue where setting `stackdriver.disableVsphereResourceMetrics` to `true` caused cluster installations or upgrades to stall because the `vsphere-ca-certificate` ConfigMap was deleted, but still needed. 
-
-
-
-**Google Distributed Cloud (software only) for bare metal**
-
-Announcement
-
-Google Distributed Cloud (software only) for bare metal 1.36.0-gke.532 is now available for download. To upgrade, see [Upgrade clusters](https://docs.cloud.google.com/release-notes/how-to/upgrade). Google Distributed Cloud for bare metal 1.36.0-gke.532 runs on Kubernetes v1.36.0-gke.2800.
-
-After a release, it takes approximately 7 to 14 days for the version to become available for installations or upgrades with the GKE On-Prem API clients: the Google Cloud console, the gcloud CLI, and Terraform.
-
-If you use a third-party storage vendor, check the listing of our previously-qualified [storage partners](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/resources/partner-storage).
-
-Feature
-
-Google Distributed Cloud (software only) for bare metal includes the following feature enhancements:
-
-  * Upgraded the Ansible version to 2.18. This version requires Python 3.8+ on target nodes. Because RHEL 8 defaults to Python 3.6, you must have Python 3.9 installed on nodes using RHEL 8.10. RHEL 8.8 is no longer supported. 
-  * Updated the Kubernetes version to 1.36. 
-  * Upgraded containerd from 2.1 to 2.2 
-  * Containerd is required for new cluster installations and cluster migrations to Node Agent mode.
-  * Added support for the layer 4 gateway controller. 
-  * `bmctl backup cluster` in Node Agent mode requires at least 12 GB of free space in `/tmp` on the admin workstation and all target nodes to buffer backup archives. You can configure a custom temporary directory by setting `TMPDIR`. 
-  * If you use Node Agent and receive an error that creating the backup fails to create an archive file, you might need 12 GBs of free space in the `/tmp` directory on the admin node and all target nodes. For more information, see [Can't create a backup for a Node Agent node ](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/bmctl-backup-restore#cant-create-na-backup%7D). 
-  * Removed the deprecated `anthos-metadata-agent` component that `kubestore-collector` replaced. 
-  * Removed the deprecated `csi-snapshot-validation-webhook` component. Upstream Kubernetes validation is now handled natively via Common Expression Language (CEL) rules within the deployed Custom Resource Definitions (CRDs). For more information, see [Volume snapshots](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/volume-snapshots). 
-  * Vertical pod autoscaling is generally available. For more information, see [Configure vertical Pod autoscaling](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/verticalpodautoscale)
-  * Unified registry mirror and private registry update behavior across all cluster types while preserving configurations. 
-
-
-
-Fixed
-
-The following issues were fixed in 1.36.0-gke.532:
-
-  * Fixed vulnerabilities listed in [Vulnerability fixes](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/vulnerabilities).
-  * Fixed an issue where CA certificate secrets with identical names across different namespaces stalled cluster upgrades. In this release, the system automatically prepends the target namespace prefix to all the CA certificate secret names when forwarding them to the destination namespace. The prefix makes sure each CA certificate secret name is unique so the upgrade doesn't stall. 
-  * Fixed an issue where Certificate Authority (CA) rotation failed for self-managing clusters (admin, hybrid, and standalone). The failure occurs during the final phase of the rotation when attempting to move management resources back from the temporary bootstrap cluster to the self-managing cluster, which can leave the cluster in an unmanageable state. You must upgrade your clusters to version 1.33.1000-gke.59 before you rotate your CAs. 
-  * Fixed an issue where the status for `Ingress` resources didn't update when using bundled ingress. 
-  * Fixed an issue where rolling back a node pool failed because stale Cluster API (CAPI) bootstrap secrets retained deprecated `kubelet` flags. 
-  * Updated `cluster-proportional-autoscaler` to address security vulnerabilities. 
-  * Fixed an issue where `etcd-events` installation entered an infinite retry loop during machine initialization due to incomplete cleanup of the data directory after a learner promotion failure. 
-  * Fixed an issue where the `NodePool` controller prematurely updated `Status.ManagedFields` on partial reconciliation failures, causing removed taints and labels to remain stranded on affected nodes. 
-  * Fixed an issue where recreating a user cluster using a previously used name caused cluster provisioning to stall indefinitely in the `PROVISIONING` state because of a missing `k8s-health-check` Service account. 
-  * Fixed an issue where restarting `kube-apiserver` during etcd encryption updates abruptly terminates the container, causing stale service endpoints and transient connection failures for in-cluster workloads. 
-  * Fixed an issue where the installer stalled for three minutes per control plane node during certificate rotation or etcd encryption updates because of an incorrect `kube-apiserver` container termination check. 
-
-
-
-**Google Kubernetes Engine**
-
-Fixed
-
-Fixed the issue in which GPUDirect-TCPX for `a3-highgpu-8g` machine types was incompatible with the Linux kernel version that was used by Container-Optimized OS in GKE version 1.34 and later. To prevent errors, GKE blocked creating or upgrading node pools that used the `a3-highgpu-8g` machine type to version 1.34 or later. For more information about this issue, see [GKE known issues](https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/known-issues#tcpx-cos125).
-
-You can now create or upgrade node pools that use the `a3-highgpu-8g` machine type to any of the following GKE versions. **Automatic upgrades of these node pools from version 1.33 to version 1.34 or later are no longer blocked.**
-
-  * For minor version 1.34, use patch version 1.34.5-gke.1153000 or later.
-  * For minor version 1.35, use patch version 1.35.2-gke.1485000 or later.
-  * For minor version 1.36 and later, use any available patch version.
-
-
-
-In GKE version 1.34 and later, you must use version 3.1.9 or later of the GPUDirect-TCPX installer and version 2.0.12 or later of the GPUDirect-TCPX sidecar. If you previously installed these components, verify that the container images use these versions or later. **To avoid degraded performance or workload failures, update your installer and sidecar image versions before the`a3-highgpu-8g` node pools are manually or automatically upgraded to version 1.34 or later.** These container image versions correspond to the upstream definitions maintained in the [gpudirect-tcpx GitHub repository](https://github.com/GoogleCloudPlatform/container-engine-accelerators/tree/master/gpudirect-tcpx).
-
-**Managed Service for Apache Airflow**
-
-Feature
-
-[Managed Airflow remote Model Context Protocol (MCP) server](https://docs.cloud.google.com/composer/docs/composer-3/use-composer-mcp) is now generally available (GA).
-
-Feature
-
-[Managed Airflow Agent](https://docs.cloud.google.com/composer/docs/composer-3/troubleshoot-tasks-and-dag-runs-with-agent) is now available in Google Cloud Console. The agent can help you understand, diagnose, and resolve issues with failed Airflow tasks and DAG runs, optimize your environment's performance, identify existing or potential issues, bottlenecks, and areas for optimization.
-
-**Managed Service for Apache Spark**
-
-Announcement
-
-New [**Managed Service for Apache Spark** (formerly Google Cloud Serverless for Apache Spark) subminor runtime version](https://docs.cloud.google.com/managed-spark/docs/concepts/versions/spark-runtime-3.0):
-
-  * `3.0.14` (image `3.0.20260809_212300-RC01-spark`)
-
-
-
-Key updates in this runtime version include:
-
-  * Upgraded Cloud Storage Connector to version `3.1.16`.
-  * Upgraded Conda installer to Miniforge3 `25.9.1`.
-  * Upgraded OpenLineage to version `1.49.1` to support lineage for tables created using the Lakehouse Runtime catalog, and fixed a segmentation fault when OpenLineage parses complex SQL query strings.
-  * Upgraded Spark RAPIDS to version `26.04.2`.
-  * Upgraded Metastore Proxy to version `v0.0.79`.
-
-
-
-**Model Armor**
-
-Feature
-
-Model Armor supports screening prompts and responses up to 65,536 tokens (262,144 characters) for prompt injection and jailbreak detection, responsible AI, and child sexual abuse material (CSAM) filters. Model Armor scans only the first 256 URLs found in prompts and responses.
-
-For more information, see [Token system limits](https://docs.cloud.google.com/model-armor/quotas#token-limits).
-
-**reCAPTCHA**
-
-Change
-
-Fraud Defense Mobile SDK v18.10.0-beta01 is available for iOS. This version includes the following:
-
-  * Adds support for macOS desktop and tvOS.
-  * Improvements to networking consumption.
-  * Improvements to latency and reliability.
-
-
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-24 UTC.
+Last updated 2026-10-25 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 

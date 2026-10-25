@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/import-completion/
 title: Import autocomplete data for search \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:24.873909+00:00
+fetched_at: 2026-10-25T06:23:17.501684+00:00
 ---
 
 # Import autocomplete data for search  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

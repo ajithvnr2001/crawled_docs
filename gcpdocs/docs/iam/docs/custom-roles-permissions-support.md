@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/custom-roles-permissions-support/
 title: Support levels for permissions in custom roles \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:49:15.531125+00:00
+fetched_at: 2026-10-25T06:20:02.074066+00:00
 ---
 
 # Support levels for permissions in custom roles  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

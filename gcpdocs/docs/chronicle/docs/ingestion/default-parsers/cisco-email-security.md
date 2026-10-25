@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cisco-email-security/
 title: Collect Cisco Secure Email Gateway (formerly Email Security Appliance) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:31:09.427822+00:00
+fetched_at: 2026-10-25T06:40:59.360127+00:00
 ---
 
 # Collect Cisco Secure Email Gateway (formerly Email Security Appliance) logs  |  Google Security Operations  |  Google Cloud Documentation

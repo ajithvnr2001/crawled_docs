@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/vector-search/
 title: Search with vector embeddings \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:29.438012+00:00
+fetched_at: 2026-10-25T06:17:35.666268+00:00
 ---
 
 # Search with vector embeddings  |  Firestore in Native mode  |  Google Cloud Documentation

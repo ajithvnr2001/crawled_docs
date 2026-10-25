@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/glossary/
 title: Glossary \u00a0|\u00a0 API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:44.982212+00:00
+fetched_at: 2026-10-25T06:32:58.739261+00:00
 ---
 
 # Glossary  |  API Gateway  |  Google Cloud Documentation

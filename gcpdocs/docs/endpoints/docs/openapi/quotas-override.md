@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/openapi/quotas-override/
 title: Overriding the default quota limit \u00a0|\u00a0 Cloud Endpoints with OpenAPI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:17.559494+00:00
+fetched_at: 2026-10-25T06:18:58.502852+00:00
 ---
 
 # Overriding the default quota limit  |  Cloud Endpoints with OpenAPI  |  Google Cloud Documentation

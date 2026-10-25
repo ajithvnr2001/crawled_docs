@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/trace/docs/setup/go-ot/
 title: Go instrumentation sample \u00a0|\u00a0 Cloud Trace \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:25:19.998003+00:00
+fetched_at: 2026-10-25T05:44:23.632255+00:00
 ---
 
 # Go instrumentation sample  |  Cloud Trace  |  Google Cloud Documentation
@@ -346,7 +346,7 @@ To add trace and metric instrumentation to the requests handled by the HTTP serv
     // otelhttp for context propagation, trace instrumentation, and metric
     // instrumentation.
     func handleHTTP(route string, handleFn http.HandlerFunc) {
-    	instrumentedHandler := otelhttp.NewHandler(otelhttp.WithRouteTag(route, handleFn), route)
+    	instrumentedHandler := otelhttp.NewHandler(handleFn, route)
     
     	http.Handle(route, instrumentedHandler)
     }
@@ -382,10 +382,19 @@ In the previous code, the function call `r.Context()` retrieves the Go `Context`
 To inject the trace context into outgoing HTTP requests and to add trace and metric instrumentation, configure an `http.Client` with `otelhttp.NewTransport` and pass the request context by calling `http.NewRequestWithContext`. In the following example, the `callSingle` function performs this action:
     
     
+    var httpClient = &http.Client{
+    	Transport: otelhttp.NewTransport(http.DefaultTransport),
+    	Timeout:   10 * time.Second,
+    }
+    
     func callSingle(ctx context.Context) error {
-    	// otelhttp.Get makes an http GET request, just like net/http.Get.
-    	// In addition, it records a span, records metrics, and propagates context.
-    	res, err := otelhttp.Get(ctx, "http://localhost:8080/single")
+    	// httpClient uses otelhttp.NewTransport, which records a span, records
+    	// metrics, and propagates context.
+    	req, err := http.NewRequestWithContext(ctx, http.MethodGet, "http://localhost:8080/single", http.NoBody)
+    	if err != nil {
+    		return err
+    	}
+    	res, err := httpClient.Do(req)
     	if err != nil {
     		return err
     	}

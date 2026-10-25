@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/what-does-the-unable-to-aggregate-ratio-metrics-error-mean/
 title: What does the 'Unable to aggregate ratio metrics' error mean? \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:27.803543+00:00
+fetched_at: 2026-10-25T06:43:51.514981+00:00
 ---
 
 # What does the 'Unable to aggregate ratio metrics' error mean?  |  Data Studio  |  Google Cloud Documentation

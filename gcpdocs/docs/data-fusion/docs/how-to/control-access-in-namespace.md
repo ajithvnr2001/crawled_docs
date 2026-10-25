@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/control-access-in-namespace/
 title: Access control with a namespace service account \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:05.050025+00:00
+fetched_at: 2026-10-25T06:43:42.017265+00:00
 ---
 
 # Access control with a namespace service account  |  Cloud Data Fusion  |  Google Cloud Documentation

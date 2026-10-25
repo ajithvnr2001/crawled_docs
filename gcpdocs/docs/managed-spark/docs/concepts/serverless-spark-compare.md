@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/concepts/serverless-spark-compare/
 title: Compare Managed Service for Apache Spark serverless and cluster deployments \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:25:15.326487+00:00
+fetched_at: 2026-10-25T05:53:02.827998+00:00
 ---
 
 # Compare Managed Service for Apache Spark serverless and cluster deployments  |  Google Cloud Documentation

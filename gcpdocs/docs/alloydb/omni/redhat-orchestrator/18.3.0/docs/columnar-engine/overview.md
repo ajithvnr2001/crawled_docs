@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.3.0/docs/columnar-engine/overview/
 title: Columnar engine overview \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:50:08.616123+00:00
+fetched_at: 2026-10-25T06:27:29.780264+00:00
 ---
 
 # Columnar engine overview  |  AlloyDB Omni using the RPM orchestrator: 18.3.0  |  Google Cloud Documentation

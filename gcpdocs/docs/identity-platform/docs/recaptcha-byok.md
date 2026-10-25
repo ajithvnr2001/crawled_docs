@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/recaptcha-byok/
 title: Bring your own reCAPTCHA keys \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:57.285674+00:00
+fetched_at: 2026-10-25T06:20:55.143163+00:00
 ---
 
 # Bring your own reCAPTCHA keys  |  Identity Platform  |  Google Cloud Documentation

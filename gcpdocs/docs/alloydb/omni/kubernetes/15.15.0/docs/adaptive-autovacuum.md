@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.15.0/docs/adaptive-autovacuum/
 title: Configure adaptive autovacuum \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 15.15.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:44:20.664187+00:00
+fetched_at: 2026-10-25T06:38:07.323598+00:00
 ---
 
 # Configure adaptive autovacuum  |  AlloyDB Omni using the container orchestrator: 15.15.0  |  Google Cloud Documentation

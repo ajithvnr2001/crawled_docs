@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/docs/cross-project-triggers/
 title: Route events across Google Cloud projects \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:57.653374+00:00
+fetched_at: 2026-10-25T06:25:53.901984+00:00
 ---
 
 # Route events across Google Cloud projects  |  Eventarc Standard  |  Google Cloud Documentation

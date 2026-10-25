@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-topology/support/
 title: Get support for App Topology issues \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:48:03.121621+00:00
+fetched_at: 2026-10-25T06:34:30.622821+00:00
 ---
 
 # Get support for App Topology issues  |  Google Cloud Documentation

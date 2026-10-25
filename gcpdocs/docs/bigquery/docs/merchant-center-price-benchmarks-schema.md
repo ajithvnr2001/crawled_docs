@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/merchant-center-price-benchmarks-schema/
 title: Google Merchant Center price benchmarks table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:08.649600+00:00
+fetched_at: 2026-10-25T06:43:47.091174+00:00
 ---
 
 # Google Merchant Center price benchmarks table  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/union/
 title: Union (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:08.982182+00:00
+fetched_at: 2026-10-25T06:23:22.407487+00:00
 ---
 
 # Union (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation

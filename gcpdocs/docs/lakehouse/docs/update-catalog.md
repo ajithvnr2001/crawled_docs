@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/update-catalog/
 title: Update a catalog \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:12.575946+00:00
+fetched_at: 2026-10-25T05:53:35.882813+00:00
 ---
 
 # Update a catalog  |  Lakehouse  |  Google Cloud Documentation

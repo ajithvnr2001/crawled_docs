@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/user-journey/uj-tensorboard-profiler-training-performance/
 title: Profile model training performance using Cloud Profiler: Notebook \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:34.076227+00:00
+fetched_at: 2026-10-25T06:27:01.580129+00:00
 ---
 
 # Profile model training performance using Cloud Profiler: Notebook  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

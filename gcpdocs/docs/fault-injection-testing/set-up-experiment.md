@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/fault-injection-testing/set-up-experiment/
 title: Choose setup instructions for a fault type \u00a0|\u00a0 Fault Injection Testing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:12.393233+00:00
+fetched_at: 2026-10-25T06:26:22.719052+00:00
 ---
 
 # Choose setup instructions for a fault type  |  Fault Injection Testing  |  Google Cloud Documentation

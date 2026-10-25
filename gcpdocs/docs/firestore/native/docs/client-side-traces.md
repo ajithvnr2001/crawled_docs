@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/client-side-traces/
 title: Monitor performance with client-side traces \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:40.137414+00:00
+fetched_at: 2026-10-25T06:22:24.470888+00:00
 ---
 
 # Monitor performance with client-side traces  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/access-context-manager/docs/example-yaml-file/
 title: Example YAML for an access level \u00a0|\u00a0 Access Context Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:14.002021+00:00
+fetched_at: 2026-10-25T06:33:33.837817+00:00
 ---
 
 # Example YAML for an access level  |  Access Context Manager  |  Google Cloud Documentation

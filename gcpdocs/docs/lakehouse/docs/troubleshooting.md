@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/troubleshooting/
 title: Troubleshoot common borderless Lakehouse issues \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:12.793673+00:00
+fetched_at: 2026-10-25T05:53:36.861578+00:00
 ---
 
 # Troubleshoot common borderless Lakehouse issues  |  Google Cloud Documentation

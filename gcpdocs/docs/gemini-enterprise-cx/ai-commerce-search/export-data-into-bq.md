@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/export-data-into-bq/
 title: Export your data into BigQuery \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:27.376543+00:00
+fetched_at: 2026-10-25T06:24:18.944062+00:00
 ---
 
 # Export your data into BigQuery  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

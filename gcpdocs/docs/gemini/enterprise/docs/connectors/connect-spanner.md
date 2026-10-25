@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-spanner/
 title: Connect to Spanner \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:31.579705+00:00
+fetched_at: 2026-10-25T06:24:19.545475+00:00
 ---
 
 # Connect to Spanner  |  Gemini Enterprise  |  Google Cloud Documentation

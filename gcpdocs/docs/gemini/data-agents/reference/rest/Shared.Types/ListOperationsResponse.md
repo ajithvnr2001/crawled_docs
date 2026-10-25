@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/reference/rest/Shared.Types/ListOperationsResponse/
 title: ListOperationsResponse \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:19.179989+00:00
+fetched_at: 2026-10-25T06:27:52.427412+00:00
 ---
 
 # ListOperationsResponse  |  Data Agents  |  Google Cloud Documentation

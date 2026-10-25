@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/binary-authorization/docs/billing-questions/
 title: Billing questions \u00a0|\u00a0 Binary Authorization \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:59.820140+00:00
+fetched_at: 2026-10-25T06:41:30.610246+00:00
 ---
 
 # Billing questions  |  Binary Authorization  |  Google Cloud Documentation

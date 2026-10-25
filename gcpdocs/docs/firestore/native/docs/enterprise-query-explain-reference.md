@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/enterprise-query-explain-reference/
 title: Query execution reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:38.320294+00:00
+fetched_at: 2026-10-25T06:22:24.801284+00:00
 ---
 
 # Query execution reference  |  Firestore in Native mode  |  Google Cloud Documentation

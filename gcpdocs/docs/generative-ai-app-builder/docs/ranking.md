@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/ranking/
 title: Improve search and RAG quality with ranking API \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:34.204178+00:00
+fetched_at: 2026-10-25T06:25:02.351504+00:00
 ---
 
 # Improve search and RAG quality with ranking API  |  Agent Search  |  Google Cloud Documentation

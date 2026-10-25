@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.8.0/docs/install-configure-barman/
 title: Set up Barman for AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni for containers: 16.8.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:59:56.358214+00:00
+fetched_at: 2026-10-25T05:54:12.914209+00:00
 ---
 
 # Set up Barman for AlloyDB Omni  |  AlloyDB Omni for containers: 16.8.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/tutorials/python-library-example/
 title: Use the Cloud Client Libraries for Python \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:59:54.864825+00:00
+fetched_at: 2026-10-25T05:53:07.649282+00:00
 ---
 
 # Use the Cloud Client Libraries for Python  |  Managed Service for Apache Spark  |  Google Cloud Documentation

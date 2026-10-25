@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/15.7.1/docs/generate-server-activity-report-reference/
 title: Generate a server activity report \u00a0|\u00a0 AlloyDB Omni for containers: 15.7.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:45.934128+00:00
+fetched_at: 2026-10-25T06:41:50.462372+00:00
 ---
 
 # Generate a server activity report  |  AlloyDB Omni for containers: 15.7.1  |  Google Cloud Documentation

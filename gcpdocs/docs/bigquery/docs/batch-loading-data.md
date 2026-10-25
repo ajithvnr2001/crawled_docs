@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/batch-loading-data/
 title: Batch load data \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:04.955636+00:00
+fetched_at: 2026-10-25T06:37:30.968884+00:00
 ---
 
 # Batch load data  |  BigQuery  |  Google Cloud Documentation

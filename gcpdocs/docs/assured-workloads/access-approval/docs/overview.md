@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/access-approval/docs/overview/
 title: Overview of Access Approval \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:45.416743+00:00
+fetched_at: 2026-10-25T06:37:00.945308+00:00
 ---
 
 # Overview of Access Approval  |  Google Cloud Documentation

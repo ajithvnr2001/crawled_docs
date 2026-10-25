@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/supported-data-types/
 title: Supported protocol buffer and Arrow data types \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:52.669578+00:00
+fetched_at: 2026-10-25T06:41:29.710799+00:00
 ---
 
 # Supported protocol buffer and Arrow data types  |  BigQuery  |  Google Cloud Documentation

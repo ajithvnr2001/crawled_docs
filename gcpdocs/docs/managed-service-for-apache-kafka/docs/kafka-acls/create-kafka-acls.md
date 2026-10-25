@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/kafka-acls/create-kafka-acls/
 title: Create a Managed Kafka ACL \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:36:50.004922+00:00
+fetched_at: 2026-10-25T05:53:19.510871+00:00
 ---
 
 # Create a Managed Kafka ACL  |  Managed Service for Apache Kafka  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/azure-app-service/
 title: Collect Azure APP Service logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:42.411544+00:00
+fetched_at: 2026-10-25T06:41:54.066723+00:00
 ---
 
 # Collect Azure APP Service logs  |  Google Security Operations  |  Google Cloud Documentation

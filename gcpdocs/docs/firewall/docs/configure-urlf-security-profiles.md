@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/configure-urlf-security-profiles/
 title: Create and manage URL filtering security profiles \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:35.439619+00:00
+fetched_at: 2026-10-25T06:24:42.549825+00:00
 ---
 
 # Create and manage URL filtering security profiles  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/concepts/plugins/
 title: Plugins overview \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:27.332758+00:00
+fetched_at: 2026-10-25T06:43:47.389768+00:00
 ---
 
 # Plugins overview  |  Cloud Data Fusion  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/ai/accelerate-with-ce/
 title: Accelerate vector search with the columnar engine \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:57:52.639563+00:00
+fetched_at: 2026-10-25T05:56:24.636644+00:00
 ---
 
 # Accelerate vector search with the columnar engine  |  AlloyDB Omni using the container orchestrator: 18.3.0  |  Google Cloud Documentation

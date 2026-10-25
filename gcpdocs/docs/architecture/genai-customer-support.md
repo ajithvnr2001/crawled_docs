@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/genai-customer-support/
 title: Generative AI use case: Generate solutions for customer-support questions \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:23.924970+00:00
+fetched_at: 2026-10-25T06:27:52.316558+00:00
 ---
 
 # Generative AI use case: Generate solutions for customer-support questions  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/services/datastore/projectionqueries/
 title: Projection queries \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:54.339533+00:00
+fetched_at: 2026-10-25T06:35:10.938819+00:00
 ---
 
 # Projection queries  |  App Engine standard environment  |  Google Cloud Documentation

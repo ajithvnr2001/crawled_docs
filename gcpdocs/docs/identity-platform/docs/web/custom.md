@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/web/custom/
 title: Signing in users with a custom authentication system \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:03.038872+00:00
+fetched_at: 2026-10-25T06:19:14.989684+00:00
 ---
 
 # Signing in users with a custom authentication system  |  Identity Platform  |  Google Cloud Documentation

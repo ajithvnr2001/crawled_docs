@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-prompt-delete/
 title: Delete a prompt \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:15.798260+00:00
+fetched_at: 2026-10-25T05:44:10.009057+00:00
 ---
 
 # Delete a prompt  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -35,12 +35,12 @@ Before trying this sample, follow the Python setup instructions in the [Vertex A
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
-    from vertexai.preview.prompts import [Prompt](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.Prompt.html)
-    from vertexai.preview import [prompts](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.prompts.html)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    from vertexai.preview.prompts import [Prompt](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.Prompt.html)
+    from vertexai.preview import [prompts](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.prompts.html)
     
     # Initialize vertexai
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="us-central1")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="us-central1")
     
     # Create local Prompt
     prompt = Prompt(
@@ -55,11 +55,11 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     )
     # Save a version
-    prompt1 = [prompts](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.prompts.html).create_version(prompt=prompt)
+    prompt1 = [prompts](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.prompts.html).create_version(prompt=prompt)
     prompt_id = prompt1.prompt_id
     
     # Delete prompt
-    [prompts](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.prompts.html).delete(prompt_id=prompt_id)
+    [prompts](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.prompts.html).delete(prompt_id=prompt_id)
     print(f"Deleted prompt with ID: {prompt_id}")
     
     # Example response:

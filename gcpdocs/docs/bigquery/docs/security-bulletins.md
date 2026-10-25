@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/security-bulletins/
 title: Security bulletins \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:55.861179+00:00
+fetched_at: 2026-10-25T06:43:27.009206+00:00
 ---
 
 # Security bulletins  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-listen-query-changes/
 title: Observe change types with Firestore watch listeners \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:10.017348+00:00
+fetched_at: 2026-10-25T06:17:48.076793+00:00
 ---
 
 # Observe change types with Firestore watch listeners  |  Google Cloud Documentation

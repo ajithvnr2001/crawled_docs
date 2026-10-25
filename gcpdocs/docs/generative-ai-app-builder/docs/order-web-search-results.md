@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/order-web-search-results/
 title: Order web search results \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:34.813334+00:00
+fetched_at: 2026-10-25T06:24:41.365237+00:00
 ---
 
 # Order web search results  |  Agent Search  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/access-approval/docs/using-terraform/
 title: Enabling Access Approval using Terraform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:44.727452+00:00
+fetched_at: 2026-10-25T06:37:20.882573+00:00
 ---
 
 # Enabling Access Approval using Terraform  |  Google Cloud Documentation

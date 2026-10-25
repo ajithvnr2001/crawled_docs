@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/nodejs/store-nodejs/
 title: Quickstart: Store Node.js packages in Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:24:31.105431+00:00
+fetched_at: 2026-10-25T06:36:53.682150+00:00
 ---
 
 # Quickstart: Store Node.js packages in Artifact Registry  |  Google Cloud Documentation

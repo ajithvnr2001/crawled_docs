@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/smart-compose-best-practices/
 title: Best practices: Smart compose \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:25.693026+00:00
+fetched_at: 2026-10-25T06:25:53.232272+00:00
 ---
 
 # Best practices: Smart compose  |  Agent Assist  |  Google Cloud Documentation

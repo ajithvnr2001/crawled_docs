@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/marketplace/submit-vm/
 title: Submit the VM image for approval \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:46:39.976784+00:00
+fetched_at: 2026-10-25T06:22:58.929969+00:00
 ---
 
 # Submit the VM image for approval  |  Integration Connectors  |  Google Cloud Documentation

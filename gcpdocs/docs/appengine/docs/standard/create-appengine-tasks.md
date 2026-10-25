@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/create-appengine-tasks/
 title: Run asynchronous tasks \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:48:12.707681+00:00
+fetched_at: 2026-10-25T06:34:02.829081+00:00
 ---
 
 # Run asynchronous tasks  |  App Engine standard environment  |  Google Cloud Documentation

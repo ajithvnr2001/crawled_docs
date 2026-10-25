@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/reservations-get-started/
 title: Get started with reservations \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:29.328331+00:00
+fetched_at: 2026-10-25T06:43:30.953153+00:00
 ---
 
 # Get started with reservations  |  BigQuery  |  Google Cloud Documentation

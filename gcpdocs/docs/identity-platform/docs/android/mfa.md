@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/android/mfa/
 title: Adding multi-factor authentication to your Android app \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:04.685150+00:00
+fetched_at: 2026-10-25T06:19:09.688834+00:00
 ---
 
 # Adding multi-factor authentication to your Android app  |  Identity Platform  |  Google Cloud Documentation

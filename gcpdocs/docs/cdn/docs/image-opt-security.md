@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cdn/docs/image-opt-security/
 title: Secure image transformation requests \u00a0|\u00a0 Cloud CDN \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:52.112142+00:00
+fetched_at: 2026-10-25T06:42:54.725382+00:00
 ---
 
 # Secure image transformation requests  |  Cloud CDN  |  Google Cloud Documentation

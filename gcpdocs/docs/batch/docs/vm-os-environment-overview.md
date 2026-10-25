@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/batch/docs/vm-os-environment-overview/
 title: Overview of the OS environment for a job's VMs \u00a0|\u00a0 Batch \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:42:18.151741+00:00
+fetched_at: 2026-10-25T06:39:26.515000+00:00
 ---
 
 # Overview of the OS environment for a job's VMs  |  Batch  |  Google Cloud Documentation

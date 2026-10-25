@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/ui-modules-events-documentation/
 title: UI module events \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:18.181693+00:00
+fetched_at: 2026-10-25T06:25:13.365709+00:00
 ---
 
 # UI module events  |  Agent Assist  |  Google Cloud Documentation

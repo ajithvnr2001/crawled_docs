@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.13.0/docs/ai/best-practices-tuning-scann/
 title: Best practices for tuning ScaNN indexes \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:44:55.744109+00:00
+fetched_at: 2026-10-25T06:37:23.607042+00:00
 ---
 
 # Best practices for tuning ScaNN indexes  |  AlloyDB Omni for Kubernetes: 15.13.0  |  Google Cloud Documentation

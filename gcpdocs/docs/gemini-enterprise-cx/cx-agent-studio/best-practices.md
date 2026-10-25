@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/best-practices/
 title: Best practices and patterns \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:05.606785+00:00
+fetched_at: 2026-10-25T06:25:01.952959+00:00
 ---
 
 # Best practices and patterns  |  CX Agent Studio  |  Google Cloud Documentation

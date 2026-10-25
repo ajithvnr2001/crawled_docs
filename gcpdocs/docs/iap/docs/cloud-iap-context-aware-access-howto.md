@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/cloud-iap-context-aware-access-howto/
 title: Setting up context-aware access with Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:02.412091+00:00
+fetched_at: 2026-10-25T06:21:10.294984+00:00
 ---
 
 # Setting up context-aware access with Identity-Aware Proxy  |  Google Cloud Documentation

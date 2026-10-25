@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/iam-policy-for-apps/
 title: Configure access controls for apps \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:10.771503+00:00
+fetched_at: 2026-10-25T06:21:50.496897+00:00
 ---
 
 # Configure access controls for apps  |  Gemini Enterprise  |  Google Cloud Documentation

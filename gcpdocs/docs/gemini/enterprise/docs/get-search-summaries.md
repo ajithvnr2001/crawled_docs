@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/get-search-summaries/
 title: Get search summaries (Legacy) \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:11.603654+00:00
+fetched_at: 2026-10-25T06:21:52.750195+00:00
 ---
 
 # Get search summaries (Legacy)  |  Gemini Enterprise  |  Google Cloud Documentation

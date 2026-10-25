@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/ai/store-embeddings/
 title: Store vector embeddings \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:56:34.818572+00:00
+fetched_at: 2026-10-25T05:57:13.818157+00:00
 ---
 
 # Store vector embeddings  |  AlloyDB Omni using the container orchestrator: Current (18.4.0)  |  Google Cloud Documentation

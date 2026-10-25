@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/reference/rest/Shared.Types/AgentCard/
 title: AgentCard \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:21.049365+00:00
+fetched_at: 2026-10-25T06:27:50.626977+00:00
 ---
 
 # AgentCard  |  Data Agents  |  Google Cloud Documentation

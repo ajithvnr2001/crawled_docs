@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/ai/generate-multimodal-embeddings/
 title: Generate multimodal embeddings \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:56:36.994221+00:00
+fetched_at: 2026-10-25T06:17:20.252761+00:00
 ---
 
 # Generate multimodal embeddings  |  AlloyDB Omni using the container orchestrator: Current (18.4.0)  |  Google Cloud Documentation

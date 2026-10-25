@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/edit-fields-in-your-reports/
 title: Edit fields in your reports \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:17.554477+00:00
+fetched_at: 2026-10-25T06:44:17.636447+00:00
 ---
 
 # Edit fields in your reports  |  Data Studio  |  Google Cloud Documentation

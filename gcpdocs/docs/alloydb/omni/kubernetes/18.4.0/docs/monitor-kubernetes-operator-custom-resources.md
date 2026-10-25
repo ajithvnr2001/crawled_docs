@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/monitor-kubernetes-operator-custom-resources/
 title: Monitor AlloyDB Omni Kubernetes operator custom resources \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:56:41.416406+00:00
+fetched_at: 2026-10-25T06:17:46.001335+00:00
 ---
 
 # Monitor AlloyDB Omni Kubernetes operator custom resources  |  AlloyDB Omni using the container orchestrator: 18.4.0  |  Google Cloud Documentation

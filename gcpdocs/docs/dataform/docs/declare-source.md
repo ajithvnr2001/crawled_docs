@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/declare-source/
 title: Declare a data source \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:27.722847+00:00
+fetched_at: 2026-10-25T06:44:15.704399+00:00
 ---
 
 # Declare a data source  |  Dataform  |  Google Cloud Documentation

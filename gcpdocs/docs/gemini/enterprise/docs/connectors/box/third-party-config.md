@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/box/third-party-config/
 title: Box configuration \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:43.425968+00:00
+fetched_at: 2026-10-25T06:24:07.218131+00:00
 ---
 
 # Box configuration  |  Gemini Enterprise  |  Google Cloud Documentation

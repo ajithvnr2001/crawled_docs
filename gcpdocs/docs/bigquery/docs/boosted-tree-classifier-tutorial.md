@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/boosted-tree-classifier-tutorial/
 title: Perform classification with a boosted trees model \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:33.460753+00:00
+fetched_at: 2026-10-25T06:39:10.236679+00:00
 ---
 
 # Perform classification with a boosted trees model  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatatransfer-schedule-backfill/
 title: Schedule a backfill run \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:18.691622+00:00
+fetched_at: 2026-10-25T06:42:45.677515+00:00
 ---
 
 # Schedule a backfill run  |  BigQuery  |  Google Cloud Documentation

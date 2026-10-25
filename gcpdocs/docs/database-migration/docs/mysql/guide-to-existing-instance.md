@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/mysql/guide-to-existing-instance/
 title: Migrate to a pre-existing Cloud SQL instance \u00a0|\u00a0 Database Migration Service for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:23.013575+00:00
+fetched_at: 2026-10-25T06:44:18.792724+00:00
 ---
 
 # Migrate to a pre-existing Cloud SQL instance  |  Database Migration Service for MySQL  |  Google Cloud Documentation

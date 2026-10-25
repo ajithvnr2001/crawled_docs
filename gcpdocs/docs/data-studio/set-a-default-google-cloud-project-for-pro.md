@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/set-a-default-google-cloud-project-for-pro/
 title: Set a default Google Cloud project for Data Studio Pro \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:09.464420+00:00
+fetched_at: 2026-10-25T06:42:53.417129+00:00
 ---
 
 # Set a default Google Cloud project for Data Studio Pro  |  Google Cloud Documentation

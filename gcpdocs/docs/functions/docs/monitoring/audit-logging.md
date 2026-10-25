@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/monitoring/audit-logging/
 title: Functions audit logging \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:34.257187+00:00
+fetched_at: 2026-10-25T06:24:48.746762+00:00
 ---
 
 # Functions audit logging  |  Cloud Run functions  |  Google Cloud Documentation

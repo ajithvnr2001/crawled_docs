@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/services/mail/receiving-mail-with-mail-api/
 title: Receiving mail with the Mail API \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:51.806273+00:00
+fetched_at: 2026-10-25T06:34:11.680778+00:00
 ---
 
 # Receiving mail with the Mail API  |  App Engine standard environment  |  Google Cloud Documentation

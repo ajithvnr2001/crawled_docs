@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/configuring-notifications/create-notifier/
 title: Creating your own notifier \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:07.740578+00:00
+fetched_at: 2026-10-25T06:43:29.670134+00:00
 ---
 
 # Creating your own notifier  |  Cloud Build  |  Google Cloud Documentation

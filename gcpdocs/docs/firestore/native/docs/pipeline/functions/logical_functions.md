@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/logical_functions/
 title: Logical Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:14.338992+00:00
+fetched_at: 2026-10-25T06:23:21.865718+00:00
 ---
 
 # Logical Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/bigqueryml-transform/
 title: Perform feature engineering with the TRANSFORM clause \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:34.076685+00:00
+fetched_at: 2026-10-25T06:37:50.350288+00:00
 ---
 
 # Perform feature engineering with the TRANSFORM clause  |  BigQuery  |  Google Cloud Documentation

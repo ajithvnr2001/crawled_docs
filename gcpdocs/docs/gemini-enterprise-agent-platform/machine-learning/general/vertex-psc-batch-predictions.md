@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vertex-psc-batch-predictions/
 title: Use Private Service Connect to access Gemini Enterprise Agent Platform batch inferences from on-premises \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:20.883003+00:00
+fetched_at: 2026-10-25T06:25:39.184758+00:00
 ---
 
 # Use Private Service Connect to access Gemini Enterprise Agent Platform batch inferences from on-premises  |  Google Cloud Documentation

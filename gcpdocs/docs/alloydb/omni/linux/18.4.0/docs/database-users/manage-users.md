@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/database-users/manage-users/
 title: Manage AlloyDB Omni users and roles \u00a0|\u00a0 AlloyDB Omni using RPM: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:11.022562+00:00
+fetched_at: 2026-10-25T06:43:08.794513+00:00
 ---
 
 # Manage AlloyDB Omni users and roles  |  AlloyDB Omni using RPM: 18.4.0  |  Google Cloud Documentation

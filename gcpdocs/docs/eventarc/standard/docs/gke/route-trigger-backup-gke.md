@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/gke/route-trigger-backup-gke/
 title: Route backup for GKE events to GKE \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:30.508717+00:00
+fetched_at: 2026-10-25T06:18:27.165281+00:00
 ---
 
 # Route backup for GKE events to GKE  |  Eventarc Standard  |  Google Cloud Documentation

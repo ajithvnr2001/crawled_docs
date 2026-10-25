@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/stig/
 title: AlloyDB Omni STIG compliance \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:09.060394+00:00
+fetched_at: 2026-10-25T06:40:04.816862+00:00
 ---
 
 # AlloyDB Omni STIG compliance  |  AlloyDB Omni using the container orchestrator: Current (18.4.0)  |  Google Cloud Documentation

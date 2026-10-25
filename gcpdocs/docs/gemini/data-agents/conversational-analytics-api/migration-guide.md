@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/migration-guide/
 title: Migrate from the Data QnA API to the Conversational Analytics API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:40.043740+00:00
+fetched_at: 2026-10-25T05:56:34.444335+00:00
 ---
 
 # Migrate from the Data QnA API to the Conversational Analytics API  |  Google Cloud Documentation

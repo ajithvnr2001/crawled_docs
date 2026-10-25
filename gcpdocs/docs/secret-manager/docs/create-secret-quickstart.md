@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/create-secret-quickstart/
 title: Create and access a secret using Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:31:06.955182+00:00
+fetched_at: 2026-10-25T05:44:37.738324+00:00
 ---
 
 # Create and access a secret using Secret Manager  |  Google Cloud Documentation
@@ -475,7 +475,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     #
     def quickstart project_id:, secret_id:
       # Create the Secret Manager client.
-      client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta2/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
+      client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
     
       # Build the parent name from the project.
       parent = "projects/#{project_id}"

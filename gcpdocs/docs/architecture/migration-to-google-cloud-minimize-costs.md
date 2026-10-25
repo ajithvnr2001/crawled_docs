@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migration-to-google-cloud-minimize-costs/
 title: Migrate to Google Cloud: Minimize costs \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:17.353133+00:00
+fetched_at: 2026-10-25T06:27:26.814283+00:00
 ---
 
 # Migrate to Google Cloud: Minimize costs  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-open-source-software/docs/supported-packages-go/
 title: List of supported Go packages for the Assured Open Source Software free tier \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:48.101983+00:00
+fetched_at: 2026-10-25T06:37:02.452400+00:00
 ---
 
 # List of supported Go packages for the Assured Open Source Software free tier  |  Google Cloud Documentation

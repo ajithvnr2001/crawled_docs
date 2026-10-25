@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.13.0/docs/set-up-read-replica/
 title: Create a read-only replica \u00a0|\u00a0 AlloyDB Omni using containers: 16.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:46:21.762343+00:00
+fetched_at: 2026-10-25T06:35:26.441452+00:00
 ---
 
 # Create a read-only replica  |  AlloyDB Omni using containers: 16.13.0  |  Google Cloud Documentation

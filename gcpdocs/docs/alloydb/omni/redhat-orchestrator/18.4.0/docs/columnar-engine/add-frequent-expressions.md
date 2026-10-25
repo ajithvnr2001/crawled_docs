@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.4.0/docs/columnar-engine/add-frequent-expressions/
 title: Optimize queries with virtual columns for expressions \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:46:42.901556+00:00
+fetched_at: 2026-10-25T06:34:49.650948+00:00
 ---
 
 # Optimize queries with virtual columns for expressions  |  AlloyDB Omni using the RPM orchestrator: 18.4.0  |  Google Cloud Documentation

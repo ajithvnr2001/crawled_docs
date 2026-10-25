@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/openapi/support-cors/
 title: Enabling CORS support for Endpoints \u00a0|\u00a0 Cloud Endpoints with OpenAPI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:14.079166+00:00
+fetched_at: 2026-10-25T06:18:02.875011+00:00
 ---
 
 # Enabling CORS support for Endpoints  |  Cloud Endpoints with OpenAPI  |  Google Cloud Documentation

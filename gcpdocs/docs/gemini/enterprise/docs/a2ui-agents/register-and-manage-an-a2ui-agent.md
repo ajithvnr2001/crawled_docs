@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/a2ui-agents/register-and-manage-an-a2ui-agent/
 title: Register and manage agents using A2UI and A2A \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:57.339479+00:00
+fetched_at: 2026-10-25T06:23:17.353260+00:00
 ---
 
 # Register and manage agents using A2UI and A2A  |  Gemini Enterprise  |  Google Cloud Documentation

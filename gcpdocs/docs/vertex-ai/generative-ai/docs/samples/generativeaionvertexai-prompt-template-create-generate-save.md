@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-prompt-template-create-generate-save/
 title: Create and use a Vertex AI Prompt to generate text \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:57.949171+00:00
+fetched_at: 2026-10-25T05:44:08.125083+00:00
 ---
 
 # Create and use a Vertex AI Prompt to generate text  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -35,14 +35,14 @@ Before trying this sample, follow the Python setup instructions in the [Vertex A
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
-    from vertexai.preview import [prompts](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.prompts.html)
-    from vertexai.preview.prompts import [Prompt](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.Prompt.html)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    from vertexai.preview import [prompts](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.prompts.html)
+    from vertexai.preview.prompts import [Prompt](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.Prompt.html)
     
     # from vertexai.generative_models import GenerationConfig, SafetySetting # Optional
     
     # Initialize vertexai
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="us-central1")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="us-central1")
     
     # Create local Prompt
     local_prompt = Prompt(
@@ -60,13 +60,13 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     # Generate content using the assembled prompt for each variable set.
     for i in range(len(local_prompt.variables)):
-        response = local_prompt.[generate_content](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_generate_content)(
-            contents=local_prompt.[assemble_contents](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.Prompt.html#vertexai__genai_types_Prompt_assemble_contents)(**local_prompt.variables[i])
+        response = local_prompt.[generate_content](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_generate_content)(
+            contents=local_prompt.[assemble_contents](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.Prompt.html#vertexai__genai_types_Prompt_assemble_contents)(**local_prompt.variables[i])
         )
         print(response)
     
     # Save a version
-    prompt1 = [prompts](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.prompts.html).create_version(prompt=local_prompt)
+    prompt1 = [prompts](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.prompts.html).create_version(prompt=local_prompt)
     
     print(prompt1)
     

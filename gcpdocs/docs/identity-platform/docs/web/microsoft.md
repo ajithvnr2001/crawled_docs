@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/web/microsoft/
 title: Signing in users with Microsoft \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:02.007892+00:00
+fetched_at: 2026-10-25T06:19:46.577107+00:00
 ---
 
 # Signing in users with Microsoft  |  Identity Platform  |  Google Cloud Documentation

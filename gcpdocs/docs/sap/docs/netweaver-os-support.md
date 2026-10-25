@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/netweaver-os-support/
 title: OS support for SAP NetWeaver on Google Cloud \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:01:44.864206+00:00
+fetched_at: 2026-10-25T05:45:05.361447+00:00
 ---
 
 # OS support for SAP NetWeaver on Google Cloud  |  SAP on Google Cloud  |  Google Cloud Documentation

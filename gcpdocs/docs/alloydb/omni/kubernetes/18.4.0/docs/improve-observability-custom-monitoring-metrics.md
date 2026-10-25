@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/improve-observability-custom-monitoring-metrics/
 title: Improve observability using custom monitoring metrics \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:56:44.077707+00:00
+fetched_at: 2026-10-25T05:56:26.827378+00:00
 ---
 
 # Improve observability using custom monitoring metrics  |  AlloyDB Omni using the container orchestrator: 18.4.0  |  Google Cloud Documentation

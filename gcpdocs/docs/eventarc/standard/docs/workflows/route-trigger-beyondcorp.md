@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/workflows/route-trigger-beyondcorp/
 title: Route BeyondCorp events to Workflows \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:04.367559+00:00
+fetched_at: 2026-10-25T06:18:06.456007+00:00
 ---
 
 # Route BeyondCorp events to Workflows  |  Eventarc Standard  |  Google Cloud Documentation

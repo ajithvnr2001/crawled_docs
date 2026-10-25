@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/assistant-chat/
 title: Chat with the assistant \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:05.858365+00:00
+fetched_at: 2026-10-25T06:26:04.355858+00:00
 ---
 
 # Chat with the assistant  |  Gemini Enterprise  |  Google Cloud Documentation

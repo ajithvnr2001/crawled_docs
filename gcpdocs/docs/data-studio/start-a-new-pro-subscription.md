@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/start-a-new-pro-subscription/
 title: Start a new Pro subscription \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:07.810024+00:00
+fetched_at: 2026-10-25T06:42:16.999385+00:00
 ---
 
 # Start a new Pro subscription  |  Data Studio  |  Google Cloud Documentation

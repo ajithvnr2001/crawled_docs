@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/batch/docs/get-started/
 title: Get started with Batch \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:42:21.125740+00:00
+fetched_at: 2026-10-25T06:39:51.089899+00:00
 ---
 
 # Get started with Batch  |  Google Cloud Documentation

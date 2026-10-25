@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/chrome-enterprise-premium/
 title: Collect Chrome Enterprise Premium Context Access Aware Data \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:31:23.224556+00:00
+fetched_at: 2026-10-25T06:40:58.405105+00:00
 ---
 
 # Collect Chrome Enterprise Premium Context Access Aware Data  |  Google Security Operations  |  Google Cloud Documentation

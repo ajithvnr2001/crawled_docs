@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.1/docs/ai/overview-ai/
 title: Build generative AI applications using AlloyDB AI \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:44.646760+00:00
+fetched_at: 2026-10-25T06:41:20.227102+00:00
 ---
 
 # Build generative AI applications using AlloyDB AI  |  AlloyDB Omni using RPM: 18.1.1  |  Google Cloud Documentation

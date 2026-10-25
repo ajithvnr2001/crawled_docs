@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/docs/discover/data-governance/
 title: How Gemini products in Google Cloud use your data \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:51.427034+00:00
+fetched_at: 2026-10-25T06:22:51.196022+00:00
 ---
 
 # How Gemini products in Google Cloud use your data  |  Gemini for Google Cloud  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-index-options/
 title: SEARCH_INDEX_OPTIONS view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:44:01.686527+00:00
+fetched_at: 2026-10-25T06:38:11.451383+00:00
 ---
 
 # SEARCH_INDEX_OPTIONS view  |  BigQuery  |  Google Cloud Documentation

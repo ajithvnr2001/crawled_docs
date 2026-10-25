@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/credential-vending/
 title: Credential vending overview \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:16.589916+00:00
+fetched_at: 2026-10-25T05:53:31.294806+00:00
 ---
 
 # Credential vending overview  |  Lakehouse  |  Google Cloud Documentation

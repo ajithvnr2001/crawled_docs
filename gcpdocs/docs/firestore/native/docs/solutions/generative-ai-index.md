@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/generative-ai-index/
 title: Get started with generative AI \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:40.363438+00:00
+fetched_at: 2026-10-25T06:24:41.139460+00:00
 ---
 
 # Get started with generative AI  |  Firestore in Native mode  |  Google Cloud Documentation

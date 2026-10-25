@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/filestore/docs/backup-persistent-storage-gke/
 title: Back up and restore persistent storage for your GKE clusters \u00a0|\u00a0 Filestore \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:11.025183+00:00
+fetched_at: 2026-10-25T06:26:01.100881+00:00
 ---
 
 # Back up and restore persistent storage for your GKE clusters  |  Filestore  |  Google Cloud Documentation

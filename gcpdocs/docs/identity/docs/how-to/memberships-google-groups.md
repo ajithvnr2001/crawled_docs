@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity/docs/how-to/memberships-google-groups/
 title: Managing memberships for Google Groups \u00a0|\u00a0 Cloud Identity \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:40.512941+00:00
+fetched_at: 2026-10-25T06:21:01.483716+00:00
 ---
 
 # Managing memberships for Google Groups  |  Cloud Identity  |  Google Cloud Documentation

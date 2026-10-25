@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/choose-ml-text-function/
 title: Choose a natural language processing function \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:30.396007+00:00
+fetched_at: 2026-10-25T06:40:13.042085+00:00
 ---
 
 # Choose a natural language processing function  |  BigQuery  |  Google Cloud Documentation

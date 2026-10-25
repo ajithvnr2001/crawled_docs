@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bare-metal/docs/solutions/oracle/data-guard-setup/validate/
 title: Validate the Data Guard deployment \u00a0|\u00a0 Bare Metal Solution \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:42:57.198287+00:00
+fetched_at: 2026-10-25T06:38:55.193081+00:00
 ---
 
 # Validate the Data Guard deployment  |  Bare Metal Solution  |  Google Cloud Documentation

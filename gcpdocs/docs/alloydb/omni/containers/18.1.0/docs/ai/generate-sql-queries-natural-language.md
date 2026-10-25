@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/ai/generate-sql-queries-natural-language/
 title: Generate SQL queries using natural language questions \u00a0|\u00a0 AlloyDB Omni using containers: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:43.253934+00:00
+fetched_at: 2026-10-25T06:35:49.780458+00:00
 ---
 
 # Generate SQL queries using natural language questions  |  AlloyDB Omni using containers: 18.1.0  |  Google Cloud Documentation

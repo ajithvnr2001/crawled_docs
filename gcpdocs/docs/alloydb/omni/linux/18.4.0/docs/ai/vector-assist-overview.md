@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/ai/vector-assist-overview/
 title: Vector assist overview \u00a0|\u00a0 AlloyDB Omni using RPM: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:12.176283+00:00
+fetched_at: 2026-10-25T06:42:11.434692+00:00
 ---
 
 # Vector assist overview  |  AlloyDB Omni using RPM: 18.4.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/sandbox/
 title: Sandbox \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:10.963843+00:00
+fetched_at: 2026-10-25T06:43:17.686162+00:00
 ---
 
 # Sandbox  |  Data Studio  |  Google Cloud Documentation

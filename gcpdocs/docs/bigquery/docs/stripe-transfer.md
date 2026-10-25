@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/stripe-transfer/
 title: Load Stripe data into BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:53.195630+00:00
+fetched_at: 2026-10-25T06:41:48.820648+00:00
 ---
 
 # Load Stripe data into BigQuery  |  Google Cloud Documentation

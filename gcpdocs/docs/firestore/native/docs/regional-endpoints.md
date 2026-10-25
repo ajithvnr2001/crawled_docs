@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/regional-endpoints/
 title: Configure data locality with regional endpoints \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:33.051151+00:00
+fetched_at: 2026-10-25T06:18:41.935473+00:00
 ---
 
 # Configure data locality with regional endpoints  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/gsc_google_drive/configure/
 title: Create and configure a Google Drive connection \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:47.230620+00:00
+fetched_at: 2026-10-25T06:17:59.462475+00:00
 ---
 
 # Create and configure a Google Drive connection  |  Integration Connectors  |  Google Cloud Documentation

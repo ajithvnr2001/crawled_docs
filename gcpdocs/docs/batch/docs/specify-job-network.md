@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/batch/docs/specify-job-network/
 title: Specify the network for a job \u00a0|\u00a0 Batch \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:42:19.688281+00:00
+fetched_at: 2026-10-25T06:39:55.751983+00:00
 ---
 
 # Specify the network for a job  |  Batch  |  Google Cloud Documentation

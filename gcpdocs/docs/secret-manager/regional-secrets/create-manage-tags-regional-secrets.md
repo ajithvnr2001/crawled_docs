@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/regional-secrets/create-manage-tags-regional-secrets/
 title: Create and manage tags for regional secrets \u00a0|\u00a0 Secret Manager Regional Service Documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:52:24.023261+00:00
+fetched_at: 2026-10-25T05:44:41.872464+00:00
 ---
 
 # Create and manage tags for regional secrets  |  Secret Manager Regional Service Documentation  |  Google Cloud Documentation
@@ -488,7 +488,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
       api_endpoint = "secretmanager.#{location_id}.rep.googleapis.com"
     
       # Create the Secret Manager client.
-      client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta2/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html) do |config|
+      client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html) do |config|
         config.endpoint = api_endpoint
       end
     

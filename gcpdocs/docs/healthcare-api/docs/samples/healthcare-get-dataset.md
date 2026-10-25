@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-get-dataset/
 title: Get dataset \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:49:49.171782+00:00
+fetched_at: 2026-10-25T06:22:01.261568+00:00
 ---
 
 # Get dataset  |  Cloud Healthcare API  |  Google Cloud Documentation

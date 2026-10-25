@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/sql-mysql/inspect-data-agent/
 title: Test QueryData using Cloud SQL Studio \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:31.131560+00:00
+fetched_at: 2026-10-25T06:20:09.796197+00:00
 ---
 
 # Test QueryData using Cloud SQL Studio  |  Data Agents  |  Google Cloud Documentation

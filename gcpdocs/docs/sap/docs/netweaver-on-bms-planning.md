@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/netweaver-on-bms-planning/
 title: SAP NetWeaver on Bare Metal Solution planning guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:01:45.127589+00:00
+fetched_at: 2026-10-25T05:45:04.848171+00:00
 ---
 
 # SAP NetWeaver on Bare Metal Solution planning guide  |  SAP on Google Cloud  |  Google Cloud Documentation

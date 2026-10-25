@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/15.7.1/docs/monitor-pglogical/
 title: Monitor pglogical replication in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni for containers: 15.7.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:43.430145+00:00
+fetched_at: 2026-10-25T06:42:55.627564+00:00
 ---
 
 # Monitor pglogical replication in AlloyDB Omni  |  AlloyDB Omni for containers: 15.7.1  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/secure-agent-interactions-mcp/
 title: Best practices for securing agent interactions with Model Context Protocol \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:32.236512+00:00
+fetched_at: 2026-10-25T06:19:11.381989+00:00
 ---
 
 # Best practices for securing agent interactions with Model Context Protocol  |  Firestore in Native mode  |  Google Cloud Documentation

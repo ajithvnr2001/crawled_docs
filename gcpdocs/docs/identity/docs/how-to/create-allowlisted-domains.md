@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity/docs/how-to/create-allowlisted-domains/
 title: Adding a domain to the allowlist \u00a0|\u00a0 Cloud Identity \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:42.592439+00:00
+fetched_at: 2026-10-25T06:20:37.524036+00:00
 ---
 
 # Adding a domain to the allowlist  |  Cloud Identity  |  Google Cloud Documentation

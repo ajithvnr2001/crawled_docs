@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/cost-optimization/optimize-resource-usage/
 title: Optimize resource usage \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:46:53.617545+00:00
+fetched_at: 2026-10-25T06:34:48.501974+00:00
 ---
 
 # Optimize resource usage  |  Cloud Architecture Center  |  Google Cloud Documentation

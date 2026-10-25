@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/read-from-bigquery/
 title: Read from BigQuery to Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:58.866238+00:00
+fetched_at: 2026-10-25T06:44:22.102793+00:00
 ---
 
 # Read from BigQuery to Dataflow  |  Google Cloud Documentation

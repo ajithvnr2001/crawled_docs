@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/connect-to-cloud-sql-source/
 title: Connect to a Cloud SQL-MySQL source \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:05.615875+00:00
+fetched_at: 2026-10-25T06:43:40.111307+00:00
 ---
 
 # Connect to a Cloud SQL-MySQL source  |  Cloud Data Fusion  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/tcp-forwarding-overview/
 title: TCP forwarding overview \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:06.748717+00:00
+fetched_at: 2026-10-25T06:19:36.211166+00:00
 ---
 
 # TCP forwarding overview  |  Identity-Aware Proxy  |  Google Cloud Documentation

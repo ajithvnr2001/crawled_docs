@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/service-dependencies/
 title: Manage BigQuery API dependencies \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:55.790643+00:00
+fetched_at: 2026-10-25T06:41:16.511919+00:00
 ---
 
 # Manage BigQuery API dependencies  |  Google Cloud Documentation

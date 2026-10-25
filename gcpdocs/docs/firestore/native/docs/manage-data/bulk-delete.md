@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/bulk-delete/
 title: Bulk delete data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:33.857772+00:00
+fetched_at: 2026-10-25T06:20:03.476216+00:00
 ---
 
 # Bulk delete data  |  Firestore in Native mode  |  Google Cloud Documentation

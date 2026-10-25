@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/get-started/
 title: Get started with AlloyDB Omni on VMs \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.5.5 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:44:11.759244+00:00
+fetched_at: 2026-10-25T06:38:43.486850+00:00
 ---
 
 # Get started with AlloyDB Omni on VMs  |  AlloyDB Omni for Kubernetes: 15.5.5  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cynet-360-autoxdr/
 title: Collect Cynet 360 AutoXDR logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:22.362786+00:00
+fetched_at: 2026-10-25T06:41:25.486279+00:00
 ---
 
 # Collect Cynet 360 AutoXDR logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/connect-to-public-source/
 title: Connect to a public source from a private instance \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:05.145112+00:00
+fetched_at: 2026-10-25T06:43:56.067006+00:00
 ---
 
 # Connect to a public source from a private instance  |  Cloud Data Fusion  |  Google Cloud Documentation

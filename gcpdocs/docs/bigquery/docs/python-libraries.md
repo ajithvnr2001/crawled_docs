@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/python-libraries/
 title: Use open source Python libraries \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:35.810580+00:00
+fetched_at: 2026-10-25T06:42:57.055219+00:00
 ---
 
 # Use open source Python libraries  |  BigQuery  |  Google Cloud Documentation

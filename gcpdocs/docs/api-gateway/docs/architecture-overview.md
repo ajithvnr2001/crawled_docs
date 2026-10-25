@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/architecture-overview/
 title: API Gateway Architecture \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:48.708827+00:00
+fetched_at: 2026-10-25T06:28:12.804552+00:00
 ---
 
 # API Gateway Architecture  |  Google Cloud Documentation

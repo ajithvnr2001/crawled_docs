@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/network-firewall-policy-examples/
 title: Network firewall policy example \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:23.131667+00:00
+fetched_at: 2026-10-25T06:18:55.777408+00:00
 ---
 
 # Network firewall policy example  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

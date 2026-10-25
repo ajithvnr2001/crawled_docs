@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-object-privileges/
 title: OBJECT_PRIVILEGES view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:43:58.599396+00:00
+fetched_at: 2026-10-25T06:39:01.432636+00:00
 ---
 
 # OBJECT_PRIVILEGES view  |  BigQuery  |  Google Cloud Documentation

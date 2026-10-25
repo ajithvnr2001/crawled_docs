@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/use-sap-slt-plugin/
 title: SAP SLT replication source \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:57.130733+00:00
+fetched_at: 2026-10-25T06:44:07.193965+00:00
 ---
 
 # SAP SLT replication source  |  Cloud Data Fusion  |  Google Cloud Documentation

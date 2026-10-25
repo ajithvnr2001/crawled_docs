@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/docker/manage-images/
 title: Manage images \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:24:33.657308+00:00
+fetched_at: 2026-10-25T06:37:23.195571+00:00
 ---
 
 # Manage images  |  Artifact Registry  |  Google Cloud Documentation

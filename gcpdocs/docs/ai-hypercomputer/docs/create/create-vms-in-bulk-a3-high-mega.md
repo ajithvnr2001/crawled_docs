@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-vms-in-bulk-a3-high-mega/
 title: Create AI-optimized A3 High or A3 Mega VMs in bulk \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:33.899272+00:00
+fetched_at: 2026-10-25T06:28:22.304312+00:00
 ---
 
 # Create AI-optimized A3 High or A3 Mega VMs in bulk  |  AI Hypercomputer  |  Google Cloud Documentation

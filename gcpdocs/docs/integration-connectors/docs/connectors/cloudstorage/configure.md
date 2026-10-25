@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/cloudstorage/configure/
 title: Cloud Storage \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:45:43.610190+00:00
+fetched_at: 2026-10-25T06:20:43.019915+00:00
 ---
 
 # Cloud Storage  |  Integration Connectors  |  Google Cloud Documentation

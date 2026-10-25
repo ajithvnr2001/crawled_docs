@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/security/rules-fields/
 title: Control access to specific fields \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:42.329860+00:00
+fetched_at: 2026-10-25T06:23:00.415150+00:00
 ---
 
 # Control access to specific fields  |  Firestore in Native mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/blob-storage-transfer-intro/
 title: Introduction to Blob Storage data transfers \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:33.268083+00:00
+fetched_at: 2026-10-25T06:39:10.004045+00:00
 ---
 
 # Introduction to Blob Storage data transfers  |  BigQuery  |  Google Cloud Documentation

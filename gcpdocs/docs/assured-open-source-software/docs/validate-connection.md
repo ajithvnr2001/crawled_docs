@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-open-source-software/docs/validate-connection/
 title: Validate your connection \u00a0|\u00a0 Assured Open Source Software \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:47.599653+00:00
+fetched_at: 2026-10-25T06:36:49.449106+00:00
 ---
 
 # Validate your connection  |  Assured Open Source Software  |  Google Cloud Documentation

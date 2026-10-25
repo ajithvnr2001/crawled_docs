@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cisco-estreamer/
 title: Collect Cisco eStreamer logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:31:09.170939+00:00
+fetched_at: 2026-10-25T06:43:02.181308+00:00
 ---
 
 # Collect Cisco eStreamer logs  |  Google Security Operations  |  Google Cloud Documentation

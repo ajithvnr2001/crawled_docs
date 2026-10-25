@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-columns/
 title: COLUMNS view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:52.059848+00:00
+fetched_at: 2026-10-25T06:38:00.892699+00:00
 ---
 
 # COLUMNS view  |  BigQuery  |  Google Cloud Documentation

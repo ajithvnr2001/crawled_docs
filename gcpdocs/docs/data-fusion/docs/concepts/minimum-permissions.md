@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/concepts/minimum-permissions/
 title: Minimum permissions required for the Cloud Data Fusion Service Account \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:28.365939+00:00
+fetched_at: 2026-10-25T06:44:20.682161+00:00
 ---
 
 # Minimum permissions required for the Cloud Data Fusion Service Account  |  Google Cloud Documentation

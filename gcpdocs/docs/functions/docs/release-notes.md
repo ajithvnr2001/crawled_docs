@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/release-notes/
 title: Cloud Run functions (formerly known as Cloud Functions) release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:51:04.137350+00:00
+fetched_at: 2026-10-25T05:43:58.001502+00:00
 ---
 
 # Cloud Run functions (formerly known as Cloud Functions) release notes  |  Google Cloud Documentation
@@ -31,6 +31,33 @@ This page documents production updates to Cloud Run functions. We recommend that
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/functions-release-notes.xml) directly. 
+
+## October 24, 2026
+
+Security
+
+The following runtime languages contain important security updates:
+
+  * [Go 1.24 and later](https://docs.cloud.google.com/functions/docs/runtime-support#go): `1.24.13`, `1.25.14`, `1.26.10`, `1.27.3`
+  * [Node.js 22 and later](https://docs.cloud.google.com/static/functions/docs/runtime-support#node.js): `22.23.4`, `24.22.1`, `26.12.1`
+  * [Java 17 and later](https://docs.cloud.google.com/functions/docs/runtime-support#java): `17.0.20_101`, `21.0.12_101.0.LTS`, `25.0.5_8.0.LTS`
+  * [PHP 8.2 and later](https://docs.cloud.google.com/functions/docs/runtime-support#php): `8.2.35`, `8.3.36`, `8.4.27`, `8.5.12`
+  * [Python 3.10 and later](https://docs.cloud.google.com/functions/docs/runtime-support#python): `3.10.22`, `3.11.17`, `3.12.15`, `3.13.15`, `3.14.6`
+  * [Ruby 3.3 and later](https://docs.cloud.google.com/functions/docs/runtime-support#ruby): `3.3.12`, `3.4.11`, `4.0.7`
+  * [.NET 6 and later](https://docs.cloud.google.com/functions/docs/runtime-support#.net): `6.0.428`, `8.0.415`, `10.0.100`
+
+
+
+The following stacks and their underlying operating system packages have also been updated:
+
+  * `google-22`, `google-22-full`
+  * `google-24`, `google-24-full`
+
+
+
+Take immediate protective action by rebuilding and redeploying your resources with updated dependencies.
+
+See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
 
 ## October 22, 2026
 

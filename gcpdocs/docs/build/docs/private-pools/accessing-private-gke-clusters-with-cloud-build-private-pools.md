@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/private-pools/accessing-private-gke-clusters-with-cloud-build-private-pools/
 title: Access private Google Kubernetes Engine clusters with Cloud Build private pools \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:05.265109+00:00
+fetched_at: 2026-10-25T06:42:31.846955+00:00
 ---
 
 # Access private Google Kubernetes Engine clusters with Cloud Build private pools  |  Google Cloud Documentation

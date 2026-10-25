@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/image-classification-automl/deploy-predict/
 title: Hello image data: Deploy a model to an endpoint and send a prediction \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:02.098373+00:00
+fetched_at: 2026-10-25T06:25:50.004750+00:00
 ---
 
 # Hello image data: Deploy a model to an endpoint and send a prediction  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

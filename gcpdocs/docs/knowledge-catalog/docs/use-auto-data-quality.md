@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/use-auto-data-quality/
 title: Use auto data quality \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:10:23.885793+00:00
+fetched_at: 2026-10-25T05:53:02.231420+00:00
 ---
 
 # Use auto data quality  |  Knowledge Catalog  |  Google Cloud Documentation

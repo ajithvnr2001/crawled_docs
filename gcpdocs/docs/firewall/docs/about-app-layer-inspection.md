@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/about-app-layer-inspection/
 title: Application layer inspection overview \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:39.445172+00:00
+fetched_at: 2026-10-25T06:25:02.600654+00:00
 ---
 
 # Application layer inspection overview  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

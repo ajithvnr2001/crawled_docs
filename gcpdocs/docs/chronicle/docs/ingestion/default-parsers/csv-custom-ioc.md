@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/csv-custom-ioc/
 title: Collect CSV Custom IOC files \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:26.965542+00:00
+fetched_at: 2026-10-25T06:41:22.591168+00:00
 ---
 
 # Collect CSV Custom IOC files  |  Google Security Operations  |  Google Cloud Documentation

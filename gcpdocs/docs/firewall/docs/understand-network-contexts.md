@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/understand-network-contexts/
 title: Network contexts \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:28.427972+00:00
+fetched_at: 2026-10-25T06:25:19.749151+00:00
 ---
 
 # Network contexts  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

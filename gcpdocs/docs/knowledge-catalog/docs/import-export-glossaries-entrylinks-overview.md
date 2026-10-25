@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/import-export-glossaries-entrylinks-overview/
 title: About importing and exporting glossaries and entry links \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:38:29.615707+00:00
+fetched_at: 2026-10-25T05:53:06.774431+00:00
 ---
 
 # About importing and exporting glossaries and entry links  |  Knowledge Catalog  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/ui-modules-knowledge-assist-v2-documentation/
 title: Knowledge assist \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:17.194126+00:00
+fetched_at: 2026-10-25T06:24:43.394093+00:00
 ---
 
 # Knowledge assist  |  Agent Assist  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/notion/config/
 title: Notion configuration \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:26.282737+00:00
+fetched_at: 2026-10-25T06:23:25.391073+00:00
 ---
 
 # Notion configuration  |  Gemini Enterprise  |  Google Cloud Documentation

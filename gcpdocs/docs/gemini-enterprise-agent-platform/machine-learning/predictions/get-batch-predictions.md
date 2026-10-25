@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions/
 title: Get batch inferences from a custom trained model \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:22.093415+00:00
+fetched_at: 2026-10-25T06:26:28.243476+00:00
 ---
 
 # Get batch inferences from a custom trained model  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

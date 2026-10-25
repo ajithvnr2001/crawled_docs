@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/colab-data-apps/
 title: Use Data Apps in BigQuery and Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:28.145939+00:00
+fetched_at: 2026-10-25T06:37:51.458423+00:00
 ---
 
 # Use Data Apps in BigQuery and Data Studio  |  Google Cloud Documentation

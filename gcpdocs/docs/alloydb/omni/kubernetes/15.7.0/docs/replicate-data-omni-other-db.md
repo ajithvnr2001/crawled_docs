@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.7.0/docs/replicate-data-omni-other-db/
 title: Replicate data between AlloyDB Omni and other databases \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.7.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:44:30.986595+00:00
+fetched_at: 2026-10-25T06:37:40.867376+00:00
 ---
 
 # Replicate data between AlloyDB Omni and other databases  |  AlloyDB Omni for Kubernetes: 15.7.0  |  Google Cloud Documentation

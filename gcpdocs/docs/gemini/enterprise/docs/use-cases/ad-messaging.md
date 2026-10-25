@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/use-cases/ad-messaging/
 title: Tailor ad copy and messaging \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:51.550109+00:00
+fetched_at: 2026-10-25T06:21:36.497836+00:00
 ---
 
 # Tailor ad copy and messaging  |  Gemini Enterprise  |  Google Cloud Documentation

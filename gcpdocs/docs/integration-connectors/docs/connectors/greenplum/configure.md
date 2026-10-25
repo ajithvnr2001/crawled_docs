@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/greenplum/configure/
 title: Greenplum \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:49.520022+00:00
+fetched_at: 2026-10-25T05:57:06.731199+00:00
 ---
 
 # Greenplum  |  Integration Connectors  |  Google Cloud Documentation

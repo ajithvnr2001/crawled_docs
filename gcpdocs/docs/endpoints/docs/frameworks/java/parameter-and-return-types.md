@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/frameworks/java/parameter-and-return-types/
 title: Supported parameter and return types \u00a0|\u00a0 Cloud Endpoints Frameworks for App Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:05:01.861980+00:00
+fetched_at: 2026-10-25T06:17:37.031280+00:00
 ---
 
 # Supported parameter and return types  |  Cloud Endpoints Frameworks for App Engine  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/recaptcha-tfp/
 title: Enable reCAPTCHA SMS defense for SMS-based authentication \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:56.381647+00:00
+fetched_at: 2026-10-25T06:21:05.028537+00:00
 ---
 
 # Enable reCAPTCHA SMS defense for SMS-based authentication  |  Identity Platform  |  Google Cloud Documentation

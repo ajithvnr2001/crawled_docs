@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/batch/docs/organize-resources-using-labels/
 title: Organize resources using labels \u00a0|\u00a0 Batch \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:42:20.206429+00:00
+fetched_at: 2026-10-25T06:38:12.174262+00:00
 ---
 
 # Organize resources using labels  |  Batch  |  Google Cloud Documentation

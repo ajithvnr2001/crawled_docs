@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cyber-2-ids/
 title: Collect Cyber 2.0 IDS logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:26.674661+00:00
+fetched_at: 2026-10-25T06:40:50.966340+00:00
 ---
 
 # Collect Cyber 2.0 IDS logs  |  Google Security Operations  |  Google Cloud Documentation

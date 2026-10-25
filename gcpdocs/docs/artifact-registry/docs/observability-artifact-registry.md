@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/observability-artifact-registry/
 title: Observability in Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:17.588801+00:00
+fetched_at: 2026-10-25T06:36:07.945710+00:00
 ---
 
 # Observability in Artifact Registry  |  Google Cloud Documentation

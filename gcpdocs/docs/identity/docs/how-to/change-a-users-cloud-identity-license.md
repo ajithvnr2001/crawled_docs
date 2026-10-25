@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity/docs/how-to/change-a-users-cloud-identity-license/
 title: Change a user's Cloud Identity license \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:50.692110+00:00
+fetched_at: 2026-10-25T06:22:15.998453+00:00
 ---
 
 # Change a user's Cloud Identity license  |  Google Cloud Documentation

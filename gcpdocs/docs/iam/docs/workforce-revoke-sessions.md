@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/workforce-revoke-sessions/
 title: Revoke Workforce Identity Federation user sessions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:23.066418+00:00
+fetched_at: 2026-10-25T06:20:33.556542+00:00
 ---
 
 # Revoke Workforce Identity Federation user sessions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

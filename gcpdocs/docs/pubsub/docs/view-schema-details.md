@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/view-schema-details/
 title: View the details of a schema \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:02.925217+00:00
+fetched_at: 2026-10-25T05:45:41.287896+00:00
 ---
 
 # View the details of a schema  |  Pub/Sub  |  Google Cloud Documentation

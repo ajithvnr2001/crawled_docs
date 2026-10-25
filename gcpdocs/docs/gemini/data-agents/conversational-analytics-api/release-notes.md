@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/release-notes/
 title: Conversational Analytics API release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:39.182849+00:00
+fetched_at: 2026-10-25T06:17:57.134294+00:00
 ---
 
 # Conversational Analytics API release notes  |  Google Cloud Documentation

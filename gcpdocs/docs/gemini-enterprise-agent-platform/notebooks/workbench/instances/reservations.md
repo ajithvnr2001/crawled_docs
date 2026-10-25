@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/reservations/
 title: Use reservations with Agent Platform Workbench instances \u00a0|\u00a0 Gemini Enterprise Agent Platform Workbench \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:33.017813+00:00
+fetched_at: 2026-10-25T06:26:52.366959+00:00
 ---
 
 # Use reservations with Agent Platform Workbench instances  |  Gemini Enterprise Agent Platform Workbench  |  Google Cloud Documentation

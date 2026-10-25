@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/cloud-sql-instance-access/
 title: Configure Cloud SQL instance access \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:30.844344+00:00
+fetched_at: 2026-10-25T06:37:58.044641+00:00
 ---
 
 # Configure Cloud SQL instance access  |  BigQuery  |  Google Cloud Documentation

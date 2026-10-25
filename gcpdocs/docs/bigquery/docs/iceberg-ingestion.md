@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/iceberg-ingestion/
 title: Transfer data into Iceberg managed table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:56.655559+00:00
+fetched_at: 2026-10-25T06:39:51.019507+00:00
 ---
 
 # Transfer data into Iceberg managed table  |  BigQuery  |  Google Cloud Documentation

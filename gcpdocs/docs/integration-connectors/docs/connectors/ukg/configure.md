@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/ukg/configure/
 title: UKG \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:34.093993+00:00
+fetched_at: 2026-10-25T05:55:22.464220+00:00
 ---
 
 # UKG  |  Integration Connectors  |  Google Cloud Documentation

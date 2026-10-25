@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/enterprise-knowledge-graph/docs/confidence-score/
 title: Understand reconciliation confidence score \u00a0|\u00a0 Enterprise Knowledge Graph \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:40.839602+00:00
+fetched_at: 2026-10-25T06:17:54.501096+00:00
 ---
 
 # Understand reconciliation confidence score  |  Enterprise Knowledge Graph  |  Google Cloud Documentation

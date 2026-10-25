@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/advanced/docs/receive-events/transform-events/
 title: Transform received events \u00a0|\u00a0 Eventarc Advanced \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:46:14.986968+00:00
+fetched_at: 2026-10-25T06:20:39.530957+00:00
 ---
 
 # Transform received events  |  Eventarc Advanced  |  Google Cloud Documentation

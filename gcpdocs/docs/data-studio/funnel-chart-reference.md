@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/funnel-chart-reference/
 title: Funnel chart reference \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:14.700078+00:00
+fetched_at: 2026-10-25T06:41:35.912098+00:00
 ---
 
 # Funnel chart reference  |  Data Studio  |  Google Cloud Documentation

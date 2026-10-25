@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/zohobooks/set-up-data-store/
 title: Set up a Zoho Books data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:11.620276+00:00
+fetched_at: 2026-10-25T06:21:45.830107+00:00
 ---
 
 # Set up a Zoho Books data store  |  Gemini Enterprise  |  Google Cloud Documentation

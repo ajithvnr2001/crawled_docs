@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-workday/
 title: Set up cross-cloud connection for Workday Data Lake \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:13.684574+00:00
+fetched_at: 2026-10-25T05:53:36.664800+00:00
 ---
 
 # Set up cross-cloud connection for Workday Data Lake  |  Lakehouse  |  Google Cloud Documentation

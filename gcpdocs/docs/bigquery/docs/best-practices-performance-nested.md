@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/best-practices-performance-nested/
 title: Use nested and repeated fields \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:03.998926+00:00
+fetched_at: 2026-10-25T06:42:52.393126+00:00
 ---
 
 # Use nested and repeated fields  |  BigQuery  |  Google Cloud Documentation

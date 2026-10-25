@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.1/docs/ai/work-with-embeddings/
 title: Generate embeddings \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:42.777166+00:00
+fetched_at: 2026-10-25T06:41:24.604415+00:00
 ---
 
 # Generate embeddings  |  AlloyDB Omni using RPM: 18.1.1  |  Google Cloud Documentation

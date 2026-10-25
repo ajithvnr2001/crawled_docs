@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/docs/codeassist/gemini-3/
 title: Gemini 3 in Gemini Code Assist \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:54.769306+00:00
+fetched_at: 2026-10-25T06:22:40.943644+00:00
 ---
 
 # Gemini 3 in Gemini Code Assist  |  Gemini for Google Cloud  |  Google Cloud Documentation

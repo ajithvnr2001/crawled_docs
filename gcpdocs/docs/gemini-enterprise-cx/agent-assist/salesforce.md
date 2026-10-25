@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/salesforce/
 title: Salesforce integration overview \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:26.239303+00:00
+fetched_at: 2026-10-25T06:26:24.438351+00:00
 ---
 
 # Salesforce integration overview  |  Agent Assist  |  Google Cloud Documentation

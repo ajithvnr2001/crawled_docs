@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/color-your-data/
 title: Color your data \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:52.132571+00:00
+fetched_at: 2026-10-25T06:44:22.396085+00:00
 ---
 
 # Color your data  |  Data Studio  |  Google Cloud Documentation

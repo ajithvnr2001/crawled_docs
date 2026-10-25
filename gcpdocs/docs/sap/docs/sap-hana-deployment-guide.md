@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-deployment-guide/
 title: Deployment Manager: SAP HANA scale-up deployment guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:01:42.732408+00:00
+fetched_at: 2026-10-25T05:45:15.535715+00:00
 ---
 
 # Deployment Manager: SAP HANA scale-up deployment guide  |  SAP on Google Cloud  |  Google Cloud Documentation

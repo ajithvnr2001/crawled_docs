@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/how-to-test-agent-platform-threat-detection/
 title: Test Agent Platform Threat Detection \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:32:26.781490+00:00
+fetched_at: 2026-10-25T05:45:00.172648+00:00
 ---
 
 # Test Agent Platform Threat Detection  |  Security Command Center  |  Google Cloud Documentation
@@ -78,8 +78,8 @@ You will create several files that will be used to deploy a new agent for testin
          import os
          import subprocess
          import socket
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
-         from vertexai import Client, [agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+         from vertexai import Client, [agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html)
          from google.adk.agents import llm_agent
          from google.adk.sessions.in_memory_session_service import InMemorySessionService
          
@@ -94,7 +94,7 @@ You will create several files that will be used to deploy a new agent for testin
          def _run_command(args, **kwargs):
            output = f"Called {' '.join(args)}\n"
            try:
-             res = subprocess.[run](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.resources.preview.ml_monitoring.ModelMonitor.html#vertexai_resources_preview_ml_monitoring_ModelMonitor_run)(args, capture_output=True, text=True, **kwargs)
+             res = subprocess.[run](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.resources.preview.ml_monitoring.ModelMonitor.html#vertexai_resources_preview_ml_monitoring_ModelMonitor_run)(args, capture_output=True, text=True, **kwargs)
              if res.stdout:
                output += f"Result: {res.stdout.strip()}\n"
              if res.stderr:
@@ -123,19 +123,19 @@ You will create several files that will be used to deploy a new agent for testin
          )
          
          async def main():
-           [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
+           [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
              project=PROJECT_ID,
              location=LOCATION,
              staging_bucket=STAGING_BUCKET,
            )
-           app = [agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html).[AdkApp](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.reasoning_engines.AdkApp.html)(
+           app = [agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).[AdkApp](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.AdkApp.html)(
                agent=root_agent, session_service_builder=InMemorySessionService
            )
-           remote_agent = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html).create(
+           remote_agent = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).create(
                agent=app,
                config={
                    "display_name": "scc_threat_test_agent",
-                   "identity_type": [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).[types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html).[IdentityType](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.IdentityType.html).[AGENT_IDENTITY](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.IdentityType.html#vertexai__genai_types_IdentityType_AGENT_IDENTITY),
+                   "identity_type": [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).[types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html).[IdentityType](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.IdentityType.html).[AGENT_IDENTITY](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.IdentityType.html#vertexai__genai_types_IdentityType_AGENT_IDENTITY),
                    "requirements": [
                        "google-cloud-aiplatform[agent_engines,adk]",
                        "cloudpickle",
@@ -150,16 +150,16 @@ You will create several files that will be used to deploy a new agent for testin
            print("Deployed agent: ", remote_agent.api_resource.name)
          
            try:
-               async for event in remote_agent.[async_stream_query](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.reasoning_engines.AdkApp.html#vertexai_preview_reasoning_engines_AdkApp_async_stream_query)(
+               async for event in remote_agent.[async_stream_query](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.AdkApp.html#vertexai_preview_reasoning_engines_AdkApp_async_stream_query)(
                    user_id="threat_detection_tester",
                    message="Run the threat detection test",
                ):
                  print(event)
            finally:
-               client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html).delete(name=remote_agent.api_resource.name, force=True)
+               client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).delete(name=remote_agent.api_resource.name, force=True)
          
          if __name__ == "__main__":
-           asyncio.[run](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.resources.preview.ml_monitoring.ModelMonitor.html#vertexai_resources_preview_ml_monitoring_ModelMonitor_run)(main())
+           asyncio.[run](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.resources.preview.ml_monitoring.ModelMonitor.html#vertexai_resources_preview_ml_monitoring_ModelMonitor_run)(main())
          
 
 

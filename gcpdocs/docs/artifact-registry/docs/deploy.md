@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/deploy/
 title: Deploy to Google Cloud \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:20.258303+00:00
+fetched_at: 2026-10-25T06:37:03.339531+00:00
 ---
 
 # Deploy to Google Cloud  |  Artifact Registry  |  Google Cloud Documentation

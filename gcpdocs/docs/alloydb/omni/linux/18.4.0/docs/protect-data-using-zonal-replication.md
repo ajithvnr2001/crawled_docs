@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/protect-data-using-zonal-replication/
 title: Protect your data using zonal replication \u00a0|\u00a0 AlloyDB Omni using RPM: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:34:03.385403+00:00
+fetched_at: 2026-10-25T06:42:24.013327+00:00
 ---
 
 # Protect your data using zonal replication  |  AlloyDB Omni using RPM: 18.4.0  |  Google Cloud Documentation

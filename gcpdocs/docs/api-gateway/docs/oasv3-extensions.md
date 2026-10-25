@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/oasv3-extensions/
 title: OpenAPI 3.x Extensions in API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:43.548412+00:00
+fetched_at: 2026-10-25T06:33:34.452147+00:00
 ---
 
 # OpenAPI 3.x Extensions in API Gateway  |  Google Cloud Documentation

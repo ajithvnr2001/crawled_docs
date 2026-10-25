@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/delinea-pam/
 title: Collect Delinea PAM logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:17.933371+00:00
+fetched_at: 2026-10-25T06:42:14.589416+00:00
 ---
 
 # Collect Delinea PAM logs  |  Google Security Operations  |  Google Cloud Documentation

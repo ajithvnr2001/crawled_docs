@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-groups/
 title: Sync from Google Groups (Preview) \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:32.674857+00:00
+fetched_at: 2026-10-25T06:24:31.398688+00:00
 ---
 
 # Sync from Google Groups (Preview)  |  Gemini Enterprise  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/streaming-configure/
 title: Configure streaming for LLM responses and other traffic \u00a0|\u00a0 API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:49:42.966634+00:00
+fetched_at: 2026-10-25T06:33:24.053924+00:00
 ---
 
 # Configure streaming for LLM responses and other traffic  |  API Gateway  |  Google Cloud Documentation

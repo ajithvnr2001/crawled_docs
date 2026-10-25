@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/add-data/
 title: Add and update data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:35.935116+00:00
+fetched_at: 2026-10-25T06:18:46.577203+00:00
 ---
 
 # Add and update data  |  Firestore in Native mode  |  Google Cloud Documentation

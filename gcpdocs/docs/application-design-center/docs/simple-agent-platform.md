@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/simple-agent-platform/
 title: Simple Agent Platform template \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:39.921722+00:00
+fetched_at: 2026-10-25T06:34:44.689457+00:00
 ---
 
 # Simple Agent Platform template  |  Application Design Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migration-from-aws-get-started/
 title: Migrate from AWS to Google Cloud: Get started \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:18.765667+00:00
+fetched_at: 2026-10-25T06:28:15.460163+00:00
 ---
 
 # Migrate from AWS to Google Cloud: Get started  |  Cloud Architecture Center  |  Google Cloud Documentation

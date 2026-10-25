@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/concepts/
 title: Gemini Enterprise concepts \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:02.149369+00:00
+fetched_at: 2026-10-25T06:24:01.567925+00:00
 ---
 
 # Gemini Enterprise concepts  |  Google Cloud Documentation

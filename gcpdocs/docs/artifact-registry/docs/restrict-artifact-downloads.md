@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/restrict-artifact-downloads/
 title: Restrict artifact downloads with download rules \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:16.963836+00:00
+fetched_at: 2026-10-25T06:36:25.689145+00:00
 ---
 
 # Restrict artifact downloads with download rules  |  Artifact Registry  |  Google Cloud Documentation

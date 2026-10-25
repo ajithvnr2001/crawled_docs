@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/private-pools/set-up-private-pool-to-use-in-vpc-network/
 title: Set up environment to use private pools in a VPC network \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:04.207962+00:00
+fetched_at: 2026-10-25T06:42:32.214257+00:00
 ---
 
 # Set up environment to use private pools in a VPC network  |  Cloud Build  |  Google Cloud Documentation

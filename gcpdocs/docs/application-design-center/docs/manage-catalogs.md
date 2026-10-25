@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/manage-catalogs/
 title: Manage, publish, and share catalogs \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:41.206165+00:00
+fetched_at: 2026-10-25T06:35:02.650084+00:00
 ---
 
 # Manage, publish, and share catalogs  |  Application Design Center  |  Google Cloud Documentation

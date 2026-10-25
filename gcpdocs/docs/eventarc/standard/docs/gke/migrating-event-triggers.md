@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/gke/migrating-event-triggers/
 title: Migrate Pub/Sub triggers from Events for Cloud Run for Anthos to Eventarc \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:33.998554+00:00
+fetched_at: 2026-10-25T06:17:49.197009+00:00
 ---
 
 # Migrate Pub/Sub triggers from Events for Cloud Run for Anthos to Eventarc  |  Eventarc Standard  |  Google Cloud Documentation

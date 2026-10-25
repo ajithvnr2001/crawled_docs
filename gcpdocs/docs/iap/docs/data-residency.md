@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/data-residency/
 title: Data residency overview \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:11.707456+00:00
+fetched_at: 2026-10-25T06:17:50.704739+00:00
 ---
 
 # Data residency overview  |  Identity-Aware Proxy  |  Google Cloud Documentation

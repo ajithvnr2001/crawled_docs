@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cisco-cloudlock-casb/
 title: Collect Cisco CloudLock CASB logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:31:11.063362+00:00
+fetched_at: 2026-10-25T06:41:00.323725+00:00
 ---
 
 # Collect Cisco CloudLock CASB logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/restore-in-place/
 title: Perform an in-place restore operation \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:32.310674+00:00
+fetched_at: 2026-10-25T06:18:41.185710+00:00
 ---
 
 # Perform an in-place restore operation  |  Firestore in Native mode  |  Google Cloud Documentation

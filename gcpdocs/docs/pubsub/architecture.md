@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/architecture/
 title: Architectural overview of Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:35.906267+00:00
+fetched_at: 2026-10-25T05:45:44.349490+00:00
 ---
 
 # Architectural overview of Pub/Sub  |  Google Cloud Documentation

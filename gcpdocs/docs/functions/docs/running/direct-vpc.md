@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/running/direct-vpc/
 title: Configure Direct VPC egress for 2nd gen functions \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:26.189973+00:00
+fetched_at: 2026-10-25T06:25:19.448115+00:00
 ---
 
 # Configure Direct VPC egress for 2nd gen functions  |  Cloud Run functions  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/download-a-report-as-pdf/
 title: Download a Data Studio report as a PDF \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:18.663108+00:00
+fetched_at: 2026-10-25T06:41:36.444095+00:00
 ---
 
 # Download a Data Studio report as a PDF  |  Google Cloud Documentation

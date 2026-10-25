@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/connected-devices/iot-platform-product-architecture/
 title: IoT platform product architecture on Google Cloud \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:46:56.193615+00:00
+fetched_at: 2026-10-25T06:28:09.944011+00:00
 ---
 
 # IoT platform product architecture on Google Cloud  |  Cloud Architecture Center  |  Google Cloud Documentation

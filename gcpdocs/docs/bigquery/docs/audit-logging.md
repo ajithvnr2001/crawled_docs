@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/audit-logging/
 title: BigQuery Data Transfer Service audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:08.000923+00:00
+fetched_at: 2026-10-25T06:37:27.213316+00:00
 ---
 
 # BigQuery Data Transfer Service audit logging  |  Google Cloud Documentation

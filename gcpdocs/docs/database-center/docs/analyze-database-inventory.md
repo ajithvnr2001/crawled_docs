@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-center/docs/analyze-database-inventory/
 title: Analyze your database inventory \u00a0|\u00a0 Database Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:11.628005+00:00
+fetched_at: 2026-10-25T06:43:58.378246+00:00
 ---
 
 # Analyze your database inventory  |  Database Center  |  Google Cloud Documentation

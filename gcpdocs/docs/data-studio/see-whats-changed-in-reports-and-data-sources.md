@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/see-whats-changed-in-reports-and-data-sources/
 title: See what's changed in reports and data sources \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:09.709790+00:00
+fetched_at: 2026-10-25T06:42:19.551768+00:00
 ---
 
 # See what's changed in reports and data sources  |  Data Studio  |  Google Cloud Documentation

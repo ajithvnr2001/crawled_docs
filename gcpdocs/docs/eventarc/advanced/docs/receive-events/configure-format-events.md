@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/advanced/docs/receive-events/configure-format-events/
 title: Format received events \u00a0|\u00a0 Eventarc Advanced \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:46:15.966617+00:00
+fetched_at: 2026-10-25T06:18:39.532167+00:00
 ---
 
 # Format received events  |  Eventarc Advanced  |  Google Cloud Documentation

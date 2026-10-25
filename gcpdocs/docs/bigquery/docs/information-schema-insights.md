@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-insights/
 title: INFORMATION_SCHEMA.INSIGHTS view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:43:59.909751+00:00
+fetched_at: 2026-10-25T06:39:21.867846+00:00
 ---
 
 # INFORMATION_SCHEMA.INSIGHTS view  |  BigQuery  |  Google Cloud Documentation

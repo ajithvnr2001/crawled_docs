@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/ttl/
 title: Set a TTL (time-to-live) on conversation data \u00a0|\u00a0 Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:09.758808+00:00
+fetched_at: 2026-10-25T06:26:37.520061+00:00
 ---
 
 # Set a TTL (time-to-live) on conversation data  |  Customer Experience Insights  |  Google Cloud Documentation

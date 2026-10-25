@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/openapi/deploying-apis-subdomains/
 title: Serving multiple APIs from a domain \u00a0|\u00a0 Cloud Endpoints with OpenAPI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:21.684216+00:00
+fetched_at: 2026-10-25T06:17:41.853061+00:00
 ---
 
 # Serving multiple APIs from a domain  |  Cloud Endpoints with OpenAPI  |  Google Cloud Documentation

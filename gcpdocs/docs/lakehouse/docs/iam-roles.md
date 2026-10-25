@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/iam-roles/
 title: Borderless Lakehouse IAM roles \u00a0|\u00a0 BigLake API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:15.761135+00:00
+fetched_at: 2026-10-25T05:53:37.464238+00:00
 ---
 
 # Borderless Lakehouse IAM roles  |  BigLake API  |  Google Cloud Documentation

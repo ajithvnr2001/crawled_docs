@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/network/inbound/
 title: Inbound networking \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:40.179583+00:00
+fetched_at: 2026-10-25T06:24:53.442668+00:00
 ---
 
 # Inbound networking  |  CX Agent Studio  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/job-builder-save-load-yaml/
 title: Save and load YAML job definitions with the job builder \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:13:02.654087+00:00
+fetched_at: 2026-10-25T06:44:06.647192+00:00
 ---
 
 # Save and load YAML job definitions with the job builder  |  Cloud Dataflow  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/service/observability/observability-api-overview/
 title: Observability API overview \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:08:48.671101+00:00
+fetched_at: 2026-10-25T06:41:41.533846+00:00
 ---
 
 # Observability API overview  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

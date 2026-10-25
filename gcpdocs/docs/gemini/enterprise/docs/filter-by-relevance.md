@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/filter-by-relevance/
 title: Filter searches by document-level relevance (Legacy) \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:55:14.207996+00:00
+fetched_at: 2026-10-25T06:21:49.620496+00:00
 ---
 
 # Filter searches by document-level relevance (Legacy)  |  Gemini Enterprise  |  Google Cloud Documentation

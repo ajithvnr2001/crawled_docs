@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.12.0/docs/upgrade-kubernetes-database-minor-version/
 title: Perform a minor database version upgrade for AlloyDB Omni on Kubernetes \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.12.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:44:14.094696+00:00
+fetched_at: 2026-10-25T06:37:35.899367+00:00
 ---
 
 # Perform a minor database version upgrade for AlloyDB Omni on Kubernetes  |  AlloyDB Omni for Kubernetes: 15.12.0  |  Google Cloud Documentation

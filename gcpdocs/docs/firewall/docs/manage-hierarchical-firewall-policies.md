@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/manage-hierarchical-firewall-policies/
 title: Manage hierarchical firewall policies and rules \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:03:24.605844+00:00
+fetched_at: 2026-10-25T06:18:34.714948+00:00
 ---
 
 # Manage hierarchical firewall policies and rules  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

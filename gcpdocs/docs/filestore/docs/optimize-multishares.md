@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/filestore/docs/optimize-multishares/
 title: Optimize storage with Filestore Multishares for GKE \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:24.253383+00:00
+fetched_at: 2026-10-25T05:56:01.023036+00:00
 ---
 
 # Optimize storage with Filestore Multishares for GKE  |  Google Cloud Documentation

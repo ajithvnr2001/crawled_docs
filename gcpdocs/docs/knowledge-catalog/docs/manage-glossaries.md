@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/manage-glossaries/
 title: Manage a business glossary \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:22:02.524411+00:00
+fetched_at: 2026-10-25T05:53:01.458252+00:00
 ---
 
 # Manage a business glossary  |  Knowledge Catalog  |  Google Cloud Documentation

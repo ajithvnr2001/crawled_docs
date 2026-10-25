@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/integration-patterns/
 title: Integration patterns for data agents \u00a0|\u00a0 Conversational Analytics API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:40.282989+00:00
+fetched_at: 2026-10-25T05:55:22.579015+00:00
 ---
 
 # Integration patterns for data agents  |  Conversational Analytics API  |  Google Cloud Documentation

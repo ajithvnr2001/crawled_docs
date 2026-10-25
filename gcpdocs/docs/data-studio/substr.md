@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/substr/
 title: SUBSTR \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:06.896744+00:00
+fetched_at: 2026-10-25T06:44:14.383786+00:00
 ---
 
 # SUBSTR  |  Data Studio  |  Google Cloud Documentation

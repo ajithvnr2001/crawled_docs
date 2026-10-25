@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/vpc-firewall-rules-logging-overview/
 title: VPC firewall rules logging overview \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:26.020347+00:00
+fetched_at: 2026-10-25T06:24:35.461141+00:00
 ---
 
 # VPC firewall rules logging overview  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

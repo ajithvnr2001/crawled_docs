@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/ai/create-scann-index/
 title: Create a ScaNN index \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:57:51.855113+00:00
+fetched_at: 2026-10-25T05:56:24.300123+00:00
 ---
 
 # Create a ScaNN index  |  AlloyDB Omni using the container orchestrator: 18.3.0  |  Google Cloud Documentation

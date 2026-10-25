@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/workflows/route-trigger-cloud-functions/
 title: Route Cloud Run functions (formerly Cloud Functions) events to Workflows \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:02.858725+00:00
+fetched_at: 2026-10-25T06:18:08.374735+00:00
 ---
 
 # Route Cloud Run functions (formerly Cloud Functions) events to Workflows  |  Eventarc Standard  |  Google Cloud Documentation

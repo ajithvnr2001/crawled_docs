@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.13.0/docs/ai/maintain-vector-indexes/
 title: Maintain vector indexes \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:44:53.889419+00:00
+fetched_at: 2026-10-25T06:37:23.298077+00:00
 ---
 
 # Maintain vector indexes  |  AlloyDB Omni for Kubernetes: 15.13.0  |  Google Cloud Documentation

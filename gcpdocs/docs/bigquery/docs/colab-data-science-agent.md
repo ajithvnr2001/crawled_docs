@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/colab-data-science-agent/
 title: Use the Colab Enterprise Data Science Agent with BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:28.549125+00:00
+fetched_at: 2026-10-25T06:40:14.997359+00:00
 ---
 
 # Use the Colab Enterprise Data Science Agent with BigQuery  |  Google Cloud Documentation

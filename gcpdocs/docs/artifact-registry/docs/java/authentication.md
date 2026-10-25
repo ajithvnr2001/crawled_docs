@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/java/authentication/
 title: Configure authentication to Artifact Registry for Maven and Gradle \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:24:32.834632+00:00
+fetched_at: 2026-10-25T06:36:22.751262+00:00
 ---
 
 # Configure authentication to Artifact Registry for Maven and Gradle  |  Google Cloud Documentation

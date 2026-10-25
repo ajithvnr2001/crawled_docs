@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/create-manage-split-points/
 title: Create and manage split points \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:31:59.281433+00:00
+fetched_at: 2026-10-25T05:44:46.204473+00:00
 ---
 
 # Create and manage split points  |  Spanner  |  Google Cloud Documentation
@@ -377,7 +377,7 @@ You should receive a successful status code (2xx) and an empty response.
     import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html);
     import com.google.cloud.spanner.admin.database.v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html);
     import com.google.protobuf.[ListValue](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html);
-    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html);
+    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Value.html);
     import com.google.spanner.admin.database.v1.[DatabaseName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.DatabaseName.html);
     import com.google.spanner.admin.database.v1.[SplitPoints](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.SplitPoints.html);
     import java.io.IOException;
@@ -424,7 +424,7 @@ You should receive a successful status code (2xx) and an empty response.
                       com.google.spanner.admin.database.v1.SplitPoints.Key.newBuilder()
                           .[setKeyParts](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.SplitPoints.Key.Builder.html#com_google_spanner_admin_database_v1_SplitPoints_Key_Builder_setKeyParts_com_google_protobuf_ListValue_)(
                               [ListValue](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html).newBuilder()
-                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).newBuilder().setStringValue("42").build())
+                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("42").build())
                                   .build()))
                   .build();
     
@@ -436,8 +436,8 @@ You should receive a successful status code (2xx) and an empty response.
                       com.google.spanner.admin.database.v1.SplitPoints.Key.newBuilder()
                           .[setKeyParts](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.SplitPoints.Key.Builder.html#com_google_spanner_admin_database_v1_SplitPoints_Key_Builder_setKeyParts_com_google_protobuf_ListValue_)(
                               [ListValue](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html).newBuilder()
-                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).newBuilder().setStringValue("John").build())
-                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).newBuilder().setStringValue("Doe").build())
+                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("John").build())
+                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("Doe").build())
                                   .build()))
                   .build();
     
@@ -449,14 +449,14 @@ You should receive a successful status code (2xx) and an empty response.
                       com.google.spanner.admin.database.v1.SplitPoints.Key.newBuilder()
                           .[setKeyParts](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.SplitPoints.Key.Builder.html#com_google_spanner_admin_database_v1_SplitPoints_Key_Builder_setKeyParts_com_google_protobuf_ListValue_)(
                               [ListValue](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html).newBuilder()
-                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).newBuilder().setStringValue("Jane").build())
-                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).newBuilder().setStringValue("Doe").build())
+                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("Jane").build())
+                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("Doe").build())
                                   .build()))
                   .[addKeys](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.SplitPoints.Builder.html#com_google_spanner_admin_database_v1_SplitPoints_Builder_addKeys_com_google_spanner_admin_database_v1_SplitPoints_Key_)(
                       com.google.spanner.admin.database.v1.SplitPoints.Key.newBuilder()
                           .[setKeyParts](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.SplitPoints.Key.Builder.html#com_google_spanner_admin_database_v1_SplitPoints_Key_Builder_setKeyParts_com_google_protobuf_ListValue_)(
                               [ListValue](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html).newBuilder()
-                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).newBuilder().setStringValue("38").build())
+                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("38").build())
                                   .build()))
                   .build();
     

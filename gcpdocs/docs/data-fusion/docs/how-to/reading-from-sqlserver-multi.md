@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/reading-from-sqlserver-multi/
 title: Read from multiple Microsoft SQL Server tables \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:59.921059+00:00
+fetched_at: 2026-10-25T06:42:58.285879+00:00
 ---
 
 # Read from multiple Microsoft SQL Server tables  |  Cloud Data Fusion  |  Google Cloud Documentation

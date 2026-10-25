@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/enterprise-app-oracle-exadata-database-compute-engine/
 title: Enterprise application on Compute Engine with Oracle Exadata \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:24.099244+00:00
+fetched_at: 2026-10-25T06:33:30.625681+00:00
 ---
 
 # Enterprise application on Compute Engine with Oracle Exadata  |  Cloud Architecture Center  |  Google Cloud Documentation

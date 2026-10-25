@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.4.0/docs/create-cluster/
 title: Create a cluster \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:50:28.404949+00:00
+fetched_at: 2026-10-25T06:25:12.004465+00:00
 ---
 
 # Create a cluster  |  AlloyDB Omni using the RPM orchestrator: 18.4.0  |  Google Cloud Documentation

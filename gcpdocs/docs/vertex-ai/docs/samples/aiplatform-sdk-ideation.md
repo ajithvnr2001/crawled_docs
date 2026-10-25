@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-sdk-ideation/
 title: Test text prompts (Generative AI) \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:32.590047+00:00
+fetched_at: 2026-10-25T05:44:07.721231+00:00
 ---
 
 # Test text prompts (Generative AI)  |  Vertex AI  |  Google Cloud Documentation
@@ -142,8 +142,8 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
       prompt = "Give me ten interview questions for the role of program manager."
     
       # Initialize the request arguments
-      instance = Google::Protobuf::[Value](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-network_services-v1/latest/Google-Protobuf-Value.html).new(
-        struct_value: Google::Protobuf::[Struct](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-network_services-v1/latest/Google-Protobuf-Struct.html).new(
+      instance = Google::Protobuf::[Value](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-agent_registry-v1/latest/Google-Protobuf-Value.html).new(
+        struct_value: Google::Protobuf::[Struct](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-agent_registry-v1/latest/Google-Protobuf-Struct.html).new(
           fields: {
             "prompt" => Google::Protobuf::Value.new(
               string_value: prompt
@@ -154,8 +154,8 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
       instances = [instance]
     
-      parameters = Google::Protobuf::[Value](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-network_services-v1/latest/Google-Protobuf-Value.html).new(
-        struct_value: Google::Protobuf::[Struct](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-network_services-v1/latest/Google-Protobuf-Struct.html).new(
+      parameters = Google::Protobuf::[Value](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-agent_registry-v1/latest/Google-Protobuf-Value.html).new(
+        struct_value: Google::Protobuf::[Struct](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-agent_registry-v1/latest/Google-Protobuf-Struct.html).new(
           fields: {
             "temperature" => Google::Protobuf::Value.new(number_value: 0.2),
             "maxOutputTokens" => Google::Protobuf::Value.new(number_value: 256),

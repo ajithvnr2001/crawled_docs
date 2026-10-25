@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/ui-modules-container-v2/
 title: Container V2 \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:17.678760+00:00
+fetched_at: 2026-10-25T06:26:00.346048+00:00
 ---
 
 # Container V2  |  Agent Assist  |  Google Cloud Documentation

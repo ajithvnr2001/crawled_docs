@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/search-resources/
 title: Search for resources \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:58.770552+00:00
+fetched_at: 2026-10-25T06:41:49.848533+00:00
 ---
 
 # Search for resources  |  BigQuery  |  Google Cloud Documentation

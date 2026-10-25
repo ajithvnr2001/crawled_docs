@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/history-based-optimizations/
 title: Use history-based optimizations \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:56.882587+00:00
+fetched_at: 2026-10-25T06:38:39.484489+00:00
 ---
 
 # Use history-based optimizations  |  BigQuery  |  Google Cloud Documentation

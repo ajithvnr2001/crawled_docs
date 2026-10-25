@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/workflows/route-trigger-cloud-data-fusion/
 title: Route Cloud Data Fusion events to Workflows \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:03.861728+00:00
+fetched_at: 2026-10-25T06:17:26.007994+00:00
 ---
 
 # Route Cloud Data Fusion events to Workflows  |  Eventarc Standard  |  Google Cloud Documentation

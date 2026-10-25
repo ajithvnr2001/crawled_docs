@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/shard-timestamp/
 title: Sharded timestamps \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:39.291368+00:00
+fetched_at: 2026-10-25T06:25:02.538706+00:00
 ---
 
 # Sharded timestamps  |  Firestore in Native mode  |  Google Cloud Documentation

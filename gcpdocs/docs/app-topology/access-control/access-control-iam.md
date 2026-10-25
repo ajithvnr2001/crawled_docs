@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-topology/access-control/access-control-iam/
 title: Access control with IAM \u00a0|\u00a0 App Topology \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:48:04.056246+00:00
+fetched_at: 2026-10-25T06:34:14.762915+00:00
 ---
 
 # Access control with IAM  |  App Topology  |  Google Cloud Documentation

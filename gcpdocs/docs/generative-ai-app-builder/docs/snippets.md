@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/snippets/
 title: Get snippets and extracted content \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:33.294808+00:00
+fetched_at: 2026-10-25T06:24:44.520522+00:00
 ---
 
 # Get snippets and extracted content  |  Agent Search  |  Google Cloud Documentation

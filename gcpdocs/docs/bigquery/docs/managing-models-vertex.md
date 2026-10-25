@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/managing-models-vertex/
 title: Manage BigQuery ML models in Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:15.594629+00:00
+fetched_at: 2026-10-25T06:43:29.186258+00:00
 ---
 
 # Manage BigQuery ML models in Gemini Enterprise Agent Platform  |  Google Cloud Documentation

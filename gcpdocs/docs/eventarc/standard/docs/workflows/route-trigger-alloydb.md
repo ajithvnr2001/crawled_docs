@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/workflows/route-trigger-alloydb/
 title: Route AlloyDB for PostgreSQL events to Workflows \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:05.422837+00:00
+fetched_at: 2026-10-25T05:55:38.847201+00:00
 ---
 
 # Route AlloyDB for PostgreSQL events to Workflows  |  Eventarc Standard  |  Google Cloud Documentation

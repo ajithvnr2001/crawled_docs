@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/analyze-data-pipe-syntax/
 title: Analyze data using pipe syntax \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:32:12.188060+00:00
+fetched_at: 2026-10-25T06:42:48.020132+00:00
 ---
 
 # Analyze data using pipe syntax  |  BigQuery  |  Google Cloud Documentation

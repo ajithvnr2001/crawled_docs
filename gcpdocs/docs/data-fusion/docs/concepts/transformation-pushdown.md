@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/concepts/transformation-pushdown/
 title: Transformation Pushdown overview \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:26.203028+00:00
+fetched_at: 2026-10-25T06:42:35.147564+00:00
 ---
 
 # Transformation Pushdown overview  |  Cloud Data Fusion  |  Google Cloud Documentation

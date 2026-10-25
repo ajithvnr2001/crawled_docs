@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/use-cases/anomaly-detection-transaction-data/
 title: Detect anomalies in transaction data \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:51.314853+00:00
+fetched_at: 2026-10-25T06:22:06.837662+00:00
 ---
 
 # Detect anomalies in transaction data  |  Gemini Enterprise  |  Google Cloud Documentation

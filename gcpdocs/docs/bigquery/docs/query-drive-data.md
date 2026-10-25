@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/query-drive-data/
 title: Query Drive external tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:34.713438+00:00
+fetched_at: 2026-10-25T06:43:07.339790+00:00
 ---
 
 # Query Drive external tables  |  BigQuery  |  Google Cloud Documentation

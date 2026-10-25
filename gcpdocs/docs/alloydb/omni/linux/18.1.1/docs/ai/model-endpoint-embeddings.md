@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.1/docs/ai/model-endpoint-embeddings/
 title: Generate vector embeddings with model endpoint management \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:45.140516+00:00
+fetched_at: 2026-10-25T06:38:09.030850+00:00
 ---
 
 # Generate vector embeddings with model endpoint management  |  AlloyDB Omni using RPM: 18.1.1  |  Google Cloud Documentation

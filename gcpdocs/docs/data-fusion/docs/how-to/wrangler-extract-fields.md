@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/wrangler-extract-fields/
 title: Extract data from fields \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:55.752462+00:00
+fetched_at: 2026-10-25T06:43:30.558110+00:00
 ---
 
 # Extract data from fields  |  Cloud Data Fusion  |  Google Cloud Documentation

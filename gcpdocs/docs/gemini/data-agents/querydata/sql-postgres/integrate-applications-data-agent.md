@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/querydata/sql-postgres/integrate-applications-data-agent/
 title: Integrate QueryData with an application \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:30.019005+00:00
+fetched_at: 2026-10-25T06:19:17.507665+00:00
 ---
 
 # Integrate QueryData with an application  |  Data Agents  |  Google Cloud Documentation

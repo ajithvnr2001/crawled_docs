@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/listen/
 title: Get real-time updates \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:47.616363+00:00
+fetched_at: 2026-10-25T06:24:21.887440+00:00
 ---
 
 # Get real-time updates  |  Firestore in Native mode  |  Google Cloud Documentation

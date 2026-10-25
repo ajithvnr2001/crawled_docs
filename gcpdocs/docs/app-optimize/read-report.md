@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-optimize/read-report/
 title: Read a report's data \u00a0|\u00a0 App Optimize \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:48:05.309226+00:00
+fetched_at: 2026-10-25T06:33:41.507166+00:00
 ---
 
 # Read a report's data  |  App Optimize  |  Google Cloud Documentation

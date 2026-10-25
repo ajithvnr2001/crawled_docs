@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-bi-capacities/
 title: INFORMATION_SCHEMA.BI_CAPACITIES view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:53.735701+00:00
+fetched_at: 2026-10-25T06:38:03.199955+00:00
 ---
 
 # INFORMATION_SCHEMA.BI_CAPACITIES view  |  BigQuery  |  Google Cloud Documentation

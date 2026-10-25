@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dotnet/docs/setup/
 title: Setting up a .NET development environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:04:57.287469+00:00
+fetched_at: 2026-10-25T06:17:57.439671+00:00
 ---
 
 # Setting up a .NET development environment  |  Google Cloud Documentation

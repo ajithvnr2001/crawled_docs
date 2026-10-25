@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/create-custom-constraints/
 title: Create custom organization policy constraints \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:04.324270+00:00
+fetched_at: 2026-10-25T06:43:36.620174+00:00
 ---
 
 # Create custom organization policy constraints  |  Cloud Data Fusion  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-helloworld-http/
 title: HTTP Hello World \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:22.921345+00:00
+fetched_at: 2026-10-25T06:24:53.154785+00:00
 ---
 
 # HTTP Hello World  |  Cloud Run functions  |  Google Cloud Documentation

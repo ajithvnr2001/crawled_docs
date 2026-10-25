@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/opencode-cli/
 title: Use the OpenCode CLI with a Gemini Enterprise Agent Platform Workbench instance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:33.436555+00:00
+fetched_at: 2026-10-25T06:26:50.554814+00:00
 ---
 
 # Use the OpenCode CLI with a Gemini Enterprise Agent Platform Workbench instance  |  Google Cloud Documentation

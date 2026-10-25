@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/15.5.5/docs/error-codes/ec-DBSE0601/
 title: DBSE0601. PgBackRest: Failed to backup \u00a0|\u00a0 AlloyDB Omni for containers: 15.5.5 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:48:21.013028+00:00
+fetched_at: 2026-10-25T06:34:29.966316+00:00
 ---
 
 # DBSE0601. PgBackRest: Failed to backup  |  AlloyDB Omni for containers: 15.5.5  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/conversation-history/
 title: Conversation history \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:04.887448+00:00
+fetched_at: 2026-10-25T06:25:37.291178+00:00
 ---
 
 # Conversation history  |  CX Agent Studio  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/order-structured-results/
 title: Order results from structured data stores \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:34.914410+00:00
+fetched_at: 2026-10-25T06:25:31.886158+00:00
 ---
 
 # Order results from structured data stores  |  Agent Search  |  Google Cloud Documentation

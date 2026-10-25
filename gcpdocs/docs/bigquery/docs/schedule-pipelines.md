@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/schedule-pipelines/
 title: Schedule pipelines \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:00.239080+00:00
+fetched_at: 2026-10-25T06:42:26.876479+00:00
 ---
 
 # Schedule pipelines  |  BigQuery  |  Google Cloud Documentation

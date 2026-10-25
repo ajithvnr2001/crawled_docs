@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/firestore-security-rules-recommender/
 title: Firestore Security Rules recommender \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:37.170562+00:00
+fetched_at: 2026-10-25T06:21:00.612582+00:00
 ---
 
 # Firestore Security Rules recommender  |  Firestore in Native mode  |  Google Cloud Documentation

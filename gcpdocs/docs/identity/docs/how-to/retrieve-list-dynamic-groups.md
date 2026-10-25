@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity/docs/how-to/retrieve-list-dynamic-groups/
 title: Retrieving a dynamic group and listing members \u00a0|\u00a0 Cloud Identity \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:39.992567+00:00
+fetched_at: 2026-10-25T06:21:11.387132+00:00
 ---
 
 # Retrieving a dynamic group and listing members  |  Cloud Identity  |  Google Cloud Documentation

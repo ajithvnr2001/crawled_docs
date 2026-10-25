@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/deploy/twilio/
 title: Twilio \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:40.788630+00:00
+fetched_at: 2026-10-25T06:24:40.766234+00:00
 ---
 
 # Twilio  |  CX Agent Studio  |  Google Cloud Documentation

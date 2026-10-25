@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/apis/
 title: APIs and reference \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:37.159857+00:00
+fetched_at: 2026-10-25T06:25:01.056628+00:00
 ---
 
 # APIs and reference  |  Cloud Next Generation Firewall  |  Google Cloud Documentation

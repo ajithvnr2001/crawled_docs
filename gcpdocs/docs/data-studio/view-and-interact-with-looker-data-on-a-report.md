@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/view-and-interact-with-looker-data-on-a-report/
 title: View and interact with Looker data on a Data Studio report \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:29.996709+00:00
+fetched_at: 2026-10-25T06:43:54.020470+00:00
 ---
 
 # View and interact with Looker data on a Data Studio report  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.9.0/docs/build-postgresql-community/
 title: Build with the PostgreSQL community \u00a0|\u00a0 AlloyDB Omni for containers: 16.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:59:43.859418+00:00
+fetched_at: 2026-10-25T05:53:41.146530+00:00
 ---
 
 # Build with the PostgreSQL community  |  AlloyDB Omni for containers: 16.9.0  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access/
 title: About cross-cloud data access \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:17.641834+00:00
+fetched_at: 2026-10-25T05:53:32.312887+00:00
 ---
 
 # About cross-cloud data access  |  Lakehouse  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/15.12.0/docs/replicate-data-alloydb-omni/
 title: Replicate data between AlloyDB and AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni for containers: 15.12.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:46:58.613421+00:00
+fetched_at: 2026-10-25T06:34:45.879118+00:00
 ---
 
 # Replicate data between AlloyDB and AlloyDB Omni  |  AlloyDB Omni for containers: 15.12.0  |  Google Cloud Documentation

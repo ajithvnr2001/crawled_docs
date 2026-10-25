@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/infrastructure-manager/docs/upload-terraform-configuration/
 title: Upload a Terraform configuration to a storage bucket \u00a0|\u00a0 Infrastructure Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:28.015386+00:00
+fetched_at: 2026-10-25T06:21:44.882066+00:00
 ---
 
 # Upload a Terraform configuration to a storage bucket  |  Infrastructure Manager  |  Google Cloud Documentation

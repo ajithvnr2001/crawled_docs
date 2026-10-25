@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/resolve-domain-names/
 title: Resolve domain names or hostnames \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:59.188450+00:00
+fetched_at: 2026-10-25T06:44:13.931046+00:00
 ---
 
 # Resolve domain names or hostnames  |  Cloud Data Fusion  |  Google Cloud Documentation

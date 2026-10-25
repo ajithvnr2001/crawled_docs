@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/discover-consume-data-products-data-mesh/
 title: Discover and consume data products in a data mesh \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:25.136854+00:00
+fetched_at: 2026-10-25T06:34:05.057738+00:00
 ---
 
 # Discover and consume data products in a data mesh  |  Cloud Architecture Center  |  Google Cloud Documentation

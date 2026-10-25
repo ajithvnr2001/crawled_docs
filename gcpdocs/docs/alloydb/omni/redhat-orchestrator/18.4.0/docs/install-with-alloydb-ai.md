@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/redhat-orchestrator/18.4.0/docs/install-with-alloydb-ai/
 title: Install AlloyDB Omni with AlloyDB AI \u00a0|\u00a0 AlloyDB Omni using the RPM orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:50:27.281651+00:00
+fetched_at: 2026-10-25T06:26:52.872844+00:00
 ---
 
 # Install AlloyDB Omni with AlloyDB AI  |  AlloyDB Omni using the RPM orchestrator: 18.4.0  |  Google Cloud Documentation

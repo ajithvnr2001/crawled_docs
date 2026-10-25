@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/concepts/wrangler-overview/
 title: Wrangler overview \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:25.436060+00:00
+fetched_at: 2026-10-25T06:43:07.427945+00:00
 ---
 
 # Wrangler overview  |  Cloud Data Fusion  |  Google Cloud Documentation

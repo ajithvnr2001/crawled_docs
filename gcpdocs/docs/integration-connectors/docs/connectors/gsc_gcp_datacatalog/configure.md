@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/gsc_gcp_datacatalog/configure/
 title: Data Catalog \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:48.617471+00:00
+fetched_at: 2026-10-25T05:57:03.386743+00:00
 ---
 
 # Data Catalog  |  Integration Connectors  |  Google Cloud Documentation

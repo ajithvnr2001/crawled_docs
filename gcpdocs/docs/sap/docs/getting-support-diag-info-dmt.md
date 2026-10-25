@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/getting-support-diag-info-dmt/
 title: Deployment Manager templates for SAP diagnostic information \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:00:33.658184+00:00
+fetched_at: 2026-10-25T05:45:09.187914+00:00
 ---
 
 # Deployment Manager templates for SAP diagnostic information  |  SAP on Google Cloud  |  Google Cloud Documentation

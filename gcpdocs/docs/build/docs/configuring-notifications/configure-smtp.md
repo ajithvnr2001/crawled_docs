@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/configuring-notifications/configure-smtp/
 title: Configure SMTP notifications \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:07.992812+00:00
+fetched_at: 2026-10-25T06:42:00.338390+00:00
 ---
 
 # Configure SMTP notifications  |  Cloud Build  |  Google Cloud Documentation

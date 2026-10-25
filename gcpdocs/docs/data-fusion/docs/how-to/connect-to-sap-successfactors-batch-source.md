@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/connect-to-sap-successfactors-batch-source/
 title: SAP SuccessFactors batch source \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:04.654485+00:00
+fetched_at: 2026-10-25T06:43:38.767723+00:00
 ---
 
 # SAP SuccessFactors batch source  |  Cloud Data Fusion  |  Google Cloud Documentation

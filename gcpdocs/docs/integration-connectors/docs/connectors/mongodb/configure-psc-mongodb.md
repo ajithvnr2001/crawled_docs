@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/mongodb/configure-psc-mongodb/
 title: Example: Private connectivity for a MongoDB Atlas cluster \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:45.252169+00:00
+fetched_at: 2026-10-25T06:17:40.620973+00:00
 ---
 
 # Example: Private connectivity for a MongoDB Atlas cluster  |  Integration Connectors  |  Google Cloud Documentation

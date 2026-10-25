@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/secure-deployments/
 title: Securing deployments \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:17.022788+00:00
+fetched_at: 2026-10-25T06:36:08.026926+00:00
 ---
 
 # Securing deployments  |  Artifact Registry  |  Google Cloud Documentation

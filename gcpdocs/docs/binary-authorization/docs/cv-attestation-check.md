@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/binary-authorization/docs/cv-attestation-check/
 title: Use the simple signing attestation check \u00a0|\u00a0 Binary Authorization \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:58.456666+00:00
+fetched_at: 2026-10-25T06:42:00.044414+00:00
 ---
 
 # Use the simple signing attestation check  |  Binary Authorization  |  Google Cloud Documentation

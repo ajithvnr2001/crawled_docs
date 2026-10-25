@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/sample-terraform-managed-zone/
 title: Sample terraform template for managed zone creation \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:47.315031+00:00
+fetched_at: 2026-10-25T06:21:16.207140+00:00
 ---
 
 # Sample terraform template for managed zone creation  |  Integration Connectors  |  Google Cloud Documentation

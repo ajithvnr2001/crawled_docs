@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/manage-site-controls/
 title: Manage site-wide attribute controls \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:22.016644+00:00
+fetched_at: 2026-10-25T06:24:58.374007+00:00
 ---
 
 # Manage site-wide attribute controls  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

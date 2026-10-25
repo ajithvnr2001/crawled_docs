@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/configure-gke-node-pool/
 title: Configure a GKE node pool \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:44.908276+00:00
+fetched_at: 2026-10-25T06:35:09.029717+00:00
 ---
 
 # Configure a GKE node pool  |  Application Design Center  |  Google Cloud Documentation

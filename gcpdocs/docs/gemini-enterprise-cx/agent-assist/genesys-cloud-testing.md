@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/genesys-cloud-testing/
 title: Test chat integration \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:39.681957+00:00
+fetched_at: 2026-10-25T06:24:59.069262+00:00
 ---
 
 # Test chat integration  |  Agent Assist  |  Google Cloud Documentation

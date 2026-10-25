@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-open-source-software/docs/verify-build-provenance/
 title: Verify the build provenance \u00a0|\u00a0 Assured Open Source Software \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:47.758643+00:00
+fetched_at: 2026-10-25T06:37:23.452110+00:00
 ---
 
 # Verify the build provenance  |  Assured Open Source Software  |  Google Cloud Documentation

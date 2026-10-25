@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/supported-formats/
 title: Supported formats \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:16.555924+00:00
+fetched_at: 2026-10-25T06:37:34.527800+00:00
 ---
 
 # Supported formats  |  Artifact Registry  |  Google Cloud Documentation

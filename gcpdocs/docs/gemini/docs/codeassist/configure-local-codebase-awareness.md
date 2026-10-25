@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/docs/codeassist/configure-local-codebase-awareness/
 title: Configure local codebase awareness \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:18.759154+00:00
+fetched_at: 2026-10-25T06:20:13.257794+00:00
 ---
 
 # Configure local codebase awareness  |  Gemini for Google Cloud  |  Google Cloud Documentation

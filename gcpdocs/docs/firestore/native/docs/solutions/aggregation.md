@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/aggregation/
 title: Write-time aggregations \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:41.343410+00:00
+fetched_at: 2026-10-25T06:25:18.970534+00:00
 ---
 
 # Write-time aggregations  |  Firestore in Native mode  |  Google Cloud Documentation

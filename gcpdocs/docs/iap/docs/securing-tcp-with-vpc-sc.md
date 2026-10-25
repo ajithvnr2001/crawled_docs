@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/securing-tcp-with-vpc-sc/
 title: Securing IAP for TCP forwarding with VPC Service Controls \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:07.445034+00:00
+fetched_at: 2026-10-25T06:21:12.313741+00:00
 ---
 
 # Securing IAP for TCP forwarding with VPC Service Controls  |  Identity-Aware Proxy  |  Google Cloud Documentation

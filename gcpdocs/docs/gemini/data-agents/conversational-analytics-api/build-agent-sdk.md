@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/build-agent-sdk/
 title: Build a data agent using the Python SDK \u00a0|\u00a0 Conversational Analytics API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:28.158906+00:00
+fetched_at: 2026-10-25T06:23:37.471679+00:00
 ---
 
 # Build a data agent using the Python SDK  |  Conversational Analytics API  |  Google Cloud Documentation

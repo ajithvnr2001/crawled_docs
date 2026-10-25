@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/summarization-with-custom-sections/
 title: Summarization with custom sections \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:22.431443+00:00
+fetched_at: 2026-10-25T06:26:13.261249+00:00
 ---
 
 # Summarization with custom sections  |  Agent Assist  |  Google Cloud Documentation

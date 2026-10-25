@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/private-pools/access-private-gke-clusters-identity-service/
 title: Access private Google Kubernetes Engine clusters from Cloud Build private pools using Identity Service for GKE \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:05.714315+00:00
+fetched_at: 2026-10-25T06:42:27.142085+00:00
 ---
 
 # Access private Google Kubernetes Engine clusters from Cloud Build private pools using Identity Service for GKE  |  Google Cloud Documentation

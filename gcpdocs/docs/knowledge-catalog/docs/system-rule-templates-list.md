@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/system-rule-templates-list/
 title: System rule templates list \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:50.576500+00:00
+fetched_at: 2026-10-25T05:55:49.025167+00:00
 ---
 
 # System rule templates list  |  Knowledge Catalog  |  Google Cloud Documentation

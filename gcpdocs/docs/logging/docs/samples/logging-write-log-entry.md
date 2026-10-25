@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/samples/logging-write-log-entry/
 title: Write structured logs \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:35:53.564042+00:00
+fetched_at: 2026-10-25T05:52:58.937130+00:00
 ---
 
 # Write structured logs  |  Cloud Logging  |  Google Cloud Documentation
@@ -227,7 +227,7 @@ To authenticate to Logging, set up Application Default Credentials. For more inf
     
     require "google/cloud/logging"
     
-    logging = Google::Cloud::[Logging](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging/latest/Google-Cloud-Logging.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging/latest/Google-Cloud-Logging.html)
+    logging = Google::Cloud::[Logging](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_control-v1/latest/Google-Cloud-Logging.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging/latest/Google-Cloud-Logging.html)
     
     entry = logging.[entry](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging/latest/Google-Cloud-Logging-Project.html)
     # payload = "The data you want to log"

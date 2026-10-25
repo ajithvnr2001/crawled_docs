@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/admin/create-custom-tokens/
 title: Creating custom tokens \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:05.914310+00:00
+fetched_at: 2026-10-25T06:21:31.420274+00:00
 ---
 
 # Creating custom tokens  |  Identity Platform  |  Google Cloud Documentation

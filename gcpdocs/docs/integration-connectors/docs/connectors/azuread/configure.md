@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/azuread/configure/
 title: Azure AD (Entra ID) \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:45:46.742621+00:00
+fetched_at: 2026-10-25T06:18:29.276065+00:00
 ---
 
 # Azure AD (Entra ID)  |  Integration Connectors  |  Google Cloud Documentation

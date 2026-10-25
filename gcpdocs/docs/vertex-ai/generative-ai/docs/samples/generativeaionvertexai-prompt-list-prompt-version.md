@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-prompt-list-prompt-version/
 title: List available prompt versions \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:43.834000+00:00
+fetched_at: 2026-10-25T05:44:07.598717+00:00
 ---
 
 # List available prompt versions  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -35,12 +35,12 @@ Before trying this sample, follow the Python setup instructions in the [Vertex A
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
-    from vertexai.preview.prompts import [Prompt](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.Prompt.html)
-    from vertexai.preview import [prompts](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.prompts.html)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    from vertexai.preview.prompts import [Prompt](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.Prompt.html)
+    from vertexai.preview import [prompts](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.prompts.html)
     
     # Initialize vertexai
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="us-central1")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="us-central1")
     
     # Create local Prompt
     prompt = Prompt(
@@ -50,14 +50,14 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         system_instruction="You are a zoologist. Answer in a short sentence.",
     )
     # Save Prompt to online resource.
-    prompt1 = [prompts](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.prompts.html).create_version(prompt=prompt)
+    prompt1 = [prompts](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.prompts.html).create_version(prompt=prompt)
     prompt_id = prompt1.prompt_id
     
     # Get prompt a prompt from list
-    prompt_versions_metadata = [prompts](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.prompts.html).list_versions(prompt_id=prompt_id)
+    prompt_versions_metadata = [prompts](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.prompts.html).list_versions(prompt_id=prompt_id)
     
     # Get a specific prompt version from the versions metadata list
-    prompt1 = [prompts](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.prompts.html).get(
+    prompt1 = [prompts](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.prompts.html).get(
         prompt_id=prompt_versions_metadata[0].prompt_id,
         version_id=prompt_versions_metadata[0].version_id,
     )

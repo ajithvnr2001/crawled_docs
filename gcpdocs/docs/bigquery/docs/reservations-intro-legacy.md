@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/reservations-intro-legacy/
 title: Introduction to legacy reservations \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:33:29.466583+00:00
+fetched_at: 2026-10-25T06:42:09.472153+00:00
 ---
 
 # Introduction to legacy reservations  |  BigQuery  |  Google Cloud Documentation

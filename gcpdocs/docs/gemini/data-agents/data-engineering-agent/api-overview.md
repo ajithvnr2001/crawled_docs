@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/data-engineering-agent/api-overview/
 title: Data Engineering Agent API: Build data pipelines with an agent \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:02:37.688493+00:00
+fetched_at: 2026-10-25T06:19:03.343498+00:00
 ---
 
 # Data Engineering Agent API: Build data pipelines with an agent  |  Data Agents  |  Google Cloud Documentation

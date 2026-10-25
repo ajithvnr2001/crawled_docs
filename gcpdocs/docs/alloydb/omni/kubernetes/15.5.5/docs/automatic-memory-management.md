@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/automatic-memory-management/
 title: About automatic memory management \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.5.5 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:44:13.145827+00:00
+fetched_at: 2026-10-25T06:38:02.503758+00:00
 ---
 
 # About automatic memory management  |  AlloyDB Omni for Kubernetes: 15.5.5  |  Google Cloud Documentation

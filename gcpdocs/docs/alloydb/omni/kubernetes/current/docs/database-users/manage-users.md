@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/database-users/manage-users/
 title: Manage AlloyDB Omni users and roles \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:56:32.676524+00:00
+fetched_at: 2026-10-25T06:17:45.871680+00:00
 ---
 
 # Manage AlloyDB Omni users and roles  |  AlloyDB Omni using the container orchestrator: Current (18.4.0)  |  Google Cloud Documentation

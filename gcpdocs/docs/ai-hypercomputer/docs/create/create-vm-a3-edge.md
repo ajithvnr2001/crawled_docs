@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-vm-a3-edge/
 title: Create an AI-optimized instance with A3 Edge \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:36.206683+00:00
+fetched_at: 2026-10-25T06:27:48.382321+00:00
 ---
 
 # Create an AI-optimized instance with A3 Edge  |  AI Hypercomputer  |  Google Cloud Documentation

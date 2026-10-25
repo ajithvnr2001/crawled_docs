@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/tutorial-gce/
 title: Setting up IAP for Compute Engine \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:07.095491+00:00
+fetched_at: 2026-10-25T06:17:47.858534+00:00
 ---
 
 # Setting up IAP for Compute Engine  |  Identity-Aware Proxy  |  Google Cloud Documentation

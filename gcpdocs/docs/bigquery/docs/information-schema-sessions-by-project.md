@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-sessions-by-project/
 title: SESSIONS_BY_PROJECT view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:43:51.746007+00:00
+fetched_at: 2026-10-25T06:37:57.556181+00:00
 ---
 
 # SESSIONS_BY_PROJECT view  |  BigQuery  |  Google Cloud Documentation

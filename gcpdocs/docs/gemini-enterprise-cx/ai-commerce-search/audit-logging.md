@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/audit-logging/
 title: AI Commerce Search audit logging \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:33.190762+00:00
+fetched_at: 2026-10-25T06:24:20.817763+00:00
 ---
 
 # AI Commerce Search audit logging  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation

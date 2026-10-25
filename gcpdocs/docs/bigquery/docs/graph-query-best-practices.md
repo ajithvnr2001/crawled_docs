@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/graph-query-best-practices/
 title: Graph query best practices \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:59.961742+00:00
+fetched_at: 2026-10-25T06:38:04.459175+00:00
 ---
 
 # Graph query best practices  |  BigQuery  |  Google Cloud Documentation

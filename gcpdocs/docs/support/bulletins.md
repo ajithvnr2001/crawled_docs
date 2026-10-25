@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/support/bulletins/
 title: Security bulletins \u00a0|\u00a0 Cloud Customer Care \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:10:33.530118+00:00
+fetched_at: 2026-10-25T05:53:30.103780+00:00
 ---
 
 # Security bulletins  |  Cloud Customer Care  |  Google Cloud Documentation
@@ -26,6 +26,17 @@ The following security bulletins are related to Google Cloud products.
 
 [ Use this XML feed to subscribe to security bulletins for this page. ![Subscribe](https://docs.cloud.google.com/static/docs/images/feed-icon.png)](https://cloud.google.com/feeds/google-cloud-security-bulletins.xml)
 
+## GCP-2026-072
+
+**Published:** 2026-10-24
+
+### Description
+
+Description | Severity | Notes  
+---|---|---  
+Two vulnerabilities in PHP core, CVE-2026-109618 and CVE-2026-109619 ("PHP2Shell"), allow an unauthenticated attacker to execute code remotely on a server running a vulnerable PHP version. They are fixed in PHP 8.2.35, 8.3.36, 8.4.27, and 8.5.12. No fixed release exists for PHP 8.1 or earlier. The impact on Apigee is limited to Drupal-based Apigee developer portals, which customers deploy and operate. Other Apigee products don't use PHP and aren't affected. For instructions and more details, see the [Apigee security bulletin](https://docs.cloud.google.com/apigee/docs/security-bulletins/security-bulletins#gcp-2026-072).  | Critical |  [CVE-2026-109618](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-109618)  
+[CVE-2026-109619](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-109619)  
+  
 ## GCP-2026-071
 
 **Published:** 2026-10-23
@@ -7451,6 +7462,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

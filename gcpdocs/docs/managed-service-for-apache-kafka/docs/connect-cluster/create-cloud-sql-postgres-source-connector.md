@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/create-cloud-sql-postgres-source-connector/
 title: Create a Cloud SQL for PostgreSQL Source connector \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:56.056004+00:00
+fetched_at: 2026-10-25T05:53:13.782665+00:00
 ---
 
 # Create a Cloud SQL for PostgreSQL Source connector  |  Managed Service for Apache Kafka  |  Google Cloud Documentation
@@ -196,7 +196,7 @@ After you create the IAM user account, connect to the database as a user with th
 
   2. Grant the user `SELECT` permission on the tables.
          
-         GRANT SELECT ON ALL TABLES IN SCHEMA "SCHEMA_NAME"
+         GRANT SELECT ON ALL TABLES IN SCHEMA &quot;SCHEMA_NAME"
          TO "service-PROJECT_NUMBER@gcp-sa-managedkafka.iam";
          
 

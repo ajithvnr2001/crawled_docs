@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/query-operators-unary/
 title: Unary operators \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:41:53.553765+00:00
+fetched_at: 2026-10-25T05:44:45.545491+00:00
 ---
 
 # Unary operators  |  Spanner  |  Google Cloud Documentation

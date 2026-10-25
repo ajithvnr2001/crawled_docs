@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/docs/deprecations/permissions/
 title: Deprecated IAM permissions \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:56:51.573714+00:00
+fetched_at: 2026-10-25T06:22:50.579894+00:00
 ---
 
 # Deprecated IAM permissions  |  Gemini for Google Cloud  |  Google Cloud Documentation

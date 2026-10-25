@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/vanta/set-up-data-store/
 title: Set up a Vanta data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:13.829869+00:00
+fetched_at: 2026-10-25T06:21:21.996955+00:00
 ---
 
 # Set up a Vanta data store  |  Gemini Enterprise  |  Google Cloud Documentation

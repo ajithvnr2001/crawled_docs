@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/samples/iam-get-service-account/
 title: Get a service account \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:06.217118+00:00
+fetched_at: 2026-10-25T06:20:42.575251+00:00
 ---
 
 # Get a service account  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

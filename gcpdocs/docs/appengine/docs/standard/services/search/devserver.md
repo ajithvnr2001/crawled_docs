@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/services/search/devserver/
 title: Using the local development server \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:49.784333+00:00
+fetched_at: 2026-10-25T06:34:10.354762+00:00
 ---
 
 # Using the local development server  |  App Engine standard environment  |  Google Cloud Documentation

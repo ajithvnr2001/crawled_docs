@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/lineage-views/
 title: About data lineage visualization in Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:34:04.426007+00:00
+fetched_at: 2026-10-25T05:53:37.549112+00:00
 ---
 
 # About data lineage visualization in Knowledge Catalog  |  Google Cloud Documentation

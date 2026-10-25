@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/grant-roles-service-account/
 title: Grant roles to your service account \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:47:42.028172+00:00
+fetched_at: 2026-10-25T06:34:46.347668+00:00
 ---
 
 # Grant roles to your service account  |  Application Design Center  |  Google Cloud Documentation

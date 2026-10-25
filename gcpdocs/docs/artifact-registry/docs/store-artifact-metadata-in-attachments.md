@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/store-artifact-metadata-in-attachments/
 title: Store artifact metadata in attachments \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:45:16.726460+00:00
+fetched_at: 2026-10-25T06:37:04.760046+00:00
 ---
 
 # Store artifact metadata in attachments  |  Artifact Registry  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/summarization/
 title: Enable summarization \u00a0|\u00a0 Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:11.363205+00:00
+fetched_at: 2026-10-25T06:26:14.092206+00:00
 ---
 
 # Enable summarization  |  Customer Experience Insights  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.1/docs/ai/choose-index-strategy/
 title: Choose a vector index \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:27.719662+00:00
+fetched_at: 2026-10-25T06:42:31.086664+00:00
 ---
 
 # Choose a vector index  |  AlloyDB Omni using RPM: 18.1.1  |  Google Cloud Documentation

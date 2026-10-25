@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/performance/
 title: Performance overview \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:41:57.877175+00:00
+fetched_at: 2026-10-25T05:45:18.648469+00:00
 ---
 
 # Performance overview  |  Spanner  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ Performance and storage improvements have rolled out to all [Spanner regional, d
 
 ### Increased performance throughput
 
-All Spanner instance configurations have improved performance and offer increased throughput. The following table provides the approximate throughput (queries per second) for Spanner instance configurations:
+All Spanner instance configurations have improved performance and offer increased throughput. The following table provides the approximate throughput (queries per second) for these Spanner instance configurations:
 
 Instance configuration type | Peak reads (QPS per region) |  | Peak writes (QPS total) |  | Peak writes using [throughput optimized writes](https://docs.cloud.google.com/spanner/docs/throughput-optimized-writes) (QPS total)  
 ---|---|---|---|---|---  
@@ -48,11 +48,11 @@ For information about the performance throughput of these instance configuration
 
 Read guidance is given per region (because reads can be served from any read-write or read-only region), while write guidance is for the entire configuration. Read guidance assumes you're reading single rows of 1KB. Write guidance assumes that you're writing single rows at 1KB of data per row.
 
-Peak write performance using [throughput optimized writes](https://docs.cloud.google.com/spanner/docs/throughput-optimized-writes) is achieved using a batching delay of 100ms.
+You can achieve peak write performance with throughput optimized writes by setting a batching delay of 100 ms. For more information, see [Throughput optimized writes](https://docs.cloud.google.com/spanner/docs/throughput-optimized-writes).
 
 In general, both the read and write throughputs of a Spanner instance scale linearly as you add more compute capacity (nodes or processing units) to the instance. For example, if a single-region Spanner instance with 2 nodes can provide up to 45,000 reads per second, then a single-region Spanner instance with 4 nodes can provide up to 90,000 reads per second.
 
-If you aren't seeing the expected performance for your workload from Spanner, see [troubleshooting performance regressions](https://docs.cloud.google.com/spanner/docs/troubleshooting-performance-regressions) for information about common causes.
+If your Spanner workload doesn't achieve the expected performance, then see [troubleshooting query performance regressions](https://docs.cloud.google.com/spanner/docs/troubleshooting-query-performance-regressions) for information about common causes.
 
 ### Increased storage
 
@@ -73,13 +73,13 @@ HDD: 1,500 | **or** | SSD: 3,500
 HDD: 3,500 |  | SSD: 22,500  
 HDD: 22,500  
   
-For regional instance configurations that allow optional read-only replicas, the optional read-only replica can support an additional 7,500 reads per second for SSD storage and 500 reads per second for HDD storage.
+For regional instance configurations that support optional read-only replicas, each optional read-only replica provides an additional 7,500 reads per second for SSD storage and 500 reads per second for HDD storage.
 
 **Note:** These throughput numbers are **estimates only** , and they reflect a read-only or write-only workload. Spanner throughput is highly dependent on workload, schema design, and dataset characteristics. These throughput numbers can help as a starting point when you are estimating the approximate [compute capacity](https://docs.cloud.google.com/spanner/docs/compute-capacity) (nodes or processing units) required for your Spanner instance. But these numbers can't be used for exact sizing and cost estimates.
 
 ### Performance for dual-region configurations
 
-Each 1,000 processing units (1 node) of compute capacity can provide the following peak performance (at 100% CPU) in a dual-region instance configuration. Use [throughput optimized writes](https://docs.cloud.google.com/spanner/docs/throughput-optimized-writes) to increase write throughput beyond the numbers in the table.
+Each 1,000 processing units (1 node) of compute capacity provides the following peak performance (at 100% CPU) in a dual-region instance configuration. To increase write throughput beyond the numbers in the table, use throughput optimized writes. For more information, see [Throughput optimized writes](https://docs.cloud.google.com/spanner/docs/throughput-optimized-writes).
 
 Base configuration name | Approximate peak reads (QPS per region) | Approximate peak writes (QPS total)  
 ---|---|---  
@@ -96,7 +96,7 @@ HDD: 2,700
 HDD: 1,000 | SSD: 2,700  
 HDD: 2,700  
   
-Read guidance is given per region (because reads can be served from anywhere), while write guidance is for the entire configuration. Read and write guidance assume that you're reading and writing single rows at 1 KB of data per row.
+The read guidance applies per region because any region can serve reads, whereas the write guidance applies to the entire configuration. This guidance assumes that you read and write single rows at 1 KB of data per row.
 
 ### Performance for multi-region configurations
 
@@ -175,14 +175,14 @@ HDD: 2,700
 
 
 
-Read guidance is given per region (because reads can be served from anywhere), while write guidance is for the entire configuration. Read and write guidance assume that you're reading and writing single rows at 1 KB of data per row.
+The read guidance applies per region because any region can serve reads, whereas the write guidance applies to the entire configuration. This guidance assumes that you read and write single rows at 1 KB of data per row.
 
 ## Run your typical workloads against Spanner
 
-Always run your own typical workloads against a Spanner instance when doing capacity planning, so you can figure out the best resource allocation for your applications. Google's PerfKit Benchmarker uses [YCSB](https://ycsb.site/) to benchmark cloud services. You can follow the [PerfKitBenchmarker tutorial for Spanner](https://github.com/cloudspannerecosystem/spanner-benchmarks-tutorial) to create tests for your own workloads. When doing so, you should tune the parameters in the benchmarking configuration `yaml` files to make sure that the generated benchmark reflects the following characteristics in your production environment:
+Always run your own typical workloads against a Spanner instance when doing capacity planning, so you can figure out the best resource allocation for your applications. Google's PerfKit Benchmarker uses [YCSB](https://ycsb.site/) to benchmark cloud services. To create tests for your own workloads, follow the [PerfKitBenchmarker tutorial for Spanner](https://github.com/cloudspannerecosystem/spanner-benchmarks-tutorial). When doing so, you should tune the parameters in the benchmarking configuration `yaml` files to make sure that the generated benchmark reflects the following characteristics in your production environment:
 
   * Total size of your database
-  * Schema (For example: [row key size, number of columns, row data sizes](https://docs.cloud.google.com/spanner/docs/schema-design))
+  * Schema (for example, row key size, number of columns, and row data sizes)
   * Data access pattern (row key distribution)
   * Mixture of reads versus writes
   * Type and complexity of queries
@@ -212,6 +212,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-24 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 

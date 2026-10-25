@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/nodejs/configure-remote-auth-npm-registry/
 title: Configure remote repository authentication to the npm registry \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:24:31.674671+00:00
+fetched_at: 2026-10-25T06:36:24.413984+00:00
 ---
 
 # Configure remote repository authentication to the npm registry  |  Artifact Registry  |  Google Cloud Documentation

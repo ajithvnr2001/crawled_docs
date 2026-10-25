@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/create-salesforce-app-for-plugin/
 title: Create a Salesforce Connected App for Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:03.653493+00:00
+fetched_at: 2026-10-25T06:43:52.896792+00:00
 ---
 
 # Create a Salesforce Connected App for Cloud Data Fusion  |  Google Cloud Documentation

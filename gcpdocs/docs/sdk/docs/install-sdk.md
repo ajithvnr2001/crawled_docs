@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/docs/install-sdk/
 title: Quickstart: Install the Google Cloud CLI \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:59.537245+00:00
+fetched_at: 2026-10-25T05:45:01.621725+00:00
 ---
 
 # Quickstart: Install the Google Cloud CLI  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -362,9 +362,9 @@ The Google Cloud CLI on Windows requires Windows 8.1 and later, or Windows Serve
 
 Alternatively, open a PowerShell terminal and run the following PowerShell commands: 
          
-         (New-Object Net.WebClient).DownloadFile(&leasehttps://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe", "$env:Temp\GoogleCloudSDKIn&staller.exe")
+         (New-Object Net.WebClient).DownloadFile("https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe", "$env:Temp\GoogleCloudSDKInstaller.exe")
          
-          $env:Temp\GoogleCloudSDKInstaller.exe
+         & $env:Temp\GoogleCloudSDKInstaller.exe
              
 
   2. Launch the installer and follow the prompts. The installer is signed by Google LLC.

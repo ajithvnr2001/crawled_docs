@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/pab-blocked-permissions/
 title: Principal Access Boundary policy enforcement version permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:49:35.912935+00:00
+fetched_at: 2026-10-25T06:20:55.860273+00:00
 ---
 
 # Principal Access Boundary policy enforcement version permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
