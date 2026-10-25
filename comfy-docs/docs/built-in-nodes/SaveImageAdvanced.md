@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/SaveImageAdvanced/
 title: SaveImageAdvanced - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:48:58.919959+00:00
+fetched_at: 2026-10-25T12:24:52.718579+00:00
 ---
 
 # SaveImageAdvanced - ComfyUI Built-in Node Documentation - ComfyUI
@@ -70,9 +70,11 @@ Parameter| Description| Data Type| Required| Range
 `input_color_space`| Colorspace of the input tensor. The EXR is always written as scene-linear in the matching gamut.  
 `"sRGB"` — input is sRGB-encoded Rec.709; the inverse sRGB EOTF is applied.  
 `"HDR"` — input is HLG-encoded Rec.2020 (BT.2100); the inverse HLG OETF is applied to get scene-linear light.  
-`"linear"` — input is already scene-linear (Rec.709 primaries); written through unchanged. Use this for renderer/compositor output. (default: “sRGB”)| COMBO| Yes (conditional)| `"sRGB"`  
+`"linear"` — input is already scene-linear (Rec.709 primaries); written through unchanged. Use this for renderer/compositor output.  
+`"linear ACEScg"` — input is already scene-linear ACEScg (AP1 / D60); written through unchanged with ACEScg chromaticities. (default: “sRGB”)| COMBO| Yes (conditional)| `"sRGB"`  
 `"HDR"`  
 `"linear"`  
+`"linear ACEScg"`  
   
 ### 
 
@@ -132,7 +134,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `a0f7fccb3b25ffa814bf5d2a970c41fd4114368eb9a9998880b1108a272a41bb`
+**Source fingerprint (SHA-256):** `ebbb78aedbfeb48239d900eee2170e04899e2b5b841a720209258f68dd6241f8`
 
 Was this page helpful?
 
@@ -140,26 +142,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/SaveImageAdvanced.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/SaveImageAdvanced)
 
-[SaveImage - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/SaveImage)[SaveImageDataSetToFolder - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/SaveImageDataSetToFolder)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[SaveImage](https://docs.comfy.org/built-in-nodes/SaveImage)[SaveImageDataSetToFolder](https://docs.comfy.org/built-in-nodes/SaveImageDataSetToFolder)

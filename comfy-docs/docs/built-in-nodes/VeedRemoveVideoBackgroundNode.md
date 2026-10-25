@@ -1,0 +1,67 @@
+---
+url: https://docs.comfy.org/built-in-nodes/VeedRemoveVideoBackgroundNode/
+title: VeedRemoveVideoBackgroundNode - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-25T12:24:47.683947+00:00
+---
+
+# VeedRemoveVideoBackgroundNode - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/VeedRemoveVideoBackgroundNode/
+
+Video
+
+# VeedRemoveVideoBackgroundNode - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+Cut the subject out of a video with VEED and return the frames plus an alpha mask.
+
+Copy pageCopy page
+
+Cut the subject out of a video with VEED and return the frames plus an alpha mask. Use the two outputs for compositing, or send them through Join Image with Alpha and Save WEBM to write a transparent video. Choose `"standard"` for the best edges on any background, `"fast"` when speed matters, or `"green screen"` for footage shot against a green backdrop.
+
+## 
+
+​
+
+Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`model`| Segmentation model to use: `"standard"` for any background with the best edges and output up to 3840x2160, `"fast"` for a quicker result up to 1920x1080, or `"green screen"` to key out a green backdrop up to 3840x2160. Larger videos are downscaled. Selecting an option reveals its parameters.| DYNAMIC_COMBO| Yes| `"standard"`  
+`"fast"`  
+`"green screen"`  
+`video`| The video to cut the subject out of. Up to 60 seconds.| VIDEO| Yes| Up to 60 seconds  
+`refine_foreground_edges`| Cleaner edges on hair, fur and fine detail. Turning it off lowers the price. Available for `"standard"` and `"fast"` (default: True).| BOOLEAN| Yes| false  
+true  
+`subject_is_person`| Turn off when the subject is an object or animal. Available for `"standard"` and `"fast"` (default: True).| BOOLEAN| Yes| false  
+true  
+`spill_suppression_strength`| How strongly green cast is removed from the subject. Raise it when green spots remain; lower it when the subject’s colors shift. Available for `"green screen"` (default: 0.8).| FLOAT| Yes| 0.0 to 1.0 (step 0.01)  
+  
+The clip is limited to 60 seconds; longer videos are rejected with an error. The mask is 1 where the background was removed, so use Invert Mask before Image Composite Masked when you want to keep the subject instead.
+
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`images`| The video frames with the background removed.| IMAGE  
+`mask`| 1 where the background was removed, per frame.| MASK  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/VeedRemoveVideoBackgroundNode/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `1bf52a380ab09437a5a57f70215856d4ea0055f78ce8b42fe2a2b87d686e8d26`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/VeedRemoveVideoBackgroundNode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/VeedRemoveVideoBackgroundNode)
+
+[VeedLipsyncNode](https://docs.comfy.org/built-in-nodes/VeedLipsyncNode)[SamplerDpmpp2mSde](https://docs.comfy.org/built-in-nodes/SamplerDpmpp2mSde)

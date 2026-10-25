@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/BriaExpandImage/
 title: BriaExpandImage - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:24.779540+00:00
+fetched_at: 2026-10-25T12:24:51.139181+00:00
 ---
 
 # BriaExpandImage - ComfyUI Built-in Node Documentation - ComfyUI
@@ -91,7 +91,7 @@ Parameter| Description| Data Type| Required| Range
 `visual_input_moderation`| If enabled, moderates the visual input. Default: false. Only available when `moderation` is `true`.| BOOLEAN| Yes| true/false  
 `visual_output_moderation`| If enabled, moderates the visual output. Default: false. Only available when `moderation` is `true`.| BOOLEAN| Yes| true/false  
   
-Preset aspect ratio options (`1:1`, `2:3`, `3:2`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9`) have no additional inputs. When `expand_mode` is `custom_ratio`, `ratio_width` and `ratio_height` define a target aspect ratio. Bria only accepts width-to-height ratios between 0.5 and 3.0. If the ratio is outside this range, an error is raised and the `manual` mode should be used instead. When `expand_mode` is `manual`, the original image is placed on a canvas at the specified size and position. The image may extend outside the canvas, in which case the outside portion is cropped. When `moderation` is `true`, the three moderation booleans are sent to Bria. When `moderation` is `false`, they are ignored.
+Preset aspect ratio options (`1:1`, `2:3`, `3:2`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9`) have no additional inputs. When `expand_mode` is `custom_ratio`, `ratio_width` and `ratio_height` define a target aspect ratio. Bria only accepts width-to-height ratios between 0.5 and 3.0. If the ratio is outside this range, an error is raised and the `manual` mode should be used instead. The expanded canvas is limited to 25 megapixels; when the result would need a larger canvas, the node raises an error, so downscale the image first. When `expand_mode` is `manual`, the original image is placed on a canvas at the specified size and position. The image may extend outside the canvas, in which case the outside portion is cropped. The image must leave part of the canvas uncovered: when it covers the whole canvas, the node raises an error because there is nothing to expand. When `moderation` is `true`, the three moderation booleans are sent to Bria. When `moderation` is `false`, they are ignored.
 
 ## 
 
@@ -108,7 +108,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `d2c9431837f200ccbcb39037f7b26013494c4dea3d40d899db4e717ddbbea71c`
+**Source fingerprint (SHA-256):** `939b51e420f13ccea058d9cf36172148db55d9878975b5f0251a90773f6d6105`
 
 Was this page helpful?
 
@@ -116,26 +116,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/BriaExpandImage.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/BriaExpandImage)
 
-[BriaEraser - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/BriaEraser)[BriaGenFill - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/BriaGenFill)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[BriaEraser](https://docs.comfy.org/built-in-nodes/BriaEraser)[BriaGenFill](https://docs.comfy.org/built-in-nodes/BriaGenFill)

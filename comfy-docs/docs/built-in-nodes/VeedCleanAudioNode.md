@@ -1,0 +1,62 @@
+---
+url: https://docs.comfy.org/built-in-nodes/VeedCleanAudioNode/
+title: VeedCleanAudioNode - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-25T12:24:47.808312+00:00
+---
+
+# VeedCleanAudioNode - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/VeedCleanAudioNode/
+
+Audio
+
+# VeedCleanAudioNode - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+Remove background noise from speech with VEED.
+
+Copy pageCopy page
+
+Remove background noise from speech with VEED. It is built for speech in any language: noise under the voice is cleaned, pauses are cleaned completely, and music and sound effects are removed rather than preserved. The output is 48 kHz mono audio.
+
+## 
+
+​
+
+Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`audio`| Speech recording, shorter than 30 minutes.| AUDIO| Yes| Up to 1799 seconds  
+`strength`| How much noise is removed under speech. Lower keeps more room tone behind the voice; pauses between words are always fully cleaned, and values above the default change little. (default: 0.874)| FLOAT| Yes| 0.0 to 1.0 (step 0.001)  
+`loudness`| Whether to normalize the output loudness. `"normalize"` sets the output to `target_lufs`; `"keep input level"` leaves the level as it is. Selecting an option reveals its parameters. (default: `"normalize"`)| DYNAMIC_COMBO| Yes| `"normalize"`  
+`"keep input level"`  
+`target_lufs`| Integrated loudness of the output in LUFS. Peaks are capped at -1.1 dBTP, so loud targets stop early (about -15 LUFS for typical speech). Available when `loudness` is `"normalize"` (default: -19.0).| FLOAT| Yes| -40.0 to -8.0 (step 0.1)  
+  
+The node stops with an error when the recording is longer than 1799 seconds.
+
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`AUDIO`| The cleaned speech as 48 kHz mono audio.| AUDIO  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/VeedCleanAudioNode/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `c85949385109a5d320e52619e9df17c245b19f8f16cc1a0b69a37ae2e7bb5b6d`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/VeedCleanAudioNode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/VeedCleanAudioNode)
+
+[MireloVideoToSFX](https://docs.comfy.org/built-in-nodes/MireloVideoToSFX)[BeebleSwitchXImageEdit](https://docs.comfy.org/built-in-nodes/BeebleSwitchXImageEdit)

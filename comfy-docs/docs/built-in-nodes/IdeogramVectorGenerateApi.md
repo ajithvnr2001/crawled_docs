@@ -1,0 +1,87 @@
+---
+url: https://docs.comfy.org/built-in-nodes/IdeogramVectorGenerateApi/
+title: IdeogramVectorGenerateApi - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-25T12:24:47.268368+00:00
+---
+
+# IdeogramVectorGenerateApi - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/IdeogramVectorGenerateApi/
+
+Image
+
+# IdeogramVectorGenerateApi - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+This node generates an editable SVG from a text prompt with Ideogram Vector, optionally guided by up to 5 reference images.
+
+Copy pageCopy page
+
+This node generates an editable SVG from a text prompt with Ideogram Vector, optionally guided by up to 5 reference images. The result is vector markup rather than a raster image, so the shapes stay editable in a vector editor.
+
+## 
+
+​
+
+Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`model`| Model to use. Default: `"ideogram-vector-1"`.| DYNAMIC_COMBO| Yes| `"ideogram-vector-1"`  
+`images`| Optional reference images. Image 1 is the main source and images 2 to 5 are extra references; mention them in the prompt as `@Image1`, `@Image2` and so on. A batched input counts once per image.| AUTOGROW| No| 0 to 5 images  
+`prompt`| Description of the SVG. Supports `@Image1`-style references to the input images.| STRING| Yes| 1 to 9500 characters  
+`aspect_ratio`| `"auto"` follows image 1, or the prompt when no image is connected. Default: `"auto"`.| COMBO| Yes| `"auto"`  
+`"1:3"`  
+`"1:2"`  
+`"9:16"`  
+`"10:16"`  
+`"2:3"`  
+`"3:4"`  
+`"4:5"`  
+`"1:1"`  
+`"5:4"`  
+`"4:3"`  
+`"3:2"`  
+`"16:10"`  
+`"16:9"`  
+`"2:1"`  
+`"3:1"`  
+`quality`| Quality tier. Higher tiers cost more and take longer. Default: `"medium"`.| COMBO| Yes| `"low"`  
+`"medium"`  
+`"high"`  
+`seed`| Seed for generation. The same prompt, images, settings and seed give the same SVG. Default: 42.| INT| Yes| 0 to 2147483647  
+  
+**Constraints:**
+
+  * The prompt must contain between 1 and 9500 characters.
+  * `images` accepts at most 5 images, counted per image when the input is batched, and each image must have an aspect ratio between 1:6 and 6:1.
+  * Images whose longest side is above 2048 pixels are downscaled before upload.
+  * Referencing an image that is not connected, such as `@Image4` with only two images supplied, raises an error.
+
+
+
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`SVG`| The generated SVG as editable vector markup.| SVG  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/IdeogramVectorGenerateApi/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `5bd24ad48d6c26daf43f84544a9c22a18961dea645799104591f3785a851f819`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/IdeogramVectorGenerateApi.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/IdeogramVectorGenerateApi)
+
+[FluxKontextProImageNode](https://docs.comfy.org/built-in-nodes/FluxKontextProImageNode)[IdeogramVectorImageToSVGApi](https://docs.comfy.org/built-in-nodes/IdeogramVectorImageToSVGApi)

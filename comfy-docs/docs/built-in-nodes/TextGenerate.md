@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/TextGenerate/
 title: TextGenerate - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:09.623907+00:00
+fetched_at: 2026-10-25T12:24:52.891902+00:00
 ---
 
 # TextGenerate - ComfyUI Built-in Node Documentation - ComfyUI
@@ -45,12 +45,16 @@ Parameter| Description| Data Type| Required| Range
 `max_length`| The maximum number of tokens the model will generate. The default value is 512.| INT| Yes| 1 to 32768  
 `thinking`| Operate in thinking mode if the model supports it. The default value is False.| BOOLEAN| No| True or False  
 `use_default_template`| Use the built in system prompt/template if the model has one. The default value is True. This is an advanced parameter.| BOOLEAN| No| True or False  
-`mtp`| Speculative decoding with the checkpoint’s multi-token-prediction head. Has no effect without MTP weights. `"auto"` adapts the draft depth, `"2"` to `"5"` pin it. Sampled output stays correctly distributed but differs from non-MTP output for the same seed (default: `"auto"`).| COMBO| No| `"auto"`  
+`mtp`| Speculative decoding with the checkpoint’s multi-token-prediction head. Has no effect without MTP weights. `"auto"` adapts the draft depth and breadth to the observed token matches and execution cost, `"2"` to `"5"` pin a constant draft depth, and the `tree` modes pin both breadth and depth. Sampled output stays correctly distributed but differs from non-MTP output for the same seed (default: `"auto"`).| COMBO| No| `"auto"`  
 `"off"`  
 `"2"`  
 `"3"`  
 `"4"`  
 `"5"`  
+`"tree2s1"`  
+`"tree2s2"`  
+`"tree3s1"`  
+`"tree4s1m8"`  
 `system_prompt`| Replaces the system prompt in the model’s chat template. Ignored when the default template is not used. Connect a STRING input instead of typing in the node (default: empty).| STRING| No| N/A  
   
 ### 
@@ -86,7 +90,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `80813781c06dfb0c3b59ee72c8bd6ebced69a4de8152de916ebc15153a0757fa`
+**Source fingerprint (SHA-256):** `e0854b0ce5a41e195a2634f4739c22c7dd0df1f2309cb8a02b506b8791bf3bee`
 
 Was this page helpful?
 
@@ -94,26 +98,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/TextGenerate.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/TextGenerate)
 
-[StripWhitespace - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/StripWhitespace)[TextGenerateLTX2Prompt - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/TextGenerateLTX2Prompt)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[StripWhitespace](https://docs.comfy.org/built-in-nodes/StripWhitespace)[TextGenerateLTX2Prompt](https://docs.comfy.org/built-in-nodes/TextGenerateLTX2Prompt)

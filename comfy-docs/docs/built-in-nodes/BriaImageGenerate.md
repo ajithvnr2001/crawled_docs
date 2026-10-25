@@ -1,0 +1,111 @@
+---
+url: https://docs.comfy.org/built-in-nodes/BriaImageGenerate/
+title: BriaImageGenerate - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-25T12:24:45.943414+00:00
+---
+
+# BriaImageGenerate - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/built-in-nodes/BriaImageGenerate/
+
+Image
+
+# BriaImageGenerate - ComfyUI Built-in Node Documentation
+
+Copy pageCopy page
+
+Generates a new image from a text prompt, a structured JSON prompt, or a single reference image using Bria FIBO 2.0.
+
+Copy pageCopy page
+
+Generates a new image from a text prompt, a structured JSON prompt, or a single reference image using Bria FIBO 2.0. The node sends the request to the Bria API, waits for the generation to finish, and returns the image together with a structured prompt that can recreate or refine it in a later run.
+
+## 
+
+​
+
+Inputs
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`prompt`| Plain-language description of the image to generate (default: empty).| STRING| Yes| Multiline text  
+`structured_prompt`| JSON structured prompt from a previous Bria FIBO result. With the same seed it recreates that image; change the JSON or add a prompt to refine it (default: empty).| STRING| Yes| Multiline text  
+`aspect_ratio`| Output aspect ratio (default: `"1:1"`). The ratios from `"16:10"` onward are FIBO 2.0 sizes with extra requirements, listed below.| COMBO| Yes| `"1:1"`  
+`"2:3"`  
+`"3:2"`  
+`"3:4"`  
+`"4:3"`  
+`"4:5"`  
+`"5:4"`  
+`"9:16"`  
+`"16:9"`  
+`"16:10"`  
+`"10:16"`  
+`"2:1"`  
+`"1:2"`  
+`"21:9"`  
+`"9:21"`  
+`"3:1"`  
+`"1:3"`  
+`"4:1"`  
+`"1:4"`  
+`"5:1"`  
+`"1:5"`  
+`resolution`| Output resolution in megapixels (default: `"1MP"`).| COMBO| Yes| `"1MP"`  
+`"4MP"`  
+`seed`| Seed that initializes the generation (default: 42).| INT| Yes| 1 to 2147483647  
+`moderation`| Moderation settings. Selecting `"true"` reveals the moderation inputs listed below.| DYNAMIC_COMBO| Yes| `"false"`  
+`"true"`  
+`image`| Optional reference image to draw on. The result is a new image at the selected aspect ratio, not an edit of this image.| IMAGE| No| -  
+  
+### 
+
+​
+
+Moderation Inputs
+
+When `moderation` is set to `"true"`, these additional inputs become available:
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`prompt_content_moderation`| Whether to moderate the prompt text; the request fails when moderation rejects it (default: false).| BOOLEAN| No| `true`  
+`false`  
+`visual_input_moderation`| Whether to moderate the reference image; the request fails when moderation rejects it (default: false).| BOOLEAN| No| `true`  
+`false`  
+`visual_output_moderation`| Whether to moderate the generated image; the request fails when moderation rejects it (default: false).| BOOLEAN| No| `true`  
+`false`  
+  
+**Important Constraints:**
+
+  * Provide at least one of `prompt`, `structured_prompt` or a reference `image`. If all three are empty, the node raises an error.
+  * A reference image cannot be combined with `structured_prompt`: use one or the other.
+  * The FIBO 2.0 ratios (`"16:10"`, `"10:16"`, `"2:1"`, `"1:2"`, `"21:9"`, `"9:21"`, `"3:1"`, `"1:3"`, `"4:1"`, `"1:4"`, `"5:1"`, `"1:5"`) require `resolution` `"1MP"` and exactly one of `prompt` or `structured_prompt`.
+  * This node is a paid API node; ComfyUI charges approximately 0.0572 USD per run.
+
+
+
+## 
+
+​
+
+Outputs
+
+Output Name| Description| Data Type  
+---|---|---  
+`IMAGE`| The generated image returned by the Bria API.| IMAGE  
+`structured_prompt`| Structured description of the generated image, to recreate or refine it with this node.| STRING  
+  
+> This documentation was AI-generated. If you find any errors or have suggestions for improvement, please feel free to contribute! [Edit on GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/BriaImageGenerate/en.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `4d53fe457e2e349ac41b5c8a0d3d5599eafa53cb653c470335853f1d4517688f`
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/BriaImageGenerate.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/BriaImageGenerate)
+
+[BriaGuidedRemoveBackground](https://docs.comfy.org/built-in-nodes/BriaGuidedRemoveBackground)[BriaProductHolding](https://docs.comfy.org/built-in-nodes/BriaProductHolding)

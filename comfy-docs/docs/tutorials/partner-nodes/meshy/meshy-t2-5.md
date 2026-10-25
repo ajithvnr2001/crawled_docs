@@ -1,0 +1,168 @@
+---
+url: https://docs.comfy.org/tutorials/partner-nodes/meshy/meshy-t2-5/
+title: Meshy T2.5 in ComfyUI: Game-Ready 3D at a Triangle Budget - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-25T12:24:50.252963+00:00
+---
+
+# Meshy T2.5 in ComfyUI: Game-Ready 3D at a Triangle Budget - ComfyUI
+
+> Source: https://docs.comfy.org/tutorials/partner-nodes/meshy/meshy-t2-5/
+
+## On this page
+
+  * Available workflows
+    * Text to Model (Smart Topology)
+    * Image to Model (Smart Topology)
+  * Node controls
+  * Prompting tips
+  * Get started
+
+
+
+Meshy
+
+# Meshy T2.5 in ComfyUI: Game-Ready 3D at a Triangle Budget
+
+Copy pageCopy page
+
+Generate game-ready 3D meshes with Meshy T2.5 in ComfyUI: text to model and image to model built at the triangle budget you set, with optional PBR textures.
+
+Copy pageCopy page
+
+**Meshy T2.5** builds a 3D mesh directly at the triangle count you ask for. Older pipelines generate a dense mesh and retopologize it afterwards, which loses detail and needs cleanup before the asset can ship. T2.5 targets the budget up front, so a 15000-triangle prop comes back at roughly 15000 triangles and goes straight into an engine. ComfyUI exposes it through two partner nodes: **Meshy: Text to Model (Smart Topology)** and **Meshy: Image to Model (Smart Topology)**. Both are cloud API nodes that need a Comfy account with credits and download no model files locally. Each returns a GLB file and an FBX file, and the templates write the GLB with a Save GLB node. T2.5 is the mode for props, environment dressing, and low-poly game assets where a predictable triangle count matters. For rigging, animation, and the full asset pipeline, use [Meshy 7](https://docs.comfy.org/tutorials/partner-nodes/meshy/meshy-7) instead.
+
+To use the Partner Nodes, you need to ensure that you are logged in properly and using a permitted network environment. Please refer to the [Partner Nodes Overview](https://docs.comfy.org/tutorials/partner-nodes/overview) section of the documentation to understand the specific requirements for using the Partner Nodes.
+
+  * Local users
+
+  * Cloud users
+
+
+
+
+Make sure your ComfyUI is updated.
+
+  * [Download ComfyUI](https://www.comfy.org/download)
+  * [Update Guide](https://docs.comfy.org/installation/update_comfyui)
+
+Workflows in this guide can be found in the [Workflow Templates](https://docs.comfy.org/interface/features/template). If you can’t find them in the template, your ComfyUI may be outdated.If nodes are missing when loading a workflow, possible reasons:
+
+  1. You are not using the latest ComfyUI version (Nightly version)
+  2. Some nodes failed to import at startup
+
+
+
+  * [Cloud](https://cloud.comfy.org) will update after ComfyUI stable release.
+
+So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
+
+## 
+
+​
+
+Available workflows
+
+### 
+
+​
+
+Text to Model (Smart Topology)
+
+Describe the object and the mesh is built at the budget you set. No input files are needed. ![Meshy T2.5: Text to Model workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_meshy_t2_5_smart_topology_t2m-1.webp)
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “Meshy T2.5: Text to Model (Smart Topology)” in Template Library
+
+**Example prompts**
+
+  * `A weathered wooden treasure chest with iron banding, a rounded lid and a rusted lock plate, standing open with a few gold coins inside, standalone game prop, clean silhouette`
+  * `Low-poly stone lantern covered in moss, chipped edges, wide base, neutral studio lighting`
+  * `Sci-fi crate with recessed panel lines and a lit status strip, boxy silhouette, no text`
+
+
+
+### 
+
+​
+
+Image to Model (Smart Topology)
+
+Turn a single image into an engine-ready mesh. Texturing is optional and can run with PBR maps at 2k, 4k, or 8k. ![Meshy T2.5: Image to Model workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_meshy_t2_5_smart_topology_i2m-1.webp)
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “Meshy T2.5: Image to Model (Smart Topology)” in Template Library
+
+**Input material**
+
+## abstract_3d_toy_van_game_asset.png
+
+Load into the `LoadImage` node
+
+`texture_prompt` and `texture_image` cannot be used together: guide the texture with one or the other, or leave both empty and let the source image drive it.
+
+## 
+
+​
+
+Node controls
+
+Control| Values| Applies to| Effect  
+---|---|---|---  
+`model`| `meshy-t2.5`| both nodes| The Smart Topology model release  
+`prompt`| text, up to 800 characters| Text to Model| Description of the object to build  
+`image`| one image| Image to Model| The source image the mesh is built from  
+`target_polycount`| 100 to 30000, default 15000| both nodes| Approximate triangle count of the result  
+`pose_mode`| empty, `A-pose`, `T-pose`| both nodes| Fixes a character stance. Leave empty for props  
+`should_texture`| `true`, `false`| Image to Model| Whether to texture the mesh after generation  
+`enable_pbr`| off by default| Image to Model, texturing on| Adds metallic, roughness, and normal maps to the base color  
+`texture_prompt`| text, up to 800 characters| Image to Model, texturing on| Text guidance for the texture. Cannot be combined with `texture_image`  
+`texture_image`| one image| Image to Model, texturing on| Image guidance for the texture. Cannot be combined with `texture_prompt`  
+`texture_resolution`| `2k`, `4k`, `8k`| Image to Model, texturing on| Resolution of the generated textures  
+`seed`| integer| both nodes| Controls whether the node re-runs. Meshy output is non-deterministic regardless of the seed  
+  
+The node outputs `meshy_task_id`, `GLB`, and `FBX`. Save GLB writes the file from the `GLB` output, not from the task id or the FBX output.
+
+## 
+
+​
+
+Prompting tips
+
+  * **Name the object and the silhouette.** `Standalone game prop, clean silhouette, no text` keeps the model from adding a scene, a base, or lettering you then have to remove.
+  * **State the budget before you generate.** Changing `target_polycount` afterwards means a new generation, so decide whether the asset is a hero prop or background dressing first.
+  * **Describe material, not lighting rigs.** Surface words such as `weathered wood, iron banding, rusted lock plate` survive into the mesh and the texture. Studio lighting words only affect how the preview reads.
+  * **Use`pose_mode` only for characters.** A-pose or T-pose gives a rig-friendly stance. Props are better left on empty.
+  * **Texture after the shape is right.** Run once without texturing, check the silhouette, then turn `should_texture` on for the final pass.
+  * **Do not expect the same mesh twice.** The seed only decides whether the node re-runs, so a re-run is a new result.
+
+
+
+## 
+
+​
+
+Get started
+
+  1. Update ComfyUI to the latest version
+  2. Go to Template Library, search for `Meshy T2.5`
+
+
+
+Was this page helpful?
+
+YesNo
+
+[Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/meshy/meshy-t2-5.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/meshy/meshy-t2-5)
+
+[Hunyuan3D 3 0](https://docs.comfy.org/tutorials/partner-nodes/hunyuan3d/hunyuan3d-3-0)[Meshy 7](https://docs.comfy.org/tutorials/partner-nodes/meshy/meshy-7)
