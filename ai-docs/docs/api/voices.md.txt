@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/voices.md.txt
 title: voices
 method: httpx-raw-text
-fetched_at: 2026-10-24T08:36:44.134993+00:00
+fetched_at: 2026-10-25T08:55:33.062097+00:00
 ---
 
 # voices

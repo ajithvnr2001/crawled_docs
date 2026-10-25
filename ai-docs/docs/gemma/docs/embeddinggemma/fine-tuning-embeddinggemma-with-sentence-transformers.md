@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemma/docs/embeddinggemma/fine-tuning-embeddinggemma-with-sentence-transformers/
 title: Fine-tune EmbeddingGemma 2 with Sentence Transformers
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:45:46.761168+00:00
+fetched_at: 2026-10-25T08:55:32.582806+00:00
 ---
 
 # Fine-tune EmbeddingGemma 2 with Sentence Transformers
