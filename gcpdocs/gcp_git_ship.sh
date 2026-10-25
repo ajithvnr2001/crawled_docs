@@ -15,6 +15,15 @@ URL="https://ajithvnr2001:${GH_TOKEN}@github.com/ajithvnr2001/crawled_docs.git"
 exec 9>/data/opencode/gcpdocs/.git_ship.lock
 flock -n 9 || { echo "[git-ship] another ship already running"; exit 0; }
 
+# A crashed/aborted rebase leaves .git/rebase-merge behind; later rebases
+# then refuse to run and every push fails. Clear it first (--quit preserves
+# any pending autostash in `git stash`).
+GITDIR="$(git rev-parse --git-dir)"
+if [ -d "$GITDIR/rebase-merge" ] || [ -d "$GITDIR/rebase-apply" ]; then
+  echo "[git-ship] clearing stale rebase state"
+  git rebase --abort >/dev/null 2>&1 || git rebase --quit >/dev/null 2>&1 || true
+fi
+
 git add -A -- docs || { echo "[git-ship] add failed"; exit 1; }
 if git diff --cached --quiet; then
   echo "[git-ship] no doc changes"
@@ -33,7 +42,7 @@ for i in 1 2 3 4 5; do
   if git -c rebase.autoStash=true pull --rebase -q "$URL" main >/dev/null 2>&1; then
     echo "[git-ship] rebased onto remote; retrying push"
   else
-    git rebase --abort >/dev/null 2>&1 || true
+    git rebase --abort >/dev/null 2>&1 || git rebase --quit >/dev/null 2>&1 || true
     echo "[git-ship] pull/rebase attempt $i failed"
   fi
   sleep 15
