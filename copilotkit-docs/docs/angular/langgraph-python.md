@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/angular/langgraph-python/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:02:07.464083+00:00
+fetched_at: 2026-10-25T08:18:50.157635+00:00
 ---
 
 # Introduction
