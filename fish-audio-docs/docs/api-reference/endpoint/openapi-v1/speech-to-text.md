@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/endpoint/openapi-v1/speech-to-text/
 title: Speech to Text - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:19.128870+00:00
+fetched_at: 2026-10-25T12:40:52.373618+00:00
 ---
 
 # Speech to Text - Fish Audio
@@ -386,7 +386,7 @@ Header value| Use it for
 `transcribe-1-pro`| Recommended. Recordings up to 60 minutes, including multi-speaker conversations: speaker markers and speaker turns, with emotion and vocal-event cues preserved.  
 `transcribe-1`| General transcription of short recordings. Used when the `model` header is missing or not an exact match.  
   
-Send `model: transcribe-1-pro` with every request, written exactly, in lowercase. If the header is missing, or its value is not an exact match (for example `Transcribe-1-Pro` or `transcribe-1pro`), the request is served and billed as `transcribe-1`, and no error is returned. If you expected `transcribe-1-pro` but the transcript has no speaker markers, check the header. This applies to the API playground on this page too: set its `model` header to `transcribe-1-pro`. The model belongs in the header for both multipart and MessagePack requests; a `model` field in the request body is ignored. See Limits for recording length and request size. To link the request to your own distributed trace, also send a W3C `traceparent` header. See [Tracing & Performance Analysis](https://docs.fish.audio/api-reference/observability).
+Send `model: transcribe-1-pro` with every request, written exactly, in lowercase. If the header is missing, or its value is not an exact match (for example `Transcribe-1-Pro` or `transcribe-1pro`), the request is served and billed as `transcribe-1`, and no error is returned. If you expected `transcribe-1-pro` but the transcript has no speaker markers and you did not send `diarize=false`, check the header. This applies to the API playground on this page too: set its `model` header to `transcribe-1-pro`. The model belongs in the header for both multipart and MessagePack requests; a `model` field in the request body is ignored. See Limits for recording length and request size. To link the request to your own distributed trace, also send a W3C `traceparent` header. See [Tracing & Performance Analysis](https://docs.fish.audio/api-reference/observability).
 
 ## 
 
@@ -402,7 +402,7 @@ Field| Required| Default| Description
 `language`| No| Unset| Optional language hint, as a lowercase ISO 639-1 code such as `en`, `zh`, or `ja`. The language is detected automatically either way. An empty multipart value counts as unset. See Language.  
 `ignore_timestamps`| No| `true`| Default `true` (no timestamps). Set to `false` to get word-level `segments` and `speaker_turns`. Timestamps add processing time.  
 `tag_audio_events`| No| `true`| `true`: bracketed emotion and vocal-event cues such as `[laughter]` or `[高兴]` stay in `text` and in `speaker_turns`. `false`: the cues are removed. Timestamps, `duration`, and billing do not change.  
-`diarize`| No| `auto`| `auto` or `true`: return `speaker_turns` when timestamps are requested. `false`: omit `speaker_turns`. `false` does not change the transcript, and the speaker markers stay in `text`.  
+`diarize`| No| `auto`| `auto` or `true`: return `speaker_turns` when timestamps are requested. `false`: omit `speaker_turns` and the speaker markers in `text`; the rest of the transcript does not change.  
 `num_speakers`| No| Unset| The expected number of speakers, an integer of 1 or more. Cannot be combined with `min_speakers` or `max_speakers`.  
 `min_speakers`, `max_speakers`| No| Unset| Lower and upper bounds on the number of speakers, integers of 1 or more. `min_speakers` must not exceed `max_speakers`.  
   
@@ -452,7 +452,7 @@ A successful response (HTTP 200) is a JSON object:
 
 Field| Description  
 ---|---  
-`text`| The full transcript, with inline speaker markers such as `<|speaker:0|>` and, unless `tag_audio_events=false`, bracketed emotion and vocal-event cues such as `[高兴]` (happy) or `[laughter]`. See Multi-speaker response format.  
+`text`| The full transcript, with inline speaker markers such as `<|speaker:0|>` (none with `diarize=false`) and, unless `tag_audio_events=false`, bracketed emotion and vocal-event cues such as `[高兴]` (happy) or `[laughter]`. See Multi-speaker response format.  
 `duration`| Length of the audio in seconds, including silence.  
 `segments`| Word-level timestamps: an array of `{ "text", "start", "end" }`, with times in seconds. Empty (`[]`) when `ignore_timestamps=true` (the default), when no speech was found, or when timing is temporarily unavailable. See Segments.  
 `speaker_turns`| The transcript as timed speaker turns. Returned when `ignore_timestamps=false` and `diarize` is not `false`; otherwise absent. See Speaker turns.  
@@ -474,7 +474,7 @@ Multi-speaker response format
 
   * Markers usually have a space on each side (`<|speaker:0|> 你好。 <|speaker:1|> ...`). Do not depend on exact spacing.
   * Any text before the first marker belongs to the first turn.
-  * A transcript with no marker comes from a single speaker; treat it as speaker 0.
+  * Unless you send `diarize=false`, which removes the markers, a transcript with no marker comes from a single speaker; treat it as speaker 0.
   * Labels identify speakers within one response only. They are not names, and the same label in two requests is not the same person. Send a whole conversation as one file.
 
 This illustrative response has two speakers and three turns. With `ignore_timestamps=true` (the default), timestamps are skipped and `speaker_turns` is absent:
@@ -776,4 +776,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/api-reference/endpoint/openapi-v1/speech-to-text.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/api-reference/endpoint/openapi-v1/speech-to-text)
 
-[WebSocket TTS with Timestamps](https://docs.fish.audio/api-reference/endpoint/openapi-v1/text-to-speech-live-with-timestamps)[Voice Design](https://docs.fish.audio/api-reference/endpoint/openapi-v1/voice-design)
+[WebSocket TTS with Timestamps](https://docs.fish.audio/api-reference/endpoint/openapi-v1/text-to-speech-live-with-timestamps)[WebSocket Realtime Speech to Text](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime)

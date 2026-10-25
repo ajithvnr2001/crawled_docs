@@ -3,8 +3,5 @@
   "file": "api-reference/endpoint/openapi-v1/speech-to-text.md",
   "title": "Speech to Text - Fish Audio",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:47:19.129239+00:00",
-  "html_len": 575197,
-  "md_len": 31022,
-  "depth": 0
+  "fetched_at": "2026-10-25T12:40:52.374092+00:00"
 }

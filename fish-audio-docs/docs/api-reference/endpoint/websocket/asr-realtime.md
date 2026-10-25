@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime/
 title: WebSocket Realtime Speech to Text - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:37:28.456126+00:00
+fetched_at: 2026-10-25T12:40:53.160165+00:00
 ---
 
 # WebSocket Realtime Speech to Text - Fish Audio
@@ -116,7 +116,6 @@ Session Started
         },  
         "results": {  
           "drafts": true,  
-          "draft_interval_ms": 250,  
           "ignore_timestamps": true,  
           "diarize": true,  
           "vad_events": false,  
@@ -437,7 +436,6 @@ Field| Required| Default| Description
 `turn_detection.eager`| No| `false`| `true` sends `eager_end_of_turn` in `auto` mode.  
 `turn_detection.silence_timeout_ms`| No| Depends on mode| See `silence_timeout_ms`.  
 `results.drafts`| No| `false`| `true` sends live `draft` messages.  
-`results.draft_interval_ms`| No| `250`| Minimum time between drafts. Smaller values count as 250.  
 `results.ignore_timestamps`| No| `true`| `false` adds word timings (`words`) to `committed`.  
 `results.diarize`| No| `true`| `true`, `false` or `"auto"` (same as `true`); the strings `"true"` and `"false"` are accepted too. `false` removes speaker tags from the text. See Speakers.  
 `results.vad_events`| No| `false`| `true` sends `vad` messages.  
@@ -669,7 +667,7 @@ Field| Type| Description
 `language_code`| string| Optional. ISO 639-1 code. See Language.  
 `audio_ms`| integer| The audio position the draft covers up to.  
   
-Each draft **replaces** the previous one for the turn. Drafts are best effort, sent at most every `draft_interval_ms`, and only with `results.drafts: true`. Turn them on for live captions; an agent that acts on `eager_end_of_turn` and `committed` does not need them. Drafts may pause during long background sounds and resume when `user_turn_taken` comes.
+Each draft **replaces** the previous one for the turn. Drafts are best effort and only sent with `results.drafts: true`. Turn them on for live captions; an agent that acts on `eager_end_of_turn` and `committed` does not need them. Drafts may pause during long background sounds and resume when `user_turn_taken` comes.
 
 #### 
 
@@ -1100,7 +1098,6 @@ Session Started
         },  
         "results": {  
           "drafts": true,  
-          "draft_interval_ms": 250,  
           "ignore_timestamps": true,  
           "diarize": true,  
           "vad_events": false,  
@@ -1405,7 +1402,7 @@ type:object
 
 show 11 properties
 
-Live draft of the open turn, with `results.drafts: true`. Best effort, at most every `draft_interval_ms`. For live captions, show `settled_text` as stable and the rest of `text` as tentative; take the final text from `committed`.
+Live draft of the open turn, with `results.drafts: true`. Best effort. For live captions, show `settled_text` as stable and the rest of `text` as tentative; take the final text from `committed`.
 
 Eager End of Turn
 
