@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/registrar/account-options/whois-redaction/
 title: WHOIS redaction \u00b7 Cloudflare Registrar docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:44.190445+00:00
+fetched_at: 2026-10-25T07:24:53.727417+00:00
 ---
 
 # WHOIS redaction · Cloudflare Registrar docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:14:44.190445+00:00
 
 # WHOIS redaction
 
-Last updated Apr 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/registrar/account-options/whois-redaction/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat is WHOIS redaction?What is RDAP?How can third parties reach registrants?
 
@@ -49,7 +49,7 @@ Cloudflare’s RDAP service can be found at <https://rdap.cloudflare.com/>[ ↗�
 
 ## How can third parties reach registrants?
 
-As part of the ICANN guidelines, registrars must have a method for third parties to reach the registrant without revealing their identity. Cloudflare has a form available where third parties can [submit a message for a given domain on Cloudflare Registrar ↗︎](https://www.cloudflare.com/abuse/form). Cloudflare will forward the message to the registrant email on file for that domain.
+As part of the ICANN guidelines, registrars must have a method for third parties to reach the registrant without revealing their identity. Cloudflare has a form available where third parties can [submit a message for a given domain on Cloudflare Registrar ↗︎](https://domaincontact.registrar.cloudflare.com/). Cloudflare will forward the message to the registrant email on file for that domain.
 
 [PreviousOverview](https://developers.cloudflare.com/registrar/account-options/)[NextDomain ownership certificate](https://developers.cloudflare.com/registrar/account-options/domain-ownership-certificate/)
 

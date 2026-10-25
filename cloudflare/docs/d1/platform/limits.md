@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/platform/limits/
 title: Limits \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:38.525157+00:00
+fetched_at: 2026-10-25T07:24:53.692351+00:00
 ---
 
 # Limits · Cloudflare D1 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:10:38.525157+00:00
 
 # Limits
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/d1/platform/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFrequently Asked Questions How much work can a D1 database do? How many simultaneous connections can a Worker open to D1?
 
@@ -44,6 +44,8 @@ Maximum file import (`d1 execute`) size | 5 GB 5
 Batch limits
 
 Limits for individual queries (listed above) apply to each individual statement contained within a batch statement. For example, the maximum SQL statement length of 100 KB applies to each statement inside a `db.batch()`.
+
+The Queries per Worker invocation limit is an exception: a `db.batch()` call counts as a single query against it, not one query per statement. For example, a batch containing 2,000 statements executes in a single Worker invocation, while issuing 2,000 individual queries in one invocation fails with `Too many API requests by single Worker invocation`.
 
 Cloudflare also offers other storage solutions such as [Workers KV](https://developers.cloudflare.com/kv/api/), [Durable Objects](https://developers.cloudflare.com/durable-objects/), and [R2](https://developers.cloudflare.com/r2/get-started/). Each product has different advantages and limits. Refer to [Choose a data or storage product](https://developers.cloudflare.com/workers/platform/storage-options/) to review which storage option is right for your use case.
 
@@ -73,10 +75,14 @@ Each individual D1 database is inherently single-threaded, and processes queries
 
 Your maximum throughput is directly related to the duration of your queries.
 
-  * If your average query takes 1 ms, you can run approximately 1,000 queries per second.
-  * If your average query takes 100 ms, you can run 10 queries per second.
+  * If your average query takes 1 ms, you can run at most 1,000 queries per second.
+  * If your average query takes 100 ms, you can run at most 10 queries per second.
 
 
+
+Note that there is a small overhead per request that is not included in the timings that D1 reports. As a result, a database receiving many small requests would reach its limit before `1 / query duration` requests per second.
+
+To get more throughput from a single database, reduce the number of requests rather than only the duration of each query. For example, use [`batch()`](https://developers.cloudflare.com/d1/worker-api/d1-database/#batch) to send multiple statements in a single request, so that the per-request overhead is paid once for the whole batch.
 
 A database that receives too many concurrent requests will first attempt to queue them. If the queue becomes full, the database will return an ["overloaded" error](https://developers.cloudflare.com/d1/observability/debug-d1/#error-list).
 
