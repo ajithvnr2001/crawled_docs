@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/web-sdk/
 title: Web SDK - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:42.613628+00:00
+fetched_at: 2026-10-26T14:27:48.549606+00:00
 ---
 
 # Web SDK - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:42.613628+00:00
 > Source: https://docs.fish.audio/agents/deploy/web-sdk/
 
 ## On this page
+
+Back to top
 
   * Install
   * Start a session
@@ -121,7 +123,7 @@ Option| Type| Description
 for `overrides.language` (`agentId` mode only). Omit it to use the agent’s configured [speaking language](https://docs.fish.audio/agents/build/voice-language#speaking-language); any other value is rejected with `422`| |   
 `toolEvents`| `boolean`| Whether tool lifecycle events reach this client (default `true`; `agentId` mode only, with `sessionToken` your backend sets `tool_events`)  
 `timezone`| `string`| IANA timezone for the agent’s sense of local time: the top of the [resolution order](https://docs.fish.audio/agents/build/time-timezone), overriding the agent’s configured timezone. When omitted, the SDK still sends the browser timezone as a lower-priority hint (`client_timezone`), which applies only if the agent has no timezone configured  
-`worldContext`| `boolean`| Whether the agent knows the current date and time (default `true`; `agentId` mode only, with `sessionToken` your backend sets `world_context`)  
+`context`| `{ currentTime?: boolean }`| Per-session overrides of the agent’s [context switches](https://docs.fish.audio/agents/build/configuration#context): `currentTime: false` withholds the current date and time, `true` injects them even when the agent has them off, omit it to follow the agent (`agentId` mode only, with `sessionToken` your backend sets `context`). `worldContext` is a deprecated alias of `context.currentTime`  
 `endUserId`| `string`| Your identifier for the end user, stored on the session and echoed in [webhooks](https://docs.fish.audio/agents/monitor/webhooks) (`agentId` mode only; with `sessionToken` your backend sets `end_user_id`)  
 `metadata`| `object`| Your own key-values, stored on the session record and returned verbatim (`agentId` mode only; with `sessionToken` your backend sets `metadata`)  
 `microphone`| `boolean`| Capture the microphone on start (default `true`). `false` joins muted with no permission prompt, for text-first UIs; the first `setMicMuted(false)` captures it, so call that from a user gesture  

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/python/exceptions/
 title: Exceptions - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:40:52.092368+00:00
+fetched_at: 2026-10-26T14:27:50.074628+00:00
 ---
 
 # Exceptions - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:40:52.092368+00:00
 > Source: https://docs.fish.audio/api-reference/sdk/python/exceptions/
 
 ## On this page
+
+Back to top
 
   * fishaudio.exceptions
   * FishAudioError Objects

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/configuration/
 title: Configuration - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-18T12:09:26.886611+00:00
+fetched_at: 2026-10-26T14:27:49.054737+00:00
 ---
 
 # Configuration - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-18T12:09:26.886611+00:00
 > Source: https://docs.fish.audio/agents/build/configuration/
 
 ## On this page
+
+Back to top
 
   * System prompt
   * First message
@@ -21,6 +23,8 @@ fetched_at: 2026-10-18T12:09:26.886611+00:00
     * Call duration
     * Recording
     * Timezone
+  * Context
+    * Current date and time
   * Autosave and publishing
   * Configure through the API
     * Read the draft
@@ -161,6 +165,22 @@ Timezone
 
 ​
 
+Context
+
+The `context` section holds the facts the platform tells your agent on its own, one switch each. Guardrails constrain what the agent does, context switches add to what it knows.
+
+### 
+
+​
+
+Current date and time
+
+`context.current_time` (default `false`) tells the agent today’s date when a session starts and the current time before every reply, in the agent’s timezone. In the Builder this is the **Current date & time** toggle under the time zone. Turn it on for scheduling, reminders, or any prompt that says “tomorrow” or “next Tuesday”. Leave it off when the prompt states its own date, for example a role-play set on a fictional day. Agents created before the switch existed have it on, which was their behavior. A session request’s `context.current_time` overrides the agent’s setting in either direction. See [Time & timezone](https://docs.fish.audio/agents/build/time-timezone).
+
+## 
+
+​
+
 Autosave and publishing
 
 There is no Save button. Each change is written to the agent’s draft moments after you stop editing, and the **Saving… / Saved** indicator at the bottom-left of the page shows the current state. If a save fails, the Builder tells you and keeps your pending edits so nothing is lost. Drafts never affect live traffic: active integrations keep using the last published version until you press **Publish** , which snapshots the draft as a new immutable version. The Publish button lights up whenever the draft differs from what is published. See [Versions & publishing](https://docs.fish.audio/agents/deploy/versions-publishing).
@@ -217,6 +237,9 @@ Response (abridged)
         "echo_guard": null,
         "speculative_response": true,
         "timezone": ""
+      },
+      "context": {
+        "current_time": false
       }
     }
     
@@ -255,6 +278,7 @@ Section| What it holds| Documented in
 `voice`| Voice profile, text-to-speech model, speaking language, and expressive mode| [Voice & language](https://docs.fish.audio/agents/build/voice-language)  
 `asr`| Speech recognition model, multilingual recognition, strict language, and recognition keyterms| [Voice & language](https://docs.fish.audio/agents/build/voice-language#speech-recognition-model)  
 `conversation`| Call duration, turn-taking, interruption behavior, timezone, and storage| This page; storage in [Conversation history](https://docs.fish.audio/agents/monitor/conversation-history#what-gets-stored)  
+`context`| Facts the platform tells the agent on its own, currently the current date and time| This page  
 `tools`| Attached webhook tools and system tool switches| [Tools](https://docs.fish.audio/agents/build/tools)  
 `knowledge_base`| Attached knowledge sources| [Knowledge base](https://docs.fish.audio/agents/build/knowledge-base)  
 `analysis`| Post-call summary, data fields, and success criteria| [Post-call analysis](https://docs.fish.audio/agents/monitor/post-call-analysis)  

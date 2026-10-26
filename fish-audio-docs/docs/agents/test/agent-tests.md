@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/test/agent-tests/
 title: Agent Tests - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-18T12:09:26.700777+00:00
+fetched_at: 2026-10-26T14:27:49.455068+00:00
 ---
 
 # Agent Tests - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-18T12:09:26.700777+00:00
 > Source: https://docs.fish.audio/agents/test/agent-tests/
 
 ## On this page
+
+Back to top
 
   * Test types
   * Create a test
@@ -296,7 +298,7 @@ Call the real endpoint| `tool_mocks.real_tools`
 Required tool calls| `assertions.tool_calls`: `tool`, `params`, `min_calls`, `max_calls`  
 Forbidden tools| `assertions.forbidden_tools`  
 Ended by| `assertions.ended_by`: `agent`, `user`, `transfer`, or `any`  
-Current date and time| `world_context`: `true` or `false`, default `false`  
+Current date and time| `context.current_time`: `true` or `false`, default `false`  
 Repeat| `repeat_count`, 1 to 20  
   
 Tools are referenced by `id`, `name`, and `type`, as in Tool tests, and integration tools use the `<provider_key>:<tool_name>` ids that [List Test Tools](https://docs.fish.audio/api-reference/endpoint/agent/list-test-tools) returns. Parameter conditions (`when` on a mock entry, `params` on a required call) map a parameter name to `{"type": "exact" | "regex" | "any", "value": "..."}`.

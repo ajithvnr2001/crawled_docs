@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/dynamic-variables/
 title: Dynamic Variables - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:51:59.275128+00:00
+fetched_at: 2026-10-26T14:27:48.662749+00:00
 ---
 
 # Dynamic Variables - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-20T12:51:59.275128+00:00
 > Source: https://docs.fish.audio/agents/build/dynamic-variables/
 
 ## On this page
+
+Back to top
 
   * Where variables render
   * Custom variables
@@ -22,7 +24,7 @@ fetched_at: 2026-10-20T12:51:59.275128+00:00
     * Date and timezone
     * In webhook tools
     * Unknown names
-  * World context
+  * Current date and time
   * Going further
 
 
@@ -191,7 +193,8 @@ Webhook tool URL
     https://ehr.example.com/patients/{{patient_id}}/appointments?clinic={{clinic_id}}
     
 
-  * In the URL the value is URL-encoded, like argument values. In header values and the body template it is inserted as is. Numbers render as written, booleans as `true` or `false`.
+  * In the URL the value is URL-encoded, like argument values. In header values it is inserted as is. Numbers render as written, booleans as `true` or `false`.
+  * In a JSON body, a value inside a string is JSON-escaped, like argument values. See [Values in a JSON body](https://docs.fish.audio/agents/build/webhook-tools#values-in-a-json-body).
   * When the tool declares an argument with the same name as a custom variable, the argument wins: that placeholder is filled from what the agent supplies.
   * A placeholder with no value renders as an empty string in the request, unlike in the prompt, where it stays visible.
 
@@ -211,7 +214,7 @@ Variable| Value| Notes
 ---|---|---  
 `system.channel`| `phone_inbound`, `phone_outbound`, or `web_voice`| Web SDK, API, preview, and Single Turn and Tool test sessions are `web_voice`. A Simulation test uses its [channel](https://docs.fish.audio/agents/test/agent-tests#channel).  
 `system.timezone`| The session’s resolved IANA timezone, for example `Asia/Tokyo`| `UTC` when nothing resolves. Always equals the session’s `timezone` field; see [which timezone a session uses](https://docs.fish.audio/agents/build/time-timezone#which-timezone-a-session-uses).  
-`system.today`| Today’s date in that timezone, ISO 8601 `YYYY-MM-DD`| The calendar date at session creation. There is no `system.now`; see World context.  
+`system.today`| Today’s date in that timezone, ISO 8601 `YYYY-MM-DD`| The calendar date at session creation. There is no `system.now`; see Current date and time.  
 `system.language`| The session language code, one of the [52 supported languages](https://docs.fish.audio/agents/build/voice-language#speaking-language)| The `language` [override](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides) when the request carries one, otherwise the agent’s [speaking language](https://docs.fish.audio/agents/build/voice-language#speaking-language).  
 `system.caller_number`| The human party’s number, E.164| Inbound: the caller (empty if withheld or not a valid E.164 number). Outbound: the number you dialed. Empty on non-phone sessions.  
 `system.caller_number_spoken`| The same number written for speech, for example `+1; 4 1 5; 5 5 5; 0 1 2 3`| Use it wherever the agent should say the number out loud; see Reading a number out loud. Empty whenever `system.caller_number` is empty.  
@@ -260,7 +263,7 @@ On a web session the same prompt renders `The caller's number is "".`, and the a
 
 Date and timezone
 
-`system.today` is always ISO formatted, whatever the session language: in the system prompt the model reads it and speaks it in the session’s language, while a fixed first message containing `{{system.today}}` is spoken verbatim as `2026-08-21`. A session that runs past midnight keeps its opening date. Template it, and `system.timezone`, when a request needs them explicitly, for example a webhook tool’s query string; for the agent’s own sense of time no variable is needed, see World context.
+`system.today` is always ISO formatted, whatever the session language: in the system prompt the model reads it and speaks it in the session’s language, while a fixed first message containing `{{system.today}}` is spoken verbatim as `2026-08-21`. A session that runs past midnight keeps its opening date. Template it, and `system.timezone`, when a request needs them explicitly, for example a webhook tool’s query string; for the agent’s own sense of time, turn on the agent’s `context.current_time` switch instead of templating, see Current date and time.
 
 ### 
 
@@ -288,9 +291,9 @@ A reference to a system variable that does not exist (`{{system.foo}}`) is rejec
 
 ​
 
-World context
+Current date and time
 
-The agent knows the current date and time without any variable. The platform states the date and the session’s timezone at the start of every session and refreshes the time on every turn, so “tomorrow morning” or “next Tuesday” resolve correctly even in a long conversation. You don’t need a custom `{{today}}` or `{{now}}`, and there is no `system.now`: variables render once, when the session is created, so a templated time would be stale from the first reply onward. When you want the date or timezone as text in a template, for example in a webhook tool URL, use the `system.today` and `system.timezone` system variables. See [Time & timezone](https://docs.fish.audio/agents/build/time-timezone) for how the timezone is resolved and how to turn the injection off for a session (`world_context: false`).
+With the agent’s `context.current_time` switch on, the agent knows the current date and time without any variable: the platform states the date and the session’s timezone at the start of every session and refreshes the time on every turn, so “tomorrow morning” or “next Tuesday” resolve correctly even in a long conversation. You don’t need a custom `{{today}}` or `{{now}}`, and there is no `system.now`: variables render once, when the session is created, so a templated time would be stale from the first reply onward. When you want the date or timezone as text in a template, for example in a webhook tool URL, use the `system.today` and `system.timezone` system variables, which work whether the switch is on or off. See [Time & timezone](https://docs.fish.audio/agents/build/time-timezone) for how the timezone is resolved and how the switch works per agent and per session.
 
 ## 
 

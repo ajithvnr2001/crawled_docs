@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/authenticated-sessions/
 title: Authenticated Sessions - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:41.499217+00:00
+fetched_at: 2026-10-26T14:27:48.775961+00:00
 ---
 
 # Authenticated Sessions - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:41.499217+00:00
 > Source: https://docs.fish.audio/agents/deploy/authenticated-sessions/
 
 ## On this page
+
+Back to top
 
   * Create a token on your backend
   * Request fields
@@ -146,7 +148,7 @@ Browser
 
 More on what the SDK can do once connected is in the [Web SDK](https://docs.fish.audio/agents/deploy/web-sdk) reference.
 
-`overrides`, `dynamic_variables`, `tool_events`, `timezone`, and `world_context` belong in your backend’s creation request. The SDK forwards these options (and its `language` shorthand for `overrides.language`) only in [public agent](https://docs.fish.audio/agents/deploy/public-agents) mode.
+`overrides`, `dynamic_variables`, `tool_events`, `timezone`, and `context` belong in your backend’s creation request. The SDK forwards these options (and its `language` shorthand for `overrides.language`) only in [public agent](https://docs.fish.audio/agents/deploy/public-agents) mode.
 
 ## 
 
@@ -167,7 +169,7 @@ Field| Type| Description
 `record_audio`| boolean, optional| Whether to record this session’s audio. Overrides the agent’s [recording setting](https://docs.fish.audio/agents/monitor/conversation-history#what-gets-stored) for this session only; omit it to use the agent’s configuration.  
 `timezone`| string, optional| IANA timezone (like `Asia/Tokyo`) for the agent’s sense of local time. Invalid names are rejected with `422`. See [Time & timezone](https://docs.fish.audio/agents/build/time-timezone).  
 `client_timezone`| string, optional| The end user’s device timezone as an IANA name. A hint, not a demand: it applies only when neither `timezone` nor the agent’s configured timezone is set, and invalid values are ignored. The SDK fills it automatically in public-agent mode. From your backend, forward the value from your client. See the [resolution order](https://docs.fish.audio/agents/build/time-timezone).  
-`world_context`| boolean, optional| Whether the agent knows the current date and time. Default `true`; set `false` to withhold both from this session.  
+`context`| object, optional| Per-session overrides of the agent’s [context switches](https://docs.fish.audio/agents/build/configuration#context). `{ "current_time": false }` withholds the current date and time from this session, `true` injects them even when the agent has them off; omit a switch to follow the agent. `world_context` is a deprecated alias of `context.current_time`.  
   
 Unknown fields (top-level or inside `overrides`) are rejected with `422`.
 

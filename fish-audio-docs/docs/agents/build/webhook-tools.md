@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/webhook-tools/
 title: Webhook Tools - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:52:00.029115+00:00
+fetched_at: 2026-10-26T14:27:49.157680+00:00
 ---
 
 # Webhook Tools - Fish Audio
@@ -11,8 +11,11 @@ fetched_at: 2026-10-20T12:52:00.029115+00:00
 
 ## On this page
 
+Back to top
+
   * Create a webhook tool
   * Argument templating
+    * Values in a JSON body
   * Authentication headers
   * Execution modes
   * Timeouts and error handling
@@ -107,6 +110,32 @@ Body template
       "source": "voice-agent"
     }
     
+
+### 
+
+​
+
+Values in a JSON body
+
+When the body is JSON, what happens to a value depends on where its placeholder sits:
+
+  * **Inside a JSON string** , like `"note": "{{note}}"`: the value is JSON-escaped. Quotes, backslashes, and line breaks in it can’t break the body.
+  * **Outside a string** , like `"count": {{count}}`: the value is inserted as is. Use this to send a number, a boolean, or a whole object.
+
+
+
+Body template
+    
+    
+    {
+      "note": "{{note}}",
+      "count": {{count}}
+    }
+    
+
+If the agent passes `She said "call me back"` as `note`, the request body contains `"note": "She said \"call me back\""`. The same rule covers arguments, dynamic variables, and requests from the **Test** tab. The body counts as JSON when its content type is `application/json` (the default) or a `+json` type such as `application/vnd.api+json`. A `Content-Type` header on the tool takes priority over the content type setting. Bodies of any other content type are filled in as is.
+
+A placeholder outside a string is not checked. If its value isn’t valid JSON in that spot, the body isn’t either. Put text values in quotes.
 
 ## 
 

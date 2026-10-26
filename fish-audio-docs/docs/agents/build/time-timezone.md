@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/time-timezone/
 title: Time & Timezone - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:41.001109+00:00
+fetched_at: 2026-10-26T14:27:49.655783+00:00
 ---
 
 # Time & Timezone - Fish Audio
@@ -11,9 +11,11 @@ fetched_at: 2026-10-17T10:46:41.001109+00:00
 
 ## On this page
 
+Back to top
+
   * What the agent knows
   * Which timezone a session uses
-  * Turn it off
+  * Turn it on or off
   * Going further
 
 
@@ -24,11 +26,11 @@ Build
 
 Copy pageCopy page
 
-Your agent knows the current date and time by default: how the timezone is chosen and how to opt out
+Let your agent know the current date and time: the switch, how the timezone is chosen, and per-session overrides
 
 Copy pageCopy page
 
-Agents are time-aware out of the box: every session knows today’s date and the current time in the session’s timezone. You don’t reference a variable or add anything to your prompt: “tomorrow morning” and “next Tuesday” ground correctly from the first turn, on every channel (voice, text, and phone).
+An agent can know today’s date and the current time in the session’s timezone without you adding anything to the prompt. The switch is `context.current_time` in the agent’s [configuration](https://docs.fish.audio/agents/build/configuration#current-date-and-time), the **Current date & time** toggle under the time zone in the Builder. It is off for new agents and on for agents created before the switch existed. With it on, “tomorrow morning” and “next Tuesday” ground correctly from the first turn, on every channel (voice, text, and phone).
 
 The default timezone is **UTC**. Change it for the agent in its [configuration](https://docs.fish.audio/agents/build/configuration#timezone), and override it for a single session with `timezone` in the creation request. See Which timezone a session uses.
 
@@ -38,7 +40,7 @@ The default timezone is **UTC**. Change it for the agent in its [configuration](
 
 What the agent knows
 
-Fish Audio injects two pieces of world context server-side:
+With the switch on, Fish Audio injects two lines server-side:
 
 When| What| Example  
 ---|---|---  
@@ -49,7 +51,7 @@ The time is refreshed on every turn, so it stays accurate through long conversat
 
 Injection happens outside your configuration, so it never counts toward the system prompt’s character limit.
 
-Both facts also exist as [system variables](https://docs.fish.audio/agents/build/dynamic-variables#system-variables) for the cases where you want to template them yourself, for example into a webhook tool’s URL: `{{system.today}}` is the date at session creation as ISO `YYYY-MM-DD`, and `{{system.timezone}}` is the resolved IANA name (`UTC` when nothing resolves). There is no `{{system.now}}`: variables render once, when the session is created, so a templated clock would freeze at the opening. The per-turn time above is the one to rely on.
+Both facts also exist as [system variables](https://docs.fish.audio/agents/build/dynamic-variables#system-variables), available whether the switch is on or off, for the cases where you want to template them yourself, for example into a webhook tool’s URL: `{{system.today}}` is the date at session creation as ISO `YYYY-MM-DD`, and `{{system.timezone}}` is the resolved IANA name (`UTC` when nothing resolves). There is no `{{system.now}}`: variables render once, when the session is created, so a templated clock would freeze at the opening. The per-turn time above is the one to rely on.
 
 ## 
 
@@ -85,9 +87,9 @@ Phone-number inference is country-level only. Countries that span several timezo
 
 ​
 
-Turn it off
+Turn it on or off
 
-Time awareness is on by default. To withhold both the date and the per-turn time from a session (for example a role-play agent set on a fictional date, or a test that must be reproducible), set `world_context: false` when creating the session:
+**For the whole agent** , switch **Current date & time** in the Builder (**Configuration** , under the time zone) or set `context.current_time` through the [config API](https://docs.fish.audio/agents/build/configuration#current-date-and-time). This is the default for every session of the agent on every channel, and the only switch for phone calls, which the platform creates without a session request. Publish the agent for the change to reach live traffic. Turn it off again when the agent must not know the real date and time: a role-play agent set on a fictional date, a prompt that states its own date, or a test that must be reproducible. **For one session** , send `context.current_time` when creating it. An explicit value overrides the agent’s setting in either direction: `false` withholds the date and time from an agent that has them on, `true` injects them for one session of an agent that has them off. The older `world_context` field (`worldContext` in the SDK) is still accepted as an alias.
 
 API (curl)
 
@@ -99,17 +101,17 @@ JavaScript SDK
       --header "Content-Type: application/json" \
       --data '{
         "agent_id": "YOUR_AGENT_ID",
-        "world_context": false
+        "context": { "current_time": false }
       }'
     
     
     
     import { AgentSession } from "@fishaudio/agent-client";
     
-    // Public agent: the SDK forwards the opt-out in its creation request.
+    // Public agent: the SDK forwards the override in its creation request.
     const session = await AgentSession.start({
       agentId: "YOUR_AGENT_ID",
-      worldContext: false,
+      context: { currentTime: false },
     });
     
 
@@ -121,7 +123,7 @@ Going further
 
 ## Authenticated sessions
 
-All session-creation parameters, including `timezone` and `world_context`.
+All session-creation parameters, including `timezone` and `context`.
 
 ## Dynamic variables
 
