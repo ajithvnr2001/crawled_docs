@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/listing-buckets/
 title: Listing buckets \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:40:57.162297+00:00
+fetched_at: 2026-10-26T05:39:21.593552+00:00
 ---
 
 # Listing buckets  |  Cloud Storage  |  Google Cloud Documentation
@@ -557,7 +557,7 @@ The following sample lists all available buckets. If a location is temporarily u
     def list_buckets_with_partial_success return_partial_success_flag:
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket_list = storage.buckets return_partial_success: return_partial_success_flag
     
       puts "Reachable buckets:"
@@ -581,7 +581,7 @@ The following sample lists all buckets. If a location is temporarily unavailable
     def list_buckets
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
     
       storage.buckets.[each](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Bindings.html) do |bucket|
         puts bucket.name

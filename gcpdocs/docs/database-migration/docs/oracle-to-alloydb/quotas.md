@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/quotas/
 title: Quotas and limits \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:05.970544+00:00
+fetched_at: 2026-10-26T05:59:42.458457+00:00
 ---
 
 # Quotas and limits  |  Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL  |  Google Cloud Documentation

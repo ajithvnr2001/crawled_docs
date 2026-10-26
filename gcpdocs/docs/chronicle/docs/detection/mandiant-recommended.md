@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/detection/mandiant-recommended/
 title: Mandiant Recommended rules \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:44:55.877528+00:00
+fetched_at: 2026-10-26T05:50:53.451893+00:00
 ---
 
 # Mandiant Recommended rules  |  Google Security Operations  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ Google SecOps  [ SIEM ](https://docs.cloud.google.com/chronicle/docs/secops/goog
 **Note:** This feature is covered by [Pre-GA Offerings Terms](https://chronicle.security/legal/service-terms/) of the Google Security Operations Service Specific Terms. Pre-GA features might have limited support, and changes to pre-GA features might not be compatible with other pre-GA versions. For more information, see the [Google SecOps Technical Support Service guidelines](https://chronicle.security/legal/technical-support-services-guidelines/) and the [Google SecOps Service Specific Terms](https://chronicle.security/legal/service-terms/).  
 If this feature isn't visible in your environment, see [Manage preview features](https://docs.cloud.google.com/chronicle/docs/secops/preview-features-manage) or contact your system administrator.
 
-**Note:** This feature may not be available to all customers in all regions. Private preview features are not manageable in the Public Preview Manager page in the Google SecOps platform. 
+**Note:** This feature is in Private Preview and is not available to all customers in all regions. Private preview features are not manageable in the Public Preview Manager page in the Google SecOps platform. 
 
 This guide helps security operations center (SOC) analysts and detection engineers to establish a high-fidelity threat detection baseline. It explains how Mandiant Recommended rules in Google Security Operations provide a curated threat detection baseline designed to identify threat actor behaviors while minimizing SOC alert fatigue.
 
@@ -120,6 +120,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-25 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 

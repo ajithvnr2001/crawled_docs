@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/reading-objects/
 title: Read objects \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:03.872420+00:00
+fetched_at: 2026-10-26T05:39:11.652166+00:00
 ---
 
 # Read objects  |  Cloud Storage  |  Google Cloud Documentation
@@ -291,7 +291,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
     require "google/cloud/storage"
     
-    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
     bucket  = storage.bucket bucket_name, skip_lookup: true
     file    = bucket.[file](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) file_name
     

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/samples/secretmanager-quickstart/
 title: Quickstart \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:55.305703+00:00
+fetched_at: 2026-10-26T05:40:40.897172+00:00
 ---
 
 # Quickstart  |  Secret Manager  |  Google Cloud Documentation
@@ -408,7 +408,7 @@ To authenticate to Secret Manager, set up Application Default Credentials. For m
     #
     def quickstart project_id:, secret_id:
       # Create the Secret Manager client.
-      client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
+      client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta1/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
     
       # Build the parent name from the project.
       parent = "projects/#{project_id}"

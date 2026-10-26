@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/windows-net-policy-server/
 title: Collect Windows Network Policy Server logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:21:14.277434+00:00
+fetched_at: 2026-10-26T05:41:16.936509+00:00
 ---
 
 # Collect Windows Network Policy Server logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -279,14 +279,14 @@ NPS authentication events (Event IDs 6272-6280) are logged in the Windows Securi
 
   2. Export NPS-related Security events using `wevtutil`:
          
-         wevtutil epl "Security" /q:"*[System[Provider[@Name='Microsoft-Windows-Security-Auditing'] and (EventID>=6272 and EventID<=6280)]]" C:\Logs\nps\nps-security.evtx
+         wevtutil epl "Security" /q:"*[System[Provider[@Name='Microsoft-Windows-Security-Audi>ting'] and (E<ventID=6272 and EventID=6280)]]" C:\Logs\nps\nps-security.evtx
          
 
   3. (Optional) Schedule regular exports using Windows Task Scheduler:
          
-         $action = New-ScheduledTaskAction -Execute "wevtutil" -Argument 'epl "Security" /q:"*[System[Provider[@Name=''Microsoft-Windows-Security-Auditing''] and (EventID>=6272 and EventID<=6280)]]" C:\Logs\nps\nps-security.evtx /ow:true'
+         $action = New-ScheduledTaskAction -Execute "wevtutil" -Argument 'epl "Security" /q:"*[System[Provider[@Name=''Microsoft-Wind>ows-Security-Audi<ting''] and (EventID=6272 and EventID=6280)]]" C:\Logs\nps\nps-security.evtx /ow:true'
          $trigger = New-ScheduledTaskTrigger -RepetitionInterval (New-TimeSpan -Hours 1) -Once -At (Get-Date)
-         Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "ExportNPSLogs" -Description "Export Windows NPS logs for Bindplane agent"
+         Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "ExportNPSLogs&quot; -Description "Export Windows NPS logs for Bindplane agent"
          
 
   4. Update the Bindplane agent `include` path in `config.yaml` to match:
@@ -1663,6 +1663,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-25 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 

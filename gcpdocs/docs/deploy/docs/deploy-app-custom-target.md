@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/deploy-app-custom-target/
 title: Quickstart: Define and use custom target type \u00a0|\u00a0 Cloud Deploy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:11:34.383849+00:00
+fetched_at: 2026-10-26T05:59:32.308496+00:00
 ---
 
 # Quickstart: Define and use custom target type  |  Cloud Deploy  |  Google Cloud Documentation

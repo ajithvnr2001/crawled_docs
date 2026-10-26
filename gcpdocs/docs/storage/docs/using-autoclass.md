@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/using-autoclass/
 title: Use Autoclass \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:43.368559+00:00
+fetched_at: 2026-10-26T05:38:51.530041+00:00
 ---
 
 # Use Autoclass  |  Cloud Storage  |  Google Cloud Documentation
@@ -400,7 +400,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     #
     def set_autoclass bucket_name:, toggle:, terminal_storage_class: nil
       # Initialize client
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
     
       # Fetch the GCS bucket
       bucket = storage.bucket bucket_name
@@ -780,7 +780,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     #
     def get_autoclass bucket_name:
       # Initialize client
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
     
       # Fetch the GCS bucket
       bucket = storage.bucket bucket_name

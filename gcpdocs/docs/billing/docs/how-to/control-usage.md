@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/billing/docs/how-to/control-usage/
 title: Control resource usage with notifications \u00a0|\u00a0 Cloud Billing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:21.130005+00:00
+fetched_at: 2026-10-26T05:40:52.080161+00:00
 ---
 
 # Control resource usage with notifications  |  Cloud Billing  |  Google Cloud Documentation
@@ -93,12 +93,12 @@ Copy the following to your `requirements.txt` file:
 
 ###  Node.js 
          
-         const {CloudBillingClient} = require('[@google-cloud/billing](https://docs.cloud.google.com/nodejs/docs/reference/billing/latest/overview.html)');
-         const {InstancesClient} = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
+         const {CloudBillingClient} = require('@google-cloud/billing');
+         const {InstancesClient} = require('@google-cloud/compute');
          
          const PROJECT_ID = process.env.GOOGLE_CLOUD_PROJECT;
          const PROJECT_NAME = `projects/${PROJECT_ID}`;
-         const instancesClient = new [InstancesClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
+         const instancesClient = new InstancesClient();
          const ZONE = 'us-central1-a';
          
          exports.limitUse = async pubsubEvent => {

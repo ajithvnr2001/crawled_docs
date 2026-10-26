@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/listing-objects/
 title: List objects \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:35.827398+00:00
+fetched_at: 2026-10-26T05:39:20.546357+00:00
 ---
 
 # List objects  |  Cloud Storage  |  Google Cloud Documentation
@@ -624,7 +624,7 @@ The following sample lists all objects in a bucket:
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket  = storage.bucket bucket_name
     
       bucket.[files](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html).[each](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Bindings.html) do |file|
@@ -667,7 +667,7 @@ The following sample lists objects with a given prefix:
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket  = storage.bucket bucket_name
       files   = bucket.[files](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) prefix: prefix, delimiter: delimiter
     

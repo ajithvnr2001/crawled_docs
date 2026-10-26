@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerymigration-migrationservice-migrationworkflows-list/
 title: List migration workflows \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:28:06.562383+00:00
+fetched_at: 2026-10-26T05:41:15.135305+00:00
 ---
 
 # List migration workflows  |  BigQuery  |  Google Cloud Documentation
@@ -81,9 +81,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     
     from google.api_core import exceptions
-    from google.cloud import [bigquery_migration_v2](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest)
+    from google.cloud import bigquery_migration_v2
     
-    client = [bigquery_migration_v2](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest).[MigrationServiceClient](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest/google.cloud.bigquery_migration_v2.services.migration_service.MigrationServiceClient.html)()
+    client = bigquery_migration_v2.[MigrationServiceClient](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest/google.cloud.bigquery_migration_v2.services.migration_service.MigrationServiceClient.html)()
     
     
     def list_migration_workflows(project_id: str, location: str) -> None:

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-prompt-template-list-prompt/
 title: List all prompts \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:50.423402+00:00
+fetched_at: 2026-10-26T05:40:36.892683+00:00
 ---
 
 # List all prompts  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -35,14 +35,14 @@ Before trying this sample, follow the Python setup instructions in the [Vertex A
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
-    from vertexai.preview import [prompts](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.prompts.html)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    from vertexai.preview import [prompts](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.prompts.html)
     
     # Initialize vertexai
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="us-central1")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="us-central1")
     
     # Get prompt a prompt from list
-    list_prompts_metadata = [prompts](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.prompts.html).list()
+    list_prompts_metadata = [prompts](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.prompts.html).list()
     
     print(list_prompts_metadata)
     

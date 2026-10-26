@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/loading-data-cloud-storage-csv/
 title: Load CSV data from Cloud Storage \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:50:18.041742+00:00
+fetched_at: 2026-10-26T05:39:18.319495+00:00
 ---
 
 # Load CSV data from Cloud Storage  |  BigQuery  |  Google Cloud Documentation
@@ -705,7 +705,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     require "google/cloud/bigquery"
     
     def load_table_gcs_csv dataset_id = "your_dataset_id"
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-reservation/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
       dataset  = bigquery.dataset dataset_id
       gcs_uri  = "gs://cloud-samples-data/bigquery/us-states/us-states.csv"
       table_id = "us_states"

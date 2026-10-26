@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/sequence-tasks/
 title: Create and manage sequences \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:35.046846+00:00
+fetched_at: 2026-10-26T05:39:31.060958+00:00
 ---
 
 # Create and manage sequences  |  Spanner  |  Google Cloud Documentation
@@ -393,7 +393,7 @@ The following code example creates a sequence `Seq`, uses it in the primary key 
             );
           });
     
-          const rowCount = Math.floor(stats[stats.rowCount]);
+          const rowCount = Math.floor(stats[stats.[rowCount](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.v1.resultsetstats.html)]);
           console.log(`Number of customer records inserted is: ${rowCount}`);
     
           await transaction.commit();
@@ -908,7 +908,7 @@ The following code example creates a sequence `Seq`, uses it in the primary key 
             );
           });
     
-          const rowCount = Math.floor(stats[stats.rowCount]);
+          const rowCount = Math.floor(stats[stats.[rowCount](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.v1.resultsetstats.html)]);
           console.log(`Number of customer records inserted is: ${rowCount}`);
     
           await transaction.commit();
@@ -1418,7 +1418,7 @@ The following code example alters the sequence `Seq` to skip a value range from 
             );
           });
     
-          const rowCount = Math.floor(stats[stats.rowCount]);
+          const rowCount = Math.floor(stats[stats.[rowCount](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.v1.resultsetstats.html)]);
           console.log(`Number of customer records inserted is: ${rowCount}`);
     
           await transaction.commit();
@@ -1906,7 +1906,7 @@ The following code example alters the sequence `Seq` to skip a value range from 
             );
           });
     
-          const rowCount = Math.floor(stats[stats.rowCount]);
+          const rowCount = Math.floor(stats[stats.[rowCount](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.v1.resultsetstats.html)]);
           console.log(`Number of customer records inserted is: ${rowCount}`);
     
           await transaction.commit();

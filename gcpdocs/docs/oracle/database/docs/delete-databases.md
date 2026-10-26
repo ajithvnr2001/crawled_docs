@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/delete-databases/
 title: Delete databases \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:33:03.628010+00:00
+fetched_at: 2026-10-26T05:40:56.875965+00:00
 ---
 
 # Delete databases  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -174,7 +174,7 @@ Replace the following:
     import com.google.cloud.oracledatabase.v1.[AutonomousDatabaseName](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.AutonomousDatabaseName.html);
     import com.google.cloud.oracledatabase.v1.[DeleteAutonomousDatabaseRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.DeleteAutonomousDatabaseRequest.html);
     import com.google.cloud.oracledatabase.v1.[OracleDatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.OracleDatabaseClient.html);
-    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html);
+    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html);
     
     public class AsyncDeleteAutonomousDatabase {
     

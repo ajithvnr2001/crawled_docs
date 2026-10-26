@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/feed-management/
 title: Work with the feeds UI \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:49:31.944804+00:00
+fetched_at: 2026-10-26T05:51:05.347273+00:00
 ---
 
 # Work with the feeds UI  |  Google Security Operations  |  Google Cloud Documentation
@@ -252,6 +252,38 @@ The **source deletion option** lets you delete feed source objects (files and fo
 
 
 
+### Filter objects by prefix in STS feeds
+
+**Note:** Prefix-based filtering using the **Include prefixes** (`include_prefixes`) field is in Limited Preview and requires your tenant to be on the allowlist. To enable this feature (`enable_feed_include_prefixes`) for your tenant, contact your Google Cloud account team, Technical Account Manager (TAM), or [Cloud Customer Care](https://cloud.google.com/support-hub). If your tenant isn't on the allowlist, saving a feed with prefixes returns an error. For details, see Error: `Generic::failed_precondition: include_prefixes is not enabled for this customer`.
+
+The **Include prefixes** (`include_prefixes`) field filters storage objects transferred by Storage Transfer Service (STS) before ingestion based on object key prefixes. Values that you specify in this field are passed directly to STS [`ObjectConditions.include_prefixes`](https://docs.cloud.google.com/storage-transfer/docs/reference/rest/v1/TransferSpec#ObjectConditions).
+
+#### Supported STS feed source types
+
+Prefix-based filtering is supported for the following STS feed source types (`feedSourceType`):
+
+  * **Cloud Storage (V2)** (`GOOGLE_CLOUD_STORAGE_V2`) and **Cloud Storage Event Driven** (`GOOGLE_CLOUD_STORAGE_EVENT_DRIVEN`)
+  * **Amazon S3 (V2)** (`AMAZON_S3_V2`) and **Amazon SQS (V2)** (`AMAZON_SQS_V2`)
+  * **Azure Blob Storage (V2)** (`AZURE_BLOBSTORE_V2`) and **Azure Blob Storage Event Driven** (`AZURE_BLOBSTORE_EVENT_DRIVEN`)
+
+
+
+#### Prefix syntax and validation rules
+
+When you configure **Include prefixes** (`include_prefixes`), follow these syntax and validation rules:
+
+  * **No leading slashes** : Prefixes are relative to the bucket or container root and must not start with a leading slash (`/`). For example, enter `logs/audit/` instead of `/logs/audit/`.
+  * **Trailing slashes versus partial matching** : Trailing slashes control whether a prefix matches only objects in a specific folder or any object key that starts with the prefix: 
+    * **With a trailing slash** : A prefix ending with `/` (for example, `logs/app/`) restricts matches strictly to objects inside that folder. Include a trailing slash for directory-level scoping.
+    * **Without a trailing slash** : A prefix without a trailing `/` (for example, `logs/app`) matches any object starting with that string, including `logs/app_old/` and `logs/application/`.
+  * **Case sensitivity** : Object key prefixes are strictly case-sensitive.
+  * **No wildcards or regular expressions** : Pattern matching isn't supported. Characters such as `*` and `?` are treated as literal characters.
+  * **No empty values** : Individual prefix entries can't be empty or contain only whitespace. To ingest the entire bucket or container, leave the **Include prefixes** field blank.
+  * **Distinct, non-overlapping namespaces** : A prefix can't be a prefix of another prefix in the same list. For example, `["logs/", "logs/audit/"]` is invalid, whereas sibling prefixes such as `["logs/audit/", "logs/vpc/"]` are valid.
+  * **Limits** : A feed supports up to 1,000 prefixes. Each prefix can have a maximum length of 1,024 bytes when UTF-8 encoded and can't contain carriage return (`\r`) or newline (`\n`) characters.
+
+
+
 ## Source-specific setup and permissions
 
 Different source types require specific authentication and networking configurations to communicate with Google SecOps. This section describes how to configure permissions and set up service accounts. The setup outlined focuses on Cloud Storage ingestion (pull based), multi-cloud ingestion (cross-cloud pull), and push-based ingestion (API or real-time).
@@ -276,6 +308,8 @@ Different source types require specific authentication and networking configurat
 
 **Note:** Use a wildcard to match an entire directory name. For example, `gs://cs-myprod/*/more-data` is valid (where `*` replaces the entire name of a single directory level).**Note:** For Cloud Storage Event Driven feed types, set up a Pub/Sub subscription for Cloud Storage, as described in [Configure Pub/Sub](https://docs.cloud.google.com/storage-transfer/docs/event-driven-google#configure_pub_sub).
      * **Source deletion option**
+
+     * Optional: **Include prefixes** (optional). This is currently in Limited Preview. For syntax rules and allowlist details, see Filter objects by prefix in STS feeds.
 
 To learn more about how to set up Cloud Storage buckets, see [Create Buckets](https://docs.cloud.google.com/storage/docs/creating-buckets).
 
@@ -560,7 +594,7 @@ Replace the following:
 **Note:** This feature is covered by [Pre-GA Offerings Terms](https://chronicle.security/legal/service-terms/) of the Google Security Operations Service Specific Terms. Pre-GA features might have limited support, and changes to pre-GA features might not be compatible with other pre-GA versions. For more information, see the [Google SecOps Technical Support Service guidelines](https://chronicle.security/legal/technical-support-services-guidelines/) and the [Google SecOps Service Specific Terms](https://chronicle.security/legal/service-terms/).  
 If this feature isn't visible in your environment, see [Manage preview features](https://docs.cloud.google.com/chronicle/docs/secops/preview-features-manage) or contact your system administrator.
 
-**Note:** This feature may not be available to all customers in all regions. Private preview features are not manageable in the Public Preview Manager page in the Google SecOps platform. 
+**Note:** This feature is in Private Preview and is not available to all customers in all regions. Private preview features are not manageable in the Public Preview Manager page in the Google SecOps platform. 
 
 Google Security Operations Custom API feeds (also known as Codeless Connectors) enable you to ingest telemetry from third-party REST APIs using a flexible, configuration-based model. You can configure data pulls by defining endpoints, authentication, pagination strategies, and state management directly in the console.
 
@@ -1028,20 +1062,30 @@ You can request a rate limit increase by contacting [Cloud Customer Care](https:
 
 ## Troubleshoot failed feeds
 
-On the **Feeds** page, you can view details such as source type, log type, feed ID, and status of the existing feeds, as follows:
+  * On the **Feeds** page, you can view details such as source type, log type, feed ID, and status of the existing feeds, as follows:
 
-  1. Hold the pointer over an existing feed and click  more_vert in the right column.
+    1. Hold the pointer over an existing feed and click  more_vert in the right column.
 
-  2. Click **View Feed**. A dialog appears showing the feed details. For a failed feed, you can find error details under **Details** > **Status**.
+    2. Click **View Feed**. A dialog appears showing the feed details. For a failed feed, you can find error details under **Details** > **Status**.
+
+  * For a failed feed, the details include the cause of the error and steps to fix it.
+
+  * See the [Source and Ingestion Errors](https://docs.cloud.google.com/chronicle/docs/ingestion/troubleshooting-ingestion#source_and_ingestion_errors) table for error messages that you might encounter when working with data feeds.
+
+  * For detailed analysis and troubleshooting of feed activity, you can view logs in Cloud Logging. See [Analyze feed activity with Cloud Logging](https://docs.cloud.google.com/chronicle/docs/ingestion/analyze-feed-activity-with-cloud-logging).
+
+  * `Generic::failed_precondition` error:
+
+Error: `Generic::failed_precondition: include_prefixes is not enabled for this customer`
+
+This error occurs when you save an STS feed with values in the **Include prefixes** (`include_prefixes`) field, but your Google SecOps tenant isn't on the allowlist for prefix-based filtering.
+
+To resolve this error, do one of the following:
+
+    1. Remove all prefixes from the **Include prefixes** (`include_prefixes`) field and save the feed again to ingest the entire bucket or container.
+    2. Contact your Google Cloud account team, Technical Account Manager (TAM), or [Cloud Customer Care](https://cloud.google.com/support-hub) to request access to the `include_prefixes` (`enable_feed_include_prefixes`) feature for your tenant. For more information, see Filter objects by prefix in STS feeds.
 
 
-
-
-For a failed feed, the details include the cause of the error and steps to fix it.
-
-See the [Source and Ingestion Errors](https://docs.cloud.google.com/chronicle/docs/ingestion/troubleshooting-ingestion#source_and_ingestion_errors) table for error messages that you might encounter when working with data feeds.
-
-For detailed analysis and troubleshooting of feed activity, you can view logs in Cloud Logging. See [Analyze feed activity with Cloud Logging](https://docs.cloud.google.com/chronicle/docs/ingestion/analyze-feed-activity-with-cloud-logging).
 
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
 
@@ -1049,6 +1093,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-25 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 

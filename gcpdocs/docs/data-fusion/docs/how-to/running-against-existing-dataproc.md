@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/running-against-existing-dataproc/
 title: Run a pipeline against an existing Managed Service for Apache Spark cluster \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:59.066074+00:00
+fetched_at: 2026-10-26T05:59:27.429561+00:00
 ---
 
 # Run a pipeline against an existing Managed Service for Apache Spark cluster  |  Cloud Data Fusion  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/regexpreplace/
 title: REGEXP_REPLACE \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:15.781925+00:00
+fetched_at: 2026-10-26T05:59:46.680163+00:00
 ---
 
 # REGEXP_REPLACE  |  Data Studio  |  Google Cloud Documentation

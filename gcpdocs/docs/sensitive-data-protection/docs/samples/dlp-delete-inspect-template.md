@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-delete-inspect-template/
 title: Delete an inspection template \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:52:54.444946+00:00
+fetched_at: 2026-10-26T05:40:08.317504+00:00
 ---
 
 # Delete an inspection template  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -41,16 +41,16 @@ To learn how to install and use the client library for Sensitive Data Protection
 To authenticate to Sensitive Data Protection, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    using [Google.Cloud.Dlp.V2](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.html);
+    using Google.Cloud.Dlp.V2;
     using System;
     
     public class InspectTemplateDelete
     {
         public static object Delete(string projectId, string templateName)
         {
-            var client = [DlpServiceClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.DlpServiceClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.DlpServiceClient.html#Google_Cloud_Dlp_V2_DlpServiceClient_Create)();
+            var client = DlpServiceClient.Create();
     
-            var request = new [DeleteInspectTemplateRequest](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.DeleteInspectTemplateRequest.html)
+            var request = new DeleteInspectTemplateRequest
             {
                 Name = templateName
             };
@@ -86,11 +86,11 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     
     	ctx := context.Background()
     
-    	client, err := dlp.[NewClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dlp/latest/apiv2.html#cloud_google_com_go_dlp_apiv2_Client_NewClient)(ctx)
+    	client, err := dlp.NewClient(ctx)
     	if err != nil {
     		return fmt.Errorf("dlp.NewClient: %w", err)
     	}
-    	defer client.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dlp/latest/apiv2.html#cloud_google_com_go_dlp_apiv2_Client_Close)()
+    	defer client.Close()
     
     	req := &dlppb.DeleteInspectTemplateRequest{
     		Name: templateID,
@@ -111,8 +111,8 @@ To learn how to install and use the client library for Sensitive Data Protection
 To authenticate to Sensitive Data Protection, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.dlp.v2.[DlpServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html);
-    import com.google.privacy.dlp.v2.[DeleteInspectTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.DeleteInspectTemplateRequest.html);
+    import com.google.cloud.dlp.v2.DlpServiceClient;
+    import com.google.privacy.dlp.v2.DeleteInspectTemplateRequest;
     import java.io.IOException;
     
     class TemplatesDelete {
@@ -132,11 +132,11 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try ([DlpServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html) dlpServiceClient = [DlpServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html).create()) {
+        try (DlpServiceClient dlpServiceClient = DlpServiceClient.create()) {
     
           // Create delete template request to be sent by the client
-          [DeleteInspectTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.DeleteInspectTemplateRequest.html) request =
-              [DeleteInspectTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.DeleteInspectTemplateRequest.html).newBuilder().setName(templateName).build();
+          DeleteInspectTemplateRequest request =
+              DeleteInspectTemplateRequest.newBuilder().setName(templateName).build();
     
           // Send the request with the client
           dlpServiceClient.deleteInspectTemplate(request);
@@ -153,10 +153,10 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     
     
     // Imports the Google Cloud Data Loss Prevention library
-    const DLP = require('[@google-cloud/dlp](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/overview.html)');
+    const DLP = require('@google-cloud/dlp');
     
     // Instantiates a client
-    const dlp = new DLP.[DlpServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/overview.html)();
+    const dlp = new DLP.DlpServiceClient();
     
     // The project ID to run the API call under
     // const projectId = 'my-project';
@@ -230,7 +230,7 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
         """
     
         # Instantiate a client.
-        dlp = google.cloud.[dlp_v2](https://docs.cloud.google.com/python/docs/reference/dlp/latest).[DlpServiceClient](https://docs.cloud.google.com/python/docs/reference/dlp/latest/google.cloud.dlp_v2.services.dlp_service.DlpServiceClient.html)()
+        dlp = google.cloud.dlp_v2.DlpServiceClient()
     
         # Convert the project id into a full resource id.
         parent = f"projects/{project}"
@@ -239,7 +239,7 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
         template_resource = f"{parent}/inspectTemplates/{template_id}"
     
         # Call the API.
-        dlp.[delete_inspect_template](https://docs.cloud.google.com/python/docs/reference/dlp/latest/google.cloud.dlp_v2.services.dlp_service.DlpServiceClient.html#google_cloud_dlp_v2_services_dlp_service_DlpServiceClient_delete_inspect_template)(request={"name": template_resource})
+        dlp.delete_inspect_template(request={"name": template_resource})
     
         print(f"Template {template_resource} successfully deleted.")
     

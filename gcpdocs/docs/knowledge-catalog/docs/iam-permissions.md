@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/iam-permissions/
 title: Knowledge Catalog Identity and Access Management permissions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:53:06.499275+00:00
+fetched_at: 2026-10-26T05:39:50.555680+00:00
 ---
 
 # Knowledge Catalog Identity and Access Management permissions  |  Google Cloud Documentation

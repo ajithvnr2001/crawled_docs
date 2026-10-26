@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/troubleshooting/
 title: Troubleshooting \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:08.588915+00:00
+fetched_at: 2026-10-26T05:38:42.530300+00:00
 ---
 
 # Troubleshooting  |  Cloud Storage  |  Google Cloud Documentation
@@ -296,7 +296,7 @@ All method calls which trigger http requests accept an optional `$restOptions` a
     
     require "google/cloud/storage"
     
-    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
     
     storage.[add_custom_headers](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Project.html) { 'X-Custom-Header'=> 'value' }
     

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/link-pro-to-different-projects-within-your-organization/
 title: Link Data Studio Pro to different projects within your organization \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:36.290354+00:00
+fetched_at: 2026-10-26T05:59:05.916246+00:00
 ---
 
 # Link Data Studio Pro to different projects within your organization  |  Google Cloud Documentation

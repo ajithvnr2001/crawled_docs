@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-create-reasoning-engine-basic/
 title: Build, test, and deploy a custom app on Reasoning Engine \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:12.578660+00:00
+fetched_at: 2026-10-26T05:40:23.221258+00:00
 ---
 
 # Build, test, and deploy a custom app on Reasoning Engine  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -35,13 +35,13 @@ Before trying this sample, follow the Python setup instructions in the [Vertex A
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
     from vertexai.preview import reasoning_engines
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
     # staging_bucket = "gs://YOUR_BUCKET_NAME"
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
         project=PROJECT_ID, location="us-central1", staging_bucket=staging_bucket
     )
     

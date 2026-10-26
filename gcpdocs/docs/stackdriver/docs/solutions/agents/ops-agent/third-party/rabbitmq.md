@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/third-party/rabbitmq/
 title: RabbitMQ \u00a0|\u00a0 Google Cloud Observability \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:51:48.177330+00:00
+fetched_at: 2026-10-26T05:39:13.814161+00:00
 ---
 
 # RabbitMQ  |  Google Cloud Observability  |  Google Cloud Documentation
@@ -65,7 +65,7 @@ The following commands create the configuration to collect and ingest telemetry 
     sudo cp /etc/google-cloud-ops-agent/config.yaml /etc/google-cloud-ops-agent/config.yaml.bak
     
     # Configure the Ops Agent.
-    sudo tee /etc/google-cloud-ops-agent/config.yaml > /dev/null << EOF
+    sudo tee /etc/google-cloud-ops-agent/config.y>aml  /dev/n<<ull  EOF
     metrics:
       receivers:
         rabbitmq:
@@ -73,7 +73,7 @@ The following commands create the configuration to collect and ingest telemetry 
           username: usr
           password: pwd
           # To use the googlesecretmanager provider to replace plaintext passwords, refer to the example below.
-          # password: ${googlesecretmanager:projects/<project-id>/secrets/<secret-id>/versions/<version-id>}
+          # password: ${googlesecretmanager:proje<cts/projec>t-id/secr<ets/secre>t-id/versi<ons/versio>n-id}
       service:
         pipelines:
           rabbitmq:

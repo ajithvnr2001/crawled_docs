@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-create-table-with-datatypes/
 title: Create table with data types \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:53:33.114176+00:00
+fetched_at: 2026-10-26T05:40:43.863197+00:00
 ---
 
 # Create table with data types  |  Spanner  |  Google Cloud Documentation
@@ -339,7 +339,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     
     require "google/cloud/spanner"
     
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
     client  = spanner.database instance_id, database_id
     
     job = client.update statements: [

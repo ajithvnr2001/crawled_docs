@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/migrate-from-legacy-api-to-chronicle-api/
 title: Migrate from legacy SIEM API to Chronicle API \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:48:26.306120+00:00
+fetched_at: 2026-10-26T05:41:30.802645+00:00
 ---
 
 # Migrate from legacy SIEM API to Chronicle API  |  Google Security Operations  |  Google Cloud Documentation
@@ -209,6 +209,17 @@ Similarly, to query SOAR resources such as Cases using the regional endpoint (`r
       https://chronicle.us.rep.googleapis.com/v1alpha/projects/my-project-name-or-id/locations/us/instances/408bfb7b-5746-4a50-885a-50a323023529/cases
     
 
+#### Verify firewall configuration
+
+If you use firewalls or authenticated proxies between your environment and the internet, configure rules to allow outbound HTTPS connections on TCP port `443`. Allow access to the following hosts:
+
+  * **Chronicle API endpoint** : `<var>REGION</var>-chronicle.googleapis.com` or `chronicle.<var>REGION</var>.rep.googleapis.com`
+  * **Google authentication endpoints** : `oauth2.googleapis.com`, `www.googleapis.com`, and `accounts.google.com` (plus `sts.googleapis.com` and `iamcredentials.googleapis.com` if you use Workload Identity Federation or service account impersonation)
+
+
+
+For complete endpoint details, Google IP range guidance, private connectivity options, and verification steps, see [Verify firewall configuration for the Chronicle API](https://docs.cloud.google.com/chronicle/docs/reference/verify-firewall-configuration).
+
 ### Update API logic
 
 Review the [Chronicle API REST reference](https://docs.cloud.google.com/chronicle/docs/reference/rest) to identify and implement changes to field names and data structures in your application. While some legacy endpoints might remain similar, you must update your integrations to match the latest data models and endpoint structures.
@@ -276,6 +287,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-25 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 

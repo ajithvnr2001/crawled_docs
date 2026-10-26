@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/enable-replication-delay/
 title: Enable replication delay monitoring for PostgreSQL versions earlier than 9.6 \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:17:53.573718+00:00
+fetched_at: 2026-10-26T05:59:11.196326+00:00
 ---
 
 # Enable replication delay monitoring for PostgreSQL versions earlier than 9.6  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

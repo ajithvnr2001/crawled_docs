@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/compliance/
 title: Compliance \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:29.287386+00:00
+fetched_at: 2026-10-26T05:59:44.225098+00:00
 ---
 
 # Compliance  |  Dataform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-create-data-labeling-job-specialist-pool-sample/
 title: Create a data labeling job for specialist pool \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:27:04.668953+00:00
+fetched_at: 2026-10-26T05:40:18.160214+00:00
 ---
 
 # Create a data labeling job for specialist pool  |  Vertex AI  |  Google Cloud Documentation
@@ -42,7 +42,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     import com.google.cloud.aiplatform.v1.[SpecialistPoolName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.SpecialistPoolName.html);
     import com.google.gson.JsonArray;
     import com.google.gson.JsonObject;
-    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html);
+    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html);
     import com.google.protobuf.util.[JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html);
     import java.io.IOException;
     
@@ -90,9 +90,9 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
           jsonAnnotationSpecs.add(annotationSpec);
           JsonObject jsonInputs = new JsonObject();
           jsonInputs.add("annotation_specs", jsonAnnotationSpecs);
-          [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).Builder inputsBuilder = [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).newBuilder();
+          [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html).Builder inputsBuilder = [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html).newBuilder();
           [JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html).parser().merge(jsonInputs.toString(), inputsBuilder);
-          [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html) inputs = inputsBuilder.build();
+          [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html) inputs = inputsBuilder.build();
     
           String datasetName = [DatasetName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DatasetName.html).of(project, location, dataset).toString();
           String specialistPoolName =

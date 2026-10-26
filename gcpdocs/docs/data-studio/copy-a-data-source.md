@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/copy-a-data-source/
 title: Copy a data source \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:46.086161+00:00
+fetched_at: 2026-10-26T05:59:07.506965+00:00
 ---
 
 # Copy a data source  |  Data Studio  |  Google Cloud Documentation

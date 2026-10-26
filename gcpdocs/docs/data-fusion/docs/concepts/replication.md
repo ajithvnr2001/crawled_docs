@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/concepts/replication/
 title: Replication overview \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:26.584889+00:00
+fetched_at: 2026-10-26T05:59:01.163166+00:00
 ---
 
 # Replication overview  |  Cloud Data Fusion  |  Google Cloud Documentation

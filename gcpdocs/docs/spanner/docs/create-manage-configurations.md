@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/create-manage-configurations/
 title: Create and manage instance configurations \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:36.852708+00:00
+fetched_at: 2026-10-26T05:38:57.438034+00:00
 ---
 
 # Create and manage instance configurations  |  Spanner  |  Google Cloud Documentation
@@ -214,7 +214,7 @@ To learn how to install and use the client library for Spanner, see [Spanner cli
       // See https://cloud.google.com/spanner/docs/instance-configurations#configuration for a list of all available
       // configurations.
       const [instanceConfigs] = await instanceAdminClient.listInstanceConfigs({
-        parent: instanceAdminClient.projectPath(projectId),
+        parent: instanceAdminClient.[projectPath](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/v1.instanceadminclient.html)(projectId),
       });
       console.log(`Available instance configs for project ${projectId}:`);
       instanceConfigs.forEach(instanceConfig => {
@@ -1035,7 +1035,7 @@ To learn how to install and use the client library for Spanner, see [Spanner cli
         );
         const [operation] = await instanceAdminClient.createInstanceConfig({
           instanceConfigId: instanceConfigId,
-          parent: instanceAdminClient.projectPath(projectId),
+          parent: instanceAdminClient.[projectPath](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/v1.instanceadminclient.html)(projectId),
           instanceConfig: {
             name: instanceAdminClient.instanceConfigPath(
               projectId,

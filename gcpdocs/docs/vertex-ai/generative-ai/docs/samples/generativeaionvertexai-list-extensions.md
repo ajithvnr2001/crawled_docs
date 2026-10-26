@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-list-extensions/
 title: List all Extensions in Vertex AI \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:49.983692+00:00
+fetched_at: 2026-10-26T05:40:35.591150+00:00
 ---
 
 # List all Extensions in Vertex AI  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -43,12 +43,12 @@ Before trying this sample, follow the Python setup instructions in the [Vertex A
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.preview import extensions
     
     # TODO (developer):Update project_id
     # PROJECT_ID = "your-project-id"
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="us-central1")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="us-central1")
     
     extensions_list = extensions.Extension.list()
     print(extensions_list)

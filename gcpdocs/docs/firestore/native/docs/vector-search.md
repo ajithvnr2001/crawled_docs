@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/vector-search/
 title: Search with vector embeddings \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:17:35.666268+00:00
+fetched_at: 2026-10-26T05:41:02.802487+00:00
 ---
 
 # Search with vector embeddings  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -61,7 +61,7 @@ The following example shows how to store a vector embedding in a Firestore docum
     
     collection.add(doc)
     
-    [vector_search.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/83a4a2befda9030e8c4e5b1d24bbc97c04329923/firestore/cloud-client/vector_search.py#L19-L30)
+    [vector_search.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/vector_search.py#L19-L30)
 
 ##### Node.js
     
@@ -124,7 +124,7 @@ The following example shows how to store a vector embedding in a Firestore docum
     }
     
     
-    [vector_store.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/5a88b95e85a07cb132bd437f5940aea3afe8ab54/firestore/vector_store.go#L18-L58)
+    [vector_store.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/vector_store.go#L18-L58)
 
 ##### Java
     
@@ -360,7 +360,7 @@ The following example finds 10 nearest neighbors of the query vector.
         limit=5,
     )
     
-    [vector_search.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/83a4a2befda9030e8c4e5b1d24bbc97c04329923/firestore/cloud-client/vector_search.py#L36-L47)
+    [vector_search.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/vector_search.py#L36-L47)
 
 ##### Node.js
     
@@ -427,7 +427,7 @@ The following example finds 10 nearest neighbors of the query vector.
     }
     
     
-    [vector_search_basic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/5a88b95e85a07cb132bd437f5940aea3afe8ab54/firestore/vector_search_basic.go#L18-L58)
+    [vector_search_basic.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/vector_search_basic.go#L18-L58)
 
 ##### Java
     
@@ -493,7 +493,7 @@ To pre-filter documents before finding the nearest neighbors, you can combine a 
         limit=5,
     )
     
-    [vector_search.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/83a4a2befda9030e8c4e5b1d24bbc97c04329923/firestore/cloud-client/vector_search.py#L54-L66)
+    [vector_search.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/vector_search.py#L54-L66)
 
 ##### Node.js
     
@@ -557,7 +557,7 @@ To pre-filter documents before finding the nearest neighbors, you can combine a 
     }
     
     
-    [vector_search_prefilter.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/5a88b95e85a07cb132bd437f5940aea3afe8ab54/firestore/vector_search_prefilter.go#L18-L59)
+    [vector_search_prefilter.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/vector_search_prefilter.go#L18-L59)
 
 ##### Java
     
@@ -601,7 +601,7 @@ You can retrieve the calculated vector distance by assigning a `distance_result_
     for doc in docs:
         print(f"{doc.id}, Distance: {doc.get('vector_distance')}")
     
-    [vector_search.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/83a4a2befda9030e8c4e5b1d24bbc97c04329923/firestore/cloud-client/vector_search.py#L73-L89)
+    [vector_search.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/vector_search.py#L73-L89)
 
 ##### Node.js
     
@@ -666,7 +666,7 @@ You can retrieve the calculated vector distance by assigning a `distance_result_
     }
     
     
-    [vector_search_result_field.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/5a88b95e85a07cb132bd437f5940aea3afe8ab54/firestore/vector_search_result_field.go#L18-L58)
+    [vector_search_result_field.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/vector_search_result_field.go#L18-L58)
 
 ##### Java
     
@@ -702,7 +702,7 @@ If you want to use a field mask to return a subset of document fields along with
         distance_result_field="vector_distance",
     )
     
-    [vector_search.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/83a4a2befda9030e8c4e5b1d24bbc97c04329923/firestore/cloud-client/vector_search.py#L98-L104)
+    [vector_search.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/vector_search.py#L98-L104)
 
 ##### Node.js
     
@@ -763,7 +763,7 @@ If you want to use a field mask to return a subset of document fields along with
     }
     
     
-    [vector_search_result_field_masked.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/5a88b95e85a07cb132bd437f5940aea3afe8ab54/firestore/vector_search_result_field_masked.go#L18-L59)
+    [vector_search_result_field_masked.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/vector_search_result_field_masked.go#L18-L59)
 
 ##### Java
     
@@ -822,7 +822,7 @@ The following example shows how to specify a distance threshold to return up to 
     for doc in docs:
         print(f"{doc.id}")
     
-    [vector_search.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/83a4a2befda9030e8c4e5b1d24bbc97c04329923/firestore/cloud-client/vector_search.py#L111-L127)
+    [vector_search.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/vector_search.py#L111-L127)
 
 ##### Node.js
     
@@ -886,7 +886,7 @@ The following example shows how to specify a distance threshold to return up to 
     }
     
     
-    [vector_search_distance_threshold.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/5a88b95e85a07cb132bd437f5940aea3afe8ab54/firestore/vector_search_distance_threshold.go#L18-L58)
+    [vector_search_distance_threshold.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/vector_search_distance_threshold.go#L18-L58)
 
 ##### Java
     

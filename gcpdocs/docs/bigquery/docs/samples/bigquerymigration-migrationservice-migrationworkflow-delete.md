@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerymigration-migrationservice-migrationworkflow-delete/
 title: Delete a migration workflow \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:27:22.921992+00:00
+fetched_at: 2026-10-26T05:41:16.136733+00:00
 ---
 
 # Delete a migration workflow  |  BigQuery  |  Google Cloud Documentation
@@ -78,9 +78,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     
     from google.api_core import exceptions
-    from google.cloud import [bigquery_migration_v2](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest)
+    from google.cloud import bigquery_migration_v2
     
-    client = [bigquery_migration_v2](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest).[MigrationServiceClient](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest/google.cloud.bigquery_migration_v2.services.migration_service.MigrationServiceClient.html)()
+    client = bigquery_migration_v2.[MigrationServiceClient](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest/google.cloud.bigquery_migration_v2.services.migration_service.MigrationServiceClient.html)()
     
     
     def delete_migration_workflow(project_id: str, location: str, workflow_id: str) -> None:

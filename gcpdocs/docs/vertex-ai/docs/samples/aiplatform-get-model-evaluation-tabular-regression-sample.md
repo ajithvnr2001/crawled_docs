@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-get-model-evaluation-tabular-regression-sample/
 title: Get a model evaluation for tabular regression \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:27:00.502548+00:00
+fetched_at: 2026-10-26T05:40:19.328791+00:00
 ---
 
 # Get a model evaluation for tabular regression  |  Vertex AI  |  Google Cloud Documentation
@@ -42,10 +42,10 @@ Before trying this sample, follow the Java setup instructions in the [Vertex AI 
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.aiplatform.v1.[ModelEvaluation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelEvaluation.html);
-    import com.google.cloud.aiplatform.v1.[ModelEvaluationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelEvaluationName.html);
-    import com.google.cloud.aiplatform.v1.[ModelServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelServiceClient.html);
-    import com.google.cloud.aiplatform.v1.[ModelServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelServiceSettings.html);
+    import com.google.cloud.aiplatform.v1.ModelEvaluation;
+    import com.google.cloud.aiplatform.v1.ModelEvaluationName;
+    import com.google.cloud.aiplatform.v1.ModelServiceClient;
+    import com.google.cloud.aiplatform.v1.ModelServiceSettings;
     import java.io.IOException;
     
     public class GetModelEvaluationTabularRegressionSample {
@@ -73,26 +73,26 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
       static void getModelEvaluationTabularRegression(
           String project, String modelId, String evaluationId) throws IOException {
-        [ModelServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelServiceSettings.html) modelServiceSettings =
-            [ModelServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelServiceSettings.html).newBuilder()
+        ModelServiceSettings modelServiceSettings =
+            ModelServiceSettings.newBuilder()
                 .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try ([ModelServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelServiceClient.html) modelServiceClient = [ModelServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelServiceClient.html).create(modelServiceSettings)) {
+        try (ModelServiceClient modelServiceClient = ModelServiceClient.create(modelServiceSettings)) {
           String location = "us-central1";
-          [ModelEvaluationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelEvaluationName.html) modelEvaluationName =
-              [ModelEvaluationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelEvaluationName.html).of(project, location, modelId, evaluationId);
-          [ModelEvaluation](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelEvaluation.html) modelEvaluation = modelServiceClient.getModelEvaluation(modelEvaluationName);
+          ModelEvaluationName modelEvaluationName =
+              ModelEvaluationName.of(project, location, modelId, evaluationId);
+          ModelEvaluation modelEvaluation = modelServiceClient.getModelEvaluation(modelEvaluationName);
     
           System.out.println("Get Model Evaluation Tabular Regression Response");
-          System.out.format("\tName: %s\n", modelEvaluation.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelEvaluation.html#com_google_cloud_aiplatform_v1_ModelEvaluation_getName__)());
-          System.out.format("\tMetrics Schema Uri: %s\n", modelEvaluation.[getMetricsSchemaUri](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelEvaluation.html#com_google_cloud_aiplatform_v1_ModelEvaluation_getMetricsSchemaUri__)());
-          System.out.format("\tMetrics: %s\n", modelEvaluation.[getMetrics](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelEvaluation.html#com_google_cloud_aiplatform_v1_ModelEvaluation_getMetrics__)());
-          System.out.format("\tCreate Time: %s\n", modelEvaluation.[getCreateTime](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelEvaluation.html#com_google_cloud_aiplatform_v1_ModelEvaluation_getCreateTime__)());
-          System.out.format("\tSlice Dimensions: %s\n", modelEvaluation.[getSliceDimensionsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelEvaluation.html#com_google_cloud_aiplatform_v1_ModelEvaluation_getSliceDimensionsList__)());
+          System.out.format("\tName: %s\n", modelEvaluation.getName());
+          System.out.format("\tMetrics Schema Uri: %s\n", modelEvaluation.getMetricsSchemaUri());
+          System.out.format("\tMetrics: %s\n", modelEvaluation.getMetrics());
+          System.out.format("\tCreate Time: %s\n", modelEvaluation.getCreateTime());
+          System.out.format("\tSlice Dimensions: %s\n", modelEvaluation.getSliceDimensionsList());
         }
       }
     }
@@ -123,7 +123,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     // const location = 'YOUR_PROJECT_LOCATION';
     
     // Imports the Google Cloud Model Service Client library
-    const {ModelServiceClient} = require('[@google-cloud/aiplatform](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)');
+    const {ModelServiceClient} = require('@google-cloud/aiplatform');
     
     // Specifies the location of the api endpoint
     const clientOptions = {
@@ -131,7 +131,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     };
     
     // Instantiates a client
-    const modelServiceClient = new [ModelServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)(clientOptions);
+    const modelServiceClient = new ModelServiceClient(clientOptions);
     
     async function getModelEvaluationTabularRegression() {
       // Configure the parent resources
@@ -222,11 +222,11 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         client_options = {"api_endpoint": api_endpoint}
         # Initialize client that will be used to create and send requests.
         # This client only needs to be created once, and can be reused for multiple requests.
-        client = aiplatform.gapic.[ModelServiceClient](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.model_service.ModelServiceClient.html)(client_options=client_options)
-        name = client.[model_evaluation_path](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.model_service.ModelServiceClient.html#google_cloud_aiplatform_v1_services_model_service_ModelServiceClient_model_evaluation_path)(
+        client = aiplatform.gapic.ModelServiceClient(client_options=client_options)
+        name = client.model_evaluation_path(
             project=project, location=location, model=model_id, evaluation=evaluation_id
         )
-        response = client.[get_model_evaluation](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.model_service.ModelServiceClient.html#google_cloud_aiplatform_v1_services_model_service_ModelServiceClient_get_model_evaluation)(name=name)
+        response = client.get_model_evaluation(name=name)
         print("response:", response)
     
     

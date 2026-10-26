@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-quickstart/
 title: Quickstart \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:10:09.574088+00:00
+fetched_at: 2026-10-26T05:40:34.579967+00:00
 ---
 
 # Quickstart  |  Spanner  |  Google Cloud Documentation
@@ -248,7 +248,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     
         console.log(`Query successfully executed. ${rows.length} row(s) found.`);
         rows.forEach(row => {
-          console.log(`  Row details: ${JSON.stringify(row)}`);
+          console.log(`  Row details: ${[JSON](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.v1.typecode.html).stringify(row)}`);
         });
       } catch (err) {
         if (err.code === status.NOT_FOUND) {
@@ -346,7 +346,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     project_id = "YOUR_PROJECT_ID"
     
     # Instantiates a client
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
     
     # Your Cloud Spanner instance ID
     instance_id = "my-instance"

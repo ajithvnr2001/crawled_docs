@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/create-pipeline-targets/
 title: Create your delivery pipeline and targets \u00a0|\u00a0 Cloud Deploy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:11:35.323158+00:00
+fetched_at: 2026-10-26T05:58:59.183886+00:00
 ---
 
 # Create your delivery pipeline and targets  |  Cloud Deploy  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/batch-write/
 title: Modify data using batch write \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:37.522367+00:00
+fetched_at: 2026-10-26T05:39:12.943704+00:00
 ---
 
 # Modify data using batch write  |  Spanner  |  Google Cloud Documentation
@@ -654,7 +654,7 @@ You can also batch write using the Spanner client libraries. The following code 
     # @param database_id [String] The ID of the database.
     #
     def spanner_batch_write project_id:, instance_id:, database_id:
-      spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+      spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
       client  = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
       results = client.batch_write do |b|

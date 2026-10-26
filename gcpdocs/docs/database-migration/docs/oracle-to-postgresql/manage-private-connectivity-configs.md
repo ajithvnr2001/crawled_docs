@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/manage-private-connectivity-configs/
 title: View a private connectivity configuration for the source database \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:17:58.643921+00:00
+fetched_at: 2026-10-26T05:59:32.163000+00:00
 ---
 
 # View a private connectivity configuration for the source database  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

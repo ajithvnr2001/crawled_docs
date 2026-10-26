@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-images-get-list/
 title: List images in a project \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:48:22.632882+00:00
+fetched_at: 2026-10-26T05:39:44.511022+00:00
 ---
 
 # List images in a project  |  Compute Engine  |  Google Cloud Documentation
@@ -30,9 +30,9 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.Image;
-    import com.google.cloud.compute.v1.ImagesClient;
-    import com.google.cloud.compute.v1.ListImagesRequest;
+    import com.google.cloud.compute.v1.[Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html);
+    import com.google.cloud.compute.v1.[ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html);
+    import com.google.cloud.compute.v1.[ListImagesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListImagesRequest.html);
     import com.google.common.collect.Lists;
     import java.io.IOException;
     import java.util.ArrayList;
@@ -51,8 +51,8 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
       public static List<Image> listImages(String projectId) throws IOException {
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try (ImagesClient client = ImagesClient.create()) {
-          ListImagesRequest request = ListImagesRequest.newBuilder()
+        try ([ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html) client = [ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html).create()) {
+          [ListImagesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListImagesRequest.html) request = [ListImagesRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListImagesRequest.html).newBuilder()
                   .setProject(projectId)
                   .build();
     

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/xml-api/post-object-forms/
 title: Upload an object with HTML forms \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:17:42.437145+00:00
+fetched_at: 2026-10-26T05:39:32.796153+00:00
 ---
 
 # Upload an object with HTML forms  |  Cloud Storage  |  Google Cloud Documentation
@@ -524,7 +524,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
     
       bucket = storage.bucket bucket_name
       post_object = bucket.[generate_signed_post_policy_v4](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) file_name,

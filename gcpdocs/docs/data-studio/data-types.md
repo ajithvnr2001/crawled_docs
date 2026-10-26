@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/data-types/
 title: Data types \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:42.322543+00:00
+fetched_at: 2026-10-26T05:59:48.806812+00:00
 ---
 
 # Data types  |  Data Studio  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/backup/manage-backups/
 title: Manage backups \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:34:42.897890+00:00
+fetched_at: 2026-10-26T05:39:07.525006+00:00
 ---
 
 # Manage backups  |  Spanner  |  Google Cloud Documentation
@@ -385,7 +385,7 @@ The following code sample copies an existing backup. You can copy the backup int
     import com.google.cloud.spanner.[SpannerExceptionFactory](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerExceptionFactory.html);
     import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html);
     import com.google.cloud.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html);
-    import com.google.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-alloydb/latest/com.google.cloud.alloydb.v1.Backup.html);
+    import com.google.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Backup.html);
     import com.google.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[BackupName](https://docs.cloud.google.com/java/docs/reference/google-cloud-alloydb/latest/com.google.cloud.alloydb.v1.BackupName.html);
     import com.google.spanner.[admin](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageRoles.html#com_google_cloud_storage_StorageRoles_admin__).[database](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.PipelineSource.html#com_google_cloud_firestore_PipelineSource_database__).v1.[InstanceName](https://docs.cloud.google.com/java/docs/reference/google-cloud-alloydb/latest/com.google.cloud.alloydb.v1.InstanceName.html);
     import java.time.Instant;
@@ -425,7 +425,7 @@ The following code sample copies an existing backup. You can copy the backup int
     
         // Initiate the request which returns an OperationFuture.
         System.out.println("Copying backup [" + destinationBackupId + "]...");
-        [Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-alloydb/latest/com.google.cloud.alloydb.v1.Backup.html) destinationBackup;
+        [Backup](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Backup.html) destinationBackup;
         try {
           // Creates a copy of an existing backup.
           // Wait for the backup operation to complete.

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/use-data-profiling/
 title: Create and use data profile scans \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:53:00.788785+00:00
+fetched_at: 2026-10-26T05:40:06.740618+00:00
 ---
 
 # Create and use data profile scans  |  Knowledge Catalog  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/beam-creating-a-pipeline/
 title: Pipeline fundamentals for the Apache Beam SDKs \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:13:06.927571+00:00
+fetched_at: 2026-10-26T05:59:27.360619+00:00
 ---
 
 # Pipeline fundamentals for the Apache Beam SDKs  |  Cloud Dataflow  |  Google Cloud Documentation

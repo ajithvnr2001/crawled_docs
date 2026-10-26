@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/batch/
 title: Batch image annotation offline \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:20.393278+00:00
+fetched_at: 2026-10-26T05:40:50.270516+00:00
 ---
 
 # Batch image annotation offline  |  Cloud Vision API  |  Google Cloud Documentation
@@ -210,7 +210,7 @@ Before trying this sample, follow the Python setup instructions in the [Vision q
 To authenticate to Vision, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from google.cloud import [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest)
+    from google.cloud import vision_v1
     
     
     def sample_async_batch_annotate_images(
@@ -218,13 +218,13 @@ To authenticate to Vision, set up Application Default Credentials. For more info
         output_uri="gs://your-bucket/prefix/",
     ):
         """Perform async batch image annotation."""
-        client = [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest).[ImageAnnotatorClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorClient.html)()
+        client = vision_v1.[ImageAnnotatorClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorClient.html)()
     
         source = {"image_uri": input_image_uri}
         image = {"source": source}
         features = [
-            {"type_": [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest).[Feature](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.Feature.html).Type.LABEL_DETECTION},
-            {"type_": [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest).[Feature](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.Feature.html).Type.IMAGE_PROPERTIES},
+            {"type_": vision_v1.[Feature](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.Feature.html).Type.LABEL_DETECTION},
+            {"type_": vision_v1.[Feature](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.Feature.html).Type.IMAGE_PROPERTIES},
         ]
     
         # Each requests element corresponds to a single image.  To annotate more

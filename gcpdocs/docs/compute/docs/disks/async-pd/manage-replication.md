@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/async-pd/manage-replication/
 title: Manage Asynchronous Replication \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:41:42.339341+00:00
+fetched_at: 2026-10-26T05:39:45.919971+00:00
 ---
 
 # Manage Asynchronous Replication  |  Compute Engine  |  Google Cloud Documentation
@@ -183,7 +183,7 @@ Replace the following:
     	// primaryZone := "europe-west2-b"
     
     	ctx := context.Background()
-    	disksClient, err := compute.NewDisksRESTClient(ctx)
+    	disksClient, err := compute.[NewDisksRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_DisksClient_NewDisksRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewDisksRESTClient: %w", err)
     	}
@@ -218,11 +218,11 @@ Replace the following:
 ###  Java 
     
     
-    import com.google.cloud.compute.v1.DisksClient;
-    import com.google.cloud.compute.v1.DisksStartAsyncReplicationRequest;
-    import com.google.cloud.compute.v1.Operation;
-    import com.google.cloud.compute.v1.Operation.Status;
-    import com.google.cloud.compute.v1.StartAsyncReplicationDiskRequest;
+    import com.google.cloud.compute.v1.[DisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksClient.html);
+    import com.google.cloud.compute.v1.[DisksStartAsyncReplicationRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksStartAsyncReplicationRequest.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html).[Status](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Status.html);
+    import com.google.cloud.compute.v1.[StartAsyncReplicationDiskRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StartAsyncReplicationDiskRequest.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -251,32 +251,32 @@ Replace the following:
       }
     
       // Starts asynchronous replication for the specified zonal disk.
-      public static Status startZonalDiskAsyncReplication(String projectId, String primaryDiskName,
+      public static [Status](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Status.html) startZonalDiskAsyncReplication(String projectId, String primaryDiskName,
           String primaryDiskLocation, String secondaryDiskName, String secondaryDiskLocation)
               throws IOException, ExecutionException, InterruptedException, TimeoutException {
         String secondaryDiskPath = String.format("projects/%s/zones/%s/disks/%s",
                 projectId, secondaryDiskLocation, secondaryDiskName);
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try (DisksClient disksClient = DisksClient.create()) {
-          DisksStartAsyncReplicationRequest diskRequest =
-                  DisksStartAsyncReplicationRequest.newBuilder()
+        try ([DisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksClient.html) disksClient = [DisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksClient.html).create()) {
+          [DisksStartAsyncReplicationRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksStartAsyncReplicationRequest.html) diskRequest =
+                  [DisksStartAsyncReplicationRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksStartAsyncReplicationRequest.html).newBuilder()
                           .setAsyncSecondaryDisk(secondaryDiskPath)
                           .build();
     
-          StartAsyncReplicationDiskRequest request =
-                  StartAsyncReplicationDiskRequest.newBuilder()
+          [StartAsyncReplicationDiskRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StartAsyncReplicationDiskRequest.html) request =
+                  [StartAsyncReplicationDiskRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StartAsyncReplicationDiskRequest.html).newBuilder()
                           .setDisk(primaryDiskName)
-                          .setDisksStartAsyncReplicationRequestResource(diskRequest)
+                          .[setDisksStartAsyncReplicationRequestResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StartAsyncReplicationDiskRequest.Builder.html#com_google_cloud_compute_v1_StartAsyncReplicationDiskRequest_Builder_setDisksStartAsyncReplicationRequestResource_com_google_cloud_compute_v1_DisksStartAsyncReplicationRequest_)(diskRequest)
                           .setProject(projectId)
                           .setZone(primaryDiskLocation)
                           .build();
-          Operation response = disksClient.startAsyncReplicationAsync(request).get(1, TimeUnit.MINUTES);
+          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = disksClient.startAsyncReplicationAsync(request).get(1, TimeUnit.MINUTES);
     
-          if (response.hasError()) {
-            throw new Error("Error starting replication! " + response.getError());
+          if (response.[hasError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_hasError__)()) {
+            throw new [Error](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Error.html)("Error starting replication! " + response.[getError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getError__)());
           }
-          return response.getStatus();
+          return response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)();
         }
       }
     }
@@ -285,13 +285,13 @@ Replace the following:
     
     
     // Import the Compute library
-    const computeLib = require('@google-cloud/compute');
+    const computeLib = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     const compute = computeLib.protos.google.cloud.compute.v1;
     
     // Instantiate a diskClient
-    const disksClient = new computeLib.DisksClient();
+    const disksClient = new computeLib.[DisksClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     // Instantiate a zoneOperationsClient
-    const zoneOperationsClient = new computeLib.ZoneOperationsClient();
+    const zoneOperationsClient = new computeLib.[ZoneOperationsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
     /**
      * TODO(developer): Update/uncomment these variables before running the sample.
@@ -353,7 +353,7 @@ Replace the following:
     from typing import Any
     
     from google.api_core.extended_operation import ExtendedOperation
-    from google.cloud import compute_v1
+    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
     
     
     def wait_for_extended_operation(
@@ -423,22 +423,22 @@ Replace the following:
         """
         # Check if the primary disk location is a region or a zone.
         if primary_disk_location[-1].isdigit():
-            region_client = compute_v1.RegionDisksClient()
-            request_resource = compute_v1.RegionDisksStartAsyncReplicationRequest(
+            region_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[RegionDisksClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.region_disks.RegionDisksClient.html)()
+            request_resource = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[RegionDisksStartAsyncReplicationRequest](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.RegionDisksStartAsyncReplicationRequest.html)(
                 async_secondary_disk=f"projects/{project_id}/regions/{secondary_disk_location}/disks/{secondary_disk_name}"
             )
-            operation = region_client.start_async_replication(
+            operation = region_client.[start_async_replication](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.region_disks.RegionDisksClient.html#google_cloud_compute_v1_services_region_disks_RegionDisksClient_start_async_replication)(
                 project=project_id,
                 region=primary_disk_location,
                 disk=primary_disk_name,
                 region_disks_start_async_replication_request_resource=request_resource,
             )
         else:
-            client = compute_v1.DisksClient()
-            request_resource = compute_v1.DisksStartAsyncReplicationRequest(
+            client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[DisksClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.disks.DisksClient.html)()
+            request_resource = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[DisksStartAsyncReplicationRequest](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.DisksStartAsyncReplicationRequest.html)(
                 async_secondary_disk=f"zones/{secondary_disk_location}/disks/{secondary_disk_name}"
             )
-            operation = client.start_async_replication(
+            operation = client.[start_async_replication](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.disks.DisksClient.html#google_cloud_compute_v1_services_disks_DisksClient_start_async_replication)(
                 project=project_id,
                 zone=primary_disk_location,
                 disk=primary_disk_name,
@@ -569,7 +569,7 @@ Replace the following:
     	// primaryZone := "europe-west2-b"
     
     	ctx := context.Background()
-    	disksClient, err := compute.NewDisksRESTClient(ctx)
+    	disksClient, err := compute.[NewDisksRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_DisksClient_NewDisksRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewDisksRESTClient: %w", err)
     	}
@@ -599,10 +599,10 @@ Replace the following:
 ###  Java 
     
     
-    import com.google.cloud.compute.v1.DisksClient;
-    import com.google.cloud.compute.v1.Operation;
-    import com.google.cloud.compute.v1.Operation.Status;
-    import com.google.cloud.compute.v1.StopAsyncReplicationDiskRequest;
+    import com.google.cloud.compute.v1.[DisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksClient.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html).[Status](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Status.html);
+    import com.google.cloud.compute.v1.[StopAsyncReplicationDiskRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StopAsyncReplicationDiskRequest.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -624,25 +624,25 @@ Replace the following:
       }
     
       // Stops asynchronous replication for the specified disk.
-      public static Status stopZonalDiskAsyncReplication(
+      public static [Status](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Status.html) stopZonalDiskAsyncReplication(
               String project, String secondaryDiskLocation, String secondaryDiskName)
               throws IOException, ExecutionException, InterruptedException, TimeoutException {
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try (DisksClient disksClient = DisksClient.create()) {
-          StopAsyncReplicationDiskRequest stopReplicationDiskRequest =
-                  StopAsyncReplicationDiskRequest.newBuilder()
+        try ([DisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksClient.html) disksClient = [DisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksClient.html).create()) {
+          [StopAsyncReplicationDiskRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StopAsyncReplicationDiskRequest.html) stopReplicationDiskRequest =
+                  [StopAsyncReplicationDiskRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StopAsyncReplicationDiskRequest.html).newBuilder()
                           .setProject(project)
                           .setDisk(secondaryDiskName)
                           .setZone(secondaryDiskLocation)
                           .build();
-          Operation response = disksClient.stopAsyncReplicationAsync(stopReplicationDiskRequest)
+          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = disksClient.stopAsyncReplicationAsync(stopReplicationDiskRequest)
                   .get(1, TimeUnit.MINUTES);
     
-          if (response.hasError()) {
-            throw new Error("Error stopping replication! " + response.getError());
+          if (response.[hasError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_hasError__)()) {
+            throw new [Error](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Error.html)("Error stopping replication! " + response.[getError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getError__)());
           }
-          return response.getStatus();
+          return response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)();
         }
       }
     }
@@ -651,12 +651,12 @@ Replace the following:
     
     
     // Import the Compute library
-    const computeLib = require('@google-cloud/compute');
+    const computeLib = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     
     // Instantiate a diskClient
-    const disksClient = new computeLib.DisksClient();
+    const disksClient = new computeLib.[DisksClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     // Instantiate a zoneOperationsClient
-    const zoneOperationsClient = new computeLib.ZoneOperationsClient();
+    const zoneOperationsClient = new computeLib.[ZoneOperationsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
     /**
      * TODO(developer): Update/uncomment these variables before running the sample.
@@ -703,7 +703,7 @@ Replace the following:
     from typing import Any
     
     from google.api_core.extended_operation import ExtendedOperation
-    from google.cloud import compute_v1
+    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
     
     
     def wait_for_extended_operation(
@@ -768,13 +768,13 @@ Replace the following:
         """
         # Check if the primary disk is in a region or a zone
         if primary_disk_location[-1].isdigit():
-            region_client = compute_v1.RegionDisksClient()
-            operation = region_client.stop_async_replication(
+            region_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[RegionDisksClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.region_disks.RegionDisksClient.html)()
+            operation = region_client.[stop_async_replication](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.region_disks.RegionDisksClient.html#google_cloud_compute_v1_services_region_disks_RegionDisksClient_stop_async_replication)(
                 project=project_id, region=primary_disk_location, disk=primary_disk_name
             )
         else:
-            zone_client = compute_v1.DisksClient()
-            operation = zone_client.stop_async_replication(
+            zone_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[DisksClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.disks.DisksClient.html)()
+            operation = zone_client.[stop_async_replication](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.disks.DisksClient.html#google_cloud_compute_v1_services_disks_DisksClient_stop_async_replication)(
                 project=project_id, zone=primary_disk_location, disk=primary_disk_name
             )
     
@@ -875,7 +875,7 @@ Replace the following:
     	// groupName := "your_group_name"
     
     	ctx := context.Background()
-    	disksClient, err := compute.NewRegionDisksRESTClient(ctx)
+    	disksClient, err := compute.[NewRegionDisksRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_RegionDisksClient_NewRegionDisksRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewResourcePoliciesRESTClient: %w", err)
     	}
@@ -909,11 +909,11 @@ Replace the following:
 ###  Java 
     
     
-    import com.google.cloud.compute.v1.DisksClient;
-    import com.google.cloud.compute.v1.DisksStopGroupAsyncReplicationResource;
-    import com.google.cloud.compute.v1.Operation;
-    import com.google.cloud.compute.v1.Operation.Status;
-    import com.google.cloud.compute.v1.StopGroupAsyncReplicationDiskRequest;
+    import com.google.cloud.compute.v1.[DisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksClient.html);
+    import com.google.cloud.compute.v1.[DisksStopGroupAsyncReplicationResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksStopGroupAsyncReplicationResource.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html).[Status](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Status.html);
+    import com.google.cloud.compute.v1.[StopGroupAsyncReplicationDiskRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StopGroupAsyncReplicationDiskRequest.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -934,7 +934,7 @@ Replace the following:
       }
     
       // Stops replication of a consistency group for a project in a given zone.
-      public static Status stopZonalDiskReplicationConsistencyGroup(
+      public static [Status](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Status.html) stopZonalDiskReplicationConsistencyGroup(
               String project, String zone, String consistencyGroupName)
               throws IOException, InterruptedException, ExecutionException, TimeoutException {
         String region = zone.substring(0, zone.lastIndexOf('-'));
@@ -943,22 +943,22 @@ Replace the following:
                 project, region, consistencyGroupName);
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try (DisksClient disksClient = DisksClient.create()) {
-          StopGroupAsyncReplicationDiskRequest request =
-                  StopGroupAsyncReplicationDiskRequest.newBuilder()
+        try ([DisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksClient.html) disksClient = [DisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksClient.html).create()) {
+          [StopGroupAsyncReplicationDiskRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StopGroupAsyncReplicationDiskRequest.html) request =
+                  [StopGroupAsyncReplicationDiskRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.StopGroupAsyncReplicationDiskRequest.html).newBuilder()
                           .setProject(project)
                           .setZone(zone)
                           .setDisksStopGroupAsyncReplicationResourceResource(
-                                  DisksStopGroupAsyncReplicationResource.newBuilder()
+                                  [DisksStopGroupAsyncReplicationResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksStopGroupAsyncReplicationResource.html).newBuilder()
                                           .setResourcePolicy(resourcePolicy).build())
                           .build();
-          Operation response = disksClient.stopGroupAsyncReplicationAsync(request)
+          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = disksClient.stopGroupAsyncReplicationAsync(request)
                   .get(3, TimeUnit.MINUTES);
     
-          if (response.hasError()) {
-            throw new Error("Error stopping disk replication! " + response.getError());
+          if (response.[hasError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_hasError__)()) {
+            throw new [Error](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Error.html)("Error stopping disk replication! " + response.[getError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getError__)());
           }
-          return response.getStatus();
+          return response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)();
         }
       }
     }
@@ -967,7 +967,7 @@ Replace the following:
     
     
     // Import the Compute library
-    const computeLib = require('@google-cloud/compute');
+    const computeLib = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     const compute = computeLib.protos.google.cloud.compute.v1;
     
     // If disks are regional- use RegionDisksClient and RegionOperationsClient.
@@ -1034,7 +1034,7 @@ Replace the following:
     from typing import Any
     
     from google.api_core.extended_operation import ExtendedOperation
-    from google.cloud import compute_v1
+    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
     
     
     def wait_for_extended_operation(
@@ -1095,11 +1095,11 @@ Replace the following:
         Returns:
             bool: True if the replication was successfully stopped.
         """
-        consistency_group = compute_v1.DisksStopGroupAsyncReplicationResource(
+        consistency_group = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[DisksStopGroupAsyncReplicationResource](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.DisksStopGroupAsyncReplicationResource.html)(
             resource_policy=f"regions/{location}/resourcePolicies/{consistency_group_name}"
         )
-        region_client = compute_v1.RegionDisksClient()
-        operation = region_client.stop_group_async_replication(
+        region_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[RegionDisksClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.region_disks.RegionDisksClient.html)()
+        operation = region_client.[stop_group_async_replication](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.region_disks.RegionDisksClient.html#google_cloud_compute_v1_services_region_disks_RegionDisksClient_stop_group_async_replication)(
             project=project_id,
             region=location,
             disks_stop_group_async_replication_resource_resource=consistency_group,

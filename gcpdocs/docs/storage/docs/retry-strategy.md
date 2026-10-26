@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/retry-strategy/
 title: Retry strategy \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:51:53.349576+00:00
+fetched_at: 2026-10-26T05:38:56.784579+00:00
 ---
 
 # Retry strategy  |  Cloud Storage  |  Google Cloud Documentation
@@ -829,7 +829,7 @@ To override the number of retries for a particular operation, pass `retries` in 
       require "google/cloud/storage"
     
       # Creates a client
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)(
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)(
     
         # The maximum number of automatic retries attempted before returning
         # the error.

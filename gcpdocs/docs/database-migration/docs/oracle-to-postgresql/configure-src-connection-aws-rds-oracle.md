@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/configure-src-connection-aws-rds-oracle/
 title: Configure network connectivity to Amazon RDS for Oracle sources \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:02.102190+00:00
+fetched_at: 2026-10-26T05:59:28.776520+00:00
 ---
 
 # Configure network connectivity to Amazon RDS for Oracle sources  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

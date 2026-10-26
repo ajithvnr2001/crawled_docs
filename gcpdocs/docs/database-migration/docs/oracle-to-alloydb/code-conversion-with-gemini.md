@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/code-conversion-with-gemini/
 title: Convert Oracle code and schema with Gemini assistance \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:39.650670+00:00
+fetched_at: 2026-10-26T05:59:40.091825+00:00
 ---
 
 # Convert Oracle code and schema with Gemini assistance  |  Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL  |  Google Cloud Documentation

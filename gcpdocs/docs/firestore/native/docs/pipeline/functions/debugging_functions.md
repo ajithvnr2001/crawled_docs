@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/debugging_functions/
 title: Debugging Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:22:16.440963+00:00
+fetched_at: 2026-10-26T05:41:03.224732+00:00
 ---
 
 # Debugging Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -148,7 +148,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/34ed2fd067c02c4110ca51dd81db698a9b4bc6b5/firestore/pipeline_snippets_logical.go#L28-L33)
+    [pipeline_snippets_logical.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/pipeline_snippets_logical.go#L28-L33)
 
 ### IS_ABSENT
 

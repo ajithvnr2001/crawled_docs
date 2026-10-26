@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/speech-to-text/docs/samples/speech-transcribe-async/
 title: Asynchronously transcribe a local audio file \u00a0|\u00a0 Cloud Speech-to-Text \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:38.224760+00:00
+fetched_at: 2026-10-26T05:39:30.213519+00:00
 ---
 
 # Asynchronously transcribe a local audio file  |  Cloud Speech-to-Text  |  Google Cloud Documentation
@@ -228,7 +228,7 @@ To authenticate to Cloud STT, set up Application Default Credentials. For more i
     
     require "google/cloud/speech"
     
-    speech = Google::Cloud::[Speech](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-speech-v2/latest/Google-Cloud-Speech.html).[speech](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-speech/latest/Google-Cloud-Speech.html) version: :v1
+    speech = Google::Cloud::[Speech](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-speech-v1/latest/Google-Cloud-Speech.html).[speech](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-speech/latest/Google-Cloud-Speech.html) version: :v1
     
     audio_file = File.binread audio_file_path
     config     = { encoding:          :LINEAR16,

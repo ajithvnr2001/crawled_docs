@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/parse-inspection-job-findings/
 title: Parse findings stored as Protobuf text \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:31:32.389147+00:00
+fetched_at: 2026-10-26T05:40:09.969393+00:00
 ---
 
 # Parse findings stored as Protobuf text  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -32,10 +32,10 @@ To learn how to install and use the client library for Sensitive Data Protection
 To authenticate to Sensitive Data Protection, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.privacy.dlp.v2.[Finding](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Finding.html);
-    import com.google.privacy.dlp.v2.[SaveToGcsFindingsOutput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.SaveToGcsFindingsOutput.html);
-    import com.google.protobuf.[ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html);
-    import com.google.protobuf.[TextFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.TextFormat.html);
+    import com.google.privacy.dlp.v2.Finding;
+    import com.google.privacy.dlp.v2.SaveToGcsFindingsOutput;
+    import com.google.protobuf.ByteString;
+    import com.google.protobuf.TextFormat;
     import java.io.FileInputStream;
     import java.io.IOException;
     import java.io.InputStreamReader;
@@ -53,16 +53,16 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
       // Processes a file containing findings from a DLP inspect job.
       public static void processFindingsGcsFile(String inputPath)
           throws IOException {
-        [SaveToGcsFindingsOutput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.SaveToGcsFindingsOutput.html).Builder builder = [SaveToGcsFindingsOutput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.SaveToGcsFindingsOutput.html).newBuilder();
+        SaveToGcsFindingsOutput.Builder builder = SaveToGcsFindingsOutput.newBuilder();
         try (Reader reader =
             new InputStreamReader(new FileInputStream(inputPath), StandardCharsets.UTF_8)) {
-          [TextFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.TextFormat.html).merge(reader, builder);
+          TextFormat.merge(reader, builder);
         }
-        [SaveToGcsFindingsOutput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.SaveToGcsFindingsOutput.html) output = [builder](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.TextFormatParseInfoTree.html#com_google_protobuf_TextFormatParseInfoTree_builder__).build();
+        SaveToGcsFindingsOutput output = builder.build();
     
         // Parse the converted proto and process results
-        System.out.println("Findings: " + output.[getFindingsCount](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.SaveToGcsFindingsOutput.html#com_google_privacy_dlp_v2_SaveToGcsFindingsOutput_getFindingsCount__)());
-        for ([Finding](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Finding.html) f : output.[getFindingsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.SaveToGcsFindingsOutput.html#com_google_privacy_dlp_v2_SaveToGcsFindingsOutput_getFindingsList__)()) {
+        System.out.println("Findings: " + output.getFindingsCount());
+        for (Finding f : output.getFindingsList()) {
           System.out.println("\tInfo type: " + f.getInfoType().getName());
           System.out.println("\tLikelihood: " + f.getLikelihood());
         }

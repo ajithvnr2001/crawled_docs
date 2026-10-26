@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-transfer-essentials/docs/services/
 title: Supported services and regions \u00a0|\u00a0 Data Transfer Essentials \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:12.131824+00:00
+fetched_at: 2026-10-26T05:59:03.425607+00:00
 ---
 
 # Supported services and regions  |  Data Transfer Essentials  |  Google Cloud Documentation

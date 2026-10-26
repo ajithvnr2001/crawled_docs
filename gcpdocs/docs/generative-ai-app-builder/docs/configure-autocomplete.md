@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/configure-autocomplete/
 title: Configure autocomplete \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:25:26.647178+00:00
+fetched_at: 2026-10-26T05:40:46.956436+00:00
 ---
 
 # Configure autocomplete  |  Agent Search  |  Google Cloud Documentation
@@ -657,15 +657,15 @@ To authenticate to Agent Search, set up Application Default Credentials. For mor
     # - It may require specifying regional endpoints when creating the service
     #   client as shown in:
     #   https://googleapis.dev/python/google-api-core/latest/client_options.html
-    from google.cloud import [discoveryengine_v1](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest)
+    from google.cloud import discoveryengine_v1
     
     
     def sample_complete_query():
         # Create a client
-        client = [discoveryengine_v1](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest).[CompletionServiceClient](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest/google.cloud.discoveryengine_v1.services.completion_service.CompletionServiceClient.html)()
+        client = discoveryengine_v1.[CompletionServiceClient](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest/google.cloud.discoveryengine_v1.services.completion_service.CompletionServiceClient.html)()
     
         # Initialize request argument(s)
-        request = [discoveryengine_v1](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest).[CompleteQueryRequest](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest/google.cloud.discoveryengine_v1.types.CompleteQueryRequest.html)(
+        request = discoveryengine_v1.[CompleteQueryRequest](https://docs.cloud.google.com/python/docs/reference/discoveryengine/latest/google.cloud.discoveryengine_v1.types.CompleteQueryRequest.html)(
             data_store="data_store_value",
             query="query_value",
         )

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-analysis/docs/create-notes-occurrences/
 title: Create custom notes and occurrences \u00a0|\u00a0 Artifact Analysis \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:51:31.579398+00:00
+fetched_at: 2026-10-26T05:41:14.645947+00:00
 ---
 
 # Create custom notes and occurrences  |  Artifact Analysis  |  Google Cloud Documentation
@@ -845,7 +845,7 @@ To authenticate to Artifact Analysis, set up Application Default Credentials. Fo
       end
     
       # Wait for the discovery occurrence to enter a terminal state
-      status = Grafeas::[V1](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-container_analysis-v1/latest/Google-Cloud-ContainerAnalysis-V1.html)::DiscoveryOccurrence::AnalysisStatus::PENDING
+      status = Grafeas::[V1](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub-V1.html)::DiscoveryOccurrence::AnalysisStatus::PENDING
       until [:FINISHED_SUCCESS, :FINISHED_FAILED, :FINISHED_UNSUPPORTED].include? status
         # Update occurrence
         begin

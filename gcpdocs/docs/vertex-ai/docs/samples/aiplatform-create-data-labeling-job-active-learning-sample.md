@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-create-data-labeling-job-active-learning-sample/
 title: Create a data labeling job for active learning \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:22.116809+00:00
+fetched_at: 2026-10-26T05:40:20.860871+00:00
 ---
 
 # Create a data labeling job for active learning  |  Vertex AI  |  Google Cloud Documentation
@@ -42,7 +42,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     import com.google.cloud.aiplatform.v1.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.LocationName.html);
     import com.google.gson.JsonArray;
     import com.google.gson.JsonObject;
-    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html);
+    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html);
     import com.google.protobuf.util.[JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html);
     import java.io.IOException;
     
@@ -82,9 +82,9 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
           jsonAnnotationSpecs.add(annotationSpec);
           JsonObject jsonInputs = new JsonObject();
           jsonInputs.add("annotation_specs", jsonAnnotationSpecs);
-          [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).Builder inputsBuilder = [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).newBuilder();
+          [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html).Builder inputsBuilder = [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html).newBuilder();
           [JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html).parser().merge(jsonInputs.toString(), inputsBuilder);
-          [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html) inputs = inputsBuilder.build();
+          [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html) inputs = inputsBuilder.build();
           [ActiveLearningConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ActiveLearningConfig.html) activeLearningConfig =
               [ActiveLearningConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ActiveLearningConfig.html).newBuilder().[setMaxDataItemCount](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ActiveLearningConfig.Builder.html#com_google_cloud_aiplatform_v1_ActiveLearningConfig_Builder_setMaxDataItemCount_long_)(1).build();
     

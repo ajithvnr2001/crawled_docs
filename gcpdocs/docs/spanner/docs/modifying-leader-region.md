@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/modifying-leader-region/
 title: Modify the leader region of a database \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:48.093180+00:00
+fetched_at: 2026-10-26T05:39:15.336478+00:00
 ---
 
 # Modify the leader region of a database  |  Spanner  |  Google Cloud Documentation
@@ -1628,7 +1628,7 @@ Replace the following:
     import com.google.cloud.spanner.admin.database.v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html);
     import com.google.cloud.spanner.admin.database.v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html).ListDatabasesPage;
     import com.google.cloud.spanner.admin.database.v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html).ListDatabasesPagedResponse;
-    import com.google.spanner.admin.database.v1.[Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html);
+    import com.google.spanner.admin.database.v1.[Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Database.html);
     import com.google.spanner.admin.database.v1.[InstanceName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.InstanceName.html);
     
     public class ListDatabasesSample {
@@ -1650,7 +1650,7 @@ Replace the following:
           System.out.println("Databases for projects/" + projectId + "/instances/" + instanceId);
     
           for (ListDatabasesPage page : response.iteratePages()) {
-            for ([Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html) database : page.iterateAll()) {
+            for ([Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Database.html) database : page.iterateAll()) {
               final String defaultLeader = database.getDefaultLeader().equals("")
                   ? "" : "(default leader = " + database.getDefaultLeader() + ")";
               System.out.println("\t" + database.getName() + " " + defaultLeader);
@@ -1877,7 +1877,7 @@ The regions that you can choose are listed under `leaderOptions`.
     import com.google.cloud.spanner.[Spanner](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html);
     import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html);
     import com.google.cloud.spanner.admin.instance.v1.[InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html);
-    import com.google.spanner.admin.instance.v1.[InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfig.html);
+    import com.google.spanner.admin.instance.v1.[InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.InstanceConfig.html);
     import com.google.spanner.admin.instance.v1.[InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html);
     
     public class GetInstanceConfigSample {
@@ -1899,7 +1899,7 @@ The regions that you can choose are listed under `leaderOptions`.
           final [InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html) instanceConfigName = [InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html).of(projectId,
               instanceConfigId);
     
-          final [InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfig.html) instanceConfig =
+          final [InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.InstanceConfig.html) instanceConfig =
               instanceAdminClient.getInstanceConfig(instanceConfigName.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html#com_google_spanner_admin_instance_v1_InstanceConfigName_toString__)());
     
           System.out.printf(
@@ -2140,7 +2140,7 @@ To view the regions which you can set to be the default leader region for all of
     import com.google.cloud.spanner.[Spanner](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html);
     import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html);
     import com.google.cloud.spanner.admin.instance.v1.[InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html);
-    import com.google.spanner.admin.instance.v1.[InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfig.html);
+    import com.google.spanner.admin.instance.v1.[InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.InstanceConfig.html);
     import com.google.spanner.admin.instance.v1.[ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.ProjectName.html);
     
     public class ListInstanceConfigsSample {
@@ -2159,7 +2159,7 @@ To view the regions which you can set to be the default leader region for all of
                 .getService();
             [InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html) instanceAdminClient = spanner.[createInstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html#com_google_cloud_spanner_Spanner_createInstanceAdminClient__)()) {
           final [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.ProjectName.html) projectName = [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.ProjectName.html).of(projectId);
-          for ([InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfig.html) instanceConfig :
+          for ([InstanceConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.InstanceConfig.html) instanceConfig :
               instanceAdminClient.listInstanceConfigs(projectName).iterateAll()) {
             System.out.printf(
                 "Available leader options for instance config %s: %s%n",
@@ -2196,7 +2196,7 @@ To view the regions which you can set to be the default leader region for all of
       // See https://cloud.google.com/spanner/docs/instance-configurations#configuration for a list of all available
       // configurations.
       const [instanceConfigs] = await instanceAdminClient.listInstanceConfigs({
-        parent: instanceAdminClient.projectPath(projectId),
+        parent: instanceAdminClient.[projectPath](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/v1.instanceadminclient.html)(projectId),
       });
       console.log(`Available instance configs for project ${projectId}:`);
       instanceConfigs.forEach(instanceConfig => {

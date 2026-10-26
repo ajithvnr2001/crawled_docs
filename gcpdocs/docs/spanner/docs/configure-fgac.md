@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/configure-fgac/
 title: Configure fine-grained access control \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:28.191690+00:00
+fetched_at: 2026-10-26T05:39:02.158865+00:00
 ---
 
 # Configure fine-grained access control  |  Spanner  |  Google Cloud Documentation
@@ -1179,7 +1179,7 @@ The following example grants the database roles `hr_rep` and `hr_manager` to the
       binding = Google::Iam::V1::Binding.new(
         role: "roles/spanner.fineGrainedAccessUser",
         members: [iam_member],
-        condition: Google::Type::[Expr](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_policies-v1beta1/latest/Google-Type-Expr.html).new(
+        condition: Google::Type::[Expr](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_directory-v1beta1/latest/Google-Type-Expr.html).new(
           title: title,
           expression: "resource.name.endsWith('/databaseRoles/#{database_role}')"
         )

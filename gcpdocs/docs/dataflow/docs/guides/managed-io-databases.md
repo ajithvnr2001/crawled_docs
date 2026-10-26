@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/managed-io-databases/
 title: Dataflow managed I/O for databases \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:13:00.758676+00:00
+fetched_at: 2026-10-26T05:59:48.070457+00:00
 ---
 
 # Dataflow managed I/O for databases  |  Google Cloud Documentation

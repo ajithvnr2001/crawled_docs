@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/downloading-objects/
 title: Download objects \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:34:55.431772+00:00
+fetched_at: 2026-10-26T05:38:48.803304+00:00
 ---
 
 # Download objects  |  Cloud Storage  |  Google Cloud Documentation
@@ -666,7 +666,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket  = storage.bucket bucket_name, skip_lookup: true
       file    = bucket.[file](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) file_name
     
@@ -1122,7 +1122,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
     require "google/cloud/storage"
     
-    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
     bucket  = storage.bucket bucket_name
     file    = bucket.[file](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) file_name
     

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/create-workspace/
 title: Create a development workspace \u00a0|\u00a0 Dataform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:28.035618+00:00
+fetched_at: 2026-10-26T05:59:23.407783+00:00
 ---
 
 # Create a development workspace  |  Dataform  |  Google Cloud Documentation

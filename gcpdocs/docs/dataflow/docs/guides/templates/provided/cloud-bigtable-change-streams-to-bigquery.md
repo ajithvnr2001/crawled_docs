@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/cloud-bigtable-change-streams-to-bigquery/
 title: Bigtable change streams to BigQuery template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:18:52.325942+00:00
+fetched_at: 2026-10-26T05:39:24.987790+00:00
 ---
 
 # Bigtable change streams to BigQuery template  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -222,7 +222,7 @@ You can use the following values:
     import com.google.cloud.bigtable.[data](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.Message.html#com_google_cloud_pubsublite_Message_data__).v2.models.[ChangeStreamMutation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.data.v2.models.ChangeStreamMutation.html);
     import com.google.cloud.bigtable.[data](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.Message.html#com_google_cloud_pubsublite_Message_data__).v2.models.[DeleteCells](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.data.v2.models.DeleteCells.html);
     import com.google.cloud.bigtable.[data](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.Message.html#com_google_cloud_pubsublite_Message_data__).v2.models.[DeleteFamily](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.data.v2.models.DeleteFamily.html);
-    import com.google.cloud.bigtable.[data](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.Message.html#com_google_cloud_pubsublite_Message_data__).v2.models.[Entry](https://docs.cloud.google.com/java/docs/reference/google-cloud-backupdr/latest/com.google.cloud.backupdr.v1.Entry.html);
+    import com.google.cloud.bigtable.[data](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.Message.html#com_google_cloud_pubsublite_Message_data__).v2.models.[Entry](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.data.v2.models.Entry.html);
     import com.google.cloud.bigtable.[data](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.Message.html#com_google_cloud_pubsublite_Message_data__).v2.models.[SetCell](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.data.v2.models.SetCell.html);
     import com.google.cloud.teleport.metadata.[Template](https://docs.cloud.google.com/java/docs/reference/google-cloud-modelarmor/latest/com.google.cloud.modelarmor.v1.Template.html);
     import com.google.cloud.teleport.metadata.TemplateCategory;
@@ -532,7 +532,7 @@ You can use the following values:
         @ProcessElement
         public void process(@Element [ChangeStreamMutation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.data.v2.models.ChangeStreamMutation.html) input, OutputReceiver<TableRow> receiver)
             throws Exception {
-          for ([Entry](https://docs.cloud.google.com/java/docs/reference/google-cloud-backupdr/latest/com.google.cloud.backupdr.v1.Entry.html) entry : input.[getEntries](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.data.v2.models.ChangeStreamMutation.html#com_google_cloud_bigtable_data_v2_models_ChangeStreamMutation_getEntries__)()) {
+          for ([Entry](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.data.v2.models.Entry.html) entry : input.[getEntries](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.data.v2.models.ChangeStreamMutation.html#com_google_cloud_bigtable_data_v2_models_ChangeStreamMutation_getEntries__)()) {
             ModType modType = getModType(entry);
     
             Mod mod = null;
@@ -562,7 +562,7 @@ You can use the following values:
           }
         }
     
-        private ModType getModType([Entry](https://docs.cloud.google.com/java/docs/reference/google-cloud-backupdr/latest/com.google.cloud.backupdr.v1.Entry.html) entry) {
+        private ModType getModType([Entry](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.data.v2.models.Entry.html) entry) {
           if (entry instanceof [SetCell](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.data.v2.models.SetCell.html)) {
             return ModType.SET_CELL;
           } else if (entry instanceof [DeleteCells](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.data.v2.models.DeleteCells.html)) {

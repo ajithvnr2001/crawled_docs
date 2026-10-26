@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/getting-started/ruby/
 title: Getting started with Spanner in Ruby \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:51:47.561391+00:00
+fetched_at: 2026-10-26T05:40:56.037481+00:00
 ---
 
 # Getting started with Spanner in Ruby  |  Google Cloud Documentation
@@ -189,7 +189,7 @@ Before you can do reads or writes, you must create a [`Client`](https://docs.clo
     project_id = "YOUR_PROJECT_ID"
     
     # Instantiates a client
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
     
     # Your Cloud Spanner instance ID
     instance_id = "my-instance"
@@ -221,7 +221,7 @@ You use the `execute_update()` method to execute a DML statement.
     
     require "google/cloud/spanner"
     
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
     client  = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     row_count = 0
     
@@ -276,7 +276,7 @@ This code shows how to write the data using mutations:
     
     require "google/cloud/spanner"
     
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
     client  = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
     client.commit do |c|
@@ -362,7 +362,7 @@ Here's how to issue the query and access the data:
     
     require "google/cloud/spanner"
     
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
     client  = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
     client.execute("SELECT SingerId, AlbumId, AlbumTitle FROM Albums").rows.[each](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-BatchWriteResults.html) do |row|
@@ -400,7 +400,7 @@ Here is an example of using a parameter in the `WHERE` clause to query records c
     
     require "google/cloud/spanner"
     
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
     client  = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
     sql_query = "SELECT SingerId, FirstName, LastName
@@ -424,7 +424,7 @@ Here is an example of using a parameter in the `WHERE` clause to query records c
     
       require "google/cloud/spanner"
     
-      spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+      spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
       client  = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
       sql_query = "SELECT SingerId, FirstName, LastName FROM Singers WHERE FirstName LIKE $1"
@@ -466,7 +466,7 @@ Here's how to read the data:
     
     require "google/cloud/spanner"
     
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
     client  = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
     client.read("Albums", [:SingerId, :AlbumId, :AlbumTitle]).rows.[each](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-BatchWriteResults.html) do |row|
@@ -607,7 +607,7 @@ The following code writes data to the new column. It sets `MarketingBudget` to `
     
     require "google/cloud/spanner"
     
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
     client  = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
     client.commit do |c|
@@ -642,7 +642,7 @@ Here's the code to execute the query:
     
     require "google/cloud/spanner"
     
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
     client  = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
     client.execute("SELECT SingerId, AlbumId, MarketingBudget FROM Albums").rows.[each](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-BatchWriteResults.html) do |row|
@@ -680,7 +680,7 @@ You use the `execute_update()` method to execute a DML statement.
     
     require "google/cloud/spanner"
     
-    spanner         = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner         = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
     client          = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     transfer_amount = 200_000
     
@@ -720,7 +720,7 @@ You use the `execute_update()` method to execute a DML statement.
     
       require "google/cloud/spanner"
     
-      spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+      spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
       client = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
       client.transaction do |transaction|
@@ -829,7 +829,7 @@ To use the index in the read interface, provide an `index` parameter to the [`re
     
     require "google/cloud/spanner"
     
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
     client  = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
     result = client.read "Albums", [:AlbumId, :AlbumTitle],
@@ -934,7 +934,7 @@ Now you can execute a read that fetches all `AlbumId`, `AlbumTitle`, and `Market
     
     require "google/cloud/spanner"
     
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
     client  = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
     result = client.read "Albums", [:AlbumId, :AlbumTitle, :MarketingBudget],
@@ -973,7 +973,7 @@ The following shows how to run a query and perform a read in the same read-only 
     
     require "google/cloud/spanner"
     
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
     client  = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
     client.[snapshot](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Client.html) do |snapshot|

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/backup/create-manage-backup-schedules/
 title: Create and manage backup schedules \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:34:44.505305+00:00
+fetched_at: 2026-10-26T05:38:54.680114+00:00
 ---
 
 # Create and manage backup schedules  |  Spanner  |  Google Cloud Documentation
@@ -640,7 +640,7 @@ To create a full backup schedule, see the following sample code:
             seconds: 86400,
           },
           encryptionConfig: {
-            encryptionType: 'USE_DATABASE_ENCRYPTION',
+            encryptionType: '[USE_DATABASE_ENCRYPTION](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.admin.database.v1.createbackupencryptionconfig.encryptiontype.html)',
           },
           fullBackupSpec: {},
         },
@@ -2015,7 +2015,7 @@ You should receive a JSON response similar to the following:
             seconds: 172800,
           },
           encryptionConfig: {
-            encryptionType: 'USE_DATABASE_ENCRYPTION',
+            encryptionType: '[USE_DATABASE_ENCRYPTION](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.admin.database.v1.createbackupencryptionconfig.encryptiontype.html)',
           },
         },
         updateMask: {

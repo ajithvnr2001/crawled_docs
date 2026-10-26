@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/query-result-variables/
 title: Query result variables \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:17.358725+00:00
+fetched_at: 2026-10-26T05:59:18.508660+00:00
 ---
 
 # Query result variables  |  Data Studio  |  Google Cloud Documentation

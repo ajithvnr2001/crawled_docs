@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/view-underlying-data/
 title: View underlying data \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:29.097350+00:00
+fetched_at: 2026-10-26T05:59:30.407617+00:00
 ---
 
 # View underlying data  |  Data Studio  |  Google Cloud Documentation

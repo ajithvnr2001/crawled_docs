@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/apis/vertex-ai/workbench/workbench-api-overview/
 title: Vertex AI Workbench API overview \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:08:41.797352+00:00
+fetched_at: 2026-10-26T05:59:02.116887+00:00
 ---
 
 # Vertex AI Workbench API overview  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

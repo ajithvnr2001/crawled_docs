@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/create-databases/
 title: Create databases \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:33:05.535138+00:00
+fetched_at: 2026-10-26T05:40:57.662202+00:00
 ---
 
 # Create databases  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -391,7 +391,7 @@ For Data Warehouse workloads only, storage is measured in terabyte (TiB) increme
     import com.google.cloud.oracledatabase.v1.[CreateAutonomousDatabaseRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.CreateAutonomousDatabaseRequest.html);
     import com.google.cloud.oracledatabase.v1.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.LocationName.html);
     import com.google.cloud.oracledatabase.v1.[OracleDatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.OracleDatabaseClient.html);
-    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html);
+    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html);
     
     public class AsyncCreateAutonomousDatabase {
     
@@ -416,7 +416,7 @@ For Data Warehouse workloads only, storage is measured in terabyte (TiB) increme
           ApiFuture<Operation> future =
               oracleDatabaseClient.[createAutonomousDatabaseCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.OracleDatabaseClient.html#com_google_cloud_oracledatabase_v1_OracleDatabaseClient_createAutonomousDatabaseCallable__)().futureCall(request);
           // Do something.
-          [Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html) response = future.get();
+          [Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html) response = future.get();
         }
       }
     }

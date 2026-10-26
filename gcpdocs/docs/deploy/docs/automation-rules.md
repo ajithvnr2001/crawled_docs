@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/automation-rules/
 title: Using automation rules \u00a0|\u00a0 Cloud Deploy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:11:36.223318+00:00
+fetched_at: 2026-10-26T05:59:03.016326+00:00
 ---
 
 # Using automation rules  |  Cloud Deploy  |  Google Cloud Documentation

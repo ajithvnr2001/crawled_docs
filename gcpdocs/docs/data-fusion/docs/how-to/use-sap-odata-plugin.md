@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/use-sap-odata-plugin/
 title: SAP OData batch source \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:57.674152+00:00
+fetched_at: 2026-10-26T05:59:30.089177+00:00
 ---
 
 # SAP OData batch source  |  Cloud Data Fusion  |  Google Cloud Documentation

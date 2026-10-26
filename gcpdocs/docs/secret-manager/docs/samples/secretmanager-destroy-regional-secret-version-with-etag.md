@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/samples/secretmanager-destroy-regional-secret-version-with-etag/
 title: Destroy regional secret version with etag \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:49.258166+00:00
+fetched_at: 2026-10-26T05:40:09.651443+00:00
 ---
 
 # Destroy regional secret version with etag  |  Secret Manager  |  Google Cloud Documentation
@@ -198,7 +198,7 @@ To authenticate to Secret Manager, set up Application Default Credentials. For m
     api_endpoint = "secretmanager.#{location_id}.rep.googleapis.com"
     
     # Create the Secret Manager client.
-    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html) do |config|
+    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta1/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html) do |config|
       config.endpoint = api_endpoint
     end
     

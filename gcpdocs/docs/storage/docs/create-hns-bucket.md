@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/create-hns-bucket/
 title: Create buckets with hierarchical namespace enabled \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:17.113441+00:00
+fetched_at: 2026-10-26T05:39:22.689758+00:00
 ---
 
 # Create buckets with hierarchical namespace enabled  |  Cloud Storage  |  Google Cloud Documentation
@@ -383,7 +383,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
     
       hierarchical_namespace = Google::Apis::StorageV1::[Bucket](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html)::HierarchicalNamespace.[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html) enabled: true
     

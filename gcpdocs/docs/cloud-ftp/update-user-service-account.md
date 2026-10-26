@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cloud-ftp/update-user-service-account/
 title: Update the service account for an SFTP user \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:35:07.734230+00:00
+fetched_at: 2026-10-26T05:40:58.519642+00:00
 ---
 
 # Update the service account for an SFTP user  |  Google Cloud Documentation
@@ -317,7 +317,7 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
     import com.google.cloud.ftp.v1.[CloudFtpClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.CloudFtpClient.html);
     import com.google.cloud.ftp.v1.[UpdateUserRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.UpdateUserRequest.html);
     import com.google.cloud.ftp.v1.[User](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.User.html);
-    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html);
+    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html);
     import com.google.protobuf.[FieldMask](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html);
     
     public class AsyncUpdateUser {
@@ -340,7 +340,7 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
                   .build();
           ApiFuture<Operation> future = cloudFtpClient.[updateUserCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.CloudFtpClient.html#com_google_cloud_ftp_v1_CloudFtpClient_updateUserCallable__)().futureCall(request);
           // Do something.
-          [Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html) response = future.get();
+          [Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html) response = future.get();
         }
       }
     }

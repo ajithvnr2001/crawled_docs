@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/loading-data-cloud-storage-avro/
 title: Load Avro data from Cloud Storage \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:49:25.995645+00:00
+fetched_at: 2026-10-26T05:39:15.848333+00:00
 ---
 
 # Load Avro data from Cloud Storage  |  BigQuery  |  Google Cloud Documentation
@@ -503,7 +503,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
       // Configure the load job. For full list of options, see:
       // https://cloud.google.com/bigquery/docs/reference/rest/v2/Job#JobConfigurationLoad
       const jobConfigurationLoad = {
-        load: {sourceFormat: 'AVRO'},
+        load: {sourceFormat: '[AVRO](https://docs.cloud.google.com/nodejs/docs/reference/bigquery-storage-api/latest/bigquery-storage-api/protos.google.cloud.bigquery.storage.v1.dataformat.html)'},
       };
     
       // Load data from a Google Cloud Storage file into the table
@@ -876,7 +876,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
       // https://cloud.google.com/bigquery/docs/reference/rest/v2/Job#JobConfigurationLoad
       const jobConfigurationLoad = {
         load: {
-          sourceFormat: 'AVRO',
+          sourceFormat: '[AVRO](https://docs.cloud.google.com/nodejs/docs/reference/bigquery-storage-api/latest/bigquery-storage-api/protos.google.cloud.bigquery.storage.v1.dataformat.html)',
           writeDisposition: 'WRITE_TRUNCATE',
         },
       };

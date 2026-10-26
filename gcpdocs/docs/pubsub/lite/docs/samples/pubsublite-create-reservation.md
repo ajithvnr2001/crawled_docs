@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/lite/docs/samples/pubsublite-create-reservation/
 title: Create Lite Reservation \u00a0|\u00a0 Pub/Sub Lite \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:20:16.845832+00:00
+fetched_at: 2026-10-26T05:41:08.999739+00:00
 ---
 
 # Create Lite Reservation  |  Pub/Sub Lite  |  Google Cloud Documentation
@@ -57,8 +57,8 @@ To authenticate to Pub/Sub Lite, set up Application Default Credentials. For mor
     	}
     	defer client.Close()
     
-    	reservationPath := fmt.Sprintf("projects/%s/locations/%s/reservations/%s", projectID, region, reservationID)
-    	res, err := client.CreateReservation(ctx, pubsublite.[ReservationConfig](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/pubsublite/latest/index.html#cloud_google_com_go_pubsublite_ReservationConfig){
+    	reservationPath := fmt.Sprintf("projects/%s/locations/%s/reservations/%s"[, projectID, regi](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/pubsublite/latest/index.html#cloud_google_com_go_pubsublite_ReservationConfig)on, reservationID)
+    	res, err := client.CreateReservation(ctx, pubsublite.ReservationConfig{
     		Name:               reservationPath,
     		ThroughputCapacity: throughputCapacity,
     	})
@@ -100,31 +100,31 @@ To authenticate to Pub/Sub Lite, set up Application Default Credentials. For mor
     
       public static void createReservationExample(
           long projectNumber, String cloudRegion, String reservationId, int throughputCapacity)
-          throws Exception {
+    [      throws Ex](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.ReservationPath.html)ception {
     
-        [ReservationPath](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.ReservationPath.html) reservationPath =
-            [ReservationPath](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.ReservationPath.html).newBuilder()
-                .setProject([ProjectNumber](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.ProjectNumber.html).of(projectNumber))
-                .setLocation([CloudRegion](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.CloudRegion.html).of(cloudRegion))
-                .setName([ReservationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.proto.ReservationName.html).of(reservationId))
+        ReservationP[ath](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.ReservationPath.html) reservationPath =
+            ReservationPath.newBuil[der](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.ProjectNumber.html)()
+                .setProject(ProjectNumber.of(projectNumb[er](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.CloudRegion.html)))
+                .setLocation(CloudRegion.of(cloud[Region](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.proto.ReservationName.html)))
+                .setName(ReservationName.of(reservationId[))
+            ](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.proto.Reservation.html)    .build();
+    
+        Rese[rvation](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.proto.Reservation.html) reservation =
+            Reservation.newBuilder()
+           [     ](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.ReservationPath.html#com_google_cloud_pubsublite_ReservationPath_toString__).setName(reservationPath.toString())
+                .setThroughputCapacity(throughputCapacit[y](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.AdminClientSettings.html))
                 .build();
     
-        [Reservation](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.proto.Reservation.html) reservation =
-            [Reservation](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.proto.Reservation.html).newBuilder()
-                .setName(reservationPath.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.ReservationPath.html#com_google_cloud_pubsublite_ReservationPath_toString__)())
-                .setThroughputCapacity(throughputCapacity)
-                .build();
+        AdminClientSettings [adminClientSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.AdminClientSettings.html) =
+            AdminClientSe[ttings](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.CloudRegion.html).newBuilder().setRegion(CloudRegion.of(clo[udRegion](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.AdminClient.html))).build();
     
-        [AdminClientSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.AdminClientSettings.html) adminClientSettings =
-            [AdminClientSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.AdminClientSettings.html).newBuilder().setRegion([CloudRegion](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.CloudRegion.html).of(cloudRegion)).build();
-    
-        try ([AdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.AdminClient.html) adminClient = [AdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.AdminClient.html).create(adminClientSettings)) {
-          [Reservation](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.proto.Reservation.html) response = adminClient.createReservation(reservation).get();
+        t[ry](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.AdminClient.html) (AdminClient adminClient = AdminClient.create([adminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsublite/latest/com.google.cloud.pubsublite.proto.Reservation.html)Settings)) {
+          Reservation response = adminClient.createReservation(reservation).get();
           System.out.println(response.getAllFields() + " created successfully.");
         } catch (ExecutionException e) {
           try {
-            throw e.getCause();
-          } catch ([AlreadyExistsException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.AlreadyExistsException.html) alreadyExists) {
+       [     ](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.AlreadyExistsException.html)throw e.getCause();
+          } catch (AlreadyExistsException alreadyExists) {
             System.out.println("This reservation already exists.");
           } catch (Throwable throwable) {
             throwable.printStackTrace();
@@ -160,7 +160,7 @@ To authenticate to Pub/Sub Lite, set up Application Default Credentials. For mor
     
     client = AdminClient(cloud_region)
     try:
-        response = client.[create_reservation](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.admin_client.AdminClient.html#google_cloud_pubsublite_admin_client_AdminClient_create_reservation)(reservation)
+      [  response = clien](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.admin_client.AdminClient.html#google_cloud_pubsublite_admin_client_AdminClient_create_reservation)t.create_reservation(reservation)
         print(f"{response.name} created successfully.")
     except AlreadyExists:
         print(f"{reservation_path} already exists.")

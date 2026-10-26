@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/get-predictions/
 title: Get inferences from an image object detection model \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:44:46.629388+00:00
+fetched_at: 2026-10-26T05:40:31.635106+00:00
 ---
 
 # Get inferences from an image object detection model  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -196,12 +196,12 @@ Before trying this sample, follow the Java setup instructions in the [Agent Plat
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.api.gax.longrunning.[OperationFuture](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFuture.html);
-    import com.google.cloud.aiplatform.v1.[CreateEndpointOperationMetadata](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.CreateEndpointOperationMetadata.html);
-    import com.google.cloud.aiplatform.v1.[Endpoint](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Endpoint.html);
-    import com.google.cloud.aiplatform.v1.[EndpointServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointServiceClient.html);
-    import com.google.cloud.aiplatform.v1.[EndpointServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointServiceSettings.html);
-    import com.google.cloud.aiplatform.v1.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.LocationName.html);
+    import com.google.api.gax.longrunning.OperationFuture;
+    import com.google.cloud.aiplatform.v1.CreateEndpointOperationMetadata;
+    import com.google.cloud.aiplatform.v1.Endpoint;
+    import com.google.cloud.aiplatform.v1.EndpointServiceClient;
+    import com.google.cloud.aiplatform.v1.EndpointServiceSettings;
+    import com.google.cloud.aiplatform.v1.LocationName;
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -219,33 +219,33 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     
       static void createEndpointSample(String project, String endpointDisplayName)
           throws IOException, InterruptedException, ExecutionException, TimeoutException {
-        [EndpointServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointServiceSettings.html) endpointServiceSettings =
-            [EndpointServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointServiceSettings.html).newBuilder()
+        EndpointServiceSettings endpointServiceSettings =
+            EndpointServiceSettings.newBuilder()
                 .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try ([EndpointServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointServiceClient.html) endpointServiceClient =
-            [EndpointServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointServiceClient.html).create(endpointServiceSettings)) {
+        try (EndpointServiceClient endpointServiceClient =
+            EndpointServiceClient.create(endpointServiceSettings)) {
           String location = "us-central1";
-          [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.LocationName.html) locationName = [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.LocationName.html).of(project, location);
-          [Endpoint](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Endpoint.html) endpoint = [Endpoint](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Endpoint.html).newBuilder().setDisplayName(endpointDisplayName).build();
+          LocationName locationName = LocationName.of(project, location);
+          Endpoint endpoint = Endpoint.newBuilder().setDisplayName(endpointDisplayName).build();
     
           OperationFuture<Endpoint, CreateEndpointOperationMetadata> endpointFuture =
-              endpointServiceClient.[createEndpointAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointServiceClient.html#com_google_cloud_aiplatform_v1_EndpointServiceClient_createEndpointAsync__org_jspecify_annotations_Nullable_com_google_cloud_aiplatform_v1_LocationName_com_google_cloud_aiplatform_v1_Endpoint_)(locationName, endpoint);
-          System.out.format("Operation name: %s\n", endpointFuture.getInitialFuture().[get](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFutureImpl.html#com_google_api_gax_longrunning_OperationFutureImpl_get__)().getName());
+              endpointServiceClient.createEndpointAsync(locationName, endpoint);
+          System.out.format("Operation name: %s\n", endpointFuture.getInitialFuture().get().getName());
           System.out.println("Waiting for operation to finish...");
-          [Endpoint](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Endpoint.html) endpointResponse = endpointFuture.[get](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFutureImpl.html#com_google_api_gax_longrunning_OperationFutureImpl_get__)(300, TimeUnit.SECONDS);
+          Endpoint endpointResponse = endpointFuture.get(300, TimeUnit.SECONDS);
     
           System.out.println("Create Endpoint Response");
-          System.out.format("Name: %s\n", endpointResponse.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Endpoint.html#com_google_cloud_aiplatform_v1_Endpoint_getName__)());
-          System.out.format("Display Name: %s\n", endpointResponse.[getDisplayName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Endpoint.html#com_google_cloud_aiplatform_v1_Endpoint_getDisplayName__)());
-          System.out.format("Description: %s\n", endpointResponse.[getDescription](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Endpoint.html#com_google_cloud_aiplatform_v1_Endpoint_getDescription__)());
-          System.out.format("Labels: %s\n", endpointResponse.[getLabelsMap](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Endpoint.html#com_google_cloud_aiplatform_v1_Endpoint_getLabelsMap__)());
-          System.out.format("Create Time: %s\n", endpointResponse.[getCreateTime](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Endpoint.html#com_google_cloud_aiplatform_v1_Endpoint_getCreateTime__)());
-          System.out.format("Update Time: %s\n", endpointResponse.[getUpdateTime](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Endpoint.html#com_google_cloud_aiplatform_v1_Endpoint_getUpdateTime__)());
+          System.out.format("Name: %s\n", endpointResponse.getName());
+          System.out.format("Display Name: %s\n", endpointResponse.getDisplayName());
+          System.out.format("Description: %s\n", endpointResponse.getDescription());
+          System.out.format("Labels: %s\n", endpointResponse.getLabelsMap());
+          System.out.format("Create Time: %s\n", endpointResponse.getCreateTime());
+          System.out.format("Update Time: %s\n", endpointResponse.getUpdateTime());
         }
       }
     }
@@ -267,7 +267,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     // const location = 'YOUR_PROJECT_LOCATION';
     
     // Imports the Google Cloud Endpoint Service Client library
-    const {EndpointServiceClient} = require('[@google-cloud/aiplatform](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)');
+    const {EndpointServiceClient} = require('@google-cloud/aiplatform');
     
     // Specifies the location of the api endpoint
     const clientOptions = {
@@ -275,7 +275,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     };
     
     // Instantiates a client
-    const endpointServiceClient = new [EndpointServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)(clientOptions);
+    const endpointServiceClient = new EndpointServiceClient(clientOptions);
     
     async function createEndpoint() {
       // Configure the parent resource
@@ -626,19 +626,19 @@ Before trying this sample, follow the Java setup instructions in the [Agent Plat
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.api.gax.longrunning.[OperationFuture](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFuture.html);
-    import com.google.api.gax.longrunning.[OperationTimedPollAlgorithm](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationTimedPollAlgorithm.html);
-    import com.google.api.gax.retrying.[RetrySettings](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.retrying.RetrySettings.html);
-    import com.google.cloud.aiplatform.v1.[AutomaticResources](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.AutomaticResources.html);
-    import com.google.cloud.aiplatform.v1.[DedicatedResources](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DedicatedResources.html);
-    import com.google.cloud.aiplatform.v1.[DeployModelOperationMetadata](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DeployModelOperationMetadata.html);
-    import com.google.cloud.aiplatform.v1.[DeployModelResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DeployModelResponse.html);
-    import com.google.cloud.aiplatform.v1.[DeployedModel](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DeployedModel.html);
-    import com.google.cloud.aiplatform.v1.[EndpointName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html);
-    import com.google.cloud.aiplatform.v1.[EndpointServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointServiceClient.html);
-    import com.google.cloud.aiplatform.v1.[EndpointServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointServiceSettings.html);
-    import com.google.cloud.aiplatform.v1.[MachineSpec](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.MachineSpec.html);
-    import com.google.cloud.aiplatform.v1.[ModelName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelName.html);
+    import com.google.api.gax.longrunning.OperationFuture;
+    import com.google.api.gax.longrunning.OperationTimedPollAlgorithm;
+    import com.google.api.gax.retrying.RetrySettings;
+    import com.google.cloud.aiplatform.v1.AutomaticResources;
+    import com.google.cloud.aiplatform.v1.DedicatedResources;
+    import com.google.cloud.aiplatform.v1.DeployModelOperationMetadata;
+    import com.google.cloud.aiplatform.v1.DeployModelResponse;
+    import com.google.cloud.aiplatform.v1.DeployedModel;
+    import com.google.cloud.aiplatform.v1.EndpointName;
+    import com.google.cloud.aiplatform.v1.EndpointServiceClient;
+    import com.google.cloud.aiplatform.v1.EndpointServiceSettings;
+    import com.google.cloud.aiplatform.v1.MachineSpec;
+    import com.google.cloud.aiplatform.v1.ModelName;
     import com.google.cloud.aiplatform.v1.stub.EndpointServiceStubSettings;
     import java.io.IOException;
     import java.util.HashMap;
@@ -670,16 +670,16 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
           throws IOException, InterruptedException, ExecutionException, TimeoutException {
     
         // Set long-running operations (LROs) timeout
-        final [OperationTimedPollAlgorithm](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationTimedPollAlgorithm.html) operationTimedPollAlgorithm =
-            [OperationTimedPollAlgorithm](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationTimedPollAlgorithm.html).create(
-                [RetrySettings](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.retrying.RetrySettings.html).newBuilder()
-                    .[setInitialRetryDelay](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.retrying.RetrySettings.Builder.html#com_google_api_gax_retrying_RetrySettings_Builder_setInitialRetryDelay_org_threeten_bp_Duration_)(Duration.ofMillis(5000L))
-                    .[setRetryDelayMultiplier](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.retrying.RetrySettings.Builder.html#com_google_api_gax_retrying_RetrySettings_Builder_setRetryDelayMultiplier_double_)(1.5)
-                    .[setMaxRetryDelay](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.retrying.RetrySettings.Builder.html#com_google_api_gax_retrying_RetrySettings_Builder_setMaxRetryDelay_org_threeten_bp_Duration_)(Duration.ofMillis(45000L))
-                    .[setInitialRpcTimeout](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.retrying.RetrySettings.Builder.html#com_google_api_gax_retrying_RetrySettings_Builder_setInitialRpcTimeout_org_threeten_bp_Duration_)(Duration.ZERO)
-                    .[setRpcTimeoutMultiplier](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.retrying.RetrySettings.Builder.html#com_google_api_gax_retrying_RetrySettings_Builder_setRpcTimeoutMultiplier_double_)(1.0)
-                    .[setMaxRpcTimeout](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.retrying.RetrySettings.Builder.html#com_google_api_gax_retrying_RetrySettings_Builder_setMaxRpcTimeout_org_threeten_bp_Duration_)(Duration.ZERO)
-                    .[setTotalTimeout](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.retrying.RetrySettings.Builder.html#com_google_api_gax_retrying_RetrySettings_Builder_setTotalTimeout_org_threeten_bp_Duration_)(Duration.ofSeconds(timeout))
+        final OperationTimedPollAlgorithm operationTimedPollAlgorithm =
+            OperationTimedPollAlgorithm.create(
+                RetrySettings.newBuilder()
+                    .setInitialRetryDelay(Duration.ofMillis(5000L))
+                    .setRetryDelayMultiplier(1.5)
+                    .setMaxRetryDelay(Duration.ofMillis(45000L))
+                    .setInitialRpcTimeout(Duration.ZERO)
+                    .setRpcTimeoutMultiplier(1.0)
+                    .setMaxRpcTimeout(Duration.ZERO)
+                    .setTotalTimeout(Duration.ofSeconds(timeout))
                     .build());
     
         EndpointServiceStubSettings.Builder endpointServiceStubSettingsBuilder =
@@ -688,64 +688,64 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
             .deployModelOperationSettings()
             .setPollingAlgorithm(operationTimedPollAlgorithm);
         EndpointServiceStubSettings endpointStubSettings = endpointServiceStubSettingsBuilder.build();
-        [EndpointServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointServiceSettings.html) endpointServiceSettings =
-            [EndpointServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointServiceSettings.html).create(endpointStubSettings);
+        EndpointServiceSettings endpointServiceSettings =
+            EndpointServiceSettings.create(endpointStubSettings);
         endpointServiceSettings =
-            endpointServiceSettings.[toBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointServiceSettings.html#com_google_cloud_aiplatform_v1_EndpointServiceSettings_toBuilder__)()
+            endpointServiceSettings.toBuilder()
                 .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try ([EndpointServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointServiceClient.html) endpointServiceClient =
-            [EndpointServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointServiceClient.html).create(endpointServiceSettings)) {
+        try (EndpointServiceClient endpointServiceClient =
+            EndpointServiceClient.create(endpointServiceSettings)) {
           String location = "us-central1";
-          [EndpointName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html) endpointName = [EndpointName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html).of(project, location, endpointId);
+          EndpointName endpointName = EndpointName.of(project, location, endpointId);
           // key '0' assigns traffic for the newly deployed model
           // Traffic percentage values must add up to 100
           // Leave dictionary empty if endpoint should not accept any traffic
           Map<String, Integer> trafficSplit = new HashMap<>();
           trafficSplit.put("0", 100);
-          [ModelName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelName.html) modelName = [ModelName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelName.html).of(project, location, modelId);
-          [AutomaticResources](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.AutomaticResources.html) automaticResourcesInput =
-              [AutomaticResources](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.AutomaticResources.html).newBuilder().setMinReplicaCount(1).setMaxReplicaCount(1).build();
-          [DeployedModel](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DeployedModel.html) deployedModelInput =
-              [DeployedModel](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DeployedModel.html).newBuilder()
-                  .setModel(modelName.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelName.html#com_google_cloud_aiplatform_v1_ModelName_toString__)())
+          ModelName modelName = ModelName.of(project, location, modelId);
+          AutomaticResources automaticResourcesInput =
+              AutomaticResources.newBuilder().setMinReplicaCount(1).setMaxReplicaCount(1).build();
+          DeployedModel deployedModelInput =
+              DeployedModel.newBuilder()
+                  .setModel(modelName.toString())
                   .setDisplayName(deployedModelDisplayName)
                   .setAutomaticResources(automaticResourcesInput)
                   .build();
     
           OperationFuture<DeployModelResponse, DeployModelOperationMetadata> deployModelResponseFuture =
-              endpointServiceClient.[deployModelAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointServiceClient.html#com_google_cloud_aiplatform_v1_EndpointServiceClient_deployModelAsync__org_jspecify_annotations_Nullable_com_google_cloud_aiplatform_v1_EndpointName_com_google_cloud_aiplatform_v1_DeployedModel_java_util_Map_java_lang_String_java_lang_Integer__)(endpointName, deployedModelInput, trafficSplit);
+              endpointServiceClient.deployModelAsync(endpointName, deployedModelInput, trafficSplit);
           System.out.format(
-              "Operation name: %s\n", deployModelResponseFuture.getInitialFuture().[get](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFutureImpl.html#com_google_api_gax_longrunning_OperationFutureImpl_get__)().getName());
+              "Operation name: %s\n", deployModelResponseFuture.getInitialFuture().get().getName());
           System.out.println("Waiting for operation to finish...");
-          [DeployModelResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DeployModelResponse.html) deployModelResponse = deployModelResponseFuture.[get](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFutureImpl.html#com_google_api_gax_longrunning_OperationFutureImpl_get__)(20, TimeUnit.MINUTES);
+          DeployModelResponse deployModelResponse = deployModelResponseFuture.get(20, TimeUnit.MINUTES);
     
           System.out.println("Deploy Model Response");
-          [DeployedModel](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DeployedModel.html) deployedModel = deployModelResponse.[getDeployedModel](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DeployModelResponse.html#com_google_cloud_aiplatform_v1_DeployModelResponse_getDeployedModel__)();
+          DeployedModel deployedModel = deployModelResponse.getDeployedModel();
           System.out.println("\tDeployed Model");
-          System.out.format("\t\tid: %s\n", deployedModel.[getId](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DeployedModel.html#com_google_cloud_aiplatform_v1_DeployedModel_getId__)());
-          System.out.format("\t\tmodel: %s\n", deployedModel.[getModel](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DeployedModel.html#com_google_cloud_aiplatform_v1_DeployedModel_getModel__)());
-          System.out.format("\t\tDisplay Name: %s\n", deployedModel.[getDisplayName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DeployedModel.html#com_google_cloud_aiplatform_v1_DeployedModel_getDisplayName__)());
-          System.out.format("\t\tCreate Time: %s\n", deployedModel.[getCreateTime](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DeployedModel.html#com_google_cloud_aiplatform_v1_DeployedModel_getCreateTime__)());
+          System.out.format("\t\tid: %s\n", deployedModel.getId());
+          System.out.format("\t\tmodel: %s\n", deployedModel.getModel());
+          System.out.format("\t\tDisplay Name: %s\n", deployedModel.getDisplayName());
+          System.out.format("\t\tCreate Time: %s\n", deployedModel.getCreateTime());
     
-          [DedicatedResources](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DedicatedResources.html) dedicatedResources = deployedModel.[getDedicatedResources](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DeployedModel.html#com_google_cloud_aiplatform_v1_DeployedModel_getDedicatedResources__)();
+          DedicatedResources dedicatedResources = deployedModel.getDedicatedResources();
           System.out.println("\t\tDedicated Resources");
-          System.out.format("\t\t\tMin Replica Count: %s\n", dedicatedResources.[getMinReplicaCount](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DedicatedResources.html#com_google_cloud_aiplatform_v1_DedicatedResources_getMinReplicaCount__)());
+          System.out.format("\t\t\tMin Replica Count: %s\n", dedicatedResources.getMinReplicaCount());
     
-          [MachineSpec](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.MachineSpec.html) machineSpec = dedicatedResources.[getMachineSpec](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DedicatedResources.html#com_google_cloud_aiplatform_v1_DedicatedResources_getMachineSpec__)();
+          MachineSpec machineSpec = dedicatedResources.getMachineSpec();
           System.out.println("\t\t\tMachine Spec");
-          System.out.format("\t\t\t\tMachine Type: %s\n", machineSpec.[getMachineType](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.MachineSpec.html#com_google_cloud_aiplatform_v1_MachineSpec_getMachineType__)());
-          System.out.format("\t\t\t\tAccelerator Type: %s\n", machineSpec.[getAcceleratorType](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.MachineSpec.html#com_google_cloud_aiplatform_v1_MachineSpec_getAcceleratorType__)());
-          System.out.format("\t\t\t\tAccelerator Count: %s\n", machineSpec.[getAcceleratorCount](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.MachineSpec.html#com_google_cloud_aiplatform_v1_MachineSpec_getAcceleratorCount__)());
+          System.out.format("\t\t\t\tMachine Type: %s\n", machineSpec.getMachineType());
+          System.out.format("\t\t\t\tAccelerator Type: %s\n", machineSpec.getAcceleratorType());
+          System.out.format("\t\t\t\tAccelerator Count: %s\n", machineSpec.getAcceleratorCount());
     
-          [AutomaticResources](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.AutomaticResources.html) automaticResources = deployedModel.[getAutomaticResources](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DeployedModel.html#com_google_cloud_aiplatform_v1_DeployedModel_getAutomaticResources__)();
+          AutomaticResources automaticResources = deployedModel.getAutomaticResources();
           System.out.println("\t\tAutomatic Resources");
-          System.out.format("\t\t\tMin Replica Count: %s\n", automaticResources.[getMinReplicaCount](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.AutomaticResources.html#com_google_cloud_aiplatform_v1_AutomaticResources_getMinReplicaCount__)());
-          System.out.format("\t\t\tMax Replica Count: %s\n", automaticResources.[getMaxReplicaCount](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.AutomaticResources.html#com_google_cloud_aiplatform_v1_AutomaticResources_getMaxReplicaCount__)());
+          System.out.format("\t\t\tMin Replica Count: %s\n", automaticResources.getMinReplicaCount());
+          System.out.format("\t\t\tMax Replica Count: %s\n", automaticResources.getMaxReplicaCount());
         }
       }
     }
@@ -771,7 +771,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     const modelName = `projects/${project}/locations/${location}/models/${modelId}`;
     const endpoint = `projects/${project}/locations/${location}/endpoints/${endpointId}`;
     // Imports the Google Cloud Endpoint Service Client library
-    const {EndpointServiceClient} = require('[@google-cloud/aiplatform](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)');
+    const {EndpointServiceClient} = require('@google-cloud/aiplatform');
     
     // Specifies the location of the api endpoint:
     const clientOptions = {
@@ -779,7 +779,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     };
     
     // Instantiates a client
-    const endpointServiceClient = new [EndpointServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)(clientOptions);
+    const endpointServiceClient = new EndpointServiceClient(clientOptions);
     
     async function deployModel() {
       // Configure the parent resource
@@ -1134,15 +1134,15 @@ Before trying this sample, follow the Java setup instructions in the [Agent Plat
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.aiplatform.util.[ValueConverter](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html);
-    import com.google.cloud.aiplatform.v1.[EndpointName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html);
-    import com.google.cloud.aiplatform.v1.[PredictResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html);
-    import com.google.cloud.aiplatform.v1.[PredictionServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceClient.html);
-    import com.google.cloud.aiplatform.v1.[PredictionServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceSettings.html);
-    import com.google.cloud.aiplatform.v1.schema.predict.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).[ImageObjectDetectionPredictionInstance](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.instance.ImageObjectDetectionPredictionInstance.html);
-    import com.google.cloud.aiplatform.v1.schema.predict.params.[ImageObjectDetectionPredictionParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.params.ImageObjectDetectionPredictionParams.html);
-    import com.google.cloud.aiplatform.v1.schema.predict.prediction.[ImageObjectDetectionPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ImageObjectDetectionPredictionResult.html);
-    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html);
+    import com.google.cloud.aiplatform.util.ValueConverter;
+    import com.google.cloud.aiplatform.v1.EndpointName;
+    import com.google.cloud.aiplatform.v1.PredictResponse;
+    import com.google.cloud.aiplatform.v1.PredictionServiceClient;
+    import com.google.cloud.aiplatform.v1.PredictionServiceSettings;
+    import com.google.cloud.aiplatform.v1.schema.predict.instance.ImageObjectDetectionPredictionInstance;
+    import com.google.cloud.aiplatform.v1.schema.predict.params.ImageObjectDetectionPredictionParams;
+    import com.google.cloud.aiplatform.v1.schema.predict.prediction.ImageObjectDetectionPredictionResult;
+    import com.google.protobuf.Value;
     import java.io.IOException;
     import java.nio.charset.StandardCharsets;
     import java.nio.file.Files;
@@ -1163,54 +1163,54 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     
       static void predictImageObjectDetection(String project, String fileName, String endpointId)
           throws IOException {
-        [PredictionServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceSettings.html) settings =
-            [PredictionServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceSettings.html).newBuilder()
+        PredictionServiceSettings settings =
+            PredictionServiceSettings.newBuilder()
                 .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try ([PredictionServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceClient.html) predictionServiceClient =
-            [PredictionServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceClient.html).create(settings)) {
+        try (PredictionServiceClient predictionServiceClient =
+            PredictionServiceClient.create(settings)) {
           String location = "us-central1";
-          [EndpointName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html) endpointName = [EndpointName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.EndpointName.html).of(project, location, endpointId);
+          EndpointName endpointName = EndpointName.of(project, location, endpointId);
     
           byte[] contents = Base64.getEncoder().encode(Files.readAllBytes(Paths.get(fileName)));
           String content = new String(contents, StandardCharsets.UTF_8);
     
-          [ImageObjectDetectionPredictionParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.params.ImageObjectDetectionPredictionParams.html) params =
-              [ImageObjectDetectionPredictionParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.params.ImageObjectDetectionPredictionParams.html).newBuilder()
+          ImageObjectDetectionPredictionParams params =
+              ImageObjectDetectionPredictionParams.newBuilder()
                   .setConfidenceThreshold((float) (0.5))
                   .setMaxPredictions(5)
                   .build();
     
-          [ImageObjectDetectionPredictionInstance](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.instance.ImageObjectDetectionPredictionInstance.html) instance =
-              [ImageObjectDetectionPredictionInstance](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.instance.ImageObjectDetectionPredictionInstance.html).newBuilder().setContent(content).build();
+          ImageObjectDetectionPredictionInstance instance =
+              ImageObjectDetectionPredictionInstance.newBuilder().setContent(content).build();
     
-          [List<Value>](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html) instances = new ArrayList<>();
-          instances.add([ValueConverter](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html).[toValue](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html#com_google_cloud_aiplatform_util_ValueConverter_toValue_com_google_protobuf_Message_)(instance));
+          List<Value> instances = new ArrayList<>();
+          instances.add(ValueConverter.toValue(instance));
     
-          [PredictResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html) predictResponse =
-              predictionServiceClient.predict(endpointName, instances, [ValueConverter](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html).[toValue](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html#com_google_cloud_aiplatform_util_ValueConverter_toValue_com_google_protobuf_Message_)(params));
+          PredictResponse predictResponse =
+              predictionServiceClient.predict(endpointName, instances, ValueConverter.toValue(params));
           System.out.println("Predict Image Object Detection Response");
-          System.out.format("\tDeployed Model Id: %s\n", predictResponse.[getDeployedModelId](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html#com_google_cloud_aiplatform_v1_PredictResponse_getDeployedModelId__)());
+          System.out.format("\tDeployed Model Id: %s\n", predictResponse.getDeployedModelId());
     
           System.out.println("Predictions");
-          for ([Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html) prediction : predictResponse.[getPredictionsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html#com_google_cloud_aiplatform_v1_PredictResponse_getPredictionsList__)()) {
+          for (Value prediction : predictResponse.getPredictionsList()) {
     
-            [ImageObjectDetectionPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ImageObjectDetectionPredictionResult.html).Builder resultBuilder =
-                [ImageObjectDetectionPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ImageObjectDetectionPredictionResult.html).newBuilder();
+            ImageObjectDetectionPredictionResult.Builder resultBuilder =
+                ImageObjectDetectionPredictionResult.newBuilder();
     
-            [ImageObjectDetectionPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ImageObjectDetectionPredictionResult.html) result =
-                ([ImageObjectDetectionPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ImageObjectDetectionPredictionResult.html))
-                    [ValueConverter](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html).fromValue(resultBuilder, prediction);
+            ImageObjectDetectionPredictionResult result =
+                (ImageObjectDetectionPredictionResult)
+                    ValueConverter.fromValue(resultBuilder, prediction);
     
-            for (int i = 0; i < result.[getIdsCount](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ImageObjectDetectionPredictionResult.html#com_google_cloud_aiplatform_v1_schema_predict_prediction_ImageObjectDetectionPredictionResult_getIdsCount__)(); i++) {
-              System.out.printf("\tDisplay name: %s\n", result.[getDisplayNames](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ImageObjectDetectionPredictionResult.html#com_google_cloud_aiplatform_v1_schema_predict_prediction_ImageObjectDetectionPredictionResult_getDisplayNames_int_)(i));
-              System.out.printf("\tConfidences: %f\n", result.[getConfidences](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ImageObjectDetectionPredictionResult.html#com_google_cloud_aiplatform_v1_schema_predict_prediction_ImageObjectDetectionPredictionResult_getConfidences_int_)(i));
-              System.out.printf("\tIDs: %d\n", result.[getIds](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ImageObjectDetectionPredictionResult.html#com_google_cloud_aiplatform_v1_schema_predict_prediction_ImageObjectDetectionPredictionResult_getIds_int_)(i));
-              System.out.printf("\tBounding boxes: %s\n", result.[getBboxes](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ImageObjectDetectionPredictionResult.html#com_google_cloud_aiplatform_v1_schema_predict_prediction_ImageObjectDetectionPredictionResult_getBboxes_int_)(i));
+            for (int i = 0; i < result.getIdsCount(); i++) {
+              System.out.printf("\tDisplay name: %s\n", result.getDisplayNames(i));
+              System.out.printf("\tConfidences: %f\n", result.getConfidences(i));
+              System.out.printf("\tIDs: %d\n", result.getIds(i));
+              System.out.printf("\tBounding boxes: %s\n", result.getBboxes(i));
             }
           }
         }
@@ -1233,7 +1233,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     // const endpointId = "YOUR_ENDPOINT_ID";
     // const project = 'YOUR_PROJECT_ID';
     // const location = 'YOUR_PROJECT_LOCATION';
-    const aiplatform = require('[@google-cloud/aiplatform](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)');
+    const aiplatform = require('@google-cloud/aiplatform');
     const {instance, params, prediction} =
       aiplatform.protos.google.cloud.aiplatform.v1.schema.predict;
     
@@ -1246,7 +1246,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     };
     
     // Instantiates a client
-    const predictionServiceClient = new [PredictionServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)(clientOptions);
+    const predictionServiceClient = new PredictionServiceClient(clientOptions);
     
     async function predictImageObjectDetection() {
       // Configure the endpoint resource

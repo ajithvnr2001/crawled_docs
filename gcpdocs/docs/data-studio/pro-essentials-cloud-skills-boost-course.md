@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/pro-essentials-cloud-skills-boost-course/
 title: Data Studio Pro Essentials (Cloud Skills Boost Course) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:18.593035+00:00
+fetched_at: 2026-10-26T05:59:18.928327+00:00
 ---
 
 # Data Studio Pro Essentials (Cloud Skills Boost Course)  |  Google Cloud Documentation

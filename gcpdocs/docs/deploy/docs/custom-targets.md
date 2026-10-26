@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/custom-targets/
 title: About custom targets \u00a0|\u00a0 Cloud Deploy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:11:35.211750+00:00
+fetched_at: 2026-10-26T05:59:36.511632+00:00
 ---
 
 # About custom targets  |  Cloud Deploy  |  Google Cloud Documentation

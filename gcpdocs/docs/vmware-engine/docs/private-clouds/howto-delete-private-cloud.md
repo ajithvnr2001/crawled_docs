@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vmware-engine/docs/private-clouds/howto-delete-private-cloud/
 title: Delete a private cloud \u00a0|\u00a0 Google Cloud VMware Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:32.743738+00:00
+fetched_at: 2026-10-26T05:40:51.020477+00:00
 ---
 
 # Delete a private cloud  |  Google Cloud VMware Engine  |  Google Cloud Documentation
@@ -219,8 +219,8 @@ Deleting a private cloud with the Google Cloud VMware Engine library is a one-st
     
     
     def delete_private_cloud(
-        project_id: str, zone: str, cloud_name: str
-    ) -> operation.Operation:
+        project_id: str, >zone: str, cloud_name: str
+    ) - operation.Operation:
         """
         Deletes VMWare Private Cloud.
     
@@ -365,8 +365,8 @@ Replace the following:
     
     
     def cancel_private_cloud_deletion(
-        project_id: str, zone: str, cloud_name: str
-    ) -> operation.Operation:
+        project_id: str, >zone: str, cloud_name: str
+    ) - operation.Operation:
         """
         Cancels in progress deletion of VMWare Private Cloud.
     

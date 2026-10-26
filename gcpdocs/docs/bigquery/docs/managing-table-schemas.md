@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/managing-table-schemas/
 title: Modifying table schemas \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:42:51.950255+00:00
+fetched_at: 2026-10-26T05:40:01.576895+00:00
 ---
 
 # Modifying table schemas  |  BigQuery  |  Google Cloud Documentation
@@ -1712,7 +1712,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
       // const tableId = 'my_table';
     
       const newSchema = [
-        {name: 'Name', type: 'STRING', mode: 'NULLABLE'},
+        {name: 'Name', type: 'STRING', mode: '[NULLABLE](https://docs.cloud.google.com/nodejs/docs/reference/bigquery-storage-api/latest/bigquery-storage-api/protos.google.cloud.bigquery.storage.v1.tablefieldschema.mode.html)'},
         {name: 'Age', type: '[INTEGER](https://docs.cloud.google.com/nodejs/docs/reference/bigquery-data-transfer/latest/bigquery-data-transfer/protos.google.cloud.bigquery.datatransfer.v1.datasourceparameter.type.html)'},
         {name: 'Weight', type: 'FLOAT'},
         {name: 'IsMagic', type: '[BOOLEAN](https://docs.cloud.google.com/nodejs/docs/reference/bigquery-data-transfer/latest/bigquery-data-transfer/protos.google.cloud.bigquery.datatransfer.v1.datasourceparameter.type.html)'},

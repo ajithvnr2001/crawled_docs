@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/create-instances/
 title: Create Exadata Infrastructure instances \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:33:04.943384+00:00
+fetched_at: 2026-10-26T05:40:57.171521+00:00
 ---
 
 # Create Exadata Infrastructure instances  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -230,7 +230,7 @@ Replace the following:
     import com.google.cloud.oracledatabase.v1.[CreateCloudExadataInfrastructureRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.CreateCloudExadataInfrastructureRequest.html);
     import com.google.cloud.oracledatabase.v1.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.LocationName.html);
     import com.google.cloud.oracledatabase.v1.[OracleDatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.OracleDatabaseClient.html);
-    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html);
+    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html);
     
     public class AsyncCreateCloudExadataInfrastructure {
     
@@ -255,7 +255,7 @@ Replace the following:
           ApiFuture<Operation> future =
               oracleDatabaseClient.[createCloudExadataInfrastructureCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.OracleDatabaseClient.html#com_google_cloud_oracledatabase_v1_OracleDatabaseClient_createCloudExadataInfrastructureCallable__)().futureCall(request);
           // Do something.
-          [Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html) response = future.get();
+          [Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html) response = future.get();
         }
       }
     }

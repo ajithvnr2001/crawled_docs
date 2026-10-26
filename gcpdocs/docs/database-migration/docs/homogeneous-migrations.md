@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/homogeneous-migrations/
 title: Homogeneous migrations \u00a0|\u00a0 Database Migration Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:25.865624+00:00
+fetched_at: 2026-10-26T05:59:06.197915+00:00
 ---
 
 # Homogeneous migrations  |  Database Migration Service  |  Google Cloud Documentation

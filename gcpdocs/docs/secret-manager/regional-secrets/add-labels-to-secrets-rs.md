@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/regional-secrets/add-labels-to-secrets-rs/
 title: Add labels to secrets \u00a0|\u00a0 Secret Manager Regional Service Documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:47.267225+00:00
+fetched_at: 2026-10-26T05:40:46.421704+00:00
 ---
 
 # Add labels to secrets  |  Secret Manager Regional Service Documentation  |  Google Cloud Documentation
@@ -525,7 +525,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
       api_endpoint = "secretmanager.#{location_id}.rep.googleapis.com"
     
       # Create the Secret Manager client.
-      client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html) do |config|
+      client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta1/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html) do |config|
         config.endpoint = api_endpoint
       end
     
@@ -954,7 +954,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
       api_endpoint = "secretmanager.#{location_id}.rep.googleapis.com"
     
       # Create the Secret Manager client.
-      client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html) do |config|
+      client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta1/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html) do |config|
         config.endpoint = api_endpoint
       end
     
@@ -1483,7 +1483,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
       api_endpoint = "secretmanager.#{location_id}.rep.googleapis.com"
     
       # Create the Secret Manager client.
-      client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html) do |config|
+      client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta1/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html) do |config|
         config.endpoint = api_endpoint
       end
     

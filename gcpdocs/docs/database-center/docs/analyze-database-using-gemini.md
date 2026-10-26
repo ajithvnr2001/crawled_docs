@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-center/docs/analyze-database-using-gemini/
 title: Analyze database fleet health using Gemini \u00a0|\u00a0 Database Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:11.415721+00:00
+fetched_at: 2026-10-26T05:59:45.791701+00:00
 ---
 
 # Analyze database fleet health using Gemini  |  Database Center  |  Google Cloud Documentation

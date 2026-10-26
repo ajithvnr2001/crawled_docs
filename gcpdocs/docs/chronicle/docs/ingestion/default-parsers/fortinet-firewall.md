@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/fortinet-firewall/
 title: Collect Fortinet Firewall logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:24:13.203996+00:00
+fetched_at: 2026-10-26T05:38:27.064238+00:00
 ---
 
 # Collect Fortinet Firewall logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -391,6 +391,30 @@ Else if the `shost` log field value is _not_ `empty` then:
   
   
 `monitor-name` | `target.resource.resource_subtype` | If the `monitor-name` log field value is _not_ `empty` then, check if the `monitor-name` log field value has a length between 0 and 255 characters then, map the `monitor-name` log field value to the `target.resource.resource_subtype` UDM field.  
+`` | `target.resource.resource_type` | If the `subtype` log field value is equal to `system`, the `type` log field value is one of the following
+
+  * `event`
+  * `event:system`
+
+, the `logid` log field value is one of the following
+
+  * `0100044545`
+  * `0100044547`
+
+, the `action` log field value is one of the following
+
+  * `Add`
+  * `Edit`
+  * `Delete`
+
+, the `cfgpath` log field value is _not_ one of the following
+
+  * `system.admin`
+  * `user.local`
+  * `user.group`
+
+, and a valid IP address is extracted from the `ui` log field (`principal.ip` is _not_ `empty`) then, the `target.resource.resource_type` UDM field is set to `SETTING`.  
+  
 `old_value` | `security_result.detection_fields[old_value]` |   
 `dvchost` | `intermediary.hostname` | If the `dvchost` log field value has a length between `0` and `255` characters then, `dvchost` log field is mapped to the `intermediary.hostname` UDM field.   
 Else, `dvchost` constant value is mapped to the `additional.fields.key` UDM field, and `dvchost` log field is mapped to the `additional.fields.value.string_value` UDM field.   
@@ -459,13 +483,13 @@ or the `type` log field value is equal to `anomaly` and the `subtype` log field 
   * `HTTPS`
   * `HTTP`
 
-then, the `metadata.event_type` UDM field is set to `NETWORK_HTTP`. Else, if the `subtype` log field value is one of the following
+then, the `metadata.event_type` UDM field is set to `NETWORK_HTTP`. Otherwise, if the `subtype` log field value is one of the following
 
   * `ips`
   * `anomaly`
 
 or the `utmevent` log field value is equal to `appfirewall` and the `subtype` log field value is _not_ equal to `system` then, the `metadata.event_type` UDM field is set to `NETWORK_UNCATEGORIZED`.  
-Else if the `type` log field value is equal to `event` and the `subtype` log field value is equal to `wireless` then, if the `logid` log field value ends with one of the following
+Otherwise if the `type` log field value is equal to `event` and the `subtype` log field value is equal to `wireless` then, if the `logid` log field value ends with one of the following
 
   * `43614`
   * `43658`
@@ -491,13 +515,13 @@ Else if the `type` log field value is equal to `event` and the `subtype` log fie
   * `43706`
   * `43709`
 
-then, the `metadata.event_type` UDM field is set to `NETWORK_DHCP`. Else, if the `logid` log field value ends with one of the following
+then, the `metadata.event_type` UDM field is set to `NETWORK_DHCP`. Otherwise, if the `logid` log field value ends with one of the following
 
   * `43671`
   * `43672`
   * `43673`
 
-then, the `metadata.event_type` UDM field is set to `NETWORK_DNS`. Else, if the `logid` log field value ends with one of the following
+then, the `metadata.event_type` UDM field is set to `NETWORK_DNS`. Otherwise, if the `logid` log field value ends with one of the following
 
   * `43573`
   * `43629`
@@ -512,16 +536,16 @@ then, the `metadata.event_type` UDM field is set to `NETWORK_DNS`. Else, if the 
   * `43713`
   * `43714`
 
-then, the `metadata.event_type` UDM field is set to `USER_LOGIN`. Else, if the `logid` log field value ends with `43575` then, the `metadata.event_type` UDM field is set to `USER_LOGOUT`. Else, the `metadata.event_type` UDM field is set to `NETWORK_UNCATEGORIZED`.  
-Else if the `subtype` log field value is equal to `vpn` and the `type` log field value is equal to `event` then, if the `action` log field value is one of the following
+then, the `metadata.event_type` UDM field is set to `USER_LOGIN`. Otherwise, if the `logid` log field value ends with `43575` then, the `metadata.event_type` UDM field is set to `USER_LOGOUT`. Otherwise, the `metadata.event_type` UDM field is set to `NETWORK_UNCATEGORIZED`.  
+Otherwise if the `subtype` log field value is equal to `vpn` and the `type` log field value is equal to `event` then, if the `action` log field value is one of the following
 
   * `tunnel-up`
   * `tunnel-down`
 
-then, the `metadata.event_type` UDM field is set to `NETWORK_CONNECTION`. Else, the `metadata.event_type` UDM field is set to `NETWORK_UNCATEGORIZED`.  
-Else if the `type` log field value is equal to `dns` or the `type` log field value is equal to `utm` and the `subtype` log field value is equal to `dns` then, if the `questions_temp.name` log field value is _not_ `empty` then, the `metadata.event_type` UDM field is set to `NETWORK_DNS`. Else, the `metadata.event_type` UDM field is set to `NETWORK_UNCATEGORIZED`.  
-Else if the `type` log field value is equal to `event` and the `dhcp_msg` log field value is equal to `Ack` then, the `metadata.event_type` UDM field is set to `NETWORK_DHCP`.  
-Else if the `type` log field value is equal to `event` and the `subtype` log field value is equal to `user` then, if the `action` log field value is _not_ `empty` and one of the following conditions is met: the `action` log field value matches the regular expression pattern `.*logoff.*`, or the `action` log field value is equal to `authentication` and the `status` log field value is equal to `logout`, or the `action` log field value is equal to `auth-logout` and the `status` log field value is equal to `logout` then, the `metadata.event_type` UDM field is set to `USER_LOGOUT`. If the `action` log field value is _not_ `empty` and one of the following conditions is met: the `action` log field value matches the regular expression pattern `.*logon.*`, or the `action` log field value is equal to `auth-logon` and the `status` log field value is equal to `logon`, or the `action` log field value is one of the following
+then, the `metadata.event_type` UDM field is set to `NETWORK_CONNECTION`. Otherwise, the `metadata.event_type` UDM field is set to `NETWORK_UNCATEGORIZED`.  
+Otherwise if the `type` log field value is equal to `dns` or the `type` log field value is equal to `utm` and the `subtype` log field value is equal to `dns` then, if the `questions_temp.name` log field value is _not_ `empty` then, the `metadata.event_type` UDM field is set to `NETWORK_DNS`. Otherwise, the `metadata.event_type` UDM field is set to `NETWORK_UNCATEGORIZED`.  
+Otherwise if the `type` log field value is equal to `event` and the `dhcp_msg` log field value is equal to `Ack` then, the `metadata.event_type` UDM field is set to `NETWORK_DHCP`.  
+Otherwise if the `type` log field value is equal to `event` and the `subtype` log field value is equal to `user` then, if the `action` log field value is _not_ `empty` and one of the following conditions is met: the `action` log field value matches the regular expression pattern `.*logoff.*`, or the `action` log field value is equal to `authentication` and the `status` log field value is equal to `logout`, or the `action` log field value is equal to `auth-logout` and the `status` log field value is equal to `logout` then, the `metadata.event_type` UDM field is set to `USER_LOGOUT`. If the `action` log field value is _not_ `empty` and one of the following conditions is met: the `action` log field value matches the regular expression pattern `.*logon.*`, or the `action` log field value is equal to `auth-logon` and the `status` log field value is equal to `logon`, or the `action` log field value is one of the following
 
   * `NEGO-auth`
   * `NTLM-auth`
@@ -532,19 +556,41 @@ and the `status` log field value is equal to `success`, or the `action` log fiel
   * `timed_out`
 
 then, the `metadata.event_type` UDM field is set to `USER_LOGIN`.  
-Else if the `action` log field value is equal to `login` then, the `metadata.event_type` UDM field is set to `USER_LOGIN`.  
-Else if the `action` log field value is equal to `logout` and the `status` log field value is equal to `success` then, the `metadata.event_type` UDM field is set to `USER_LOGOUT`.  
-Else if the `action` log field value is equal to `Add` and the `subtype` log field value is equal to `Admin` then, if the `user_id` log field value is _not_ `empty` or the `user_email` log field value is _not_ `empty` then, the `metadata.event_type` UDM field is set to `USER_CREATION`. Else, the `metadata.event_type` UDM field is set to `USER_UNCATEGORIZED`.  
-Else if the `type` log field value is equal to `event` and the `subtype` log field value is equal to `cifs-auth-fail` then, the `metadata.event_type` UDM field is set to `USER_LOGIN`.  
-Else if the `type` log field value is equal to `utm` and the `subtype` log field value is equal to `virus` then, if the `File_name` log field value is _not_ `empty` then, the `metadata.event_type` UDM field is set to `SCAN_FILE`. Else, the `metadata.event_type` UDM field is set to `SCAN_UNCATEGORIZED`.  
-Else if the `type` log field value is equal to `utm` and the `subtype` log field value is equal to `file-filter` then, the `metadata.event_type` UDM field is set to `SCAN_FILE`.  
-Else if the `type` log field value is equal to `utm` and the `subtype` log field value is one of the following
+Otherwise if the `action` log field value is equal to `login` then, the `metadata.event_type` UDM field is set to `USER_LOGIN`.  
+Otherwise if the `action` log field value is equal to `logout` and the `status` log field value is equal to `success` then, the `metadata.event_type` UDM field is set to `USER_LOGOUT`.  
+Otherwise if the `action` log field value is equal to `Add` and the `subtype` log field value is equal to `Admin` then, if the `user_id` log field value is _not_ `empty` or the `user_email` log field value is _not_ `empty` then, the `metadata.event_type` UDM field is set to `USER_CREATION`. Otherwise, the `metadata.event_type` UDM field is set to `USER_UNCATEGORIZED`.  
+Otherwise if the `type` log field value is equal to `event` and the `subtype` log field value is equal to `cifs-auth-fail` then, the `metadata.event_type` UDM field is set to `USER_LOGIN`.  
+Otherwise if the `type` log field value is equal to `utm` and the `subtype` log field value is equal to `virus` then, if the `File_name` log field value is _not_ `empty` then, the `metadata.event_type` UDM field is set to `SCAN_FILE`. Otherwise, the `metadata.event_type` UDM field is set to `SCAN_UNCATEGORIZED`.  
+Otherwise if the `type` log field value is equal to `utm` and the `subtype` log field value is equal to `file-filter` then, the `metadata.event_type` UDM field is set to `SCAN_FILE`.  
+Otherwise if the `type` log field value is equal to `utm` and the `subtype` log field value is one of the following
 
   * `icap`
   * `virtual-patch`
 
 then, the `metadata.event_type` UDM field is set to `NETWORK_CONNECTION`.  
-Else if the `event_name` log field value is one of the following
+Otherwise if the `subtype` log field value is equal to `system`, the `type` log field value is one of the following
+
+  * `event`
+  * `event:system`
+
+, the `logid` log field value is one of the following
+
+  * `0100044545`
+  * `0100044547`
+
+, and the `action` log field value is one of the following
+
+  * `Add`
+  * `Edit`
+  * `Delete`
+
+then: if the `cfgpath` log field value is one of the following
+
+  * `system.admin`
+  * `user.local`
+
+then, if the `action` log field value is equal to `Add` then, the `metadata.event_type` UDM field is set to `USER_CREATION`; otherwise if the `action` log field value is equal to `Delete` then, the `metadata.event_type` UDM field is set to `USER_DELETION`; otherwise if the `action` log field value is equal to `Edit` then, if the `cfgpath` log field value is equal to `system.admin` and the `cfgattr` log field value matches the regular expression pattern `(^|\])accprofile\[` then, the `metadata.event_type` UDM field is set to `USER_CHANGE_PERMISSIONS`, otherwise if (the `cfgpath` log field value is equal to `system.admin` and the `cfgattr` log field value matches the regular expression pattern `(^|\])password\[`) or (the `cfgpath` log field value is equal to `user.local` and the `cfgattr` log field value matches the regular expression pattern `(^|\])passwd\[`) then, the `metadata.event_type` UDM field is set to `USER_CHANGE_PASSWORD`, otherwise, the `metadata.event_type` UDM field is set to `USER_UNCATEGORIZED`. Otherwise if the `cfgpath` log field value is equal to `user.group` then, if the `action` log field value is equal to `Add` then, the `metadata.event_type` UDM field is set to `GROUP_CREATION`; otherwise if the `action` log field value is equal to `Delete` then, the `metadata.event_type` UDM field is set to `GROUP_DELETION`; otherwise, the `metadata.event_type` UDM field is set to `GROUP_MODIFICATION`. Otherwise (for other `cfgpath` values), if a valid IP address is extracted from the `ui` log field (`principal.ip` is _not_ `empty`) then, if the `action` log field value is equal to `Add` then, the `metadata.event_type` UDM field is set to `SETTING_CREATION`; otherwise if the `action` log field value is equal to `Delete` then, the `metadata.event_type` UDM field is set to `SETTING_DELETION`; otherwise, the `metadata.event_type` UDM field is set to `SETTING_MODIFICATION`; otherwise (if `principal.ip` is `empty`), the `metadata.event_type` UDM field is set to `DEVICE_CONFIG_UPDATE`. Within this block, if the `metadata.event_type` UDM field is still `GENERIC_EVENT` then, the `metadata.event_type` UDM field is set to `SCAN_UNCATEGORIZED`.  
+Otherwise if the `event_name` log field value is one of the following
 
   * `LogSpyware`
   * `LogPredictiveMachineLearning`
@@ -560,9 +606,9 @@ If the `user` log field value is _not_ `empty` and is _not_ equal to `N/A` and t
   * `tunnel-up`
   * `tunnel-down`
 
-then, the `metadata.event_type` UDM field is set to `NETWORK_CONNECTION`. Else, the `metadata.event_type` UDM field is set to `NETWORK_UNCATEGORIZED`. Else (if not type event and subtype vpn), the `metadata.event_type` UDM field is set to `USER_UNCATEGORIZED`.  
+then, the `metadata.event_type` UDM field is set to `NETWORK_CONNECTION`. Otherwise, the `metadata.event_type` UDM field is set to `NETWORK_UNCATEGORIZED`. Otherwise (if not type event and subtype vpn), the `metadata.event_type` UDM field is set to `USER_UNCATEGORIZED`.  
 If the `File_name` log field value is _not_ `empty` or the `Object` log field value is _not_ `empty` or the `Objekt` log field value is _not_ `empty` or the `Infected_Resource` log field value is _not_ `empty` then, the `metadata.event_type` UDM field is set to `PROCESS_UNCATEGORIZED`.  
-If the `metadata.event_type` UDM field matches `GENERIC_EVENT` then, if the `srcip` log field value is _not_ `empty` and the `dstip` log field value is _not_ `empty` then, the `metadata.event_type` UDM field is set to `NETWORK_UNCATEGORIZED`. Else, if the `srcip` log field value is _not_ `empty` then, the `metadata.event_type` UDM field is set to `STATUS_UNCATEGORIZED`. Else, if the `action` log field value is equal to `Delete` then, the `metadata.event_type` UDM field is set to `USER_DELETION`. Else, if the `action` log field value is equal to `Edit` then, the `metadata.event_type` UDM field is set to `DEVICE_CONFIG_UPDATE`.  
+If the `metadata.event_type` UDM field matches `GENERIC_EVENT` then, if the `srcip` log field value is _not_ `empty` and the `dstip` log field value is _not_ `empty` then, the `metadata.event_type` UDM field is set to `NETWORK_UNCATEGORIZED`. Otherwise, if the `srcip` log field value is _not_ `empty` then, the `metadata.event_type` UDM field is set to `STATUS_UNCATEGORIZED`. Otherwise, if the `action` log field value is equal to `Delete` then, the `metadata.event_type` UDM field is set to `USER_DELETION`. Otherwise, if the `action` log field value is equal to `Edit` then, the `metadata.event_type` UDM field is set to `DEVICE_CONFIG_UPDATE`.  
 If the `metadata.event_type` UDM field is still `empty` or `GENERIC_EVENT` after the preceding checks, it is set to `STATUS_UPDATE`.  
 If the `direction` log field value is _not_ `empty` and the `metadata.event_type` UDM field is equal to `STATUS_UPDATE` then, the `metadata.event_type` UDM field is set to `NETWORK_UNCATEGORIZED`.  
   
@@ -6649,6 +6695,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

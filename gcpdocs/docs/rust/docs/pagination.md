@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/rust/docs/pagination/
 title: Working with list operations \u00a0|\u00a0 Rust \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:43:00.667716+00:00
+fetched_at: 2026-10-26T05:40:34.421422+00:00
 ---
 
 # Working with list operations  |  Rust  |  Google Cloud Documentation
@@ -58,7 +58,7 @@ To iterate over the items, use the `by_item` method.
         .by_item();
     while let Some(secret) = list.next().await {
         let secret = secret?;
-        println!("  secret={}", secret.name)
+        println!("  secret={}&quot;, secret.name)
     }
 
 In rare cases, pages might contain extra information that you need access to, or you may need to checkpoint your progress across processes. If needed, you can iterate over full pages instead of individual items.
@@ -110,11 +110,11 @@ You may want to use these APIs in the larger Rust ecosystem of asynchronous stre
              .set_parent(format!("projects/{project_id}"))
              .by_item()
              .into_stream();
-         list.map(|secret| -> gax::Result<()> {
+         list.map(>|secret| - g<ax>::Result() {
              println!("  secret={}", secret?.name);
              Ok(())
          })
-         .fold(Ok(()), async |acc, result| -> gax::Result<()> {
+         .fold(Ok(()), a>sync |acc, r<es>ult| - gax::Result() {
              acc.and(result)
          })
          .await?;
@@ -131,11 +131,11 @@ Similarly, you can use the `into_stream` function to convert `Paginator` into a 
         .by_page()
         .into_stream();
     list.enumerate()
-        .map(|(index, page)| -> gax::Result<()> {
+        .map(|(index>, page)| - g<ax>::Result() {
             println!("page={}, next_page_token={}", index, page?.next_page_token);
             Ok(())
         })
-        .fold(Ok(()), async |acc, result| -> gax::Result<()> {
+        .fold(Ok(()), a>sync |acc, r<es>ult| - gax::Result() {
             acc.and(result)
         })
         .await?;

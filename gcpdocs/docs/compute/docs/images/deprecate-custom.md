@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/images/deprecate-custom/
 title: Deprecate a custom image \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:42:20.151188+00:00
+fetched_at: 2026-10-26T05:39:49.070874+00:00
 ---
 
 # Deprecate a custom image  |  Compute Engine  |  Google Cloud Documentation
@@ -136,11 +136,11 @@ Replace the following:
     	// imageName := "my_image"
     
     	deprecationStatus := &computepb.DeprecationStatus{
-    		State: proto.String(computepb.DeprecationStatus_DEPRECATED.String()),
+    		State: proto.String(computepb.[DeprecationStatus_DEPRECATED](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1/computepb.html#cloud_google_com_go_compute_apiv1_computepb_DeprecationStatus_UNDEFINED_STATE_DeprecationStatus_ACTIVE_DeprecationStatus_DELETED_DeprecationStatus_DEPRECATED_DeprecationStatus_OBSOLETE).String()),
     	}
     
     	ctx := context.Background()
-    	imagesClient, err := compute.NewImagesRESTClient(ctx)
+    	imagesClient, err := compute.[NewImagesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_ImagesClient_NewImagesRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewImagesRESTClient: %w", err)
     	}
@@ -166,10 +166,10 @@ Replace the following:
 ###  Java 
     
     
-    import com.google.cloud.compute.v1.DeprecateImageRequest;
-    import com.google.cloud.compute.v1.DeprecationStatus;
-    import com.google.cloud.compute.v1.Image;
-    import com.google.cloud.compute.v1.ImagesClient;
+    import com.google.cloud.compute.v1.[DeprecateImageRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DeprecateImageRequest.html);
+    import com.google.cloud.compute.v1.[DeprecationStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DeprecationStatus.html);
+    import com.google.cloud.compute.v1.[Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html);
+    import com.google.cloud.compute.v1.[ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html);
     import java.io.IOException;
     import java.util.UUID;
     import java.util.concurrent.ExecutionException;
@@ -187,34 +187,34 @@ Replace the following:
         // The status you want to set for the image. Available values are available in
         // `compute_v1.DeprecationStatus.State` enum. Learn more about image deprecation statuses:
         // https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images#deprecation-states
-        DeprecationStatus.State status = DeprecationStatus.State.DEPRECATED;
+        [DeprecationStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DeprecationStatus.html).State status = [DeprecationStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DeprecationStatus.html).State.DEPRECATED;
     
         setDeprecationStatus(projectId, imageName, status);
       }
     
       // Modify the deprecation status of an image.
-      public static Image setDeprecationStatus(String projectId, String imageName,
-                                               DeprecationStatus.State status)
+      public static [Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html) setDeprecationStatus(String projectId, String imageName,
+                                               [DeprecationStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DeprecationStatus.html).State status)
               throws IOException, ExecutionException, InterruptedException, TimeoutException {
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try (ImagesClient client = ImagesClient.create()) {
-          DeprecationStatus deprecationStatusResource = DeprecationStatus.newBuilder()
+        try ([ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html) client = [ImagesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html).create()) {
+          [DeprecationStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DeprecationStatus.html) deprecationStatusResource = [DeprecationStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DeprecationStatus.html).newBuilder()
                   .setState(status.name())
                   .build();
-          DeprecateImageRequest request = DeprecateImageRequest.newBuilder()
+          [DeprecateImageRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DeprecateImageRequest.html) request = [DeprecateImageRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DeprecateImageRequest.html).newBuilder()
                   .setProject(projectId)
                   .setImage(imageName)
-                  .setDeprecationStatusResource(deprecationStatusResource)
+                  .[setDeprecationStatusResource](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DeprecateImageRequest.Builder.html#com_google_cloud_compute_v1_DeprecateImageRequest_Builder_setDeprecationStatusResource_com_google_cloud_compute_v1_DeprecationStatus_)(deprecationStatusResource)
                   .setRequestId(UUID.randomUUID().toString())
                   .build();
     
-          client.deprecateCallable().futureCall(request).get(60, TimeUnit.SECONDS);
+          client.[deprecateCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ImagesClient.html#com_google_cloud_compute_v1_ImagesClient_deprecateCallable__)().futureCall(request).get(60, TimeUnit.SECONDS);
     
-          Image image = client.get(projectId, imageName);
+          [Image](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html) image = client.get(projectId, imageName);
     
           System.out.printf("Status '%s' has been updated successfully",
-                  image.getDeprecated().getState());
+                  image.[getDeprecated](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Image.html#com_google_cloud_compute_v1_Image_getDeprecated__)().getState());
     
           return image;
         }
@@ -230,7 +230,7 @@ Replace the following:
     from typing import Any
     
     from google.api_core.extended_operation import ExtendedOperation
-    from google.cloud import compute_v1
+    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
     
     
     def wait_for_extended_operation(
@@ -282,7 +282,7 @@ Replace the following:
     
     
     def set_deprecation_status(
-        project_id: str, image_name: str, status: compute_v1.DeprecationStatus.State
+        project_id: str, image_name: str, status: [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[DeprecationStatus](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.DeprecationStatus.html).State
     ) -> None:
         """
         Modify the deprecation status of an image.
@@ -296,10 +296,10 @@ Replace the following:
                 `compute_v1.DeprecationStatus.State` enum. Learn more about image deprecation statuses:
                 https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images#deprecation-states
         """
-        image_client = compute_v1.ImagesClient()
-        deprecation_status = compute_v1.DeprecationStatus()
+        image_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[ImagesClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.images.ImagesClient.html)()
+        deprecation_status = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[DeprecationStatus](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.DeprecationStatus.html)()
         deprecation_status.state = status.name
-        operation = image_client.deprecate(
+        operation = image_client.[deprecate](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.images.ImagesClient.html#google_cloud_compute_v1_services_images_ImagesClient_deprecate)(
             project=project_id,
             image=image_name,
             deprecation_status_resource=deprecation_status,

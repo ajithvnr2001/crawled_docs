@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-instances-create-custom-hostname/
 title: Create a VM with a custom hostname \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:47:02.243676+00:00
+fetched_at: 2026-10-26T05:39:46.257440+00:00
 ---
 
 # Create a VM with a custom hostname  |  Compute Engine  |  Google Cloud Documentation
@@ -59,7 +59,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// networkName := "global/networks/default"
     
     	ctx := context.Background()
-    	instancesClient, err := compute.[NewInstancesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_InstancesClient_NewInstancesRESTClient)(ctx)
+    	instancesClient, err := compute.NewInstancesRESTClient(ctx)
     	if err != nil {
     		return fmt.Errorf("NewInstancesRESTClient: %w", err)
     	}
@@ -83,7 +83,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     					},
     					AutoDelete: proto.Bool(true),
     					Boot:       proto.Bool(true),
-    					Type:       proto.String(computepb.[AttachedDisk_PERSISTENT](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1/computepb.html#cloud_google_com_go_compute_apiv1_computepb_AttachedDisk_UNDEFINED_TYPE_AttachedDisk_PERSISTENT_AttachedDisk_SCRATCH).String()),
+    					Type:       proto.String(computepb.AttachedDisk_PERSISTENT.String()),
     				},
     			},
     			MachineType: proto.String(fmt.Sprintf("zones/%s/machineTypes/%s", zone, machineType)),
@@ -118,13 +118,13 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.[AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html);
-    import com.google.cloud.compute.v1.[AttachedDiskInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDiskInitializeParams.html);
-    import com.google.cloud.compute.v1.[InsertInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceRequest.html);
-    import com.google.cloud.compute.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html);
-    import com.google.cloud.compute.v1.[InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html);
-    import com.google.cloud.compute.v1.[NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html);
-    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
+    import com.google.cloud.compute.v1.AttachedDisk;
+    import com.google.cloud.compute.v1.AttachedDiskInitializeParams;
+    import com.google.cloud.compute.v1.InsertInstanceRequest;
+    import com.google.cloud.compute.v1.Instance;
+    import com.google.cloud.compute.v1.InstancesClient;
+    import com.google.cloud.compute.v1.NetworkInterface;
+    import com.google.cloud.compute.v1.Operation;
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -166,28 +166,28 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
             "debian-13");
         String networkName = "global/networks/default";
     
-        try ([InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html) instancesClient = [InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html).create()) {
+        try (InstancesClient instancesClient = InstancesClient.create()) {
           System.out.printf("Creating the %s instance in %s with hostname %s...", instanceName, zone,
               hostName);
     
-          [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html) disk =
-              [AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html).newBuilder()
+          AttachedDisk disk =
+              AttachedDisk.newBuilder()
                   .setBoot(true)
                   .setAutoDelete(true)
-                  .setType([AttachedDisk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.html).Type.PERSISTENT.toString())
-                  .[setInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDisk.Builder.html#com_google_cloud_compute_v1_AttachedDisk_Builder_setInitializeParams_com_google_cloud_compute_v1_AttachedDiskInitializeParams_)(
+                  .setType(AttachedDisk.Type.PERSISTENT.toString())
+                  .setInitializeParams(
                       // Describe the size and source image of the boot disk to attach to the instance.
-                      [AttachedDiskInitializeParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AttachedDiskInitializeParams.html).newBuilder()
+                      AttachedDiskInitializeParams.newBuilder()
                           .setSourceImage(sourceImage)
                           .setDiskSizeGb(10).build())
                   .build();
     
           // Use the network interface provided in the networkName argument.
-          [NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html) networkInterface = [NetworkInterface](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.NetworkInterface.html).newBuilder()
+          NetworkInterface networkInterface = NetworkInterface.newBuilder()
               .setName(networkName)
               .build();
     
-          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html) instanceResource = [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Instance.html).newBuilder()
+          Instance instanceResource = Instance.newBuilder()
               // Custom hostnames are not resolved by the automatically created records
               // provided by Compute Engine internal DNS.
               // You must manually configure the DNS record for your custom hostname.
@@ -197,23 +197,23 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
               .setMachineType(String.format("zones/%s/machineTypes/%s", zone, machineType))
               .addNetworkInterfaces(networkInterface).build();
     
-          [InsertInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceRequest.html) request = [InsertInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertInstanceRequest.html).newBuilder()
+          InsertInstanceRequest request = InsertInstanceRequest.newBuilder()
               .setProject(projectId)
               .setZone(zone)
               .setInstanceResource(instanceResource).build();
     
           // Wait for the create operation to complete.
-          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = instancesClient.insertAsync(request).get(3, TimeUnit.MINUTES);
+          Operation response = instancesClient.insertAsync(request).get(3, TimeUnit.MINUTES);
           ;
     
-          if (response.[hasError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_hasError__)()) {
+          if (response.hasError()) {
             System.out.printf("Instance creation failed for instance: %s ; Response: %s ! ! ",
                 instanceName, response);
             return;
           }
           System.out.printf("Instance created : %s", instanceName);
           System.out.printf("Operation Status for instance %s is %s: ", instanceName,
-              response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)());
+              response.getStatus());
         }
     
       }
@@ -238,11 +238,11 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     // const sourceImage = 'projects/debian-cloud/global/images/family/debian-11';
     // const networkName = 'global/networks/default';
     
-    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
+    const compute = require('@google-cloud/compute');
     
     // Create a new instance with the values provided above in the specified project and zone.
     async function createInstanceWithCustomHostname() {
-      const instancesClient = new compute.[InstancesClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
+      const instancesClient = new compute.InstancesClient();
     
       console.log(
         `Creating the ${instanceName} instance in ${zone} with hostname ${hostname}...`
@@ -279,7 +279,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         zone,
       });
       let operation = response.latestResponse;
-      const operationsClient = new compute.[ZoneOperationsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
+      const operationsClient = new compute.ZoneOperationsClient();
     
       // Wait for the create operation to complete.
       while (operation.status !== 'DONE') {

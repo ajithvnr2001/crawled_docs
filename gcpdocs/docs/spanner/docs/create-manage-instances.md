@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/create-manage-instances/
 title: Create and manage instances \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:31:49.083001+00:00
+fetched_at: 2026-10-26T05:39:10.084412+00:00
 ---
 
 # Create and manage instances  |  Spanner  |  Google Cloud Documentation
@@ -682,7 +682,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html);
     import com.google.cloud.spanner.admin.instance.v1.[InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html);
     import com.google.spanner.admin.instance.v1.[CreateInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.CreateInstanceRequest.html);
-    import com.google.spanner.admin.instance.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html);
+    import com.google.spanner.admin.instance.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html);
     import com.google.spanner.admin.instance.v1.[InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html);
     import com.google.spanner.admin.instance.v1.[ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.ProjectName.html);
     import java.util.concurrent.ExecutionException;
@@ -702,10 +702,10 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
         String displayName = "Descriptive name";
     
         // Create an Instance object that will be used to create the instance.
-        [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html) instance =
-            [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html).newBuilder()
+        [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html) instance =
+            [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html).newBuilder()
                 .setDisplayName(displayName)
-                .setEdition([Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html).Edition.STANDARD)
+                .setEdition([Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html).Edition.STANDARD)
                 .setNodeCount(nodeCount)
                 .setConfig([InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html).of(projectId, "regional-us-east4").toString())
                 .build();
@@ -715,7 +715,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
             [InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html) instanceAdminClient = spanner.[createInstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html#com_google_cloud_spanner_Spanner_createInstanceAdminClient__)()) {
     
           // Wait for the createInstance operation to finish.
-          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html) createdInstance =
+          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html) createdInstance =
               instanceAdminClient
                   .createInstanceAsync(
                       [CreateInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.CreateInstanceRequest.html).newBuilder()
@@ -743,7 +743,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     import com.google.cloud.spanner.admin.instance.v1.[InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html);
     import com.google.spanner.admin.instance.v1.[AutoscalingConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.AutoscalingConfig.html);
     import com.google.spanner.admin.instance.v1.[CreateInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.CreateInstanceRequest.html);
-    import com.google.spanner.admin.instance.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html);
+    import com.google.spanner.admin.instance.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html);
     import com.google.spanner.admin.instance.v1.[InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html);
     import com.google.spanner.admin.instance.v1.[ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.ProjectName.html);
     import com.google.spanner.admin.instance.v1.[ReplicaSelection](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.ReplicaSelection.html);
@@ -792,8 +792,8 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
                       [AutoscalingConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.AutoscalingConfig.html).AsymmetricAutoscalingOption.newBuilder()
                       .setReplicaSelection([ReplicaSelection](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.ReplicaSelection.html).newBuilder().setLocation("asia-east1")))
                   .build();
-          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html) instance =
-              [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html).newBuilder()
+          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html) instance =
+              [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html).newBuilder()
                   .setAutoscalingConfig(autoscalingConfig)
                   .setDisplayName(displayName)
                   .setConfig(
@@ -804,7 +804,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
           System.out.printf("Creating instance %s.%n", instanceId);
           try {
             // Wait for the createInstance operation to finish.
-            [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html) instanceResult = instanceAdminClient.createInstanceAsync(
+            [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html) instanceResult = instanceAdminClient.createInstanceAsync(
                 [CreateInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.CreateInstanceRequest.html).newBuilder()
                     .setParent([ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.ProjectName.html).of(projectId).toString())
                     .[setInstanceId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.CreateInstanceRequest.Builder.html#com_google_spanner_admin_instance_v1_CreateInstanceRequest_Builder_setInstanceId_java_lang_String_)(instanceId)
@@ -831,7 +831,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     import com.google.cloud.spanner.admin.instance.v1.[InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html);
     import com.google.spanner.admin.instance.v1.[AutoscalingConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.AutoscalingConfig.html);
     import com.google.spanner.admin.instance.v1.[CreateInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.CreateInstanceRequest.html);
-    import com.google.spanner.admin.instance.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html);
+    import com.google.spanner.admin.instance.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html);
     import com.google.spanner.admin.instance.v1.[InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html);
     import com.google.spanner.admin.instance.v1.[ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.ProjectName.html);
     import com.google.spanner.admin.instance.v1.[ReplicaSelection](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.ReplicaSelection.html);
@@ -880,8 +880,8 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
                       [AutoscalingConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.AutoscalingConfig.html).AsymmetricAutoscalingOption.newBuilder()
                       .setReplicaSelection([ReplicaSelection](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.ReplicaSelection.html).newBuilder().setLocation("asia-east1")))
                   .build();
-          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html) instance =
-              [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html).newBuilder()
+          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html) instance =
+              [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html).newBuilder()
                   .setAutoscalingConfig(autoscalingConfig)
                   .setDisplayName(displayName)
                   .setConfig(
@@ -892,7 +892,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
           System.out.printf("Creating instance %s.%n", instanceId);
           try {
             // Wait for the createInstance operation to finish.
-            [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html) instanceResult = instanceAdminClient.createInstanceAsync(
+            [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html) instanceResult = instanceAdminClient.createInstanceAsync(
                 [CreateInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.CreateInstanceRequest.html).newBuilder()
                     .setParent([ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.ProjectName.html).of(projectId).toString())
                     .[setInstanceId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.CreateInstanceRequest.Builder.html#com_google_spanner_admin_instance_v1_CreateInstanceRequest_Builder_setInstanceId_java_lang_String_)(instanceId)
@@ -918,7 +918,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html);
     import com.google.cloud.spanner.admin.instance.v1.[InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html);
     import com.google.spanner.admin.instance.v1.[CreateInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.CreateInstanceRequest.html);
-    import com.google.spanner.admin.instance.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html);
+    import com.google.spanner.admin.instance.v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html);
     import com.google.spanner.admin.instance.v1.[InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html);
     import com.google.spanner.admin.instance.v1.[ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.ProjectName.html);
     import java.util.concurrent.ExecutionException;
@@ -938,10 +938,10 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
         String displayName = "Descriptive name";
     
         // Create an Instance object that will be used to create the instance.
-        [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html) instance =
-            [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html).newBuilder()
+        [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html) instance =
+            [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html).newBuilder()
                 .setDisplayName(displayName)
-                .[setDefaultBackupScheduleType](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.Builder.html#com_google_spanner_admin_instance_v1_Instance_Builder_setDefaultBackupScheduleType_com_google_spanner_admin_instance_v1_Instance_DefaultBackupScheduleType_)([Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html).DefaultBackupScheduleType.NONE)
+                .[setDefaultBackupScheduleType](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.Builder.html#com_google_spanner_admin_instance_v1_Instance_Builder_setDefaultBackupScheduleType_com_google_spanner_admin_instance_v1_Instance_DefaultBackupScheduleType_)([Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html).DefaultBackupScheduleType.NONE)
                 .setNodeCount(nodeCount)
                 .setConfig([InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html).of(projectId, "regional-us-east4").toString())
                 .build();
@@ -951,7 +951,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
             [InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html) instanceAdminClient = spanner.[createInstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html#com_google_cloud_spanner_Spanner_createInstanceAdminClient__)()) {
     
           // Wait for the createInstance operation to finish.
-          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html) createdInstance =
+          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html) createdInstance =
               instanceAdminClient
                   .createInstanceAsync(
                       [CreateInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.CreateInstanceRequest.html).newBuilder()
@@ -1522,7 +1522,7 @@ Optional flags:
     import com.google.cloud.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html);
     import com.google.common.collect.Lists;
     import com.google.protobuf.[FieldMask](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html);
-    import com.google.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html);
+    import com.google.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html);
     import com.google.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html);
     import com.google.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[InstanceName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceName.html);
     import com.google.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[UpdateInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.UpdateInstanceRequest.html);
@@ -1543,12 +1543,12 @@ Optional flags:
         String displayName = "Updated name";
     
         // Update an Instance object that will be used to update the instance.
-        [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html) instance =
-            [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html).newBuilder()
+        [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html) instance =
+            [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html).newBuilder()
                 .setName([InstanceName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceName.html).of(projectId, instanceId).toString())
                 .setDisplayName(displayName)
                 .setNodeCount(nodeCount)
-                .setEdition([Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html).Edition.ENTERPRISE)
+                .setEdition([Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html).Edition.ENTERPRISE)
                 .setConfig([InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html).of(projectId, "regional-us-east4").toString())
                 .build();
     
@@ -1557,7 +1557,7 @@ Optional flags:
             [InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html) instanceAdminClient = spanner.[createInstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html#com_google_cloud_spanner_Spanner_createInstanceAdminClient__)()) {
     
           // Wait for the updatedInstance operation to finish.
-          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html) updatedInstance =
+          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html) updatedInstance =
               instanceAdminClient
                   .updateInstanceAsync(
                       [UpdateInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.UpdateInstanceRequest.html).newBuilder()
@@ -2154,7 +2154,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     import com.google.cloud.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html);
     import com.google.common.collect.Lists;
     import com.google.protobuf.[FieldMask](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html);
-    import com.google.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html);
+    import com.google.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html);
     import com.google.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html);
     import com.google.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[InstanceName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceName.html);
     import com.google.spanner.admin.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).v1.[UpdateInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.UpdateInstanceRequest.html);
@@ -2175,12 +2175,12 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
         String displayName = "Updated name";
     
         // Update an Instance object that will be used to update the instance.
-        [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html) instance =
-            [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html).newBuilder()
+        [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html) instance =
+            [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html).newBuilder()
                 .setName([InstanceName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceName.html).of(projectId, instanceId).toString())
                 .setDisplayName(displayName)
                 .setNodeCount(nodeCount)
-                .[setDefaultBackupScheduleType](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.Builder.html#com_google_spanner_admin_instance_v1_Instance_Builder_setDefaultBackupScheduleType_com_google_spanner_admin_instance_v1_Instance_DefaultBackupScheduleType_)([Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html).DefaultBackupScheduleType.AUTOMATIC)
+                .[setDefaultBackupScheduleType](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.Builder.html#com_google_spanner_admin_instance_v1_Instance_Builder_setDefaultBackupScheduleType_com_google_spanner_admin_instance_v1_Instance_DefaultBackupScheduleType_)([Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html).DefaultBackupScheduleType.AUTOMATIC)
                 .setConfig([InstanceConfigName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.InstanceConfigName.html).of(projectId, "regional-us-east4").toString())
                 .build();
     
@@ -2189,7 +2189,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
             [InstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.instance.v1.InstanceAdminClient.html) instanceAdminClient = spanner.[createInstanceAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html#com_google_cloud_spanner_Spanner_createInstanceAdminClient__)()) {
     
           // Wait for the updatedInstance operation to finish.
-          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Instance.html) updatedInstance =
+          [Instance](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.Instance.html) updatedInstance =
               instanceAdminClient
                   .updateInstanceAsync(
                       [UpdateInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.instance.v1.UpdateInstanceRequest.html).newBuilder()

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-intelligence/docs/streaming/explicit-content/
 title: Explicit content \u00a0|\u00a0 Video Intelligence API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:12.743552+00:00
+fetched_at: 2026-10-26T05:40:52.865463+00:00
 ---
 
 # Explicit content  |  Video Intelligence API  |  Google Cloud Documentation
@@ -79,7 +79,7 @@ To authenticate to Video Intelligence, set up Application Default Credentials. F
                   .setLabelDetectionConfig(labelConfig)
                   .build();
     
-          <BidiStreamStreamingAnnotateVideoRequest, StreamingAnnotateVid>eoResponse call =
+          BidiStream<StreamingAnnotateVideoRequest, StreamingAnnotateVideoResponse> call =
               client.streamingAnnotateVideoCallable().call();
     
           // The first request must **only** contain the audio configuration:
@@ -88,11 +88,11 @@ To authenticate to Video Intelligence, set up Application Default Credentials. F
     
           // Subsequent requests must **only** contain the audio data.
           // Send the requests in chunks
-          for (int< i = 0; i  numChunks; i++) {
+          for (int i = 0; i < numChunks; i++) {
             call.send(
                 StreamingAnnotateVideoRequest.newBuilder()
                     .setInputContent(
-              [          ](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html)B[yteStrin](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html#com_google_protobuf_ByteString_copyFrom_byte___)g.copyFrom(
+                        [ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html).[copyFrom](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html#com_google_protobuf_ByteString_copyFrom_byte___)(
                             Arrays.copyOfRange(data, i * chunkSize, i * chunkSize + chunkSize)))
                     .build());
           }
@@ -127,15 +127,15 @@ To authenticate to Video Intelligence, set up Application Default Credentials. F
      */
     // const path = 'Local file to analyze, e.g. ./my-file.mp4';
     const {StreamingVideoIntelligenceServiceClient} =
-      r[equire](https://docs.cloud.google.com/nodejs/docs/reference/video-intelligence/latest/overview.html)('@google-cloud/video-intelligence').v1p3beta1;
+      require('[@google-cloud/video-intelligence](https://docs.cloud.google.com/nodejs/docs/reference/video-intelligence/latest/overview.html)').v1p3beta1;
     const fs = require('fs');
     
-    // Instantiates a cl[ient](https://docs.cloud.google.com/nodejs/docs/reference/video-intelligence/latest/video-intelligence/v1p3beta1.streamingvideointelligenceserviceclient.html)
-    const client = new StreamingVideoIntelligenceServiceClient();
+    // Instantiates a client
+    const client = new [StreamingVideoIntelligenceServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/video-intelligence/latest/video-intelligence/v1p3beta1.streamingvideointelligenceserviceclient.html)();
     // Streaming configuration
     const configRequest = {
-      video[Config](https://docs.cloud.google.com/nodejs/docs/reference/video-intelligence/latest/video-intelligence/protos.google.cloud.videointelligence.v1p3beta1.streamingfeature.html): {
-        feature: 'STREAMING_EXPLICIT_CONTENT_DETECTION',
+      videoConfig: {
+        feature: '[STREAMING_EXPLICIT_CONTENT_DETECTION](https://docs.cloud.google.com/nodejs/docs/reference/video-intelligence/latest/video-intelligence/protos.google.cloud.videointelligence.v1p3beta1.streamingfeature.html)',
       },
     };
     
@@ -144,28 +144,28 @@ To authenticate to Video Intelligence, set up Application Default Credentials. F
       encoding: 'base64',
     });
     //Load file content
-    const chunk>s = [];
+    const chunks = [];
     readStream
-      .on('data', chunk = {
+      .on('data', chunk => {
         const request = {
           inputContent: chunk.toString(),
         };
-      >  chunks.push(request);
+        chunks.push(request);
       })
-      .on('close', () = {
-        // configRequest should be the first in the stream of requests<
+      .on('close', () => {
+        // configRequest should be the first in the stream of requests
         stream.write(configRequest);
-        for (let i = 0; i  chunks.length; i++) {
+        for (let i = 0; i < chunks.length; i++) {
           stream.write(chunks[i]);
         }
         stream.end();
       });
     
-    const stream> = client.streamingAnnotateVideo().on('data', response = {
+    const stream = client.streamingAnnotateVideo().on('data', response => {
       //Gets annotations for video
       const annotations = response.annotationResults;
-      const explicitContentResults = annotations.expl>icitAnnotation.frames;
-      explicitContentResults.forEach(result = {
+      const explicitContentResults = annotations.explicitAnnotation.frames;
+      explicitContentResults.forEach(result => {
         console.log(
           `Time: ${result.timeOffset.seconds || 0}` +
             `.${(result.timeOffset.nanos / 1e6).toFixed(0)}s`
@@ -238,7 +238,7 @@ To authenticate to Video Intelligence, set up Application Default Credentials. F
             )
     
             print("Time: {}s".format(time_offset))
-            print("\tpornogaphy: {}";.format(pornography_likelihood.name))
+            print("\tpornogaphy: {}".format(pornography_likelihood.name))
 
 Send feedback 
 

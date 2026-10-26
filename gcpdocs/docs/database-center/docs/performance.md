@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-center/docs/performance/
 title: View the performance of your database fleet \u00a0|\u00a0 Database Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:10.118862+00:00
+fetched_at: 2026-10-26T05:58:59.113367+00:00
 ---
 
 # View the performance of your database fleet  |  Database Center  |  Google Cloud Documentation

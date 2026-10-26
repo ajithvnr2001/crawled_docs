@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/create-alerts-on-a-chart/
 title: Create alerts on a chart \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:43.889113+00:00
+fetched_at: 2026-10-26T05:59:11.500943+00:00
 ---
 
 # Create alerts on a chart  |  Data Studio  |  Google Cloud Documentation

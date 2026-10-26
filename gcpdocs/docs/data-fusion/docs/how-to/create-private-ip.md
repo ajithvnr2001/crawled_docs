@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/create-private-ip/
 title: Create a private instance with VPC peering \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:04.083132+00:00
+fetched_at: 2026-10-26T05:59:23.201773+00:00
 ---
 
 # Create a private instance with VPC peering  |  Cloud Data Fusion  |  Google Cloud Documentation

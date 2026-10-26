@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/composing-objects/
 title: Compose objects \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:10.086961+00:00
+fetched_at: 2026-10-26T05:39:14.473004+00:00
 ---
 
 # Compose objects  |  Cloud Storage  |  Google Cloud Documentation
@@ -468,7 +468,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket = storage.bucket bucket_name, skip_lookup: true
     
       destination = bucket.[compose](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) [first_file_name, second_file_name], destination_file_name, delete_source_objects: delete_source_objects do |f|

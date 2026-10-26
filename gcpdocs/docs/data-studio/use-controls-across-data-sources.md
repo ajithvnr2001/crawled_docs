@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/use-controls-across-data-sources/
 title: Filter across data sources \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:29.369989+00:00
+fetched_at: 2026-10-26T05:59:29.111372+00:00
 ---
 
 # Filter across data sources  |  Data Studio  |  Google Cloud Documentation

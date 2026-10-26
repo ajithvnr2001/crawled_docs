@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/work-with-oracle-database-redo-log-files/
 title: Work with Oracle database redo log files \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:04.069818+00:00
+fetched_at: 2026-10-26T05:59:50.040601+00:00
 ---
 
 # Work with Oracle database redo log files  |  Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL  |  Google Cloud Documentation

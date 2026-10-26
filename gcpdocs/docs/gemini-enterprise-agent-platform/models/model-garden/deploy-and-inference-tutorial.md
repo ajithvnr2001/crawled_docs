@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/deploy-and-inference-tutorial/
 title: Deploy and inference Gemma using Model Garden and Gemini Enterprise Agent Platform GPU-backed endpoints \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:27:07.202389+00:00
+fetched_at: 2026-10-26T05:40:43.617007+00:00
 ---
 
 # Deploy and inference Gemma using Model Garden and Gemini Enterprise Agent Platform GPU-backed endpoints  |  Google Cloud Documentation
@@ -245,12 +245,12 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
   1. List the models that you can deploy and record the model ID to deploy. You can optionally list the supported Hugging Face models in Model Garden and even filter them by model names. The output doesn't include any tuned models.
          
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
          from vertexai import model_garden
          
          # TODO(developer): Update and un-comment below lines
          # PROJECT_ID = "your-project-id"
-         [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="us-central1")
+         [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="us-central1")
          
          # List deployable models, optionally list Hugging Face models only or filter by model name.
          deployable_models = model_garden.list_deployable_models(list_hf_models=False, model_filter="gemma")
@@ -261,13 +261,13 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
   2. View the deployment specifications for a model by using the model ID from the previous step. You can view the machine type, accelerator type, and container image URI that Model Garden has verified for a particular model.
          
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
          from vertexai import model_garden
          
          # TODO(developer): Update and un-comment below lines
          # PROJECT_ID = "your-project-id"
          # model = "google/gemma3@gemma-3-1b-it"
-         [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="us-central1")
+         [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="us-central1")
          
          # For Hugging Face modelsm the format is the Hugging Face model name, as in
          # "meta-llama/Llama-3.3-70B-Instruct".
@@ -295,12 +295,12 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
 
   3. Deploy a model to an endpoint. Model Garden uses the default deployment configuration unless you specify additional argument and values.
          
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
          from vertexai import model_garden
          
          # TODO(developer): Update and un-comment below lines
          # PROJECT_ID = "your-project-id"
-         [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="us-central1")
+         [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="us-central1")
          
          open_model = model_garden.OpenModel("google/gemma3@gemma-3-12b-it")
          endpoint = open_model.deploy(

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/use-pitr/
 title: Recover data using point-in-time recovery (PITR) \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:04.958436+00:00
+fetched_at: 2026-10-26T05:39:27.678529+00:00
 ---
 
 # Recover data using point-in-time recovery (PITR)  |  Spanner  |  Google Cloud Documentation
@@ -100,14 +100,14 @@ The following shows the output:
         {
             string connectionString = $"Data Source=projects/{projectId}/instances/{instanceId}";
     
-            using var connect[ion](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Data/latest/Google.Cloud.Spanner.Data.SpannerConnection.html) = new SpannerConnection(connectionString);
+            using var connection = new [SpannerConnection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Data/latest/Google.Cloud.Spanner.Data.SpannerConnection.html)(connectionString);
             var versionRetentionPeriod = "7d";
             var createStatement = $"CREATE DATABASE `{databaseId}`";
             var alterStatement = @$"ALTER DATABASE `{databaseId}` SET OPTIONS
                        (version_retention_period = '{versionRetentionPeriod}')";
             // The retention period cannot be set as part of the CREATE DATABASE statement,
-            // but can be set using an ALTER DATABASE statement directly after database creation.[
-            using v](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Data/latest/Google.Cloud.Spanner.Data.SpannerConnection.html#Google_Cloud_Spanner_Data_SpannerConnection_CreateDdlCommand_System_String_Google_Protobuf_Reflection_FileDescriptorSet_System_String___)ar createDbCommand = connection.CreateDdlCommand(
+            // but can be set using an ALTER DATABASE statement directly after database creation.
+            using var createDbCommand = connection.[CreateDdlCommand](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Data/latest/Google.Cloud.Spanner.Data.SpannerConnection.html#Google_Cloud_Spanner_Data_SpannerConnection_CreateDdlCommand_System_String_Google_Protobuf_Reflection_FileDescriptorSet_System_String___)(
                 createStatement,
                 alterStatement
             );
@@ -146,14 +146,14 @@ The following shows the output:
               AlbumId      INT64 NOT NULL,
               AlbumTitle   STRING(MAX)
           ) PRIMARY KEY (SingerId, AlbumId),
-              INTERLEAVE IN PARENT Singers ON DELETE CASC<<ADE)"&qu<<ot;&>quot;);<<
+              INTERLEAVE IN PARENT Singers ON DELETE CASCADE)""");
       auto db = client.CreateDatabase(request).get();
-      if> (!db) throw std::move(db).status();
-      std::cout  "Database<< "  db-name()  &q<<uot; >created.\n";
+      if (!db) throw std::move(db).status();
+      std::cout << "Database " << db->name() << " created.\n";
     
-      auto ddl = client.GetDatabaseDdl(db-name());
+      auto ddl = client.GetDatabaseDdl(db->name());
       if (!ddl) throw std::move(ddl).status();
-      std::cout  "Database DDL is:\n"  ddl-DebugString();
+      std::cout << "Database DDL is:\n" << ddl->DebugString();
     }
 
 ### Go
@@ -177,9 +177,9 @@ The following shows the output:
     
     	adminClient, err := database.NewDatabaseAdminClient(ctx)
     	if err != nil {
-    		return fmt.Errorf("creat[eData](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/spanner/latest/admin/database/apiv1.html#cloud_google_com_go_spanner_admin_database_apiv1_DatabaseAdminClient_Close)baseWithRetentionPeriod.NewDatabaseAdminClient: %w", err)
+    		return fmt.Errorf("createDatabaseWithRetentionPeriod.NewDatabaseAdminClient: %w", err)
     	}
-    	defer adminClient.Close()
+    	defer adminClient.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/spanner/latest/admin/database/apiv1.html#cloud_google_com_go_spanner_admin_database_apiv1_DatabaseAdminClient_Close)()
     
     	// Create a database with a version retention period of 7 days.
     	retentionPeriod := "7d"
@@ -201,12 +201,12 @@ The following shows the output:
     				SingerId     INT64 NOT NULL,
     				AlbumId      INT64 NOT NULL,
     				AlbumTitle   STRING(MAX)
-    			) PRIMARY KEY (Sing&erId, AlbumId),
+    			) PRIMARY KEY (SingerId, AlbumId),
     			INTERLEAVE IN PARENT Singers ON DELETE CASCADE`,
     			alterDatabase,
     		},
     	}
-    	op, err := adminClient.CreateDatabase(ctx, req)
+    	op, err := adminClient.CreateDatabase(ctx, &req)
     	if err != nil {
     		return fmt.Errorf("createDatabaseWithRetentionPeriod.CreateDatabase: %w", err)
     	}
@@ -228,7 +228,7 @@ The following shows the output:
     import com.google.cloud.spanner.admin.database.v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html);
     import com.google.common.collect.Lists;
     import com.google.spanner.admin.database.v1.[CreateDatabaseRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.html);
-    import com.google.spanner.admin.database.v1.[Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Database.html);
+    import com.google.spanner.admin.database.v1.[Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html);
     import com.google.spanner.admin.database.v1.[InstanceName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.InstanceName.html);
     import java.util.concurrent.ExecutionException;
     
@@ -246,29 +246,29 @@ The following shows the output:
       }
     
       static void createDatabaseWithVersionRetentionPeriod(String projectId,
-          String instanceId, String databaseId, St[ring](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html) versionRetentionPerio[d](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html)) {
-        try (Spanner spanner =
-            SpannerOptions.newBuilder().setProjectId(p[rojectId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html)).build().getService();
-            DatabaseAd[minClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html#com_google_cloud_spanner_Spanner_createDatabaseAdminClient__) databaseAdminClient = spann[er](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.html).createDatabaseAdminClient()) {
-          Cr[eateDatabaseRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.html) request =
-              CreateDatabaseReques[t](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.InstanceName.html).newBuilder()
-                  .setParent(InstanceName.of(projectId,[ instanceId).toStr](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.Builder.html#com_google_spanner_admin_database_v1_CreateDatabaseRequest_Builder_setCreateStatement_java_lang_String_)ing())
-                  .setCreateStatement("CREATE DA[TABASE `"](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.Builder.html#com_google_spanner_admin_database_v1_CreateDatabaseRequest_Builder_addAllExtraStatements_java_lang_Iterable_java_lang_String__) + databaseId + "`")
-                  .addAllExtraStatements(Lists.newArrayList("ALTER DATABASE " + "`" + databaseId + "`"
-                      + " SET OPTIONS ( [version_](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Database.html)retention_period = '" + versionRetentionPeriod + "' )"))
+          String instanceId, String databaseId, String versionRetentionPeriod) {
+        try ([Spanner](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html) spanner =
+            [SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html).newBuilder().setProjectId(projectId).build().getService();
+            [DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html) databaseAdminClient = spanner.[createDatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html#com_google_cloud_spanner_Spanner_createDatabaseAdminClient__)()) {
+          [CreateDatabaseRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.html) request =
+              [CreateDatabaseRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.html).newBuilder()
+                  .setParent([InstanceName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.InstanceName.html).of(projectId, instanceId).toString())
+                  .[setCreateStatement](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.Builder.html#com_google_spanner_admin_database_v1_CreateDatabaseRequest_Builder_setCreateStatement_java_lang_String_)("CREATE DATABASE `" + databaseId + "`")
+                  .[addAllExtraStatements](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.CreateDatabaseRequest.Builder.html#com_google_spanner_admin_database_v1_CreateDatabaseRequest_Builder_addAllExtraStatements_java_lang_Iterable_java_lang_String__)(Lists.newArrayList("ALTER DATABASE " + "`" + databaseId + "`"
+                      + " SET OPTIONS ( version_retention_period = '" + versionRetentionPeriod + "' )"))
                   .build();
-          Database database =
-         [     ](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html#com_google_spanner_admin_database_v1_Database_getName__)databaseAdminClient.createDatabaseAsync(request).get();
-          System.out.println[("Created database [](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html#com_google_spanner_admin_database_v1_Database_getVersionRetentionPeriod__)" + database.getName() + "]");
-          System.out.printl[n](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html#com_google_spanner_admin_database_v1_Database_getEarliestVersionTime__)("\tVersion retention period: " + database.getVersionRetentionPeriod());
-          System.out.println("\tEarliest version time: "[ + database.getE](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerException.html)arliestVersionTime());
+          [Database](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html) database =
+              databaseAdminClient.createDatabaseAsync(request).get();
+          System.out.println("Created database [" + database.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html#com_google_spanner_admin_database_v1_Database_getName__)() + "]");
+          System.out.println("\tVersion retention period: " + database.[getVersionRetentionPeriod](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html#com_google_spanner_admin_database_v1_Database_getVersionRetentionPeriod__)());
+          System.out.println("\tEarliest version time: " + database.[getEarliestVersionTime](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.Database.html#com_google_spanner_admin_database_v1_Database_getEarliestVersionTime__)());
         } catch (ExecutionException e) {
           // If the operation failed during execution, expose the cause.
-          throw (SpannerException) e.getCause();
+          throw ([SpannerException](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerException.html)) e.getCause();
         } catch (InterruptedException e) {
-          [// Throw when a thread ](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerExceptionFactory.html)i[s waiting, sleepin](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerExceptionFactory.html#com_google_cloud_spanner_SpannerExceptionFactory_propagateInterrupt_java_lang_InterruptedException_)g, or otherwise occupied,
+          // Throw when a thread is waiting, sleeping, or otherwise occupied,
           // and the thread is interrupted, either before or during the activity.
-          throw SpannerExceptionFactory.propagateInterrupt(e);
+          throw [SpannerExceptionFactory](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerExceptionFactory.html).[propagateInterrupt](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerExceptionFactory.html#com_google_cloud_spanner_SpannerExceptionFactory_propagateInterrupt_java_lang_InterruptedException_)(e);
         }
       }
     }
@@ -279,7 +279,7 @@ The following shows the output:
     
     
     // Imports the Google Cloud client library
-    const {Spanner} = require(&[#39;@google-cloud/spa](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/overview.html)nner');
+    const {Spanner} = require('[@google-cloud/spanner](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/overview.html)');
     
     /**
      * TODO(developer): Uncomment the following lines before running the sample.
@@ -287,13 +287,13 @@ The following shows the output:
     // const projectId = 'my-project-id';
     // const instanceId = 'my-instance';
     
-    // creates a cli[ent](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)
-    const spanner = new Spanner({
+    // creates a client
+    const spanner = new [Spanner](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)({
       projectId: projectId,
     });
     
     // Gets a reference to a Cloud Spanner Database Admin Client object
-    const databa[seAdminClient](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html) = spanner.getDatabaseAdminClient();
+    const databaseAdminClient = spanner.[getDatabaseAdminClient](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)();
     
     try {
       // Create a new database with an extra statement which will alter the
@@ -327,8 +327,8 @@ The following shows the output:
       const milliseconds =
         parseInt(metadata.earliestVersionTime.seconds, 10) * 1000 +
         parseInt(metadata.earliestVersionTime.nanos, 10) / 1e6;
-      const date = new Date(millise[cond](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)s);
-      console.log(`Earliest version time: ${date.toString()}`);
+      const date = new Date(milliseconds);
+      console.log(`Earliest version time: ${[date](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html).toString()}`);
     } catch (err) {
       console.error('ERROR:', err);
     }
@@ -366,9 +366,9 @@ The following shows the output:
     
         $operation = $databaseAdminClient->createDatabase(
             new CreateDatabaseRequest([
-                'paren>t' = $instance,
-                'create_>statement' = sprintf('CREATE DATABASE `%s`', $databaseId),
-            >    'extra_statements' = [
+                'parent' => $instance,
+                'create_statement' => sprintf('CREATE DATABASE `%s`', $databaseId),
+                'extra_statements' => [
                     'CREATE TABLE Singers (' .
                     'SingerId     INT64 NOT NULL,' .
                     'FirstName    STRING(1024),' .
@@ -381,20 +381,20 @@ The following shows the output:
                         'AlbumTitle   STRING(MAX)' .
                     ') PRIMARY KEY (SingerId, AlbumId),' .
                     'INTERLEAVE IN PARENT Singers ON DELETE CASCADE',
-                    "ALTER DATABASE `$databaseId` SET OPTIONS(version_retention_peri>od='$retentionPeriod')"
+                    "ALTER DATABASE `$databaseId` SET OPTIONS(version_retention_period='$retentionPeriod')"
                 ]
             ])
         );
-    >
-        print('Waiting for operation to complete...' . PHP>_EOL);
-        $operation-pollUntilComplete();
     
-        $request = new GetDatabaseRequest(['name' = $databaseFullName]);
-        $dat>abaseInfo = $databaseAdmi>nClient-getDatabase($request);
+        print('Waiting for operation to complete...' . PHP_EOL);
+        $operation->pollUntilComplete();
+    
+        $request = new GetDatabaseRequest(['name' => $databaseFullName]);
+        $databaseInfo = $databaseAdminClient->getDatabase($request);
     
         print(sprintf(
             'Database %s created with version retention period %s',
-            $databaseInfo-getName(), $databaseInfo-getVersionRetentionPeriod()
+            $databaseInfo->getName(), $databaseInfo->getVersionRetentionPeriod()
         ) . PHP_EOL);
     }
 
@@ -502,7 +502,7 @@ The following shows the output:
     database = database_admin_client.get_database name: db_path
     
     puts "Created database #{database_id} on instance #{instance_id}"
-    puts &quot;\tVersion retention period: #{database.version_retention_period}"
+    puts "\tVersion retention period: #{database.version_retention_period}"
     puts "\tEarliest version time: #{database.earliest_version_time}"
 
 Usage notes:
@@ -660,38 +660,38 @@ For more information, see [Create a backup using gcloud](https://docs.cloud.goog
     // distributed under the License is distributed on an "AS IS" BASIS,
     // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     // See the License for the specific language governing permissions and
-    // limitations under t[he License.](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.html)
+    // limitations under the License.
     
     
-    using Google.Cloud.Spanner.Admin[.Database.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Common.V1/latest/Google.Cloud.Spanner.Common.V1.html);
-    using Google.Cloud.Spann[er.Common.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.LongRunning/latest/Google.LongRunning.html);
-    using Google[.LongRunning](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.WellKnownTypes.html);
-    using Google.Protobuf.WellKnownTypes;
+    using [Google.Cloud.Spanner.Admin.Database.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.html);
+    using [Google.Cloud.Spanner.Common.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Common.V1/latest/Google.Cloud.Spanner.Common.V1.html);
+    using [Google.LongRunning](https://docs.cloud.google.com/dotnet/docs/reference/Google.LongRunning/latest/Google.LongRunning.html);
+    using [Google.Protobuf.WellKnownTypes](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.WellKnownTypes.html);
     using System;
     
     public class CreateBackupSample
     {
         public Backup CreateBackup(string projectId, string instanceId, string databaseId, string backupId, DateTime versionTime)
         {
-            // Create the DatabaseAdminClien[t instance.](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.DatabaseAdminClient.html)
-            DatabaseAdminClient da[tabaseAdminClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.DatabaseAdminClient.html) = [Databa](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.DatabaseAdminClient.html#Google_Cloud_Spanner_Admin_Database_V1_DatabaseAdminClient_Create)seAdminClient.Create();
+            // Create the DatabaseAdminClient instance.
+            [DatabaseAdminClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.DatabaseAdminClient.html) databaseAdminClient = [DatabaseAdminClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.DatabaseAdminClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.DatabaseAdminClient.html#Google_Cloud_Spanner_Admin_Database_V1_DatabaseAdminClient_Create)();
     
-            // Initialize request [parame](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html)ters.
-            [Backup](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html) backup = new Backup
+            // Initialize request parameters.
+            [Backup](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html) backup = new [Backup](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html)
             {
-                Datab[aseAsDatabas](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Common.V1/latest/Google.Cloud.Spanner.Common.V1.DatabaseName.html)e[Name](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Common.V1/latest/Google.Cloud.Spanner.Common.V1.DatabaseName.html#Google_Cloud_Spanner_Common_V1_DatabaseName_FromProjectInstanceDatabase_System_String_System_String_System_String_) = DatabaseName.FromProjectInstanceDatabase(projectId, instanceId, databaseId),
-                ExpireTime = DateTime[.UtcNow.Add](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.WellKnownTypes.TimeExtensions.html#Google_Protobuf_WellKnownTypes_TimeExtensions_ToTimestamp_System_DateTime_)Days(14).ToTimestamp(),
-                Versio[nTime](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.WellKnownTypes.TimeExtensions.html#Google_Protobuf_WellKnownTypes_TimeExtensions_ToTimestamp_System_DateTime_) = versionTime.ToTimestamp(),[
+                DatabaseAsDatabaseName = [DatabaseName](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Common.V1/latest/Google.Cloud.Spanner.Common.V1.DatabaseName.html).[FromProjectInstanceDatabase](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Common.V1/latest/Google.Cloud.Spanner.Common.V1.DatabaseName.html#Google_Cloud_Spanner_Common_V1_DatabaseName_FromProjectInstanceDatabase_System_String_System_String_System_String_)(projectId, instanceId, databaseId),
+                ExpireTime = DateTime.UtcNow.AddDays(14).[ToTimestamp](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.WellKnownTypes.TimeExtensions.html#Google_Protobuf_WellKnownTypes_TimeExtensions_ToTimestamp_System_DateTime_)(),
+                VersionTime = versionTime.[ToTimestamp](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.WellKnownTypes.TimeExtensions.html#Google_Protobuf_WellKnownTypes_TimeExtensions_ToTimestamp_System_DateTime_)(),
             };
-    ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Common.V1/latest/Google.Cloud.Spanner.Common.V1.InstanceName.html)        Instance[Name](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Common.V1/latest/Google.Cloud.Spanner.Common.V1.InstanceName.html) instance[Name](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Common.V1/latest/Google.Cloud.Spanner.Common.V1.InstanceName.html#Google_Cloud_Spanner_Common_V1_InstanceName_FromProjectInstance_System_String_System_String_) = InstanceName.FromProjectInstance(projectId, instanceId);
+            [InstanceName](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Common.V1/latest/Google.Cloud.Spanner.Common.V1.InstanceName.html) instanceName = [InstanceName](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Common.V1/latest/Google.Cloud.Spanner.Common.V1.InstanceName.html).[FromProjectInstance](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Common.V1/latest/Google.Cloud.Spanner.Common.V1.InstanceName.html#Google_Cloud_Spanner_Common_V1_InstanceName_FromProjectInstance_System_String_System_String_)(projectId, instanceId);
     
-            // Make the CreateBackup reques<t.
-            OperationBackup, >CreateBackupMetadata response = [databaseAdmi](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.DatabaseAdminClient.html#Google_Cloud_Spanner_Admin_Database_V1_DatabaseAdminClient_CreateBackup_Google_Cloud_Spanner_Admin_Database_V1_CreateBackupRequest_Google_Api_Gax_Grpc_CallSettings_)nClient.CreateBackup(instanceName, backup, backupId);
+            // Make the CreateBackup request.
+            Operation<Backup, CreateBackupMetadata> response = databaseAdminClient.[CreateBackup](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.DatabaseAdminClient.html#Google_Cloud_Spanner_Admin_Database_V1_DatabaseAdminClient_CreateBackup_Google_Cloud_Spanner_Admin_Database_V1_CreateBackupRequest_Google_Api_Gax_Grpc_CallSettings_)(instanceName, backup, backupId);
     
             Console.WriteLine("Waiting for the operation to finish.");
     
-            // Poll until the returned long-running operation <is complete.
-            Operati>onBackup, CreateBackupMetadata completedResponse = response.PollUntilCompleted();
+            // Poll until the returned long-running operation is complete.
+            Operation<Backup, CreateBackupMetadata> completedResponse = response.PollUntilCompleted();
     
             if (completedResponse.IsFaulted)
             {
@@ -701,13 +701,13 @@ For more information, see [Create a backup using gcloud](https://docs.cloud.goog
     
             Console.WriteLine($"Backup created successfully.");
     
-            // GetBackup to get m[ore inform](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.BackupName.html)ation about th[e created ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.BackupName.html)b[ackup.](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.BackupName.html#Google_Cloud_Spanner_Admin_Database_V1_BackupName_FromProjectInstanceBackup_System_String_System_String_System_String_)
-            BackupName backupName = BackupName.FromProjectInstanceBackup(projectId, instanceId[, backupI](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.DatabaseAdminClient.html#Google_Cloud_Spanner_Admin_Database_V1_DatabaseAdminClient_GetBackup_Google_Cloud_Spanner_Admin_Database_V1_BackupName_Google_Api_Gax_Grpc_CallSettings_)d);
-            backup = databaseAdminClient.GetBackup(backup[Name](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html#Google_Cloud_Spanner_Admin_Database_V1_Backup_Name));
-            Console[.WriteLin](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html#Google_Cloud_Spanner_Admin_Database_V1_Backup_SizeBytes)e($"Backup {backup.Name} of size {backup.SizeBytes} by[tes "](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html#Google_Cloud_Spanner_Admin_Database_V1_Backup_CreateTime) +
-                [        ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html#Google_Cloud_Spanner_Admin_Database_V1_Backup_Database)  $"was created at {backup.CreateTime} from {back[up.Da](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html#Google_Cloud_Spanner_Admin_Database_V1_Backup_State)tabase} " +
-                          $"and is in sta[te {backup.](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html#Google_Cloud_Spanner_Admin_Database_V1_Backup_VersionTime)State} " +
-                          $"and has version time {backup.VersionTime}");
+            // GetBackup to get more information about the created backup.
+            [BackupName](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.BackupName.html) backupName = [BackupName](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.BackupName.html).[FromProjectInstanceBackup](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.BackupName.html#Google_Cloud_Spanner_Admin_Database_V1_BackupName_FromProjectInstanceBackup_System_String_System_String_System_String_)(projectId, instanceId, backupId);
+            backup = databaseAdminClient.[GetBackup](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.DatabaseAdminClient.html#Google_Cloud_Spanner_Admin_Database_V1_DatabaseAdminClient_GetBackup_Google_Cloud_Spanner_Admin_Database_V1_BackupName_Google_Api_Gax_Grpc_CallSettings_)(backupName);
+            Console.WriteLine($"Backup {backup.[Name](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html#Google_Cloud_Spanner_Admin_Database_V1_Backup_Name)} of size {backup.[SizeBytes](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html#Google_Cloud_Spanner_Admin_Database_V1_Backup_SizeBytes)} bytes " +
+                          $"was created at {backup.[CreateTime](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html#Google_Cloud_Spanner_Admin_Database_V1_Backup_CreateTime)} from {backup.[Database](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html#Google_Cloud_Spanner_Admin_Database_V1_Backup_Database)} " +
+                          $"and is in state {backup.[State](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html#Google_Cloud_Spanner_Admin_Database_V1_Backup_State)} " +
+                          $"and has version time {backup.[VersionTime](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html#Google_Cloud_Spanner_Admin_Database_V1_Backup_VersionTime)}");
             return backup;
         }
     }
@@ -733,12 +733,12 @@ For more information, see [Create a backup using gcloud](https://docs.cloud.goog
       auto backup = client.CreateBackup(request).get();
       if (!backup) throw std::move(backup).status();
       std::cout
-          << "Back<<up ">;  back<<up-name(<<)  ">; of "  back<<up-database()<<
-           >" of siz<<e "  backup-size_b<<ytes()  " bytes as of "
-           googl>e::cloud::spanner::MakeTimesta<<mp(backup-version_time()).<<value()
-           " was created at "
-      >     google::cloud::spanner::<<MakeTimestamp(backup-create_time()).value()
-           ".\n";
+          << "Backup " << backup->name() << " of " << backup->database()
+          << " of size " << backup->size_bytes() << " bytes as of "
+          << google::cloud::spanner::MakeTimestamp(backup->version_time()).value()
+          << " was created at "
+          << google::cloud::spanner::MakeTimestamp(backup->create_time()).value()
+          << ".\n";
     }
 
 ### Go
@@ -763,23 +763,23 @@ For more information, see [Create a backup using gcloud](https://docs.cloud.goog
     	}
     
     	adminClient, err := database.NewDatabaseAdminClient(ctx)
-    	if err[ != n](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/spanner/latest/admin/database/apiv1.html#cloud_google_com_go_spanner_admin_database_apiv1_DatabaseAdminClient_Close)il {
+    	if err != nil {
     		return fmt.Errorf("createBackup.NewDatabaseAdminClient: %w", err)
     	}
-    	defer adminClient.Close()
+    	defer adminClient.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/spanner/latest/admin/database/apiv1.html#cloud_google_com_go_spanner_admin_database_apiv1_DatabaseAdminClient_Close)()
     
     	expireTime := time.Now().AddDate(0, 0, 14)
-    	// &Create a backup.
-    	req := adminpb.CreateBackupRequest&{
+    	// Create a backup.
+    	req := adminpb.CreateBackupRequest{
     		Parent:   matches[1],
     		BackupId: backupID,
-    		Backup: adminpb.Backup{
+    		Backup: &adminpb.Backup{
     			Database:    db,
-    			E&xpireTime:  pbt.Timestamp{Seconds: expireTime.Unix(), Nanos: int32(expireTime.Nanosecond())},
-    			VersionTime: pbt.Timestamp{Seconds: v&ersionTime.Unix(), Nanos: int32(versionTime.Nanosecond())},
+    			ExpireTime:  &pbt.Timestamp{Seconds: expireTime.Unix(), Nanos: int32(expireTime.Nanosecond())},
+    			VersionTime: &pbt.Timestamp{Seconds: versionTime.Unix(), Nanos: int32(versionTime.Nanosecond())},
     		},
     	}
-    	op, err := adminClient.CreateBackup(ctx, req)
+    	op, err := adminClient.CreateBackup(ctx, &req)
     	if err != nil {
     		return fmt.Errorf("createBackup.CreateBackup: %w", err)
     	}
@@ -850,8 +850,8 @@ For more information, see [Create a backup using gcloud](https://docs.cloud.goog
 ### Node.js
     
     // Imports the Google Cloud client library and precise date library
-    const {Spanner, protos} = require(&[#39;@google-cloud/spa](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/overview.html)nner');
-    const {PreciseDate} = r[equire](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/overview.html)('@google-cloud/precise-date');
+    const {Spanner, protos} = require('[@google-cloud/spanner](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/overview.html)');
+    const {PreciseDate} = require('[@google-cloud/precise-date](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/overview.html)');
     
     /**
      * TODO(developer): Uncomment the following lines before running the sample.
@@ -860,15 +860,15 @@ For more information, see [Create a backup using gcloud](https://docs.cloud.goog
     // const instanceId = 'my-instance';
     // const databaseId = 'my-database';
     // const backupId = 'my-backup';
-    // const versionTime = Date.now() - 1000 * 60 * 60 * 24; // One d[ay ago<](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)/span>
+    // const versionTime = Date.now() - 1000 * 60 * 60 * 24; // One day ago
     
     // Creates a client
-    const spanner = new Spanner({
+    const spanner = new [Spanner](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)({
       projectId: projectId,
     });
     
-    // Gets a reference to a Cloud Spanner Database Admin Cl[ient object](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)
-    const databaseAdminClient = spanner.getDatabaseAdminClient();
+    // Gets a reference to a Cloud Spanner Database Admin Client object
+    const databaseAdminClient = spanner.[getDatabaseAdminClient](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)();
     
     // Creates a new backup of the database
     try {
@@ -887,14 +887,14 @@ For more information, see [Create a backup using gcloud](https://docs.cloud.goog
       const [operation] = await databaseAdminClient.createBackup({
         parent: databaseAdminClient.instancePath(projectId, instanceId),
         backupId: backupId,
-        b[ackup](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.admin.database.v1.backup-class.html): (protos.google.spanner.admin.database.v1.Backup = {
+        backup: (protos.google.spanner.admin.database.v1.[Backup](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.admin.database.v1.backup-class.html) = {
           database: databaseAdminClient.databasePath(
             projectId,
-            instanceId,[
-          ](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html) [ ](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)databaseId,
+            instanceId,
+            databaseId,
           ),
-    [      ex](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/precise-date/precisedate.html)pireTime: Spanner.times[tamp](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)(exp[ireTime](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)).toStruct(),
-      [    ](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/precise-date/precisedate.html)versionTime: Spanner.timestamp(versionTime).toStruct(),
+          expireTime: [Spanner](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html).[timestamp](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)(expireTime).[toStruct](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/precise-date/precisedate.html)(),
+          versionTime: [Spanner](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html).[timestamp](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)(versionTime).[toStruct](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/precise-date/precisedate.html)(),
           name: databaseAdminClient.backupPath(projectId, instanceId, backupId),
         }),
       });
@@ -915,10 +915,10 @@ For more information, see [Create a backup using gcloud](https://docs.cloud.goog
       if (backupInfo.state === 'READY') {
         console.log(
           `Backup ${backupInfo.name} of size ` +
-            `${backup[Info](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/precise-date/precisedate.html).sizeBytes} bytes was created a[t `](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/precise-date/precisedate.html) +
-            `${new PreciseDate(backupInfo.createTime).toISOString()} ` +[
-            &#](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/precise-date/precisedate.html)39;for version of databas[e at ' ](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/precise-date/precisedate.html)+
-            `${new PreciseDate(backupInfo.versionTime).toISOString()}`,
+            `${backupInfo.sizeBytes} bytes was created at ` +
+            `${new [PreciseDate](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/precise-date/precisedate.html)(backupInfo.createTime).[toISOString](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/precise-date/precisedate.html)()} ` +
+            'for version of database at ' +
+            `${new [PreciseDate](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/precise-date/precisedate.html)(backupInfo.versionTime).[toISOString](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/precise-date/precisedate.html)()}`,
         );
       } else {
         console.error('ERROR: Backup is not ready.');
@@ -966,33 +966,33 @@ For more information, see [Create a backup using gcloud](https://docs.cloud.goog
         $databaseFullName = DatabaseAdminClient::databaseName($projectId, $instanceId, $databaseId);
         $instanceFullName = DatabaseAdminClient::instanceName($projectId, $instanceId);
         $timestamp = new Timestamp();
-        $ti>mestamp-setSeconds((new \DateTime($versio>nTime))-getTimestamp());
+        $timestamp->setSeconds((new \DateTime($versionTime))->getTimestamp());
         $expireTime = new Timestamp();
-        $exp>ireTime-setSeconds((new \DateTime('>+14 days'))-getTimestamp());
+        $expireTime->setSeconds((new \DateTime('+14 days'))->getTimestamp());
         $request = new CreateBackupRequest([
-      >      'parent' = $instanceFullNam>e,
-            'backup_id'> = $backupId,
-            'backup'> = new Backup([
-                'database' >= $databaseFullName,
-                'expi>re_time' = $expireTime,
-                'version_time' = $time>stamp
+            'parent' => $instanceFullName,
+            'backup_id' => $backupId,
+            'backup' => new Backup([
+                'database' => $databaseFullName,
+                'expire_time' => $expireTime,
+                'version_time' => $timestamp
             ])
         ]);
     
-        $operation = $databaseAdminClient-createBackup($request);
+        $operation = $databaseAdminClient->createBackup($request);
     
-        print(&#>39;Waiting for operation to complete...' . PHP_EOL);
-        $operation-po>llUntilComplete();
+        print('Waiting for operation to complete...' . PHP_EOL);
+        $operation->pollUntilComplete();
     
-        $requ>est = new GetBackupRequest();
-        $request-setName($databaseAdminClient-backupName>($projectId, $instanceId, $backupId));
-        $info = $databaseAdminClient-getBackup($request);
+        $request = new GetBackupRequest();
+        $request->setName($databaseAdminClient->backupName($projectId, $instanceId, $backupId));
+        $info = $databaseAdminClient->getBackup($request);
         printf(
-            'Backup %s of size %d bytes was cre>ated at %d for version of >database at %d' . PHP_EOL,>
-            basenam>e($info-getName()),
-            >$info-getSizeByte>s(),
-            $info-getCreateTime()-getSeconds(),
-            $info-getVersionTime()-getSeconds());
+            'Backup %s of size %d bytes was created at %d for version of database at %d' . PHP_EOL,
+            basename($info->getName()),
+            $info->getSizeBytes(),
+            $info->getCreateTime()->getSeconds(),
+            $info->getVersionTime()->getSeconds());
     }
 
 **Note:** The old client library interface code samples for PHP are archived in [GitHub](https://github.com/GoogleCloudPlatform/php-docs-samples/tree/main/spanner/src/admin/archived). 
@@ -1125,14 +1125,14 @@ For more information, see [Restoring a database from a backup](https://docs.clou
             if (completedResponse.IsFaulted)
             {
                 Console.WriteLine($"Database Restore Failed: {completedResponse.Exception}");
-                throw completedResponse.Exception;[
+                throw completedResponse.Exception;
             }
-    ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.RestoreInfo.html)
-            RestoreInfo restoreInfo = compl[etedRespons](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.RestoreInfo.html)e.Result.RestoreInfo;
+    
+            [RestoreInfo](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.RestoreInfo.html) restoreInfo = completedResponse.Result.[RestoreInfo](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.RestoreInfo.html);
             Console.WriteLine(
-                $&qu[ot;Databas](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.RestoreInfo.html#Google_Cloud_Spanner_Admin_Database_V1_RestoreInfo_BackupInfo)e[ {restoreInfo.](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.BackupInfo.html#Google_Cloud_Spanner_Admin_Database_V1_BackupInfo_SourceDatabase)BackupInfo.SourceDatabase} was restored " +
-                $"to {da[tabaseId} ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.RestoreInfo.html#Google_Cloud_Spanner_Admin_Database_V1_RestoreInfo_BackupInfo)f[rom ba](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html)ckup {restoreInfo.BackupInfo.Backup} " +
-         [       ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.RestoreInfo.html#Google_Cloud_Spanner_Admin_Database_V1_RestoreInfo_BackupInfo)$&quot;with version time {restoreInfo.BackupInfo.VersionTime}");
+                $"Database {restoreInfo.[BackupInfo](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.RestoreInfo.html#Google_Cloud_Spanner_Admin_Database_V1_RestoreInfo_BackupInfo).[SourceDatabase](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.BackupInfo.html#Google_Cloud_Spanner_Admin_Database_V1_BackupInfo_SourceDatabase)} was restored " +
+                $"to {databaseId} from backup {restoreInfo.[BackupInfo](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.RestoreInfo.html#Google_Cloud_Spanner_Admin_Database_V1_RestoreInfo_BackupInfo).[Backup](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.Backup.html)} " +
+                $"with version time {restoreInfo.[BackupInfo](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Spanner.Admin.Database.V1/latest/Google.Cloud.Spanner.Admin.Database.V1.RestoreInfo.html#Google_Cloud_Spanner_Admin_Database_V1_RestoreInfo_BackupInfo).VersionTime}");
     
             return restoreInfo;
         }
@@ -1155,17 +1155,17 @@ For more information, see [Restoring a database from a backup](https://docs.clou
               .get();
       if (!restored_db) throw std::move(restored_db).status();
       std::cout << "Database";
-      if (re>stored_db-restore_info().source_type() ==
+      if (restored_db->restore_info().source_type() ==
           google::spanner::admin::database::v1::BACKUP) {
-        &auto const backup_info = re>stored_db-restore_info().backup_info();
-        <<std::<<cout  " "  backup_inf<<o.source_database()  &quo<<t; as of "
-                   google::cloud::spanner::MakeTimestamp(
+        auto const& backup_info = restored_db->restore_info().backup_info();
+        std::cout << " " << backup_info.source_database() << " as of "
+                  << google::cloud::spanner::MakeTimestamp(
                          backup_info.version_time())
-                     <<    .value();
-      }<<
-      std::cout > " restored to <<"  restored_<<db-name();
-      std::cout  " f<<rom backup "  backup.FullName();
-      std::cout  ".\n";
+                         .value();
+      }
+      std::cout << " restored to " << restored_db->name();
+      std::cout << " from backup " << backup.FullName();
+      std::cout << ".\n";
     }
 
 ### Go
@@ -1181,11 +1181,11 @@ For more information, see [Restoring a database from a backup](https://docs.clou
     )
     
     func restoreBackup(ctx context.Context, w io.Writer, db, backupID string) error {
-    	adminClient, err := database.NewDatabaseAdminClie[nt](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/spanner/latest/admin/database/apiv1.html#cloud_google_com_go_spanner_admin_database_apiv1_DatabaseAdminClient_Close)(ctx)
+    	adminClient, err := database.NewDatabaseAdminClient(ctx)
     	if err != nil {
     		return err
     	}
-    	defer adminClient.Close()
+    	defer adminClient.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/spanner/latest/admin/database/apiv1.html#cloud_google_com_go_spanner_admin_database_apiv1_DatabaseAdminClient_Close)()
     
     	matches := regexp.MustCompile("^(.*)/databases/(.*)$").FindStringSubmatch(db)
     	if matches == nil || len(matches) != 3 {
@@ -1195,11 +1195,11 @@ For more information, see [Restoring a database from a backup](https://docs.clou
     	databaseID := matches[2]
     	backupName := instanceName + "/backups/" + backupID
     
-    	// Star&t restoring backup to a new database.
-    	restoreOp, err := adminClient.RestoreDatabase(ctx, adminp&b.RestoreDatabaseRequest{
+    	// Start restoring backup to a new database.
+    	restoreOp, err := adminClient.RestoreDatabase(ctx, &adminpb.RestoreDatabaseRequest{
     		Parent:     instanceName,
     		DatabaseId: databaseID,
-    		Source: adminpb.RestoreDatabaseRequest_Backup{
+    		Source: &adminpb.RestoreDatabaseRequest_Backup{
     			Backup: backupName,
     		},
     	})
@@ -1240,7 +1240,7 @@ For more information, see [Restoring a database from a backup](https://docs.clou
                 .setParent(InstanceName.of(projectId, instanceId).toString())
                 .setDatabaseId(restoreToDatabaseId)
                 .setBackup(backupName.toString()).build();
-        Opera<tionFuturecom.google.spanner.admin.database.v1.Database, RestoreDataba>seMetadata op =
+        OperationFuture<com.google.spanner.admin.database.v1.Database, RestoreDatabaseMetadata> op =
             dbAdminClient.restoreDatabaseAsync(request);
         // Wait until the database has been restored.
         com.google.spanner.admin.database.v1.Database db = op.get();
@@ -1266,8 +1266,8 @@ For more information, see [Restoring a database from a backup](https://docs.clou
 ### Node.js
     
     // Imports the Google Cloud client library and precise date library
-    const {Spanner} = require(&[#39;@google-cloud/spa](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/overview.html)nner');
-    const {PreciseDate} = r[equire](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/overview.html)('@google-cloud/precise-date');
+    const {Spanner} = require('[@google-cloud/spanner](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/overview.html)');
+    const {PreciseDate} = require('[@google-cloud/precise-date](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/overview.html)');
     
     /**
      * TODO(developer): Uncomment the following lines before running the sample.
@@ -1275,15 +1275,15 @@ For more information, see [Restoring a database from a backup](https://docs.clou
     // const projectId = 'my-project-id';
     // const instanceId = 'my-instance';
     // const databaseId = 'my-database';
-    // const backupId = 'my-backup[';<](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)/span>
+    // const backupId = 'my-backup';
     
     // Creates a client
-    const spanner = new Spanner({
+    const spanner = new [Spanner](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)({
       projectId: projectId,
     });
     
-    // Gets a reference to a Cloud Spanner Database Admin Cl[ient object](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)
-    const databaseAdminClient = spanner.getDatabaseAdminClient();
+    // Gets a reference to a Cloud Spanner Database Admin Client object
+    const databaseAdminClient = spanner.[getDatabaseAdminClient](https://docs.cloud.google.com/nodejs/docs/reference/spanner/latest/spanner/spanner.html)();
     
     // Restore the database
     console.log(
@@ -1309,11 +1309,11 @@ For more information, see [Restoring a database from a backup](https://docs.clou
     });
     console.log(
       `Database ${metadata.restoreInfo.backupInfo.sourceDatabase} was restored ` +
-        `to ${databaseId} from backup ${metadata.restoreIn[fo](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/precise-date/precisedate.html).backupInfo.backup} ` +
+        `to ${databaseId} from backup ${metadata.restoreInfo.backupInfo.backup} ` +
         'with version time ' +
-        `${ne[w](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/precise-date/precisedate.html) PreciseDate(
+        `${new [PreciseDate](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/precise-date/precisedate.html)(
           metadata.restoreInfo.backupInfo.versionTime,
-        ).toISOString()}.`,
+        ).[toISOString](https://docs.cloud.google.com/nodejs/docs/reference/precise-date/latest/precise-date/precisedate.html)()}.`,
     );
 
 **Note:** The old client library interface code samples for Node.js are archived in [GitHub](https://github.com/googleapis/nodejs-spanner/tree/main/samples/archived). 
@@ -1346,20 +1346,20 @@ For more information, see [Restoring a database from a backup](https://docs.clou
         $instanceName = DatabaseAdminClient::instanceName($projectId, $instanceId);
     
         $request = new RestoreDatabaseRequest([
-            'paren>t' = $instanceName,
-            'da>tabase_id' = $databaseId,
-      >      'backup' = $backupName
+            'parent' => $instanceName,
+            'database_id' => $databaseId,
+            'backup' => $backupName
         ]);
     
-        $operationResponse> = $databaseAdminClient-restoreDatabase($request);>
-        $operationResponse-pollUntilComplete();
+        $operationResponse = $databaseAdminClient->restoreDatabase($request);
+        $operationResponse->pollUntilComplete();
     
-        $databa>se = $operationResponse-operationSucceeded>() ? $operationResponse-getResult() : null;
-        $>restoreInfo = $database-getRestoreInfo();
-        $ba>ckupInfo = $restoreInfo-getBackupInfo();
-        $sourc>eDatabase = $backupInfo-getSourceDatabase();
-        $sou>rceBackup = $backupInfo-getBackup();
-        $ve>rsionTime = $back>upInfo-getVersionTime()-getSeconds();
+        $database = $operationResponse->operationSucceeded() ? $operationResponse->getResult() : null;
+        $restoreInfo = $database->getRestoreInfo();
+        $backupInfo = $restoreInfo->getBackupInfo();
+        $sourceDatabase = $backupInfo->getSourceDatabase();
+        $sourceBackup = $backupInfo->getBackup();
+        $versionTime = $backupInfo->getVersionTime()->getSeconds();
         printf(
             'Database %s restored from backup %s with version time %s' . PHP_EOL,
             $sourceDatabase, $sourceBackup, $versionTime
@@ -1372,7 +1372,7 @@ For more information, see [Restoring a database from a backup](https://docs.clou
     
     def restore_database(instance_id, new_database_id, backup_id):
         """Restores a database from a backup."""
-        from google.cloud.spa[nner_admin_database_v1](https://docs.cloud.google.com/python/docs/reference/spanner/latest/google.cloud.spanner_admin_database_v1.types.RestoreDatabaseRequest.html) import RestoreDatabaseRequest
+        from google.cloud.spanner_admin_database_v1 import [RestoreDatabaseRequest](https://docs.cloud.google.com/python/docs/reference/spanner/latest/google.cloud.spanner_admin_database_v1.types.RestoreDatabaseRequest.html)
     
         spanner_client = spanner.Client()
         database_admin_api = spanner_client.database_admin_api
@@ -1467,7 +1467,7 @@ Use the [Spanner to Avro](https://docs.cloud.google.com/dataflow/docs/guides/tem
     gcloud dataflow jobs run JOB_NAME \
        --gcs-location='gs://cloud-spanner-point-in-time-recovery/Import Export Template/export/templates/Cloud_Spanner_to_GCS_Avro'
        --region=DATAFLOW_REGION \
-       --parameters=';instanceId=test-instance,databaseId=example-db,outputDir=YOUR_GCS_DIRECTORY,snapshotTime=2020-09-01T23:59:40.125245Z'
+       --parameters='instanceId=test-instance,databaseId=example-db,outputDir=YOUR_GCS_DIRECTORY,snapshotTime=2020-09-01T23:59:40.125245Z'
 
 Usage notes:
 
@@ -1499,7 +1499,7 @@ Use the [Cloud Storage Avro to Spanner](https://docs.cloud.google.com/dataflow/d
        --gcs-location='gs://cloud-spanner-point-in-time-recovery/Import Export Template/import/templates/GCS_Avro_to_Cloud_Spanner' \
        --region=DATAFLOW_REGION \
        --staging-location=YOUR_GCS_STAGING_LOCATION \
-       --parameters=';instanceId=test-instance,databaseId=example-db,inputDir=YOUR_GCS_DIRECTORY'
+       --parameters='instanceId=test-instance,databaseId=example-db,inputDir=YOUR_GCS_DIRECTORY'
 
 
 

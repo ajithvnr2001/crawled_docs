@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/use-the-database-migration-service-api/
 title: Use the Database Migration Service API \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:04.879661+00:00
+fetched_at: 2026-10-26T05:59:49.608988+00:00
 ---
 
 # Use the Database Migration Service API  |  Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL  |  Google Cloud Documentation

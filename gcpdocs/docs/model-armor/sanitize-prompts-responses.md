@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/sanitize-prompts-responses/
 title: Sanitize prompts and responses \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:55:53.677569+00:00
+fetched_at: 2026-10-26T05:40:45.698329+00:00
 ---
 
 # Sanitize prompts and responses  |  Model Armor  |  Google Cloud Documentation
@@ -2486,7 +2486,7 @@ To run this code, first [set up a Java development environment](https://docs.clo
     
     import com.google.cloud.modelarmor.v1.[CreateTemplateRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-modelarmor/latest/com.google.cloud.modelarmor.v1.CreateTemplateRequest.html);
     import com.google.cloud.modelarmor.v1.[FilterConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-modelarmor/latest/com.google.cloud.modelarmor.v1.FilterConfig.html);
-    import com.google.cloud.modelarmor.v1.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-modelarmor/latest/com.google.cloud.modelarmor.v1.LocationName.html);
+    import com.google.cloud.modelarmor.v1.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.LocationName.html);
     import com.google.cloud.modelarmor.v1.[ModelArmorClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-modelarmor/latest/com.google.cloud.modelarmor.v1.ModelArmorClient.html);
     import com.google.cloud.modelarmor.v1.[ModelArmorSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-modelarmor/latest/com.google.cloud.modelarmor.v1.ModelArmorSettings.html);
     import com.google.cloud.modelarmor.v1.[SdpAdvancedConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-modelarmor/latest/com.google.cloud.modelarmor.v1.SdpAdvancedConfig.html);
@@ -2527,7 +2527,7 @@ To run this code, first [set up a Java development environment](https://docs.clo
         // Initialize the client that will be used to send requests. This client
         // only needs to be created once, and can be reused for multiple requests.
         try ([ModelArmorClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-modelarmor/latest/com.google.cloud.modelarmor.v1.ModelArmorClient.html) client = [ModelArmorClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-modelarmor/latest/com.google.cloud.modelarmor.v1.ModelArmorClient.html).create(modelArmorSettings)) {
-          String parent = [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-modelarmor/latest/com.google.cloud.modelarmor.v1.LocationName.html).of(projectId, locationId).toString();
+          String parent = [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.LocationName.html).of(projectId, locationId).toString();
     
           String inspectTemplateName = [InspectTemplateName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectTemplateName.html)
               .[ofProjectLocationInspectTemplateName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectTemplateName.html#com_google_privacy_dlp_v2_InspectTemplateName_ofProjectLocationInspectTemplateName_java_lang_String_java_lang_String_java_lang_String_)(projectId, locationId, inspectTemplateId)

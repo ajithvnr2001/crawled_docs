@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/loading-data-cloud-storage-orc/
 title: Load ORC data from Cloud Storage \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:49:29.226513+00:00
+fetched_at: 2026-10-26T05:39:57.372868+00:00
 ---
 
 # Load ORC data from Cloud Storage  |  BigQuery  |  Google Cloud Documentation
@@ -609,7 +609,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     require "google/cloud/bigquery"
     
     def load_table_gcs_orc dataset_id = "your_dataset_id"
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-reservation/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
       dataset  = bigquery.dataset dataset_id
       gcs_uri  = "gs://cloud-samples-data/bigquery/us-states/us-states.orc"
       table_id = "us_states"
@@ -1083,7 +1083,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     def load_table_gcs_orc_truncate dataset_id = "your_dataset_id",
                                     table_id   = "your_table_id"
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-reservation/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
       dataset  = bigquery.dataset dataset_id
       gcs_uri  = "gs://cloud-samples-data/bigquery/us-states/us-states.orc"
     

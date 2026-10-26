@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/preset-filter-control/
 title: Preset filter control \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:18.728384+00:00
+fetched_at: 2026-10-26T05:59:49.091621+00:00
 ---
 
 # Preset filter control  |  Data Studio  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-sdk-ideation/
 title: Test text prompts (Generative AI) \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:07.721231+00:00
+fetched_at: 2026-10-26T05:39:50.676654+00:00
 ---
 
 # Test text prompts (Generative AI)  |  Vertex AI  |  Google Cloud Documentation
@@ -38,7 +38,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     import com.google.cloud.aiplatform.v1.[PredictResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html);
     import com.google.cloud.aiplatform.v1.[PredictionServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceClient.html);
     import com.google.cloud.aiplatform.v1.[PredictionServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictionServiceSettings.html);
-    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html);
+    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html);
     import com.google.protobuf.util.[JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html);
     import java.io.IOException;
     import java.util.ArrayList;
@@ -89,16 +89,16 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
           // Initialize client that will be used to send requests. This client only needs to be created
           // once, and can be reused for multiple requests.
-          [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).Builder instanceValue = [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).newBuilder();
+          [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html).Builder instanceValue = [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html).newBuilder();
           [JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html).parser().merge(instance, instanceValue);
           [List<Value>](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html) instances = new ArrayList<>();
           instances.add(instanceValue.build());
     
           // Use Value.Builder to convert instance to a dynamically typed value that can be
           // processed by the service.
-          [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).Builder parameterValueBuilder = [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).newBuilder();
+          [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html).Builder parameterValueBuilder = [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html).newBuilder();
           [JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html).parser().merge(parameters, parameterValueBuilder);
-          [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html) parameterValue = parameterValueBuilder.build();
+          [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html) parameterValue = parameterValueBuilder.build();
     
           [PredictResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html) predictResponse =
               predictionServiceClient.predict(endpointName, instances, parameterValue);
@@ -142,8 +142,8 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
       prompt = "Give me ten interview questions for the role of program manager."
     
       # Initialize the request arguments
-      instance = Google::Protobuf::[Value](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-agent_registry-v1/latest/Google-Protobuf-Value.html).new(
-        struct_value: Google::Protobuf::[Struct](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-agent_registry-v1/latest/Google-Protobuf-Struct.html).new(
+      instance = Google::Protobuf::[Value](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-billing-budgets-v1beta1/latest/Google-Protobuf-Value.html).new(
+        struct_value: Google::Protobuf::[Struct](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-billing-budgets-v1beta1/latest/Google-Protobuf-Struct.html).new(
           fields: {
             "prompt" => Google::Protobuf::Value.new(
               string_value: prompt
@@ -154,8 +154,8 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
       instances = [instance]
     
-      parameters = Google::Protobuf::[Value](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-agent_registry-v1/latest/Google-Protobuf-Value.html).new(
-        struct_value: Google::Protobuf::[Struct](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-agent_registry-v1/latest/Google-Protobuf-Struct.html).new(
+      parameters = Google::Protobuf::[Value](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-billing-budgets-v1beta1/latest/Google-Protobuf-Value.html).new(
+        struct_value: Google::Protobuf::[Struct](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-billing-budgets-v1beta1/latest/Google-Protobuf-Struct.html).new(
           fields: {
             "temperature" => Google::Protobuf::Value.new(number_value: 0.2),
             "maxOutputTokens" => Google::Protobuf::Value.new(number_value: 256),

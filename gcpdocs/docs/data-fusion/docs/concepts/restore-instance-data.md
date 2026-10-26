@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/concepts/restore-instance-data/
 title: Back up and restore instance data \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:26.290418+00:00
+fetched_at: 2026-10-26T05:59:15.754028+00:00
 ---
 
 # Back up and restore instance data  |  Cloud Data Fusion  |  Google Cloud Documentation

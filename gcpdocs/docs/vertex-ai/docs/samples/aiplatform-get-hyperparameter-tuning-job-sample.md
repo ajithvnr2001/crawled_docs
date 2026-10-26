@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-get-hyperparameter-tuning-job-sample/
 title: Get a hyperparameter tuning job \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:27:01.022140+00:00
+fetched_at: 2026-10-26T05:40:26.162880+00:00
 ---
 
 # Get a hyperparameter tuning job  |  Vertex AI  |  Google Cloud Documentation
@@ -42,10 +42,10 @@ Before trying this sample, follow the Java setup instructions in the [Vertex AI 
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.aiplatform.v1.[HyperparameterTuningJob](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.HyperparameterTuningJob.html);
-    import com.google.cloud.aiplatform.v1.[HyperparameterTuningJobName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.HyperparameterTuningJobName.html);
-    import com.google.cloud.aiplatform.v1.[JobServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceClient.html);
-    import com.google.cloud.aiplatform.v1.[JobServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceSettings.html);
+    import com.google.cloud.aiplatform.v1.HyperparameterTuningJob;
+    import com.google.cloud.aiplatform.v1.HyperparameterTuningJobName;
+    import com.google.cloud.aiplatform.v1.JobServiceClient;
+    import com.google.cloud.aiplatform.v1.JobServiceSettings;
     import java.io.IOException;
     
     public class GetHyperparameterTuningJobSample {
@@ -59,8 +59,8 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
       static void getHyperparameterTuningJobSample(String project, String hyperparameterTuningJobId)
           throws IOException {
-        [JobServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceSettings.html) settings =
-            [JobServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceSettings.html).newBuilder()
+        JobServiceSettings settings =
+            JobServiceSettings.newBuilder()
                 .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
         String location = "us-central1";
@@ -68,10 +68,10 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try ([JobServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceClient.html) client = [JobServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceClient.html).create(settings)) {
-          [HyperparameterTuningJobName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.HyperparameterTuningJobName.html) name =
-              [HyperparameterTuningJobName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.HyperparameterTuningJobName.html).of(project, location, hyperparameterTuningJobId);
-          [HyperparameterTuningJob](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.HyperparameterTuningJob.html) response = client.getHyperparameterTuningJob(name);
+        try (JobServiceClient client = JobServiceClient.create(settings)) {
+          HyperparameterTuningJobName name =
+              HyperparameterTuningJobName.of(project, location, hyperparameterTuningJobId);
+          HyperparameterTuningJob response = client.getHyperparameterTuningJob(name);
           System.out.format("response: %s\n", response);
         }
       }
@@ -95,7 +95,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     // const location = 'YOUR_PROJECT_LOCATION';
     
     // Imports the Google Cloud Model Service Client library
-    const {JobServiceClient} = require('[@google-cloud/aiplatform](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)');
+    const {JobServiceClient} = require('@google-cloud/aiplatform');
     
     // Specifies the location of the api endpoint
     const clientOptions = {
@@ -103,7 +103,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     };
     
     // Instantiates a client
-    const jobServiceClient = new [JobServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)(clientOptions);
+    const jobServiceClient = new JobServiceClient(clientOptions);
     
     async function getHyperparameterTuningJob() {
       // Configure the parent resource
@@ -146,13 +146,13 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         client_options = {"api_endpoint": api_endpoint}
         # Initialize client that will be used to create and send requests.
         # This client only needs to be created once, and can be reused for multiple requests.
-        client = aiplatform.gapic.[JobServiceClient](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.job_service.JobServiceClient.html)(client_options=client_options)
-        name = client.[hyperparameter_tuning_job_path](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.job_service.JobServiceClient.html#google_cloud_aiplatform_v1_services_job_service_JobServiceClient_hyperparameter_tuning_job_path)(
+        client = aiplatform.gapic.JobServiceClient(client_options=client_options)
+        name = client.hyperparameter_tuning_job_path(
             project=project,
             location=location,
             hyperparameter_tuning_job=hyperparameter_tuning_job_id,
         )
-        response = client.[get_hyperparameter_tuning_job](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.job_service.JobServiceClient.html#google_cloud_aiplatform_v1_services_job_service_JobServiceClient_get_hyperparameter_tuning_job)(name=name)
+        response = client.get_hyperparameter_tuning_job(name=name)
         print("response:", response)
     
     

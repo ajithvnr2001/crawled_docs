@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/manage-transfers/
 title: Manage transfers \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:58:34.945496+00:00
+fetched_at: 2026-10-26T05:39:12.540128+00:00
 ---
 
 # Manage transfers  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -276,7 +276,7 @@ Request using [transferJobs get](https://docs.cloud.google.com/storage-transfer/
 Looking for older samples? See the [Storage Transfer Service Migration Guide](https://docs.cloud.google.com/storage-transfer/docs/reference/migration-guide). 
     
     
-    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html);
+    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html);
     import com.google.storagetransfer.v1.proto.[StorageTransferServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.StorageTransferServiceClient.html);
     import com.google.storagetransfer.v1.proto.[TransferProto](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferProto.html).[GetTransferJobRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferProto.GetTransferJobRequest.html);
     import com.google.storagetransfer.v1.proto.[TransferTypes](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.html).[TransferJob](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.html);
@@ -303,9 +303,9 @@ Looking for older samples? See the [Storage Transfer Service Migration Guide](ht
         String latestOperationName = transferJob.getLatestOperationName();
     
         if (!latestOperationName.isEmpty()) {
-          [Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html) operation = storageTransfer.[getOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.StorageTransferServiceClient.html#com_google_storagetransfer_v1_proto_StorageTransferServiceClient_getOperationsClient__)().getOperation(latestOperationName);
+          [Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html) operation = storageTransfer.[getOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.StorageTransferServiceClient.html#com_google_storagetransfer_v1_proto_StorageTransferServiceClient_getOperationsClient__)().getOperation(latestOperationName);
           [TransferOperation](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.html) latestOperation =
-              [TransferOperation](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.html).parseFrom(operation.[getMetadata](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html#com_google_longrunning_Operation_getMetadata__)().getValue());
+              [TransferOperation](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferOperation.html).parseFrom(operation.[getMetadata](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html#com_google_longrunning_Operation_getMetadata__)().getValue());
     
           System.out.println("The latest operation for transfer job " + jobName + " is:");
           System.out.println(latestOperation.toString());

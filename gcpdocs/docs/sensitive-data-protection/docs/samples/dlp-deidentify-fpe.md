@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-deidentify-fpe/
 title: Format-preserving encryption (FPE) \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:52:56.651444+00:00
+fetched_at: 2026-10-26T05:40:09.863007+00:00
 ---
 
 # Format-preserving encryption (FPE)  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -103,7 +103,7 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
                     Item = new [ContentItem](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.ContentItem.html) { Value = dataValue }
                 });
     
-            Console.WriteLine($"Deidentified content: {response.Item.[Value](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.Value.html)}");
+            Console.WriteLine($"Deidentified content: {response.Item.[Value](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.WellKnownTypes.Value.html)}");
             return response;
         }
     }

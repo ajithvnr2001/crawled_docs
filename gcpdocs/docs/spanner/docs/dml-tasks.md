@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/dml-tasks/
 title: Insert, update, and delete data using data manipulation language (DML) \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:32:01.802944+00:00
+fetched_at: 2026-10-26T05:39:04.978380+00:00
 ---
 
 # Insert, update, and delete data using data manipulation language (DML)  |  Spanner  |  Google Cloud Documentation
@@ -1325,7 +1325,7 @@ The following code example inserts a new row into the `Singers` table, and it re
             },
           });
     
-          const rowCount = Math.floor(stats[stats.rowCount]);
+          const rowCount = Math.floor(stats[stats.[rowCount](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.v1.resultsetstats.html)]);
           console.log(
             `Successfully inserted ${rowCount} record into the Singers table.`,
           );
@@ -1677,7 +1677,7 @@ The following code example inserts a new row into the `Singers` table, and it re
             },
           });
     
-          const rowCount = Math.floor(stats[stats.rowCount]);
+          const rowCount = Math.floor(stats[stats.[rowCount](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.v1.resultsetstats.html)]);
           console.log(
             `Successfully inserted ${rowCount} record into the Singers table.`,
           );
@@ -2027,7 +2027,7 @@ The following code example updates the `MarketingBudget` column of the `Albums` 
             sql: 'UPDATE Albums SET MarketingBudget = 2000000 WHERE SingerId = 1 and AlbumId = 1 THEN RETURN MarketingBudget',
           });
     
-          const rowCount = Math.floor(stats[stats.rowCount]);
+          const rowCount = Math.floor(stats[stats.[rowCount](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.v1.resultsetstats.html)]);
           console.log(
             `Successfully updated ${rowCount} record into the Albums table.`,
           );
@@ -2375,7 +2375,7 @@ The following code example updates the `MarketingBudget` column of the `Albums` 
             },
           });
     
-          const rowCount = Math.floor(stats[stats.rowCount]);
+          const rowCount = Math.floor(stats[stats.[rowCount](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.v1.resultsetstats.html)]);
           console.log(
             `Successfully updated ${rowCount} record into the Singers table.`,
           );
@@ -2716,7 +2716,7 @@ The following code example deletes all the rows in the `Singers` table where the
             sql: 'DELETE FROM Singers WHERE SingerId = 18 THEN RETURN FullName',
           });
     
-          const rowCount = Math.floor(stats[stats.rowCount]);
+          const rowCount = Math.floor(stats[stats.[rowCount](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.v1.resultsetstats.html)]);
           console.log(
             `Successfully deleted ${rowCount} record from the Singers table.`,
           );
@@ -3049,7 +3049,7 @@ The following code example deletes all the rows in the `Singers` table where the
             sql: 'DELETE FROM Singers WHERE SingerId = 18 RETURNING FullName',
           });
     
-          const rowCount = Math.floor(stats[stats.rowCount]);
+          const rowCount = Math.floor(stats[stats.[rowCount](https://docs.cloud.google.com/nodejs/docs/reference/spanner-api/latest/spanner-api/protos.google.spanner.v1.resultsetstats.html)]);
           console.log(
             `Successfully deleted ${rowCount} record from the Singers table.`,
           );

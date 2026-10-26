@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/configure-cloud-storage-batch-source/
 title: Cloud Storage batch source \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:06.009469+00:00
+fetched_at: 2026-10-26T05:59:20.446171+00:00
 ---
 
 # Cloud Storage batch source  |  Cloud Data Fusion  |  Google Cloud Documentation

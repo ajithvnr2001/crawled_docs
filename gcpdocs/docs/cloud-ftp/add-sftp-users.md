@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cloud-ftp/add-sftp-users/
 title: Add users to an SFTP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:34:03.724060+00:00
+fetched_at: 2026-10-26T05:40:32.705038+00:00
 ---
 
 # Add users to an SFTP server  |  Google Cloud Documentation
@@ -494,7 +494,7 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
     import com.google.cloud.ftp.v1.[CreateUserRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.CreateUserRequest.html);
     import com.google.cloud.ftp.v1.[ServerName](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.ServerName.html);
     import com.google.cloud.ftp.v1.[User](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.User.html);
-    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html);
+    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html);
     
     public class AsyncCreateUser {
     
@@ -518,7 +518,7 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
                   .build();
           ApiFuture<Operation> future = cloudFtpClient.[createUserCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.CloudFtpClient.html#com_google_cloud_ftp_v1_CloudFtpClient_createUserCallable__)().futureCall(request);
           // Do something.
-          [Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html) response = future.get();
+          [Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html) response = future.get();
         }
       }
     }

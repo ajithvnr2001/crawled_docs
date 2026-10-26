@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/agent/ops-agent/third-party/saphana/
 title: SAP HANA \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:35:27.676358+00:00
+fetched_at: 2026-10-26T05:40:48.340218+00:00
 ---
 
 # SAP HANA  |  Cloud Logging  |  Google Cloud Documentation
@@ -99,7 +99,7 @@ The following commands create the configuration to collect and ingest telemetry 
     sudo cp /etc/google-cloud-ops-agent/config.yaml /etc/google-cloud-ops-agent/config.yaml.bak
     
     # Configure the Ops Agent.
-    sudo tee /etc/google-cloud-ops-agent/config.yaml > /dev/null << EOF
+    sudo tee /etc/google-cloud-ops-agent/config.y>aml  /dev/n<<ull  EOF
     logging:
       receivers:
         saphana:
@@ -122,7 +122,7 @@ The following commands create the configuration to collect and ingest telemetry 
           username: SYSTEM
           password: G00g3l21
           # To use the googlesecretmanager provider to replace plaintext passwords, refer to the example below.
-          # password: ${googlesecretmanager:projects/<project-id>/secrets/<secret-id>/versions/<version-id>}
+          # password: ${googlesecretmanager:proje<cts/projec>t-id/secr<ets/secre>t-id/versi<ons/versio>n-id}
           endpoint: localhost:30015
       service:
         pipelines:

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/example-store/create-examplestore/
 title: Create or reuse an Example Store instance \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:45:01.719478+00:00
+fetched_at: 2026-10-26T05:40:41.498654+00:00
 ---
 
 # Create or reuse an Example Store instance  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -56,10 +56,10 @@ Before you use the Python samples on this page, install and initialize the Agent
 
   2. Use the following code sample to import and initialize the SDK for Example Store.
          
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
          from vertexai.preview import example_stores
          
-         [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
+         [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
            project="PROJECT_ID",
            location="LOCATION"
          )
@@ -85,10 +85,10 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.preview import example_stores
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
         project="PROJECT_ID",
         location="LOCATION"
     )
@@ -201,10 +201,10 @@ Before trying this sample, follow the Python setup instructions in the [Agent Pl
 To authenticate to Agent Platform, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.preview import example_stores
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
         project="PROJECT_ID",
         location="LOCATION"
     )

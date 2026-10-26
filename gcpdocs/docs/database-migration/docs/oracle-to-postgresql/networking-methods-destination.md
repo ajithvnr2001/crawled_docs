@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/networking-methods-destination/
 title: Networking methods for destination database connectivity \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:17:57.212960+00:00
+fetched_at: 2026-10-26T05:59:33.033386+00:00
 ---
 
 # Networking methods for destination database connectivity  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

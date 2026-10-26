@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cloud-ftp/create-external-sftp-server/
 title: Create an external SFTP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:03:30.286159+00:00
+fetched_at: 2026-10-26T05:40:30.156116+00:00
 ---
 
 # Create an external SFTP server  |  Google Cloud Documentation
@@ -443,7 +443,7 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
     import com.google.cloud.ftp.v1.[CreateServerRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.CreateServerRequest.html);
     import com.google.cloud.ftp.v1.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.LocationName.html);
     import com.google.cloud.ftp.v1.[Server](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.Server.html);
-    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html);
+    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html);
     
     public class AsyncCreateServer {
     
@@ -467,7 +467,7 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
                   .build();
           ApiFuture<Operation> future = cloudFtpClient.[createServerCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.CloudFtpClient.html#com_google_cloud_ftp_v1_CloudFtpClient_createServerCallable__)().futureCall(request);
           // Do something.
-          [Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html) response = future.get();
+          [Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html) response = future.get();
         }
       }
     }

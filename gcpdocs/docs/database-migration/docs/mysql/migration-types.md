@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/mysql/migration-types/
 title: Migration flow \u00a0|\u00a0 Database Migration Service for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:21.362298+00:00
+fetched_at: 2026-10-26T05:59:09.025389+00:00
 ---
 
 # Migration flow  |  Database Migration Service for MySQL  |  Google Cloud Documentation

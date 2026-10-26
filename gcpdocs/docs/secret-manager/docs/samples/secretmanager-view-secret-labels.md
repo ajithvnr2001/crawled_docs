@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/samples/secretmanager-view-secret-labels/
 title: View secret labels \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:56.200737+00:00
+fetched_at: 2026-10-26T05:40:35.707703+00:00
 ---
 
 # View secret labels  |  Secret Manager  |  Google Cloud Documentation
@@ -282,7 +282,7 @@ To authenticate to Secret Manager, set up Application Default Credentials. For m
     #
     def view_secret_labels project_id:, secret_id:
       # Create a Secret Manager client.
-      client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
+      client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta1/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
     
       # Build the resource name of the secret.
       name = client.secret_path project: project_id, secret: secret_id

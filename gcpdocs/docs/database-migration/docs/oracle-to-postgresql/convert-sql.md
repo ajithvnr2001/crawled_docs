@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/convert-sql/
 title: Convert Oracle code and schema to PostgreSQL syntax \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:01.553155+00:00
+fetched_at: 2026-10-26T05:59:26.290103+00:00
 ---
 
 # Convert Oracle code and schema to PostgreSQL syntax  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

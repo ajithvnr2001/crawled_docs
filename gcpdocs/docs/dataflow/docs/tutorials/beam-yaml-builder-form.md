@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/tutorials/beam-yaml-builder-form/
 title: Create pipelines using the builder form in the job builder UI \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:31.542682+00:00
+fetched_at: 2026-10-26T05:59:41.828818+00:00
 ---
 
 # Create pipelines using the builder form in the job builder UI  |  Cloud Dataflow  |  Google Cloud Documentation

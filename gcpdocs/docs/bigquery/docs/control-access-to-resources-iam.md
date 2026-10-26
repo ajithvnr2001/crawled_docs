@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/control-access-to-resources-iam/
 title: Control access to resources with IAM \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:46:52.024502+00:00
+fetched_at: 2026-10-26T05:39:24.373995+00:00
 ---
 
 # Control access to resources with IAM  |  BigQuery  |  Google Cloud Documentation
@@ -2247,7 +2247,7 @@ Retrieve the IAM policy for a table or view using the [`Table#getIamPolicy()` fu
       // Find more details for the Policy object here:
       // https://cloud.google.com/bigquery/docs/reference/rest/v2/Policy
       console.log(`Access Policy details for table or view '${resourceName}'.`);
-      console.log(`Bindings: ${JSON.stringify(policy.bindings, null, 2)}`);
+      console.log(`Bindings: ${[JSON](https://docs.cloud.google.com/nodejs/docs/reference/bigquery-storage-api/latest/bigquery-storage-api/protos.google.cloud.bigquery.storage.v1.tablefieldschema.type.html).stringify(policy.bindings, null, 2)}`);
       console.log(`etag: ${policy.etag}`);
       console.log(`Version: ${policy.version}`);
     }

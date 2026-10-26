@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/export-bigquery/
 title: Export asset metadata to BigQuery \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:22:25.551518+00:00
+fetched_at: 2026-10-26T05:39:34.056037+00:00
 ---
 
 # Export asset metadata to BigQuery  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -2273,14 +2273,14 @@ To authenticate to Cloud Asset Inventory, set up Application Default Credentials
     
     import com.google.cloud.[ServiceOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.ServiceOptions.html);
     import com.google.cloud.asset.v1.[AssetServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.AssetServiceClient.html);
-    import com.google.cloud.asset.v1.[BigQueryDestination](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.BigQueryDestination.html);
+    import com.google.cloud.asset.v1.[BigQueryDestination](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.BigQueryDestination.html);
     import com.google.cloud.asset.v1.[ContentType](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ContentType.html);
     import com.google.cloud.asset.v1.[ExportAssetsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ExportAssetsRequest.html);
     import com.google.cloud.asset.v1.[ExportAssetsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ExportAssetsRequest.html).Builder;
     import com.google.cloud.asset.v1.[ExportAssetsResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ExportAssetsResponse.html);
-    import com.google.cloud.asset.v1.[OutputConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.OutputConfig.html);
+    import com.google.cloud.asset.v1.[OutputConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.OutputConfig.html);
     import com.google.cloud.asset.v1.[PartitionSpec](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.PartitionSpec.html);
-    import com.google.cloud.asset.v1.[ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-accessapproval/latest/com.google.cloud.accessapproval.v1.ProjectName.html);
+    import com.google.cloud.asset.v1.[ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ProjectName.html);
     import java.io.IOException;
     import java.util.Arrays;
     import java.util.concurrent.ExecutionException;
@@ -2303,14 +2303,14 @@ To authenticate to Cloud Asset Inventory, set up Application Default Credentials
           [ContentType](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ContentType.html) contentType, [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html)[] assetTypes, boolean isPerType)
           throws IOException, IllegalArgumentException, InterruptedException, ExecutionException {
         try ([AssetServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.AssetServiceClient.html) client = [AssetServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.AssetServiceClient.html).create()) {
-          [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-accessapproval/latest/com.google.cloud.accessapproval.v1.ProjectName.html) parent = [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-accessapproval/latest/com.google.cloud.accessapproval.v1.ProjectName.html).of(projectId);
-          [OutputConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.OutputConfig.html) outputConfig;
+          [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ProjectName.html) parent = [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ProjectName.html).of(projectId);
+          [OutputConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.OutputConfig.html) outputConfig;
           // Outputs to per-type BigQuery table.
           if (isPerType) {
             outputConfig =
-                [OutputConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.OutputConfig.html).newBuilder()
+                [OutputConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.OutputConfig.html).newBuilder()
                     .setBigqueryDestination(
-                        [BigQueryDestination](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.BigQueryDestination.html).newBuilder()
+                        [BigQueryDestination](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.BigQueryDestination.html).newBuilder()
                             .setDataset(bigqueryDataset)
                             .setTable(bigqueryTable)
                             .setForce(true)
@@ -2323,9 +2323,9 @@ To authenticate to Cloud Asset Inventory, set up Application Default Credentials
                     .build();
           } else {
             outputConfig =
-                [OutputConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.OutputConfig.html).newBuilder()
+                [OutputConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.OutputConfig.html).newBuilder()
                     .setBigqueryDestination(
-                        [BigQueryDestination](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.BigQueryDestination.html).newBuilder()
+                        [BigQueryDestination](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.BigQueryDestination.html).newBuilder()
                             .setDataset(bigqueryDataset)
                             .setTable(bigqueryTable)
                             .setForce(true)
@@ -2333,7 +2333,7 @@ To authenticate to Cloud Asset Inventory, set up Application Default Credentials
                     .build();
           }
           Builder exportAssetsRequestBuilder = [ExportAssetsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ExportAssetsRequest.html).newBuilder()
-              .setParent([parent](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.pipeline.expressions.Expression.html#com_google_cloud_firestore_pipeline_expressions_Expression_parent__).[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-accessapproval/latest/com.google.cloud.accessapproval.v1.ProjectName.html#com_google_cloud_accessapproval_v1_ProjectName_toString__)()).setContentType(contentType).setOutputConfig(outputConfig);
+              .setParent([parent](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.pipeline.expressions.Expression.html#com_google_cloud_firestore_pipeline_expressions_Expression_parent__).[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-asset/latest/com.google.cloud.asset.v1.ProjectName.html#com_google_cloud_asset_v1_ProjectName_toString__)()).setContentType(contentType).setOutputConfig(outputConfig);
           if (assetTypes.length > 0) {
             exportAssetsRequestBuilder.addAllAssetTypes(Arrays.asList(assetTypes));
           }

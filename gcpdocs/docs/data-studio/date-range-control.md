@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/date-range-control/
 title: Date range control \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:41.626373+00:00
+fetched_at: 2026-10-26T05:59:06.132294+00:00
 ---
 
 # Date range control  |  Data Studio  |  Google Cloud Documentation

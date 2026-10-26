@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-create-reasoning-engine-advanced/
 title: Build, test, and deploy a Langchain chatbot on Reasoning Engine \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:12.288849+00:00
+fetched_at: 2026-10-26T05:40:18.344914+00:00
 ---
 
 # Build, test, and deploy a Langchain chatbot on Reasoning Engine  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -37,14 +37,14 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     from typing import List
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
     from vertexai.preview import reasoning_engines
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
     # staging_bucket = "gs://YOUR_BUCKET_NAME"
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
         project=PROJECT_ID, location="us-central1", staging_bucket=staging_bucket
     )
     

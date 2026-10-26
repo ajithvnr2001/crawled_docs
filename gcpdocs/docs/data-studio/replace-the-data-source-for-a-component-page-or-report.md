@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/replace-the-data-source-for-a-component-page-or-report/
 title: Replace the data source for a component, page, or report \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:13.664898+00:00
+fetched_at: 2026-10-26T05:59:47.946940+00:00
 ---
 
 # Replace the data source for a component, page, or report  |  Data Studio  |  Google Cloud Documentation

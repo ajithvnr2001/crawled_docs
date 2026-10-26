@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/install/forwarder-windows/
 title: Install Windows forwarder executable \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:45:58.224595+00:00
+fetched_at: 2026-10-26T05:41:31.483691+00:00
 ---
 
 # Install Windows forwarder executable  |  Google Security Operations  |  Google Cloud Documentation
@@ -74,30 +74,31 @@ You might need the IP address range to open when setting up a Google SecOps forw
 
 If you have firewalls or authenticated proxies in between the Google SecOps forwarder container and the internet, they require rules to allow access to the following Google Cloud hosts:
 
-**Connection Type** | **Destination** | **Port**  
+Connection type | Destination | Port  
 ---|---|---  
-TCP | malachiteingestion-pa.googleapis.com | 443  
-TCP | asia-northeast1-malachiteingestion-pa.googleapis.com | 443  
-TCP | asia-south1-malachiteingestion-pa.googleapis.com | 443  
-TCP | asia-southeast1-malachiteingestion-pa.googleapis.com | 443  
-TCP | australia-southeast1-malachiteingestion-pa.googleapis.com | 443  
-TCP | eu-chronicle.googleapis.com | 443  
-TCP | europe-malachiteingestion-pa.googleapis.com | 443  
-TCP | europe-west2-malachiteingestion-pa.googleapis.com | 443  
-TCP | europe-west3-malachiteingestion-pa.googleapis.com | 443  
-TCP | europe-west6-malachiteingestion-pa.googleapis.com | 443  
-TCP | europe-west9-malachiteingestion-pa.googleapis.com | 443  
-TCP | europe-west12-malachiteingestion-pa.googleapis.com | 443  
-TCP | me-central1-malachiteingestion-pa.googleapis.com | 443  
-TCP | me-central2-malachiteingestion-pa.googleapis.com | 443  
-TCP | me-west1-malachiteingestion-pa.googleapis.com | 443  
-TCP | northamerica-northeast2-malachiteingestion-pa.googleapis.com | 443  
-TCP | southamerica-east1-malachiteingestion-pa.googleapis.com | 443  
-TCP | accounts.google.com | 443  
-TCP | gcr.io | 443  
-TCP | cloud.google.com/artifact-registry | 443  
-TCP | oauth2.googleapis.com | 443  
-TCP | storage.googleapis.com | 443  
+TCP | `malachiteingestion-pa.googleapis.com` | 443  
+TCP | `asia-northeast1-malachiteingestion-pa.googleapis.com` | 443  
+TCP | `asia-south1-malachiteingestion-pa.googleapis.com` | 443  
+TCP | `asia-southeast1-malachiteingestion-pa.googleapis.com` | 443  
+TCP | `australia-southeast1-malachiteingestion-pa.googleapis.com` | 443  
+TCP | `eu-chronicle.googleapis.com` | 443  
+TCP | `europe-malachiteingestion-pa.googleapis.com` | 443  
+TCP | `europe-west2-malachiteingestion-pa.googleapis.com` | 443  
+TCP | `europe-west3-malachiteingestion-pa.googleapis.com` | 443  
+TCP | `europe-west6-malachiteingestion-pa.googleapis.com` | 443  
+TCP | `europe-west9-malachiteingestion-pa.googleapis.com` | 443  
+TCP | `europe-west12-malachiteingestion-pa.googleapis.com` | 443  
+TCP | `me-central1-malachiteingestion-pa.googleapis.com` | 443  
+TCP | `me-central2-malachiteingestion-pa.googleapis.com` | 443  
+TCP | `me-west1-malachiteingestion-pa.googleapis.com` | 443  
+TCP | `northamerica-northeast2-malachiteingestion-pa.googleapis.com` | 443  
+TCP | `southamerica-east1-malachiteingestion-pa.googleapis.com` | 443  
+TCP | `accounts.google.com` | 443  
+TCP | `gcr.io` | 443  
+TCP | `cloud.google.com/artifact-registry` | 443  
+TCP | `oauth2.googleapis.com` | 443  
+TCP | `www.googleapis.com` | 443  
+TCP | `storage.googleapis.com` | 443  
   
 You can check network connectivity to Google Cloud using the following steps:
 
@@ -396,6 +397,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-25 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/speech-to-text/docs/samples/speech-transcribe-auto-punctuation/
 title: Transcribe a local file with auto punctuation \u00a0|\u00a0 Cloud Speech-to-Text \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:39.558614+00:00
+fetched_at: 2026-10-26T05:39:31.860913+00:00
 ---
 
 # Transcribe a local file with auto punctuation  |  Cloud Speech-to-Text  |  Google Cloud Documentation
@@ -304,7 +304,7 @@ To authenticate to Cloud STT, set up Application Default Credentials. For more i
     
     require "google/cloud/speech"
     
-    speech = Google::Cloud::[Speech](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-speech-v2/latest/Google-Cloud-Speech.html).[speech](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-speech/latest/Google-Cloud-Speech.html) version: :v1
+    speech = Google::Cloud::[Speech](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-speech-v1/latest/Google-Cloud-Speech.html).[speech](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-speech/latest/Google-Cloud-Speech.html) version: :v1
     
     config = {
       encoding:                     :LINEAR16,

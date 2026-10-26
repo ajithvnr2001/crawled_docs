@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/work-with-oracle-database-redo-log-files/
 title: Work with Oracle database redo log files \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:17:55.776511+00:00
+fetched_at: 2026-10-26T05:59:31.907938+00:00
 ---
 
 # Work with Oracle database redo log files  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

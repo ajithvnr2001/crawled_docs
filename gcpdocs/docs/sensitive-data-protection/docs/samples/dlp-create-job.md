@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-create-job/
 title: Create an inspection job \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:38:43.778697+00:00
+fetched_at: 2026-10-26T05:40:10.446035+00:00
 ---
 
 # Create an inspection job  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -42,19 +42,19 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     
     using System;
     using System.Linq;
-    using [Google.Api.Gax.ResourceNames](https://docs.cloud.google.com/dotnet/docs/reference/Google.Api.Gax/latest/Google.Api.Gax.ResourceNames.html);
-    using [Google.Cloud.Dlp.V2](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.html);
+    using Google.Api.Gax.ResourceNames;
+    using Google.Cloud.Dlp.V2;
     using static Google.Cloud.Dlp.V2.StorageConfig.Types;
     
     public class JobsCreate
     {
         public static DlpJob CreateJob(string projectId, string gcsPath)
         {
-            var dlp = [DlpServiceClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.DlpServiceClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.DlpServiceClient.html#Google_Cloud_Dlp_V2_DlpServiceClient_Create)();
+            var dlp = DlpServiceClient.Create();
     
-            var storageConfig = new [StorageConfig](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.StorageConfig.html)
+            var storageConfig = new StorageConfig
             {
-                CloudStorageOptions = new [CloudStorageOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.CloudStorageOptions.html)
+                CloudStorageOptions = new CloudStorageOptions
                 {
                     FileSet = new CloudStorageOptions.Types.FileSet()
                     {
@@ -67,18 +67,18 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
                 }
             };
     
-            var inspectConfig = new [InspectConfig](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.InspectConfig.html)
+            var inspectConfig = new InspectConfig
             {
-                InfoTypes = { new[] { "EMAIL_ADDRESS", "CREDIT_CARD_NUMBER" }.Select(it => new [InfoType](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.InfoType.html)() { Name = it }) },
+                InfoTypes = { new[] { "EMAIL_ADDRESS", "CREDIT_CARD_NUMBER" }.Select(it => new InfoType() { Name = it }) },
                 IncludeQuote = true,
-                MinLikelihood = [Likelihood](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.Likelihood.html).[Unlikely](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.Likelihood.html#Google_Cloud_Dlp_V2_Likelihood_Unlikely),
+                MinLikelihood = Likelihood.Unlikely,
                 Limits = new InspectConfig.Types.FindingLimits() { MaxFindingsPerItem = 100 }
             };
     
-            var response = dlp.CreateDlpJob(new [CreateDlpJobRequest](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.CreateDlpJobRequest.html)
+            var response = dlp.CreateDlpJob(new CreateDlpJobRequest
             {
-                Parent = new [LocationName](https://docs.cloud.google.com/dotnet/docs/reference/Google.Api.Gax/latest/Google.Api.Gax.ResourceNames.LocationName.html)(projectId, "global").ToString(),
-                InspectJob = new [InspectJobConfig](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.InspectJobConfig.html)
+                Parent = new LocationName(projectId, "global").ToString(),
+                InspectJob = new InspectJobConfig
                 {
                     InspectConfig = inspectConfig,
                     StorageConfig = storageConfig,
@@ -118,13 +118,13 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     	// Initialize a client once and reuse it to send multiple requests. Clients
     	// are safe to use across goroutines. When the client is no longer needed,
     	// call the Close method to cleanup its resources.
-    	client, err := dlp.[NewClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dlp/latest/apiv2.html#cloud_google_com_go_dlp_apiv2_Client_NewClient)(ctx)
+    	client, err := dlp.NewClient(ctx)
     	if err != nil {
     		return err
     	}
     
     	// Closing the client safely cleans up background resources.
-    	defer client.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dlp/latest/apiv2.html#cloud_google_com_go_dlp_apiv2_Client_Close)()
+    	defer client.Close()
     
     	// Specify the GCS file to be inspected.
     	storageConfig := &dlppb.StorageConfig{
@@ -155,7 +155,7 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     
     		// The minimum likelihood required before returning a match:
     		// See: https://cloud.google.com/dlp/docs/likelihood
-    		MinLikelihood: dlppb.[Likelihood_UNLIKELY](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dlp/latest/apiv2/dlppb.html#cloud_google_com_go_dlp_apiv2_dlppb_Likelihood_LIKELIHOOD_UNSPECIFIED_Likelihood_VERY_UNLIKELY_Likelihood_UNLIKELY_Likelihood_POSSIBLE_Likelihood_LIKELY_Likelihood_VERY_LIKELY),
+    		MinLikelihood: dlppb.Likelihood_UNLIKELY,
     
     		// The maximum number of findings to report (0 = server maximum)
     		Limits: &dlppb.InspectConfig_FindingLimits{
@@ -193,18 +193,18 @@ To learn how to install and use the client library for Sensitive Data Protection
 To authenticate to Sensitive Data Protection, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.dlp.v2.[DlpServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html);
-    import com.google.privacy.dlp.v2.[Action](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Action.html);
-    import com.google.privacy.dlp.v2.[CloudStorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CloudStorageOptions.html);
-    import com.google.privacy.dlp.v2.[CreateDlpJobRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CreateDlpJobRequest.html);
-    import com.google.privacy.dlp.v2.[DlpJob](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.DlpJob.html);
-    import com.google.privacy.dlp.v2.[InfoType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoType.html);
-    import com.google.privacy.dlp.v2.[InspectConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.html);
-    import com.google.privacy.dlp.v2.[InspectJobConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectJobConfig.html);
-    import com.google.privacy.dlp.v2.[Likelihood](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Likelihood.html);
-    import com.google.privacy.dlp.v2.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.LocationName.html);
-    import com.google.privacy.dlp.v2.[StorageConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.StorageConfig.html);
-    import com.google.privacy.dlp.v2.[StorageConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.StorageConfig.html).[TimespanConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.StorageConfig.TimespanConfig.html);
+    import com.google.cloud.dlp.v2.DlpServiceClient;
+    import com.google.privacy.dlp.v2.Action;
+    import com.google.privacy.dlp.v2.CloudStorageOptions;
+    import com.google.privacy.dlp.v2.CreateDlpJobRequest;
+    import com.google.privacy.dlp.v2.DlpJob;
+    import com.google.privacy.dlp.v2.InfoType;
+    import com.google.privacy.dlp.v2.InspectConfig;
+    import com.google.privacy.dlp.v2.InspectJobConfig;
+    import com.google.privacy.dlp.v2.Likelihood;
+    import com.google.privacy.dlp.v2.LocationName;
+    import com.google.privacy.dlp.v2.StorageConfig;
+    import com.google.privacy.dlp.v2.StorageConfig.TimespanConfig;
     import java.io.IOException;
     import java.util.List;
     import java.util.stream.Collectors;
@@ -224,71 +224,71 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try ([DlpServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html) dlpServiceClient = [DlpServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html).create()) {
+        try (DlpServiceClient dlpServiceClient = DlpServiceClient.create()) {
     
           // Set autoPopulateTimespan to true to scan only new content
           boolean autoPopulateTimespan = true;
-          [TimespanConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.StorageConfig.TimespanConfig.html) timespanConfig =
-              [TimespanConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.StorageConfig.TimespanConfig.html).newBuilder()
-                  .[setEnableAutoPopulationOfTimespanConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.StorageConfig.TimespanConfig.Builder.html#com_google_privacy_dlp_v2_StorageConfig_TimespanConfig_Builder_setEnableAutoPopulationOfTimespanConfig_boolean_)(autoPopulateTimespan)
+          TimespanConfig timespanConfig =
+              TimespanConfig.newBuilder()
+                  .setEnableAutoPopulationOfTimespanConfig(autoPopulateTimespan)
                   .build();
     
           // Specify the GCS file to be inspected.
-          [CloudStorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CloudStorageOptions.html) cloudStorageOptions =
-              [CloudStorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CloudStorageOptions.html).newBuilder()
-                  .[setFileSet](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CloudStorageOptions.Builder.html#com_google_privacy_dlp_v2_CloudStorageOptions_Builder_setFileSet_com_google_privacy_dlp_v2_CloudStorageOptions_FileSet_)([CloudStorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CloudStorageOptions.html).FileSet.newBuilder().setUrl(gcsPath))
+          CloudStorageOptions cloudStorageOptions =
+              CloudStorageOptions.newBuilder()
+                  .setFileSet(CloudStorageOptions.FileSet.newBuilder().setUrl(gcsPath))
                   .build();
-          [StorageConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.StorageConfig.html) storageConfig =
-              [StorageConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.StorageConfig.html).newBuilder()
-                  .[setCloudStorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.StorageConfig.Builder.html#com_google_privacy_dlp_v2_StorageConfig_Builder_setCloudStorageOptions_com_google_privacy_dlp_v2_CloudStorageOptions_)(cloudStorageOptions)
-                  .[setTimespanConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.StorageConfig.Builder.html#com_google_privacy_dlp_v2_StorageConfig_Builder_setTimespanConfig_com_google_privacy_dlp_v2_StorageConfig_TimespanConfig_)(timespanConfig)
+          StorageConfig storageConfig =
+              StorageConfig.newBuilder()
+                  .setCloudStorageOptions(cloudStorageOptions)
+                  .setTimespanConfig(timespanConfig)
                   .build();
     
           // Specify the type of info the inspection will look for.
           // See https://cloud.google.com/dlp/docs/infotypes-reference for complete list of info types
           List<InfoType> infoTypes =
               Stream.of("EMAIL_ADDRESS", "PERSON_NAME", "LOCATION", "PHONE_NUMBER")
-                  .map(it -> [InfoType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoType.html).newBuilder().setName(it).build())
+                  .map(it -> InfoType.newBuilder().setName(it).build())
                   .collect(Collectors.toList());
           // The minimum likelihood required before returning a match:
           // See: https://cloud.google.com/dlp/docs/likelihood
-          [Likelihood](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Likelihood.html) minLikelihood = [Likelihood](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Likelihood.html).UNLIKELY;
+          Likelihood minLikelihood = Likelihood.UNLIKELY;
     
           // The maximum number of findings to report (0 = server maximum)
-          [InspectConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.html).[FindingLimits](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.FindingLimits.html) findingLimits =
-              [InspectConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.html).FindingLimits.newBuilder().[setMaxFindingsPerItem](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.FindingLimits.Builder.html#com_google_privacy_dlp_v2_InspectConfig_FindingLimits_Builder_setMaxFindingsPerItem_int_)(100).build();
+          InspectConfig.FindingLimits findingLimits =
+              InspectConfig.FindingLimits.newBuilder().setMaxFindingsPerItem(100).build();
     
-          [InspectConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.html) inspectConfig =
-              [InspectConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.html).newBuilder()
+          InspectConfig inspectConfig =
+              InspectConfig.newBuilder()
                   .addAllInfoTypes(infoTypes)
-                  .[setIncludeQuote](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.Builder.html#com_google_privacy_dlp_v2_InspectConfig_Builder_setIncludeQuote_boolean_)(true)
+                  .setIncludeQuote(true)
                   .setMinLikelihood(minLikelihood)
-                  .[setLimits](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.Builder.html#com_google_privacy_dlp_v2_InspectConfig_Builder_setLimits_com_google_privacy_dlp_v2_InspectConfig_FindingLimits_)(findingLimits)
+                  .setLimits(findingLimits)
                   .build();
     
           // Specify the action that is triggered when the job completes.
-          [Action](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Action.html).[PublishSummaryToCscc](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Action.PublishSummaryToCscc.html) publishSummaryToCscc =
-              [Action](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Action.html).PublishSummaryToCscc.getDefaultInstance();
-          [Action](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Action.html) action = [Action](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Action.html).newBuilder().[setPublishSummaryToCscc](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Action.Builder.html#com_google_privacy_dlp_v2_Action_Builder_setPublishSummaryToCscc_com_google_privacy_dlp_v2_Action_PublishSummaryToCscc_)(publishSummaryToCscc).build();
+          Action.PublishSummaryToCscc publishSummaryToCscc =
+              Action.PublishSummaryToCscc.getDefaultInstance();
+          Action action = Action.newBuilder().setPublishSummaryToCscc(publishSummaryToCscc).build();
     
           // Configure the inspection job we want the service to perform.
-          [InspectJobConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectJobConfig.html) inspectJobConfig =
-              [InspectJobConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectJobConfig.html).newBuilder()
+          InspectJobConfig inspectJobConfig =
+              InspectJobConfig.newBuilder()
                   .setInspectConfig(inspectConfig)
-                  .[setStorageConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectJobConfig.Builder.html#com_google_privacy_dlp_v2_InspectJobConfig_Builder_setStorageConfig_com_google_privacy_dlp_v2_StorageConfig_)(storageConfig)
+                  .setStorageConfig(storageConfig)
                   .addActions(action)
                   .build();
     
           // Construct the job creation request to be sent by the client.
-          [CreateDlpJobRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CreateDlpJobRequest.html) createDlpJobRequest =
-              [CreateDlpJobRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CreateDlpJobRequest.html).newBuilder()
-                  .setParent([LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.LocationName.html).of(projectId, "global").toString())
+          CreateDlpJobRequest createDlpJobRequest =
+              CreateDlpJobRequest.newBuilder()
+                  .setParent(LocationName.of(projectId, "global").toString())
                   .setInspectJob(inspectJobConfig)
                   .build();
     
           // Send the job creation request and process the response.
-          [DlpJob](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.DlpJob.html) createdDlpJob = dlpServiceClient.createDlpJob(createDlpJobRequest);
-          System.out.println("Job created successfully: " + createdDlpJob.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.DlpJob.html#com_google_privacy_dlp_v2_DlpJob_getName__)());
+          DlpJob createdDlpJob = dlpServiceClient.createDlpJob(createDlpJobRequest);
+          System.out.println("Job created successfully: " + createdDlpJob.getName());
         }
       }
     }
@@ -301,10 +301,10 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     
     
     // Imports the Google Cloud Data Loss Prevention library
-    const DLP = require('[@google-cloud/dlp](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/overview.html)');
+    const DLP = require('@google-cloud/dlp');
     
     // Initialize google DLP Client
-    const dlp = new DLP.[DlpServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/overview.html)();
+    const dlp = new DLP.DlpServiceClient();
     
     async function jobsCreate() {
       // Construct cloud storage configuration
@@ -333,7 +333,7 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
           {name: 'PHONE_NUMBER'},
         ],
         includeQuote: true,
-        minLikelihood: DLP.protos.google.privacy.dlp.v2.[Likelihood](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/dlp/protos.google.privacy.dlp.v2.likelihood.html).[LIKELY](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/dlp/protos.google.privacy.dlp.v2.likelihood.html),
+        minLikelihood: DLP.protos.google.privacy.dlp.v2.Likelihood.LIKELY,
         excludeInfoTypes: false,
       };
     
@@ -478,7 +478,7 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
         """
     
         # Instantiate a client.
-        dlp = google.cloud.[dlp_v2](https://docs.cloud.google.com/python/docs/reference/dlp/latest).[DlpServiceClient](https://docs.cloud.google.com/python/docs/reference/dlp/latest/google.cloud.dlp_v2.services.dlp_service.DlpServiceClient.html)()
+        dlp = google.cloud.dlp_v2.DlpServiceClient()
     
         # Convert the project id into a full resource id.
         parent = f"projects/{project}"
@@ -491,7 +491,7 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
         # optionally be omitted entirely.
         inspect_config = {
             "info_types": info_types,
-            "min_likelihood": google.cloud.[dlp_v2](https://docs.cloud.google.com/python/docs/reference/dlp/latest).[Likelihood](https://docs.cloud.google.com/python/docs/reference/dlp/latest/google.cloud.dlp_v2.types.Likelihood.html).UNLIKELY,
+            "min_likelihood": google.cloud.dlp_v2.Likelihood.UNLIKELY,
             "limits": {"max_findings_per_request": max_findings},
             "include_quote": True,
         }

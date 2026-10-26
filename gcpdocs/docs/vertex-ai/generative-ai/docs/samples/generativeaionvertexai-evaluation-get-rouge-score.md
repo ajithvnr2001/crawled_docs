@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-evaluation-get-rouge-score/
 title: Evaluate a model response against a reference (ground truth) using the ROUGE metric \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:11.667691+00:00
+fetched_at: 2026-10-26T05:40:20.987946+00:00
 ---
 
 # Evaluate a model response against a reference (ground truth) using the ROUGE metric  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -120,12 +120,12 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     import pandas as pd
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.preview.evaluation import EvalTask
     
     # TODO(developer): Update & uncomment line below
     # PROJECT_ID = "your-project-id"
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="us-central1")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="us-central1")
     
     reference_summarization = """
     The Great Barrier Reef, the world's largest coral reef system, is
@@ -166,14 +166,14 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
             "rouge_l_sum",
         ],
     )
-    result = eval_task.[evaluate](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.evals.Evals.html#vertexai__genai_evals_Evals_evaluate)()
+    result = eval_task.[evaluate](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.evals.Evals.html#vertexai__genai_evals_Evals_evaluate)()
     
     print("Summary Metrics:\n")
-    for key, value in [result](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.CheckQueryJobResultDict.html#vertexai__genai_types_CheckQueryJobResultDict_result).summary_metrics.items():
+    for key, value in [result](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.CheckQueryJobResultDict.html#vertexai__genai_types_CheckQueryJobResultDict_result).summary_metrics.items():
         print(f"{key}: \t{value}")
     
     print("\n\nMetrics Table:\n")
-    print([result](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.CheckQueryJobResultDict.html#vertexai__genai_types_CheckQueryJobResultDict_result).metrics_table)
+    print([result](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.CheckQueryJobResultDict.html#vertexai__genai_types_CheckQueryJobResultDict_result).metrics_table)
     # Example response:
     #
     # Summary Metrics:

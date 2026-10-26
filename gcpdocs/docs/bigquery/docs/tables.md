@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/tables/
 title: Create and use tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:50:33.824918+00:00
+fetched_at: 2026-10-26T05:40:24.064600+00:00
 ---
 
 # Create and use tables  |  BigQuery  |  Google Cloud Documentation
@@ -724,7 +724,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     require "google/cloud/bigquery"
     
     def create_table dataset_id = "my_dataset"
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-reservation/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
       dataset  = bigquery.dataset dataset_id
       table_id = "my_table"
     
@@ -2427,7 +2427,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     require "google/cloud/bigquery"
     
     def list_tables dataset_id = "your_dataset_id"
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-reservation/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
       dataset  = bigquery.dataset dataset_id
     
       puts "Tables in dataset #{dataset_id}:"

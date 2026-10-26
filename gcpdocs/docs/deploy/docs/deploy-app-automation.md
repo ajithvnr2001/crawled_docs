@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deploy/docs/deploy-app-automation/
 title: Quickstart: Automate pipeline tasks \u00a0|\u00a0 Cloud Deploy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:11:35.056670+00:00
+fetched_at: 2026-10-26T05:59:00.209153+00:00
 ---
 
 # Quickstart: Automate pipeline tasks  |  Cloud Deploy  |  Google Cloud Documentation

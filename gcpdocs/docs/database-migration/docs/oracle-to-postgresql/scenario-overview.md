@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/scenario-overview/
 title: Oracle to Cloud SQL for PostgreSQL migration overview \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:17:56.459841+00:00
+fetched_at: 2026-10-26T05:59:09.182692+00:00
 ---
 
 # Oracle to Cloud SQL for PostgreSQL migration overview  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

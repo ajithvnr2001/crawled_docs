@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/delete-clusters/
 title: Delete VM clusters \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:33:04.569527+00:00
+fetched_at: 2026-10-26T05:40:56.995294+00:00
 ---
 
 # Delete VM clusters  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -176,7 +176,7 @@ Replace the following:
     import com.google.cloud.oracledatabase.v1.[CloudVmClusterName](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.CloudVmClusterName.html);
     import com.google.cloud.oracledatabase.v1.[DeleteCloudVmClusterRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.DeleteCloudVmClusterRequest.html);
     import com.google.cloud.oracledatabase.v1.[OracleDatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.OracleDatabaseClient.html);
-    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html);
+    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html);
     
     public class AsyncDeleteCloudVmCluster {
     

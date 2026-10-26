@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/configure-src-connection-aws/
 title: Configure network connectivity for Amazon Aurora and Amazon RDS sources \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:17:54.695611+00:00
+fetched_at: 2026-10-26T05:59:32.569072+00:00
 ---
 
 # Configure network connectivity for Amazon Aurora and Amazon RDS sources  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

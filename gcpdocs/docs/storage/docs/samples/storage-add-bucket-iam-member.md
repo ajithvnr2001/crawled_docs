@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-add-bucket-iam-member/
 title: Add an IAM member \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:15.667317+00:00
+fetched_at: 2026-10-26T05:39:20.857432+00:00
 ---
 
 # Add an IAM member  |  Cloud Storage  |  Google Cloud Documentation
@@ -63,8 +63,8 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
       auto updated = client.SetNativeBucketIamPolicy(bucket_name, *policy);
       if (!updated) throw std::move(updated).status();
     
-      std::cout << "Updated IAM policy bucket " << bucket_name
-                << ". The new policy is " << *updated << "\n";
+      std::cout << "Updated IAM policy buck<<et "  bucket_name
+      <<           ". The n<<ew policy <<is ";  *updated  "\n";
     }
 
 ### C#
@@ -84,10 +84,10 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         public Policy AddBucketIamMember(
             string bucketName = "your-unique-bucket-name",
             string role = "roles/storage.objectViewer",
-            string member = "serviceAccount:dev@iam.gserviceaccount.com")
+            string member = "serviceAccount:dev@iam.gserviceaccount.com"[)
         {
-            var storage = [StorageClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)();
-            var policy = storage.GetBucketIamPolicy(bucketName, new [GetBucketIamPolicyOptions](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetBucketIamPolicyOptions.html)
+         ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html) [  var ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.StorageClient.html#Google_Cloud_Storage_V1_StorageClient_Create)storage = StorageClient.Create();
+            var policy = storage.GetBu[cketIamPolicy](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Storage.V1/latest/Google.Cloud.Storage.V1.GetBucketIamPolicyOptions.html)(bucketName, new GetBucketIamPolicyOptions
             {
                 RequestedPolicyVersion = 3
             });
@@ -97,7 +97,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
             Policy.BindingsData bindingToAdd = new Policy.BindingsData
             {
                 Role = role,
-                Members = new List<string> { member }
+    <      >      Members = new Liststring { member }
             };
     
             policy.Bindings.Add(bindingToAdd);
@@ -124,8 +124,8 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     	"cloud.google.com/go/storage"
     )
     
-    // addBucketIAMMember adds the bucket IAM member to permission role.
-    func addBucketIAMMember(w io.[Writer](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer), bucketName string) error {
+    // addBucketIAMMember adds the bucket [IAM me](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Writer)mber to permission role.
+    func addBucketIAMMember(w io.Writer, bucketName string) error {
     	// bucketName := "bucket-name"
     	ctx := context.Background()
     	client, err := storage.NewClient(ctx)
@@ -134,22 +134,22 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     	}
     	defer client.Close()
     
-    	ctx, cancel := context.WithTimeout(ctx, time.Second*10)
+    	ctx, cancel[ := co](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)ntext.WithTimeout(ctx, time.Second*1[0](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_IAM))
     	defer cancel()
     
-    	bucket := client.[Bucket](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_Client_Bucket)(bucketName)
-    	policy, err := bucket.[IAM](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_IAM)().Policy(ctx)
+    	bucket := client.Bucket(bucketName)
+    	policy, err := bucket.IAM().Policy(ctx)
     	if err != nil {
     		return fmt.Errorf("Bucket(%q).IAM().Policy: %w", bucketName, err)
     	}
     	// Other valid prefixes are "serviceAccount:", "user:"
     	// See the documentation for more values.
-    	// https://cloud.google.com/storage/docs/access-control/iam
-    	identity := "group:cloud-logs@google.com"
-    	var role iam.[RoleName](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/iam/latest/index.html#cloud_google_com_go_iam_RoleName) = "roles/storage.objectViewer"
+    	// http[s://clou](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/iam/latest/index.html#cloud_google_com_go_iam_RoleName)d.google.com/storage/docs/access-control/iam
+    	identity := "group:cloud-log[s@g](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_IAM)oogle.com"
+    	var role iam.RoleName = "roles/storage.objectViewer"
     
     	policy.Add(identity, role)
-    	if err := bucket.[IAM](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storage/latest/index.html#cloud_google_com_go_storage_BucketHandle_IAM)().SetPolicy(ctx, policy); err != nil {
+    	if err := bucket.IAM().SetPolicy(ctx, policy); err != nil {
     		return fmt.Errorf("Bucket(%q).IAM().SetPolicy: %w", bucketName, err)
     	}
     	// NOTE: It may be necessary to retry this operation if IAM policies are
@@ -185,27 +185,27 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         // String bucketName = "your-unique-bucket-name";
     
         // For more information please read:
-        // https://cloud.google.com/storage/docs/access-control/iam
-        [Storage](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html) storage = [StorageOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html).newBuilder().setProjectId(projectId).build().getService();
+        // https://cloud.google.com/storage/docs/acc[ess-con](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html)trol/iam
+      [  ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.StorageOptions.html)Storage storage = StorageOptions.newBuilder().setProjectId(projectId).build()[.](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html)getService();
     
-        [Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html) originalPolicy =
-            storage.[getIamPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_getIamPolicy_java_lang_String_com_google_cloud_storage_Storage_BucketSourceOption____)(bucketName, Storage.BucketSourceOption.requestedPolicyVersion(3));
+        Policy originalPolic[y](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_getIamPolicy_java_lang_String_com_google_cloud_storage_Storage_BucketSourceOption____) =
+            storage.getIamPolicy(bucketName, Storage.BucketSourceOption.requestedPoli[cyVers](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html)ion(3));
     
-        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) role = "roles/storage.objectViewer";
-        [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) member = "group:example@google.com";
+        String role = "roles/st[orage.](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html)objectViewer";
+        String member = "group:example@google.com";
     
-        // getBindingsList() returns an ImmutableList and copying over to an ArrayList so it's mutable.
-        List<Binding> bindings = new ArrayList(originalPolicy.[getBindingsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html#com_google_cloud_compute_v1_Policy_getBindingsList__)());
+        // getBindingsList() returns an ImmutableList and copying over t<o an Ar>rayList so it's mutable.
+        ListBind[ing](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html#com_google_cloud_compute_v1_Policy_getBindingsList__) bindings = new ArrayList(originalPolicy.getBindingsList());
     
-        // Create a new binding using role and member
-        [Binding](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html).Builder newMemberBindingBuilder = [Binding](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html).newBuilder();
+        // Cre[ate a n](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html)ew binding using role and member
+      [  ](https://docs.cloud.google.com/java/docs/reference/google-cloud-agentregistry/latest/com.google.cloud.agentregistry.v1.Binding.html)Binding.Builder newMemberBindingBuilder = Binding.newBuilder();
         newMemberBindingBuilder.setRole(role).setMembers(Arrays.asList(member));
-        bindings.add(newMemberBindingBuilder.build());
+        bindings.add(newMemberBindingBuilder.build([));](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html)
     
         // Update policy to add member
-        [Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html).Builder updatedPolicyBuilder = originalPolicy.[toBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html#com_google_cloud_compute_v1_Policy_toBuilder__)();
-        updatedPolicyBuilder.setBindings(bindings).setVersion(3);
-        [Policy](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html) updatedPolicy = storage.[setIamPolicy](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_setIamPolicy_java_lang_String_com_google_cloud_Policy_com_google_cloud_storage_Storage_BucketSourceOption____)(bucketName, updatedPolicyBuilder.build());
+        Policy.Bu[ilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html#com_google_cloud_compute_v1_Policy_toBuilder__) updatedPolicyBuilder = originalPolicy.toBuilder();
+        updatedPolicyBuild[er](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Policy.html).setBindings(bindings).setVer[sion](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage/latest/com.google.cloud.storage.Storage.html#com_google_cloud_storage_Storage_setIamPolicy_java_lang_String_com_google_cloud_Policy_com_google_cloud_storage_Storage_BucketSourceOption____)(3);
+        Policy updatedPolicy = storage.setIamPolicy(bucketName, updatedPolicyBuilder.build());
     
         System.out.printf("Added %s with role %s to %s\n", member, role, bucketName);
       }
@@ -233,19 +233,19 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     //   'group:admins@example.com',
     // ];
     
-    // Imports the Google Cloud client library
-    const {Storage} = require('[@google-cloud/storage](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)');
+    // Imports the Google Cloud client lib[rary](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/overview.html)
+    const {Storage} = require('@google-cloud/storage');
     
-    // Creates a client
-    const storage = new [Storage](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)();
+    [// Crea](https://docs.cloud.google.com/nodejs/docs/reference/storage-control/latest/storage-control/protos.google.storage.v2.storage-class.html)tes a client
+    const storage = new Storage();
     
     async function addBucketIamMember() {
       // Get a reference to a Google Cloud Storage bucket
       const bucket = storage.bucket(bucketName);
     
       // For more information please read:
-      // https://cloud.google.com/storage/docs/access-control/iam
-      const [policy] = await bucket.[iam](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/bucket.html).[getPolicy](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/iam.html)({requestedPolicyVersion: 3});
+      // https://cloud.google.com/storage/docs/access-cont[rol](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/bucket.html)/[iam](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/iam.html)
+      const [policy] = await bucket.iam.getPolicy({requestedPolicyVersion: 3});
     
       // Adds the new roles to the bucket's IAM policy
       policy.bindings.push({
@@ -253,14 +253,14 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         members: members,
       });
     
-      // Updates the bucket's IAM policy
-      await bucket.[iam](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/bucket.html).[setPolicy](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/iam.html)(policy);
+      // Upd[ate](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/bucket.html)s[ the buck](https://docs.cloud.google.com/nodejs/docs/reference/storage/latest/storage/iam.html)et's IAM policy
+      await bucket.iam.setPolicy(policy);
     
       console.log(
-        `Added the following member(s) with role ${roleName} to ${bucketName}:`
+        `Added the following member(s) with role ${roleName} to >${bucketName}:`
       );
     
-      members.forEach(member => {
+      members.forEach(member = {
         console.log(`  ${member}`);
       });
     }
@@ -288,18 +288,18 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
      */
     function add_bucket_iam_member(string $bucketName, string $role, array $members): void
     {
-        $storage = new StorageClient();
-        $bucket = $storage->bucket($bucketName);
+        $storage = new StorageClient();>
+        $bucket = $storage-bucket($bucketName);>
     
-        $policy = $bucket->iam()->policy(['requestedPolicyVersion' => 3]);
+        >$policy = $bucket-iam()-policy([&#>39;requestedPolicyVersion' = 3]);
         $policy['version'] = 3;
     
-        $policy['bindings'][] = [
-            'role' => $role,
-            'members' => $members
+        $p>olicy['bindings'][]> = [
+            'role' = >$role,>
+            'members' = $members
         ];
     
-        $bucket->iam()->setPolicy($policy);
+        $bucket-iam()-setPolicy($policy);
     
         printf('Added the following member(s) to role %s for bucket %s' . PHP_EOL, $role, $bucketName);
         foreach ($members as $member) {
@@ -321,10 +321,10 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
         """Add a new member to an IAM Policy"""
         # bucket_name = "your-bucket-name"
         # role = "IAM role, e.g., roles/storage.objectViewer"
-        # member = "IAM identity, e.g., user: name@example.com"
+        # member = "IAM identit[y, e.g.](https://docs.cloud.google.com/python/docs/reference/storage/latest),[ user:](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html) name@example.com"
     
-        storage_client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
-        bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
+        st[orage_](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)client = storage.Client()
+        bucket = storage_client.bucket(bucket_name)
     
         policy = bucket.get_iam_policy(requested_policy_version=3)
     
@@ -349,14 +349,14 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      stora[ge](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html) = Goo[gle](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)::Cloud::Storage.new
       bucket = storage.bucket bucket_name
     
       role   = "roles/storage.objectViewer"
-      member = "group:example@google.com"
+      member = "g[roup:e](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html)xample@google.com"
     
-      bucket.[policy](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Bucket.html) requested_policy_version: 3 do |policy|
-        policy.[bindings](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-PolicyV3.html).[insert](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Bindings.html) role: role, members: [member]
+      bucket.policy requested_p[olicy_ve](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-PolicyV3.html)r[sion](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Bindings.html): 3 do |policy|
+        policy.bindings.insert role: role, members: [member]
       end
     
       puts "Added #{member} with role #{role} to #{bucket_name}"

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/samples/secretmanager-disable-regional-secret-version/
 title: Disable regional secret version \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:56.379078+00:00
+fetched_at: 2026-10-26T05:39:45.416518+00:00
 ---
 
 # Disable regional secret version  |  Secret Manager  |  Google Cloud Documentation
@@ -269,7 +269,7 @@ To authenticate to Secret Manager, set up Application Default Credentials. For m
     api_endpoint = "secretmanager.#{location_id}.rep.googleapis.com"
     
     # Create the Secret Manager client.
-    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html) do |config|
+    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta1/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html) do |config|
       config.endpoint = api_endpoint
     end
     

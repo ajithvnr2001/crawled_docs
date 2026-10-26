@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/troubleshoot-dataplex-lineage/
 title: Troubleshoot Knowledge Catalog asset lineage integrations \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:24.446303+00:00
+fetched_at: 2026-10-26T05:58:58.536449+00:00
 ---
 
 # Troubleshoot Knowledge Catalog asset lineage integrations  |  Cloud Data Fusion  |  Google Cloud Documentation

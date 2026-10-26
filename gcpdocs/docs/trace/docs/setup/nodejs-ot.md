@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/trace/docs/setup/nodejs-ot/
 title: Node.js instrumentation sample \u00a0|\u00a0 Cloud Trace \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:25:18.941855+00:00
+fetched_at: 2026-10-26T05:40:40.688719+00:00
 ---
 
 # Node.js instrumentation sample  |  Cloud Trace  |  Google Cloud Documentation
@@ -193,12 +193,12 @@ To view the full sample, in the sample's toolbar, select the GitHub logo.
       );
     }
     
-    // Gracefully shut down the SDK to flush telemetry when the program exits
-    process.on('SIGTERM', () => {
+    // Gracefully shut down the SDK to flush telemetry when the program >exits
+    process.on('SIGTERM', () >= {
       sdk
         .shutdown()
-        .then(() => diag.debug('OpenTelemetry SDK terminated'))
-        .catch(error => diag.error('Error terminating OpenTelemetry SDK', error));
+        .then(() = diag.debug('OpenTe>lemetry SDK terminated'))
+        .catch(error = diag.error(';Error terminating OpenTelemetry SDK', error));
     });
     
 
@@ -248,10 +248,10 @@ The following code sample illustrates a Pino `LoggerOptions` object that configu
       messageKey: 'message',
       // Same as pino.stdTimeFunctions.isoTime but uses "timestamp" key instead of "time"
       timestamp(): string {
-        return `,"timestamp":"${new Date(Date.now()).toISOString()}"`;
+        return `,"timestamp":"${new< Date(Date.now(>)).toISOString()}"`;
       },
       formatters: {
-        log(object: LogRecord): Record<string, unknown> {
+        log(object: LogRecord): Recordstring, unknown {
           // Add trace context attributes following Cloud Logging structured log format described
           // in https://cloud.google.com/logging/docs/structured-logging#special-payload-fields
           const {trace_id, span_id, trace_flags, ...rest} = object;
@@ -319,11 +319,11 @@ The app has two endpoints:
          * OpenTelemetry instrumentation requires no changes here. It will automatically generate a
          * span for the handler body.
          */
-        fastify.get('/multi', async request => {
+        fastify.get('/multi', async r>equest = {
           const subRequests = randInt(3, 8);
           request.log.info({subRequests}, 'handle /multi request');
         
-          for (let i = 0; i < subRequests; i++) {
+          fo<r (let i = 0; i  subRequests; i++) {
             await axios.get(`http://localhost:${port}/single`);
           }
           return 'ok';
@@ -335,7 +335,7 @@ The app has two endpoints:
          * handleSingle handles an http request by sleeping for 100-200 ms. It writes the number of
          * milliseconds slept as its response.
          */
-        fastify.get('/single', async request => {
+        fastify.get('/single', async r>equest = {
           // Sleep between 100-200 milliseconds
           const sleepMillis = randInt(100, 200);
           request.log.info({sleepMillis}, 'Going to sleep');
@@ -376,7 +376,7 @@ At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.go
 If you aren't running on Cloud Shell, then run the application with the `GOOGLE_APPLICATION_CREDENTIALS` environment variable pointing to a credentials file. [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/application-default-credentials#personal) provides a credentials file at `$HOME/.config/gcloud/application_default_credentials.json`.
          
          # Set environment variables
-         export GOOGLE_CLOUD_PROJECT="PROJECT_ID"
+         export GOOGLE_CLOUD_PROJECT=&quot;PROJECT_ID"
          export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcloud/application_default_credentials.json"
          export USERID="$(id -u)"
          

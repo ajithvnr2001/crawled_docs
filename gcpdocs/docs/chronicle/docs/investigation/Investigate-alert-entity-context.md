@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/investigation/Investigate-alert-entity-context/
 title: Investigate alerts and entity context \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:43:16.880616+00:00
+fetched_at: 2026-10-26T05:41:36.875019+00:00
 ---
 
 # Investigate alerts and entity context  |  Google Security Operations  |  Google Cloud Documentation
@@ -58,7 +58,7 @@ This section lists some common use cases.
 
   2. Go the graph tab to view entity context graph (ECG) relationships.
 
-  3. For each related entity, pivot to the **Detections timeline** in **Risk Analytics**.
+  3. For each related entity, pivot to the **Detections Timeline** in **Risk Analytics**.
 
   4. Look for overlapping detection patterns to map how the threat may have spread.
 
@@ -124,7 +124,7 @@ Identify the specific asset or user involved in the alert to establish a startin
 
        1. For detections, click the **Detection** row to view the underlying events.
 
-       2. Click the event row to open the **Event viewer** tab.
+       2. Click the event row to open the **Event Viewer** tab.
 
        3. In the **Entities** tab, identify the related entities (for example, a specific hash, IP address, or asset name).
 
@@ -189,6 +189,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-25 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 

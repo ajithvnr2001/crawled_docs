@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerystorage-bigqueryread-readsession-create/
 title: Create a BigQuery read session \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:27:25.840605+00:00
+fetched_at: 2026-10-26T05:40:28.658822+00:00
 ---
 
 # Create a BigQuery read session  |  Google Cloud Documentation
@@ -57,7 +57,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
         parent,
         readSession: {
           table,
-          dataFormat: 'AVRO',
+          dataFormat: '[AVRO](https://docs.cloud.google.com/nodejs/docs/reference/bigquery-storage-api/latest/bigquery-storage-api/protos.google.cloud.bigquery.storage.v1.dataformat.html)',
           readOptions,
         },
         maxStreamCount: 1,

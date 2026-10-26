@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/reservations-shared/
 title: Create a shared reservation \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:45:53.683360+00:00
+fetched_at: 2026-10-26T05:39:35.583023+00:00
 ---
 
 # Create a shared reservation  |  Compute Engine  |  Google Cloud Documentation
@@ -413,20 +413,20 @@ Replace `DELETE_AFTER_DURATION` with a duration in days, hours, minutes, or seco
     
     	ctx := context.Background()
     
-    	shareSettings := map[string]*computepb.[ShareSettingsProjectConfig](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1/computepb.html#cloud_google_com_go_compute_apiv1_computepb_ShareSettingsProjectConfig){
+    	shareSettings := map[string]*computepb.ShareSettingsProjectConfig{
     		projectID: {ProjectId: proto.String(projectID)},
     	}
     
-    	req := &computepb.[InsertReservationRequest](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1/computepb.html#cloud_google_com_go_compute_apiv1_computepb_InsertReservationRequest){
+    	req := &computepb.InsertReservationRequest{
     		Project: baseProjectId,
-    		ReservationResource: &computepb.[Reservation](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1/computepb.html#cloud_google_com_go_compute_apiv1_computepb_Reservation){
+    		ReservationResource: &computepb.Reservation{
     			Name: proto.String(reservationName),
     			Zone: proto.String(zone),
-    			SpecificReservation: &computepb.[AllocationSpecificSKUReservation](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1/computepb.html#cloud_google_com_go_compute_apiv1_computepb_AllocationSpecificSKUReservation){
+    			SpecificReservation: &computepb.AllocationSpecificSKUReservation{
     				Count:                  proto.Int64(2),
     				SourceInstanceTemplate: proto.String(sourceTemplate),
     			},
-    			ShareSettings: &computepb.[ShareSettings](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1/computepb.html#cloud_google_com_go_compute_apiv1_computepb_ShareSettings){
+    			ShareSettings: &computepb.ShareSettings{
     				ProjectMap: shareSettings,
     				ShareType:  proto.String("SPECIFIC_PROJECTS"),
     			},
@@ -454,14 +454,14 @@ Replace `DELETE_AFTER_DURATION` with a duration in days, hours, minutes, or seco
 ###  Java 
     
     
-    import com.google.cloud.compute.v1.[AllocationSpecificSKUReservation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AllocationSpecificSKUReservation.html);
-    import com.google.cloud.compute.v1.[InsertReservationRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertReservationRequest.html);
-    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
-    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html).[Status](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Status.html);
-    import com.google.cloud.compute.v1.[Reservation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Reservation.html);
-    import com.google.cloud.compute.v1.[ReservationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ReservationsClient.html);
-    import com.google.cloud.compute.v1.[ShareSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ShareSettings.html);
-    import com.google.cloud.compute.v1.[ShareSettingsProjectConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ShareSettingsProjectConfig.html);
+    import com.google.cloud.compute.v1.AllocationSpecificSKUReservation;
+    import com.google.cloud.compute.v1.InsertReservationRequest;
+    import com.google.cloud.compute.v1.Operation;
+    import com.google.cloud.compute.v1.Operation.Status;
+    import com.google.cloud.compute.v1.Reservation;
+    import com.google.cloud.compute.v1.ReservationsClient;
+    import com.google.cloud.compute.v1.ShareSettings;
+    import com.google.cloud.compute.v1.ShareSettingsProjectConfig;
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -495,51 +495,51 @@ Replace `DELETE_AFTER_DURATION` with a duration in days, hours, minutes, or seco
       }
     
       // Creates a shared reservation with the given name in the given zone.
-      public static [Status](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Status.html) createSharedReservation(
+      public static Status createSharedReservation(
               String projectId, String zone,
               String reservationName, String instanceTemplateUri, int vmCount)
               throws ExecutionException, InterruptedException, TimeoutException, IOException {
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests.
-        try ([ReservationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ReservationsClient.html) reservationsClient = [ReservationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ReservationsClient.html).create()) {
-          [ShareSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ShareSettings.html) shareSettings = [ShareSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ShareSettings.html).newBuilder()
-                  .[setShareType](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ShareSettings.Builder.html#com_google_cloud_compute_v1_ShareSettings_Builder_setShareType_java_lang_String_)(String.valueOf([ShareSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ShareSettings.html).ShareType.SPECIFIC_PROJECTS))
+        try (ReservationsClient reservationsClient = ReservationsClient.create()) {
+          ShareSettings shareSettings = ShareSettings.newBuilder()
+                  .setShareType(String.valueOf(ShareSettings.ShareType.SPECIFIC_PROJECTS))
                   // The IDs of projects that can consume this reservation. You can include up to
                   // 100 consumer projects. These projects must be in the same organization as
                   // the owner project. Don't include the owner project.
                   // By default, it is already allowed to consume the reservation.
-                  .putProjectMap("CONSUMER_PROJECT_1", [ShareSettingsProjectConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ShareSettingsProjectConfig.html).newBuilder().build())
-                  .putProjectMap("CONSUMER_PROJECT_2", [ShareSettingsProjectConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ShareSettingsProjectConfig.html).newBuilder().build())
+                  .putProjectMap("CONSUMER_PROJECT_1", ShareSettingsProjectConfig.newBuilder().build())
+                  .putProjectMap("CONSUMER_PROJECT_2", ShareSettingsProjectConfig.newBuilder().build())
                   .build();
     
-          [Reservation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Reservation.html) reservationResource =
-                  [Reservation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Reservation.html).newBuilder()
+          Reservation reservationResource =
+                  Reservation.newBuilder()
                           .setName(reservationName)
                           .setZone(zone)
                           .setSpecificReservationRequired(true)
                           .setShareSettings(shareSettings)
-                          .[setSpecificReservation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Reservation.Builder.html#com_google_cloud_compute_v1_Reservation_Builder_setSpecificReservation_com_google_cloud_compute_v1_AllocationSpecificSKUReservation_)(
-                                  [AllocationSpecificSKUReservation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.AllocationSpecificSKUReservation.html).newBuilder()
+                          .setSpecificReservation(
+                                  AllocationSpecificSKUReservation.newBuilder()
                                           .setCount(vmCount)
                                           .setSourceInstanceTemplate(instanceTemplateUri)
                                           .build())
                           .build();
     
-          [InsertReservationRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertReservationRequest.html) request =
-                  [InsertReservationRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InsertReservationRequest.html).newBuilder()
+          InsertReservationRequest request =
+                  InsertReservationRequest.newBuilder()
                           .setProject(projectId)
                           .setZone(zone)
                           .setReservationResource(reservationResource)
                           .build();
     
-          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) response = reservationsClient.insertAsync(request)
+          Operation response = reservationsClient.insertAsync(request)
                   .get(3, TimeUnit.MINUTES);
     
-          if (response.[hasError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_hasError__)()) {
-            throw new [Error](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Error.html)("Reservation creation failed!!" + response);
+          if (response.hasError()) {
+            throw new Error("Reservation creation failed!!" + response);
           }
-          return response.[getStatus](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_getStatus__)();
+          return response.getStatus();
         }
       }
     }
@@ -548,7 +548,7 @@ Replace `DELETE_AFTER_DURATION` with a duration in days, hours, minutes, or seco
     
     
     // Import the Compute library
-    const computeLib = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
+    const computeLib = require('@google-cloud/compute');
     const compute = computeLib.protos.google.cloud.compute.v1;
     
     /**
@@ -635,7 +635,7 @@ Replace `DELETE_AFTER_DURATION` with a duration in days, hours, minutes, or seco
     from typing import Any
     
     from google.api_core.extended_operation import ExtendedOperation
-    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
+    from google.cloud import compute_v1
     
     
     def wait_for_extended_operation(
@@ -702,29 +702,29 @@ Replace `DELETE_AFTER_DURATION` with a duration in days, hours, minutes, or seco
             Reservation object that represents the new reservation.
         """
     
-        instance_properties = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[AllocationSpecificSKUAllocationReservedInstanceProperties](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.AllocationSpecificSKUAllocationReservedInstanceProperties.html)(
+        instance_properties = compute_v1.AllocationSpecificSKUAllocationReservedInstanceProperties(
             machine_type="n1-standard-1",
             # Optional. Specifies amount of local ssd to reserve with each instance.
             local_ssds=[
-                [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk.html)(
+                compute_v1.AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk(
                     disk_size_gb=375, interface="NVME"
                 ),
             ],
         )
     
-        reservation = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[Reservation](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.Reservation.html)(
+        reservation = compute_v1.Reservation(
             name=reservation_name,
-            specific_reservation=[compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[AllocationSpecificSKUReservation](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.AllocationSpecificSKUReservation.html)(
+            specific_reservation=compute_v1.AllocationSpecificSKUReservation(
                 count=3,  # Number of resources that are allocated.
                 # If you use source_instance_template, you must exclude the instance_properties field.
                 # It can be a full or partial URL.
                 # source_instance_template="projects/[PROJECT_ID]/global/instanceTemplates/my-instance-template",
                 instance_properties=instance_properties,
             ),
-            share_settings=[compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[ShareSettings](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.ShareSettings.html)(
+            share_settings=compute_v1.ShareSettings(
                 share_type="SPECIFIC_PROJECTS",
                 project_map={
-                    shared_project_id: [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[ShareSettingsProjectConfig](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.ShareSettingsProjectConfig.html)(
+                    shared_project_id: compute_v1.ShareSettingsProjectConfig(
                         project_id=shared_project_id
                     )
                 },
@@ -732,16 +732,16 @@ Replace `DELETE_AFTER_DURATION` with a duration in days, hours, minutes, or seco
         )
     
         # Create a client
-        client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[ReservationsClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.reservations.ReservationsClient.html)()
+        client = compute_v1.ReservationsClient()
     
-        operation = client.[insert](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.reservations.ReservationsClient.html#google_cloud_compute_v1_services_reservations_ReservationsClient_insert)(
+        operation = client.insert(
             project=project_id,
             zone=zone,
             reservation_resource=reservation,
         )
         wait_for_extended_operation(operation, "Reservation creation")
     
-        reservation = client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.reservations.ReservationsClient.html#google_cloud_compute_v1_services_reservations_ReservationsClient_get)(
+        reservation = client.get(
             project=project_id, zone=zone, reservation=reservation_name
         )
         shared_project = next(iter(reservation.share_settings.project_map.values()))

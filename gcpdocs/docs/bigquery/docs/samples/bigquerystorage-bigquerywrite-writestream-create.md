@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerystorage-bigquerywrite-writestream-create/
 title: Create a write stream \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:27:17.086718+00:00
+fetched_at: 2026-10-26T05:40:19.195501+00:00
 ---
 
 # Create a write stream  |  BigQuery  |  Google Cloud Documentation
@@ -63,9 +63,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
         const [response] = await client.createWriteStream(request);
     
         console.log('Created write stream:');
-        console.log(`  ${response.name}`);
+        console.log(`  ${[response](https://docs.cloud.google.com/nodejs/docs/reference/bigquery-storage-api/latest/bigquery-storage-api/protos.google.cloud.bigquery.storage.v1.appendrowsresponse-class.html).name}`);
         console.log('Stream type:');
-        console.log(`  ${response.type}`);
+        console.log(`  ${[response](https://docs.cloud.google.com/nodejs/docs/reference/bigquery-storage-api/latest/bigquery-storage-api/protos.google.cloud.bigquery.storage.v1.appendrowsresponse-class.html).type}`);
       } catch (err) {
         if (err.code === status.NOT_FOUND) {
           console.log(

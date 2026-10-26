@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-3/run-apache-airflow-dag/
 title: Quickstart: Run an Apache Airflow DAG in Managed Airflow\u00a0(Gen\u00a03) \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:34:07.072333+00:00
+fetched_at: 2026-10-26T05:39:34.513555+00:00
 ---
 
 # Quickstart: Run an Apache Airflow DAG in Managed Airflow (Gen 3)  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -163,9 +163,9 @@ Save a copy of the `quickstart.py` file on your local machine:
         default_args=default_args,
         schedule_interval=datetime.timedelta(days=1),
     ) as dag:
-        # Print the dag_run id from the Airflow logs
+        # Print the dag_run id from the Airf{{ dag_run.id }low logs
         print_dag_run_conf = bash.BashOperator(
-            task_id="print_dag_run_conf", bash_command="echo {{ dag_run.id }}"
+            task_id="print_dag_run_conf", bash_command="echo }"
         )
 
 ## Upload the DAG file to your environment's bucket

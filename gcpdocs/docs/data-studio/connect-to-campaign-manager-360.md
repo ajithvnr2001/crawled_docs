@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/connect-to-campaign-manager-360/
 title: Connect to Campaign Manager 360 \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:50.109728+00:00
+fetched_at: 2026-10-26T05:59:36.192195+00:00
 ---
 
 # Connect to Campaign Manager 360  |  Data Studio  |  Google Cloud Documentation

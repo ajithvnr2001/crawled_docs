@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/order-limit-data/
 title: Order and limit data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:24:20.007210+00:00
+fetched_at: 2026-10-26T05:40:59.150345+00:00
 ---
 
 # Order and limit data  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -110,7 +110,7 @@ Android
     query = cities_ref.order_by("name").limit_to_last(2)
     results = query.get()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/715914f694913f240cf65330eed4d790b9993973/firestore/cloud-client/snippets.py#L578-L580)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/snippets.py#L578-L580)
 
 ##### Python  
 (Async)
@@ -120,7 +120,7 @@ Android
     query = cities_ref.order_by("name").limit_to_last(2)
     results = await query.get()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/715914f694913f240cf65330eed4d790b9993973/firestore/cloud-async-client/snippets.py#L563-L565)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-async-client/snippets.py#L563-L565)
 
 ##### C++
     
@@ -142,7 +142,7 @@ Android
     query := cities.OrderBy("name", firestore.Asc).Limit(3)
     query := cities.OrderBy("name", firestore.Asc).LimitToLast(3)
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/4dd5eaa1880f272cc0d553d153cbecd398f95af4/firestore/query.go#L155-L155)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/query.go#L155-L155)
 
 ##### PHP
 
@@ -170,7 +170,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.order("name").limit(3)
     
-    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/68d8f68f207f67b2e781d7ca8bca6ee16a3ae65a/google-cloud-firestore/samples/order_limit_data.rb#L25-L25)
+    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/99543a6e02d18c66111a30130ea036036d577005/google-cloud-firestore/samples/order_limit_data.rb#L25-L25)
 
 You could also sort in descending order to get the _last_ 3 cities:
 
@@ -248,7 +248,7 @@ Android
     query = cities_ref.order_by("name", direction=firestore.Query.DESCENDING).limit(3)
     results = query.stream()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/715914f694913f240cf65330eed4d790b9993973/firestore/cloud-client/snippets.py#L539-L541)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/snippets.py#L539-L541)
 
 ##### Python  
 (Async)
@@ -258,7 +258,7 @@ Android
     query = cities_ref.order_by("name", direction=firestore.Query.DESCENDING).limit(3)
     results = query.stream()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/715914f694913f240cf65330eed4d790b9993973/firestore/cloud-async-client/snippets.py#L529-L531)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-async-client/snippets.py#L529-L531)
 
 ##### C++
     
@@ -279,7 +279,7 @@ Android
     
     query := cities.OrderBy("name", firestore.Desc).Limit(3)
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/4dd5eaa1880f272cc0d553d153cbecd398f95af4/firestore/query.go#L164-L164)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/query.go#L164-L164)
 
 ##### PHP
 
@@ -307,7 +307,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.order("name", "desc").limit(3)
     
-    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/68d8f68f207f67b2e781d7ca8bca6ee16a3ae65a/google-cloud-firestore/samples/order_limit_data.rb#L40-L40)
+    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/99543a6e02d18c66111a30130ea036036d577005/google-cloud-firestore/samples/order_limit_data.rb#L40-L40)
 
 You can also order by multiple fields. For example, if you wanted to order by state, and within each state order by population in descending order:
 
@@ -388,7 +388,7 @@ Android
         "population", direction=firestore.Query.DESCENDING
     )
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/715914f694913f240cf65330eed4d790b9993973/firestore/cloud-client/snippets.py#L552-L555)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/snippets.py#L552-L555)
 
 ##### Python  
 (Async)
@@ -399,7 +399,7 @@ Android
         "population", direction=firestore.Query.DESCENDING
     )
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/715914f694913f240cf65330eed4d790b9993973/firestore/cloud-async-client/snippets.py#L539-L542)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-async-client/snippets.py#L539-L542)
 
 ##### C++
     
@@ -420,7 +420,7 @@ Android
     
     query := client.Collection("cities").OrderBy("state", firestore.Asc).OrderBy("population", firestore.Desc)
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/4dd5eaa1880f272cc0d553d153cbecd398f95af4/firestore/query.go#L172-L172)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/query.go#L172-L172)
 
 ##### PHP
 
@@ -448,7 +448,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.order("state").order("population", "desc")
     
-    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/68d8f68f207f67b2e781d7ca8bca6ee16a3ae65a/google-cloud-firestore/samples/order_limit_data.rb#L55-L55)
+    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/99543a6e02d18c66111a30130ea036036d577005/google-cloud-firestore/samples/order_limit_data.rb#L55-L55)
 
 You can combine `where()` filters with `orderBy()` and `limit()`. In the following example, the queries define a population threshold, sort by population in ascending order, and return only the first few results that exceed the threshold:
 
@@ -538,7 +538,7 @@ Android
     )
     results = query.stream()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/715914f694913f240cf65330eed4d790b9993973/firestore/cloud-client/snippets.py#L563-L569)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/snippets.py#L563-L569)
 
 ##### Python  
 (Async)
@@ -552,7 +552,7 @@ Android
     )
     results = query.stream()
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/715914f694913f240cf65330eed4d790b9993973/firestore/cloud-async-client/snippets.py#L549-L555)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-async-client/snippets.py#L549-L555)
 
 ##### C++
     
@@ -576,7 +576,7 @@ Android
     
     query := cities.Where("population", ">", 2500000).OrderBy("population", firestore.Desc).Limit(2)
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/4dd5eaa1880f272cc0d553d153cbecd398f95af4/firestore/query.go#L180-L180)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/query.go#L180-L180)
 
 ##### PHP
 
@@ -613,7 +613,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.where("population", ">", 2_500_000).order("population").limit(2)
     
-    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/68d8f68f207f67b2e781d7ca8bca6ee16a3ae65a/google-cloud-firestore/samples/order_limit_data.rb#L70-L70)
+    [order_limit_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/99543a6e02d18c66111a30130ea036036d577005/google-cloud-firestore/samples/order_limit_data.rb#L70-L70)
 
 However, if you have a filter with a range comparison (`<`, `<=`, `>`, `>=`), your first ordering must be on the same field, see the list of `orderBy()` limitations below.
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/google-unified-security/
 title: Google Unified Security overview \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:49:01.766414+00:00
+fetched_at: 2026-10-26T05:41:33.231992+00:00
 ---
 
 # Google Unified Security overview  |  Google Security Operations  |  Google Cloud Documentation
@@ -171,7 +171,7 @@ SCC-E customers have immediate access to several key AI Protection capabilities:
 **Note:** This feature is covered by [Pre-GA Offerings Terms](https://chronicle.security/legal/service-terms/) of the Google Security Operations Service Specific Terms. Pre-GA features might have limited support, and changes to pre-GA features might not be compatible with other pre-GA versions. For more information, see the [Google SecOps Technical Support Service guidelines](https://chronicle.security/legal/technical-support-services-guidelines/) and the [Google SecOps Service Specific Terms](https://chronicle.security/legal/service-terms/).  
 If this feature isn't visible in your environment, see [Manage preview features](https://docs.cloud.google.com/chronicle/docs/secops/preview-features-manage) or contact your system administrator.
 
-**Note:** This feature may not be available to all customers in all regions. Private preview features are not manageable in the Public Preview Manager page in the Google SecOps platform. 
+**Note:** This feature is in Private Preview and is not available to all customers in all regions. Private preview features are not manageable in the Public Preview Manager page in the Google SecOps platform. 
 
 Security teams in SOCs are constantly overwhelmed trying to keep up with the ever-changing threat landscape. Manually assessing vulnerabilities is a time-consuming and reactive process. In addition, the cascading of third-party security controls and complex group policy or IAM permissions have created environments ripe for misconfiguration. This creates a gap between an organization's assumed posture and actual posture which ultimately increases risk. Automated, continuous validation delivers actionable data, empowering you to proactively attack and optimize your defenses via easy-to-use integrated workflows. 
 
@@ -211,7 +211,7 @@ Integrating Google Threat Intelligence (GTI) directly within Google SecOps trans
 #### Key Benefits
 
   * **Intelligence-Driven Detection:** Leverage Google SecOps curated detections that evaluate your event data against Mandiant IOCs. Automatically generate alerts when matches are found for IOCs labeled **Active Breach** or **High** , ensuring focus on critical threats.
-  * **Enhanced Investigation Context:** Accelerate investigations using the dedicated **[IOC Matches page](https://docs.cloud.google.com/chronicle/docs/detection/ati-view-ioc-page)** in Google SecOps. Gain immediate context around suspicious entities (domains, IPs, hashes, URLs) including **GCTI Priority** , **IC-Score** , threat actor/malware **Associations** , and related **Campaigns** , all without pivoting to external tools.
+  * **Enhanced Investigation Context:** Accelerate investigations using the dedicated **[IOC Matches](https://docs.cloud.google.com/chronicle/docs/detection/ati-view-ioc-page)** tab in Google SecOps. Gain immediate context around suspicious entities (domains, IPs, hashes, URLs) including **GCTI Priority** , **IC-Score** , threat actor/malware **Associations** , and related **Campaigns** , all without pivoting to external tools.
   * **Prioritized Alerts:** Benefit from intelligence-driven alert prioritization based on Mandiant insights (e.g., Active IR, Prevalence, Attribution, Commodity status). Focus response efforts on alerts classified as Active Breach, High, or Medium based on contextualized IOC matches.
   * **Proactive Threat Hunting:** Utilize GTI feeds and insights within Google SecOps search and detection rules (YARA-L) to proactively hunt for emerging threats and specific attacker TTPs within your environment.
 
@@ -222,22 +222,22 @@ Integrating Google Threat Intelligence (GTI) directly within Google SecOps trans
   * [Continuous IOC Matching](https://docs.cloud.google.com/chronicle/docs/investigation/alerts-iocs): Google SecOps automatically ingests and evaluates GTI-curated IOCs against your normalized security data (UDM).
   * [Curated Detections & Prioritization](https://docs.cloud.google.com/chronicle/docs/detection/ati-curated-detections): Pre-built detection rules (available in rule packs like "Applied Threat Intelligence - Curated Prioritization") contextualize IOC matches using event data and Mandiant intelligence features to generate prioritized alerts (Active Breach, High, Medium, Inbound IP Auth).
   * [Native Threat Feeds](https://docs.cloud.google.com/chronicle/docs/detection/ati-fusion-feed): Natively integrated threat intelligence feeds from Mandiant, VirusTotal, SafeBrowsing, and more, enable users to create their own custom detections and scoring methodologies.
-  * **Centralized Investigation:** The **IOC Matches** page serves as the central hub for viewing matched IOCs, filtering results (by Type, Priority, Status, Source: Mandiant, etc.), and drilling down into event details, UDM context, threat intelligence rationale, and associations.
+  * **Centralized Investigation:** The **IOC Matches** tab serves as the central hub for viewing matched IOCs, filtering results (by Type, Priority, Status, Source: Mandiant, etc.), and drilling down into event details, UDM context, threat intelligence rationale, and associations.
 
 
 
 #### Getting Started
 
   * **Enable Curated Detections:** Activate the **Applied Threat Intelligence curated detections** rule packs within Google SecOps to enable alerting and prioritization. 
-  * **Explore IOC Matches:** Familiarize yourself with investigating alerts using the **IOC Matches** page. 
-  * Learn more about how GCTI Priority is determined by clicking on any event from a prioritized IOC Match in **IOC Matches** pages
+  * **Explore IOC Matches:** Familiarize yourself with investigating alerts using the **IOC Matches** tab. 
+  * Learn more about how GCTI Priority is determined by clicking on any event from a prioritized IOC Match in the **IOC Matches** tab.
 
 
 
 #### Examples
 
-  * **Investigating a High Priority Alert:** An analyst investigates an **Active Breach** priority alert on the **IOC Matches** page. They see the matched IOC is a domain associated with a known phishing campaign (visible in Associations/Campaigns) with a high IC-Score. Reviewing the event details confirms outbound traffic from a user workstation. The analyst uses this context to trigger a SOAR playbook to isolate the machine and reset user credentials.
-  * **Proactive Hunting & Validation:** Following a Mandiant report on a new malware variant, an analyst uses the provided IOCs (hashes, C2 domains) in Google SecOps SIEM Search. They also check the **IOC Matches** page, filtering by the relevant malware association or campaign name, to confirm if ATI has already detected related activity in their environment.
+  * **Investigating a High Priority Alert:** An analyst investigates an **Active Breach** priority alert on the **IOC Matches** tab. They see the matched IOC is a domain associated with a known phishing campaign (visible in Associations/Campaigns) with a high IC-Score. Reviewing the event details confirms outbound traffic from a user workstation. The analyst uses this context to trigger a SOAR playbook to isolate the machine and reset user credentials.
+  * **Proactive Hunting & Validation:** Following a Mandiant report on a new malware variant, an analyst uses the provided IOCs (hashes, C2 domains) in Google SecOps SIEM Search. They also check the **IOC Matches** tab, filtering by the relevant malware association or campaign name, to confirm if ATI has already detected related activity in their environment.
 
 
 
@@ -261,6 +261,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-25 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 

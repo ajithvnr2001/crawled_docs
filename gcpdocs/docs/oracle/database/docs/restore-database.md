@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/restore-database/
 title: Restore an Autonomous AI Database \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:32:57.592689+00:00
+fetched_at: 2026-10-26T05:40:56.743110+00:00
 ---
 
 # Restore an Autonomous AI Database  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -212,7 +212,7 @@ Replace the following:
     import com.google.cloud.oracledatabase.v1.[AutonomousDatabaseName](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.AutonomousDatabaseName.html);
     import com.google.cloud.oracledatabase.v1.[OracleDatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.OracleDatabaseClient.html);
     import com.google.cloud.oracledatabase.v1.[RestoreAutonomousDatabaseRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.RestoreAutonomousDatabaseRequest.html);
-    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html);
+    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html);
     import com.google.protobuf.[Timestamp](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Timestamp.html);
     
     public class AsyncRestoreAutonomousDatabase {
@@ -238,7 +238,7 @@ Replace the following:
           ApiFuture<Operation> future =
               oracleDatabaseClient.[restoreAutonomousDatabaseCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-oracledatabase/latest/com.google.cloud.oracledatabase.v1.OracleDatabaseClient.html#com_google_cloud_oracledatabase_v1_OracleDatabaseClient_restoreAutonomousDatabaseCallable__)().futureCall(request);
           // Do something.
-          [Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html) response = future.get();
+          [Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html) response = future.get();
         }
       }
     }

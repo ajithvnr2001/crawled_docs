@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cloud-ftp/delete-server/
 title: Delete an SFTP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:36.458822+00:00
+fetched_at: 2026-10-26T05:40:32.517393+00:00
 ---
 
 # Delete an SFTP server  |  Google Cloud Documentation
@@ -231,7 +231,7 @@ To authenticate to Cloud FTP, set up Application Default Credentials. For more i
     import com.google.cloud.ftp.v1.[CloudFtpClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.CloudFtpClient.html);
     import com.google.cloud.ftp.v1.[DeleteServerRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.DeleteServerRequest.html);
     import com.google.cloud.ftp.v1.[ServerName](https://docs.cloud.google.com/java/docs/reference/google-cloud-ftp/latest/com.google.cloud.ftp.v1.ServerName.html);
-    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html);
+    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html);
     
     public class AsyncDeleteServer {
     

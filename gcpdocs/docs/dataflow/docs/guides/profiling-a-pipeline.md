@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/profiling-a-pipeline/
 title: Monitoring pipeline performance using Cloud Profiler \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:58.249212+00:00
+fetched_at: 2026-10-26T05:59:46.588461+00:00
 ---
 
 # Monitoring pipeline performance using Cloud Profiler  |  Cloud Dataflow  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cisco-router/
 title: Collect Cisco Router logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:20:52.358321+00:00
+fetched_at: 2026-10-26T05:41:15.547603+00:00
 ---
 
 # Collect Cisco Router logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -99,7 +99,7 @@ Install the Bindplane agent on your Windows or Linux operating system according 
   1. Open **Command Prompt** or **PowerShell** as an administrator.
   2. Run the following command:
          
-         msiexec /i "https://github.com/observIQ/bindplane-agent/releases/latest/download/observiq-otel-collector.msi" /quiet
+         msiexec /i "https://github.com/observIQ/bindplane-agent/releases/latest/download/observiq-otel-collector.msi&quot; /quiet
          
 
   3. Wait for the installation to complete.
@@ -169,12 +169,12 @@ For additional installation options and troubleshooting, see [Bindplane agent in
           chronicle/cisco_router:
             protocol: https
             # Region of your instance, for example us, europe, asia-southeast1
-            location: <LOCATION>
+            <location>: LOCATION
             # Project number of the Google Cloud project linked to the instance
-            project: '<PROJECT_NUMBER>'
+            <project: '>PROJECT_NUMBER'
             compression: gzip
-            creds_file_path: '/opt/observiq-otel-collector/ingestion-auth.json'
-            customer_id: '<customer_id>'
+            creds_file_path: '/opt/observiq-otel-collector/ingestion-auth.js<on'
+           > customer_id: 'customer_id'
             endpoint: chronicle.googleapis.com
             log_type: CISCO_ROUTER
             raw_log_field: body
@@ -220,7 +220,7 @@ Replace the following placeholders:
           chronicle/cisco_router:
             compression: gzip
             creds_file_path: '/opt/observiq-otel-collector/ingestion-auth.json'
-            customer_id: '<customer_id>'
+            custom<er_id: '>;customer_id'
             endpoint: malachiteingestion-pa.googleapis.com
             log_type: CISCO_ROUTER
             raw_log_field: body
@@ -400,6 +400,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-25 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-transfer-essentials/docs/overview/
 title: Data Transfer Essentials overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:12.434967+00:00
+fetched_at: 2026-10-26T05:59:00.038609+00:00
 ---
 
 # Data Transfer Essentials overview  |  Google Cloud Documentation

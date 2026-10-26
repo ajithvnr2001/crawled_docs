@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/job-builder-yaml-editor/
 title: Use Apache Beam in the job builder YAML editor \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:13:02.995299+00:00
+fetched_at: 2026-10-26T05:59:26.367753+00:00
 ---
 
 # Use Apache Beam in the job builder YAML editor  |  Cloud Dataflow  |  Google Cloud Documentation

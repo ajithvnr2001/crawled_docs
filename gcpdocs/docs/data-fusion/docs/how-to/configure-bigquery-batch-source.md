@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/configure-bigquery-batch-source/
 title: BigQuery batch source \u00a0|\u00a0 Cloud Data Fusion \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:06.130375+00:00
+fetched_at: 2026-10-26T05:59:26.790338+00:00
 ---
 
 # BigQuery batch source  |  Cloud Data Fusion  |  Google Cloud Documentation

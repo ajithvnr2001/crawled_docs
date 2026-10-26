@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/authentication/get-id-token/
 title: Get an ID token \u00a0|\u00a0 Authentication \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:20:55.236143+00:00
+fetched_at: 2026-10-26T05:40:22.490796+00:00
 ---
 
 # Get an ID token  |  Authentication  |  Google Cloud Documentation
@@ -214,7 +214,7 @@ To run this code sample, you must install the [Google Auth Library for Node.js](
 To run this code sample, you must install the [Google Auth Python Library](https://github.com/googleapis/google-cloud-python/tree/main/packages/google-auth). 
     
     
-    import [google](https://docs.cloud.google.com/python/docs/reference/googleapis-common-protos/latest)
+    import [google](https://docs.cloud.google.com/python/docs/reference/pubsub/latest)
     from google.auth import compute_engine
     import google.auth.transport.requests
     import google.oauth2.credentials
@@ -231,7 +231,7 @@ To run this code sample, you must install the [Google Auth Python Library](https
                 Examples: http://www.example.com
         """
     
-        request = [google](https://docs.cloud.google.com/python/docs/reference/googleapis-common-protos/latest).auth.transport.[requests](https://docs.cloud.google.com/python/docs/reference/google-resumable-media/latest/google.resumable_media.requests.html).[Request](https://docs.cloud.google.com/python/docs/reference/policytroubleshooter-iam/latest/google.cloud.policytroubleshooter_iam_v3.types.ConditionContext.Request.html)()
+        request = [google](https://docs.cloud.google.com/python/docs/reference/pubsub/latest).auth.transport.[requests](https://docs.cloud.google.com/python/docs/reference/google-resumable-media/latest/google.resumable_media.requests.html).[Request](https://docs.cloud.google.com/python/docs/reference/policytroubleshooter-iam/latest/google.cloud.policytroubleshooter_iam_v3.types.ConditionContext.Request.html)()
         # Set the target audience.
         # Setting "use_metadata_identity_endpoint" to "True" will make the request use the default application
         # credentials. Optionally, you can also specify a specific service account to use by mentioning

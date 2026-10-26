@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/encrypt-source-connections/
 title: Configure encryption for source database connections \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:36.575759+00:00
+fetched_at: 2026-10-26T05:59:14.736988+00:00
 ---
 
 # Configure encryption for source database connections  |  Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL  |  Google Cloud Documentation

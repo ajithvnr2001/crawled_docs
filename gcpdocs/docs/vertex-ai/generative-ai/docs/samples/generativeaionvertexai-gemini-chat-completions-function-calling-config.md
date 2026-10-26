@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-gemini-chat-completions-function-calling-config/
 title: Use function calling with Gemini using OpenAI SDK \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:59.843430+00:00
+fetched_at: 2026-10-26T05:40:18.056201+00:00
 ---
 
 # Use function calling with Gemini using OpenAI SDK  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -43,7 +43,7 @@ Before trying this sample, follow the Python setup instructions in the [Vertex A
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     import openai
     
     from google.auth import default, transport
@@ -52,11 +52,11 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     # PROJECT_ID = "your-project-id"
     location = "us-central1"
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=location)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=location)
     
     # Programmatically get an access token
     credentials, _ = default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
-    auth_request = transport.[requests](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.SandboxEnvironmentTemplateResourceRequirementsDict.html#vertexai__genai_types_SandboxEnvironmentTemplateResourceRequirementsDict_requests).Request()
+    auth_request = transport.[requests](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.SandboxEnvironmentTemplateResourceRequirementsDict.html#vertexai__genai_types_SandboxEnvironmentTemplateResourceRequirementsDict_requests).Request()
     credentials.refresh(auth_request)
     
     # OpenAI Client
@@ -101,8 +101,8 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         tool_choice="auto",
     )
     
-    print("Function:", response.choices[0].message.tool_calls[0].[id](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.StructuredMemorySchemaConfigDict.html#vertexai__genai_types_StructuredMemorySchemaConfigDict_id))
-    print("Arguments:", response.choices[0].message.tool_calls[0].function.[arguments](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.SchemaPromptInstancePromptExecutionDict.html#vertexai__genai_types_SchemaPromptInstancePromptExecutionDict_arguments))
+    print("Function:", response.choices[0].message.tool_calls[0].[id](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.StructuredMemorySchemaConfigDict.html#vertexai__genai_types_StructuredMemorySchemaConfigDict_id))
+    print("Arguments:", response.choices[0].message.tool_calls[0].function.[arguments](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.SchemaPromptInstancePromptExecutionDict.html#vertexai__genai_types_SchemaPromptInstancePromptExecutionDict_arguments))
     # Example response:
     # Function: get_current_weather
     # Arguments: {"location":"Boston"}

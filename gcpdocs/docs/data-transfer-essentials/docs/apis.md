@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-transfer-essentials/docs/apis/
 title: APIs and reference \u00a0|\u00a0 Data Transfer Essentials \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:13.249377+00:00
+fetched_at: 2026-10-26T05:59:01.895176+00:00
 ---
 
 # APIs and reference  |  Data Transfer Essentials  |  Google Cloud Documentation

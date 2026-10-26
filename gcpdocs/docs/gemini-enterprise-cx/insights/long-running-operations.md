@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/long-running-operations/
 title: Get long-running operations \u00a0|\u00a0 Customer Experience Insights \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:25:39.601038+00:00
+fetched_at: 2026-10-26T05:39:12.392666+00:00
 ---
 
 # Get long-running operations  |  Customer Experience Insights  |  Google Cloud Documentation
@@ -172,7 +172,7 @@ To authenticate to CX Insights, set up Application Default Credentials. For more
     
     
     import com.google.cloud.contactcenterinsights.v1.[ContactCenterInsightsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-contact-center-insights/latest/com.google.cloud.contactcenterinsights.v1.ContactCenterInsightsClient.html);
-    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html);
+    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html);
     import com.google.longrunning.[OperationsClient](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.OperationsClient.html);
     import java.io.IOException;
     
@@ -185,15 +185,15 @@ To authenticate to CX Insights, set up Application Default Credentials. For more
         getOperation(operationName);
       }
     
-      public static [Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html) getOperation(String operationName) throws IOException {
+      public static [Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html) getOperation(String operationName) throws IOException {
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
         try ([ContactCenterInsightsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-contact-center-insights/latest/com.google.cloud.contactcenterinsights.v1.ContactCenterInsightsClient.html) client = [ContactCenterInsightsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-contact-center-insights/latest/com.google.cloud.contactcenterinsights.v1.ContactCenterInsightsClient.html).create()) {
           [OperationsClient](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.OperationsClient.html) operationsClient = client.[getOperationsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-contact-center-insights/latest/com.google.cloud.contactcenterinsights.v1.ContactCenterInsightsClient.html#com_google_cloud_contactcenterinsights_v1_ContactCenterInsightsClient_getOperationsClient__)();
-          [Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html) operation = operationsClient.[getOperation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.OperationsClient.html#com_google_longrunning_OperationsClient_getOperation_java_lang_String_)(operationName);
+          [Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html) operation = operationsClient.[getOperation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.OperationsClient.html#com_google_longrunning_OperationsClient_getOperation_java_lang_String_)(operationName);
     
-          System.out.printf("Got operation %s%n", operation.[getName](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html#com_google_longrunning_Operation_getName__)());
+          System.out.printf("Got operation %s%n", operation.[getName](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html#com_google_longrunning_Operation_getName__)());
           return operation;
         }
       }

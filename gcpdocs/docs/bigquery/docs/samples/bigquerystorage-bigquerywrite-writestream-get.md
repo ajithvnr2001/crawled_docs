@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerystorage-bigquerywrite-writestream-get/
 title: Get write stream details \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:27:49.351112+00:00
+fetched_at: 2026-10-26T05:40:28.130786+00:00
 ---
 
 # Get write stream details  |  BigQuery  |  Google Cloud Documentation
@@ -54,9 +54,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
       try {
         const [response] = await client.getWriteStream(request);
     
-        console.log(`Got write stream: ${response.name}`);
-        console.log(`Stream type: ${response.type}`);
-        console.log(`Stream location: ${response.location}`);
+        console.log(`Got write stream: ${[response](https://docs.cloud.google.com/nodejs/docs/reference/bigquery-storage-api/latest/bigquery-storage-api/protos.google.cloud.bigquery.storage.v1.appendrowsresponse-class.html).name}`);
+        console.log(`Stream type: ${[response](https://docs.cloud.google.com/nodejs/docs/reference/bigquery-storage-api/latest/bigquery-storage-api/protos.google.cloud.bigquery.storage.v1.appendrowsresponse-class.html).type}`);
+        console.log(`Stream location: ${[response](https://docs.cloud.google.com/nodejs/docs/reference/bigquery-storage-api/latest/bigquery-storage-api/protos.google.cloud.bigquery.storage.v1.appendrowsresponse-class.html).location}`);
       } catch (err) {
         if (err.code === status.NOT_FOUND) {
           console.log(`Write stream ${name} not found.`);

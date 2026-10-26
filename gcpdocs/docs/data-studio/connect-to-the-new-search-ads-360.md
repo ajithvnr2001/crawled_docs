@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/connect-to-the-new-search-ads-360/
 title: Connect to the New Search Ads 360 \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:47.367563+00:00
+fetched_at: 2026-10-26T05:59:00.321518+00:00
 ---
 
 # Connect to the New Search Ads 360  |  Data Studio  |  Google Cloud Documentation

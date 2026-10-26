@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/example-workflow-cw-issues-with-gemini/
 title: Example workflow: Fix conversion issues in all code objects with Gemini assistance \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:17:59.526527+00:00
+fetched_at: 2026-10-26T05:59:50.432689+00:00
 ---
 
 # Example workflow: Fix conversion issues in all code objects with Gemini assistance  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/enrichment/
 title: Enrich streaming data \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:13:05.003869+00:00
+fetched_at: 2026-10-26T05:59:47.645280+00:00
 ---
 
 # Enrich streaming data  |  Cloud Dataflow  |  Google Cloud Documentation

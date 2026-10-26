@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/concepts/streaming-pipelines/
 title: Streaming pipelines \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:13:08.449431+00:00
+fetched_at: 2026-10-26T05:59:25.266941+00:00
 ---
 
 # Streaming pipelines  |  Cloud Dataflow  |  Google Cloud Documentation

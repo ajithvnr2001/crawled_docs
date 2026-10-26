@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-center/docs/learn-database-products-using-gemini/
 title: Learn about databases using Gemini \u00a0|\u00a0 Database Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:10.378808+00:00
+fetched_at: 2026-10-26T05:59:30.817800+00:00
 ---
 
 # Learn about databases using Gemini  |  Database Center  |  Google Cloud Documentation

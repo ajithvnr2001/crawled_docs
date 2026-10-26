@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgres/create-connection-profiles/
 title: Create a source connection profile \u00a0|\u00a0 Database Migration Service for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:17:54.613324+00:00
+fetched_at: 2026-10-26T05:59:35.300646+00:00
 ---
 
 # Create a source connection profile  |  Database Migration Service for PostgreSQL  |  Google Cloud Documentation

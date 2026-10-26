@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/concat/
 title: CONCAT \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:51.425196+00:00
+fetched_at: 2026-10-26T05:59:34.922406+00:00
 ---
 
 # CONCAT  |  Data Studio  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/source-cloud-storage/
 title: Configure access to a source: Cloud Storage \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:58:09.029118+00:00
+fetched_at: 2026-10-26T05:39:08.356831+00:00
 ---
 
 # Configure access to a source: Cloud Storage  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -457,7 +457,7 @@ To authenticate to Cloud Storage, set up Application Default Credentials. For mo
     
       require "google/cloud/storage"
     
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html)
       bucket = storage.bucket bucket_name
     
       role   = "roles/storage.objectViewer"

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/create-database-server-client-library/
 title: Quickstart: Create a Firestore database by using a server client library \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:23:03.586457+00:00
+fetched_at: 2026-10-26T05:40:59.359421+00:00
 ---
 
 # Quickstart: Create a Firestore database by using a server client library  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -272,7 +272,7 @@ Initialize an instance of Firestore:
     }
     
     
-    [main.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/firestore_quickstart/main.go#L40-L48)
+    [main.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/4dd5eaa1880f272cc0d553d153cbecd398f95af4/firestore/firestore_quickstart/main.go#L40-L48)
 
 ##### PHP
     

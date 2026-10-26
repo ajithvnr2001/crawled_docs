@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerymigration-migrationservice-migrationsubtask-get/
 title: Get a migration subtask \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:43:11.907772+00:00
+fetched_at: 2026-10-26T05:41:18.204800+00:00
 ---
 
 # Get a migration subtask  |  BigQuery  |  Google Cloud Documentation
@@ -84,10 +84,10 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     
     from google.api_core.exceptions import NotFound
-    from google.cloud import [bigquery_migration_v2](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest)
+    from google.cloud import bigquery_migration_v2
     
     
-    client = [bigquery_migration_v2](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest).[MigrationServiceClient](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest/google.cloud.bigquery_migration_v2.services.migration_service.MigrationServiceClient.html)()
+    client = bigquery_migration_v2.[MigrationServiceClient](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest/google.cloud.bigquery_migration_v2.services.migration_service.MigrationServiceClient.html)()
     
     
     def get_migration_subtask(

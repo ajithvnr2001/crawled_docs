@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/create-manage-protobuf-schemas/
 title: Create and manage protobuf schemas \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:48:41.249624+00:00
+fetched_at: 2026-10-26T05:40:42.249506+00:00
 ---
 
 # Create and manage protobuf schemas  |  Bigtable  |  Google Cloud Documentation

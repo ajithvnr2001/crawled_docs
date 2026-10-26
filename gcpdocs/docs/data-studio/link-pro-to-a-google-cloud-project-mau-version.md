@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/link-pro-to-a-google-cloud-project-mau-version/
 title: Link a Data Studio Pro monthly active user subscription to a Google Cloud project \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:36.393708+00:00
+fetched_at: 2026-10-26T05:59:10.896402+00:00
 ---
 
 # Link a Data Studio Pro monthly active user subscription to a Google Cloud project  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/samples/secretmanager-add-secret-version/
 title: Add secret version \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:54.007966+00:00
+fetched_at: 2026-10-26T05:39:56.518013+00:00
 ---
 
 # Add secret version  |  Secret Manager  |  Google Cloud Documentation
@@ -309,7 +309,7 @@ To authenticate to Secret Manager, set up Application Default Credentials. For m
     require "google/cloud/secret_manager"
     
     # Create a Secret Manager client.
-    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
+    client = Google::Cloud::[SecretManager](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager-v1beta1/latest/Google-Cloud-SecretManager.html).[secret_manager_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-secret_manager/latest/Google-Cloud-SecretManager.html)
     
     # Build the resource name of the secret version.
     name = client.secret_path project: project_id, secret: secret_id
