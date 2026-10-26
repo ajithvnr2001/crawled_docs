@@ -1,0 +1,562 @@
+---
+url: https://docs.comfy.org/es/api-reference/v2/assets/existence-check-for-a-blob-by-blake3-hash/
+title: Existence check for a blob by blake3 hash - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:01:28.057791+00:00
+---
+
+# Existence check for a blob by blake3 hash - ComfyUI
+
+> Source: https://docs.comfy.org/es/api-reference/v2/assets/existence-check-for-a-blob-by-blake3-hash/
+
+Existence check for a blob by blake3 hash
+
+cURL
+    
+    
+    curl --request HEAD \
+      --url http://127.0.0.1:8189/api/v2/assets/by-hash/{hash} \
+      --header 'Authorization: Bearer <token>'
+    
+    
+    import requests
+    
+    url = "http://127.0.0.1:8189/api/v2/assets/by-hash/{hash}"
+    
+    headers = {"Authorization": "Bearer <token>"}
+    
+    response = requests.head(url, headers=headers)
+    
+    print(response.text)
+    
+    
+    const options = {method: 'HEAD', headers: {Authorization: 'Bearer <token>'}};
+    
+    fetch('http://127.0.0.1:8189/api/v2/assets/by-hash/{hash}', options)
+      .then(res => res.json())
+      .then(res => console.log(res))
+      .catch(err => console.error(err));
+    
+    
+    <?php
+    
+    $curl = curl_init();
+    
+    curl_setopt_array($curl, [
+      CURLOPT_PORT => "8189",
+      CURLOPT_URL => "http://127.0.0.1:8189/api/v2/assets/by-hash/{hash}",
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "HEAD",
+      CURLOPT_HTTPHEADER => [
+        "Authorization: Bearer <token>"
+      ],
+    ]);
+    
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    
+    curl_close($curl);
+    
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
+      echo $response;
+    }
+    
+    
+    package main
+    
+    import (
+    	"fmt"
+    	"net/http"
+    	"io"
+    )
+    
+    func main() {
+    
+    	url := "http://127.0.0.1:8189/api/v2/assets/by-hash/{hash}"
+    
+    	req, _ := http.NewRequest("HEAD", url, nil)
+    
+    	req.Header.Add("Authorization", "Bearer <token>")
+    
+    	res, _ := http.DefaultClient.Do(req)
+    
+    	defer res.Body.Close()
+    	body, _ := io.ReadAll(res.Body)
+    
+    	fmt.Println(string(body))
+    
+    }
+    
+    
+    HttpResponse<String> response = Unirest.head("http://127.0.0.1:8189/api/v2/assets/by-hash/{hash}")
+      .header("Authorization", "Bearer <token>")
+      .asString();
+    
+    
+    require 'uri'
+    require 'net/http'
+    
+    url = URI("http://127.0.0.1:8189/api/v2/assets/by-hash/{hash}")
+    
+    http = Net::HTTP.new(url.host, url.port)
+    
+    request = Net::HTTP::Head.new(url)
+    request["Authorization"] = 'Bearer <token>'
+    
+    response = http.request(request)
+    puts response.read_body
+
+401
+
+403
+
+429
+
+500
+
+503
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+
+assets
+
+# Existence check for a blob by blake3 hash
+
+Copiar páginaCopiar página
+
+`200` if the calling account can mint from this blob, `404` otherwise. Same account-scoping as `from-hash`; lets a client decide between the dedup fast-path and a full upload before sending bytes. Use the `hash` an upload returned: for an image whose location metadata was removed before storage, the client’s digest of the file it sent names no stored blob. A refusal answers its status with no body, so a `403`’s code is not readable here.
+
+Copiar páginaCopiar página
+
+HEAD
+
+http://127.0.0.1:8189https://cloud.comfy.orghttps://{deployment}.run.comfy.app
+
+/
+
+api
+
+/
+
+v2
+
+/
+
+assets
+
+/
+
+by-hash
+
+/
+
+{hash}
+
+Pruébalo
+
+Existence check for a blob by blake3 hash
+
+cURL
+    
+    
+    curl --request HEAD \
+      --url http://127.0.0.1:8189/api/v2/assets/by-hash/{hash} \
+      --header 'Authorization: Bearer <token>'
+    
+    
+    import requests
+    
+    url = "http://127.0.0.1:8189/api/v2/assets/by-hash/{hash}"
+    
+    headers = {"Authorization": "Bearer <token>"}
+    
+    response = requests.head(url, headers=headers)
+    
+    print(response.text)
+    
+    
+    const options = {method: 'HEAD', headers: {Authorization: 'Bearer <token>'}};
+    
+    fetch('http://127.0.0.1:8189/api/v2/assets/by-hash/{hash}', options)
+      .then(res => res.json())
+      .then(res => console.log(res))
+      .catch(err => console.error(err));
+    
+    
+    <?php
+    
+    $curl = curl_init();
+    
+    curl_setopt_array($curl, [
+      CURLOPT_PORT => "8189",
+      CURLOPT_URL => "http://127.0.0.1:8189/api/v2/assets/by-hash/{hash}",
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "HEAD",
+      CURLOPT_HTTPHEADER => [
+        "Authorization: Bearer <token>"
+      ],
+    ]);
+    
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    
+    curl_close($curl);
+    
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
+      echo $response;
+    }
+    
+    
+    package main
+    
+    import (
+    	"fmt"
+    	"net/http"
+    	"io"
+    )
+    
+    func main() {
+    
+    	url := "http://127.0.0.1:8189/api/v2/assets/by-hash/{hash}"
+    
+    	req, _ := http.NewRequest("HEAD", url, nil)
+    
+    	req.Header.Add("Authorization", "Bearer <token>")
+    
+    	res, _ := http.DefaultClient.Do(req)
+    
+    	defer res.Body.Close()
+    	body, _ := io.ReadAll(res.Body)
+    
+    	fmt.Println(string(body))
+    
+    }
+    
+    
+    HttpResponse<String> response = Unirest.head("http://127.0.0.1:8189/api/v2/assets/by-hash/{hash}")
+      .header("Authorization", "Bearer <token>")
+      .asString();
+    
+    
+    require 'uri'
+    require 'net/http'
+    
+    url = URI("http://127.0.0.1:8189/api/v2/assets/by-hash/{hash}")
+    
+    http = Net::HTTP.new(url.host, url.port)
+    
+    request = Net::HTTP::Head.new(url)
+    request["Authorization"] = 'Bearer <token>'
+    
+    response = http.request(request)
+    puts response.read_body
+
+401
+
+403
+
+429
+
+500
+
+503
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+
+#### Autorizaciones
+
+​
+
+Authorization
+
+string
+
+header
+
+requerido
+
+`Authorization: Bearer <credential>`. The credential is one of: an account-scoped API key (`comfyui-…`), accepted on Cloud and serverless; a Comfy Cloud session JWT; or an OAuth access token issued for the Comfy Cloud resource. Which kinds a given deployment accepts is deployment configuration — an API key always works on Cloud and serverless, and a deployment that does not accept JWT bearers answers `401` with a message saying so. Self-hosted accepts unauthenticated requests by default and can be configured with a static bearer token.
+
+#### Parámetros de ruta
+
+​
+
+hash
+
+string
+
+requerido
+
+Content hash, written `blake3:<hex>`.
+
+#### Respuesta
+
+200
+
+Blob present and mintable by the caller.
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/api-reference/v2/assets/existence-check-for-a-blob-by-blake3-hash.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/api-reference/v2/assets/existence-check-for-a-blob-by-blake3-hash)
+
+[Mint an asset over existing bytes (dedup fast-path)](https://docs.comfy.org/es/api-reference/v2/assets/mint-an-asset-over-existing-bytes-dedup-fast-path)[Asset metadata](https://docs.comfy.org/es/api-reference/v2/assets/asset-metadata)

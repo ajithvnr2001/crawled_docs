@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/kling/kling-3-0/
 title: Kling 3.0 Video and Image Generation in ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:31.693844+00:00
+fetched_at: 2026-10-26T14:04:10.134693+00:00
 ---
 
 # Kling 3.0 Video and Image Generation in ComfyUI - ComfyUI
@@ -11,6 +11,8 @@ fetched_at: 2026-10-17T10:51:31.693844+00:00
 
 ## On this page
 
+Back to top
+
   * What Kling 3.0 is good at
   * Example outputs
   * Available models
@@ -18,6 +20,7 @@ fetched_at: 2026-10-17T10:51:31.693844+00:00
   * Kling 3.0: Text to Image
   * Kling 3.0: Video Generation
   * Kling 3.0: First Last Frame to Video
+  * Kling 3.0: Motion Control
   * Legacy Kling models (EOL)
     * Retired workflow templates and replacements
 
@@ -180,6 +183,36 @@ Download JSON or search “Kling 3.0: First Last Frame to Video” in Template L
 
 ​
 
+Kling 3.0: Motion Control
+
+Apply the motion of a reference video to a character image. Upload a character image plus a motion reference video and the model drives your character through the action in the clip while keeping their identity. This workflow runs the Kling 3.0 model, which improves facial consistency over previous versions. ![Kling 3.0: Motion Control workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_kling_motion_control3-1.webp)
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “Kling 3.0: Motion Control” in Template Library
+
+**Input materials** Upload these files to the matching `LoadImage` and `LoadVideo` nodes:
+
+## future_robot.png
+
+`LoadImage` node 2 · `future_robot.png`
+
+## boxing_man.mp4
+
+`LoadVideo` node 3 · `boxing_man.mp4`
+
+![future_robot.png](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/future_robot.png)
+
+**Motion control settings** Set `character_orientation` to `video` when the camera and framing should follow the motion clip, which allows reference clips up to 30 seconds, or to `image` when the character keeps the framing of the still image, which limits the clip to 10 seconds. Keep `mode` on `pro` for final output and switch to `std` for cheaper tests. `keep_original_sound` carries the clip’s audio into the result, and `model` switches back to `kling-v2-6` for the previous generation. This workflow uses the same `Kling Motion Control` node as the [Kling 2.6 Motion Control](https://docs.comfy.org/tutorials/partner-nodes/kling/kling-motion-control) example, so the input tips on that page apply here too.
+
+## 
+
+​
+
 Legacy Kling models (EOL)
 
 **End of life (EOL)** : The following legacy Kling models and workflow templates are scheduled for retirement on **September 15, 2026** : Kling V1.5, V1.6, V2.1, V2.1 Master, and the Kolors Virtual Try-On API. Related Partner Nodes remain in ComfyUI but these model options will stop working after the retirement date.
@@ -205,26 +238,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/kling/kling-3-0.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/kling/kling-3-0)
 
-[Higgsfield Genjutsu in ComfyUI: Video Motion TransferPrevious](https://docs.comfy.org/tutorials/partner-nodes/higgsfield/genjutsu-motion-transfer)[Kling 2.6 Motion Control in ComfyUI: Reference Video Motion TransferNext](https://docs.comfy.org/tutorials/partner-nodes/kling/kling-motion-control)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[HitPaw Video Enhance](https://docs.comfy.org/tutorials/partner-nodes/hitpaw/hitpaw-video-enhance)[Kling Virtual Try-On](https://docs.comfy.org/tutorials/partner-nodes/kling/kling-virtual-try-on)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/video/minimax/minimax-h3/
 title: ComfyUI MiniMax H3 Video Generation Guide - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T14:35:05.323372+00:00
+fetched_at: 2026-10-26T14:04:10.574510+00:00
 ---
 
 # ComfyUI MiniMax H3 Video Generation Guide - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-19T14:35:05.323372+00:00
 > Source: https://docs.comfy.org/tutorials/video/minimax/minimax-h3/
 
 ## On this page
+
+Back to top
 
   * Key features
   * Getting started
@@ -24,6 +26,7 @@ fetched_at: 2026-10-19T14:35:05.323372+00:00
   * Speeding up generation with Sage Attention
     * Quality degradation with INT8 attention
   * Speeding up generation with sparse attention
+    * Checking whether sparse attention is active
   * Commercial licensing
 
 
@@ -167,7 +170,7 @@ Setting the output resolution
   * **Megapixels** : Total pixel count (higher = larger, slower)
   * **Multiple** : Round to this grid; keep **32** for H3
 
-Templates open at **Megapixels** **0.4** : **864×480** at 16:9, **640×640** at 1:1 (the I2V default). A 0.4 MP render is fast and fine for drafts; raise **Megapixels** before a final render. For 16:9 native quality, set **0.98** (~1344×768) or enter **1344 × 768** on the node. Avoid **1.0** MP (1376×768 exceeds the 768×1344 cap). H3 is trained near 1 MP; oversizing does not add detail. For 2K, generate at native size and upscale separately.
+Templates open at **Megapixels** **0.4** : **864×480** at 16:9, **640×640** at 1:1 (the I2V default). A 0.4 MP render is fast and fine for drafts; raise **Megapixels** before a final render. For 16:9 native quality, set **Megapixels** to **0.98** or enter **1344 × 768** on the node. H3 is trained near 1 MP, with a 768-pixel short edge and up to a 768×1344 area. Sizes above 768×1344 render slower without adding detail, and quality drops the further you move from the trained resolution. For 2K, generate at native size and upscale separately. The H3 nodes have no 768×1344 cap on output size: `width` and `height` step by **32** up to 16384 per axis. Reference videos on **Reference to Video** are downscaled to fit a 768px short edge and a 768×1344 area. Reference images follow `ref_image_size`: **match** scales them to the generation’s pixel area, **max** to a 2048px short edge.
 
 ### 
 
@@ -189,10 +192,10 @@ Setting| Range
 ---|---  
 `length` input| 5–3600 frames (~0.2 s–150 s)  
 Trained range| ~124–362 frames (~5–15 s)  
-Frame grid| `17k+5` at 24 fps (124 frames = 5 s)  
+Frame grid| `17k+5` at 24 fps (124 frames ≈ 5.2 s)  
 Template default| 5 s → 124 frames  
   
-Long clips at full resolution exhaust VRAM first; lower megapixels to fit.
+`duration` and `length` round **up** to the next `17k+5` value: a 5 s request renders 124 frames (5.17 s), and a `length` of 120 also renders 124. Frames pack from frame 0 in 17-frame blocks, so the leftover 5 frames are the last block, not the first. Requests that fall between the same two grid points render the same clip. Long clips at full resolution exhaust VRAM first; lower megapixels to fit.
 
 ### 
 
@@ -268,6 +271,24 @@ Speeding up generation with sparse attention
 
 FastH3 uses **`vsa`** at `keep_percent` **10** ; see [FastH3 page](https://docs.comfy.org/tutorials/video/minimax/minimax-h3-fastvideo).
 
+### 
+
+​
+
+Checking whether sparse attention is active
+
+Base H3 templates do not include the node. Add **Model Sparse Attention** between `UNETLoader` and `BasicGuider`, then turn on **`verbose`** (Advanced, off by default) to log one line per attention shape. Calls that stay dense log `dense (<n> tokens): <reason>` or `dense (<b>, <n>, <h>, <d>): <reason>`. Only the first failing condition is reported:
+
+Logged reason| What to change  
+---|---  
+`no compiled sol_attn kernel for this GPU`| The installed `comfy-kitchen` has no kernel for your GPU. Update it, or leave the node out on that machine.  
+`<n> tokens < min_tokens <value>`| Raise the resolution or clip length, or lower `min_tokens` (default **12288**).  
+`sigma <x> outside the start/end window`| Widen `start_percent` and `end_percent`.  
+`block <i> in dense_blocks`| Remove that block index from `dense_blocks`.  
+`no H3 layout for this call`| `vsa` only. Select `sol-attn`.  
+  
+Calls that succeed log `sparse (<b>, <n>, <h>, <d>), sinks <k>/<q>` or `sparse producer path: <n> tokens, <mode>`. Three conditions never log, even with `verbose` on: activations that are not bfloat16 on the H3 path, a `head_dim` other than **128** , and missing rope frequencies all fall back silently. `vsa` is bound to the FastH3 checkpoint. It reads a learned coarse branch from `to_gate_compress` layers that only those weights carry, so on any other H3 checkpoint the node prints `VSA: the model has no to_gate_compress layers; running the fine stage without the coarse branch` and runs the fine stage alone. That warning is not gated by `verbose`.
+
 ## 
 
 ​
@@ -301,26 +322,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/video/minimax/minimax-h3.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/video/minimax/minimax-h3)
 
-[Qwen3.5 ComfyUI workflow examplePrevious](https://docs.comfy.org/tutorials/llm/qwen/qwen3_5)[FastVideo FastH3: ComfyUI Workflow ExamplesNext](https://docs.comfy.org/tutorials/video/minimax/minimax-h3-fastvideo)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Qwen3.5](https://docs.comfy.org/tutorials/llm/qwen/qwen3_5)[FastVideo FastH3](https://docs.comfy.org/tutorials/video/minimax/minimax-h3-fastvideo)

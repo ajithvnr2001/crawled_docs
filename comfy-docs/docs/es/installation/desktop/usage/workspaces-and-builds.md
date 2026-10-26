@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/desktop/usage/workspaces-and-builds/
 title: Espacios de trabajo y builds de ComfyUI en Comfy Desktop - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:48.542654+00:00
+fetched_at: 2026-10-26T14:04:03.289832+00:00
 ---
 
 # Espacios de trabajo y builds de ComfyUI en Comfy Desktop - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:48.542654+00:00
 > Source: https://docs.comfy.org/es/installation/desktop/usage/workspaces-and-builds/
 
 ## En esta página
+
+Volver arriba
 
   * Iniciar sesión
   * Cambiar de espacio de trabajo
@@ -24,7 +26,7 @@ Guía de uso
 
 Copiar páginaCopiar página
 
-Inicia sesión en Comfy Desktop para cambiar de espacio de trabajo, instalar builds de ComfyUI desde tu espacio de trabajo y crear un build a partir de una instancia local.
+Inicia sesión en Comfy Desktop para cambiar de espacio de trabajo, instalar builds de ComfyUI y crear un build desde una instancia local.
 
 Copiar páginaCopiar página
 
@@ -36,7 +38,7 @@ Comfy Desktop puede conectarse a tu cuenta de Comfy. Iniciar sesión agrega func
 
 Iniciar sesión
 
-El chip de la cuenta se encuentra en la parte superior derecha del Chooser.
+El chip de la cuenta se encuentra en la parte superior derecha del Selector.
 
   * **Sesión cerrada** : el chip muestra un botón **Inicia sesión**. Haz clic en él para abrir el flujo de inicio de sesión en el navegador y luego vuelve a la aplicación.
   * **Sesión iniciada** : el chip muestra tu avatar y tu correo electrónico. Haz clic en él para abrir un menú con **Cerrar sesión**.
@@ -55,7 +57,7 @@ Una barra de espacios de trabajo se ubica sobre la cuadrícula de instancias:
   * **Actualizar espacios de trabajo** : aparece una vez que has iniciado sesión. Vuelve a cargar la lista de espacios de trabajo y el catálogo de Builds del espacio de trabajo seleccionado.
   * **INSTANCES** : la cantidad de instancias que pertenecen al espacio de trabajo seleccionado.
 
-El espacio de trabajo seleccionado delimita el alcance del Chooser. La cuadrícula muestra solo las instancias que le pertenecen, y el flujo de Nueva instancia ofrece los Builds de ese espacio de trabajo. Comfy Desktop recuerda el espacio de trabajo que seleccionaste y lo restaura la próxima vez que abras la aplicación.
+El espacio de trabajo seleccionado delimita el alcance del Selector. La cuadrícula muestra solo las instancias que le pertenecen, y el flujo de Nueva instancia ofrece los Builds de ese espacio de trabajo. Comfy Desktop recuerda el espacio de trabajo que seleccionaste y lo restaura la próxima vez que abras la aplicación.
 
 ## 
 
@@ -85,7 +87,7 @@ Puedes publicar una instancia local como Build para que otros miembros de su esp
   2. En el Selector, abre el **menú ⋮** de la instancia y selecciona **Create Build**.
   3. Comfy Desktop crea un Build en borrador a partir de esa instancia en Comfy Developer Platform. El borrador pertenece al espacio de trabajo al que pertenece la instancia.
 
-**Create Build** se ofrece para instancias locales que están instaladas y tienen una ruta de instalación en el disco. No se ofrece para instancias de Cloud o remotas. El Build comienza como borrador, así que puedes revisar su contenido antes de publicarlo. Para ver el flujo de trabajo completo de los Builds, incluido cómo crear un Build a partir de una instantánea de Desktop o de un archivo JSON de flujo de trabajo, consulta [Otras formas de crear un Build de Comfy API](https://docs.comfy.org/development/serverless/build-sources).
+**Create Build** se ofrece para instancias locales que están instaladas y tienen una ruta de instalación en el disco. No se ofrece para instancias de Cloud o remotas. El Build comienza como borrador, así que puedes revisar su contenido antes de publicarlo. Para ver el flujo de trabajo completo de los Builds, incluido cómo crear un Build a partir de una instantánea de Desktop o de un archivo JSON de flujo de trabajo, consulta [Otras formas de crear un Build de Comfy API](https://docs.comfy.org/es/development/serverless/build-sources).
 
 ¿Esta página le ayudó?
 

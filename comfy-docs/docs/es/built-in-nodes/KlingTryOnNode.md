@@ -1,0 +1,62 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/KlingTryOnNode/
+title: Prueba virtual de Kling - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:00.380845+00:00
+---
+
+# Prueba virtual de Kling - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/KlingTryOnNode/
+
+Kling
+
+# Prueba virtual de Kling - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Vista a una persona con una prenda de vestir usando el probador virtual de Kling.
+
+Copiar páginaCopiar página
+
+Vista a una persona con una prenda de vestir usando el probador virtual de Kling. Conecte una foto de una persona y una foto de la prenda, y el nodo devuelve una nueva imagen de esa persona con la prenda puesta.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`person_image`| Foto de una persona, preferiblemente de frente o en vista de tres cuartos. Debe tener al menos 300x300 píxeles; las imágenes con un lado superior a 2048 píxeles se reducen primero.| IMAGE| Sí| N/A  
+`garment_image`| La prenda que se va a poner: foto de producto, vista plana, maniquí o foto con modelo. Una foto con modelo puede conservar el resto de ese atuendo. Debe tener al menos 300x300 píxeles. Solo prendas de vestir; no se admiten zapatos, bolsos ni accesorios.| IMAGE| Sí| N/A  
+`keep_pose`| Desactive esta opción para permitir que la pose cambie y lograr una mejor presentación del atuendo. Parámetro avanzado (predeterminado: True).| BOOLEAN| Sí| `True`  
+`False`  
+`seed`| La semilla controla si el nodo debe volver a ejecutarse; los resultados no son deterministas independientemente de la semilla. Este parámetro cuenta con la funcionalidad «control after generate» (predeterminado: 42).| INT| Sí| 0 a 2147483647  
+  
+**Nota:** El resultado tiene el mismo tamaño que la `person_image`, limitado a 2048 píxeles en el lado más largo. Ambas entradas se suben a la API de Kling, lo que puede tardar un momento.
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`IMAGE`| La persona con la prenda puesta.| IMAGE  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/KlingTryOnNode/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `03c2f9f1169ec2de3dd58162f9a7718a9c1f9af584aa63f280a0c4feefb70478`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/KlingTryOnNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/KlingTryOnNode)
+
+[Kling Omni imagen (Pro)](https://docs.comfy.org/es/built-in-nodes/KlingOmniProImageNode)[Krea 2 Imagen](https://docs.comfy.org/es/built-in-nodes/Krea2ImageNode)

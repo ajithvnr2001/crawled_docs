@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/BriaExpandImage/
-title: BriaExpandImage - ComfyUI Built-in Node Documentation - ComfyUI
+title: Bria Expand Image - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:51.139181+00:00
+fetched_at: 2026-10-26T14:04:11.986752+00:00
 ---
 
-# BriaExpandImage - ComfyUI Built-in Node Documentation - ComfyUI
+# Bria Expand Image - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/BriaExpandImage/
 
 Bria
 
-# BriaExpandImage - ComfyUI Built-in Node Documentation
+# Bria Expand Image - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -116,4 +116,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/BriaExpandImage.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/BriaExpandImage)
 
-[BriaEraser](https://docs.comfy.org/built-in-nodes/BriaEraser)[BriaGenFill](https://docs.comfy.org/built-in-nodes/BriaGenFill)
+[Bria Eraser](https://docs.comfy.org/built-in-nodes/BriaEraser)[Bria Generative Fill](https://docs.comfy.org/built-in-nodes/BriaGenFill)

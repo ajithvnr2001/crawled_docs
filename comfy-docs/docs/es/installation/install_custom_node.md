@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/install_custom_node/
 title: C\u00f3mo instalar nodos personalizados en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:48.778478+00:00
+fetched_at: 2026-10-26T14:04:04.037749+00:00
 ---
 
 # Cómo instalar nodos personalizados en ComfyUI - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:48.778478+00:00
 > Source: https://docs.comfy.org/es/installation/install_custom_node/
 
 ## En esta página
+
+Volver arriba
 
   * ¿Qué son los nodos personalizados?
   * Método 1: ComfyUI Manager (recomendado)
@@ -91,7 +93,7 @@ La interfaz clásica de Manager para instalar nodos personalizados.
 
 Método 2: Instalación manual usando Git
 
-Adecuado para nodos nuevos que no se encuentran en el Administrador o cuando se necesitan versiones específicas. Requiere tener [Git](https://git-scm.com/) instalado en tu sistema.
+Adecuado para nodos nuevos que no se encuentran en ComfyUI Manager o cuando se necesitan versiones específicas. Requiere tener [Git](https://git-scm.com/) instalado en tu sistema.
 
 1
 
@@ -153,7 +155,7 @@ Reinicia ComfyUI y actualiza tu navegador. Revisa los registros de inicio para d
 
 Método 3: Instalación por descarga de ZIP
 
-Adecuado para usuarios que no pueden usar Git o el Administrador
+Adecuado para usuarios que no pueden usar Git o ComfyUI Manager
 
 No recomendamos este método de instalación, ya que se pierde la capacidad de control de versiones
 
@@ -195,9 +197,9 @@ Recursos para nodos personalizados
 
 En ComfyUI, además de la funcionalidad básica de extensión de nodos, los nodos personalizados también pueden incluir los siguientes recursos adicionales:
 
-  * [Documentación de nodos](https://docs.comfy.org/custom-nodes/help_page): Esta función es compatible con todos los nodos personalizados y básicos. Puedes usarla para consultar la documentación de los nodos, entender el propósito y el uso de los nodos, y contribuir con documentación mediante PRs al autor.
-  * [Plantillas de flujos de trabajo para nodos personalizados](https://docs.comfy.org/custom-nodes/workflow_templates): Plantillas de flujos de trabajo proporcionadas por los autores de nodos como flujos de trabajo de ejemplo, que se pueden explorar y cargar desde las plantillas de ComfyUI.
-  * [Soporte multi-idioma](https://docs.comfy.org/custom-nodes/i18n)
+  * [Documentación de nodos](https://docs.comfy.org/es/custom-nodes/help_page): Esta función es compatible con todos los nodos personalizados y básicos. Puedes usarla para consultar la documentación de los nodos, entender el propósito y el uso de los nodos, y contribuir con documentación mediante PRs al autor.
+  * [Plantillas de flujos de trabajo para nodos personalizados](https://docs.comfy.org/es/custom-nodes/workflow_templates): Plantillas de flujos de trabajo proporcionadas por los autores de nodos como flujos de trabajo de ejemplo, que se pueden explorar y cargar desde las plantillas de ComfyUI.
+  * [Soporte multi-idioma](https://docs.comfy.org/es/custom-nodes/i18n)
 
 Si eres desarrollador de nodos personalizados, puedes agregar estos recursos para que tu nodo personalizado sea más fácil de usar.
 

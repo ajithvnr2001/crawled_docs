@@ -1,0 +1,63 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/WanMoveVisualizeTracks/
+title: Wan visualizar pistas de movimiento - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:46.655239+00:00
+---
+
+# Wan visualizar pistas de movimiento - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/WanMoveVisualizeTracks/
+
+Mover
+
+# Wan visualizar pistas de movimiento - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+El nodo WanMoveVisualizeTracks superpone datos de seguimiento de movimiento sobre una secuencia de imágenes o fotogramas de video.
+
+Copiar páginaCopiar página
+
+El nodo WanMoveVisualizeTracks superpone datos de seguimiento de movimiento sobre una secuencia de imágenes o fotogramas de video. Dibuja representaciones visuales de los puntos rastreados, incluidas sus trayectorias de movimiento y posiciones actuales, lo que hace que los datos de movimiento sean visibles y más fáciles de analizar.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`imágenes`| La secuencia de imágenes de entrada o fotogramas de video sobre los que se visualizarán las pistas.| IMAGE| Sí| -  
+`pistas`| Los datos de seguimiento de movimiento que contienen las trayectorias de puntos y la información de visibilidad. Si no se proporcionan, las imágenes de entrada se pasan sin cambios.| TRACKS| No| -  
+`resolución_de_línea`| El número de fotogramas anteriores que se usarán al dibujar la línea de trayectoria de estela para cada pista (predeterminado: 24).| INT| Sí| 1 - 1024  
+`tamaño_círculo`| El tamaño del círculo dibujado en la posición actual de cada pista (predeterminado: 12). Marcado como parámetro avanzado.| INT| Sí| 1 - 128  
+`opacidad`| La opacidad de las superposiciones de pistas dibujadas (predeterminado: 0.75).| FLOAT| Sí| 0.0 - 1.0  
+`ancho_de_línea`| El ancho de las líneas usadas para dibujar las trayectorias de las pistas (predeterminado: 16). Marcado como parámetro avanzado.| INT| Sí| 1 - 128  
+  
+**Nota:** Si el número de imágenes de entrada no coincide con el número de fotogramas de los datos de `tracks` proporcionados, la secuencia de imágenes se repetirá para coincidir con la longitud de las pistas. **Nota:** Los puntos de seguimiento se dibujan con un conjunto limitado de colores repetidos, y un punto se omite en un fotograma cuando su indicador de visibilidad es cero para ese fotograma.
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`IMAGE`| La secuencia de imágenes con los datos de seguimiento de movimiento visualizados como superposiciones. Si no se proporcionaron `tracks`, se devuelven las imágenes de entrada originales.| IMAGE  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/WanMoveVisualizeTracks/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `d94bfde28dfdad682edcc81b1c63408f1352e0dbc94af4d043d750e8cd4c099b`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/WanMoveVisualizeTracks.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/WanMoveVisualizeTracks)
+
+[Wan pista de movimiento a video](https://docs.comfy.org/es/built-in-nodes/WanMoveTrackToVideo)[Wan pista a video](https://docs.comfy.org/es/built-in-nodes/WanTrackToVideo)

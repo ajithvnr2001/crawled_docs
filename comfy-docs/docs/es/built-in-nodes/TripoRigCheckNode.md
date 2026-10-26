@@ -1,0 +1,57 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/TripoRigCheckNode/
+title: Tripo: Comprobaci\u00f3n de rig - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:38.612604+00:00
+---
+
+# Tripo: Comprobación de rig - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/TripoRigCheckNode/
+
+Tripo
+
+# Tripo: Comprobación de rig - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Este nodo envía el ID de una tarea completada de modelo 3D de Tripo a la API de Tripo y comprueba si se le puede aplicar rigging a ese modelo.
+
+Copiar páginaCopiar página
+
+Este nodo envía el ID de una tarea completada de modelo 3D de Tripo a la API de Tripo y comprueba si se le puede aplicar rigging a ese modelo. Espera a que finalice la comprobación y luego devuelve un resultado de sí/no junto con el tipo de esqueleto que Tripo recomienda para el modelo.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`model_task_id`| El ID de tarea de Tripo del modelo que se va a analizar. Identifica un modelo que se generó previamente, se importó o se creó de otro modo mediante una tarea de Tripo.| MODEL_TASK_ID| Sí| N/A  
+  
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`riggable`| Indica si se le puede aplicar rigging al modelo.| BOOLEAN  
+`rig_type`| Esqueleto recomendado: biped, quadruped, hexapod, octopod, avian, serpentine o aquatic; ‘others’ cuando el modelo no admite rigging.| STRING  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/TripoRigCheckNode/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `3aa0bc194e887804b92ca1f9f2b12997c73e111fb282c5de96e55f664c21545e`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/TripoRigCheckNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/TripoRigCheckNode)
+
+[Tripo: Retopología](https://docs.comfy.org/es/built-in-nodes/TripoRetopologyNode)[Tripo: Modelo con rig](https://docs.comfy.org/es/built-in-nodes/TripoRigNode)

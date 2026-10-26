@@ -1,0 +1,75 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/LumaVideoNode/
+title: Luma texto a video - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:07.981975+00:00
+---
+
+# Luma texto a video - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/LumaVideoNode/
+
+Luma
+
+# Luma texto a video - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Genera videos de forma síncrona basándose en un texto de instrucción y configuraciones de salida.
+
+Copiar páginaCopiar página
+
+Genera videos de forma síncrona basándose en un texto de instrucción y configuraciones de salida. Este nodo crea contenido de video utilizando descripciones textuales y diversos parámetros de generación, produciendo el video final una vez que el proceso de generación se completa. **Nota:** Este nodo está marcado como obsoleto en el código fuente. Luma elimina los endpoints que llama este nodo el 24 de octubre de 2026, así que utiliza en su lugar los nodos de Luma Ray 3.2.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de Dato| Requerido| Rango  
+---|---|---|---|---  
+`prompt`| Instrucción para la generación del video (por defecto: cadena vacía). Debe tener al menos 3 caracteres.| STRING| Sí| -  
+`model`| El modelo de generación de video a utilizar.| COMBO| Sí| `"ray-1-6"`  
+`"ray-2"`  
+`aspect_ratio`| La relación de aspecto para el video generado (por defecto: “16:9”).| COMBO| Sí| `"16:9"`  
+`"9:16"`  
+`"1:1"`  
+`"4:3"`  
+`"3:4"`  
+`"21:9"`  
+`"9:21"`  
+`resolution`| La resolución de salida del video (por defecto: “540p”). Este parámetro se ignora al usar el modelo `ray-1-6`.| COMBO| Sí| `"540p"`  
+`"720p"`  
+`"1080p"`  
+`duration`| La duración del video generado. Este parámetro se ignora al usar el modelo `ray-1-6`.| COMBO| Sí| `"5s"`  
+`"9s"`  
+`loop`| Si el video debe reproducirse en bucle (por defecto: False).| BOOLEAN| Sí| -  
+`seed`| Semilla para determinar si el nodo debe re-ejecutarse; los resultados reales son no deterministas independientemente de la semilla (por defecto: 0).| INT| Sí| 0 a 18446744073709551615  
+`luma_concepts`| Conceptos de cámara opcionales para dictar el movimiento de la cámara a través del nodo Luma Concepts.| CUSTOM| No| -  
+  
+**Nota:** Al usar el modelo `ray-1-6`, los parámetros `duration` y `resolution` se ignoran automáticamente y no afectan la generación.
+
+## 
+
+​
+
+Salidas
+
+Nombre de Salida| Descripción| Tipo de Dato  
+---|---|---  
+`output`| El archivo de video generado.| VIDEO  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/LumaVideoNode/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `86ebb2d035d35f142709546566d1041b66765ae3e0c2751e71c05df138a5ecf2`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/LumaVideoNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/LumaVideoNode)
+
+[Luma Ray 3.2 Reencuadre de Video](https://docs.comfy.org/es/built-in-nodes/LumaRay32VideoReframeNode)[MiniMax H3 Context IR (Mejorador de prompts)](https://docs.comfy.org/es/built-in-nodes/MinimaxHailuo03ContextIRNode)

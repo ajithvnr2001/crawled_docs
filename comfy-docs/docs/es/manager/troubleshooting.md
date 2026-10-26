@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/manager/troubleshooting/
 title: Soluci\u00f3n de problemas de ComfyUI Manager - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.010853+00:00
+fetched_at: 2026-10-26T14:04:03.389151+00:00
 ---
 
 # Solución de problemas de ComfyUI Manager - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:50.010853+00:00
 > Source: https://docs.comfy.org/es/manager/troubleshooting/
 
 ## En esta página
+
+Volver arriba
 
   * Problemas comunes
     * Ruta personalizada del ejecutable de git
@@ -114,7 +116,7 @@ Los archivos de ComfyUI-Manager deben estar ubicados en `ComfyUI/custom_nodes/co
 
 Problema| Descripción  
 ---|---  
-Archivos en la ubicación incorrecta| Archivos del administrador como `__init__.py` colocados directamente en el directorio `custom_nodes`  
+Archivos en la ubicación incorrecta| Archivos ComfyUI Manager como `__init__.py` colocados directamente en el directorio `custom_nodes`  
 Carpeta anidada dos veces| Instalado como `custom_nodes/ComfyUI-Manager/ComfyUI-Manager`  
 Nombre de carpeta incorrecto| Instalado como `custom_nodes/ComfyUI-Manager-main`  
 Formato comprimido| Instalar desde un archivo comprimido sin la extracción adecuada  

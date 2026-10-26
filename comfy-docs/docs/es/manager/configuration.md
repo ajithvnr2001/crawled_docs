@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/manager/configuration/
 title: Configuraci\u00f3n de ComfyUI-Manager - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:48.958586+00:00
+fetched_at: 2026-10-26T14:04:03.961790+00:00
 ---
 
 # Configuración de ComfyUI-Manager - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:48.958586+00:00
 > Source: https://docs.comfy.org/es/manager/configuration/
 
 ## En esta página
+
+Volver arriba
 
   * Rutas de configuración
     * Archivos de configuración
@@ -46,9 +48,9 @@ Copiar páginaCopiar página
 
 Rutas de configuración
 
-A partir de la V3.38, el Administrador usa una ruta de sistema protegida para mejorar la seguridad.
+A partir de la V3.38, ComfyUI Manager usa una ruta de sistema protegida para mejorar la seguridad.
 
-Versión de ComfyUI| Ruta del Administrador  
+Versión de ComfyUI| Ruta ComfyUI Manager  
 ---|---  
 v0.3.76+ (con API de usuario del sistema)| `<USER_DIRECTORY>/__manager/`  
 Versiones anteriores| `<USER_DIRECTORY>/default/ComfyUI-Manager/`  
@@ -231,7 +233,7 @@ Las siguientes configuraciones se aplican según la sección marcada como `is_de
 
 Herramientas CLI
 
-ComfyUI-Manager proporciona `cm-cli`, una herramienta de línea de comandos que te permite usar las funciones del Administrador sin ejecutar ComfyUI. Esto es útil para automatizar la instalación de nodos personalizados y gestionar instalaciones en entornos sin interfaz gráfica. Para consultar la documentación detallada de cm-cli, revisa la [guía oficial de cm-cli](https://github.com/Comfy-Org/ComfyUI-Manager/blob/main/docs/en/cm-cli.md). Si buscas una experiencia de CLI más completa, considera usar [comfy-cli](https://docs.comfy.org/comfy-cli/getting-started).
+ComfyUI-Manager proporciona `cm-cli`, una herramienta de línea de comandos que te permite usar las funciones ComfyUI Manager sin ejecutar ComfyUI. Esto es útil para automatizar la instalación de nodos personalizados y gestionar instalaciones en entornos sin interfaz gráfica. Para consultar la documentación detallada de cm-cli, revisa la [guía oficial de cm-cli](https://github.com/Comfy-Org/ComfyUI-Manager/blob/main/docs/en/cm-cli.md). Si buscas una experiencia de CLI más completa, considera usar [comfy-cli](https://docs.comfy.org/es/comfy-cli/getting-started).
 
 ¿Esta página le ayudó?
 

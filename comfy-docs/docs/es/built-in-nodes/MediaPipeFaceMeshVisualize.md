@@ -1,0 +1,71 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/MediaPipeFaceMeshVisualize/
+title: Visualizar Malla Facial de MediaPipe - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:09.556511+00:00
+---
+
+# Visualizar Malla Facial de MediaPipe - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/MediaPipeFaceMeshVisualize/
+
+Detección
+
+# Visualizar Malla Facial de MediaPipe - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Dibuja los puntos de referencia faciales y las líneas de conexión (una malla facial) sobre una imagen de entrada.
+
+Copiar páginaCopiar página
+
+## 
+
+​
+
+Descripción general
+
+Dibuja puntos de referencia faciales y líneas de conexión (una malla facial) sobre una imagen de entrada. Este nodo utiliza los datos de referencia producidos por un nodo de detección facial para visualizar las características faciales detectadas, como los ojos, la nariz, la boca y el contorno del rostro.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de dato| Obligatorio| Rango  
+---|---|---|---|---  
+`face_landmarks`| Los datos de referencia facial de un nodo de detección.| FACE_LANDMARKS| Sí|   
+`image`| La imagen sobre la que se dibujará la malla. Si no está conectada, se utilizará un lienzo negro del mismo tamaño que el resultado de la detección.| IMAGE| No|   
+`connections`| Determina qué partes de la malla facial se dibujan. `"all"` dibuja la malla completa (óvalo, ojos, cejas, labios, iris, nariz). `"fill"` dibuja un polígono sólido del óvalo facial (máscara de silueta). `"custom"` permite activar o desactivar cada característica individualmente. (predeterminado: `"all"`)| COMBO| Sí| `"all"`  
+`"fill"`  
+`"custom"`  
+`color`| El color de las líneas y puntos de la malla. (predeterminado: `#00ff00`)| COLOR| Sí|   
+`thickness`| El grosor de las líneas de la malla en píxeles. Establecer esto en 0 desactiva el dibujo de líneas. (predeterminado: 1)| INT| Sí| 0 a 8  
+`point_size`| El radio de los puntos de referencia en píxeles. Establecer esto en 0 desactiva el dibujo de puntos. (predeterminado: 2)| INT| Sí| 0 a 16  
+  
+**Nota sobre el parámetro`connections`:** Cuando se selecciona `"custom"`, aparecen entradas booleanas adicionales para cada característica facial (por ejemplo, `face_oval`, `lips`, `left_eye`, `right_eye`, `left_eyebrow`, `right_eyebrow`, `left_iris`, `right_iris`, `nose`, `tesselation`). Solo se dibujarán las características que habilites.
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de dato  
+---|---|---  
+`IMAGE`| La imagen de entrada con la malla de puntos de referencia faciales dibujada sobre ella.| IMAGE  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/MediaPipeFaceMeshVisualize/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `fb5437d73378b0c8daa68669c2e19058ccb7133ed68fc51c8d4c5bab8662f243`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/MediaPipeFaceMeshVisualize.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/MediaPipeFaceMeshVisualize)
+
+[MediaPipe Face Mask](https://docs.comfy.org/es/built-in-nodes/MediaPipeFaceMask)[Detección RT-DETR](https://docs.comfy.org/es/built-in-nodes/RTDETR_detect)

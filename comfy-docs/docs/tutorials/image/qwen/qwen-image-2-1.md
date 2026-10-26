@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/image/qwen/qwen-image-2-1/
 title: Qwen-Image-2.1 ComfyUI Native Workflow Example - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T14:35:07.288067+00:00
+fetched_at: 2026-10-26T14:04:10.370441+00:00
 ---
 
 # Qwen-Image-2.1 ComfyUI Native Workflow Example - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-19T14:35:07.288067+00:00
 > Source: https://docs.comfy.org/tutorials/image/qwen/qwen-image-2-1/
 
 ## On this page
+
+Back to top
 
   * Qwen-Image-2.1 workflow
     * Qwen Image 2.1 Text to Image
@@ -25,6 +27,7 @@ fetched_at: 2026-10-19T14:35:07.288067+00:00
     * KV cache
     * Prompt enhancement
   * VAE decoding artifacts
+  * Faster sampling with the Turbo LoRA
   * Faster sampling with the Lightning LoRA
   * Alpha channel output
 
@@ -303,13 +306,14 @@ Control| Values| Effect
 
 Prompt enhancement
 
-The text to image and image edit templates include an optional prompt enhancement step. A dedicated text encoder rewrites the prompt before sampling, turning a short request into a longer, more detailed one. Both templates expose the controls on the Qwen Image 2.1 subgraph node:
+The text to image and image edit templates include an optional prompt enhancement step. A dedicated text encoder rewrites the prompt before sampling, turning a short request into a longer, more detailed one. All four templates expose the controls on the Qwen Image 2.1 subgraph node:
 
-  * `refine_prompt`: off by default in both templates. Turn it on to have the image model sample with the rewritten prompt instead of the prompt you typed
+  * `refine_prompt`: off by default in all four templates. Turn it on to have the image model sample with the rewritten prompt instead of the prompt you typed
   * `PE_model`: the text encoder that performs the rewrite, `qwen3.5_9b_qwen_image_2.1_pe_t2i.int8_convrot.safetensors` for text to image and `qwen3.5_9b_qwen_image_2.1_pe_i2i.int8_convrot.safetensors` for image edit
-  * `thinking_mode`: off by default in both templates. Turn it on together with `refine_prompt` to let the rewriting model reason before it writes
+  * `thinking_mode` (`thinking` on the image edit templates): off by default in all four templates. The checkpoint is trained with a reasoning block and loses quality without it, so turn it on together with `refine_prompt` after raising `max_length` (see below)
+  * `max_length`: the token budget shared by the reasoning block and the rewritten prompt. Every template ships **4096** , and the node accepts up to 32768
 
-A `Preview Any` node inside the subgraph shows the prompt that actually reaches the image model, so you can read the rewrite before deciding whether to keep it. The instruction the rewriting model follows lives in a `Text (System Prompt)` node that you can edit. Because the enhancement branch is only evaluated when `refine_prompt` is on, the enhancement text encoder is optional in both templates; turn `refine_prompt` on to use it. The background removal template does not include this step.
+A `Preview Any` node inside the subgraph shows the prompt that actually reaches the image model, so you can read the rewrite before deciding whether to keep it. The instruction the rewriting model follows lives in a `Text (System Prompt)` node that you can edit. Because the enhancement branch is only evaluated when `refine_prompt` is on, the enhancement text encoder is optional in all four templates; turn `refine_prompt` on to use it. The background removal template does not include this step. The templates ship `max_length` at 4096 so a single rewrite does not run for many minutes. The prompt-enhancer model cards ([T2I](https://huggingface.co/Qwen/Qwen-Image-2.1-PE-T2I), [I2I](https://huggingface.co/Qwen/Qwen-Image-2.1-PE-I2I)) sample with `max_new_tokens` **16256** for text to image and **24000** for image edit, both with thinking on. When the reasoning block uses up the 4096 budget, it never closes and the enhancer returns an empty string. `Preview Any` shows nothing, and the image model samples that empty prompt: an edit comes back close to its input, and text to image loses the request. Raise `max_length` to the card value before turning thinking on, and expect a longer wait per rewrite.
 
 ## 
 
@@ -323,9 +327,17 @@ The stock Qwen-Image-2.1 VAE can leave a fine checkerboard texture in detailed p
 
 ​
 
+Faster sampling with the Turbo LoRA
+
+A Turbo LoRA for the base checkpoint samples in 8 steps with `cfg` 1\. The official file ships in the [Comfy-Org/Qwen-Image-2.1](https://huggingface.co/Comfy-Org/Qwen-Image-2.1) repository as [qwen_image_2.1_turbo_lora_avg_rank_178_bf16.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image-2.1/blob/main/loras/qwen_image_2.1_turbo_lora_avg_rank_178_bf16.safetensors). Download it into `ComfyUI/models/loras/` and load it with a `LoraLoaderModelOnly` node on the model line that feeds the sampler. The Turbo workflows take the other route: a separate Turbo diffusion model with a fixed eight-step `ManualSigmas` schedule. The LoRA reuses the base checkpoint, so that second download is not needed. The base templates already run `cfg` 1 with `euler` and `simple`, so set `steps` to 8 on the Qwen Image 2.1 subgraph node and leave the sampler and scheduler as they ship.
+
+## 
+
+​
+
 Faster sampling with the Lightning LoRA
 
-The base workflows sample in 25 steps. [Qwen-Image-2.1-Lightning](https://huggingface.co/lightx2v/Qwen-Image-2.1-Lightning) is an unofficial 4-step distilled LoRA for the same base checkpoint. Download [pytorch_lora_weights.safetensors](https://huggingface.co/lightx2v/Qwen-Image-2.1-Lightning/blob/main/pytorch_lora_weights.safetensors) into `ComfyUI/models/loras/` and load it with a `LoraLoaderModelOnly` node on the model line that feeds the sampler. The LoRA runs at `cfg` 1 with a four-step schedule. Its card lists a `1.0, 0.75, 0.5, 0.25` grid, which is the grid before the exponential time shift the schedule is built with, not the values the sampler runs on. ComfyUI’s Qwen-Image-2.1 sampling settings carry the same shift, fitted at 1024x1024, so `steps` 4 with the template’s `euler` and `simple` reproduces the distilled schedule there: about `1.0, 0.857, 0.667, 0.4`. Set `steps` to 4 on the `KSampler` and leave the scheduler as it ships. A `ManualSigmas` node is marked experimental and passes its numbers through unchanged, so a hand-written schedule has to start from the shifted values. ComfyUI fits its shift at 1024x1024, so the match loosens at other output sizes.
+The base workflows sample in 25 steps. [Qwen-Image-2.1-Lightning](https://huggingface.co/lightx2v/Qwen-Image-2.1-Lightning) is an unofficial 4-step distilled LoRA for the same base checkpoint. Download [pytorch_lora_weights.safetensors](https://huggingface.co/lightx2v/Qwen-Image-2.1-Lightning/blob/main/pytorch_lora_weights.safetensors) into `ComfyUI/models/loras/` and load it with a `LoraLoaderModelOnly` node on the model line that feeds the sampler. The LoRA runs at `cfg` 1 with a four-step schedule. Its card lists a `1.0, 0.75, 0.5, 0.25` grid, which is the grid before the exponential time shift the schedule is built with, not the values the sampler runs on. ComfyUI’s Qwen-Image-2.1 sampling settings carry the same shift, fitted at 1024x1024, so `steps` 4 with the template’s `euler` and `simple` reproduces the distilled schedule there: about `1.0, 0.857, 0.667, 0.4`. Set `steps` to 4 on the Qwen Image 2.1 subgraph node and leave the scheduler as it ships. A `ManualSigmas` node is marked experimental and passes its numbers through unchanged, so a hand-written schedule has to start from the shifted values. ComfyUI fits its shift at 1024x1024, so the match loosens at other output sizes.
 
 ## 
 
@@ -341,26 +353,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/image/qwen/qwen-image-2-1.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/image/qwen/qwen-image-2-1)
 
-[ComfyUI Flux.1 ControlNet ExamplesPrevious](https://docs.comfy.org/tutorials/flux/flux-1-controlnet)[Qwen-Image ComfyUI Native Workflow ExampleNext](https://docs.comfy.org/tutorials/image/qwen/qwen-image)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Flux.1 ControlNet](https://docs.comfy.org/tutorials/flux/flux-1-controlnet)[Qwen-Image](https://docs.comfy.org/tutorials/image/qwen/qwen-image)

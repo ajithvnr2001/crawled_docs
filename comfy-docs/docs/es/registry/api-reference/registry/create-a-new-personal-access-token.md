@@ -1,0 +1,486 @@
+---
+url: https://docs.comfy.org/es/registry/api-reference/registry/create-a-new-personal-access-token/
+title: Create a new personal access token - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:03:34.592437+00:00
+---
+
+# Create a new personal access token - ComfyUI
+
+> Source: https://docs.comfy.org/es/registry/api-reference/registry/create-a-new-personal-access-token/
+
+Create a new personal access token
+
+cURL
+    
+    
+    curl --request POST \
+      --url https://api.comfy.org/publishers/{publisherId}/tokens \
+      --header 'Authorization: Bearer <token>' \
+      --header 'Content-Type: application/json' \
+      --data '
+    {
+      "createdAt": "2023-11-07T05:31:56Z",
+      "description": "<string>",
+      "id": "3c90c3cc-0d44-4b50-8888-8dd25736052a",
+      "name": "<string>",
+      "token": "<string>"
+    }
+    '
+    
+    
+    import requests
+    
+    url = "https://api.comfy.org/publishers/{publisherId}/tokens"
+    
+    payload = {
+        "createdAt": "2023-11-07T05:31:56Z",
+        "description": "<string>",
+        "id": "3c90c3cc-0d44-4b50-8888-8dd25736052a",
+        "name": "<string>",
+        "token": "<string>"
+    }
+    headers = {
+        "Authorization": "Bearer <token>",
+        "Content-Type": "application/json"
+    }
+    
+    response = requests.post(url, json=payload, headers=headers)
+    
+    print(response.text)
+    
+    
+    const options = {
+      method: 'POST',
+      headers: {Authorization: 'Bearer <token>', 'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        createdAt: '2023-11-07T05:31:56Z',
+        description: '<string>',
+        id: '3c90c3cc-0d44-4b50-8888-8dd25736052a',
+        name: '<string>',
+        token: '<string>'
+      })
+    };
+    
+    fetch('https://api.comfy.org/publishers/{publisherId}/tokens', options)
+      .then(res => res.json())
+      .then(res => console.log(res))
+      .catch(err => console.error(err));
+    
+    
+    <?php
+    
+    $curl = curl_init();
+    
+    curl_setopt_array($curl, [
+      CURLOPT_URL => "https://api.comfy.org/publishers/{publisherId}/tokens",
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "POST",
+      CURLOPT_POSTFIELDS => json_encode([
+        'createdAt' => '2023-11-07T05:31:56Z',
+        'description' => '<string>',
+        'id' => '3c90c3cc-0d44-4b50-8888-8dd25736052a',
+        'name' => '<string>',
+        'token' => '<string>'
+      ]),
+      CURLOPT_HTTPHEADER => [
+        "Authorization: Bearer <token>",
+        "Content-Type: application/json"
+      ],
+    ]);
+    
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    
+    curl_close($curl);
+    
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
+      echo $response;
+    }
+    
+    
+    package main
+    
+    import (
+    	"fmt"
+    	"strings"
+    	"net/http"
+    	"io"
+    )
+    
+    func main() {
+    
+    	url := "https://api.comfy.org/publishers/{publisherId}/tokens"
+    
+    	payload := strings.NewReader("{\n  \"createdAt\": \"2023-11-07T05:31:56Z\",\n  \"description\": \"<string>\",\n  \"id\": \"3c90c3cc-0d44-4b50-8888-8dd25736052a\",\n  \"name\": \"<string>\",\n  \"token\": \"<string>\"\n}")
+    
+    	req, _ := http.NewRequest("POST", url, payload)
+    
+    	req.Header.Add("Authorization", "Bearer <token>")
+    	req.Header.Add("Content-Type", "application/json")
+    
+    	res, _ := http.DefaultClient.Do(req)
+    
+    	defer res.Body.Close()
+    	body, _ := io.ReadAll(res.Body)
+    
+    	fmt.Println(string(body))
+    
+    }
+    
+    
+    HttpResponse<String> response = Unirest.post("https://api.comfy.org/publishers/{publisherId}/tokens")
+      .header("Authorization", "Bearer <token>")
+      .header("Content-Type", "application/json")
+      .body("{\n  \"createdAt\": \"2023-11-07T05:31:56Z\",\n  \"description\": \"<string>\",\n  \"id\": \"3c90c3cc-0d44-4b50-8888-8dd25736052a\",\n  \"name\": \"<string>\",\n  \"token\": \"<string>\"\n}")
+      .asString();
+    
+    
+    require 'uri'
+    require 'net/http'
+    
+    url = URI("https://api.comfy.org/publishers/{publisherId}/tokens")
+    
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    
+    request = Net::HTTP::Post.new(url)
+    request["Authorization"] = 'Bearer <token>'
+    request["Content-Type"] = 'application/json'
+    request.body = "{\n  \"createdAt\": \"2023-11-07T05:31:56Z\",\n  \"description\": \"<string>\",\n  \"id\": \"3c90c3cc-0d44-4b50-8888-8dd25736052a\",\n  \"name\": \"<string>\",\n  \"token\": \"<string>\"\n}"
+    
+    response = http.request(request)
+    puts response.read_body
+
+201
+
+400
+
+403
+
+500
+    
+    
+    {
+      "token": "<string>"
+    }
+    
+    
+    {
+      "error": "<string>",
+      "message": "<string>"
+    }
+    
+    
+    {
+      "error": "<string>",
+      "message": "<string>"
+    }
+    
+    
+    {
+      "error": "<string>",
+      "message": "<string>"
+    }
+
+Registry
+
+# Create a new personal access token
+
+Copiar páginaCopiar página
+
+Copiar páginaCopiar página
+
+POST
+
+/
+
+publishers
+
+/
+
+{publisherId}
+
+/
+
+tokens
+
+Pruébalo
+
+Create a new personal access token
+
+cURL
+    
+    
+    curl --request POST \
+      --url https://api.comfy.org/publishers/{publisherId}/tokens \
+      --header 'Authorization: Bearer <token>' \
+      --header 'Content-Type: application/json' \
+      --data '
+    {
+      "createdAt": "2023-11-07T05:31:56Z",
+      "description": "<string>",
+      "id": "3c90c3cc-0d44-4b50-8888-8dd25736052a",
+      "name": "<string>",
+      "token": "<string>"
+    }
+    '
+    
+    
+    import requests
+    
+    url = "https://api.comfy.org/publishers/{publisherId}/tokens"
+    
+    payload = {
+        "createdAt": "2023-11-07T05:31:56Z",
+        "description": "<string>",
+        "id": "3c90c3cc-0d44-4b50-8888-8dd25736052a",
+        "name": "<string>",
+        "token": "<string>"
+    }
+    headers = {
+        "Authorization": "Bearer <token>",
+        "Content-Type": "application/json"
+    }
+    
+    response = requests.post(url, json=payload, headers=headers)
+    
+    print(response.text)
+    
+    
+    const options = {
+      method: 'POST',
+      headers: {Authorization: 'Bearer <token>', 'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        createdAt: '2023-11-07T05:31:56Z',
+        description: '<string>',
+        id: '3c90c3cc-0d44-4b50-8888-8dd25736052a',
+        name: '<string>',
+        token: '<string>'
+      })
+    };
+    
+    fetch('https://api.comfy.org/publishers/{publisherId}/tokens', options)
+      .then(res => res.json())
+      .then(res => console.log(res))
+      .catch(err => console.error(err));
+    
+    
+    <?php
+    
+    $curl = curl_init();
+    
+    curl_setopt_array($curl, [
+      CURLOPT_URL => "https://api.comfy.org/publishers/{publisherId}/tokens",
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "POST",
+      CURLOPT_POSTFIELDS => json_encode([
+        'createdAt' => '2023-11-07T05:31:56Z',
+        'description' => '<string>',
+        'id' => '3c90c3cc-0d44-4b50-8888-8dd25736052a',
+        'name' => '<string>',
+        'token' => '<string>'
+      ]),
+      CURLOPT_HTTPHEADER => [
+        "Authorization: Bearer <token>",
+        "Content-Type: application/json"
+      ],
+    ]);
+    
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    
+    curl_close($curl);
+    
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
+      echo $response;
+    }
+    
+    
+    package main
+    
+    import (
+    	"fmt"
+    	"strings"
+    	"net/http"
+    	"io"
+    )
+    
+    func main() {
+    
+    	url := "https://api.comfy.org/publishers/{publisherId}/tokens"
+    
+    	payload := strings.NewReader("{\n  \"createdAt\": \"2023-11-07T05:31:56Z\",\n  \"description\": \"<string>\",\n  \"id\": \"3c90c3cc-0d44-4b50-8888-8dd25736052a\",\n  \"name\": \"<string>\",\n  \"token\": \"<string>\"\n}")
+    
+    	req, _ := http.NewRequest("POST", url, payload)
+    
+    	req.Header.Add("Authorization", "Bearer <token>")
+    	req.Header.Add("Content-Type", "application/json")
+    
+    	res, _ := http.DefaultClient.Do(req)
+    
+    	defer res.Body.Close()
+    	body, _ := io.ReadAll(res.Body)
+    
+    	fmt.Println(string(body))
+    
+    }
+    
+    
+    HttpResponse<String> response = Unirest.post("https://api.comfy.org/publishers/{publisherId}/tokens")
+      .header("Authorization", "Bearer <token>")
+      .header("Content-Type", "application/json")
+      .body("{\n  \"createdAt\": \"2023-11-07T05:31:56Z\",\n  \"description\": \"<string>\",\n  \"id\": \"3c90c3cc-0d44-4b50-8888-8dd25736052a\",\n  \"name\": \"<string>\",\n  \"token\": \"<string>\"\n}")
+      .asString();
+    
+    
+    require 'uri'
+    require 'net/http'
+    
+    url = URI("https://api.comfy.org/publishers/{publisherId}/tokens")
+    
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    
+    request = Net::HTTP::Post.new(url)
+    request["Authorization"] = 'Bearer <token>'
+    request["Content-Type"] = 'application/json'
+    request.body = "{\n  \"createdAt\": \"2023-11-07T05:31:56Z\",\n  \"description\": \"<string>\",\n  \"id\": \"3c90c3cc-0d44-4b50-8888-8dd25736052a\",\n  \"name\": \"<string>\",\n  \"token\": \"<string>\"\n}"
+    
+    response = http.request(request)
+    puts response.read_body
+
+201
+
+400
+
+403
+
+500
+    
+    
+    {
+      "token": "<string>"
+    }
+    
+    
+    {
+      "error": "<string>",
+      "message": "<string>"
+    }
+    
+    
+    {
+      "error": "<string>",
+      "message": "<string>"
+    }
+    
+    
+    {
+      "error": "<string>",
+      "message": "<string>"
+    }
+
+#### Autorizaciones
+
+​
+
+Authorization
+
+string
+
+header
+
+requerido
+
+Bearer token authentication. Normally a Firebase or Cloud JWT. A 'comfyui-' prefixed API key is also accepted in this header: the prefix classifies the value as an API key and it is validated exactly as if it had been sent in X-API-Key. Accepted on the operations served by the comfyFirebase auth middleware (BE-9720, parity with ingest).
+
+#### Parámetros de ruta
+
+​
+
+publisherId
+
+string
+
+requerido
+
+#### Cuerpo
+
+application/json
+
+​
+
+createdAt
+
+string<date-time>
+
+[Output Only]The date and time the token was created.
+
+​
+
+description
+
+string
+
+Optional. A more detailed description of the token's intended use.
+
+​
+
+id
+
+string<uuid>
+
+Unique identifier for the GitCommit
+
+​
+
+name
+
+string
+
+Required. The name of the token. Can be a simple description.
+
+​
+
+token
+
+string
+
+[Output Only]. The personal access token. Only returned during creation.
+
+#### Respuesta
+
+201
+
+application/json
+
+Token created successfully
+
+​
+
+token
+
+string
+
+The newly created personal access token.
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/registry/api-reference/registry/create-a-new-personal-access-token.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/registry/api-reference/registry/create-a-new-personal-access-token)
+
+[Retrieve permissions the user has for a given publisher](https://docs.comfy.org/es/registry/api-reference/registry/retrieve-permissions-the-user-has-for-a-given-publisher-1)[Delete a specific personal access token](https://docs.comfy.org/es/registry/api-reference/registry/delete-a-specific-personal-access-token)

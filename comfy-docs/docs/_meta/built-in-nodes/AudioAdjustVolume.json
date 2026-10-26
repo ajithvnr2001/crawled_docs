@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/AudioAdjustVolume/",
   "file": "built-in-nodes/AudioAdjustVolume.md",
-  "title": "AudioAdjustVolume - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "Adjust Audio Volume - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:47:21.523129+00:00",
-  "html_len": 604606,
-  "md_len": 3522,
-  "depth": 0
+  "fetched_at": "2026-10-26T14:04:10.799002+00:00"
 }

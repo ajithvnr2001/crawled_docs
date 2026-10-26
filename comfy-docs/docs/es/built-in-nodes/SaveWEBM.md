@@ -1,0 +1,64 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/SaveWEBM/
+title: Guardar WEBM - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:29.794031+00:00
+---
+
+# Guardar WEBM - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/SaveWEBM/
+
+Video
+
+# Guardar WEBM - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+El nodo SaveWEBM guarda una secuencia de imágenes como un archivo de video WEBM.
+
+Copiar páginaCopiar página
+
+El nodo SaveWEBM guarda una secuencia de imágenes como un archivo de video WEBM. Toma múltiples imágenes de entrada y las codifica en un video usando el códec VP9 o AV1, con ajustes de calidad y velocidad de fotogramas configurables. El archivo de video resultante se guarda en el directorio de salida con metadatos que incluyen información del prompt.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`imágenes`| Las imágenes RGBA se guardan con su canal alfa como transparencia (solo códec vp9).| IMAGE| Sí| -  
+`prefijo_nombre_archivo`| Prefijo para el nombre del archivo de salida (predeterminado: “ComfyUI”).| STRING| No| -  
+`códec`| Códec de video que se utilizará para la codificación.| COMBO| Sí| ”vp9"  
+"av1”  
+`fps`| Velocidad de fotogramas para el video de salida (predeterminado: 24.0).| FLOAT| No| 0.01-1000.0  
+`crf`| Un crf más alto significa menor calidad con un tamaño de archivo más pequeño; un crf más bajo significa mayor calidad y un tamaño de archivo mayor (predeterminado: 32.0).| FLOAT| No| 0-63.0  
+  
+**Nota sobre el canal alfa:** El canal alfa de las imágenes RGBA solo se conserva cuando se utiliza el códec VP9. Cuando se utiliza el códec AV1, el canal alfa se ignora y solo se codifican los datos RGB. **Nota sobre el nombre de los archivos:** Los videos se guardan en el directorio de salida como `{filename_prefix}_{counter:05}_.webm`, donde el contador se incrementa automáticamente para evitar sobrescribir archivos existentes.
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`images`| Las imágenes de entrada, pasadas sin cambios después de guardar el video.| IMAGE  
+UI preview| Vista previa de video que muestra el archivo WEBM guardado.| PREVIEW  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/SaveWEBM/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `55496b10af66a908ef035d236f8fab8193c1ae44408dab9d202deadff3be2715`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/SaveWEBM.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/SaveWEBM)
+
+[Guardar video](https://docs.comfy.org/es/built-in-nodes/SaveVideo)[Corte de Video](https://docs.comfy.org/es/built-in-nodes/Video%20Slice)

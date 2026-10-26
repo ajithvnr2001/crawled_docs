@@ -1,0 +1,69 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/BuildJsonPromptIdeogram/
+title: Construir prompt JSON (Ideogram) - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:01:34.168969+00:00
+---
+
+# Construir prompt JSON (Ideogram) - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/BuildJsonPromptIdeogram/
+
+Texto
+
+# Construir prompt JSON (Ideogram) - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Este nodo construye un prompt JSON estructurado, formateado específicamente para el modelo de generación de imágenes Ideogram 4.
+
+Copiar páginaCopiar página
+
+Este nodo construye un prompt JSON estructurado, formateado específicamente para el modelo de generación de imágenes Ideogram 4. Organiza tus instrucciones de texto, preferencias de estilo y paleta de colores en la estructura JSON requerida que el modelo espera.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de Dato| Requerido| Rango  
+---|---|---|---|---  
+`elemento`| Elementos del prompt provenientes del nodo Create Bounding Boxes.| ARRAY| Sí| -  
+`descripción_general`| Descripción opcional de la imagen en una o dos oraciones. Muy recomendado. (predeterminado: vacío)| STRING| No| -  
+`fondo`| Descripción obligatoria del fondo o entorno de la imagen. Se recomienda encarecidamente proporcionar un valor; el nodo se ejecutará con una cadena vacía, pero los resultados pueden ser impredecibles. (predeterminado: vacío)| STRING| No| -  
+`estilo`| La categoría de estilo visual para la imagen generada. (predeterminado: “none”)| COMBO| Sí| `"none"`  
+`"photo"`  
+`"art_style"`  
+`photo`| Detalles de cámara o lente para salidas fotográficas (ej. 35mm, f/1.4, bokeh). Solo disponible cuando el estilo está configurado como “photo”. (predeterminado: vacío)| STRING| No| -  
+`art_style`| Descripción del estilo artístico (ej. ilustración vectorial plana, contornos gruesos). Solo disponible cuando el estilo está configurado como “art_style”. (predeterminado: vacío)| STRING| No| -  
+`estética`| Palabras clave estéticas obligatorias (p. ej., melancólico, cinematográfico, desaturado). Se recomienda encarecidamente proporcionar un valor. (predeterminado: vacío)| STRING| No| -  
+`iluminación`| Descripción obligatoria de la iluminación (p. ej., hora dorada, luz de recorte, sombras dramáticas). Se recomienda encarecidamente proporcionar un valor. (predeterminado: vacío)| STRING| No| -  
+`medio`| Tipo de medio obligatorio (p. ej., fotografía, ilustración, 3d_render, pintura, diseño gráfico). Cuando estilo = photo, establezca photograph. Se recomienda encarecidamente proporcionar un valor. (predeterminado: vacío)| STRING| No| -  
+`paleta_de_colores`| Códigos de color hexadecimales que guían los colores dominantes de la imagen. Hasta 16 entradas.| COLORS| No| -  
+  
+**Nota:** Cuando el parámetro `style` está configurado como “photo”, la entrada `photo` estará disponible y debes configurar el parámetro `medium` como “photograph”. Cuando `style` está configurado como “art_style”, la entrada `art_style` estará disponible.
+
+## 
+
+​
+
+Salidas
+
+Nombre de Salida| Descripción| Tipo de Dato  
+---|---|---  
+`prompt`| Un diccionario JSON estructurado que contiene la descripción de alto nivel, la descripción del estilo (si aplica) y la descomposición compositiva con fondo y elementos.| DICT  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/BuildJsonPromptIdeogram/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `56a045e0c7c19531e6443696c0bdf3946df066d03eea7d2d217b7d92f052592f`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/BuildJsonPromptIdeogram.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/BuildJsonPromptIdeogram)
+
+[Agregar sufijo de texto](https://docs.comfy.org/es/built-in-nodes/AddTextSuffix)[Convertidor de mayúsculas y minúsculas](https://docs.comfy.org/es/built-in-nodes/CaseConverter)

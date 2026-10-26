@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/desktop/usage/migrate/
 title: Migrar desde Legacy Desktop - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:48.339915+00:00
+fetched_at: 2026-10-26T14:04:02.925225+00:00
 ---
 
 # Migrar desde Legacy Desktop - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:48.339915+00:00
 > Source: https://docs.comfy.org/es/installation/desktop/usage/migrate/
 
 ## En esta página
+
+Volver arriba
 
   * Qué se migra
   * Qué cambia después de la migración
@@ -39,7 +41,7 @@ Esta página cubre la migración desde **Legacy Desktop** (la aplicación de esc
 
 Si ya tienes una instalación de ComfyUI (portable, clon manual de git, etc.) y quieres agregarla a Comfy Desktop, consulta **Seguimiento de una instalación existente** en Gestión de instancias.
 
-Si ya tienes Legacy Desktop instalado, Comfy Desktop puede detectarlo y migrarlo, creando una nueva instalación Standalone en la vista Chooser.
+Si ya tienes Legacy Desktop instalado, Comfy Desktop puede detectarlo y migrarlo, creando una nueva instalación Standalone en la vista Selector.
 
 ## 
 
@@ -66,7 +68,7 @@ Qué cambia después de la migración
 
 Una vez que se completa la migración, tu nueva instalación Standalone funciona como cualquier otra instalación de Comfy Desktop:
 
-  * **Inicio** : haz clic en el botón Reproducir de la tarjeta de la nueva instalación en la vista Chooser para iniciar ComfyUI.
+  * **Inicio** : haz clic en el botón Reproducir de la tarjeta de la nueva instalación en la vista Selector para iniciar ComfyUI.
   * **Puerto** : Legacy Desktop usaba el puerto `8000` de forma predeterminada. La nueva instalación conserva esta configuración de puerto (y cualquier otro argumento de inicio personalizado que tuvieras).
   * **Administrar** : usa el panel Administrar para actualizar, tomar instantáneas y configurar la instalación.
   * **Actualizaciones** : las instalaciones Standalone se pueden actualizar de forma independiente a través del panel Administrar. A diferencia de Legacy Desktop, ya no necesitas descargar una nueva compilación para cada actualización.

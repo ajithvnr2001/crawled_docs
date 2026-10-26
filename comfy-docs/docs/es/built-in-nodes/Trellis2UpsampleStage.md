@@ -1,0 +1,62 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/Trellis2UpsampleStage/
+title: Etapa de aumento de resoluci\u00f3n de Trellis2 - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:36.934267+00:00
+---
+
+# Etapa de aumento de resolución de Trellis2 - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/Trellis2UpsampleStage/
+
+Trellis
+
+# Etapa de aumento de resolución de Trellis2 - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Este nodo escala un latente de forma de resolución 512 a coordenadas dispersas de alta resolución y prepara la segunda pasada de muestreo de la etapa de forma
+
+Copiar páginaCopiar página
+
+Este nodo escala un latente de forma de resolución 512 a coordenadas dispersas de alta resolución y prepara la segunda pasada de muestreo de la etapa de forma en la resolución objetivo. Adjunta metadatos por etapa al condicionamiento para que el modelo pueda consumirlos durante la generación.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Requerido| Rango  
+---|---|---|---|---  
+`positivo`| El condicionamiento positivo al que se adjuntan los metadatos de forma de la etapa de escalado.| CONDITIONING| Sí|   
+`negativo`| El condicionamiento negativo al que se adjuntan los metadatos de forma de la etapa de escalado.| CONDITIONING| Sí|   
+`latent de forma`| El latente de forma de resolución 512 generado por el primer KSampler de la etapa de forma.| LATENT| Sí|   
+`vae`| El VAE de Trellis2 utilizado para decodificar el latente de forma en coordenadas dispersas de alta resolución.| VAE| Sí|   
+`resolución objetivo`| Resolución de vóxel de la forma escalada. Mayor = más detalle, más VRAM. Predeterminado: 1024.| INT| Sí| 1024 - 2048 (paso 128)  
+  
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`positive`| Condicionamiento positivo con los metadatos de forma de la etapa de escalado adjuntos.| CONDITIONING  
+`negative`| Condicionamiento negativo con los metadatos de forma de la etapa de escalado adjuntos.| CONDITIONING  
+`latent`| Latente rellenado con ceros, preparado para la segunda pasada de muestreo de la etapa de forma en la resolución objetivo, que transporta las coordenadas escaladas, los recuentos de coordenadas por muestra y los metadatos de resolución de coordenadas.| LATENT  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/Trellis2UpsampleStage/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `0582579bfab487718d69789de508a5ec243d98a0e06ad7165c406154a64677d6`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/Trellis2UpsampleStage.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/Trellis2UpsampleStage)
+
+[Etapa de textura de Trellis2](https://docs.comfy.org/es/built-in-nodes/Trellis2TextureStage)[Condicionamiento TripoSplat](https://docs.comfy.org/es/built-in-nodes/TripoSplatConditioning)

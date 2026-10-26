@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/get_started/first_generation/
 title: Primeros pasos con la generaci\u00f3n de im\u00e1genes con IA - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:48.193382+00:00
+fetched_at: 2026-10-26T14:04:02.630392+00:00
 ---
 
 # Primeros pasos con la generación de imágenes con IA - ComfyUI
@@ -11,7 +11,9 @@ fetched_at: 2026-10-25T12:24:48.193382+00:00
 
 ## En esta página
 
-  * Acerca de Texto a imagen
+Volver arriba
+
+  * Acerca de texto a imagen
   * Tutorial del flujo de trabajo de texto a imagen de ComfyUI
     * 1\. Inicia ComfyUI
     * 2\. Carga el flujo de trabajo predeterminado de texto a imagen
@@ -26,7 +28,7 @@ fetched_at: 2026-10-25T12:24:48.193382+00:00
 
 Copiar páginaCopiar página
 
-Genera tu primera imagen con IA con ComfyUI. Aprende a cargar flujos de trabajo de ejemplo, instalar modelos y completar tu primera generación de texto a imagen.
+Genera tu primera imagen con IA en ComfyUI. Aprende a cargar flujos de trabajo de ejemplo, instalar modelos y completar tu primera generación de texto a imagen.
 
 Copiar páginaCopiar página
 
@@ -36,12 +38,12 @@ Esta guía está pensada para **usuarios locales** que ejecutan ComfyUI en su pr
 
 Ejecuta ComfyUI en línea sin configuración alguna. Inicia sesión con Google para obtener **400 créditos gratis cada mes**.
 
-Esta guía tiene como objetivo ayudarte a comprender las operaciones básicas de ComfyUI y completar tu primera generación de imágenes. Cubriremos:
+Esta guía te ayuda a entender las operaciones básicas de ComfyUI y a completar tu primera generación de imágenes. Veremos:
 
-  1. Cargando flujos de trabajo de ejemplo 
-     * Cargando desde las plantillas de flujos de trabajo de ComfyUI
-     * Cargando desde imágenes con metadatos de flujo de trabajo
-  2. Orientación para la instalación de modelos 
+  1. Carga de flujos de trabajo de ejemplo 
+     * Desde las plantillas de flujos de trabajo de ComfyUI
+     * Desde imágenes con metadatos de flujo de trabajo
+  2. Guía de instalación de modelos 
      * Instalación automática de modelos
      * Instalación manual de modelos
   3. Completar tu primera generación de texto a imagen
@@ -52,9 +54,9 @@ Esta guía tiene como objetivo ayudarte a comprender las operaciones básicas de
 
 ​
 
-Acerca de Texto a imagen
+Acerca de texto a imagen
 
-Texto a imagen es una función fundamental de dibujo con IA que genera imágenes a partir de descripciones de texto. Es una de las funciones más utilizadas en la generación de arte con IA. Puedes pensar en el proceso como si le explicaras tus requisitos (prompts positivos y negativos) a un artista (el modelo de dibujo), quien luego creará lo que deseas. Las explicaciones detalladas sobre texto a imagen se cubrirán en el capítulo [Texto a imagen](https://docs.comfy.org/tutorials/basic/text-to-image).
+Texto a imagen es una función básica de generación con IA que crea imágenes a partir de descripciones de texto. Es una de las funciones más usadas en el arte con IA. Puedes imaginar el proceso como explicarle tus requisitos (prompts positivos y negativos) a un artista (el modelo), que luego crea lo que pediste. Encontrarás más detalle en el capítulo [Texto a imagen](https://docs.comfy.org/es/tutorials/basic/text-to-image).
 
 ## 
 
@@ -68,7 +70,7 @@ Tutorial del flujo de trabajo de texto a imagen de ComfyUI
 
 1\. Inicia ComfyUI
 
-Asegúrate de haber seguido la [guía de instalación](https://docs.comfy.org/es/installation/system_requirements) para iniciar ComfyUI y poder entrar correctamente a la interfaz de ComfyUI. Como alternativa, puedes usar [Comfy Cloud](https://docs.comfy.org/es/get_started/cloud) para utilizar ComfyUI sin necesidad de instalación alguna. ![Interfaz de ComfyUI](https://mintcdn.com/dripart/-uf1LbfqYw9IrpmN/images/desktop/comfyui-interface.jpg?fit=max&auto=format&n=-uf1LbfqYw9IrpmN&q=85&s=5fc5c0932897a4ab0076db79fec7b4ea) Si no has instalado ComfyUI, elige la versión adecuada para instalar según tu dispositivo.
+Asegúrate de haber seguido la [guía de instalación](https://docs.comfy.org/es/installation/system_requirements) para iniciar ComfyUI y abrir correctamente la interfaz. Como alternativa, puedes usar [Comfy Cloud](https://docs.comfy.org/es/get_started/cloud) para usar ComfyUI sin instalar nada. ![Interfaz de ComfyUI](https://mintcdn.com/dripart/-uf1LbfqYw9IrpmN/images/desktop/comfyui-interface.jpg?fit=max&auto=format&n=-uf1LbfqYw9IrpmN&q=85&s=5fc5c0932897a4ab0076db79fec7b4ea) Si aún no tienes ComfyUI instalado, elige la versión adecuada para tu dispositivo.
 
 Comfy Desktop
 
@@ -123,7 +125,7 @@ Compatible con todos los tipos de sistema y de GPU (Nvidia, AMD, Intel, Apple Si
 
 2\. Carga el flujo de trabajo predeterminado de texto a imagen
 
-Por lo general, ComfyUI carga automáticamente el flujo de trabajo predeterminado de texto a imagen al iniciarse. Sin embargo, puedes probar distintos métodos para cargar flujos de trabajo y familiarizarte con las operaciones básicas de ComfyUI:
+Por lo general, ComfyUI carga automáticamente el flujo de trabajo predeterminado de texto a imagen al iniciarse. Aun así, conviene probar distintos métodos de carga para familiarizarte con las operaciones básicas:
 
   * Cargar desde imágenes con metadatos
 
@@ -180,9 +182,9 @@ Después de hacer clic en el botón **Download** , ComfyUI ejecutará la descarg
 
 La versión de escritorio completará automáticamente la descarga del modelo y lo guardará en el directorio `<your ComfyUI installation location>/ComfyUI/models/checkpoints`. Puedes esperar a que se complete la instalación o ver el progreso de la instalación en el panel de modelos de la barra lateral.![Progreso de descarga del modelo](https://mintcdn.com/dripart/Y1vvksJIVhyGxEpl/images/tutorial/gettingstarted/desktop_download_status.png?fit=max&auto=format&n=Y1vvksJIVhyGxEpl&q=85&s=a1573451803b46539fca14c1b1ef4dd2)
 
-Las descargas automáticas suelen obtener los modelos de **Hugging Face**. Asegúrate de que tu red pueda llegar de forma confiable a Hugging Face.Si la descarga **no se inicia** o muestra **ningún progreso durante mucho tiempo** , copia el enlace del modelo desde los detalles del modelo faltante (o usa la sección de instalación manual a continuación) e instala el modelo manualmente.
+Las descargas automáticas suelen obtener los modelos de **Hugging Face**. Asegúrate de que tu red pueda llegar de forma confiable a Hugging Face.Si la descarga **no se inicia** o **no muestra progreso durante mucho tiempo** , copia el enlace del modelo desde los detalles del modelo faltante (o usa la sección de instalación manual más abajo) e instala el modelo a mano.
 
-El navegador realizará las descargas de archivos. Guarda el archivo en el directorio `<your ComfyUI installation location>/ComfyUI_windows_portable/ComfyUI/models/checkpoints` después de que se complete la descarga.
+El navegador descargará los archivos. Guarda el archivo en el directorio `<your ComfyUI installation location>/ComfyUI_windows_portable/ComfyUI/models/checkpoints` después de que se complete la descarga.
 
 Visita [v1-5-pruned-emaonly-fp16.safetensors](https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/blob/main/v1-5-pruned-emaonly-fp16.safetensors) y sigue esta guía:![Descarga del modelo de Hugging Face](https://mintcdn.com/dripart/TwfNQ2dEaWQA7tIL/images/tutorial/gettingstarted/first-image-generation-5-hugging-face.jpg?fit=max&auto=format&n=TwfNQ2dEaWQA7tIL&q=85&s=15c2560c44e7e4276b6a351809f7bf9f)Guarda el archivo descargado en:
 
@@ -205,7 +207,7 @@ Actualiza o reinicia ComfyUI después de guardar.
 
 4\. Cargar el modelo y generar tu primera imagen
 
-Después de instalar o actualizar modelos, presiona **`R`** en tu teclado para actualizar las definiciones de objetos y las listas de modelos en los nodos (por ejemplo, el menú desplegable en **Load Checkpoint**). Luego continúa con los pasos a continuación: ![Ejecutar flujo de trabajo](https://mintcdn.com/dripart/Y1vvksJIVhyGxEpl/images/tutorial/gettingstarted/run_workflow.png?fit=max&auto=format&n=Y1vvksJIVhyGxEpl&q=85&s=d8cb64b219e93cfd903723255d5e7d11)
+Después de instalar o actualizar modelos, pulsa **`R`** para refrescar las definiciones de objetos y las listas de modelos en los nodos (por ejemplo, el menú desplegable de **Load Checkpoint**). Luego sigue estos pasos: ![Ejecutar flujo de trabajo](https://mintcdn.com/dripart/Y1vvksJIVhyGxEpl/images/tutorial/gettingstarted/run_workflow.png?fit=max&auto=format&n=Y1vvksJIVhyGxEpl&q=85&s=d8cb64b219e93cfd903723255d5e7d11)
 
   1. En el nodo **Load Checkpoint** , asegúrate de que **v1-5-pruned-emaonly-fp16.safetensors** esté seleccionado
   2. Haz clic en `Run` o presiona `Ctrl + Enter` para generar
@@ -214,7 +216,7 @@ El resultado aparecerá en el nodo **Save Image**. Haz clic derecho para guardar
 
 ## Guía del flujo de trabajo de texto a imagen de ComfyUI
 
-Haz clic aquí para ver las instrucciones detalladas del flujo de trabajo de texto a imagen
+Consulta la guía detallada del flujo de trabajo de texto a imagen
 
 ## 
 
@@ -228,7 +230,7 @@ Solución de problemas
 
 Problemas al cargar modelos
 
-Si el nodo `Load Checkpoint` no muestra ningún modelo o muestra “null”, verifica la ubicación donde instalaste tus modelos e intenta actualizar o reiniciar ComfyUI.
+Si el nodo `Load Checkpoint` no muestra ningún modelo o aparece como “null”, comprueba dónde instalaste los modelos e intenta refrescar o reiniciar ComfyUI.
 
 ¿Esta página le ayudó?
 
@@ -236,4 +238,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/get_started/first_generation.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/get_started/first_generation)
 
-[Solución de problemas](https://docs.comfy.org/es/manager/troubleshooting)
+[Solución de problemas](https://docs.comfy.org/es/manager/troubleshooting)[Registro de cambios](https://docs.comfy.org/es/changelog/index)

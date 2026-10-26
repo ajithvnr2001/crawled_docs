@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/ko/
 title: ComfyUI \uacf5\uc2dd \ubb38\uc11c - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:04.238586+00:00
+fetched_at: 2026-10-26T14:04:09.645282+00:00
 ---
 
 # ComfyUI 공식 문서 - ComfyUI
@@ -17,7 +17,7 @@ fetched_at: 2026-10-17T10:51:04.238586+00:00
 
 생성형 AI를 위한 가장 강력한 오픈소스 노드 기반 애플리케이션
 
-## 시작하기
+## ComfyUI란 무엇이며, 첫 워크플로는 어떻게 만드나요?
 
 ## 다운로드 및 설치
 
@@ -132,25 +132,3 @@ ComfyUI 커뮤니티 참여하기
   * ComfyUI는 완전히 오픈소스이며 사용자의 로컬 디바이스에서도 실행 가능합니다
 
 
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-리소스
-
-[설치](https://docs.comfy.org/ko/installation/system_requirements)[튜토리얼](https://docs.comfy.org/ko/tutorials/basic/text-to-image)[개발](https://docs.comfy.org/ko/development/overview)
-
-제품
-
-[기능](https://www.comfy.org/?utm_source=docs)[갤러리](https://www.comfy.org/gallery?utm_source=docs)[다운로드](https://www.comfy.org/download?utm_source=docs)
-
-회사 정보
-
-[소개](https://www.comfy.org/about?utm_source=docs)[채용](https://www.comfy.org/careers?utm_source=docs)[이용약관](https://www.comfy.org/terms-of-service?utm_source=docs)[개인정보 처리방침](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
-
-⌘I

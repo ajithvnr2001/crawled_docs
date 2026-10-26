@@ -1,0 +1,65 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/Get3DComponents/
+title: Obtener componentes 3D - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:01:51.058380+00:00
+---
+
+# Obtener componentes 3D - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/Get3DComponents/
+
+3D
+
+# Obtener componentes 3D - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Get3DComponents analiza un archivo de modelo 3D (GLB, GLTF
+
+Copiar páginaCopiar página
+
+Get3DComponents analiza un archivo de modelo 3D (GLB, GLTF, OBJ o STL) y lo convierte en una malla editable que pueden usar nodos de procesamiento de malla como decimate, remesh, UV unwrap y bake. Todos los nodos de escena y las primitivas se fusionan en una sola malla con sus transformaciones aplicadas, y las texturas y la configuración del material provienen del primer material. Es la contraparte del nodo MeshToFile3D.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de dato| Obligatorio| Rango  
+---|---|---|---|---  
+`model_3d`| Archivo de modelo 3D desde Load 3D u otro nodo 3D. No se admiten FBX/USDZ: conviértelo a GLB primero.| File3DGLB  
+File3DGLTF  
+File3DOBJ  
+File3DSTL  
+File3DAny| Sí| GLB  
+GLTF  
+OBJ  
+STL  
+  
+Nota: Los archivos FBX y USDZ no son compatibles y provocan un error; conviértelos a GLB o GLTF primero. Si el formato de archivo no se puede reconocer como GLB, GLTF, OBJ o STL, el nodo genera un error que enumera los formatos compatibles. Si la escena glTF no contiene geometría de triángulos, o si el archivo contiene índices de caras que apuntan fuera de la lista de vértices (señal de un archivo corrupto), el nodo genera un error. Si el archivo 3D contiene varios materiales, solo se conservan las texturas y los factores de material del primer material (se registra una advertencia). Todas las primitivas de la escena se fusionan en una sola malla con sus transformaciones aplicadas. Este nodo es experimental.
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de dato  
+---|---|---  
+`mesh`| Malla editable que contiene vértices, caras, UVs, colores de vértices, normales y tangentes, además de información de material tomada del archivo (textura, metallic-roughness, mapa de normales, color emisivo, indicador unlit, indicador de oclusión en metallic-roughness y datos del material).| MESH  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/Get3DComponents/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `f2cdc9767a50503988484f09d2b3d110caf086b8cd84f65034a4a1e17a94405e`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/Get3DComponents.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/Get3DComponents)
+
+[Crear información de cámara](https://docs.comfy.org/es/built-in-nodes/CreateCameraInfo)[Cargar 3D y animación](https://docs.comfy.org/es/built-in-nodes/Load3D)

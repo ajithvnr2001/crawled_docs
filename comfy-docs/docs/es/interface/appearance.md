@@ -1,0 +1,442 @@
+---
+url: https://docs.comfy.org/es/interface/appearance/
+title: Personalizar la apariencia de ComfyUI - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:03:28.455026+00:00
+---
+
+# Personalizar la apariencia de ComfyUI - ComfyUI
+
+> Source: https://docs.comfy.org/es/interface/appearance/
+
+## En esta página
+
+Volver arriba
+
+  * Sistema de paleta de colores
+    * Cómo personalizar los temas de color
+  * Lienzo
+    * Imagen de fondo
+  * General
+    * Diseño de barra de pestañas
+    * Desactivar animaciones
+  * Nodo
+    * Opacidad del nodo
+  * Widget de nodo
+    * Tamaño de fuente del widget de área de texto
+  * Barra lateral
+    * Ancho unificado de la barra lateral
+    * Tamaño de la barra lateral
+    * Ubicación de la barra lateral
+    * Estilo de la barra lateral
+  * Explorador de árbol
+    * Relleno del elemento del explorador de árboles
+  * Personalización avanzada con user.css
+    * Requisitos
+    * Configurar user.css
+    * Ubicación del directorio de usuario
+    * Ejemplos de user.css e instrucciones relacionadas
+
+
+
+Configuraciones de ComfyUI
+
+# Personalizar la apariencia de ComfyUI
+
+Copiar páginaCopiar página
+
+Aprende a personalizar la apariencia de ComfyUI con paletas de colores y opciones avanzadas de CSS
+
+Copiar páginaCopiar página
+
+Las configuraciones descritas en esta página se encuentran en el **menú de configuraciones dentro de la aplicación de ComfyUI**. Puedes abrirlo navegando a **Configuraciones** (icono de engranaje) o usando el atajo de teclado `Ctrl + ,`, y luego seleccionar la categoría correspondiente para ver y configurar estas opciones.
+
+ComfyUI ofrece opciones flexibles de personalización de la apariencia que te permiten adaptar la interfaz a tus preferencias.
+
+## 
+
+​
+
+Sistema de paleta de colores
+
+La forma principal de personalizar la apariencia de ComfyUI es el sistema de paleta de colores integrado. ![Paleta de colores](https://mintcdn.com/dripart/qYv6P0RgI3co7-eH/images/interface/setting/appearance/color-palette.jpg?fit=max&auto=format&n=qYv6P0RgI3co7-eH&q=85&s=206dbb5bcf19ba1923bd722e20ba868e) Esto te permite:
+
+  1. Cambiar los temas de ComfyUI
+  2. Exportar el tema seleccionado en formato JSON
+  3. Cargar una configuración de tema personalizada desde un archivo JSON
+  4. Eliminar una configuración de tema personalizada
+
+
+
+Si la paleta de colores no cubre lo que necesitas en materia de apariencia, puedes hacer una personalización avanzada mediante el archivo user.css
+
+### 
+
+​
+
+Cómo personalizar los temas de color
+
+La paleta de colores te permite modificar muchas propiedades concretas. Estos son algunos de los elementos que más se personalizan, con los colores representados en formato hexadecimal:
+
+  1. Los comentarios del JSON siguiente son solo ilustrativos. No copies su contenido para modificarlo, porque el tema dejará de funcionar.
+  2. Como todavía hacemos cambios con frecuencia, el contenido siguiente puede variar con las actualizaciones del frontend de ComfyUI. Si necesitas modificarlo, exporta la configuración del tema desde los ajustes y edítala después.
+
+
+    
+    
+    {
+      "id": "dark",                     // Debe ser único, no puede coincidir con el ID de otro tema
+      "name": "Dark (Default)",         // Nombre del tema, se muestra en el selector de temas
+      "colors": {
+        "node_slot": {                  // Configuración de color de las ranuras de conexión de los nodos
+          "CLIP": "#FFD500",            // Color de la ranura de conexión del modelo CLIP
+          "CLIP_VISION": "#A8DADC",     // Color de la ranura de conexión del modelo CLIP Vision
+          "CLIP_VISION_OUTPUT": "#ad7452", // Color de la ranura de conexión de la salida de CLIP Vision
+          "CONDITIONING": "#FFA931",     // Color de la ranura de conexión del control de conditioning
+          "CONTROL_NET": "#6EE7B7",     // Color de la ranura de conexión del modelo ControlNet
+          "IMAGE": "#64B5F6",           // Color de la ranura de conexión de datos de imagen
+          "LATENT": "#FF9CF9",          // Color de la ranura de conexión del espacio latente
+          "MASK": "#81C784",            // Color de la ranura de conexión de datos de máscara
+          "MODEL": "#B39DDB",           // Color de la ranura de conexión del modelo
+          "STYLE_MODEL": "#C2FFAE",     // Color de la ranura de conexión del modelo de estilo
+          "VAE": "#FF6E6E",             // Color de la ranura de conexión del modelo VAE
+          "NOISE": "#B0B0B0",           // Color de la ranura de conexión de datos de ruido
+          "GUIDER": "#66FFFF",          // Color de la ranura de conexión del guiador
+          "SAMPLER": "#ECB4B4",         // Color de la ranura de conexión del sampler
+          "SIGMAS": "#CDFFCD",          // Color de la ranura de conexión de los sigmas
+          "TAESD": "#DCC274"            // Color de la ranura de conexión del modelo TAESD
+        },
+        "litegraph_base": {             // Configuración base de la interfaz de LiteGraph
+          "BACKGROUND_IMAGE": "",        // Imagen de fondo, vacía por defecto
+          "CLEAR_BACKGROUND_COLOR": "#222", // Color de fondo del lienzo principal
+          "NODE_TITLE_COLOR": "#999",    // Color del texto del título del nodo
+          "NODE_SELECTED_TITLE_COLOR": "#FFF", // Color del título del nodo seleccionado
+          "NODE_TEXT_SIZE": 14,          // Tamaño del texto del nodo
+          "NODE_TEXT_COLOR": "#AAA",     // Color del texto del nodo
+          "NODE_TEXT_HIGHLIGHT_COLOR": "#FFF", // Color de resaltado del texto del nodo
+          "NODE_SUBTEXT_SIZE": 12,       // Tamaño del subtexto del nodo
+          "NODE_DEFAULT_COLOR": "#333",   // Color predeterminado del nodo
+          "NODE_DEFAULT_BGCOLOR": "#353535", // Color de fondo predeterminado del nodo
+          "NODE_DEFAULT_BOXCOLOR": "#666", // Color de borde predeterminado del nodo
+          "NODE_DEFAULT_SHAPE": 2,        // Forma predeterminada del nodo
+          "NODE_BOX_OUTLINE_COLOR": "#FFF", // Color del contorno del borde del nodo
+          "NODE_BYPASS_BGCOLOR": "#FF00FF", // Color de fondo del nodo en modo bypass
+          "NODE_ERROR_COLOUR": "#E00",    // Color del estado de error del nodo
+          "DEFAULT_SHADOW_COLOR": "rgba(0,0,0,0.5)", // Color de sombra predeterminado
+          "DEFAULT_GROUP_FONT": 24,       // Tamaño de fuente predeterminado de los grupos
+          "WIDGET_BGCOLOR": "#222",       // Color de fondo del widget
+          "WIDGET_OUTLINE_COLOR": "#666", // Color del contorno del widget
+          "WIDGET_TEXT_COLOR": "#DDD",    // Color del texto del widget
+          "WIDGET_SECONDARY_TEXT_COLOR": "#999", // Color del texto secundario del widget
+          "WIDGET_DISABLED_TEXT_COLOR": "#666", // Color del texto del widget deshabilitado
+          "LINK_COLOR": "#9A9",          // Color de la línea de conexión
+          "EVENT_LINK_COLOR": "#A86",    // Color de la línea de conexión de eventos
+          "CONNECTING_LINK_COLOR": "#AFA", // Color de la línea en curso
+          "BADGE_FG_COLOR": "#FFF",      // Color de primer plano de la insignia
+          "BADGE_BG_COLOR": "#0F1F0F"    // Color de fondo de la insignia
+        },
+        "comfy_base": {                  // Configuración base de la interfaz de ComfyUI
+          "fg-color": "#fff",            // Color de primer plano
+          "bg-color": "#202020",         // Color de fondo
+          "comfy-menu-bg": "#353535",    // Color de fondo del menú
+          "comfy-menu-secondary-bg": "#303030", // Color de fondo del menú secundario
+          "comfy-input-bg": "#222",      // Color de fondo del campo de entrada
+          "input-text": "#ddd",          // Color del texto de entrada
+          "descrip-text": "#999",        // Color del texto de descripción
+          "drag-text": "#ccc",           // Color del texto de arrastre
+          "error-text": "#ff4444",       // Color del texto de error
+          "border-color": "#4e4e4e",     // Color del borde
+          "tr-even-bg-color": "#222",    // Color de fondo de las filas pares de la tabla
+          "tr-odd-bg-color": "#353535",  // Color de fondo de las filas impares de la tabla
+          "content-bg": "#4e4e4e",       // Color de fondo del área de contenido
+          "content-fg": "#fff",          // Color de primer plano del área de contenido
+          "content-hover-bg": "#222",    // Color de fondo al pasar el cursor por el área de contenido
+          "content-hover-fg": "#fff",    // Color de primer plano al pasar el cursor por el área de contenido
+          "bar-shadow": "rgba(16, 16, 16, 0.5) 0 0 0.5rem" // Efecto de sombra de la barra
+        }
+      }
+    }
+    
+
+## 
+
+​
+
+Lienzo
+
+### 
+
+​
+
+Imagen de fondo
+
+  * **Requisitos** : Versión del frontend de ComfyUI 1.20.5 o superior
+  * **Función** : Establece una imagen de fondo personalizada para el lienzo y así ofrecer un espacio de trabajo más personalizado. Puedes subir imágenes o usar imágenes de la web para establecer el fondo del lienzo.
+
+![Establecer imagen de fondo](https://mintcdn.com/dripart/qYv6P0RgI3co7-eH/images/interface/setting/appearance/set-as-bg.jpg?fit=max&auto=format&n=qYv6P0RgI3co7-eH&q=85&s=f393d494dfdc8b7b84997d58735d2f86)
+
+## 
+
+​
+
+General
+
+### 
+
+​
+
+Diseño de barra de pestañas
+
+  * **Valor predeterminado** : Predeterminado
+  * **Opciones** : Predeterminado, Clásico
+  * **Función** : controla qué elementos contiene la barra de pestañas integrada. Clásico muestra el conjunto anterior de elementos de la barra de pestañas.
+
+
+
+### 
+
+​
+
+Desactivar animaciones
+
+  * **Valor predeterminado** : sigue la configuración de movimiento reducido de tu sistema operativo
+  * **Función** : desactiva la mayoría de las animaciones y transiciones CSS de la interfaz. También puede acelerar la inferencia cuando la GPU de visualización también se usa para la generación.
+
+
+
+## 
+
+​
+
+Nodo
+
+### 
+
+​
+
+Opacidad del nodo
+
+  * **Función** : Establece la opacidad de los nodos, donde 0 representa completamente transparente y 1 representa completamente opaco.
+
+![Opacidad del nodo](https://mintcdn.com/dripart/EeFKEryMLH5667kk/images/interface/setting/appearance/node-opacity.jpg?fit=max&auto=format&n=EeFKEryMLH5667kk&q=85&s=3e19ea90315d2111d63bafcb830c9959)
+
+## 
+
+​
+
+Widget de nodo
+
+### 
+
+​
+
+Tamaño de fuente del widget de área de texto
+
+  * **Valor predeterminado** : 10
+  * **Rango** : 8 - 24
+  * **Función** : Establece el tamaño de fuente en los widgets de área de texto. Ajusta el tamaño de visualización del texto en los cuadros de entrada de texto para mejorar la legibilidad.
+
+![Tamaño de fuente del widget de área de texto](https://mintcdn.com/dripart/kl0baiKht4v1pyjS/images/interface/setting/appearance/textarea-font-size.jpg?fit=max&auto=format&n=kl0baiKht4v1pyjS&q=85&s=3ccfe4281cdf094edda96d3384210c1c)
+
+## 
+
+​
+
+Barra lateral
+
+### 
+
+​
+
+Ancho unificado de la barra lateral
+
+  * **Valor predeterminado** : Habilitado
+  * **Función** : Cuando está habilitado, el ancho de la barra lateral se unifica a un ancho consistente al cambiar entre distintas barras laterales. Si está deshabilitado, las diferentes barras laterales conservan sus anchos personalizados al cambiar.
+
+
+
+### 
+
+​
+
+Tamaño de la barra lateral
+
+  * **Función** : Controla el tamaño de la barra lateral; se puede establecer en normal o pequeño.
+
+
+
+### 
+
+​
+
+Ubicación de la barra lateral
+
+  * **Función** : Controla si la barra lateral se muestra en el lado izquierdo o derecho de la interfaz, lo que permite ajustar la posición de la barra lateral según tus hábitos de uso.
+
+
+
+### 
+
+​
+
+Estilo de la barra lateral
+
+  * **Función** : Controla el estilo visual de la barra lateral. Las opciones incluyen: 
+    * **Conectada** : La barra lateral aparece conectada al borde de la interfaz.
+    * **Flotante** : La barra lateral aparece como un panel flotante con separación visual del borde de la interfaz.
+
+![Estilo de la barra lateral](https://mintcdn.com/dripart/7xbDXwziA_DEy9eI/images/interface/setting/appearance/sidbar_style.jpg?fit=max&auto=format&n=7xbDXwziA_DEy9eI&q=85&s=b7721acb769d606bf9692c399200d1f6)
+
+## 
+
+​
+
+Explorador de árbol
+
+### 
+
+​
+
+Relleno del elemento del explorador de árboles
+
+  * **Valor predeterminado** : 8
+  * **Función** : Establece el relleno de los elementos del explorador de árboles (panel de la barra lateral), ajustando el espaciado entre los elementos de la estructura de árbol.
+
+![Relleno del elemento del explorador de árboles](https://mintcdn.com/dripart/7xbDXwziA_DEy9eI/images/interface/setting/appearance/padding.jpg?fit=max&auto=format&n=7xbDXwziA_DEy9eI&q=85&s=2e5f2411060f8524eddbeebc60afbaa8)
+
+## 
+
+​
+
+Personalización avanzada con user.css
+
+Cuando la paleta de colores no da suficiente control, puedes usar CSS personalizado mediante un archivo user.css. Este método está pensado para usuarios avanzados que necesitan personalizar elementos que el sistema de paleta de colores no cubre.
+
+### 
+
+​
+
+Requisitos
+
+  * Versión 1.20.5 o superior del frontend de ComfyUI
+
+
+
+### 
+
+​
+
+Configurar user.css
+
+  1. Crea un archivo llamado `user.css` en tu directorio de usuario de ComfyUI (la misma ubicación que tus flujos de trabajo y ajustes; consulta los detalles abajo)
+  2. Agrega tus reglas CSS a ese archivo
+  3. Reinicia ComfyUI o actualiza la página para aplicar los cambios
+
+
+
+### 
+
+​
+
+Ubicación del directorio de usuario
+
+El directorio de usuario de ComfyUI es donde se almacenan tus configuraciones personales, flujos de trabajo y personalizaciones. La ubicación depende de tu tipo de instalación:
+
+  * Escritorio - Windows
+
+  * Escritorio - macOS
+
+  * Escritorio - Linux
+
+  * Instalación manual
+
+  * Portátil
+
+
+
+    
+    
+    C:\Users\<your username>\AppData\Roaming\ComfyUI\user
+    
+    
+    
+    ~/<ComfyUI installation path>/ComfyUI/user
+    
+    
+    
+    ~/.config/ComfyUI/user
+    
+
+El directorio de usuario se encuentra en tu carpeta de instalación de ComfyUI:
+    
+    
+    <ComfyUI installation path>/user
+    
+
+Por ejemplo, si clonaste ComfyUI en `C:\ComfyUI`, tu directorio de usuario sería `C:\ComfyUI\user\default` (o `C:\ComfyUI\user\john` si configuraste un nombre de usuario personalizado).
+
+ComfyUI admite varios usuarios por instalación. Si no configuraste un nombre de usuario personalizado, se usa “default” de forma predeterminada. Cada usuario tiene su propio subdirectorio dentro de la carpeta `user`.
+
+El directorio de usuario se encuentra en tu carpeta portátil de ComfyUI:
+    
+    
+    <ComfyUI_windows_portable>/ComfyUI/user
+    
+
+Por ejemplo: `ComfyUI_windows_portable/ComfyUI/user/default`
+
+ComfyUI admite varios usuarios por instalación. Si no configuraste un nombre de usuario personalizado, se usa “default” de forma predeterminada. Cada usuario tiene su propio subdirectorio dentro de la carpeta `user`.
+
+Esta ubicación contiene tus flujos de trabajo, configuraciones y otros archivos específicos de cada usuario. Después de localizar la carpeta anterior, copia el archivo CSS correspondiente a tu directorio de usuario (por ejemplo, la carpeta de usuario predeterminada es `ComfyUI/user/default`) y reinicia ComfyUI o actualiza la página para aplicar los cambios.
+
+### 
+
+​
+
+Ejemplos de user.css e instrucciones relacionadas
+
+El archivo `user.css` se carga al principio del arranque de la aplicación. Por eso puede que necesites usar `!important` en tus reglas CSS para asegurarte de que sobrescriban los estilos predeterminados. **Ejemplos de personalización con user.css**
+    
+    
+    /* Aumenta el tamaño de fuente en entradas y menús para mejorar la legibilidad */
+    .comfy-multiline-input, .litecontextmenu .litemenu-entry {
+        font-size: 20px !important;
+    }
+    
+    /* Agranda las entradas del menú contextual para seleccionarlas más fácil */
+    .litegraph .litemenu-entry,
+    .litemenu-title {
+      font-size: 24px !important; 
+    }
+    
+    /* Estilo personalizado para elementos concretos que no están en la paleta de colores */
+    .comfy-menu {
+        border: 1px solid rgb(126, 179, 189) !important;
+        border-radius: 0px 0px 0px 10px !important;
+        backdrop-filter: blur(2px);
+    }
+    
+
+**Buenas prácticas**
+
+  1. **Empieza por la paleta de colores** para la mayoría de las personalizaciones
+  2. Usa **user.css solo cuando sea necesario** para elementos que la paleta de colores no cubre
+  3. **Exporta tu tema** antes de hacer cambios importantes, para poder revertirlos si hace falta
+  4. **Comparte tus temas** con la comunidad para inspirar a otras personas
+
+**Solución de problemas**
+
+  * Si los cambios de tu paleta de colores no aparecen, prueba a actualizar la página
+  * Si las personalizaciones CSS no funcionan, comprueba que usas la versión 1.20.5+ del frontend
+  * Prueba a añadir `!important` a las reglas de user.css que no se estén aplicando
+  * Guarda copias de seguridad de tus personalizaciones para poder restaurarlas fácilmente
+
+
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/interface/appearance.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/interface/appearance)
+
+[Lite Graph](https://docs.comfy.org/es/interface/settings/lite-graph)[3D](https://docs.comfy.org/es/interface/settings/3d)

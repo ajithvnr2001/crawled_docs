@@ -1,0 +1,158 @@
+---
+url: https://docs.comfy.org/es/tutorials/partner-nodes/bytedance/seedream-5-lite/
+title: ByteDance Seedream 5.0 Lite: creaci\u00f3n de im\u00e1genes con IA inteligente - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:03:47.523352+00:00
+---
+
+# ByteDance Seedream 5.0 Lite: creación de imágenes con IA inteligente - ComfyUI
+
+> Source: https://docs.comfy.org/es/tutorials/partner-nodes/bytedance/seedream-5-lite/
+
+## En esta página
+
+Volver arriba
+
+  * En qué destaca Seedream 5.0 Lite
+  * Salidas de ejemplo
+  * Flujo de trabajo de edición de imagen de Seedream 5.0 lite
+    * Demostración de edición de imagen
+    * Demostración de consistencia
+  * Flujo de trabajo de texto a imagen con Seedream 5.0 lite
+    * Demostración de conocimiento del mundo
+  * Empezar
+
+
+
+ByteDance
+
+# ByteDance Seedream 5.0 Lite: creación de imágenes con IA inteligente
+
+Copiar páginaCopiar página
+
+Genera imágenes con recuperación web e instrucciones mejoradas usando Seedream 5.0 lite en ComfyUI
+
+Copiar páginaCopiar página
+
+Seedream 5.0 lite es el modelo de generación de imágenes más reciente de BytePlus. Es el primero de la familia Seedream que incorpora recuperación con conexión a la web, lo que significa que el modelo puede recurrir a información en línea en tiempo real al generar imágenes.
+
+## 
+
+​
+
+En qué destaca Seedream 5.0 Lite
+
+  * **Recuperación conectada a la web** : el modelo consulta datos web en vivo durante la generación, lo que permite vincular las creaciones a tendencias del mundo real, acontecimientos actuales y conocimiento actualizado
+  * **Mejor seguimiento de instrucciones** : maneja indicaciones complejas de varios pasos con mucha más fiabilidad. Las entradas de varias imágenes, las instrucciones de edición local y las solicitudes de estilo por lote se acercan mucho más al resultado deseado
+  * **Mayor consistencia** : la identidad de los personajes, la apariencia de los productos, el estilo y la iluminación se mantienen mucho mejor a lo largo de un conjunto de imágenes generadas
+  * **Conocimiento del mundo más profundo** : una base de conocimiento ampliada hace que el modelo sea útil para ilustración técnica, diagramas educativos y trabajo creativo con mucha carga de conocimiento
+
+
+
+## 
+
+​
+
+Salidas de ejemplo
+
+Edición local en varios pasos, siguiendo varias instrucciones en cajas en una sola pasada: ![Ejemplo 1 de seguimiento de instrucciones](https://substack-post-media.s3.amazonaws.com/public/images/9a770e2a-c0ed-4253-bd60-14c5beff150d_2048x2048.png) _Cambia los lentes de la caja verde por lentes circulares, el bolso naranja de la caja azul por un bolso ovalado morado, y haz que los zapatos de la caja roja tengan un estampado de leopardo._ Transferencia de estilo entre dos imágenes: ![Ejemplo de transferencia de estilo](https://substack-post-media.s3.amazonaws.com/public/images/dc08a07e-edf1-4864-b6a6-5a7b17b78cfa_1920x1080.png) _Toma como referencia la segunda imagen y cambia el estilo de la primera para que coincida con el de la segunda imagen._ Consistencia del producto en un lote de fotos generadas: ![Consistencia del producto](https://substack-post-media.s3.amazonaws.com/public/images/585cf84d-afe0-4277-b08a-7a0cddbd6a54_1620x1080.png) _Usando la botella de la imagen de referencia, genera seis fotos de producto en diferentes entornos de temporada. Diseño de botella consistente en las seis._ Generación de texto a imagen con alto contenido de conocimiento: ![Infografía sobre la gravedad](https://substack-post-media.s3.amazonaws.com/public/images/fac37b40-faaa-4360-b449-08da38322186_2562x1440.png) _Infografía en pixel art para explicar la gravedad, renderizada en un estilo nítido de 16 bits con un fondo azul marino oscuro/carbón y tonos llamativos de una paleta cinematográfica._
+
+Para usar los Nodos asociados, debes asegurarte de haber iniciado sesión correctamente y de estar utilizando un entorno de red permitido. Consulta la sección [Descripción general de los Nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/overview) de la documentación para conocer los requisitos específicos de uso de los Nodos asociados.
+
+  * Usuarios locales
+
+  * Usuarios de Cloud
+
+
+
+
+Asegúrate de que tu ComfyUI esté actualizado.
+
+  * [Descargar ComfyUI](https://www.comfy.org/download)
+  * [Guía de actualización](https://docs.comfy.org/es/installation/update_comfyui)
+
+Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos de trabajo](https://docs.comfy.org/es/interface/features/template). Si no los encuentras en las plantillas, es posible que tu ComfyUI esté desactualizado.Si faltan nodos al cargar un flujo de trabajo, estas son las posibles razones:
+
+  1. No estás usando la última versión de ComfyUI (versión nocturna)
+  2. Algunos nodos fallaron al importarse durante el inicio
+
+
+
+  * [Cloud](https://cloud.comfy.org) se actualizará después del lanzamiento estable de ComfyUI.
+
+Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
+
+## 
+
+​
+
+Flujo de trabajo de edición de imagen de Seedream 5.0 lite
+
+![Vista previa del flujo de trabajo de edición de imagen de Seedream 5.0 Lite](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_bytedance_seedream_5_0_lite_image_edit-1.webp)
+
+## Ejecutar en Comfy Cloud
+
+Abrir en Comfy Cloud
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “Seedream 5.0 lite” en la Biblioteca de plantillas
+
+### 
+
+​
+
+Demostración de edición de imagen
+
+![Ejemplo 1 de seguimiento de instrucciones](https://substack-post-media.s3.amazonaws.com/public/images/9a770e2a-c0ed-4253-bd60-14c5beff150d_2048x2048.png) _Cambia los lentes de la caja verde por lentes circulares, el bolso naranja de la caja azul por un bolso ovalado morado, y haz que los zapatos de la caja roja tengan un estampado de leopardo._ ![Ejemplo 2 de seguimiento de instrucciones](https://substack-post-media.s3.amazonaws.com/public/images/6ec0976b-1cb0-45e0-a657-ab97efd4d915_2048x2048.png) _Mantén la composición original y cambia el tono de color general a azul marino y blanco. Cambia “RTX PRO 6000” por “SEEDREAM 5.0 LITE” en la imagen, y cambia “2025” por “NOW LIVE”._ ![Ejemplo de transferencia de estilo](https://substack-post-media.s3.amazonaws.com/public/images/dc08a07e-edf1-4864-b6a6-5a7b17b78cfa_1920x1080.png) _Toma como referencia la segunda imagen y cambia el estilo de la primera para que coincida con el de la segunda imagen._
+
+### 
+
+​
+
+Demostración de consistencia
+
+![Consistencia de diseño](https://substack-post-media.s3.amazonaws.com/public/images/cc7b80ef-418c-4376-95e2-38c9110c6456_1920x1080.png) _Toma como referencia el estilo de diseño y disposición de la Figura 2 y adapta el estilo de la Figura 1 en consecuencia._ ![Fusión de personajes](https://substack-post-media.s3.amazonaws.com/public/images/22d1fa08-17f3-4113-86ee-ca0a324cbb3b_1920x1080.png) _Combina la Figura 1 y la Figura 2 en una selfie cenital de dos personas, con una composición compacta y ambos muy juntos._ ![Composición con múltiples referencias](https://substack-post-media.s3.amazonaws.com/public/images/2d690f6d-fa30-4152-9dc4-c09341c4e887_1920x1080.png) _Usa las flores que aparecen en las Figuras 1 a 4 para el arreglo floral. Organiza todas las flores en el jarrón que aparece en la Figura 5 y luego coloca el jarrón sobre la mesa que aparece en la Figura 6._ ![Consistencia de producto](https://substack-post-media.s3.amazonaws.com/public/images/585cf84d-afe0-4277-b08a-7a0cddbd6a54_1620x1080.png) _Usa la botella de la imagen de referencia para generar seis fotos de producto en diferentes entornos de temporada. Mantén un diseño de botella consistente en las seis._
+
+## 
+
+​
+
+Flujo de trabajo de texto a imagen con Seedream 5.0 lite
+
+![Vista previa del flujo de trabajo de texto a imagen con Seedream 5.0 Lite](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_bytedance_seedream_5_0_lite_t2i-1.webp)
+
+## Ejecutar en Comfy Cloud
+
+Abrir en Comfy Cloud
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “Seedream 5.0 lite” en la Biblioteca de plantillas
+
+### 
+
+​
+
+Demostración de conocimiento del mundo
+
+![Infografía sobre la gravedad](https://substack-post-media.s3.amazonaws.com/public/images/fac37b40-faaa-4360-b449-08da38322186_2562x1440.png) _Infografía en pixel art para explicar la gravedad, renderizada en un nítido estilo de 16 bits con un fondo azul marino oscuro y carbón, y tonos audaces de paleta cinematográfica._ ![Infografía sobre el Big Bang](https://substack-post-media.s3.amazonaws.com/public/images/39e35082-3b26-41df-8e09-5cc1841d94c6_2562x1440.png) _Infografía de estilo cómic para explicar el Big Bang y la era de los dinosaurios, con un fondo carmesí profundo y negro tinta, y tonos intensos de paleta de cómic._
+
+## 
+
+​
+
+Empezar
+
+  1. Actualiza ComfyUI a la última versión (0.15.0+)
+  2. Ve a la Biblioteca de plantillas y busca `Seedream 5.0 lite`
+
+
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/partner-nodes/bytedance/seedream-5-lite.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/partner-nodes/bytedance/seedream-5-lite)
+
+[Seedream 5 Pro](https://docs.comfy.org/es/tutorials/partner-nodes/bytedance/seedream-5-pro)[Crystal Upscale](https://docs.comfy.org/es/tutorials/partner-nodes/clarityai/crystal-upscale)

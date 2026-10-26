@@ -1,0 +1,57 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/SamplerEulerAncestral/
+title: Muestreador Euler ancestral - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:27.576034+00:00
+---
+
+# Muestreador Euler ancestral - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/SamplerEulerAncestral/
+
+Samplers
+
+# Muestreador Euler ancestral - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+El nodo SamplerEulerAncestral crea un muestreador Euler Ancestral que se puede usar durante la generación de imágenes.
+
+Copiar páginaCopiar página
+
+El nodo SamplerEulerAncestral crea un muestreador Euler Ancestral que se puede usar durante la generación de imágenes. Este muestreador combina la integración de Euler con el muestreo ancestral, lo que agrega cierto grado de aleatoriedad en cada paso para producir resultados variados. El nodo permite ajustar cuánta aleatoriedad se aplica mediante sus ajustes.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`eta`| Controla el tamaño de paso y la estocasticidad del proceso de muestreo (predeterminado: 1.0). Este es un parámetro avanzado.| FLOAT| Sí| 0.0 - 100.0  
+`s_ruido`| Controla la cantidad de ruido añadido durante el muestreo (predeterminado: 1.0). Este es un parámetro avanzado.| FLOAT| Sí| 0.0 - 100.0  
+  
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`sampler`| Devuelve un muestreador Euler Ancestral configurado que se puede usar en el flujo de muestreo.| SAMPLER  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/SamplerEulerAncestral/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `0d3c1f0ffe01eb6cc17fd53e743713f659218ec19001c670440472ae7d0d3887`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/SamplerEulerAncestral.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/SamplerEulerAncestral)
+
+[Muestreador ER SDE](https://docs.comfy.org/es/built-in-nodes/SamplerER_SDE)[SamplerEulerAncestralCFG++](https://docs.comfy.org/es/built-in-nodes/SamplerEulerAncestralCFGPP)

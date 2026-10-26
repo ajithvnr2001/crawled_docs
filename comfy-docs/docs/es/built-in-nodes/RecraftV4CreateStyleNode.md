@@ -1,0 +1,74 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/RecraftV4CreateStyleNode/
+title: Recraft V4 Create Style - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:22.113050+00:00
+---
+
+# Recraft V4 Create Style - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/RecraftV4CreateStyleNode/
+
+Recraft
+
+# Recraft V4 Create Style - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Este nodo crea un estilo de Recraft V4 reutilizable a partir de 1 a 10 imágenes de referencia.
+
+Copiar páginaCopiar página
+
+Este nodo crea un estilo de Recraft V4 reutilizable a partir de 1 a 10 imágenes de referencia. El ID de estilo devuelto funciona con todos los modelos Recraft V4 y V4.1 del mismo tipo de salida (ráster o vectorial) y se puede reutilizar en pasos posteriores de generación de imágenes. El tamaño total de todas las imágenes de referencia está limitado a 10 MB.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`model`| Modelo para el que se crea el estilo. Standard y Pro comparten un grupo de estilos: los estilos ráster funcionan con todos los modelos ráster Recraft V4 y V4.1; los estilos vectoriales (*_vector), con todos los modelos vectoriales V4 y V4.1.| COMBO| Sí| ”recraftv4_styles"  
+"recraftv4_styles_vector"  
+"recraftv4_styles_pro"  
+"recraftv4_styles_pro_vector”  
+`images`| Imágenes de referencia que definen el estilo. Las referencias similares afinan la coincidencia; las referencias variadas la amplían. Ranura ampliable: conecte de 1 a 10 imágenes (`image_1` a `image_10`).| IMAGE| Sí| 1 a 10 imágenes  
+  
+### 
+
+​
+
+Notas
+
+  * Se requiere al menos una imagen de referencia; el nodo lanza un error si no se proporciona ninguna.
+  * Se permiten como máximo 10 imágenes de referencia; el nodo lanza un error si se proporcionan más.
+  * El tamaño codificado total de todas las imágenes de referencia no debe superar los 10 MB; el nodo lanza un error si se excede el límite.
+  * Cada imagen de referencia se reduce a un máximo de 2048×2048 píxeles y se codifica como WebP antes de enviarse a la API de Recraft.
+  * Los modelos que terminan en `_vector` crean estilos vectoriales; las demás opciones crean estilos ráster. Los modelos Standard y Pro comparten los mismos grupos de estilos dentro de cada tipo de salida.
+
+
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`style_id`| Identificador único del estilo creado, utilizable con todos los modelos Recraft V4 y V4.1 del mismo tipo de salida.| STRING  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/RecraftV4CreateStyleNode/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `7b907a975ed88dcca6bf1e0431ef7a9b561852ca7263a4f3298df980fe9431e5`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/RecraftV4CreateStyleNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/RecraftV4CreateStyleNode)
+
+[Recraft Texto a Vector](https://docs.comfy.org/es/built-in-nodes/RecraftTextToVectorNode)[Recraft V4 texto a imagen](https://docs.comfy.org/es/built-in-nodes/RecraftV4TextToImageNode)

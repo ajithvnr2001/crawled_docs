@@ -1,0 +1,60 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/EmptyFlux2LatentImage/
+title: Latente Flux 2 vac\u00edo - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:01:45.333728+00:00
+---
+
+# Latente Flux 2 vacío - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/EmptyFlux2LatentImage/
+
+FLUX
+
+# Latente Flux 2 vacío - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+El nodo Empty Flux 2 Latent crea una representación latente en blanco llena de ceros.
+
+Copiar páginaCopiar página
+
+El nodo Empty Flux 2 Latent crea una representación latente en blanco llena de ceros. Se utiliza como punto de partida para el proceso de eliminación de ruido del modelo Flux. Las dimensiones latentes se toman del ancho y el alto de entrada, cada uno dividido por 16.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`ancho`| El ancho de la imagen final a generar. El ancho latente será este valor dividido por 16. El valor predeterminado es 1024.| INT| Sí| 16 a 16384  
+`alto`| El alto de la imagen final a generar. El alto latente será este valor dividido por 16. El valor predeterminado es 1024.| INT| Sí| 16 a 16384  
+`tamaño_lote`| La cantidad de muestras latentes a generar en un solo lote. El valor predeterminado es 1.| INT| No| 1 a 4096  
+  
+**Nota:** Las entradas `width` y `height` usan un paso de 16, por lo que deben ser divisibles entre 16. Esto se debe a que el nodo las divide por este factor para crear las dimensiones latentes.
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`samples`| Un tensor latente lleno de ceros. La forma es `[batch_size, 128, height // 16, width // 16]`.| LATENT  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/EmptyFlux2LatentImage/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `f8356568f0ab521a3f246d1f672492e74f9a2f449694961b913bd14a5f0f3878`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/EmptyFlux2LatentImage.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/EmptyFlux2LatentImage)
+
+[Vídeo latente Cosmos vacío](https://docs.comfy.org/es/built-in-nodes/EmptyCosmosLatentVideo)[Imagen Latente Vacía HiDream-O1](https://docs.comfy.org/es/built-in-nodes/EmptyHiDreamO1LatentImage)

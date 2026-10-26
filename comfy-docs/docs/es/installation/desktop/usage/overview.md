@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/desktop/usage/overview/
 title: C\u00f3mo usar Comfy Desktop - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:48.635016+00:00
+fetched_at: 2026-10-26T14:04:02.848118+00:00
 ---
 
 # Cómo usar Comfy Desktop - ComfyUI
@@ -11,6 +11,8 @@ fetched_at: 2026-10-25T12:24:48.635016+00:00
 
 ## En esta página
 
+Volver arriba
+
   * Características principales
   * Descripción general del Panel
     * Menú de la aplicación
@@ -18,7 +20,7 @@ fetched_at: 2026-10-25T12:24:48.635016+00:00
     * Botones del lado derecho
     * Buscar
     * Selector (Lista de instancias)
-  * Retroalimentación y problemas
+  * Feedback y problemas
 
 
 
@@ -44,7 +46,7 @@ Características principales
   * **[Snapshots](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-instant%C3%A1neas)** : guarda y restaura el estado completo de una instancia (versión de ComfyUI, nodos personalizados, paquetes de Python), lo que facilita revertir o reproducir un entorno
   * **[Almacenamiento compartido](https://docs.comfy.org/es/installation/desktop/usage/settings#almacenamiento)** : los modelos se comparten entre todas las instancias de forma predeterminada, lo que ahorra espacio en disco. También puedes agregar carpetas de modelos externas
   * **Actualizaciones automáticas** : el control **Desktop Update** de la barra de título actualiza Comfy Desktop. Usa la pestaña [Actualizar](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-actualizar) del panel Administrar para actualizar cada instancia de ComfyUI.
-  * **Integración con la nube** : inicia o conéctate a instancias de Comfy Cloud directamente desde la vista Chooser
+  * **Integración con la nube** : inicia o conéctate a instancias de Comfy Cloud directamente desde la vista Selector
   * **[Rastrear instalaciones existentes](https://docs.comfy.org/es/installation/desktop/usage/instance-management#seguimiento-de-una-instalaci%C3%B3n-existente)** : agrega tus instalaciones existentes de ComfyUI, ya sean portables o clonadas con git, a Comfy Desktop para una gestión unificada
 
 Esta guía explica cómo usar estas funciones.
@@ -72,7 +74,7 @@ El menú de hamburguesa (☰) de la esquina superior izquierda abre el menú de 
   * **Pruebas de rendimiento** : ejecuta flujos de trabajo cronometrados contra una instancia. Consulta [Pruebas de rendimiento y Benchmarks](https://docs.comfy.org/es/installation/desktop/usage/performance-tests).
   * **Benchmarks** : compara los resultados guardados de las pruebas de rendimiento entre hardware, flujos de trabajo e instancias.
   * **Configuraciones de Escritorio** : configuración global para actualizaciones automáticas, proxy/espejo, almacenamiento compartido y ubicaciones de datos.
-  * **Enviar retroalimentación** : abre el panel de retroalimentación.
+  * **Send Feedback** : abre el panel de feedback.
   * **Cerrar ventana** y **Salir de Desktop** : cierra la ventana actual o sale de la aplicación. Cerrar la ventana de una instancia detiene la instancia de ComfyUI que ejecuta, y cerrar la última ventana cierra Comfy Desktop.
 
 Dos entradas aparecen solo en contexto: **Restablecer zoom (N%)** una vez que la vista de ComfyUI tiene zoom aplicado, y **Omitir la configuración inicial** durante la configuración de primer uso. Mientras la configuración de primer uso está en pantalla, **Omitir la configuración inicial** es la única entrada del menú. En macOS, la app también mantiene una barra de menús del sistema con los menús estándar de la app, Editar y Ventana. Las compilaciones para Windows y Linux no tienen barra de menús del sistema.
@@ -103,12 +105,12 @@ Inicia, actualiza, crea instantáneas y configura tus instalaciones a través de
 
 Botones del lado derecho
 
-![Controles del lado derecho de la barra de título: Novedades \(campana\), Retroalimentación y Descargas](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/title_bar_trailing.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=c6f57d6e2cf179a5ee7952395e3b59a5) Los controles agrupados en el lado derecho de la barra de título dan acceso rápido a:
+![Controles del lado derecho de la barra de título: Novedades \(campana\), Feedback y Descargas](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/title_bar_trailing.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=c6f57d6e2cf179a5ee7952395e3b59a5) Los controles agrupados en el lado derecho de la barra de título dan acceso rápido a:
 
   * **Actualización de Desktop** : cuando hay una nueva versión de Comfy Desktop disponible, aparece una píldora aquí. Haz clic para descargar y aplicar la actualización.
   * **Restablecer zoom** : aparece una píldora con el porcentaje de zoom actual mientras la vista de ComfyUI tiene un zoom distinto de 100%. Haz clic en ella para volver al 100%.
   * **Novedades** : abre el panel de anuncios. Los anuncios cubren nuevas funciones de ComfyUI y lanzamientos de productos de Comfy, con un video corto, lo más destacado y enlaces para ver los detalles. La campana muestra un punto mientras haya un anuncio que no hayas abierto, y el punto desaparece en cuanto abres el panel.
-  * **Retroalimentación** : envía retroalimentación al equipo de Comfy Desktop.
+  * **Feedback** : envía comentarios al equipo de Comfy Desktop.
   * **Descargas** : abre la bandeja de descargas. La insignia muestra cuántas descargas están en curso y marca las descargas fallidas y las no abiertas. La bandeja te permite reintentar una descarga fallida o cancelar una que esté en curso; selecciona **Ver todas las descargas** para ver la lista completa, donde las descargas también se pueden pausar y reanudar.
 
 
@@ -145,7 +147,7 @@ Crea, renombra, edita y elimina instancias de ComfyUI.
 
 ​
 
-Retroalimentación y problemas
+Feedback y problemas
 
 ¿Encontraste un error o tienes una sugerencia? Comfy Desktop es de código abierto. Puedes reportar problemas y consultar las funciones planificadas aquí:
 

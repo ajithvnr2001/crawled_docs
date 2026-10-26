@@ -1,0 +1,58 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/LoadImageDataSetFromFolder/
+title: Cargar conjunto de im\u00e1genes desde carpeta - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:04.897016+00:00
+---
+
+# Cargar conjunto de imágenes desde carpeta - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/LoadImageDataSetFromFolder/
+
+Imagen
+
+# Cargar conjunto de imágenes desde carpeta - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Este nodo carga varias imágenes desde una subcarpeta seleccionada dentro del directorio de entrada principal de ComfyUI y las devuelve como una lista.
+
+Copiar páginaCopiar página
+
+Este nodo carga varias imágenes desde una subcarpeta seleccionada dentro del directorio de entrada principal de ComfyUI y las devuelve como una lista. Escanea la carpeta elegida en busca de archivos de imagen en formato PNG, JPG, JPEG o WEBP, lo que lo hace útil para el procesamiento por lotes o para preparar conjuntos de datos de imágenes.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`folder`| La carpeta desde la que se cargarán las imágenes. Las opciones son las subcarpetas presentes en el directorio de entrada principal de ComfyUI.| COMBO| Sí| Múltiples opciones disponibles  
+  
+Nota: La carpeta seleccionada debe ser una subcarpeta del directorio de entrada principal de ComfyUI; cualquier valor que se resuelva fuera de él (por ejemplo, usando `..`, rutas absolutas, letras de unidad o enlaces simbólicos) se rechaza. Solo se cargan archivos con las extensiones .png, .jpg, .jpeg o .webp, y la comprobación de extensiones no distingue entre mayúsculas y minúsculas. Las imágenes cargadas se convierten a RGB y se escalan al rango 0-1. Si la carpeta seleccionada no contiene archivos de imagen válidos, el nodo genera un error. Este nodo está marcado como experimental.
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`images`| Lista de imágenes cargadas. El nodo carga todos los archivos de imagen válidos (PNG, JPG, JPEG, WEBP) encontrados en la carpeta seleccionada.| IMAGE  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/LoadImageDataSetFromFolder/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `cdee4e372890c126dd5f09654a7dd4103bba97a7901b6f5df8e02f29c4064ed2`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/LoadImageDataSetFromFolder.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/LoadImageDataSetFromFolder)
+
+[Cargar imagen](https://docs.comfy.org/es/built-in-nodes/LoadImage)[Cargar imagen (como máscara)](https://docs.comfy.org/es/built-in-nodes/LoadImageMask)

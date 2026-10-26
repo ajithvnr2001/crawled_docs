@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/image/qwen/qwen-image-edit/
 title: Qwen-Image-Edit ComfyUI Native Workflow Example - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:23.697937+00:00
+fetched_at: 2026-10-26T14:04:09.817474+00:00
 ---
 
 # Qwen-Image-Edit ComfyUI Native Workflow Example - ComfyUI
@@ -11,12 +11,16 @@ fetched_at: 2026-10-17T10:51:23.697937+00:00
 
 ## On this page
 
+Back to top
+
   * ComfyOrg Qwen-Image-Edit Live Stream
   * Qwen-Image-Edit ComfyUI Native Workflow Example
     * Qwen Image Edit
     * 1\. Workflow File
     * 2\. Model Download
     * 3\. Follow the Steps to Complete the Workflow
+  * Qwen Image Edit 2509
+    * Model download
 
 
 
@@ -175,32 +179,69 @@ Model Storage Location
 
 
 
+## 
+
+​
+
+Qwen Image Edit 2509
+
+Qwen-Image-Edit-2509 is the next iteration of Qwen-Image-Edit. It keeps the precise bilingual text editing of the original model and adds multi-image input, more consistent edits across a series of images, and ControlNet support, so you can edit one image while referencing others. ![Qwen Image Edit 2509 workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_qwen_image_edit_2509-1.webp)
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “Qwen Image Edit 2509” in Template Library
+
+**Input materials** Upload this file to the matching `LoadImage` node:
+
+## image_qwen_image_edit_2509_input_image.png
+
+`LoadImage` node 78 · `image_qwen_image_edit_2509_input_image.png`
+
+### 
+
+​
+
+Model download
+
+**Diffusion model**
+
+  * [qwen_image_edit_2509_fp8_e4m3fn.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/blob/main/split_files/diffusion_models/qwen_image_edit_2509_fp8_e4m3fn.safetensors)
+
+**LoRA (optional, for 4-step Lightning acceleration)**
+
+  * [Qwen-Image-Edit-2509-Lightning-4steps-V1.0-bf16.safetensors](https://huggingface.co/lightx2v/Qwen-Image-Lightning/blob/main/Qwen-Image-Edit-2509/Qwen-Image-Edit-2509-Lightning-4steps-V1.0-bf16.safetensors)
+
+**Text encoder**
+
+  * [qwen_2.5_vl_7b_fp8_scaled.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors)
+
+**VAE**
+
+  * [qwen_image_vae.safetensors](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/main/split_files/vae/qwen_image_vae.safetensors)
+
+**Model Storage Location**
+    
+    
+    📂 ComfyUI/
+    ├── 📂 models/
+    │   ├── 📂 diffusion_models/
+    │   │   └── qwen_image_edit_2509_fp8_e4m3fn.safetensors
+    │   ├── 📂 loras/
+    │   │   └── Qwen-Image-Edit-2509-Lightning-4steps-V1.0-bf16.safetensors
+    │   ├── 📂 vae/
+    │   │   └── qwen_image_vae.safetensors
+    │   └── 📂 text_encoders/
+    │       └── qwen_2.5_vl_7b_fp8_scaled.safetensors
+    
+
 Was this page helpful?
 
 YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/image/qwen/qwen-image-edit.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/image/qwen/qwen-image-edit)
 
-[Qwen-Image-2512 ComfyUI Native Workflow ExamplePrevious](https://docs.comfy.org/tutorials/image/qwen/qwen-image-2512)[Qwen-Image-Edit-2511 ComfyUI Native Workflow ExampleNext](https://docs.comfy.org/tutorials/image/qwen/qwen-image-edit-2511)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Qwen-Image-2512](https://docs.comfy.org/tutorials/image/qwen/qwen-image-2512)[Qwen-Image-Edit-2511](https://docs.comfy.org/tutorials/image/qwen/qwen-image-edit-2511)

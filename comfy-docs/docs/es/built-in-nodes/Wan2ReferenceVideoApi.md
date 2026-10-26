@@ -1,0 +1,103 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/Wan2ReferenceVideoApi/
+title: Wan 2.7 Referencia a Video - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:44.051066+00:00
+---
+
+# Wan 2.7 Referencia a Video - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/Wan2ReferenceVideoApi/
+
+Wan
+
+# Wan 2.7 Referencia a Video - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Este nodo genera un video que muestra a una persona o un objeto basándose en los materiales de referencia proporcionados.
+
+Copiar páginaCopiar página
+
+Este nodo genera un video que muestra a una persona o un objeto basándose en los materiales de referencia proporcionados. Utiliza el modelo Wan 2.7 para crear videos a partir de un prompt de texto, y admite actuaciones de un solo personaje e interacciones entre varios personajes. Debes proporcionar al menos un video de referencia o una imagen de referencia para que la generación funcione.
+
+## 
+
+​
+
+Entradas
+
+### 
+
+​
+
+Entradas comunes
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`modelo`| El modelo específico que se usará para la generación de video.| DYNAMIC_COMBO| Sí| ”wan2.7-r2v”  
+`semilla`| Semilla que se usará para la generación, lo que ayuda a controlar la aleatoriedad del resultado (predeterminado: 0).| INT| Sí| 0 a 2147483647  
+`marca_de_agua`| Indica si se debe agregar una marca de agua generada por IA al resultado (predeterminado: False). Esta es una configuración avanzada.| BOOLEAN| Sí| True  
+False  
+  
+### 
+
+​
+
+Entradas de wan2.7-r2v
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`prompt`| Prompt que describe el video. Usa identificadores como ‘character1’ y ‘character2’ para referirte a los personajes de referencia. Debe contener al menos un personaje.| STRING| Sí| -  
+`negative_prompt`| Prompt negativo que describe lo que se debe evitar (predeterminado: vacío).| STRING| No| -  
+`resolution`| La resolución del video de salida.| COMBO| Sí| ”720P"  
+"1080P”  
+`ratio`| La relación de aspecto del video de salida.| COMBO| Sí| ”16:9"  
+"9:16"  
+"1:1"  
+"4:3"  
+"3:4”  
+`duration`| La duración del video generado en segundos (predeterminado: 5).| INT| Sí| 2 a 10  
+  
+### 
+
+​
+
+Entradas de referencia
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`reference_videos`| Ranura ampliable: conecta hasta 3 videos de referencia (ranuras `video1` a `video3`). En total, se requiere al menos un video o una imagen de referencia.| VIDEO| No| 0 a 3 items  
+`reference_images`| Ranura ampliable: conecta hasta 5 imágenes de referencia (ranuras `image1` a `image5`). En total, se requiere al menos un video o una imagen de referencia.| IMAGE| No| 0 a 5 items  
+  
+**Restricciones importantes:**
+
+  * Debes proporcionar al menos un video de referencia o una imagen de referencia en las entradas `reference_videos` o `reference_images`. De lo contrario, el nodo genera un error.
+  * El número total combinado de videos de referencia e imágenes de referencia no puede superar los 5.
+  * La entrada `prompt` debe contener al menos un personaje.
+
+
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`output`| El archivo de video generado.| VIDEO  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/Wan2ReferenceVideoApi/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `52ac550522bf3fe8f57444ce8586fe83be470b893ff8c01292743553cfbd623d`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/Wan2ReferenceVideoApi.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/Wan2ReferenceVideoApi)
+
+[Wan 2.7 Imagen a Video](https://docs.comfy.org/es/built-in-nodes/Wan2ImageToVideoApi)[Wan 2.7 Texto a Video](https://docs.comfy.org/es/built-in-nodes/Wan2TextToVideoApi)

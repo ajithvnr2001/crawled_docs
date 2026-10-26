@@ -1,0 +1,67 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/QuiverImageToSVGNode/
+title: Imagen a SVG con Quiver (heredado) - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:19.804191+00:00
+---
+
+# Imagen a SVG con Quiver (heredado) - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/QuiverImageToSVGNode/
+
+Quiver
+
+# Imagen a SVG con Quiver (heredado) - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Este nodo convierte una imagen ráster en un gráfico vectorial escalable (SVG) mediante los modelos de vectorización de Quiver AI.
+
+Copiar páginaCopiar página
+
+Este nodo convierte una imagen ráster en un gráfico vectorial escalable (SVG) mediante los modelos de vectorización de Quiver AI. Envía la imagen a una API externa que la procesa y devuelve el resultado vectorizado. **Nota:** Este nodo está marcado como obsoleto en el código fuente.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`imagen`| Imagen de entrada para vectorizar.| IMAGE| Sí| N/A  
+`recorte_automático`| Recorta automáticamente al sujeto dominante (predeterminado: False).| BOOLEAN| Sí| True  
+False  
+`modelo`| Modelo que se usará para la vectorización a SVG. Al seleccionar un modelo se revelan parámetros adicionales específicos de ese modelo: `target_size` (tamaño de redimensionado cuadrado objetivo en píxeles; 0 mantiene el tamaño de la imagen de origen; de lo contrario, 128 a 4096), `temperature`, `top_p` y `presence_penalty`.| DYNAMIC_COMBO| Sí| `"arrow-2"`  
+`"arrow-2-telos"`  
+`semilla`| Semilla para determinar si el nodo debe volver a ejecutarse; los resultados reales no son deterministas independientemente del valor de la semilla. Este parámetro tiene funcionalidad de “control after generate” (predeterminado: 0).| INT| Sí| 0 a 2147483647  
+`reasoning_effort`| Cuánto razonamiento dedica el modelo antes de dibujar. Los niveles más altos mejoran el detalle y consumen más tokens. Solo lo usan los modelos Arrow 2 (predeterminado: “high”).| COMBO| No| `"low"`  
+`"medium"`  
+`"high"`  
+`"xhigh"`  
+  
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`SVG`| La salida SVG vectorizada.| SVG  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/QuiverImageToSVGNode/es.md)
+
+* * *
+
+* * *
+
+**Source fingerprint (SHA-256):** `196b0693328478bff21b11da87c52608e8bb57abb9bf482052782231f6d81c30`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/QuiverImageToSVGNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/QuiverImageToSVGNode)
+
+[Imagen de OpenRouter](https://docs.comfy.org/es/built-in-nodes/OpenRouterImageNode)[Imagen a SVG con Quiver](https://docs.comfy.org/es/built-in-nodes/QuiverImageToSVGNodeV2)

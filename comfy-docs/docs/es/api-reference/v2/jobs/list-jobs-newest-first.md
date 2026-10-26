@@ -1,0 +1,856 @@
+---
+url: https://docs.comfy.org/es/api-reference/v2/jobs/list-jobs-newest-first/
+title: List jobs, newest first - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:01:28.401360+00:00
+---
+
+# List jobs, newest first - ComfyUI
+
+> Source: https://docs.comfy.org/es/api-reference/v2/jobs/list-jobs-newest-first/
+
+List jobs, newest first
+
+cURL
+    
+    
+    curl --request GET \
+      --url http://127.0.0.1:8189/api/v2/jobs \
+      --header 'Authorization: Bearer <token>'
+    
+    
+    import requests
+    
+    url = "http://127.0.0.1:8189/api/v2/jobs"
+    
+    headers = {"Authorization": "Bearer <token>"}
+    
+    response = requests.get(url, headers=headers)
+    
+    print(response.text)
+    
+    
+    const options = {method: 'GET', headers: {Authorization: 'Bearer <token>'}};
+    
+    fetch('http://127.0.0.1:8189/api/v2/jobs', options)
+      .then(res => res.json())
+      .then(res => console.log(res))
+      .catch(err => console.error(err));
+    
+    
+    <?php
+    
+    $curl = curl_init();
+    
+    curl_setopt_array($curl, [
+      CURLOPT_PORT => "8189",
+      CURLOPT_URL => "http://127.0.0.1:8189/api/v2/jobs",
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "GET",
+      CURLOPT_HTTPHEADER => [
+        "Authorization: Bearer <token>"
+      ],
+    ]);
+    
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    
+    curl_close($curl);
+    
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
+      echo $response;
+    }
+    
+    
+    package main
+    
+    import (
+    	"fmt"
+    	"net/http"
+    	"io"
+    )
+    
+    func main() {
+    
+    	url := "http://127.0.0.1:8189/api/v2/jobs"
+    
+    	req, _ := http.NewRequest("GET", url, nil)
+    
+    	req.Header.Add("Authorization", "Bearer <token>")
+    
+    	res, _ := http.DefaultClient.Do(req)
+    
+    	defer res.Body.Close()
+    	body, _ := io.ReadAll(res.Body)
+    
+    	fmt.Println(string(body))
+    
+    }
+    
+    
+    HttpResponse<String> response = Unirest.get("http://127.0.0.1:8189/api/v2/jobs")
+      .header("Authorization", "Bearer <token>")
+      .asString();
+    
+    
+    require 'uri'
+    require 'net/http'
+    
+    url = URI("http://127.0.0.1:8189/api/v2/jobs")
+    
+    http = Net::HTTP.new(url.host, url.port)
+    
+    request = Net::HTTP::Get.new(url)
+    request["Authorization"] = 'Bearer <token>'
+    
+    response = http.request(request)
+    puts response.read_body
+
+200
+
+400
+
+401
+
+403
+
+404
+
+422
+
+429
+
+500
+
+501
+
+503
+    
+    
+    {
+      "jobs": [
+        {
+          "id": "7f3d2c1b-9a8e-4d6f-b012-3c4d5e6f7a8b",
+          "status": "queued",
+          "create_time": "2023-11-07T05:31:56Z",
+          "update_time": "2023-11-07T05:31:56Z",
+          "release_version": 3,
+          "metadata": {
+            "client": "acme"
+          }
+        }
+      ],
+      "next_cursor": "<string>"
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+
+jobs
+
+# List jobs, newest first
+
+Copiar páginaCopiar página
+
+Lists jobs newest first. At a deployment’s address, the jobs sent to that deployment; at the workspace address, every job in the caller’s workspace. A caller never sees another workspace’s jobs.
+
+Filter by your own labels with `metadata[<key>]=<value>`, up to 3 times; a job is listed only when every pair matches exactly. A 4th filter, a repeated key, a key outside the key rule, or a value with a character no label may hold (a control character or a bidirectional embedding, override or isolate, as on submit) is refused `400` `invalid_metadata_filter`. A filter value must be URL-encoded; a raw `;` or a bad `%` escape answers `400` `invalid_metadata_filter`.
+
+Pages: pass the response’s `next_cursor` back as `cursor`, with the same filters, to read the next page. `next_cursor` is absent on the last page. Each job appears once across the pages.
+
+List items are a job’s stored record, not the `Job` object: they carry no `outputs` and no `urls`. Read a job with `GET /api/v2/jobs/{id}` for its outputs.
+
+Only the serverless platform lists jobs today. Comfy Cloud answers `501` `not_implemented`.
+
+Copiar páginaCopiar página
+
+GET
+
+http://127.0.0.1:8189https://cloud.comfy.orghttps://{deployment}.run.comfy.app
+
+/
+
+api
+
+/
+
+v2
+
+/
+
+jobs
+
+Pruébalo
+
+List jobs, newest first
+
+cURL
+    
+    
+    curl --request GET \
+      --url http://127.0.0.1:8189/api/v2/jobs \
+      --header 'Authorization: Bearer <token>'
+    
+    
+    import requests
+    
+    url = "http://127.0.0.1:8189/api/v2/jobs"
+    
+    headers = {"Authorization": "Bearer <token>"}
+    
+    response = requests.get(url, headers=headers)
+    
+    print(response.text)
+    
+    
+    const options = {method: 'GET', headers: {Authorization: 'Bearer <token>'}};
+    
+    fetch('http://127.0.0.1:8189/api/v2/jobs', options)
+      .then(res => res.json())
+      .then(res => console.log(res))
+      .catch(err => console.error(err));
+    
+    
+    <?php
+    
+    $curl = curl_init();
+    
+    curl_setopt_array($curl, [
+      CURLOPT_PORT => "8189",
+      CURLOPT_URL => "http://127.0.0.1:8189/api/v2/jobs",
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "GET",
+      CURLOPT_HTTPHEADER => [
+        "Authorization: Bearer <token>"
+      ],
+    ]);
+    
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    
+    curl_close($curl);
+    
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
+      echo $response;
+    }
+    
+    
+    package main
+    
+    import (
+    	"fmt"
+    	"net/http"
+    	"io"
+    )
+    
+    func main() {
+    
+    	url := "http://127.0.0.1:8189/api/v2/jobs"
+    
+    	req, _ := http.NewRequest("GET", url, nil)
+    
+    	req.Header.Add("Authorization", "Bearer <token>")
+    
+    	res, _ := http.DefaultClient.Do(req)
+    
+    	defer res.Body.Close()
+    	body, _ := io.ReadAll(res.Body)
+    
+    	fmt.Println(string(body))
+    
+    }
+    
+    
+    HttpResponse<String> response = Unirest.get("http://127.0.0.1:8189/api/v2/jobs")
+      .header("Authorization", "Bearer <token>")
+      .asString();
+    
+    
+    require 'uri'
+    require 'net/http'
+    
+    url = URI("http://127.0.0.1:8189/api/v2/jobs")
+    
+    http = Net::HTTP.new(url.host, url.port)
+    
+    request = Net::HTTP::Get.new(url)
+    request["Authorization"] = 'Bearer <token>'
+    
+    response = http.request(request)
+    puts response.read_body
+
+200
+
+400
+
+401
+
+403
+
+404
+
+422
+
+429
+
+500
+
+501
+
+503
+    
+    
+    {
+      "jobs": [
+        {
+          "id": "7f3d2c1b-9a8e-4d6f-b012-3c4d5e6f7a8b",
+          "status": "queued",
+          "create_time": "2023-11-07T05:31:56Z",
+          "update_time": "2023-11-07T05:31:56Z",
+          "release_version": 3,
+          "metadata": {
+            "client": "acme"
+          }
+        }
+      ],
+      "next_cursor": "<string>"
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+    
+    
+    {
+      "error": {
+        "code": "invalid_workflow",
+        "message": "Node 12 (KSampler): required input 'model' is not connected",
+        "organization_id": "org_01HXYZEXAMPLE",
+        "details": {
+          "node_errors": {
+            "12": {
+              "class_type": "SomeCustomNode",
+              "errors": [
+                {
+                  "type": "unknown_node_class",
+                  "message": "this deployment's build does not contain the node class SomeCustomNode."
+                }
+              ]
+            }
+          },
+          "unknown_node_classes": [
+            "SomeCustomNode"
+          ]
+        }
+      }
+    }
+
+#### Autorizaciones
+
+​
+
+Authorization
+
+string
+
+header
+
+requerido
+
+`Authorization: Bearer <credential>`. The credential is one of: an account-scoped API key (`comfyui-…`), accepted on Cloud and serverless; a Comfy Cloud session JWT; or an OAuth access token issued for the Comfy Cloud resource. Which kinds a given deployment accepts is deployment configuration — an API key always works on Cloud and serverless, and a deployment that does not accept JWT bearers answers `401` with a message saying so. Self-hosted accepts unauthenticated requests by default and can be configured with a static bearer token.
+
+#### Parámetros de consulta
+
+​
+
+limit
+
+integer
+
+Most jobs per page. Above 500 is read as 500; absent means 500. Not a positive integer: `422` `invalid_request`.
+
+Rango requerido: `x >= 1`
+
+​
+
+cursor
+
+string
+
+The previous page's `next_cursor`, unchanged. Opaque: do not build or edit one. A cursor that is not well-formed is refused `400` `invalid_cursor`. Cursors are not signed, so a well-formed one is read as a position whether or not this list issued it.
+
+​
+
+metadata
+
+object
+
+Exact-match label filters, written `metadata[client]=acme`. Up to 3; all must match.
+
+Show child attributes
+
+#### Respuesta
+
+200
+
+application/json
+
+One page of jobs, newest first.
+
+One page of `GET /api/v2/jobs`.
+
+​
+
+jobs
+
+object[]
+
+requerido
+
+Show child attributes
+
+​
+
+next_cursor
+
+string
+
+Pass as `cursor` to read the next page. Absent on the last page.
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/api-reference/v2/jobs/list-jobs-newest-first.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/api-reference/v2/jobs/list-jobs-newest-first)
+
+[Asset bytes](https://docs.comfy.org/es/api-reference/v2/assets/asset-bytes)[Submit a workflow for execution](https://docs.comfy.org/es/api-reference/v2/jobs/submit-a-workflow-for-execution)

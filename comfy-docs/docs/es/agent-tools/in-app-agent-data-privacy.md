@@ -1,0 +1,101 @@
+---
+url: https://docs.comfy.org/es/agent-tools/in-app-agent-data-privacy/
+title: Datos y privacidad de Comfy Agent - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:01:21.913626+00:00
+---
+
+# Datos y privacidad de Comfy Agent - ComfyUI
+
+> Source: https://docs.comfy.org/es/agent-tools/in-app-agent-data-privacy/
+
+## En esta página
+
+Volver arriba
+
+  * En resumen
+  * Qué usa el Agente
+  * Flujo de datos en Cloud y en local
+  * Historial de chat y sincronización
+  * Habilidades y orientación
+  * Retención y eliminación
+
+
+
+Comfy Agent
+
+# Datos y privacidad de Comfy Agent
+
+Copiar páginaCopiar página
+
+Descubre qué usa Comfy Agent para responder y en qué se diferencian el uso local y en Cloud.
+
+Copiar páginaCopiar página
+
+## 
+
+​
+
+En resumen
+
+Comfy Agent usa tu mensaje, el flujo de trabajo seleccionado, los nodos seleccionados y los archivos adjuntos. Cuando trabajas con una instalación local de ComfyUI, el historial de chat se guarda en esa máquina. Tu mensaje y la información necesaria para responderlo se envían a través del servicio en línea de Comfy.
+
+## 
+
+​
+
+Qué usa el Agente
+
+Datos| Cómo ayudan  
+---|---  
+Tu mensaje| Le indica al Agente lo que quieres hacer.  
+Flujo de trabajo y nodos seleccionados| Muestran qué flujo de trabajo y nodos quieres que se expliquen o se modifiquen.  
+Archivo adjunto de imagen| Permite que el Agente inspeccione la imagen y la use en un flujo de trabajo.  
+Archivo adjunto de video o audio| Permite que el Agente lea las propiedades del contenido multimedia y extraiga o convierta el contenido.  
+Errores de flujo de trabajo y de ejecución| Ayudan al Agente a explicar y corregir un flujo de trabajo fallido.  
+Habilidad personal| Proporciona instrucciones reutilizables.  
+  
+La [Política de privacidad](https://www.comfy.org/privacy-policy?utm_source=docs) y los [Términos de servicio](https://www.comfy.org/terms-of-service?utm_source=docs) rigen tu uso de Comfy.
+
+## 
+
+​
+
+Flujo de datos en Cloud y en local
+
+Dónde usas Comfy Agent| Qué sucede  
+---|---  
+**Comfy Cloud**|  Comfy Cloud guarda conversaciones, flujos de trabajo y recursos. Tus mensajes se procesan mediante el servicio en línea de Comfy y los flujos de trabajo se ejecutan en GPU en la nube.  
+**ComfyUI local en Desktop**|  La instalación local guarda el historial de chat, los flujos de trabajo y los archivos. Tus mensajes y la información relevante del flujo de trabajo se procesan mediante el servicio en línea de Comfy. Los nodos del flujo de trabajo local se ejecutan en tu hardware; los Nodos asociados usan sus proveedores en línea.  
+  
+## 
+
+​
+
+Historial de chat y sincronización
+
+Las conversaciones con el Agente de Cloud se guardan en Comfy Cloud. Las conversaciones con el Agente local se guardan en la máquina que ejecuta ComfyUI. Los dos historiales no se sincronizan. Esto depende de si usas Cloud o una instalación local, no de la ventana de la aplicación en la que lo abras.
+
+## 
+
+​
+
+Habilidades y orientación
+
+Las habilidades personales contienen instrucciones que creas para el Agente. Se guardan en tu cuenta y se usan cuando tu solicitud coincide con ellas o cuando las nombras. La orientación y las habilidades integradas del Agente para agentes de programación externos son independientes de tus habilidades personales del Agente.
+
+## 
+
+​
+
+Retención y eliminación
+
+Para obtener detalles sobre la retención, consulta la [Política de privacidad](https://www.comfy.org/privacy-policy?utm_source=docs) y la [Retención de datos](https://docs.comfy.org/es/support/data-retention). Para solicitudes relacionadas con la cuenta o la eliminación de datos, escribe a [support@comfy.org](mailto:support@comfy.org).
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/agent-tools/in-app-agent-data-privacy.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/agent-tools/in-app-agent-data-privacy)
+
+[Habilidades del Agente](https://docs.comfy.org/es/agent-tools/in-app-agent-skills)[Habilidades para agentes de programación](https://docs.comfy.org/es/agent-tools/skills)

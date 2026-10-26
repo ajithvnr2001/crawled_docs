@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/desktop/usage/instance-management/
 title: Gesti\u00f3n de instancias - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:48.132756+00:00
+fetched_at: 2026-10-26T14:04:03.109894+00:00
 ---
 
 # Gestión de instancias - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:48.132756+00:00
 > Source: https://docs.comfy.org/es/installation/desktop/usage/instance-management/
 
 ## En esta página
+
+Volver arriba
 
   * Tipos de instancia
   * Crear una nueva instancia
@@ -75,7 +77,7 @@ El menú también enumera acciones que solo aparecen en ciertos estados: **Deten
 
 Crear una nueva instancia
 
-Haz clic en la tarjeta **+** (arriba a la izquierda) en la vista Selector para agregar una nueva instancia de ComfyUI.
+Haz clic en la tarjeta **+** (arriba a la izquierda) en la vista Chooser para agregar una nueva instancia de ComfyUI.
 
 1
 
@@ -90,31 +92,48 @@ Crear una nueva instancia
 
 
 
-![El asistente Crear una nueva instancia en Windows, señalando el nombre \(1\), el modo de compilación \(2\), el canal de lanzamiento \(3\), el hardware \(4\) y la ubicación de instalación \(5\)](https://mintcdn.com/dripart/cAVuyhdaebQHS2CS/images/desktop/usage/new_install_01_settings_windows.png?fit=max&auto=format&n=cAVuyhdaebQHS2CS&q=85&s=f293743f357c88ea7639667b957053de)
+![El asistente Crear una nueva instancia en Windows, que señala el nombre \(1\), el modo de compilación \(2\), el canal de lanzamiento \(3\), el hardware \(4\) y la ubicación de instalación \(5\)](https://mintcdn.com/dripart/cAVuyhdaebQHS2CS/images/desktop/usage/new_install_01_settings_windows.png?fit=max&auto=format&n=cAVuyhdaebQHS2CS&q=85&s=f293743f357c88ea7639667b957053de)
 
-![El asistente Crear una nueva instancia en macOS, señalando el nombre \(1\), el método de instalación \(2\), el canal de lanzamiento \(3\), el hardware \(4\) y la ubicación de instalación \(5\)](https://mintcdn.com/dripart/PBKxxhs8nJtECa3d/images/desktop/usage/new_install_01_settings_mac.png?fit=max&auto=format&n=PBKxxhs8nJtECa3d&q=85&s=3574ee56cd34b97aadfeb9a84df1aaf8)
+![El asistente Create a New Instance en macOS, con anotaciones para el nombre \(1\), el método de instalación \(2\), el canal de lanzamiento \(3\), el hardware \(4\) y la ubicación de instalación \(5\)](https://mintcdn.com/dripart/PBKxxhs8nJtECa3d/images/desktop/usage/new_install_01_settings_mac.png?fit=max&auto=format&n=PBKxxhs8nJtECa3d&q=85&s=3574ee56cd34b97aadfeb9a84df1aaf8)
 
-![Asistente Crear una nueva instancia en Linux: nombre, Public Builds, lanzamiento, hardware \(AMD/NVIDIA/Intel Arc\) y ubicación de instalación con espacio libre](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/new_install_01_settings_linux.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=03b4201e96f77d5ecac7d8920268992e)
+![Asistente para crear una nueva instancia en Linux: nombre, Public Builds, versión, hardware \(AMD/NVIDIA/Intel Arc\) y ubicación de instalación con espacio libre](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/new_install_01_settings_linux.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=03b4201e96f77d5ecac7d8920268992e)
 
   1. **Nombre** : el nombre de tu instancia. El valor predeterminado es “ComfyUI”.
-  2. **Public Builds** : la opción recomendada. Una instalación estándar de ComfyUI creada para el hardware detectado. Selecciona **Managed Builds** para instalar un Build desde uno de tus espacios de trabajo (consulta [Espacios de trabajo y ComfyUI Builds](https://docs.comfy.org/es/installation/desktop/usage/workspaces-and-builds#instalar-un-build)), o **Conexión Remota** para conectarte a una instancia de ComfyUI que se ejecuta en otra máquina.
-  3. **Lanzamiento** : el canal de lanzamiento que se va a instalar. **Estable (RECOMENDADO)** viene preseleccionado.
-  4. **Hardware** : Comfy Desktop detecta tu GPU y preselecciona la compilación correspondiente (NVIDIA, AMD, Intel Arc (XPU) o CPU). Cada opción muestra la versión de ComfyUI, la versión de Python y el tamaño de la descarga.
-  5. **Ubicación de Instalación** : dónde se instala ComfyUI. En Windows, se recomienda encarecidamente usar un **SSD** y evitar la raíz de la unidad C:. El campo muestra el espacio libre en la unidad y una estimación del tamaño de la instalación cuando Comfy Desktop la conoce.
+  2. **Public Builds** : la opción recomendada. Una instalación estándar de ComfyUI creada para el hardware que se detectó. Selecciona **Managed Builds** para instalar en su lugar una Build de uno de tus espacios de trabajo (consulta [Espacios de trabajo y builds](https://docs.comfy.org/es/installation/desktop/usage/workspaces-and-builds#instalar-un-build)), o **Remote Connection** para conectarte a una instancia de ComfyUI que se ejecuta en otra máquina.
+  3. **Release** : el canal de versión que se va a instalar. **Stable (Recommended)** viene preseleccionado.
+  4. **Hardware** : Comfy Desktop detecta tu GPU y preselecciona la build correspondiente (NVIDIA, AMD, Intel Arc (XPU) o CPU). Cada opción muestra la versión de ComfyUI, la versión de Python y el tamaño de la descarga.
+  5. **Ubicación de Instalación** : dónde se instala ComfyUI. En Windows, se recomienda encarecidamente usar un **SSD** y evitar la raíz de la unidad C:. El campo muestra el espacio libre de la unidad y una estimación del tamaño de la instalación cuando Comfy Desktop la conoce.
 
-Si el espacio libre parece bajo, el asistente muestra el diálogo **Low Disk Space**. Elige **Continue Anyway** , o cancela y selecciona otra ruta.![Diálogo Low Disk Space que muestra el espacio libre frente al tamaño de instalación requerido, con Cancel y Continue Anyway](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/low_disk_space_dialog.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=7306da9f6d98179436d54fa23581eb62)
+Si el espacio libre parece bajo, el asistente muestra un diálogo **Low Disk Space**. Elige **Continuar de todos modos** , o cancela y selecciona otra ruta.![Diálogo Low Disk Space con el espacio libre frente al tamaño de instalación requerido, y los botones Cancelar y Continuar de todos modos](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/low_disk_space_dialog.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=7306da9f6d98179436d54fa23581eb62)Comfy Desktop también rechaza las carpetas en las que no puede instalar. Revisa la carpeta en cuanto seleccionas una con **Explorar…** , explica el problema bajo **Ubicación de Instalación** y mantiene **Continuar** deshabilitado hasta que la carpeta sea una que pueda usar:
+
+  * **Dentro de los propios archivos de Comfy Desktop** : la carpeta de la aplicación, sus recursos incluidos, su carpeta de datos y, en Windows, sus cachés del actualizador. Esos archivos se reemplazan cuando la aplicación se actualiza, así que una instalación allí se eliminaría. En macOS esto abarca todo lo que esté dentro del paquete de la aplicación Comfy Desktop.
+  * **Dentro de OneDrive** (Windows): la sincronización en la nube ralentiza un entorno de Python grande y puede corromper archivos mientras se suben.
+  * **Dentro de una carpeta compartida de modelos, input o output** : instalar allí puede corromper los archivos que comparten todas las instancias. Consulta [Almacenamiento](https://docs.comfy.org/es/installation/desktop/usage/settings#almacenamiento).
+  * **Dentro de la carpeta de otra instancia** : las dos instalaciones entrarían en conflicto y podrían corromper datos. ![Ubicación de instalación definida en una carpeta de modelos compartida: el motivo aparece bajo el campo y Continuar permanece deshabilitado](https://mintcdn.com/dripart/DCOqDr2XJt-Cp-c5/images/desktop/usage/install_location_guardrail.png?fit=max&auto=format&n=DCOqDr2XJt-Cp-c5&q=85&s=840a24a4bc38e17a49e542ab02e04ee2)
+
+En una máquina con GPU NVIDIA, la build de NVIDIA también revisa la versión del controlador. Si el controlador detectado es anterior a la 580, Comfy Desktop muestra un diálogo **Update NVIDIA Driver** con la versión detectada y el mínimo recomendado. **Continuar de todos modos** instala con el controlador actual.
 
 2
 
 Instalando
 
-![Progreso de la instalación: Descargando ComfyUI con porcentaje, rendimiento y pasos restantes](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/new_install_02_installing.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=56f28d2fc1eb721c2ef27d4229816095)Comfy Desktop se encargará del resto: descargar Python, configurar el entorno e instalar ComfyUI. La pantalla de progreso muestra el paso actual.
+![Progreso de la instalación: Descargando ComfyUI con porcentaje, velocidad de transferencia y pasos restantes](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/new_install_02_installing.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=56f28d2fc1eb721c2ef27d4229816095)Comfy Desktop se encarga del resto. La pantalla de progreso ejecuta un stepper: las etapas finalizadas reciben una marca de verificación, la etapa activa muestra un indicador giratorio con una línea de detalle en vivo (porcentaje, velocidad de transferencia o nombre del archivo) y la siguiente etapa espera debajo. Cuando la instalación termina, ese mismo stepper continúa con el primer inicio, así que las filas siguen con **Iniciando ComfyUI** y las etapas de inicio.
+
+Etapa| Qué hace  
+---|---  
+**Descargando ComfyUI**|  Obtiene el paquete de ComfyUI para el hardware que seleccionaste.  
+**Descomprimiendo la instalación**|  Descomprime el paquete en la carpeta de instalación.  
+**Configurar el entorno**|  Crea el entorno de Python propio de la instancia y copia en él los paquetes precompilados, lo que escribe varios gigabytes.  
+**Limpiar el entorno**|  Elimina los paquetes que la instancia no necesita, escribe la configuración del entorno, obtiene las etiquetas de versión y registra la primera instantánea de la instancia.  
+**Actualizar a la última estable**|  Lleva ComfyUI al canal de versión que elegiste e instala sus requisitos de Python, lo que puede tardar una hora o más en un equipo nuevo.  
+  
+Una instalación creada a partir de una instantánea no se actualiza automáticamente, así que su stepper omite la última etapa y muestra en su lugar las dos etapas de restauración.Si elegiste una plantilla inicial, sus modelos se descargan en segundo plano durante las etapas anteriores, así que la instalación no espera a que terminen. Luego, el stepper termina con **Descargando modelos de la plantilla** una vez que ComfyUI ha iniciado, y esa fila permanece hasta que los archivos terminan. Selecciona **Omitir y abrir ComfyUI** en esa pantalla para abrir la instancia de inmediato; la transferencia sigue ejecutándose en la [bandeja de descargas](https://docs.comfy.org/es/installation/desktop/usage/downloads).
 
 3
 
 Elegir una plantilla
 
-![Paso Elegir un flujo de trabajo inicial con pestañas Vídeo/Imágenes/3D/Audio antes de que finalice la instalación](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/new_install_03_interface_template.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=c02ae0bffd0167cecf0fea20418cba79)Una vez completada la instalación, Comfy Desktop abre la biblioteca de plantillas donde puedes elegir una plantilla de flujo de trabajo para empezar.Las plantillas que descargan modelos necesitan suficiente espacio libre para esos archivos. Si la unidad no puede contener los modelos de una plantilla, el asistente bloquea esa opción. Elige una plantilla más ligera o libera espacio. En discos muy pequeños, el paso de plantillas puede omitirse por completo.
+![Paso para elegir un flujo de trabajo inicial con pestañas Video/Image/3D/Audio antes de que termine la instalación](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/new_install_03_interface_template.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=c02ae0bffd0167cecf0fea20418cba79)Cuando la instalación termina, Comfy Desktop abre la biblioteca de plantillas, donde puedes elegir una plantilla de flujo de trabajo para empezar.Las plantillas que descargan modelos necesitan suficiente espacio libre para esos archivos. Si la unidad no puede contener los modelos de una plantilla, el asistente bloquea esa opción. Elige una plantilla más ligera o libera espacio. En discos muy pequeños, el paso de plantillas puede omitirse por completo.
 
 ## 
 
@@ -153,7 +172,7 @@ Confirmar la Instalación Detectada
 Cuando el sondeo termina, el diálogo muestra lo que encontró. Revisa las rutas antes de rastrear la instalación. ![El diálogo Add Existing Instance con un clon de Git detectado: ubicación de instalación, versión, repositorio, rama y entorno virtual](https://mintcdn.com/dripart/PBKxxhs8nJtECa3d/images/desktop/usage/track_instance_02.png?fit=max&auto=format&n=PBKxxhs8nJtECa3d&q=85&s=49d1202e57fd41b6f4ca412b990c77cf)
 
   * **Install location** : La carpeta que seleccionaste. Haz clic en la ruta para abrirla, o en **Browse…** para elegir otra. Para una compilación portable, apunta a la carpeta que contiene `python_embeded`.
-  * **Name** : Cómo se lista la instancia en el Chooser. El diálogo sugiere un nombre.
+  * **Name** : Cómo se lista la instancia en el Selector. El diálogo sugiere un nombre.
   * **Detected type** : Qué tipo de instalación contiene la carpeta.
   * **Version** , **Repository** y **Branch** : Se muestran para un clon de Git.
   * **Virtual Environment** : Se muestra para un clon de Git cuando Comfy Desktop encuentra uno, en `.venv`, `venv`, `.env` o `env` con un archivo `pyvenv.cfg` dentro. **Browse…** apunta la instancia a un entorno diferente.

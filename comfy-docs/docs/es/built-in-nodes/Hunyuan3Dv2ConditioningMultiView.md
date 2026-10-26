@@ -1,0 +1,62 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/Hunyuan3Dv2ConditioningMultiView/
+title: Acondicionamiento Hunyuan 3D v2 (multi-vista) - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:01:53.949311+00:00
+---
+
+# Acondicionamiento Hunyuan 3D v2 (multi-vista) - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/Hunyuan3Dv2ConditioningMultiView/
+
+Hunyuan 3d
+
+# Acondicionamiento Hunyuan 3D v2 (multi-vista) - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+El nodo Hunyuan3Dv2ConditioningMultiView combina salidas de visión CLIP de hasta cuatro vistas (frontal, izquierda
+
+Copiar páginaCopiar página
+
+El nodo Hunyuan3Dv2ConditioningMultiView combina salidas de visión CLIP de hasta cuatro vistas (frontal, izquierda, trasera y derecha) en un único condicionamiento multivista. A cada vista proporcionada se le añade una codificación posicional a su embedding de visión CLIP, y los embeddings resultantes se concatenan. El nodo genera un condicionamiento positivo basado en los embeddings combinados y un condicionamiento negativo relleno de ceros con la misma forma.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`frente`| Salida de visión CLIP para la vista frontal. Entrada de vista opcional.| CLIP_VISION_OUTPUT| No| -  
+`izquierda`| Salida de visión CLIP para la vista izquierda. Entrada de vista opcional.| CLIP_VISION_OUTPUT| No| -  
+`atrás`| Salida de visión CLIP para la vista trasera. Entrada de vista opcional.| CLIP_VISION_OUTPUT| No| -  
+`derecha`| Salida de visión CLIP para la vista derecha. Entrada de vista opcional.| CLIP_VISION_OUTPUT| No| -  
+  
+**Nota:** Se debe proporcionar al menos una entrada de vista para que el nodo funcione. El nodo solo procesa las vistas que contienen datos válidos de salida de visión CLIP y omite las vistas que no están conectadas. Cada vista recibe una codificación posicional fija según su ranura (frontal, izquierda, trasera, derecha), y los embeddings procesados de todas las vistas proporcionadas se unen a lo largo de la dimensión de secuencia.
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`positive`| Condicionamiento positivo que contiene los embeddings multivista combinados con codificación posicional.| CONDITIONING  
+`negative`| Condicionamiento negativo con valores cero que coinciden con la forma del condicionamiento positivo.| CONDITIONING  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/Hunyuan3Dv2ConditioningMultiView/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `1492b51661d0bb8f2c142c1b1e8ef104beed1b9dae532a970e2928e27ad71d69`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/Hunyuan3Dv2ConditioningMultiView.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/Hunyuan3Dv2ConditioningMultiView)
+
+[Acondicionamiento Hunyuan 3D v2](https://docs.comfy.org/es/built-in-nodes/Hunyuan3Dv2Conditioning)[Codificar texto CLIP para Hunyuan Image](https://docs.comfy.org/es/built-in-nodes/CLIPTextEncodeHunyuanDiT)

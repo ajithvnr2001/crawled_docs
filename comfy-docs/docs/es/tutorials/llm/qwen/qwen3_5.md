@@ -1,0 +1,168 @@
+---
+url: https://docs.comfy.org/es/tutorials/llm/qwen/qwen3_5/
+title: Ejemplo de flujo de trabajo de Qwen3.5 en ComfyUI - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:03:45.917823+00:00
+---
+
+# Ejemplo de flujo de trabajo de Qwen3.5 en ComfyUI - ComfyUI
+
+> Source: https://docs.comfy.org/es/tutorials/llm/qwen/qwen3_5/
+
+## En esta página
+
+Volver arriba
+
+  * Casos de uso
+  * Flujo de trabajo disponible
+    * Qwen3.5: Text Generation
+  * Descarga del modelo
+
+
+
+LLM
+
+# Ejemplo de flujo de trabajo de Qwen3.5 en ComfyUI
+
+Copiar páginaCopiar página
+
+Ejecuta Qwen3.5, el LLM multimodal de 4B de Alibaba Cloud, en ComfyUI para describir imágenes, generar prompts inversos y responder preguntas visuales.
+
+Copiar páginaCopiar página
+
+  * Usuarios locales
+
+  * Usuarios de Cloud
+
+
+
+
+Asegúrate de que tu ComfyUI esté actualizado.
+
+  * [Descargar ComfyUI](https://www.comfy.org/download)
+  * [Guía de actualización](https://docs.comfy.org/es/installation/update_comfyui)
+
+Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos de trabajo](https://docs.comfy.org/es/interface/features/template). Si no los encuentras en las plantillas, es posible que tu ComfyUI esté desactualizado.Si faltan nodos al cargar un flujo de trabajo, estas son las posibles razones:
+
+  1. No estás usando la última versión de ComfyUI (versión nocturna)
+  2. Algunos nodos fallaron al importarse durante el inicio
+
+
+
+  * [Cloud](https://cloud.comfy.org) se actualizará después del lanzamiento estable de ComfyUI.
+
+Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
+
+**Qwen3.5** es un LLM multimodal de código abierto de Alibaba Cloud, que se basa en la serie Qwen 3.0 y añade capacidades de comprensión de imágenes. Admite tanto la generación de texto como tareas basadas en imágenes, como el etiquetado de imágenes y la ingeniería inversa de prompts. **Aspectos destacados del modelo** :
+
+  * **Multimodal** : acepta entradas de texto e imagen para tareas de comprensión visual
+  * **Etiquetado de imágenes** : puede describir imágenes y generar leyendas detalladas
+  * **Ingeniería inversa de prompts** : extrae prompts y parámetros de generación a partir de imágenes de referencia
+  * **Nativo en ComfyUI** : funciona con el nodo integrado `TextGenerate`, sin necesidad de Nodos personalizados
+  * **Ligero** : modelo de 4B parámetros, apto para GPUs de consumo
+
+
+
+## 
+
+​
+
+Casos de uso
+
+Qwen3.5 destaca en escenarios donde combinar la comprensión visual con la generación de texto aporta valor a un flujo de trabajo de ComfyUI:
+
+  * **Ingeniería inversa de prompts a partir de una imagen** : dale una imagen de referencia a Qwen3.5 y pídele que genere un prompt de texto detallado que pueda reproducir esa imagen. Resulta especialmente útil cuando encuentras una gran imagen pero no sabes con qué prompt se generó.
+  * **Optimización de prompts** : carga un prompt existente y un concepto de imagen, y luego pide a Qwen3.5 que genere, refine o expanda prompts con más detalle para obtener mejores resultados de generación.
+  * **Generación de descripciones de imágenes** : genera automáticamente leyendas, descripciones o etiquetas de metadatos para las imágenes generadas, lo que resulta útil para catalogar o preparar datos de entrenamiento.
+  * **Respuesta a preguntas sobre imágenes** : haz preguntas acerca del contenido de la imagen (“¿Qué objetos hay en esta escena?”, “¿De qué color es el fondo?”) y obtén respuestas de texto estructuradas.
+  * **Lectura de texto** : con un prompt adecuado, el modelo puede intentar leer el texto visible o las etiquetas de las imágenes, aunque la fiabilidad depende de la calidad y la claridad del texto representado.
+
+
+
+## 
+
+​
+
+Flujo de trabajo disponible
+
+### 
+
+​
+
+Qwen3.5: Text Generation
+
+Usa el modelo Qwen3.5 para analizar una imagen de entrada y generar prompts descriptivos de texto. Este flujo de trabajo realiza captioning de imágenes e ingeniería inversa de prompts. ![Qwen3.5 text generation workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/llm_qwen3_5_text_gen-1.webp)
+
+## Ejecutar en Comfy Cloud
+
+Abrir en Comfy Cloud
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “Qwen3.5: Text Generation” en la biblioteca de plantillas
+
+**Materiales de entrada** Sube este archivo al nodo `LoadImage` correspondiente:
+
+## man_with_red_hat.png
+
+Nodo `LoadImage` 2 · `man_with_red_hat.png`
+
+![Input image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/man_with_red_hat.png)
+
+Este flujo de trabajo demuestra las capacidades de **generación de texto y comprensión de imágenes** de Qwen3.5. Acepta un prompt de texto y una imagen opcional, y genera texto descriptivo o análisis estructurado a partir de la entrada. **Entradas** :
+
+  * **Prompt de texto** : tu pregunta, instrucción o descripción de la tarea
+  * **Imagen** (opcional): para tareas de comprensión visual (captioning de imágenes, ingeniería inversa de prompts, optimización de prompts, etc.)
+
+**Controles clave** :
+
+  * **Max length** : número máximo de tokens a generar (256 por defecto)
+  * **Sampling mode** : activa o desactiva el muestreo y ajusta temperature, top-k, top-p, repetition penalty y seed
+  * **Use default template** : aplica el system prompt integrado del modelo
+
+**Salida** :
+
+  * **Texto generado** : la respuesta del modelo como una cadena de texto plano
+
+
+
+## Learn about Subgraph
+
+Este flujo de trabajo usa nodos Subgraph para un procesamiento modular. Consulta la documentación de Subgraph para aprender a personalizar y ampliar el flujo de trabajo.
+
+## 
+
+​
+
+Descarga del modelo
+
+Los modelos Qwen3.5 se cargan como codificadores de texto en ComfyUI. Elige la variante que mejor se adapte a tu hardware:
+
+## Qwen3.5 2B (bf16)
+
+Ligero, ~4.5 GB. Ideal para configuraciones con poca VRAM y descargas rápidas.
+
+## Qwen3.5 4B (bf16)
+
+Equilibrio entre tamaño y calidad. Recomendado para la mayoría de GPU de consumo.
+
+## Qwen3.5 9B (bf16)
+
+La variante más grande, ~19 GB. Salida de mayor calidad, requiere más VRAM.
+
+Coloca el archivo `.safetensors` descargado en:
+    
+    
+    📂 ComfyUI/
+    ├── 📂 models/
+    │   └── 📂 text_encoders/
+    │       └── qwen3.5_4b_bf16.safetensors   # or 2b / 9b variant
+    
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/llm/qwen/qwen3_5.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/llm/qwen/qwen3_5)
+
+[Qwen 3.0](https://docs.comfy.org/es/tutorials/llm/qwen/qwen3)[Descripción general](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/bytedance/seedream-5-pro/
 title: ByteDance Seedream 5.0 Pro - Professional AI Image Generation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:28.294992+00:00
+fetched_at: 2026-10-26T14:04:10.479806+00:00
 ---
 
 # ByteDance Seedream 5.0 Pro - Professional AI Image Generation - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:28.294992+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/bytedance/seedream-5-pro/
 
 ## On this page
+
+Back to top
 
   * What Seedream 5.0 Pro is good at
   * Example outputs
@@ -121,7 +123,7 @@ Download JSON or search “Seedream 5.0 Pro” in Template Library
 
 Seedream 5.0 Pro layer separation workflow
 
-Layer separation is the layer-decomposition pillar of Seedream 5.0 Pro’s interactive precision editing. It splits a single flat image into an editable stack: one base image (background plate) plus up to 16 independent transparent layers, each with its stacking order, bounding-box coordinates, name, and semantic description. Regions hidden behind extracted subjects are seamlessly inpainted, so every layer and the base beneath it is a complete, standalone design asset ready for dragging, scaling, and recomposition. With no prompt at all, the model automatically identifies every major element: text blocks, subjects, decorations, and background. A single poster can yield 10+ layers, with design-grade text separation that supports multilingual headlines and CJK fonts. You can also describe elements in natural language to control the separation, or target exact regions with bounding-box tags. The workflow is ideal for brand design, e-commerce asset creation, poster iteration, and any task where a flat bitmap needs to become an editable layered document. ![Seedream 5.0 Pro Layer Separation workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_bytedance_seedream_5_0_layer_separation-1.webp)
+Layer separation is the layer-decomposition pillar of Seedream 5.0 Pro’s interactive precision editing. It splits a single flat image into an editable stack: one base image (background plate) plus up to 16 independent transparent layers, each with its stacking order, bounding-box coordinates, name, and semantic description. Regions hidden behind extracted subjects are seamlessly inpainted, so every layer and the base beneath it is a complete, standalone design asset ready for dragging, scaling, and recomposition. With no prompt at all, the model automatically identifies every major element: text blocks, subjects, decorations, and background. A single poster can yield 10+ layers, with design-grade text separation that supports multilingual headlines and CJK fonts. You can also describe elements in natural language to control the separation, or target exact regions with bounding-box tags. The workflow is ideal for brand design, e-commerce asset creation, poster iteration, and any task where a flat bitmap needs to become an editable layered document. The template ships with the **Seedream 5.0 Flash** model selected. Switch the model on the node to `seedream 5.0 pro` to run the separation with Seedream 5.0 Pro. ![Seedream 5.0 Pro Layer Separation workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_bytedance_seedream_5_0_layer_separation-1.webp)
 
 ## Run on Comfy Cloud
 
@@ -152,26 +154,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/bytedance/seedream-5-pro.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/bytedance/seedream-5-pro)
 
-[Bria Eraser, Expand Image, and GenFill in ComfyUIPrevious](https://docs.comfy.org/tutorials/partner-nodes/bria/image-editing)[ByteDance Seedream 5.0 Lite - Smart AI Image CreationNext](https://docs.comfy.org/tutorials/partner-nodes/bytedance/seedream-5-lite)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Seedream 5 Flash](https://docs.comfy.org/tutorials/partner-nodes/bytedance/seedream-5-flash)[Seedream 5 Lite](https://docs.comfy.org/tutorials/partner-nodes/bytedance/seedream-5-lite)

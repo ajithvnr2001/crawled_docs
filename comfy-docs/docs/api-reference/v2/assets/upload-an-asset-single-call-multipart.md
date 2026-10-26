@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/v2/assets/upload-an-asset-single-call-multipart/
 title: Upload an asset (single-call multipart) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:37.362716+00:00
+fetched_at: 2026-10-26T14:04:08.814992+00:00
 ---
 
 # Upload an asset (single-call multipart) - ComfyUI
@@ -829,7 +829,7 @@ string
 
 required
 
-Placement path / filename (global-namespace-root form, e.g. `photo.png` or `models/checkpoints/x.safetensors`).
+Placement path / filename (global-namespace-root form, e.g. `photo.png` or `models/checkpoints/x.safetensors`). On Comfy Cloud the last segment becomes the asset name, so it must be valid UTF-8, at most 255 bytes, must not start with `.`, and must not contain control characters (C0, DEL, C1, U+2028, U+2029) or invisible format and default-ignorable characters (Unicode general category Cf, which includes the bidi embedding, override and isolate controls, soft hyphen, zero-width space, word joiner, BOM and tag characters, plus the other default-ignorable code points such as U+034F, U+2065 and the Hangul fillers); otherwise the request is refused with 422 `invalid_body` before anything is stored. ZWNJ/ZWJ (U+200C, U+200D) and the direction marks U+200E, U+200F and U+061C are allowed, for right-to-left and emoji names, and so are the visible Arabic number signs (prepended concatenation marks such as U+0600) and variation selectors; the direction marks can still change how a name is displayed.
 
 Example:
 

@@ -1,0 +1,72 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/MediaPipeFaceLandmarker/
+title: MediaPipe Face Landmarker - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:09.646206+00:00
+---
+
+# MediaPipe Face Landmarker - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/MediaPipeFaceLandmarker/
+
+Detección
+
+# MediaPipe Face Landmarker - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Detecta rostros en una imagen e identifica 468 puntos de referencia faciales (puntos clave) en cada rostro usando los modelos BlazeFace y FaceMesh de MediaPipe.
+
+Copiar páginaCopiar página
+
+## 
+
+​
+
+Descripción general
+
+Detecta rostros en una imagen e identifica 468 puntos de referencia faciales (puntos clave) en cada rostro utilizando los modelos BlazeFace y FaceMesh de MediaPipe. También calcula coeficientes de formas híbridas ARKit-52 para el análisis de expresiones faciales. El nodo puede procesar múltiples imágenes en un lote y genera tanto los datos de los puntos de referencia como los cuadros delimitadores para cada rostro detectado.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de dato| Obligatorio| Rango  
+---|---|---|---|---  
+`face_detection_model`| El modelo de detección facial de MediaPipe a utilizar para la detección de puntos de referencia.| FACE_DETECTION_MODEL| Sí|   
+`image`| La imagen de entrada o lote de imágenes en las que detectar rostros.| IMAGE| Sí|   
+`detector_variant`| Alcance del detector facial. `"short"` está optimizado para rostros cercanos (a ~2 m de la cámara); `"full"` cubre rostros más lejanos/pequeños (hasta ~5 m) pero es más lento. `"both"` ejecuta ambos detectores y conserva el que encontró más rostros por fotograma (~2x costo de detección). Valor predeterminado: `"short"`.| COMBO| Sí| `"short"`  
+`"full"`  
+`"both"`  
+`num_faces`| Número máximo de rostros a devolver por fotograma. 0 significa sin límite (devolver todos los detectados). Valor predeterminado: 1.| INT| Sí| 0 a 16  
+`min_confidence`| Umbral de puntuación de BlazeFace. Valores más bajos ayudan a detectar rostros pequeños u ocluidos. Valor predeterminado: 0.5.| FLOAT| No| 0.00 a 1.00  
+`missing_frame_fallback`| Comportamiento por fotograma cuando falla la detección en un lote. `"empty"` deja el fotograma sin rostro. `"previous"` copia la detección exitosa más reciente. `"interpolate"` interpola puntos de referencia/cuadros delimitadores/formas híbridas entre fotogramas exitosos adyacentes. Multirostro: empareja rostros entre fotogramas mediante el vecino más cercano del centro del cuadro delimitador. Valor predeterminado: `"empty"`.| COMBO| No| `"empty"`  
+`"previous"`  
+`"interpolate"`  
+  
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de dato  
+---|---|---  
+`face_landmarks`| Una salida estructurada que contiene los resultados de detección facial por fotograma, incluyendo 468 puntos de referencia faciales, coeficientes de formas híbridas ARKit-52, matrices de transformación y conjuntos de conexiones para visualización de mallas.| FACE_LANDMARKS  
+`bboxes`| Una lista de cuadros delimitadores para cada rostro detectado, con coordenadas (x, y, ancho, alto), etiqueta “face” y puntuación de confianza. Una lista por fotograma de entrada.| BOUNDING_BOX  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/MediaPipeFaceLandmarker/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `f60ed6201288a59d65d62cc98c12f227a353870c36decea8da81a063cfdf2bba`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/MediaPipeFaceLandmarker.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/MediaPipeFaceLandmarker)
+
+[Dibujar BBoxes](https://docs.comfy.org/es/built-in-nodes/DrawBBoxes)[MediaPipe Face Mask](https://docs.comfy.org/es/built-in-nodes/MediaPipeFaceMask)

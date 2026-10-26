@@ -1,0 +1,62 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/EndLoop/
+title: Finalizar bucle - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:01:46.385983+00:00
+---
+
+# Finalizar bucle - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/EndLoop/
+
+Bucles
+
+# Finalizar bucle - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+End Loop marca el final de un bloque de bucle.
+
+Copiar páginaCopiar página
+
+End Loop marca el final de un bloque de bucle. Recoge el valor producido por el último nodo dentro del cuerpo del bucle y devuelve únicamente la iteración final o todas las iteraciones, según la configuración de `accumulate`, a la vez que pasa un valor de vuelta a Start Loop para que pueda comenzar la siguiente iteración.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`output_value`| Valor devuelto por End Loop. Devuelve la iteración final o todas las iteraciones según accumulate.| ANY| No| Cualquier tipo de valor  
+`next_iteration_value`| Valor enviado desde End Loop de vuelta a Start Loop para la siguiente iteración.| ANY| No| Cualquier tipo de valor  
+`accumulate`| Devuelve output_value de cada iteración cuando está habilitado; de lo contrario, devuelve solo la iteración final.| BOOLEAN| No| `true`  
+`false` (predeterminado: `false`)  
+`terminations`| Conecta salidas que deben ejecutarse en cada iteración. Sus valores no se devuelven. Ranuras ampliables denominadas `termination_1`, `termination_2`, y así sucesivamente.| ANY| No| 0 a 50 ranuras  
+  
+Nota: `terminations` es una lista ampliable de ranuras con un mínimo de 0 y un máximo de 50 conexiones. Los valores conectados aquí fuerzan la ejecución en cada iteración, pero no forman parte del resultado devuelto. Nota: Este nodo es un nodo de lista de entradas, por lo que sus entradas reciben los valores recopilados de cada iteración del bucle.
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`outputs`| El output_value de la iteración final, o los valores acumulados a lo largo de las iteraciones cuando accumulate está habilitado.| ANY (list)  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/EndLoop/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `142840dca7f238eb00c72074d265478c548ad5c047e05744d0c3715e452f795a`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/EndLoop.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/EndLoop)
+
+[BranchNode](https://docs.comfy.org/es/built-in-nodes/BranchNode)[Iniciar bucle](https://docs.comfy.org/es/built-in-nodes/StartLoop)

@@ -1,0 +1,135 @@
+---
+url: https://docs.comfy.org/es/basic-concepts/workflow/
+title: Flujos de trabajo de ComfyUI: nodos, enlaces y programaci\u00f3n visual - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:01:29.945489+00:00
+---
+
+# Flujos de trabajo de ComfyUI: nodos, enlaces y programación visual - ComfyUI
+
+> Source: https://docs.comfy.org/es/basic-concepts/workflow/
+
+## En esta página
+
+Volver arriba
+
+  * ¿Qué es un flujo de trabajo?
+  * Los nodos son los pasos
+  * Los enlaces pasan datos entre nodos
+  * Las propiedades controlan cada paso
+  * Ejecutar un flujo de trabajo
+  * Empezar con una plantilla
+  * Guardar y compartir flujos de trabajo
+  * Un poco de contexto
+
+
+
+Conceptos básicos
+
+# Flujos de trabajo de ComfyUI: nodos, enlaces y programación visual
+
+Copiar páginaCopiar página
+
+Aprende qué es un flujo de trabajo en ComfyUI: un grafo de nodos conectados que crea imágenes, video, audio y 3D, y cómo guardarlo como JSON.
+
+Copiar páginaCopiar página
+
+## 
+
+​
+
+¿Qué es un flujo de trabajo?
+
+Un flujo de trabajo es un conjunto de pasos que le indica a ComfyUI cómo crear algo. Puedes pensar en un flujo de trabajo como en una receta:
+
+  * La receta es el flujo de trabajo.
+  * Cada instrucción de la receta es un nodo.
+  * Los ingredientes incluyen prompts, imágenes y modelos.
+  * El resultado es la imagen, el video, el audio u otra salida generados.
+
+Por ejemplo, un flujo de trabajo de imagen sencillo podría:
+
+  1. Cargar un modelo.
+  2. Leer un prompt de texto.
+  3. Generar una imagen.
+  4. Guardar la imagen.
+
+ComfyUI muestra estos pasos como cajas sobre un lienzo. ![Un flujo de trabajo sencillo de ComfyUI](https://mintcdn.com/dripart/7m9lukFrTCZs7Mhj/images/simple_workflow.jpg?fit=max&auto=format&n=7m9lukFrTCZs7Mhj&q=85&s=b3f3e488389463fbddef9a9e45c50eac)
+
+## 
+
+​
+
+Los nodos son los pasos
+
+Un nodo realiza una tarea específica. Algunos nodos cargan archivos, otros modifican datos y otros generan o guardan el resultado. Por ejemplo:
+
+  * Un nodo **Load Checkpoint** carga un modelo de IA.
+  * Un nodo **CLIP Text Encode** convierte tu prompt en instrucciones para el modelo.
+  * Un nodo **KSampler** genera una imagen a partir del modelo y de esas instrucciones.
+  * Un nodo **Save Image** guarda el resultado en tu computadora.
+
+Puedes combinar los nodos de distintas maneras para crear flujos de trabajo diferentes. No necesitas escribir código para usarlos. Aprende más acerca de los nodos en [Nodos](https://docs.comfy.org/es/basic-concepts/nodes).
+
+## 
+
+​
+
+Los enlaces pasan datos entre nodos
+
+Los nodos trabajan juntos al pasar datos de un nodo a otro. Un enlace conecta la salida de un nodo con la entrada de otro nodo. Por ejemplo, un modelo cargado por un nodo **Load Checkpoint** se puede pasar a un nodo **KSampler**. También puedes pasar al muestreador las instrucciones de texto que genera un nodo de codificación de texto. Solo se pueden conectar tipos de datos compatibles. Por ejemplo, una salida de imagen no se puede conectar directamente a una entrada que espera un número. Aprende más acerca de los enlaces en [Enlaces](https://docs.comfy.org/es/basic-concepts/links).
+
+## 
+
+​
+
+Las propiedades controlan cada paso
+
+Los nodos contienen propiedades. Las propiedades son las configuraciones que controlan cómo funciona un nodo. Por ejemplo, un nodo muestreador puede tener propiedades para:
+
+  * El número de pasos
+  * La escala de orientación
+  * El método de muestreo
+  * El tamaño de la imagen
+
+Por lo general, puedes establecer una propiedad directamente en el nodo. Algunas propiedades también pueden recibir sus valores desde otro nodo. Aprende más sobre las propiedades en [Propiedades](https://docs.comfy.org/es/basic-concepts/properties).
+
+## 
+
+​
+
+Ejecutar un flujo de trabajo
+
+Cuando ejecutas un flujo de trabajo, ComfyUI ejecuta los nodos requeridos y pasa los datos a través de las conexiones. El flujo de trabajo continúa hasta que produce su salida final. Si un nodo falta, tiene un error o no recibe los datos que necesita, ComfyUI no puede completar el flujo de trabajo. El nodo se marca para que puedas encontrarlo y corregir el problema.
+
+## 
+
+​
+
+Empezar con una plantilla
+
+Para empezar, abre una plantilla de flujo de trabajo integrada desde **Flujo de trabajo** → **Explorar plantillas de flujo de trabajo**. Las plantillas proporcionan ejemplos completos que puedes ejecutar y editar. Las plantillas usan nodos Core incluidos con ComfyUI. También te indican que descargues los modelos requeridos. La comunidad ha creado muchos nodos personalizados que añaden más capacidades. Aprende más en [Nodos personalizados](https://docs.comfy.org/es/basic-concepts/custom-nodes).
+
+## 
+
+​
+
+Guardar y compartir flujos de trabajo
+
+Puedes guardar un flujo de trabajo como un archivo JSON y compartirlo de forma independiente de los medios generados. Cuando guardas una salida con un nodo de guardado integrado, ComfyUI también puede almacenar el flujo de trabajo dentro del archivo de salida. Después puedes arrastrar el archivo de vuelta al lienzo para recuperar el flujo de trabajo. Para obtener detalles sobre los datos incrustados, los formatos de archivo compatibles y el acceso programático, consulta [Metadatos del flujo de trabajo](https://docs.comfy.org/es/development/api-development/workflow-metadata).
+
+## 
+
+​
+
+Un poco de contexto
+
+Técnicamente, un flujo de trabajo es un grafo de nodos. Los nodos son los puntos del grafo y las conexiones muestran cómo se mueven los datos entre ellos. Esto también se llama programación visual porque creas un programa organizando y conectando bloques visuales en lugar de escribir código.
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/basic-concepts/workflow.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/basic-concepts/workflow)
+
+[Nodos](https://docs.comfy.org/es/basic-concepts/nodes)

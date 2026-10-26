@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/limitations/
 title: Comfy Router capabilities and limits - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:54:47.720951+00:00
+fetched_at: 2026-10-26T14:04:04.133116+00:00
 ---
 
 # Comfy Router capabilities and limits - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-24T11:54:47.720951+00:00
 > Source: https://docs.comfy.org/development/comfy-router/limitations/
 
 ## On this page
+
+Back to top
 
   * What Router supports
   * Queued submission
@@ -125,7 +127,7 @@ Models without a pre-flight estimate
 Router cannot yet reliably price a call to the models below before it runs, so expect `/estimate` and a queued submit’s `estimate` to answer `source: unknown` for them, though some may return a figure for a particular body. `unknown` means no figure was given, not that the run is free. The Comfy charges and usage rules still apply: a run on your own provider key is not billed by Comfy, and `X-Comfy-Credits-Used` is optional, so a missing header means the cost was not reported. A model not listed here can still answer `unknown` for a particular body, so read `source` on every estimate. This list shrinks as estimate coverage grows. It is generated from Router’s own pricing code, and models that are not publicly available are never listed.
 
   * **bfl** : `bfl/erase-v1`, `bfl/flux-2-max`, `bfl/flux-2-pro`, `bfl/flux-3-image`, `bfl/flux-3-video`, `bfl/flux-kontext-max`, `bfl/flux-kontext-pro`, `bfl/flux-pro-1.0-expand`, `bfl/flux-pro-1.0-fill`, `bfl/flux-pro-1.1`, `bfl/flux-pro-1.1-ultra`, `bfl/video-edit-v1`, `bfl/video-upscale-v1`, `bfl/vto-v1`
-  * **byteplus** : `byteplus/seed-audio-1.0`, `byteplus/seed-audio-1.0-multilingual`, `byteplus/seedance-1-0-pro-250528`, `byteplus/seedance-1-0-pro-fast-251015`, `byteplus/seedance-1-5-pro-251215`
+  * **byteplus** : `byteplus/seed-audio-1.0`, `byteplus/seed-audio-1.0-multilingual`
   * **elevenlabs** : `elevenlabs/eleven_sfx_v2`
   * **fal** : `fal/crystal-upscaler`, `fal/crystal-video-upscaler`, `fal/fal-gpt-image-2`, `fal/fal-gpt-image-2.5-flare`, `fal/fal-gpt-image-2.5-sunburst`, `fal/fal-nano-banana-2`, `fal/fal-nano-banana-pro`, `fal/fal-seedance-2.0`, `fal/fal-seedance-2.5`, `fal/flux-3-max`, `fal/patina`
   * **freepik** : `freepik/ai-image-upscaler-precision-v2`, `freepik/ai-skin-enhancer-creative`, `freepik/ai-skin-enhancer-faithful`, `freepik/ai-skin-enhancer-flexible`
@@ -133,7 +135,7 @@ Router cannot yet reliably price a call to the models below before it runs, so e
   * **ideogram** : `ideogram/ideogram-v3`, `ideogram/ideogram-v4`, `ideogram/p-image-ideogram`
   * **kling** : `kling/kling-3.0-turbo`, `kling/kling-image-o1`, `kling/kling-v2-5-turbo`, `kling/kling-v2-6`, `kling/kling-v3`, `kling/kling-v3-omni`, `kling/kling-video-o1`, `kling/videos-avatar-image2video`, `kling/videos-lip-sync`, `kling/videos-video-extend`
   * **luma** : `luma/photon-1`, `luma/photon-flash-1`, `luma/ray-2`, `luma/ray-flash-2`
-  * **meshy** : `meshy/animations`, `meshy/meshy-5`, `meshy/meshy-6`, `meshy/meshy-7`, `meshy/meshy-7.1`, `meshy/remesh`, `meshy/rigging`
+  * **meshy** : `meshy/animations`, `meshy/meshy-6`, `meshy/meshy-7`, `meshy/meshy-7.1`, `meshy/remesh`, `meshy/rigging`
   * **moonvalley** : `moonvalley/image-to-video`, `moonvalley/text-to-video`, `moonvalley/video-to-video`
   * **openrouter** : `openrouter/chat-completions`
   * **pika** : `pika/pika-gpt-image-2`, `pika/pika-nano-banana-2`, `pika/pika-nano-banana-pro`

@@ -1,0 +1,237 @@
+---
+url: https://docs.comfy.org/es/tutorials/partner-nodes/pixverse/pixverse-v6/
+title: PixVerse V6 y V6 Max en ComfyUI: flujos de trabajo de video - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:03:53.970038+00:00
+---
+
+# PixVerse V6 y V6 Max en ComfyUI: flujos de trabajo de video - ComfyUI
+
+> Source: https://docs.comfy.org/es/tutorials/partner-nodes/pixverse/pixverse-v6/
+
+## En esta página
+
+Volver arriba
+
+  * Flujos de trabajo disponibles
+    * Texto a video
+    * Texto a video con V6 Max
+    * Imagen a video
+    * Imagen a video con V6 Max
+    * Referencia a video (Fusion)
+  * Controles del nodo
+  * Consejos para el prompt
+  * Empezar
+
+
+
+PixVerse
+
+# PixVerse V6 y V6 Max en ComfyUI: flujos de trabajo de video
+
+Copiar páginaCopiar página
+
+Genera video con PixVerse V6 y V6 Max en ComfyUI: texto a video, imagen a video y clips Fusion con referencias de hasta 15 segundos con audio nativo.
+
+Copiar páginaCopiar página
+
+**PixVerse V6** genera video a partir de un prompt de texto, anima una imagen fija o compone una escena con sujetos y fondos de referencia. **PixVerse V6 Max** es la variante de mayor fidelidad de la misma familia y aparece como opción de modelo en los nodos de texto a video y de imagen a video. ComfyUI ejecuta la familia mediante Nodos asociados: **PixVerse V6 Text to Video** , **PixVerse V6 Image to Video** y **PixVerse V6 Fusion (Reference to Video)**. Son Nodos API en la nube, así que necesitan una cuenta de Comfy con créditos y no descargan archivos de modelo de forma local. Los clips duran de 1 a 15 segundos en 360p, 540p, 720p o 1080p, con una pista de audio nativa generada de forma predeterminada. PixVerse V6 añade presets de estilo y corte en múltiples tomas dentro de una misma generación. V6 Max renderiza con mayor fidelidad y elimina los presets de estilo. PixVerse registra la semilla, pero no reproduce una ejecución a partir de ella.
+
+Para usar los Nodos asociados, debes asegurarte de haber iniciado sesión correctamente y de estar utilizando un entorno de red permitido. Consulta la sección [Descripción general de los Nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/overview) de la documentación para conocer los requisitos específicos de uso de los Nodos asociados.
+
+  * Usuarios locales
+
+  * Usuarios de Cloud
+
+
+
+
+Asegúrate de que tu ComfyUI esté actualizado.
+
+  * [Descargar ComfyUI](https://www.comfy.org/download)
+  * [Guía de actualización](https://docs.comfy.org/es/installation/update_comfyui)
+
+Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos de trabajo](https://docs.comfy.org/es/interface/features/template). Si no los encuentras en las plantillas, es posible que tu ComfyUI esté desactualizado.Si faltan nodos al cargar un flujo de trabajo, estas son las posibles razones:
+
+  1. No estás usando la última versión de ComfyUI (versión nocturna)
+  2. Algunos nodos fallaron al importarse durante el inicio
+
+
+
+  * [Cloud](https://cloud.comfy.org) se actualizará después del lanzamiento estable de ComfyUI.
+
+Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
+
+## 
+
+​
+
+Flujos de trabajo disponibles
+
+### 
+
+​
+
+Texto a video
+
+Describe la toma y el modelo genera un clip, con audio nativo si lo dejas habilitado. Este es el modo sin archivos de entrada. ![PixVerse V6: vista previa del flujo de trabajo Texto a video](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_pixverse6_t2v-1.webp)
+
+## Ejecutar en Comfy Cloud
+
+Abrir en Comfy Cloud
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “PixVerse 6.0: Text to Video” en la Biblioteca de plantillas
+
+**Prompts de ejemplo**
+
+  * `Single shot, low-angle tracking across wet asphalt at night, a courier runs past neon signs, shallow depth of field, cool blue grade`
+  * `Slow orbit around a clay teapot on a wooden table, morning window light, dust in the air, macro detail`
+  * `Two dancers in a bright studio, handheld camera, fast footwork, natural sound of footsteps and breathing`
+
+
+
+### 
+
+​
+
+Texto a video con V6 Max
+
+El mismo flujo de trabajo de texto a video en el nivel de mayor fidelidad. V6 Max no tiene presets de estilo, así que el aspecto proviene del prompt y del prompt negativo. ![PixVerse V6 Max: vista previa del flujo de trabajo Texto a video](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_pixverse_v6_max_t2v-1.webp)
+
+## Ejecutar en Comfy Cloud
+
+Abrir en Comfy Cloud
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “PixVerse V6 Max: Text to Video” en la Biblioteca de plantillas
+
+### 
+
+​
+
+Imagen a video
+
+Anima una imagen fija. La salida conserva la relación de aspecto de la entrada, así que la forma del fotograma la decide la imagen y no un ajuste de relación. ![PixVerse V6: vista previa del flujo de trabajo Imagen a video](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_pixverse6_i2v-1.webp)
+
+## Ejecutar en Comfy Cloud
+
+Abrir en Comfy Cloud
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “PixVerse 6.0: Image to Video” en la Biblioteca de plantillas
+
+**Material de entrada**
+
+## sunny_pink_high_tops.png
+
+Cárgalo en el nodo `LoadImage`
+
+### 
+
+​
+
+Imagen a video con V6 Max
+
+El flujo de trabajo de imagen a video en el nivel V6 Max. El corte de múltiples tomas no está disponible en esta variante, así que produce una toma continua. ![PixVerse V6 Max: vista previa del flujo de trabajo Imagen a video](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_pixverse_v6_max_i2v-1.webp)
+
+## Ejecutar en Comfy Cloud
+
+Abrir en Comfy Cloud
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “PixVerse V6 Max: Image to Video” en la Biblioteca de plantillas
+
+**Material de entrada**
+
+## pixverse_v6max_i2v_input_image.png
+
+Cárgalo en el nodo `LoadImage`
+
+### 
+
+​
+
+Referencia a video (Fusion)
+
+Coloca tus propios sujetos en tu propia escena. Conecta imágenes como sujetos o fondos y haz referencia a cada una por el nombre de su ranura en el prompt, por ejemplo `@Subject1 walks through @Background1`. Fusion solo funciona con PixVerse V6. Conectar un video de referencia cambia el nodo al modo Omni: la duración de la salida entonces coincide con el video de referencia más largo, y el video también puede aportar movimiento, encuadre o estilo. ![PixVerse V6: vista previa del flujo de trabajo Referencia a video](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_pixverse6_r2v-1.webp)
+
+## Ejecutar en Comfy Cloud
+
+Abrir en Comfy Cloud
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “PixVerse 6.0: Reference to Video” en la Biblioteca de plantillas
+
+**Materiales de entrada**
+
+## street_rider.png
+
+Cárgalo en un nodo `LoadImage` como sujeto
+
+## futuristic_urban_editorial.png
+
+Cárgalo en un nodo `LoadImage` como fondo
+
+## 
+
+​
+
+Controles del nodo
+
+Control| Valores| Aplica a| Efecto  
+---|---|---|---  
+`model`| `PixVerse V6`, `PixVerse V6 Max`| texto a video e imagen a video (ambos niveles), Fusion (solo V6)| Nivel del modelo y las configuraciones que expone ese nivel  
+`prompt`| texto, hasta 5000 caracteres| todos los nodos V6| La descripción de la toma: sujeto, acción, cámara, iluminación  
+`negative_prompt`| texto, hasta 2048 caracteres| todos los nodos V6| Elementos que deben quedar fuera del encuadre  
+`quality`| `360p`, `540p`, `720p` (predeterminado), `1080p`| todos los nodos V6| Nivel de resolución de salida. El tamaño del fotograma también depende de la relación de aspecto  
+`aspect_ratio`| `16:9`, `4:3`, `1:1`, `3:4`, `9:16`, `2:3`, `3:2`, `21:9`, y `auto` en Fusion| texto a video, Fusion| Forma del encuadre. `auto` necesita un video de referencia  
+`duration_seconds`| 1 a 15, predeterminado 5| todos los nodos V6| Duración del clip  
+`generate_audio`| activado de forma predeterminada| todos los nodos V6| Genera una pista de audio nativa junto con el video  
+`multi_clip`| desactivado de forma predeterminada| texto a video (ambos niveles), imagen a video en V6| Permite que el modelo divida el clip en varias tomas  
+`style`| `none`, `anime`, `3d_animation`, `clay`, `comic`, `cyberpunk`, `realistic`| solo V6| Aspecto aplicado a todo el clip. No está disponible en V6 Max  
+`seed`| entero| todos los nodos V6| PixVerse lo registra, pero no se usa para reproducir una ejecución  
+`subjects`| hasta 8 imágenes| Fusion| Personas u objetos colocados en la escena como `@Subject1` hasta `@Subject8`  
+`backgrounds`| hasta 2 imágenes| Fusion| Escenas en las que se colocan los sujetos como `@Background1`, `@Background2`  
+`videos`| hasta 2, 15 segundos en total| Fusion| Material de referencia leído como `@Video1`, `@Video2`. También activa el modo Omni  
+  
+Fusion acepta hasta 7 imágenes de referencia cuando no hay un video de referencia conectado y hasta 10 cuando hay uno conectado. Imagen a video mantiene la relación de aspecto de la imagen de entrada, por lo que `aspect_ratio` no se ofrece allí.
+
+## 
+
+​
+
+Consejos para el prompt
+
+  * **Escribe la toma, no la atmósfera.** Un párrafo con sujeto, acción, movimiento de cámara y luz le da al modelo algo que renderizar: `low-angle tracking shot, a courier runs past neon signs, cool blue grade`. Una lista de solo adjetivos suele perder el rumbo.
+  * **Describe el audio cuando lo mantengas activado.** Los pasos, los impactos, el ambiente y un estilo musical quedan todos en la pista generada. Desactiva `generate_audio` cuando planees agregar tu propio sonido.
+  * **Usa`multi_clip` para una secuencia.** Así es como una sola generación devuelve varias tomas con un aspecto coherente, y el prompt debe entonces numerar las tomas.
+  * **Etiqueta cada referencia en Fusion.** Un sujeto o fondo conectado que el prompt nunca menciona suele ignorarse, así que escribe `@Subject1` y `@Background1` donde correspondan en la acción.
+  * **Mantén los negativos breves y concretos.** `text, watermark, logo, subtitles, oversaturated colors` funciona mejor que una lista larga de palabras de estilo.
+  * **No persigas la reproducibilidad de la semilla.** La semilla se guarda solo como referencia, así que volver a ejecutar con la misma semilla es una nueva generación.
+
+
+
+## 
+
+​
+
+Empezar
+
+  1. Actualiza ComfyUI a la última versión
+  2. Ve a Biblioteca de plantillas y busca `PixVerse`
+
+
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/partner-nodes/pixverse/pixverse-v6.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/partner-nodes/pixverse/pixverse-v6)
+
+[PixVerse Video](https://docs.comfy.org/es/tutorials/partner-nodes/pixverse/pixverse-video)[Pruna P-Video-2](https://docs.comfy.org/es/tutorials/partner-nodes/pruna/p-video-2)

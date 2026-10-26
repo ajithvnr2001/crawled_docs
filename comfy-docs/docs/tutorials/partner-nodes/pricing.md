@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/pricing/
 title: Partner Node Pricing - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:34.042974+00:00
+fetched_at: 2026-10-26T14:04:11.333387+00:00
 ---
 
 # Partner Node Pricing - ComfyUI
@@ -126,10 +126,16 @@ Node| resolution| Credits / sec
 ---|---|---  
 Flux 3 Text to Video| 720p| 51.29  
 Flux 3 Text to Video| 1080p| 87.50  
+Flux 3 Text to Video| 1440p| 120.69  
+Flux 3 Text to Video| 2160p| 241.38  
 Flux 3 Image to Video| 720p| 51.29  
 Flux 3 Image to Video| 1080p| 87.50  
+Flux 3 Image to Video| 1440p| 120.69  
+Flux 3 Image to Video| 2160p| 241.38  
 Flux 3 Video Continuation| 720p| 123.71  
 Flux 3 Video Continuation| 1080p| 159.92  
+Flux 3 Video Continuation| 1440p| 196.12  
+Flux 3 Video Continuation| 2160p| 286.64  
   
 ### 
 
@@ -200,6 +206,9 @@ Bria Restore Photo| 12.07 / run
 Bria Reseason| 12.07 / run  
 Bria Erase Foreground| 12.07 / run  
 Bria Replace Image Background| 12.07 / run  
+Bria Guided Remove Background| 9.05 / run  
+Bria Product Holding| 12.07 / run  
+Bria Virtual Try-On| 12.07 / run  
   
 ### 
 
@@ -412,6 +421,20 @@ model| Node| Credits / MP
 ---|---|---  
 Crystal Upscaler| Clarity AI Crystal Upscale| 4.83  
   
+### 
+
+​
+
+Video: Crystal Video Upscale
+
+Per megapixel of output per second. Total credits = **(credits / MP / sec) × output megapixels × duration (seconds) × frame-rate factor**. The factor steps every 30 fps: 1x up to 30 fps, 2x up to 60 fps, 3x up to 90 fps, and one more step for each further 30 fps. Output is capped at 9 MP.
+
+Node| Credits / MP / sec  
+---|---  
+Clarity AI Crystal Video Upscale| 30.17  
+  
+At up to 30 fps, a 1080p output costs about 62.56 credits per second and the 9 MP ceiling about 271.56.
+
 ## 
 
 ​
@@ -588,7 +611,7 @@ HappyHorse 1.1| 1080P| 54.31
 
 HeyGen
 
-Prices are set per-second or per-run.
+Prices are set per-second, per-run, or per-1K characters.
 
 Node| Condition| Credits  
 ---|---|---  
@@ -614,8 +637,11 @@ HeyGen Video 1.0 Reference to Video| 2K, with reference media| 27.16 / sec
 HeyGen Video 1.0 Image to Video| 480p| 3.02 / sec  
 HeyGen Video 1.0 Image to Video| 768p| 4.53 / sec  
 HeyGen Video 1.0 Image to Video| 2K| 13.58 / sec  
+HeyGen Voice 1.0 Instant Clone| N/A| Free  
+HeyGen Voice 1.0 Text to Speech| `heygen-voice-1`| 9.05 / 1K chars  
+HeyGen Voice 1.0 Text to Speech| `heygen-voice-1-turbo`| 2.26 / 1K chars  
   
-Avatar video bills per second at the rate of the selected avatar look’s type (Digital Twin, Photo Avatar, or Studio Avatar). **Auto** picks the engine per look, so its rate spans the full range above; a custom avatar ID is billed by its own type. HeyGen Video 1.0 clips run from 5 to 15 seconds and bill at the rate of the selected resolution. Reference to Video uses the no-reference rate until a reference image or video is connected, and each reference video adds 5 seconds to the billed duration. **2K** output requires the `16:9` or `9:16` aspect ratio; `auto` works at 2K only when no reference media is connected.
+**Limited-time offer** : through October 31, 2026, text to speech is billed at about **4.53** credits per 1K characters for `heygen-voice-1` and **1.21** for `heygen-voice-1-turbo`. The rows above list the standard rates, which apply from November 1, 2026. Avatar video bills per second at the rate of the selected avatar look’s type (Digital Twin, Photo Avatar, or Studio Avatar). **Auto** picks the engine per look, so its rate spans the full range above; a custom avatar ID is billed by its own type. HeyGen Video 1.0 clips run from 5 to 15 seconds and bill at the rate of the selected resolution. Reference to Video uses the no-reference rate until a reference image or video is connected, and each reference video adds 5 seconds to the billed duration. **2K** output requires the `16:9` or `9:16` aspect ratio; `auto` works at 2K only when no reference media is connected.
 
 ## 
 
@@ -775,6 +801,16 @@ Ideogram 4.5 Edit, Ideogram 4.5 Precise Edit| low| 9.05
 Ideogram 4.5 Edit, Ideogram 4.5 Precise Edit| medium| 18.1  
 Ideogram 4.5 Edit, Ideogram 4.5 Precise Edit| high| 60.35  
   
+**Ideogram Vector** returns an editable SVG instead of a raster image:
+
+Node| quality| Reference images| Credits / SVG  
+---|---|---|---  
+Ideogram Vector Generate SVG| low| —| 39.22  
+Ideogram Vector Generate SVG| medium| —| 48.28  
+Ideogram Vector Generate SVG| high| No| 60.35  
+Ideogram Vector Generate SVG| high| Yes| 96.55  
+Ideogram Vector Image to SVG| —| —| 30.17  
+  
 ## 
 
 ​
@@ -793,6 +829,23 @@ Krea 2 Large| No| No| 12.66
 Krea 2 Large| Yes| No| 13.72  
 Krea 2 Large| —| Yes| 14.77  
   
+### 
+
+​
+
+Image: Krea 3
+
+Total credits = **credits / image** at the selected `resolution` and `thinking_mode`, plus a per-reference-image surcharge when images are connected.
+
+Model| Resolution| Thinking mode| Credits / image| Per reference image  
+---|---|---|---|---  
+Krea 3| 1K| fast| 9.05| 6.03  
+Krea 3| 1K| high| 15.09| 6.03  
+Krea 3| 2K| fast| 18.10| 6.03 - 21.12  
+Krea 3| 2K| high| 24.14| 6.03 - 21.12  
+  
+At 2K, each reference image adds **6.03 to 21.12 credits** , depending on the reference image’s pixel size; at 1K reference images are downscaled to about 1 MP, so the surcharge is a flat **6.03 credits**.
+
 ## 
 
 ​
@@ -1065,6 +1118,10 @@ Meshy: Texture Model| 2K, 4K texture| 120.7 / run
 Meshy: Texture Model| 8K texture| 181.0 / run  
 Meshy: Texture Multi-View| 2K, 4K texture| 120.7 / run  
 Meshy: Texture Multi-View| 8K texture| 181.0 / run  
+Meshy: Text to Model (Smart Topology)| —| 60.35 / run  
+Meshy: Image to Model (Smart Topology)| No texture| 60.35 / run  
+Meshy: Image to Model (Smart Topology)| Texture (2K, 4K)| 181.0 / run  
+Meshy: Image to Model (Smart Topology)| Texture (8K)| 241.4 / run  
   
 Ultra Mode (available on Meshy 7.1, Meshy 7, and `latest` models) adds 60.3 credits: Text to Model 301.7 / run, Image to Model 422.4 / run (2K, 4K texture) or 482.7 / run (8K texture), Multi-Image to Model 422.4 / run (2K, 4K texture) or 482.7 / run (8K texture). The ultra pass resolution (`2k`, or `4k` on Meshy 7.1 and `latest`) does not change the price. **Meshy: Text to Model** creates a draft mesh; run **Meshy: Refine Draft Model** on the returned `meshy_task_id` to texture it. **Meshy: Image to Model** and **Meshy: Multi-Image to Model** can texture in one step when `should_texture` is enabled.
 
@@ -1333,16 +1390,29 @@ v3.5| 5s| fast| 360p, 540p| 189.9 / run
 
 PixVerse V6
 
-PixVerse V6 nodes generate videos from 1 to 15 seconds with optional native audio. Total credits = **(credits / sec) ×`duration`**.
+PixVerse V6 nodes generate videos from 1 to 15 seconds with optional native audio. Total credits = **(credits / sec) ×`duration`**. `PixVerse V6 Max` is a second model option in the Text to Video and Image to Video nodes.
+
+model| quality| Audio off| Audio on  
+---|---|---|---  
+PixVerse V6| 360p| 5.13| 7.18  
+PixVerse V6| 540p| 7.18| 9.23  
+PixVerse V6| 720p| 9.23| 12.31  
+PixVerse V6| 1080p| 18.47| 23.60  
+PixVerse V6 Max| 360p| 6.71| 9.39  
+PixVerse V6 Max| 540p| 9.39| 12.07  
+PixVerse V6 Max| 720p| 12.07| 16.09  
+PixVerse V6 Max| 1080p| 24.14| 30.84  
+  
+**PixVerse V6 Max** runs at the rates above as an introductory price. From **November 3, 2026** the per-second rates are:
 
 quality| Audio off| Audio on  
 ---|---|---  
-360p| 15.09| 21.12  
-540p| 21.12| 27.16  
-720p| 27.16| 36.21  
-1080p| 54.31| 69.40  
+360p| 8.05| 12.07  
+540p| 12.07| 14.75  
+720p| 14.75| 20.12  
+1080p| 29.50| 37.55  
   
-**PixVerse V6 Fusion** bills 2x the per-second rate for each second of reference video, instead of the output duration.
+**PixVerse V6 Fusion** bills 2x the per-second rate for each second of reference video, instead of the output duration. Fusion runs on `PixVerse V6` rates only.
 
 ## 
 

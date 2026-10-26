@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/desktop/usage/performance-tests/
 title: Pruebas de rendimiento y benchmarks - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:48.681728+00:00
+fetched_at: 2026-10-26T14:04:02.553742+00:00
 ---
 
 # Pruebas de rendimiento y benchmarks - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:48.681728+00:00
 > Source: https://docs.comfy.org/es/installation/desktop/usage/performance-tests/
 
 ## En esta página
+
+Volver arriba
 
   * Ejecutar una prueba de rendimiento
     * 1\. Selecciona una instancia
@@ -33,13 +35,13 @@ Guía de uso
 
 Copiar páginaCopiar página
 
-Mide la velocidad de los flujos de trabajo de ComfyUI con las Pruebas de rendimiento y luego compara las ejecuciones entre GPUs, flujos de trabajo e instancias con los Benchmarks en Comfy Desktop
+Mide la velocidad de tus flujos en ComfyUI con Pruebas de rendimiento y compara ejecuciones entre GPUs e instancias con los Benchmarks.
 
 Copiar páginaCopiar página
 
 **Pruebas de rendimiento** mide cuánto tarda en ejecutarse un flujo de trabajo de ComfyUI en una de tus instancias. Eliges una instancia, cargas un flujo de trabajo y Comfy Desktop lo ejecuta un número determinado de veces, cronometrando cada ejecución medida y reportando la duración más rápida, la más lenta, el promedio y la mediana, junto con el hardware y el software de los que provienen los números. **Benchmarks** compara esos resultados registrados. Enumera cada ejecución guardada, las filtra por espacio de trabajo, instancia, hardware o flujo de trabajo, y alinea las ejecuciones seleccionadas una al lado de otra con un factor de velocidad relativa, para que puedas ver cuánto más rápida es una GPU, un flujo de trabajo o una instancia que otra. Ambos paneles se abren desde el menú hamburguesa (☰) en la esquina superior izquierda de la barra de título del Panel, no desde una barra lateral. Haz clic en el botón ☰ (1) y luego elige **Pruebas de rendimiento** (2), o **Benchmarks** justo debajo: ![Panel con el menú hamburguesa abierto: \(1\) el botón ☰ en la barra de título, \(2\) la entrada de Pruebas de rendimiento](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/performance_tests_menu_entry.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=8531a565e714af79c9bbf0156c2727b1)
 
-Las Pruebas de rendimiento ejecutan un flujo de trabajo real en una instancia real, por lo que una prueba tarda aproximadamente lo mismo que el flujo de trabajo multiplicado por el número de ejecuciones. Los flujos de trabajo que importas deben exportarse primero en [formato API](https://docs.comfy.org/development/api-development/workflow-api-format). Los flujos de trabajo de ejemplo que vienen con Comfy Desktop ya están en ese formato.
+Las Pruebas de rendimiento ejecutan un flujo de trabajo real en una instancia real, por lo que una prueba tarda aproximadamente lo mismo que el flujo de trabajo multiplicado por el número de ejecuciones. Los flujos de trabajo que importas deben exportarse primero en [formato API](https://docs.comfy.org/es/development/api-development/workflow-api-format). Los flujos de trabajo de ejemplo que vienen con Comfy Desktop ya están en ese formato.
 
 ## 
 
@@ -63,7 +65,7 @@ Elige el **Espacio de trabajo** y la **Instancia** que vas a probar. La instanci
 
 2\. Elige un flujo de trabajo
 
-Puedes elegir un flujo de trabajo de ejemplo que viene incluido con Comfy Desktop, o usar el tuyo propio. Los **flujos de trabajo de ejemplo** están listos para ejecutarse y sus modelos se descargan por ti. Haz clic en **Elegir un flujo de trabajo de ejemplo** para abrir el selector. Agrupa los ejemplos en pestañas por modalidad (Video, Imagen, 3D y Audio; solo las modalidades que tienen ejemplos reciben una pestaña), y cada tarjeta muestra el nombre del ejemplo, la tarea y cuánto descargan sus modelos. Haz clic en **Usar flujo de trabajo** para seleccionar uno. Comfy Desktop descarga entonces los modelos que aún le falten al flujo de trabajo, y la zona de arrastre muestra el progreso de la descarga hasta que termina. Para elegir un ejemplo, la instancia debe estar completamente instalada y debes estar en línea; si los modelos no caben en el espacio libre en disco, el selector bloquea la selección. Los flujos de trabajo de ejemplo están vinculados a una instancia: al cambiar a otra instancia se descarta el ejemplo preparado para la primera, a menos que la sesión de ese ejemplo ya haya registrado resultados. **Tu propio flujo de trabajo** debe exportarse en [formato API](https://docs.comfy.org/development/api-development/workflow-api-format). Arrastra el archivo `.json` a la zona de arrastre, o haz clic en la zona para buscar uno. ![Selector de flujos de trabajo de ejemplo con pestañas Video/Imagen/Audio y el tamaño de descarga de modelos por flujo de trabajo](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/performance_tests_02_example_workflows.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=bb41a1fa06cbcac26a3969226ca3a76d) En cualquier caso, Comfy Desktop copia el flujo de trabajo en la carpeta de sesión de la prueba, así que la prueba se sigue ejecutando aunque muevas o edites el archivo original.
+Puedes elegir un flujo de trabajo de ejemplo que viene incluido con Comfy Desktop, o usar el tuyo propio. Los **flujos de trabajo de ejemplo** están listos para ejecutarse y sus modelos se descargan por ti. Haz clic en **Elegir un flujo de trabajo de ejemplo** para abrir el selector. Agrupa los ejemplos en pestañas por modalidad (Video, Imagen, 3D y Audio; solo las modalidades que tienen ejemplos reciben una pestaña), y cada tarjeta muestra el nombre del ejemplo, la tarea y cuánto descargan sus modelos. Haz clic en **Usar flujo de trabajo** para seleccionar uno. Comfy Desktop descarga entonces los modelos que aún le falten al flujo de trabajo, y la zona de arrastre muestra el progreso de la descarga hasta que termina. Para elegir un ejemplo, la instancia debe estar completamente instalada y debes estar en línea; si los modelos no caben en el espacio libre en disco, el selector bloquea la selección. Los flujos de trabajo de ejemplo están vinculados a una instancia: al cambiar a otra instancia se descarta el ejemplo preparado para la primera, a menos que la sesión de ese ejemplo ya haya registrado resultados. **Tu propio flujo de trabajo** debe exportarse en [formato API](https://docs.comfy.org/es/development/api-development/workflow-api-format). Arrastra el archivo `.json` a la zona de arrastre, o haz clic en la zona para buscar uno. ![Selector de flujos de trabajo de ejemplo con pestañas Video/Imagen/Audio y el tamaño de descarga de modelos por flujo de trabajo](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/performance_tests_02_example_workflows.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=bb41a1fa06cbcac26a3969226ca3a76d) En cualquier caso, Comfy Desktop copia el flujo de trabajo en la carpeta de sesión de la prueba, así que la prueba se sigue ejecutando aunque muevas o edites el archivo original.
 
 ### 
 
@@ -76,7 +78,7 @@ Ajuste| Rango| Predeterminado| Qué hace
 **Ejecuciones de calentamiento**|  1 a 5| 1| Ejecuciones que se realizan primero para cargar los modelos y calentar las cachés. No se incluyen en los resultados.  
 **Ejecuciones medidas**|  1 a 100| 5| Ejecuciones cronometradas después de las ejecuciones de calentamiento. Sus duraciones se usan para calcular los resultados.  
   
-Cada ejecución avanza en uno las entradas numéricas de semilla del flujo de trabajo, de modo que las ejecuciones medidas no repiten un resultado idéntico en caché. Una vez configurados los tres pasos, haz clic en **Ejecutar** para iniciar la prueba. El botón **Detener** que está a su lado cancela una prueba en progreso.
+Cada ejecución avanza en uno las entradas numéricas de semilla del flujo de trabajo, de modo que las ejecuciones medidas no repiten un resultado idéntico en caché. Una vez configurados los tres pasos, haz clic en **Run** para iniciar la prueba. El botón **Stop** que está a su lado cancela una prueba en progreso.
 
 ### 
 

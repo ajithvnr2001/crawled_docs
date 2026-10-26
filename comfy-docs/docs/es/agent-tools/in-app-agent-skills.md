@@ -1,0 +1,114 @@
+---
+url: https://docs.comfy.org/es/agent-tools/in-app-agent-skills/
+title: Habilidades de Comfy Agent - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:01:22.193130+00:00
+---
+
+# Habilidades de Comfy Agent - ComfyUI
+
+> Source: https://docs.comfy.org/es/agent-tools/in-app-agent-skills/
+
+## En esta página
+
+Volver arriba
+
+  * ¿Qué es una habilidad personal?
+  * Crear una habilidad en el chat
+  * Usar una habilidad
+  * Actualizar o eliminar una habilidad
+  * Guardar un archivo de habilidad existente
+  * Usar una habilidad pública
+  * Orientación integrada y habilidades para agentes de programación
+
+
+
+Comfy Agent
+
+# Habilidades de Comfy Agent
+
+Copiar páginaCopiar página
+
+Usa habilidades personales y públicas para dar a Comfy Agent instrucciones reutilizables para tu trabajo.
+
+Copiar páginaCopiar página
+
+## 
+
+​
+
+¿Qué es una habilidad personal?
+
+Una habilidad personal es un conjunto reutilizable de instrucciones para Comfy Agent. Incluye un nombre, una descripción de una línea sobre cuándo usarla y las instrucciones en sí. Usa habilidades personales para repetir instrucciones como «haz imágenes cuadradas», «usa un fondo blanco» o «revisa las conexiones entre nodos antes de ejecutar». Las habilidades personales se guardan en tu cuenta. El Agente carga una habilidad cuando su descripción coincide con tu solicitud o cuando la pides por su nombre.
+
+## 
+
+​
+
+Crear una habilidad en el chat
+
+Dile al Agente qué guardar, cómo llamarla y cuándo debe usarse:
+
+> Guarda esto como una habilidad llamada product-shot: cuando pida una imagen de producto, usa un lienzo cuadrado de 1024 × 1024, un fondo gris neutro y un nodo Save Image. Valida el flujo de trabajo antes de ejecutarlo.
+
+El Agente guarda la habilidad para mensajes futuros. Una habilidad nueva o actualizada surte efecto con tu siguiente mensaje.
+
+## 
+
+​
+
+Usar una habilidad
+
+Pide una habilidad por su nombre:
+
+> Usa mi habilidad product-shot para crear un flujo de trabajo de fotografía de estudio para una zapatilla roja.
+
+El Agente también puede seleccionar una habilidad automáticamente cuando tu solicitud coincide con su descripción.
+
+## 
+
+​
+
+Actualizar o eliminar una habilidad
+
+Usa el mismo nombre de habilidad para reemplazar sus instrucciones:
+
+> Actualiza mi habilidad product-shot para que use un fondo blanco y un lienzo de 1536 × 1536.
+
+Elimina una habilidad por su nombre:
+
+> Elimina mi habilidad product-shot.
+
+## 
+
+​
+
+Guardar un archivo de habilidad existente
+
+Pega el contenido de tu archivo `SKILL.md` en el chat y pide al Agente que lo guarde como una habilidad personal. El Agente lee su nombre y su descripción del encabezado al inicio del archivo. La habilidad guardada está disponible desde tu siguiente mensaje.
+
+## 
+
+​
+
+Usar una habilidad pública
+
+Las habilidades públicas son habilidades compartidas que cualquiera puede usar, no solo las que tú creaste. Pide una habilidad pública por su nombre o describe lo que quieres hacer, y el Agente la usa igual que una de las tuyas:
+
+> Usa la habilidad pública product-shot para una zapatilla roja sobre un fondo gris neutro.
+
+## 
+
+​
+
+Orientación integrada y habilidades para agentes de programación
+
+Comfy Agent incluye orientación para crear flujos de trabajo y elegir modelos. Las habilidades personales y públicas añaden instrucciones para tareas repetitivas sobre esa orientación. Las [habilidades para agentes de programación](https://docs.comfy.org/es/agent-tools/skills) se instalan por separado en herramientas como Claude Code. Instalar una allí no la agrega a Comfy Agent. No incluyas claves de API, contraseñas ni tokens de acceso en las instrucciones de las habilidades. Para saber cómo se manejan los datos, consulta [Datos y privacidad](https://docs.comfy.org/es/agent-tools/in-app-agent-data-privacy#habilidades-y-orientaci%C3%B3n).
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/agent-tools/in-app-agent-skills.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/agent-tools/in-app-agent-skills)
+
+[Empezar](https://docs.comfy.org/es/agent-tools/in-app-agent-installation)[Datos y privacidad](https://docs.comfy.org/es/agent-tools/in-app-agent-data-privacy)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/video/minimax/minimax-h3-fastvideo/
 title: FastVideo FastH3: ComfyUI Workflow Examples - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:44.234278+00:00
+fetched_at: 2026-10-26T14:04:10.644113+00:00
 ---
 
 # FastVideo FastH3: ComfyUI Workflow Examples - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:44.234278+00:00
 > Source: https://docs.comfy.org/tutorials/video/minimax/minimax-h3-fastvideo/
 
 ## On this page
+
+Back to top
 
   * Requirements
   * FastH3 Text to Video
@@ -68,7 +70,7 @@ Prompting tips
 
   1. **Describe the whole scene** : State the overall scene first (location, character, what is happening), then break it into timed shots
   2. **Shots, camera, and audio** : Describe the shots, camera moves, and the accompanying audio (dialogue, SFX, music) in one prompt block
-  3. **Resolution** : H3’s native canvas is a 768px short edge, capped at 768x1344, and resolutions are rounded to a multiple of 32
+  3. **Resolution** : H3’s native canvas has a 768px short edge and a 768×1344 area, and resolutions are rounded to a multiple of 32. The node accepts larger sizes, but they render slower without adding detail
   4. **Duration** : The duration input snaps to the model’s 17-frame-per-block (17k+5) grid at 24fps
   5. **Steps are fixed at 8** : The distilled checkpoint is trained for exactly 8 steps; changing the step count in the scheduler degrades quality
 
@@ -167,7 +169,7 @@ Both FastH3 workflows share these nodes with the base H3 setup, with distillatio
   * **ComfyMathExpression** : Converts the duration input into a valid frame `length` on the 17k+5 grid at 24fps
   * **Sampler** : `res_multistep` sampler with the `simple` scheduler at 8 steps
 
-
+The FastH3 weights include `to_gate_compress` gate layers, which VSA reads for its coarse branch. Base H3 checkpoints do not have them. To compare methods, set `method` to `sol-attn` on the **Model Sparse Attention** node and keep the same seed. `sol-attn` needs no matching weights and runs on any H3 checkpoint at the `tau` you set. See [sparse attention](https://docs.comfy.org/tutorials/video/minimax/minimax-h3#speeding-up-generation-with-sparse-attention) on the base H3 page.
 
 Was this page helpful?
 
@@ -175,26 +177,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/video/minimax/minimax-h3-fastvideo.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/video/minimax/minimax-h3-fastvideo)
 
-[ComfyUI MiniMax H3 Prompt Guide: Official Guides, Tips, and Prompt EmbeddingsPrevious](https://docs.comfy.org/tutorials/video/minimax/minimax-h3-prompt-guide)[LTX-Video 0.9.5 in ComfyUI: T2V, I2V, Multi-Frame ControlNext](https://docs.comfy.org/tutorials/video/ltxv)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Overview](https://docs.comfy.org/tutorials/video/minimax/minimax-h3)[Native workflows](https://docs.comfy.org/tutorials/video/minimax/minimax-h3-native)

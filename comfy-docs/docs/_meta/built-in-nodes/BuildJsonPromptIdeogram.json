@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/BuildJsonPromptIdeogram/",
   "file": "built-in-nodes/BuildJsonPromptIdeogram.md",
-  "title": "BuildJsonPromptIdeogram - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "Build JSON Prompt (Ideogram) - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:47:27.996514+00:00",
-  "html_len": 628892,
-  "md_len": 5424,
-  "depth": 0
+  "fetched_at": "2026-10-26T14:04:12.466088+00:00"
 }

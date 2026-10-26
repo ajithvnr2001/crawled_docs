@@ -1,0 +1,60 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/NormalizeVideoLatentStart/
+title: Normalizar inicio de latente de video - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:15.679192+00:00
+---
+
+# Normalizar inicio de latente de video - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/NormalizeVideoLatentStart/
+
+Acondicionamiento
+
+# Normalizar inicio de latente de video - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Este nodo ajusta los primeros fotogramas de un latente de video para que se parezcan más a los fotogramas que vienen después.
+
+Copiar páginaCopiar página
+
+Este nodo ajusta los primeros fotogramas de un latente de video para que se parezcan más a los fotogramas que vienen después. Calcula el promedio y la variación a partir de un conjunto de fotogramas de referencia posteriores en el video y aplica esas mismas características a los fotogramas iniciales. Esto ayuda a reducir las diferencias entre los fotogramas iniciales y el resto del video, creando una transición más fluida y consistente.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`latent`| La representación latente del video que se va a procesar.| LATENT| Sí| -  
+`start_frame_count`| Número de fotogramas latentes que se van a normalizar, contados desde el inicio (predeterminado: 4).| INT| Sí| 1 a 16384 (resolución máxima)  
+`reference_frame_count`| Número de fotogramas latentes posteriores a los fotogramas iniciales que se usarán como referencia (predeterminado: 5).| INT| Sí| 1 a 16384 (resolución máxima)  
+  
+**Nota:** Los fotogramas de referencia se toman justo después de los fotogramas de `start_frame_count`. Si hay menos fotogramas disponibles que los solicitados por `reference_frame_count`, el nodo usa tantos como haya disponibles (como máximo uno menos que el recuento total de fotogramas del latente). Si el latente de video tiene solo 1 fotograma, no se realiza ninguna normalización y se devuelve el latente original sin cambios.
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`latent`| El latente de video procesado con los fotogramas iniciales normalizados.| LATENT  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/NormalizeVideoLatentStart/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `383e5a19ee4cd8bdea5983567ddbdc30bb09c373142a1a934cea985f1b9d1b0d`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/NormalizeVideoLatentStart.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/NormalizeVideoLatentStart)
+
+[Acondicionamiento modelo inpainting](https://docs.comfy.org/es/built-in-nodes/InpaintModelConditioning)[Condicionamiento PiD](https://docs.comfy.org/es/built-in-nodes/PiDConditioning)

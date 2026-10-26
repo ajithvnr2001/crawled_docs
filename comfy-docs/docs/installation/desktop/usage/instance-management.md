@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/desktop/usage/instance-management/
 title: Instance Management - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:40:22.792793+00:00
+fetched_at: 2026-10-26T14:04:09.013043+00:00
 ---
 
 # Instance Management - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-20T12:40:22.792793+00:00
 > Source: https://docs.comfy.org/installation/desktop/usage/instance-management/
 
 ## On this page
+
+Back to top
 
   * Instance Types
   * Creating a New Instance
@@ -102,13 +104,30 @@ Create a New Instance
   4. **Hardware** : Comfy Desktop detects your GPU and preselects the matching build (NVIDIA, AMD, Intel Arc (XPU), or CPU). Each option shows the ComfyUI version, the Python version, and the download size.
   5. **Install Location** : Where ComfyUI is installed. On Windows, it’s strongly recommended to use an **SSD** and avoid the root of the C: drive. The field shows free space on the drive and an install size estimate when Comfy Desktop knows it.
 
-If free space looks low, the wizard shows a **Low Disk Space** dialog. Choose **Continue Anyway** , or cancel and pick another path.![Low Disk Space dialog showing free space versus required install size, with Cancel and Continue Anyway](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/low_disk_space_dialog.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=7306da9f6d98179436d54fa23581eb62)
+If free space looks low, the wizard shows a **Low Disk Space** dialog. Choose **Continue Anyway** , or cancel and pick another path.![Low Disk Space dialog showing free space versus required install size, with Cancel and Continue Anyway](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/low_disk_space_dialog.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=7306da9f6d98179436d54fa23581eb62)Comfy Desktop also refuses folders it cannot install into. It checks the folder as soon as you pick one with **Browse…** , explains the problem under **Install Location** , and keeps **Continue** disabled until the folder is one it can use:
+
+  * **Inside Comfy Desktop’s own files** : the application folder, its bundled resources, its data folder, and on Windows its updater caches. Those files are replaced when the app updates, so an installation there would be deleted. On macOS this covers anything inside the Comfy Desktop app bundle.
+  * **Inside OneDrive** (Windows): cloud sync slows down a large Python environment and can corrupt files while they upload.
+  * **Inside a shared models, input, or output folder** : installing there can corrupt the files every instance shares. See [Storage](https://docs.comfy.org/installation/desktop/usage/settings#storage).
+  * **Inside another instance’s folder** : the two installations would conflict and can corrupt data. ![Install location set to a shared models folder: the reason appears under the field and Continue stays disabled](https://mintcdn.com/dripart/DCOqDr2XJt-Cp-c5/images/desktop/usage/install_location_guardrail.png?fit=max&auto=format&n=DCOqDr2XJt-Cp-c5&q=85&s=840a24a4bc38e17a49e542ab02e04ee2)
+
+On a machine with an NVIDIA GPU, the NVIDIA build also checks the driver version. If the detected driver is older than 580, Comfy Desktop shows an **Update NVIDIA Driver** dialog with the detected version and the recommended minimum. **Continue Anyway** installs with the current driver.
 
 2
 
 Installing
 
-![Installing progress: Downloading ComfyUI with percent, throughput, and remaining steps](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/new_install_02_installing.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=56f28d2fc1eb721c2ef27d4229816095)Comfy Desktop will handle the rest: downloading Python, setting up the environment, and installing ComfyUI. The progress screen shows the current step.
+![Installing progress: Downloading ComfyUI with percent, throughput, and remaining steps](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/new_install_02_installing.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=56f28d2fc1eb721c2ef27d4229816095)Comfy Desktop handles the rest. The progress screen runs a stepper: finished stages get a check, the active stage shows a spinner with a live detail line (percent, transfer speed, or file name), and the next stage waits below it. When the install finishes, the same stepper continues into the first launch, so the rows carry on with **Starting ComfyUI** and the startup stages.
+
+Stage| What it does  
+---|---  
+**Downloading ComfyUI**|  Fetches the ComfyUI bundle for the hardware you selected.  
+**Unpacking the install**|  Unpacks the bundle into the install folder.  
+**Set up environment**|  Creates the instance’s own Python environment and copies the prebuilt packages into it, which writes several gigabytes.  
+**Clean up environment**|  Removes packages the instance does not need, writes the environment configuration, fetches version tags, and records the instance’s first snapshot.  
+**Update to latest stable**|  Moves ComfyUI to the release channel you picked and installs its Python requirements, which can take an hour or more on a cold machine.  
+  
+An install created from a snapshot does not auto-update, so its stepper skips the last stage and shows the two restore stages instead.When you picked a starter template, its models download in the background during the stages above, so the install does not wait for them. The stepper then ends with **Downloading template models** once ComfyUI has started, and that row stays until the files finish. Select **Skip & open ComfyUI** on that screen to open the instance right away; the transfer keeps running in the [downloads tray](https://docs.comfy.org/installation/desktop/usage/downloads).
 
 3
 
@@ -291,26 +310,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/desktop/usage/instance-management.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/desktop/usage/instance-management)
 
-[Using Comfy DesktopPrevious](https://docs.comfy.org/installation/desktop/usage/overview)[Workspaces and ComfyUI Builds in Comfy DesktopNext](https://docs.comfy.org/installation/desktop/usage/workspaces-and-builds)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Overview](https://docs.comfy.org/installation/desktop/usage/overview)[Workspaces & Builds](https://docs.comfy.org/installation/desktop/usage/workspaces-and-builds)

@@ -1,0 +1,90 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/ModelMergeCosmosPredict2_2B/
+title: Fusionar modelo Cosmos Predict2 2B - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:13.410029+00:00
+---
+
+# Fusionar modelo Cosmos Predict2 2B - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/ModelMergeCosmosPredict2_2B/
+
+Específicos de modelo
+
+# Fusionar modelo Cosmos Predict2 2B - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+El nodo ModelMergeCosmosPredict22B fusiona dos modelos de difusión mediante un enfoque basado en bloques que permite un control detallado sobre los
+
+Copiar páginaCopiar página
+
+El nodo **ModelMergeCosmosPredict2_2B** fusiona dos modelos de difusión mediante un enfoque basado en bloques que permite un control detallado sobre los distintos componentes del modelo. Permite combinar partes específicas de dos modelos ajustando los pesos de interpolación de los incrustadores de posición, los incrustadores de tiempo, los bloques del transformer y las capas finales. Esto proporciona un control preciso sobre cómo los diferentes componentes arquitectónicos de cada modelo contribuyen al resultado fusionado final.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Requerido| Rango  
+---|---|---|---|---  
+`modelo1`| El primer modelo a fusionar| MODEL| Sí| -  
+`modelo2`| El segundo modelo a fusionar| MODEL| Sí| -  
+`pos_embedder.`| Peso de interpolación del incrustador de posición (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`x_embedder.`| Peso de interpolación del incrustador de entrada (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`t_embedder.`| Peso de interpolación del incrustador de tiempo (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`t_embedding_norm.`| Peso de interpolación de la normalización de la incrustación de tiempo (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.0.`| Peso de interpolación del bloque 0 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.1.`| Peso de interpolación del bloque 1 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.2.`| Peso de interpolación del bloque 2 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.3.`| Peso de interpolación del bloque 3 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.4.`| Peso de interpolación del bloque 4 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.5.`| Peso de interpolación del bloque 5 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.6.`| Peso de interpolación del bloque 6 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.7.`| Peso de interpolación del bloque 7 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.8.`| Peso de interpolación del bloque 8 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.9.`| Peso de interpolación del bloque 9 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.10.`| Peso de interpolación del bloque 10 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.11.`| Peso de interpolación del bloque 11 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.12.`| Peso de interpolación del bloque 12 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.13.`| Peso de interpolación del bloque 13 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.14.`| Peso de interpolación del bloque 14 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.15.`| Peso de interpolación del bloque 15 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.16.`| Peso de interpolación del bloque 16 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.17.`| Peso de interpolación del bloque 17 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.18.`| Peso de interpolación del bloque 18 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.19.`| Peso de interpolación del bloque 19 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.20.`| Peso de interpolación del bloque 20 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.21.`| Peso de interpolación del bloque 21 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.22.`| Peso de interpolación del bloque 22 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.23.`| Peso de interpolación del bloque 23 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.24.`| Peso de interpolación del bloque 24 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.25.`| Peso de interpolación del bloque 25 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.26.`| Peso de interpolación del bloque 26 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`bloques.27.`| Peso de interpolación del bloque 27 del transformer (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+`final_layer.`| Peso de interpolación de la capa final (predeterminado: 1.0)| FLOAT| Sí| 0.0 - 1.0  
+  
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`model`| El modelo fusionado que combina características de ambos modelos de entrada| MODEL  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/ModelMergeCosmosPredict2_2B/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `3586868201320ae9a326a08f6a9bd74511a5342bf8496e7efcb9f45cf4b7c55d`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/ModelMergeCosmosPredict2_2B.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/ModelMergeCosmosPredict2_2B)
+
+[Fusionar modelo Cosmos Predict2 14B](https://docs.comfy.org/es/built-in-nodes/ModelMergeCosmosPredict2_14B)[Fusionar modelo Flux 1](https://docs.comfy.org/es/built-in-nodes/ModelMergeFlux1)

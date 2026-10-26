@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/utility/image-upscale/
 title: Image upscaling in ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:40.924487+00:00
+fetched_at: 2026-10-26T14:04:09.728082+00:00
 ---
 
 # Image upscaling in ComfyUI - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:40.924487+00:00
 > Source: https://docs.comfy.org/tutorials/utility/image-upscale/
 
 ## On this page
+
+Back to top
 
   * Why upscaling matters
   * Key concepts
@@ -23,6 +25,7 @@ fetched_at: 2026-10-17T10:51:40.924487+00:00
     * AI-generated images
   * Available models
     * Local models (ESRGAN)
+    * Z-Image-Turbo 2K upscaler (local)
     * General creative upscaling
     * Partner nodes
   * Benchmark: 1K to 4K upscale time
@@ -219,6 +222,28 @@ Try on Comfy Cloud or download workflow
 
 ​
 
+Z-Image-Turbo 2K upscaler (local)
+
+For a local diffusion-based upscale, the Z-Image-Turbo 2K upscaler pre-upscales the image with RealESRGAN, then re-samples it with Z-Image-Turbo at a moderate denoise value to rebuild detail at 2K resolution. The `denoise` value on the sampler decides how far the model may drift from your input: `0.15` to `0.25` stays close to the source, `0.25` to `0.35` adds more detail through reinterpretation, and anything above `0.35` can introduce artifacts unless you pass a detailed caption instead of a short tag list as the prompt. The template ships with `denoise` at `0.33`.
+
+## Run on Comfy Cloud
+
+Open in Comfy Cloud
+
+## Download Workflow
+
+Download JSON or search “Image Upscale: Z-Image-Turbo 2K” in Template Library
+
+**Input material** Upload this file to the matching `LoadImage` node:
+
+## fighter_jet.png
+
+`LoadImage` node 77 · `fighter_jet.png`
+
+### 
+
+​
+
 General creative upscaling
 
 For general creative upscaling across various use cases:
@@ -289,26 +314,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/utility/image-upscale.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/utility/image-upscale)
 
-[ComfyUI preprocessor workflowsPrevious](https://docs.comfy.org/tutorials/utility/preprocessors)[Video Upscaling in ComfyUI: Models and Use CasesNext](https://docs.comfy.org/tutorials/utility/video-upscale)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Preprocessors](https://docs.comfy.org/tutorials/utility/preprocessors)[Video upscale](https://docs.comfy.org/tutorials/utility/video-upscale)

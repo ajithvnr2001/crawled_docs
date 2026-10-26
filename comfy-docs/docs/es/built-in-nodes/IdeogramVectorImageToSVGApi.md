@@ -1,0 +1,65 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/IdeogramVectorImageToSVGApi/
+title: Imagen a SVG de Ideogram Vector - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:01:55.125172+00:00
+---
+
+# Imagen a SVG de Ideogram Vector - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/IdeogramVectorImageToSVGApi/
+
+Imagen
+
+# Imagen a SVG de Ideogram Vector - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Este nodo convierte una imagen en un SVG editable con Ideogram Vector.
+
+Copiar páginaCopiar página
+
+Este nodo convierte una imagen en un SVG editable con Ideogram Vector. El resultado es marcado vectorial en lugar de una imagen raster, por lo que las formas trazadas permanecen editables en un editor vectorial. Las áreas transparentes de una imagen con alfa permanecen transparentes.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`model`| Modelo a usar. Predeterminado: `"ideogram-vector-1"`.| DYNAMIC_COMBO| Sí| `"ideogram-vector-1"`  
+`image`| La imagen a convertir. Una entrada por lotes se convierte imagen por imagen y los SVG resultantes se devuelven juntos.| IMAGE| Sí| -  
+`mode`| `"simple"` traza menos formas y de mayor tamaño; `"default"` conserva un detalle más fino. Predeterminado: `"default"`.| COMBO| Sí| `"simple"`  
+`"default"`  
+  
+**Restricciones:**
+
+  * Las imágenes cuyo lado más largo supere los 2048 píxeles se reducen de escala antes de subirlas.
+
+
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`SVG`| La imagen convertida como marcado vectorial editable.| SVG  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/IdeogramVectorImageToSVGApi/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `6553291e9d887b31485b9cbf8f6ced4186470eb47e8621ebb0f4e5df6542123e`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/IdeogramVectorImageToSVGApi.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/IdeogramVectorImageToSVGApi)
+
+[Generar SVG vectorial de Ideogram](https://docs.comfy.org/es/built-in-nodes/IdeogramVectorGenerateApi)[Anthropic Claude](https://docs.comfy.org/es/built-in-nodes/ClaudeNode)

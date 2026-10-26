@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/get_started/cloud/
 title: Comfy Cloud - Plataforma oficial de ComfyUI en la nube impulsada por RTX 6000 Pro - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:47.984397+00:00
+fetched_at: 2026-10-26T14:04:02.707385+00:00
 ---
 
 # Comfy Cloud - Plataforma oficial de ComfyUI en la nube impulsada por RTX 6000 Pro - ComfyUI
@@ -11,13 +11,17 @@ fetched_at: 2026-10-25T12:24:47.984397+00:00
 
 ## En esta página
 
+Volver arriba
+
   * ¿Qué es Comfy Cloud?
     * Funciones principales
   * Nube vs local
+    * Nodos personalizados en Comfy Cloud
   * Precios y suscripción
-  * Lista de permitidos del firewall de Comfy Cloud
+    * Límites de concurrencia
+  * Dominios permitidos en el firewall de Comfy Cloud
   * Cómo usar ComfyUI Cloud
-  * Retroalimentación
+  * Comentarios
     * Cómo detener/salir de Comfy Cloud
   * Preguntas frecuentes
   * Próximos pasos
@@ -28,13 +32,13 @@ fetched_at: 2026-10-25T12:24:47.984397+00:00
 
 Copiar páginaCopiar página
 
-Ejecuta flujos de trabajo de ComfyUI en línea con Comfy Cloud, la plataforma oficial en la nube impulsada por GPUs NVIDIA RTX 6000 Pro. No se requiere instalación local.
+Ejecuta flujos de trabajo de ComfyUI en línea con Comfy Cloud, la plataforma oficial con GPUs NVIDIA RTX 6000 Pro. Sin instalación local.
 
 Copiar páginaCopiar página
 
 ## Accede a Comfy Cloud
 
-Haz clic aquí para acceder directamente a ComfyUI Cloud
+Abre ComfyUI Cloud
 
 ## 
 
@@ -42,7 +46,7 @@ Haz clic aquí para acceder directamente a ComfyUI Cloud
 
 ¿Qué es Comfy Cloud?
 
-ComfyUI Cloud es la versión en la nube de ComfyUI, con las mismas funciones que la versión local. Todo está preinstalado y listo para usar.
+ComfyUI Cloud es la versión en la nube de ComfyUI, con las mismas funciones que la versión local. Todo viene preinstalado y listo para usar.
 
 ### 
 
@@ -60,7 +64,7 @@ Ejecuta flujos de trabajo rápidamente en las potentes GPUs de nuestros servidor
 
 ## Siempre actualizado
 
-Se mantiene automáticamente al día con las últimas versiones y funciones de ComfyUI
+Se actualiza solo a las últimas versiones y funciones de ComfyUI
 
 ## Acceso desde cualquier lugar
 
@@ -76,18 +80,26 @@ Crea espacios de trabajo en equipo para colaborar con los miembros de tu equipo.
 
 Nube vs local
 
-ComfyUI ofrece tanto una versión oficial en la nube, [Comfy Cloud](https://comfy.org/cloud), como una versión de código abierto autoalojada. Si tienes una GPU potente, ejecutar ComfyUI localmente es una gran opción. La versión en la nube, por otro lado, es un servicio en línea que está listo para usar al instante: simplemente abre la URL, sin necesidad de instalación ni configuración.
+ComfyUI ofrece una versión oficial en la nube, [Comfy Cloud](https://comfy.org/cloud), y una versión de código abierto que puedes autoalojar. Si tienes una GPU potente, ejecutar ComfyUI en local es una gran opción. La nube, en cambio, es un servicio en línea listo al instante: abre la URL, sin instalar ni configurar nada.
 
 Categoría| Comfy Cloud| Autoalojado (ComfyUI local)  
 ---|---|---  
 **Costo**|  Nivel gratuito y planes de suscripción de pago| Gratis  
 **GPU**|  Potentes Blackwell RTX 6000 Pro| Usa tu propia GPU  
-**Conocimientos técnicos**|  No se requieren conocimientos técnicos.| Aunque las versiones de escritorio y portátil te ofrecen formas sencillas de empezar, tendrás que solucionar problemas con la instalación de nodos personalizados y con la instalación local.  
+**Conocimientos técnicos**|  No se requieren conocimientos técnicos.| Aunque Desktop y Portable facilitan el comienzo, tendrás que resolver por tu cuenta la instalación de nodos personalizados y el entorno local.  
 **Nodos personalizados**|  Usa nodos personalizados preinstalados y olvídate de los problemas de compatibilidad.| Instala cualquier nodo personalizado que quieras, pero tendrás que administrarlo tú mismo.  
 **Modelos**|  Usa modelos preinstalados. Importa modelos desde Civitai y Hugging Face.| Usa cualquier modelo que quieras, pero primero tendrás que descargarlo.  
-**Diferencias destacadas**|  Es fácil incorporar a tu equipo con [Espacios de trabajo](https://docs.comfy.org/cloud/workspace)| Funciona sin conexión, personalizable sin límites  
+**Diferencias destacadas**|  Es fácil incorporar a tu equipo con [Espacios de trabajo](https://docs.comfy.org/es/cloud/workspace)| Funciona sin conexión, personalizable sin límites  
 **Empezar**| [Ejecutar ComfyUI Cloud](https://comfy.org/cloud)| [Instalar ComfyUI localmente](https://docs.comfy.org/es/installation/system_requirements)  
   
+### 
+
+​
+
+Nodos personalizados en Comfy Cloud
+
+Comfy Cloud ejecuta un conjunto fijo de nodos personalizados que mantiene Comfy. No puedes instalar tus propios paquetes de nodos allí, así que un flujo de trabajo que dependa de un paquete que Cloud no incluye no se ejecutará tal cual. Comfy Cloud marca los nodos que no puede ejecutar en dos sitios: quedan señalados en el lienzo, y la pestaña Errors del [panel derecho](https://docs.comfy.org/es/interface/right-side-panel) los lista bajo **Unsupported Node Packs**. Esos nodos se reportan automáticamente para priorizar el soporte de esos paquetes en Cloud. Para ejecutar el flujo de trabajo, reemplaza esos nodos por otros compatibles, o ábrelo en una instalación local de ComfyUI.
+
 ## 
 
 ​
@@ -98,11 +110,19 @@ Precios y suscripción
 
 Consulta las opciones de precios y suscripción de Comfy Cloud
 
+### 
+
+​
+
+Límites de concurrencia
+
+La interfaz de Comfy Cloud no permite ejecutar más de un flujo de trabajo a la vez. Cada persona puede ejecutar un flujo de trabajo a la vez en el editor; los flujos adicionales esperan en la cola y se ejecutan uno tras otro. Ejecutar varios trabajos en paralelo solo se admite cuando envías los flujos de trabajo a través de la API, lo que requiere una suscripción de pago. Consulta [Tareas simultáneas](https://docs.comfy.org/es/development/deploy/cloud-usage#tareas-simult%C3%A1neas) en la documentación para desarrolladores para más detalles. En los planes Team y Enterprise, la concurrencia es por miembro: cada persona del espacio de trabajo tiene su propio límite de concurrencia, por lo que los trabajos en ejecución de un miembro nunca bloquean a los de otro.
+
 ## 
 
 ​
 
-Lista de permitidos del firewall de Comfy Cloud
+Dominios permitidos en el firewall de Comfy Cloud
 
 Permite el tráfico saliente HTTPS y WebSocket en TCP 443 hacia:
 
@@ -119,7 +139,7 @@ Permite el tráfico saliente HTTPS y WebSocket en TCP 443 hacia:
 
 Cómo usar ComfyUI Cloud
 
-Usar ComfyUI Cloud es esencialmente lo mismo que usar tu ComfyUI local. Si es tu primera vez usando ComfyUI, aquí tienes algunos consejos rápidos para empezar:
+Usar ComfyUI Cloud es casi igual que usar ComfyUI en local. Si es tu primera vez con ComfyUI, aquí van unos consejos rápidos:
 
 1
 
@@ -137,8 +157,8 @@ Haz clic en la plantilla que quieres ejecutar.![Seleccionar plantilla de flujo d
 
 Actualiza las entradas de la plantilla
 
-  1. En el flujo de trabajo cargado, como hemos preinstalado todos los modelos en la versión de la Nube, todas las plantillas están listas para ejecutarse inmediatamente después de cargarse.
-  2. Si necesitas hacer cambios, solo tienes que proporcionar imágenes de entrada o prompts de texto. Revisa el nodo `Load Image` o el nodo `CLIP Text Encode`. ![Revisar entradas](https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/workflow_input_or_loader.webp?fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=56ca79d24c79e666146c927263c96e99)
+  1. En el flujo de trabajo cargado, como todos los modelos ya están preinstalados en la nube, las plantillas quedan listas para ejecutarse en cuanto se cargan.
+  2. Si necesitas cambiar algo, basta con aportar imágenes de entrada o prompts de texto. Revisa el nodo `Load Image` o el nodo `CLIP Text Encode`. ![Revisar entradas](https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/workflow_input_or_loader.webp?fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=56ca79d24c79e666146c927263c96e99)
 
 
 
@@ -146,23 +166,23 @@ Actualiza las entradas de la plantilla
 
 Ejecuta tu flujo de trabajo
 
-Si todo es correcto, haz clic en el icono “Ejecutar” o usa el atajo “Ctrl + Enter” para ejecutar el flujo de trabajo.![Ejecutar flujo de trabajo](https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/workflow_run_workflow.webp?fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=546f1e0003941deba2006a36d8f9ed34)
+Si todo está bien, haz clic en el icono **Run** o usa el atajo `Ctrl + Enter` para ejecutar el flujo de trabajo.![Ejecutar flujo de trabajo](https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/workflow_run_workflow.webp?fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=546f1e0003941deba2006a36d8f9ed34)
 
 5
 
 Ver la salida
 
-Después de hacer clic en ejecutar, nuestro servicio comenzará a asignar una máquina para tu flujo de trabajo. Puedes consultar el estado de ejecución del flujo de trabajo correspondiente en el panel de Cola.![Ver cola](https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/workflow_check_queue.webp?fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=4ac366407cf13fa84e55ef7948cff36e)
+Tras pulsar Run, el servicio empezará a asignar una máquina a tu flujo de trabajo. Puedes ver el estado de ejecución en el panel de cola.![Ver cola](https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/workflow_check_queue.webp?fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=4ac366407cf13fa84e55ef7948cff36e)
 
 6
 
 Guardar el contenido localmente
 
-Una vez completada la ejecución del flujo de trabajo, puedes guardar el contenido generado localmente. Según el tipo de recurso, el método para guardar es el siguiente:
+Cuando termine la ejecución, puedes guardar el contenido generado en tu equipo. Según el tipo de recurso:
 
   * Guardar imágenes
 
-  * Guardar vídeos
+  * Guardar videos
 
   * Guardar audio
 
@@ -171,31 +191,31 @@ Una vez completada la ejecución del flujo de trabajo, puedes guardar el conteni
 
 
 
-En el panel de Cola o en el nodo de guardar imagen, haz clic derecho sobre la imagen generada y selecciona “Guardar imagen” para guardarla localmente.![Guardar recursos de imagen](https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/download_image_assets.jpg?fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=a15e70a3649537fb8c6adc50689dfbe7)
+En el panel de cola o en el nodo Save Image, haz clic derecho sobre la imagen generada y elige **Save Image** para guardarla en local.![Guardar recursos de imagen](https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/download_image_assets.jpg?fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=a15e70a3649537fb8c6adc50689dfbe7)
 
-En el panel de Cola o en el nodo de guardar vídeo:
+En el panel de cola o en el nodo de guardar video:
 
-  1. Haz clic en los tres puntos del componente de reproducción del navegador para abrir el menú
-  2. Selecciona “Descargar” para guardar el vídeo localmente. ![Guardar recursos de vídeo](https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/download_video_assets.webp?fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=2c987025c1c25e954a3065775ef5223d)
-
-
-
-En el panel de Cola o en el nodo de guardar audio:
-
-  1. Haz clic en los tres puntos del componente de reproducción del navegador para abrir el menú
-  2. Selecciona “Descargar” para guardar el archivo de audio localmente. ![Guardar recursos de audio](https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/download_audio_assets.webp?fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=8d876d9c3b89b2ae9f1e84ba8b3e9887)
+  1. Haz clic en los tres puntos del reproductor del navegador para abrir el menú
+  2. Selecciona **Download** para guardar el video en local. ![Guardar recursos de video](https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/download_video_assets.webp?fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=2c987025c1c25e954a3065775ef5223d)
 
 
 
-En el menú del nodo de visor 3D, selecciona la opción “Exportar”, elige el formato en el que quieres guardar y el archivo 3D se guardará localmente.![Guardar recursos 3D](https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/download_3d_assets.webp?fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=5e121107826658a3e1725b8d9840d94b)
+En el panel de cola o en el nodo de guardar audio:
+
+  1. Haz clic en los tres puntos del reproductor del navegador para abrir el menú
+  2. Selecciona **Download** para guardar el audio en local. ![Guardar recursos de audio](https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/download_audio_assets.webp?fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=8d876d9c3b89b2ae9f1e84ba8b3e9887)
+
+
+
+En el menú del nodo de visor 3D, elige **Export** , selecciona el formato y el archivo 3D se guardará en local.![Guardar recursos 3D](https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/download_3d_assets.webp?fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=5e121107826658a3e1725b8d9840d94b)
 
 ## 
 
 ​
 
-Retroalimentación
+Comentarios
 
-Si tienes alguna idea, sugerencia o te encuentras con algún problema, simplemente haz clic en el icono de “Retroalimentación”. Esto nos enviará tu retroalimentación directamente. ![Retroalimentación](https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/feedback.webp?fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=f1306e3587e441fc9964ffc0f9e4cc73)
+Si tienes alguna idea, sugerencia o te encuentras con un problema, haz clic en el icono **Feedback**. Nos lo enviará directamente. ![Feedback](https://mintcdn.com/dripart/dExtXAUR2XogD5qH/images/cloud/feedback.webp?fit=max&auto=format&n=dExtXAUR2XogD5qH&q=85&s=f1306e3587e441fc9964ffc0f9e4cc73)
 
 ### 
 
@@ -203,7 +223,7 @@ Si tienes alguna idea, sugerencia o te encuentras con algún problema, simplemen
 
 Cómo detener/salir de Comfy Cloud
 
-Las sesiones de Cloud solo te cobran mientras la GPU está ejecutándose activamente. Cuando cierras la pestaña del navegador, la sesión se detiene automáticamente: puedes cerrarla en cualquier momento, igual que una pestaña normal del navegador.
+Las sesiones de Cloud solo cobran mientras la GPU está en uso. Al cerrar la pestaña del navegador, la sesión se detiene sola: puedes cerrarla cuando quieras, como cualquier pestaña.
 
 ## 
 
@@ -213,7 +233,7 @@ Preguntas frecuentes
 
 ## Ver preguntas frecuentes
 
-Consulta las preguntas frecuentes y sus respuestas acerca de Comfy Cloud, incluidos precios, funciones, limitaciones y más
+Consulta las preguntas frecuentes sobre Comfy Cloud: precios, funciones, limitaciones y más
 
 ## 
 

@@ -1,0 +1,80 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/BriaAddObject/
+title: Bria A\u00f1adir objeto - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:01:32.170070+00:00
+---
+
+# Bria Añadir objeto - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/BriaAddObject/
+
+Bria
+
+# Bria Añadir objeto - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Este nodo inserta un objeto descrito en texto plano dentro de una imagen usando Bria.
+
+Copiar páginaCopiar página
+
+Este nodo inserta un objeto descrito en texto plano dentro de una imagen usando Bria. Bria vuelve a renderizar todo el fotograma a aproximadamente 1 megapíxel, por lo que el resultado no está alineado a nivel de píxel con la entrada.
+
+## 
+
+​
+
+Entradas
+
+### 
+
+​
+
+Entradas comunes
+
+Parámetro| Descripción| Tipo de dato| Obligatorio| Rango  
+---|---|---|---|---  
+`imagen`| La imagen a la que se agrega el objeto descrito. El canal alfa se elimina antes de subir la imagen.| IMAGE| Sí| -  
+`instrucción`| Qué agregar y dónde, por ejemplo, ‘Coloca un jarrón rojo con flores sobre la mesa’. No debe estar vacío. Predeterminado: "" (cadena vacía).| STRING| Sí| -  
+`semilla`| Bria no recibe ninguna semilla aquí y reimagina la edición en cada llamada, por lo que las ejecuciones repetidas pueden variar. El valor nunca se envía: solo cambia la clave de caché de este nodo, de modo que un grafo que por lo demás sea idéntico ejecute la edición de nuevo en lugar de devolver el resultado en caché. Predeterminado: 42.| INT| Sí| 0 a 2147483647  
+`moderación`| Ajustes de moderación. Elige “true” para revelar las opciones de moderación a continuación.| DYNAMIC_COMBO| Sí| ”false"  
+"true”  
+  
+### 
+
+​
+
+Entradas con moderación habilitada
+
+Disponibles cuando `moderation` está configurado en “true”.
+
+Parámetro| Descripción| Tipo de dato| Obligatorio| Rango  
+---|---|---|---|---  
+`visual_input_moderation`| Habilita la moderación de contenido en la imagen de entrada. Predeterminado: False.| BOOLEAN| No| True / False  
+`visual_output_moderation`| Habilita la moderación de contenido en la imagen de salida generada. Predeterminado: False.| BOOLEAN| No| True / False  
+  
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de dato  
+---|---|---  
+`image`| La imagen editada con el objeto descrito agregado.| IMAGE  
+`structured_prompt`| Descripción estructurada de la imagen editada, para una edición posterior con Bria FIBO Image Edit.| STRING  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/BriaAddObject/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `41c9a3e511763372d8dc8be9da4f70158e53d5156a88eb3c66f81149efdbd566`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/BriaAddObject.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/BriaAddObject)
+
+[Flux Prueba virtual de ropa](https://docs.comfy.org/es/built-in-nodes/FluxVTONode)[Bria Borrar por texto](https://docs.comfy.org/es/built-in-nodes/BriaEraseByText)

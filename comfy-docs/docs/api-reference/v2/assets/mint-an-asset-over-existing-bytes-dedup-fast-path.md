@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/v2/assets/mint-an-asset-over-existing-bytes-dedup-fast-path/
 title: Mint an asset over existing bytes (dedup fast-path) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:37.230380+00:00
+fetched_at: 2026-10-26T14:04:08.320982+00:00
 ---
 
 # Mint an asset over existing bytes (dedup fast-path) - ComfyUI
@@ -837,6 +837,8 @@ file_path
 
 string
 
+Placement path / filename; its last segment becomes the asset name. On Comfy Cloud a `file_path` that fails path validation, or whose last segment breaks the `file_path` rules of `POST /api/v2/assets`, is answered with 404 `blob_not_found`, the same as an unknown hash. The UTF-8 rule cannot fire here: invalid UTF-8 bytes and lone surrogate escapes (`\ud800`) are replaced with U+FFFD when the JSON body is decoded, so such a name is stored with U+FFFD in their place.
+
 Example:
 
 `"photo.png"`
@@ -997,7 +999,6 @@ Example:
     
     
     { "client": "acme" }
-    
 
 Was this page helpful?
 

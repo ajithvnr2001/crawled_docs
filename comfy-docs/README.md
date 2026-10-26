@@ -1,6 +1,6 @@
 # ComfyUI Docs — End-to-End Crawler
 
-> Last verified: 2026-10-25 — see `docs/_last_verified.json` (rewritten daily by GitHub Actions).
+> Last verified: 2026-10-26 — see `docs/_last_verified.json` (rewritten daily by GitHub Actions).
 
 Crawls **https://docs.comfy.org/** completely — every English-canonical sitemap page (~1,806 after zh/ja/ko locale dedupe: get-started, 1,090 built-in-nodes reference, developers, tutorials, api-reference, registry, custom-nodes) — and saves clean markdown. Three stacks: **Scrapling** → **Crawl4AI** → **ScrapeGraphAI** (local, no LLM key). `llms.txt` + raw `_llms/en/*.txt` mirrors snapshotted under `docs/_llms/`.
 

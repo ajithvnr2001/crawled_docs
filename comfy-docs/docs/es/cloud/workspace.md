@@ -1,0 +1,296 @@
+---
+url: https://docs.comfy.org/es/cloud/workspace/
+title: Espacios de trabajo de Comfy Cloud: equipos y miembros - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:49.096535+00:00
+---
+
+# Espacios de trabajo de Comfy Cloud: equipos y miembros - ComfyUI
+
+> Source: https://docs.comfy.org/es/cloud/workspace/
+
+## En esta página
+
+Volver arriba
+
+  * Descripción general
+  * Espacios de trabajo personales y de equipo
+  * Qué es independiente en cada espacio de trabajo
+  * Crear un espacio de trabajo en equipo
+  * Invitar miembros
+  * Roles y permisos
+  * Administrar un espacio de trabajo
+    * Eliminar un espacio de trabajo en equipo
+  * Cambiar de espacio de trabajo
+  * Cómo se facturan los espacios de trabajo
+  * Preguntas frecuentes
+
+
+
+Exclusivas de Cloud
+
+# Espacios de trabajo de Comfy Cloud: equipos y miembros
+
+Copiar páginaCopiar página
+
+Crea y administra espacios de trabajo de Comfy Cloud: invita miembros, define roles y comparte archivos, flujos de trabajo y créditos.
+
+Copiar páginaCopiar página
+
+Esta es una función de **Comfy Cloud** y solo está disponible en la Versión de la Nube. Para aprender más acerca de Comfy Cloud, consulta [Comfy Cloud](https://docs.comfy.org/es/get_started/cloud).
+
+## 
+
+​
+
+Descripción general
+
+Un espacio de trabajo es el límite de la cuenta para tu trabajo en Comfy Cloud. Los flujos de trabajo, los archivos subidos, las salidas y los créditos pertenecen al espacio de trabajo y no a un usuario individual, por lo que cambiar de espacio de trabajo cambia qué archivos ves y qué créditos consumen tus ejecuciones. Cada usuario obtiene un espacio de trabajo **Personal**. Para trabajar con otras personas, crea un espacio de trabajo **Equipo** e invítalas. Si alguien te invitó a un espacio de trabajo en equipo, no necesitas crear nada: abre el correo electrónico de invitación, inicia sesión con la dirección a la que se envió y cambia a ese espacio de trabajo. Consulta Cambiar espacios de trabajo.
+
+## 
+
+​
+
+Espacios de trabajo personales y de equipo
+
+Tipo| Qué es  
+---|---  
+**Personal**|  Se crea automáticamente para cada usuario, con una sola plaza. Solo tú puedes acceder a él. No se puede eliminar y no puedes abandonarlo.  
+**Equipo**|  Un espacio de trabajo compartido que creas o al que te invitan. Los miembros ven los archivos del espacio de trabajo y comparten sus créditos.  
+  
+Crear un espacio de trabajo en equipo es gratis. Para invitar a personas, el espacio de trabajo necesita plazas: un espacio de trabajo que no está en un Plan de equipo tiene una plaza, que pertenece a su propietario. Los Planes de equipo incluyen una plaza para cada miembro.
+
+## 
+
+​
+
+Qué es independiente en cada espacio de trabajo
+
+Cada espacio de trabajo mantiene lo siguiente como propio:
+
+  * **Archivos y salidas** : cargas, imágenes generadas, tareas e historial
+  * **Flujos de trabajo** : la biblioteca de flujos de trabajo que ves en ese espacio de trabajo
+  * **Plan y créditos** : su propia suscripción y saldo de créditos
+  * **Personas** : miembros, roles e invitaciones pendientes
+  * **Acceso** : las claves de API del espacio de trabajo y, en los espacios de trabajo de Empresa, los modelos de socios que los miembros pueden ejecutar
+
+Cambiar de espacio de trabajo cambia todo esto a la vez, y nada se copia entre espacios de trabajo de forma automática.
+
+## 
+
+​
+
+Crear un espacio de trabajo en equipo
+
+1
+
+Abre el menú de perfil
+
+Haz clic en tu foto de perfil en la esquina superior derecha.
+
+2
+
+Abre la lista de espacios de trabajo
+
+Haz clic en el nombre de tu espacio de trabajo en el menú. La lista muestra todos los espacios de trabajo a los que perteneces, con tu rol en cada uno.![La lista de espacios de trabajo, con Crear nuevo espacio de trabajo abajo](https://mintcdn.com/dripart/_STmcLe16Xze8EdG/images/cloud/workspace/workspace-list.png?fit=max&auto=format&n=_STmcLe16Xze8EdG&q=85&s=9ec3540859ff51ece9770e4e20c64a87)
+
+3
+
+Crea el espacio de trabajo
+
+Haz clic en **Crear nuevo espacio de trabajo** en la parte inferior de la lista.
+
+4
+
+Nómbralo
+
+Ingresa un nombre y haz clic en **Crear**. Los nombres tienen entre 1 y 50 caracteres, deben comenzar con una letra o un número y pueden contener letras, números, espacios y los caracteres `- _ ' . , ( ) & +`.![El cuadro de diálogo Crear un nuevo espacio de trabajo](https://mintcdn.com/dripart/_STmcLe16Xze8EdG/images/cloud/workspace/create-workspace.png?fit=max&auto=format&n=_STmcLe16Xze8EdG&q=85&s=badc3c2b42a5c6b91ddaf9b13c2e6560)
+
+Comfy Cloud te cambia al nuevo espacio de trabajo y recarga la página.
+
+Puedes ser propietario de hasta **10 espacios de trabajo** en total, incluido tu espacio de trabajo personal. No hay límite en la cantidad de espacios de trabajo a los que te puedes unir como miembro.
+
+Para abrir tu lista de espacios de trabajo directamente, agrega `?create_workspace=1` a la URL de Comfy Cloud, por ejemplo `https://cloud.comfy.org/?create_workspace=1`. Se abre el diálogo de espacios de trabajo en equipo, que muestra tus espacios de trabajo y tiene un campo **Nuevo espacio de trabajo** y un botón **Crear espacio de trabajo**.
+
+## 
+
+​
+
+Invitar miembros
+
+Solo los propietarios del espacio de trabajo pueden invitar miembros. Los planes de equipo incluyen una plaza para cada miembro, y la pestaña **Miembros** muestra cuántas plazas están en uso, por ejemplo `3 of 20 members`. Las invitaciones pendientes cuentan para ese límite. Actualmente, un espacio de trabajo puede tener hasta 50 miembros; si necesitas más, [contacta con soporte](https://support.comfy.org/). ![La sección Miembros de la configuración del espacio de trabajo, con el botón Invitar](https://mintcdn.com/dripart/_STmcLe16Xze8EdG/images/cloud/workspace/workspace-members.png?fit=max&auto=format&n=_STmcLe16Xze8EdG&q=85&s=3873c85c8a37fd3a019da1f944b2e995) Para invitar miembros:
+
+1
+
+Abre la configuración del espacio de trabajo
+
+En el menú de perfil, haz clic en **Configuración del espacio de trabajo**.
+
+2
+
+Abre la sección Miembros
+
+Selecciona **Miembros**.
+
+3
+
+Envía las invitaciones
+
+Haz clic en **Invitar** , escribe una o más direcciones de correo electrónico separadas por comas y, luego, haz clic en **Invitar** en el cuadro de diálogo.
+
+![El cuadro de diálogo Invitar miembros con dos direcciones de correo electrónico ingresadas](https://mintcdn.com/dripart/_STmcLe16Xze8EdG/images/cloud/workspace/invite-members.png?fit=max&auto=format&n=_STmcLe16Xze8EdG&q=85&s=c252284d37c35df8acbc1c0f9d5bdae2)
+
+Si **Invitar** no abre el cuadro de diálogo, el espacio de trabajo no tiene plazas disponibles. Un espacio de trabajo que no está en un plan de equipo tiene una plaza, y un equipo completo muestra un aviso emergente de máximo de miembros. Abre **Plan y créditos** y mejora a un plan de equipo, o contáctanos sobre Empresa si necesitas más miembros.
+
+Comfy Cloud envía a cada persona un enlace para unirse. La invitación está vinculada a la dirección a la que se envió, por lo que el destinatario debe iniciar sesión, o crear una cuenta, con esa misma dirección. Si no tiene la sesión iniciada cuando abre el enlace, se le pedirá que inicie sesión primero y la invitación se aplicará después. Las invitaciones que aún no se han aceptado aparecen en la pestaña **Pendiente** de la sección Miembros, con su fecha de vencimiento. Los propietarios ven esta pestaña; los miembros solo ven la lista de personas que ya se han unido. Desde allí, un propietario puede:
+
+  * **Copiar enlace de invitación** : compartir el enlace directamente en lugar de esperar el correo electrónico
+  * **Reenviar invitación** : enviar el correo electrónico de nuevo con un enlace nuevo
+  * **Cancelar invitación** : revocar la invitación
+
+Las invitaciones vencen 30 días después de enviarse. ![Invitaciones pendientes con sus fechas de invitación y de vencimiento](https://mintcdn.com/dripart/_STmcLe16Xze8EdG/images/cloud/workspace/pending-invites.png?fit=max&auto=format&n=_STmcLe16Xze8EdG&q=85&s=253ffad2ebe7b7271bd5ef724c042dfe)
+
+## 
+
+​
+
+Roles y permisos
+
+Rol| Puede hacer  
+---|---  
+**Propietario**|  Invitar y eliminar miembros, cambiar roles, renombrar o eliminar el espacio de trabajo, y administrar el plan y los créditos del espacio de trabajo.  
+**Miembro**|  Ejecutar flujos de trabajo en el espacio de trabajo y ver la lista de miembros. No puede invitar miembros, ver invitaciones pendientes, cambiar la configuración del espacio de trabajo ni administrar la facturación.  
+  
+Los propietarios pueden cambiar el rol de un miembro desde la sección Miembros, que es como puedes promover a un miembro a propietario o degradar a un propietario de vuelta a miembro. Un espacio de trabajo siempre conserva al menos un propietario, así que el último propietario restante no puede ser degradado ni eliminado. Algunos mensajes en Comfy Cloud llaman al propietario administrador del espacio de trabajo; son el mismo rol. Los miembros pueden abrir **Configuración del espacio de trabajo** y ver el plan y la lista de miembros del espacio de trabajo, pero no pueden cambiar nada ahí. Cuando un propietario elimina a un miembro, esa persona pierde el acceso a los archivos y flujos de trabajo del espacio de trabajo, se libera la plaza y cualquier clave de API del espacio de trabajo que haya creado deja de funcionar. Los miembros no pueden eliminarse a sí mismos; en su lugar, abandonan el espacio de trabajo. La opción de abandonar no está disponible para el creador del espacio de trabajo, para un propietario único, ni para los miembros cuya membresía es administrada por una organización.
+
+## 
+
+​
+
+Administrar un espacio de trabajo
+
+Abre **Configuración del espacio de trabajo** desde el menú del perfil. El grupo **Espacio de trabajo** del diálogo de configuraciones tiene estas secciones:
+
+  * **Plan y créditos** : el plan del espacio de trabajo, el saldo de créditos y las recargas. Solo el propietario puede cambiar estos valores.
+  * **Miembros** : la lista de miembros, los roles y las invitaciones pendientes. Las invitaciones pendientes son visibles para los propietarios.
+  * **Modelos de socios** : se muestra a los propietarios del espacio de trabajo. Restringir qué modelos de proveedor pueden ejecutar los miembros es una función del plan Empresa. Desactiva **Permitir todos los modelos de socios** para elegir qué proveedores y modelos pueden ejecutar los miembros; los modelos que se agreguen después permanecen deshabilitados hasta que los habilites. Los cambios pueden tardar hasta 10 minutos en aplicarse en todo el espacio de trabajo.
+
+El menú de la sección Miembros permite a los propietarios:
+
+  * **Editar detalles del espacio de trabajo** : renombrar el espacio de trabajo
+  * **Eliminar espacio de trabajo** : disponible una vez que el espacio de trabajo no tiene una suscripción activa. Consulta Eliminar un espacio de trabajo en equipo.
+  * **Abandonar espacio de trabajo** : abandonar un espacio de trabajo en equipo. El elemento está deshabilitado cuando creaste el espacio de trabajo, cuando eres su único propietario (primero haz que otro miembro sea propietario) o cuando tu organización administra tu membresía.
+
+![El menú del espacio de trabajo: Editar detalles del espacio de trabajo, Eliminar espacio de trabajo, Abandonar espacio de trabajo](https://mintcdn.com/dripart/_STmcLe16Xze8EdG/images/cloud/workspace/workspace-menu.png?fit=max&auto=format&n=_STmcLe16Xze8EdG&q=85&s=44fa6637c08fc269c1fdaff7652f9862) Los miembros también ven este menú, pero solo el elemento **Abandonar espacio de trabajo**.
+
+### 
+
+​
+
+Eliminar un espacio de trabajo en equipo
+
+Solo el propietario de un espacio de trabajo en equipo puede eliminarlo, y el espacio de trabajo no debe tener una suscripción activa. Eliminar un espacio de trabajo es permanente: los créditos sin usar y los recursos sin guardar se pierden, y el espacio de trabajo no se puede recuperar. Tu espacio de trabajo personal no se puede eliminar, y los espacios de trabajo de tipo Empresa se administran con nuestro equipo de ventas.
+
+1
+
+Cancelar el plan
+
+En **Configuración del espacio de trabajo** → **Plan y créditos** , abre el menú de tres puntos y selecciona **Cancelar plan**. Si el espacio de trabajo no tiene suscripción, omite este paso.
+
+2
+
+Eliminar el espacio de trabajo
+
+En **Configuración del espacio de trabajo** → **Miembros** , abre el menú de tres puntos y selecciona **Eliminar espacio de trabajo** , luego confirma en el diálogo.
+
+## 
+
+​
+
+Cambiar de espacio de trabajo
+
+  1. Abre el menú de perfil.
+  2. Haz clic en el nombre de tu espacio de trabajo para abrir la lista de espacios de trabajo.
+  3. Selecciona el espacio de trabajo en el que quieres trabajar.
+
+![El menú de perfil, donde haces clic en el nombre de tu espacio de trabajo para abrir la lista de espacios de trabajo](https://mintcdn.com/dripart/_STmcLe16Xze8EdG/images/cloud/workspace/profile-menu.png?fit=max&auto=format&n=_STmcLe16Xze8EdG&q=85&s=3d48e5236baf4f808df5b4eefb1bc831) Comfy Cloud recarga la página en el espacio de trabajo seleccionado y lo recuerda la próxima vez que inicies sesión.
+
+Parámetro de URL| Acción  
+---|---  
+`?create_workspace=1`| Abre tu lista de espacios de trabajo, con un campo **Nuevo espacio de trabajo** y un botón **Crear espacio de trabajo**  
+`?invite=TOKEN`| Acepta una invitación a un espacio de trabajo  
+  
+## 
+
+​
+
+Cómo se facturan los espacios de trabajo
+
+Los planes y créditos pertenecen al espacio de trabajo, no a las cuentas individuales. Los **espacios de trabajo personales** usan tu propio plan, y tú eres la única persona que gasta sus créditos. Los **espacios de trabajo en equipo** usan una suscripción de créditos que configura el propietario:
+
+  * El propietario elige la cantidad mensual de créditos del espacio de trabajo en **Elige el mejor plan para tu espacio de trabajo** (**Para equipos**) con el control deslizante de créditos. El precio se ajusta a la cantidad que elijas, y un compromiso mayor reduce la tarifa efectiva. Cada periodo de facturación recarga el fondo con esa cantidad.
+  * Los compromisos anuales cuestan menos que los mensuales, y el espacio de trabajo recibe todos los créditos del año por adelantado.
+  * Los miembros no pagan de forma individual, y agregar o quitar miembros no cambia el precio. El plan incluye las plazas del espacio de trabajo. Si necesitas más miembros de los que incluye el plan, contáctanos para hablar de Empresa.
+  * Todos los miembros consumen del mismo fondo de créditos.
+  * Los créditos de suscripción se gastan antes que los créditos de recarga, y los créditos de recarga siguen siendo válidos durante 12 meses.
+  * Cambiar el espacio de trabajo a un plan personal elimina a todos los demás miembros de inmediato, así que mueve cualquier trabajo compartido antes de cambiar.
+
+Consulta [Precios de Comfy Cloud](https://www.comfy.org/cloud/pricing) para ver las tarifas y descuentos actuales, [Suscríbete a Comfy Cloud](https://docs.comfy.org/es/support/subscription/subscribing) para configurar un plan de equipo, y [Cambia tu plan de Comfy Cloud](https://docs.comfy.org/es/support/subscription/changing-plan) para cambiar de plan.
+
+## 
+
+​
+
+Preguntas frecuentes
+
+¿Puedo estar en más de un espacio de trabajo en equipo?
+
+Sí. Puedes ser propietario de hasta 10 espacios de trabajo en total, incluido tu espacio de trabajo personal, y puedes ser miembro de todos los espacios de trabajo a los que te inviten.
+
+¿Necesito mi propia suscripción para unirme a un espacio de trabajo en equipo?
+
+No. Los miembros no pagan de forma individual: las ejecuciones en el espacio de trabajo usan los créditos de ese espacio de trabajo, que administra el propietario.
+
+¿Qué se conserva cuando mejoro mi espacio de trabajo a un Plan de equipo?
+
+Todo. La mejora se aplica al propio espacio de trabajo, así que sus flujos de trabajo, modelos, historial de ejecuciones y créditos de recarga permanecen asociados. La excepción son los créditos mensuales del plan que no se hayan usado, los cuales vencen al final del ciclo de facturación actual porque el espacio de trabajo pasa a una nueva asignación de créditos. Los créditos de recarga se conservan.
+
+¿Cómo se pasan el trabajo los miembros entre sí?
+
+Un Plan de equipo comparte un único grupo de créditos, una sola factura y un único conjunto de propietarios. Compartir flujos de trabajo y recursos dentro de un espacio de trabajo todavía está en desarrollo. Mientras no esté disponible, pasa el trabajo compartiendo el enlace del flujo de trabajo, exportando el JSON del flujo de trabajo o arrastrando un recurso generado por Comfy al lienzo del otro miembro.
+
+El correo electrónico de invitación nunca llegó. ¿Y ahora qué?
+
+Pide al propietario del espacio de trabajo que use **Reenviar invitación** , o que te envíe un **Copiar enlace de invitación** desde la pestaña **Pendiente** de la sección Miembros. Las invitaciones vencen 30 días después de enviarse, así que puede que una invitación antigua necesite enviarse de nuevo.
+
+¿Puedo eliminar mi espacio de trabajo personal?
+
+No. Tu espacio de trabajo personal es permanente y sirve como tu espacio de trabajo predeterminado.
+
+¿Puedo invitar a alguien a mi espacio de trabajo personal?
+
+No. Los espacios de trabajo personales tienen una sola plaza y no permiten administrar miembros.
+
+¿Qué sucede cuando abandono un espacio de trabajo en equipo?
+
+El espacio de trabajo desaparece de tu lista de espacios de trabajo y pierdes el acceso a sus archivos y flujos de trabajo. Las claves de API del espacio de trabajo que hayas creado para él dejan de funcionar. Tu espacio de trabajo personal y su contenido no se ven afectados.
+
+¿Qué sucede si el espacio de trabajo se queda sin créditos?
+
+Los miembros no pueden ejecutar flujos de trabajo hasta que el propietario agregue créditos. Lo mismo ocurre cuando la suscripción del espacio de trabajo está inactiva o un pago falla: pide al propietario del espacio de trabajo que corrija el plan o el método de pago.
+
+¿Por qué Eliminar espacio de trabajo no está disponible?
+
+El espacio de trabajo todavía tiene una suscripción activa. Cancélala primero con **Cancelar plan** en **Plan y créditos** , y luego elimina el espacio de trabajo. **Eliminar espacio de trabajo** está disponible en cuanto se cancela el plan, así que no tienes que esperar a que termine el período de facturación. Los espacios de trabajo personales no se pueden eliminar en absoluto, y los espacios de trabajo de Empresa se dan de baja a través de nuestro equipo de ventas.
+
+¿Se puede recuperar un espacio de trabajo eliminado?
+
+No. Eliminar un espacio de trabajo es permanente.
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/cloud/workspace.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/cloud/workspace)
+
+[Créditos](https://docs.comfy.org/es/interface/credits)[Compartir flujos de trabajo](https://docs.comfy.org/es/cloud/share-workflow)

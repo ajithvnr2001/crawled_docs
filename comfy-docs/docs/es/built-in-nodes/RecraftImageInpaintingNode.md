@@ -1,0 +1,64 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/RecraftImageInpaintingNode/
+title: Recraft relleno de imagen - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:21.027394+00:00
+---
+
+# Recraft relleno de imagen - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/RecraftImageInpaintingNode/
+
+Recraft
+
+# Recraft relleno de imagen - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Este nodo modifica áreas específicas de una imagen basándose en un prompt de texto y una máscara.
+
+Copiar páginaCopiar página
+
+Este nodo modifica áreas específicas de una imagen basándose en un prompt de texto y una máscara. Utiliza la API de Recraft para editar inteligentemente solo las regiones enmascaradas, manteniendo el resto de la imagen sin cambios.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`imagen`| La imagen de entrada que se va a modificar| IMAGE| Sí| -  
+`mask`| La máscara que define qué áreas de la imagen deben modificarse| MASK| Sí| -  
+`prompt`| Prompt para la generación de la imagen (por defecto: cadena vacía, longitud máxima: 1000 caracteres)| STRING| Sí| -  
+`n`| El número de imágenes a generar (por defecto: 1, mínimo: 1, máximo: 6)| INT| Sí| 1-6  
+`semilla`| Semilla para determinar si el nodo debe ejecutarse de nuevo; los resultados reales son no deterministas independientemente de la semilla (por defecto: 0)| INT| Sí| 0-18446744073709551615  
+`recraft_style`| Parámetro de estilo opcional para la API de Recraft. Si no se proporciona, se usa el estilo “realistic_image” por defecto| STYLEV3| No| -  
+`negative_prompt`| Descripción de texto opcional de elementos no deseados en una imagen (por defecto: cadena vacía)| STRING| No| -  
+  
+_Nota: La`image` y la `mask` deben proporcionarse juntas para que funcione la operación de inpainting. La máscara se redimensionará automáticamente para coincidir con las dimensiones de la imagen. El `prompt` se valida y tiene una longitud máxima de 1000 caracteres. Si se utiliza un `style_id` de la Infinite Style Library, asegúrese de que no sea un estilo de arte vectorial, ya que esto puede hacer que la API devuelva datos SVG en lugar de una imagen._
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`image`| La(s) imagen(es) modificada(s) generada(s) según el prompt y la máscara. Devuelve una imagen por cada imagen de entrada multiplicada por el parámetro `n`| IMAGE  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/RecraftImageInpaintingNode/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `539a49aec582f529a13059388222c3998e22d52618738843d9b2b6e0fb1ea5c3`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/RecraftImageInpaintingNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/RecraftImageInpaintingNode)
+
+[Recraft escalado nítido de imagen](https://docs.comfy.org/es/built-in-nodes/RecraftCrispUpscaleNode)[Recraft Imagen a Imagen](https://docs.comfy.org/es/built-in-nodes/RecraftImageToImageNode)

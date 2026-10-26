@@ -1,0 +1,62 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/LumaImageModifyNode/
+title: Luma imagen a imagen - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:07.393005+00:00
+---
+
+# Luma imagen a imagen - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/LumaImageModifyNode/
+
+Luma
+
+# Luma imagen a imagen - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Por favor traduce la siguiente documentación al español, sin incluir la nota inicial del documento:
+
+Copiar páginaCopiar página
+
+Por favor traduce la siguiente documentación al español, sin incluir la nota inicial del documento: Modifica imágenes de forma síncrona basándose en un prompt de texto y la relación de aspecto de la imagen original. Este nodo toma una imagen de entrada y la transforma de acuerdo con el prompt proporcionado, utilizando un peso de imagen configurable para controlar cuánto se altera la imagen original.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de Dato| Requerido| Rango  
+---|---|---|---|---  
+`imagen`| La imagen de entrada que se va a modificar| IMAGE| Sí| -  
+`prompt`| Prompt para la generación de la imagen (predeterminado: "")| STRING| Sí| -  
+`peso_imagen`| Peso de la imagen; cuanto más cercano a 1.0, menos se modificará la imagen (predeterminado: 0.1). Internamente, este valor se invierte (1.0 - image_weight) y se limita entre 0.0 y 0.98.| FLOAT| No| 0.0-0.98  
+`modelo`| El modelo Luma a utilizar para la modificación de la imagen. Diferentes modelos tienen diferentes costos.| STRING| Sí| `"photon-flash-1"`  
+`"photon-1"`  
+`"photon"`  
+`semilla`| Semilla para determinar si el nodo debe re-ejecutarse; los resultados reales son no deterministas independientemente de la semilla (predeterminado: 0)| INT| No| 0-18446744073709551615  
+  
+## 
+
+​
+
+Salidas
+
+Nombre de Salida| Descripción| Tipo de Dato  
+---|---|---  
+`imagen`| La imagen modificada generada por el modelo Luma| IMAGE  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/LumaImageModifyNode/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `078542bdba19945037c95fefa30d1b403ebf58e29270c8067dcb8ff21a99b7e0`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/LumaImageModifyNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/LumaImageModifyNode)
+
+[Luma UNI-1 Image Edit](https://docs.comfy.org/es/built-in-nodes/LumaImageEditNode2)[Luma texto a imagen](https://docs.comfy.org/es/built-in-nodes/LumaImageNode)

@@ -1,0 +1,62 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/TripoImportModelNode/
+title: Tripo: Importar modelo - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:37.751877+00:00
+---
+
+# Tripo: Importar modelo - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/TripoImportModelNode/
+
+Tripo
+
+# Tripo: Importar modelo - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Este nodo importa un modelo 3D externo a Tripo para que los nodos de posprocesamiento de Tripo, como Texture, Rig y Convert, puedan usarlo.
+
+Copiar páginaCopiar página
+
+Este nodo importa un modelo 3D externo a Tripo para que los nodos de posprocesamiento de Tripo, como Texture, Rig y Convert, puedan usarlo. El nodo sube el archivo a Tripo y devuelve un ID de tarea que identifica el modelo importado para su uso por esos nodos. Se recomienda GLB porque las texturas solo se conservan cuando están incrustadas en el archivo, y texturizar un modelo importado requiere un prompt de textura. Este nodo es de uso gratuito.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`model_3d`| Modelo 3D a importar (GLB / FBX / OBJ / STL, hasta 150 MB). Los archivos OBJ y STL no incluyen texturas incrustadas.| FILE3D| Sí| GLB  
+FBX  
+OBJ  
+STL  
+Any 3D format  
+  
+**Nota:** Solo se admiten los formatos GLB, FBX, OBJ y STL. GLTF (.gltf) no se puede importar porque hace referencia a archivos externos; exporta un GLB de archivo único en su lugar. El archivo del modelo debe pesar 150 MB o menos. Se recomienda GLB porque las texturas sobreviven a la importación solo cuando están incrustadas en el archivo. Los archivos OBJ y STL no incluyen texturas incrustadas. Texturizar un modelo importado requiere un prompt de textura.
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`model task_id`| Un ID de tarea que identifica el modelo importado, para usar con los nodos de posprocesamiento de Tripo| MODEL_TASK_ID  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/TripoImportModelNode/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `bf91e964c5705f7377868dd06bbf5d57b41cc3607fc377cd45886d3d6c5ceddc`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/TripoImportModelNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/TripoImportModelNode)
+
+[Tripo: De imagen a vistas múltiples](https://docs.comfy.org/es/built-in-nodes/TripoImageToMultiviewNode)[Tripo: Completar partes de malla](https://docs.comfy.org/es/built-in-nodes/TripoMeshCompleteNode)

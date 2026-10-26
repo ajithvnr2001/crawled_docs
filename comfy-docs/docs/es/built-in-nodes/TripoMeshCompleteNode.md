@@ -1,0 +1,59 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/TripoMeshCompleteNode/
+title: Tripo: Completar partes de malla - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:37.606000+00:00
+---
+
+# Tripo: Completar partes de malla - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/TripoMeshCompleteNode/
+
+Tripo
+
+# Tripo: Completar partes de malla - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Completa las partes de un modelo 3D segmentado y repara las regiones faltantes o dañadas de la malla.
+
+Copiar páginaCopiar página
+
+Completa las partes de un modelo 3D segmentado y repara las regiones faltantes o dañadas de la malla. Toma el ID de tarea de un resultado de segmentación de malla de Tripo, solicita el trabajo de completado a Tripo y espera a que finalice. Opcionalmente, puedes limitar el trabajo a nombres de partes específicos. El modelo completado se devuelve como un archivo GLB.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de dato| Obligatorio| Rango  
+---|---|---|---|---  
+`segment_task_id`| ID de tarea de una tarea de segmentación de malla de Tripo. Se completan las partes del modelo segmentado de esta tarea. Conecta la salida SEGMENT_TASK_ID de un nodo anterior de segmentación de malla de Tripo.| SEGMENT_TASK_ID| Sí| ID de tarea único  
+`part_names`| Nombres de partes separados por comas que se van a completar. Si está vacío, completa todas las partes. Predeterminado: cadena vacía. Los espacios adicionales alrededor de los nombres se eliminan y los nombres duplicados se ignoran.| STRING| No| Texto libre o vacío  
+  
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de dato  
+---|---|---  
+`model_file`| Nombre de archivo del modelo completado. Esta salida existe solo por compatibilidad con versiones anteriores.| STRING  
+`model task_id`| ID de tarea de la tarea de completado de malla de Tripo completada. Puede usarse como entrada por otros nodos de Tripo que esperan un ID de tarea de modelo.| MODEL_TASK_ID  
+`GLB`| El modelo 3D completado con las partes reparadas, descargado como un archivo GLB.| GLB  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/TripoMeshCompleteNode/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `c5709231fa2e33e6f3c9b25669acca1d4ae9adb882b90210d703aeddc0d11ecc`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/TripoMeshCompleteNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/TripoMeshCompleteNode)
+
+[Tripo: Importar modelo](https://docs.comfy.org/es/built-in-nodes/TripoImportModelNode)[Tripo: Multivista a modelo](https://docs.comfy.org/es/built-in-nodes/TripoMultiviewToModelNode)

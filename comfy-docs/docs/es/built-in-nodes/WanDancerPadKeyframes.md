@@ -1,0 +1,67 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/WanDancerPadKeyframes/
+title: WanDancerPadKeyframes - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:45.550487+00:00
+---
+
+# WanDancerPadKeyframes - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/WanDancerPadKeyframes/
+
+Video
+
+# WanDancerPadKeyframes - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Este nodo prepara una secuencia de fotogramas clave para un segmento concreto de un proceso de generación de video más largo.
+
+Copiar páginaCopiar página
+
+## 
+
+​
+
+Descripción general
+
+Este nodo prepara una secuencia de fotogramas clave para un segmento específico dentro de un proceso de generación de video más largo. Toma un lote de imágenes de entrada y una pista de audio, calcula cuántos fotogramas totales debe tener el video completo según la duración del audio, y luego distribuye las imágenes de entrada como fotogramas clave a lo largo del segmento seleccionado, rellenando el resto con fotogramas en blanco. También extrae la porción correspondiente del audio para ese segmento.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de Dato| Obligatorio| Rango  
+---|---|---|---|---  
+`images`| Las imágenes de entrada que se distribuirán como fotogramas clave.| IMAGE| Sí| Lote de imágenes  
+`segment_length`| Longitud de este segmento en fotogramas (predeterminado: 149).| INT| Sí| 1 a 10000  
+`segment_index`| Número de segmento (0 para el primero, 1 para el segundo, etc., predeterminado: 0).| INT| Sí| 0 a 100  
+`audio`| Audio para calcular el total de fotogramas de salida y extraer el audio del segmento.| AUDIO| Sí| Datos de audio  
+  
+## 
+
+​
+
+Salidas
+
+Nombre de Salida| Descripción| Tipo de Dato  
+---|---|---  
+`keyframes_sequence`| Secuencia de fotogramas clave rellenada para el segmento especificado.| IMAGE  
+`keyframes_mask`| Máscara que indica los fotogramas válidos (1 para posiciones de fotogramas clave, 0 para posiciones rellenadas).| MASK  
+`audio_segment`| Segmento de audio correspondiente a este segmento de video.| AUDIO  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/WanDancerPadKeyframes/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `5a104b45faaa870727d4c45e6327e7233110b40dc5a13515a29e5f14de2050e0`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/WanDancerPadKeyframes.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/WanDancerPadKeyframes)
+
+[Ampliar imagen (usando modelo)](https://docs.comfy.org/es/built-in-nodes/ImageUpscaleWithModel)[WanDancerPadKeyframesList](https://docs.comfy.org/es/built-in-nodes/WanDancerPadKeyframesList)

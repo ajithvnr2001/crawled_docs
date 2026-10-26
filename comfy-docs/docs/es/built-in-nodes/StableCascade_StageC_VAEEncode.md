@@ -1,0 +1,59 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/StableCascade_StageC_VAEEncode/
+title: Codificaci\u00f3n VAE de la etapa C de Stable Cascade - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:32.709016+00:00
+---
+
+# Codificación VAE de la etapa C de Stable Cascade - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/StableCascade_StageC_VAEEncode/
+
+Stable Cascade
+
+# Codificación VAE de la etapa C de Stable Cascade - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+El nodo StableCascadeStageCVAEEncode procesa una imagen de entrada a través de un codificador VAE para generar representaciones latentes para el modelo
+
+Copiar páginaCopiar página
+
+El nodo `StableCascade_StageC_VAEEncode` procesa una imagen de entrada a través de un codificador VAE para generar representaciones latentes para el modelo Stable Cascade. Primero redimensiona la imagen según un factor de compresión y la relación de reducción del VAE, luego codifica la imagen redimensionada. El nodo genera dos tensores latentes: uno para la etapa C (el resultado codificado real) y otro para la etapa B (un marcador de posición lleno de ceros).
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de dato| Requerido| Rango  
+---|---|---|---|---  
+`imagen`| La imagen de entrada que se va a codificar en el espacio latente| IMAGE| Sí| -  
+`vae`| El modelo VAE utilizado para codificar la imagen| VAE| Sí| -  
+`compresión`| El factor de compresión aplicado a la imagen antes de codificarla. Las dimensiones de la imagen se dividen por este valor y luego se multiplican por la relación de reducción del VAE. Este es un parámetro avanzado. (por defecto: 42)| INT| Sí| 4-128  
+  
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de dato  
+---|---|---  
+`etapa_c`| La representación latente codificada para la etapa C del modelo Stable Cascade| LATENT  
+`etapa_b`| Una representación latente de marcador de posición para la etapa B. Actualmente devuelve un tensor lleno de ceros con dimensiones calculadas a partir del tamaño de la imagen de entrada.| LATENT  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/StableCascade_StageC_VAEEncode/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `1679aaac77057fcc359e5428906d5227f6c2dde721aabbfb5a32c08738ac376c`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/StableCascade_StageC_VAEEncode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/StableCascade_StageC_VAEEncode)
+
+[Imagen latente Stable Cascade vacía](https://docs.comfy.org/es/built-in-nodes/StableCascade_EmptyLatentImage)[Imagen latente SD3 vacía](https://docs.comfy.org/es/built-in-nodes/EmptySD3LatentImage)

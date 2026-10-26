@@ -1,0 +1,63 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/ConditioningSetProperties/
+title: Establecer propiedades de acondicionamiento - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:01:40.675523+00:00
+---
+
+# Establecer propiedades de acondicionamiento - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/ConditioningSetProperties/
+
+Condicionamiento único
+
+# Establecer propiedades de acondicionamiento - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+El nodo ConditioningSetProperties modifica las propiedades de los datos de condicionamiento ajustando la intensidad
+
+Copiar páginaCopiar página
+
+El nodo ConditioningSetProperties modifica las propiedades de los datos de condicionamiento ajustando la intensidad, la configuración del área y aplicando máscaras, ganchos o rangos de pasos de tiempo opcionales. Permite controlar cómo el condicionamiento influye en el proceso de generación estableciendo parámetros específicos que afectan la aplicación de los datos de condicionamiento durante la generación de imágenes.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de Dato| Tipo de Entrada| Valor por Defecto| Rango  
+---|---|---|---|---|---  
+`cond_NEW`| Los datos de condicionamiento a modificar| CONDITIONING| Requerido| -| -  
+`fuerza`| Controla la intensidad del efecto de condicionamiento| FLOAT| Requerido| 1.0| 0.0 - 10.0 (paso: 0.01)  
+`establecer_area_cond`| Determina cómo se aplica el área de condicionamiento. Seleccione “default” para el comportamiento estándar o “mask bounds” para restringir al área de la máscara| STRING| Requerido| default| [“default”, “mask bounds”]  
+`máscara`| Máscara opcional para restringir dónde se aplica el condicionamiento| MASK| Opcional| -| -  
+`ganchos`| Funciones de gancho opcionales para procesamiento personalizado| HOOKS| Opcional| -| -  
+`pasos_de_tiempo`| Rango de pasos de tiempo opcional para limitar cuándo está activo el condicionamiento| TIMESTEPS_RANGE| Opcional| -| -  
+  
+**Nota:** Cuando se proporciona una `mask`, el parámetro `set_cond_area` se puede establecer en “mask bounds” para restringir la aplicación del condicionamiento únicamente al área enmascarada. El parámetro `hooks` permite el procesamiento personalizado mediante funciones de gancho, y `timesteps` limita el efecto de condicionamiento a un rango específico de pasos de tiempo durante la generación.
+
+## 
+
+​
+
+Salidas
+
+Nombre de Salida| Descripción| Tipo de Dato  
+---|---|---  
+`CONDITIONING`| Los datos de condicionamiento modificados con propiedades actualizadas| CONDITIONING  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/ConditioningSetProperties/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `5e3f5348f6df8f2fa1c1d42b883efcab3ee07d933e219f11fa48730aacc168d7`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/ConditioningSetProperties.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/ConditioningSetProperties)
+
+[Establecer propiedades de pares de acondicionamiento y combinar](https://docs.comfy.org/es/built-in-nodes/PairConditioningSetPropertiesAndCombine)[Establecer propiedades de acondicionamiento y combinar](https://docs.comfy.org/es/built-in-nodes/ConditioningSetPropertiesAndCombine)

@@ -1,10 +1,10 @@
 # Guide: scrape + update ComfyUI docs (coder end-to-end)
 
 
-Last verified: 2026-10-25 (rewritten daily by GitHub Actions).
+Last verified: 2026-10-26 (rewritten daily by GitHub Actions).
 Base: `/data/opencode/comfy/` · Target: `https://docs.comfy.org/` (6,854 sitemap URLs → ~653 canonical after `?hl=` locale dedupe + linked reference domains)
 
-Last verified: 2026-10-25 (stamp rewritten daily by the GitHub Action).
+Last verified: 2026-10-26 (stamp rewritten daily by the GitHub Action).
 
 ## 1. Scrape one page (all 3 libs)
 

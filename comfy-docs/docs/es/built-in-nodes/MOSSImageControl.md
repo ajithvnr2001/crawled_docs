@@ -1,0 +1,66 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/MOSSImageControl/
+title: Control de color/profundidad de MOSS-Image - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:08.511195+00:00
+---
+
+# Control de color/profundidad de MOSS-Image - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/MOSSImageControl/
+
+Acondicionamiento
+
+# Control de color/profundidad de MOSS-Image - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Agrega los mapas de regiones de color y de profundidad de un adaptador de control de color/profundidad de MOSS-Image al condicionamiento.
+
+Copiar páginaCopiar página
+
+Agrega los mapas de regiones de color y de profundidad de un adaptador de control de color/profundidad de MOSS-Image al condicionamiento. Conecta los condicionamientos positivo y negativo, un VAE y uno o ambos mapas: los mapas se codifican en latentes, se combinan en una señal de control de color/profundidad y se adjuntan al condicionamiento durante la parte del muestreo que elijas. Úsalo junto con un adaptador de control de MOSS-Image cargado mediante un cargador LoRA.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`positive`| Condicionamiento positivo al que se adjunta la señal de control.| CONDITIONING| Sí| N/A  
+`negative`| Condicionamiento negativo al que se adjunta la señal de control.| CONDITIONING| Sí| N/A  
+`vae`| VAE usado para codificar los mapas en latentes.| VAE| Sí| N/A  
+`color_map`| Un color plano por región, al tamaño de salida. Los colores solo son IDs de región.| IMAGE| No| N/A  
+`depth_map`| Mapa de profundidad al tamaño de salida; lo cercano es blanco.| IMAGE| No| N/A  
+`strength`| Escala la contribución de los mapas a los tokens de imagen. 0.0 equivale a no usar mapas; 1.0 es la intensidad entrenada (predeterminado: 1.0).| FLOAT| Sí| 0.0 a 10.0 (paso 0.01)  
+`start_percent`| Porcentaje de muestreo en el que comienza el control (predeterminado: 0.0).| FLOAT| Sí| 0.0 a 1.0 (paso 0.001)  
+`end_percent`| Porcentaje de muestreo en el que termina el control. Terminar antes conserva la disposición y la profundidad mientras el resto de los pasos relaja las formas (predeterminado: 1.0).| FLOAT| Sí| 0.0 a 1.0 (paso 0.001)  
+  
+**Nota:** Conecta al menos uno de `color_map` y `depth_map`; sin ninguno de los dos, el nodo devuelve los condicionamientos sin cambios. Un mapa faltante se reemplaza por ceros, por lo que las configuraciones solo con color y solo con profundidad funcionan. Cuando los dos mapas difieren en tamaño, el más pequeño se escala al tamaño del otro. Este nodo está marcado como experimental en ComfyUI.
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`positive`| El condicionamiento positivo con la señal de control adjunta.| CONDITIONING  
+`negative`| El condicionamiento negativo con la señal de control adjunta.| CONDITIONING  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/MOSSImageControl/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `c4a40c76f26237408e47cb9f683c13bccc3507bd775bec1b89919947a308c115`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/MOSSImageControl.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/MOSSImageControl)
+
+[Acondicionamiento unCLIP](https://docs.comfy.org/es/built-in-nodes/unCLIPConditioning)[TextEncodeFibo2](https://docs.comfy.org/es/built-in-nodes/TextEncodeFibo2)

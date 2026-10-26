@@ -1,0 +1,59 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/ModelSamplingSD3/
+title: Muestreo de modelo SD3 - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:15.026587+00:00
+---
+
+# Muestreo de modelo SD3 - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/ModelSamplingSD3/
+
+Stable Diffusion
+
+# Muestreo de modelo SD3 - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Este nodo aplica configuraciones de muestreo al estilo de Stable Diffusion 3 a un modelo.
+
+Copiar páginaCopiar página
+
+Este nodo aplica configuraciones de muestreo al estilo de Stable Diffusion 3 a un modelo. Crea una copia del modelo y reemplaza su método de muestreo por una configuración de muestreo basada en flujo que utiliza el valor de `shift` proporcionado, el cual controla cómo se da forma a la distribución de muestreo.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`modelo`| El modelo de entrada al que se aplican los parámetros de muestreo de SD3| MODEL| Sí| -  
+`desplazamiento`| Controla el parámetro de desplazamiento de muestreo (predeterminado: 3.0)| FLOAT| Sí| 0.0 - 100.0 (paso: 0.01)  
+  
+Nota: El valor de `shift` se aplica junto con un multiplicador interno fijo de 1000. Si el modelo original tiene una configuración de escala de ruido, ese valor se transfiere al modelo modificado. El modelo original no se modifica; se devuelve una copia clonada y parcheada.
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`model`| El modelo modificado con los parámetros de muestreo de SD3 aplicados| MODEL  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/ModelSamplingSD3/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `a77e38c2cebf6f21f841a953ec5c59096eaf60ffc205c24f34f635e54c5718cb`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/ModelSamplingSD3.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/ModelSamplingSD3)
+
+[Muestreo de modelo Stable Cascade](https://docs.comfy.org/es/built-in-nodes/ModelSamplingStableCascade)[Aplicar SUPIR](https://docs.comfy.org/es/built-in-nodes/SUPIRApply)

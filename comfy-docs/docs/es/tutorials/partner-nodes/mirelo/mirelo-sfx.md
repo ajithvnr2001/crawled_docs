@@ -1,0 +1,165 @@
+---
+url: https://docs.comfy.org/es/tutorials/partner-nodes/mirelo/mirelo-sfx/
+title: Mirelo SFX 2.0 en ComfyUI: Video to SFX y Text to SFX - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:03:53.067630+00:00
+---
+
+# Mirelo SFX 2.0 en ComfyUI: Video to SFX y Text to SFX - ComfyUI
+
+> Source: https://docs.comfy.org/es/tutorials/partner-nodes/mirelo/mirelo-sfx/
+
+## En esta página
+
+Volver arriba
+
+  * Flujos de trabajo disponibles
+    * Video to SFX
+    * Text to SFX
+  * Controles del nodo
+  * Consejos para el prompt
+  * Empezar
+
+
+
+Mirelo
+
+# Mirelo SFX 2.0 en ComfyUI: Video to SFX y Text to SFX
+
+Copiar páginaCopiar página
+
+Genera efectos de sonido en ComfyUI con Mirelo sfx-2.0: Foley sincronizado con tu video o diseño de sonido desde un prompt de texto, más una pista de voz aparte.
+
+Copiar páginaCopiar página
+
+**Mirelo SFX 2.0** genera efectos de sonido. Funciona en dos direcciones: observa un clip y produce Foley sincronizado con lo que ocurre en pantalla, o toma una descripción de texto de un sonido y lo construye desde cero. En ComfyUI el modelo se ejecuta mediante dos nodos asociados. **Mirelo Video to SFX** toma un clip y devuelve la banda sonora mezclada junto con el diálogo en su propia salida. **Mirelo Text to SFX** toma un prompt y una duración y devuelve un clip de audio. Ambos son nodos API en la nube: necesitan una cuenta de Comfy con créditos y no descargan ningún archivo de modelo de forma local. La salida es audio de 48 kHz. Una ejecución de video abarca de 1 a 600 segundos, y Text to SFX abarca de 0.1 a 600 segundos. Video to SFX cobra según la duración del clip que envíes, y Text to SFX cobra según la duración que definas.
+
+Para usar los Nodos asociados, debes asegurarte de haber iniciado sesión correctamente y de estar utilizando un entorno de red permitido. Consulta la sección [Descripción general de los Nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/overview) de la documentación para conocer los requisitos específicos de uso de los Nodos asociados.
+
+  * Usuarios locales
+
+  * Usuarios de Cloud
+
+
+
+
+Asegúrate de que tu ComfyUI esté actualizado.
+
+  * [Descargar ComfyUI](https://www.comfy.org/download)
+  * [Guía de actualización](https://docs.comfy.org/es/installation/update_comfyui)
+
+Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos de trabajo](https://docs.comfy.org/es/interface/features/template). Si no los encuentras en las plantillas, es posible que tu ComfyUI esté desactualizado.Si faltan nodos al cargar un flujo de trabajo, estas son las posibles razones:
+
+  1. No estás usando la última versión de ComfyUI (versión nocturna)
+  2. Algunos nodos fallaron al importarse durante el inicio
+
+
+
+  * [Cloud](https://cloud.comfy.org) se actualizará después del lanzamiento estable de ComfyUI.
+
+Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
+
+## 
+
+​
+
+Flujos de trabajo disponibles
+
+### 
+
+​
+
+Video to SFX
+
+Agrega sonido a un corte finalizado. El modelo lee la imagen y sincroniza cada sonido con la acción en cuadro, así los pasos, los impactos y el ambiente caen sobre el movimiento en lugar de sobre una línea de tiempo adivinada. ![Mirelo SFX 2.0: vista previa del flujo de trabajo Video to SFX](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_mirelo_video_to_sfx-1.webp)
+
+## Ejecutar en Comfy Cloud
+
+Abrir en Comfy Cloud
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “Mirelo SFX 2.0: Video to SFX” en la Biblioteca de plantillas
+
+**Material de entrada**
+
+## mage_crash_discovery_video.mp4
+
+Cárgalo en el nodo `LoadVideo`
+
+El nodo tiene dos salidas de audio. `audio` lleva la mezcla finalizada y `speech` lleva el diálogo separado de los efectos generados. Cuando el clip no tiene voz, la salida `speech` queda en silencio.
+
+### 
+
+​
+
+Text to SFX
+
+Crea un sonido a partir de una descripción. El prompt y la duración son las únicas entradas, así que este es el modo para un sonido que no puedes grabar o para llenar una biblioteca de efectos. ![Mirelo SFX 2.0: vista previa del flujo de trabajo Text to SFX](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_mirelo_text_to_sfx-1.webp)
+
+## Ejecutar en Comfy Cloud
+
+Abrir en Comfy Cloud
+
+## Descargar flujo de trabajo
+
+Descarga el JSON o busca “Mirelo SFX 2.0: Text to SFX” en la Biblioteca de plantillas
+
+**Prompts de ejemplo**
+
+  * `Heavy rain on a tin roof with distant thunder`
+  * `Soft footsteps on wood floor in a small quiet room`
+  * `Sharp knife chop on a wooden cutting board, close mic`
+  * `Metal door slam in a concrete hallway with short echo`
+
+
+
+## 
+
+​
+
+Controles del nodo
+
+Control| Valores| Se aplica a| Efecto  
+---|---|---|---  
+`model`| `sfx-2.0`| ambos nodos| La versión del modelo Mirelo SFX  
+`video`| clip, 1 a 600 segundos| Video to SFX| El clip con el que se sincronizan los efectos. Funciona tanto en silencio como con sonido  
+`audio`| pista opcional| Video to SFX| Diálogo que se mantiene en lugar de la banda sonora del clip. Déjalo sin conectar cuando el video ya tenga el audio que quieres  
+`prompt`| texto, hasta 2000 caracteres| ambos nodos| Una descripción breve del sonido. Requerido en Text to SFX, opcional en Video to SFX  
+`negative_prompt`| texto, hasta 1000 caracteres| ambos nodos| Sonidos que debes omitir, en una lista separada por comas  
+`preserve_speech`| activado de forma predeterminada| Video to SFX| Mantiene el diálogo y mezcla los efectos debajo de él. Desactívalo para obtener solo efectos  
+`duration`| 0.1 a 600 segundos, valor predeterminado 5| Text to SFX| Duración del sonido generado  
+`seed`| número entero| ambos nodos| Cambia la semilla para explorar variaciones del mismo prompt  
+  
+## 
+
+​
+
+Consejos para el prompt
+
+  * **Nombra el sonido, no la historia.** Fuente, material, espacio e intensidad en una sola línea: `boots on gravel, metal settling, soft cavern wind`. Los sustantivos concretos que puedes oír superan a las palabras abstractas de ambiente.
+  * **Empieza Video to SFX con un prompt vacío.** La imagen ya aporta el timing. Agrega una línea solo para el sonido fuera de pantalla, como `distant church bells, a dog barking two streets away`, o para reforzar una sola capa.
+  * **Usa el prompt negativo para eliminar capas.** `music, wind, crowd` quita la banda sonora de un clip generado con IA. Deja `speech` fuera de la lista negativa cuando quieras conservar el diálogo.
+  * **Ajusta la duración al evento.** Un solo impacto no necesita 30 segundos de lluvia.
+  * **Prueba varias variantes.** Vuelve a ejecutar con una semilla distinta y cambia una dimensión a la vez: primero el material, luego el espacio y al final la intensidad.
+
+
+
+## 
+
+​
+
+Empezar
+
+  1. Actualiza ComfyUI a la última versión
+  2. Ve a la Biblioteca de plantillas y busca `Mirelo`
+
+
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/partner-nodes/mirelo/mirelo-sfx.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/partner-nodes/mirelo/mirelo-sfx)
+
+[HeyGen Voice 1.0](https://docs.comfy.org/es/tutorials/partner-nodes/heygen/heygen-voice-1)[Clean Audio](https://docs.comfy.org/es/tutorials/partner-nodes/veed/veed-clean-audio)

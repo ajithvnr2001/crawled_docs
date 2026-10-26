@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/registry/create-comfy-nodes-for-certain-node/
 title: create comfy-nodes for certain node - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:55.948932+00:00
+fetched_at: 2026-10-26T14:04:05.155056+00:00
 ---
 
 # create comfy-nodes for certain node - ComfyUI

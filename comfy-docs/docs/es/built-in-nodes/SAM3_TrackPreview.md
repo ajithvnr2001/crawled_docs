@@ -1,0 +1,67 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/SAM3_TrackPreview/
+title: Previsualizar seguimiento SAM3 - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:26.222500+00:00
+---
+
+# Previsualizar seguimiento SAM3 - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/SAM3_TrackPreview/
+
+Detección
+
+# Previsualizar seguimiento SAM3 - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Por favor traduce la siguiente documentación al español, sin incluir la nota inicial del documento:
+
+Copiar páginaCopiar página
+
+Por favor traduce la siguiente documentación al español, sin incluir la nota inicial del documento:
+
+## 
+
+​
+
+Resumen
+
+Este nodo crea una vista previa de video de objetos rastreados, dibujando cada objeto rastreado con una superposición de color distintiva y una etiqueta numérica. No genera tensores de imagen ni de video; en su lugar, guarda el video de vista previa resultante directamente en un archivo temporal.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de Dato| Requerido| Rango  
+---|---|---|---|---  
+`datos_de_rastreo`| Los datos de seguimiento que contienen máscaras empaquetadas e información de objetos provenientes de un nodo de seguimiento SAM3.| TRACK_DATA| Sí| -  
+`imágenes`| Imágenes de entrada opcionales para usar como fondo de la vista previa. Si no se proporcionan, se utiliza un fondo negro.| IMAGE| No| -  
+`opacidad`| La opacidad de la superposición de color aplicada a los objetos rastreados (predeterminado: 0.5).| FLOAT| No| 0.0 a 1.0 (paso: 0.05)  
+`fps`| La velocidad de fotogramas del video de salida (predeterminado: 24.0).| FLOAT| No| 1.0 a 120.0 (paso: 1.0)  
+  
+## 
+
+​
+
+Salidas
+
+Nombre de Salida| Descripción| Tipo de Dato  
+---|---|---  
+`ui`| Un elemento de interfaz que muestra el video de vista previa generado. No se devuelven datos de tensor.| PREVIEW_VIDEO  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/SAM3_TrackPreview/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `8300d4fa89c7bbc481ac9a59868ede0e3c9413faa63d56c16a4f603ef878e877`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/SAM3_TrackPreview.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/SAM3_TrackPreview)
+
+[Detector SAM3](https://docs.comfy.org/es/built-in-nodes/SAM3_Detect)[Seguimiento a máscara SAM3](https://docs.comfy.org/es/built-in-nodes/SAM3_TrackToMask)

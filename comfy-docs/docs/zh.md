@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/zh/
 title: ComfyUI \u5b98\u65b9\u6587\u6863 - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:48.550592+00:00
+fetched_at: 2026-10-26T14:04:09.579104+00:00
 ---
 
 # ComfyUI 官方文档 - ComfyUI
@@ -17,7 +17,7 @@ fetched_at: 2026-10-17T10:51:48.550592+00:00
 
 最强大的开源节点式生成式 AI 应用程序
 
-## 开始使用
+## ComfyUI 是什么，如何创建你的第一个工作流？
 
 ## 下载安装
 
@@ -132,25 +132,3 @@ Router 端点、请求头和限制的完整参考
   * ComfyUI 完全开源，可以在本地设备上运行
 
 
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-资源
-
-[安装](https://docs.comfy.org/zh/installation/system_requirements)[教程](https://docs.comfy.org/zh/tutorials/basic/text-to-image)[开发](https://docs.comfy.org/zh/development/overview)
-
-产品
-
-[功能](https://www.comfy.org/?utm_source=docs)[画廊](https://www.comfy.org/gallery?utm_source=docs)[下载](https://www.comfy.org/download?utm_source=docs)
-
-公司
-
-[关于](https://www.comfy.org/about?utm_source=docs)[招聘](https://www.comfy.org/careers?utm_source=docs)[服务条款](https://www.comfy.org/terms-of-service?utm_source=docs)[隐私政策](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[技术支持This documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
-
-⌘I

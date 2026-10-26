@@ -1,0 +1,74 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/SaveText/
+title: Guardar Texto - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:29.536382+00:00
+---
+
+# Guardar Texto - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/SaveText/
+
+Texto
+
+# Guardar Texto - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+El nodo Save Text escribe contenido de texto en un archivo del directorio de salida.
+
+Copiar páginaCopiar página
+
+El nodo Save Text escribe contenido de texto en un archivo del directorio de salida. Admite guardar en formato .txt, .csv, .md o .json, y maneja automáticamente el formateo de JSON cuando se proporciona JSON válido.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`text`| El contenido de texto que se guardará en un archivo. Esta entrada debe conectarse desde otro nodo.| STRING| Sí| -  
+`filename_prefix`| Prefijo para el nombre del archivo de salida. Se añade un contador de 5 dígitos para evitar sobrescribir archivos existentes (predeterminado: “ComfyUI”).| STRING| No| -  
+`format`| El formato de archivo en el que se guardará el texto (predeterminado: “txt”). Cuando se selecciona `"json"`, el texto JSON válido se formatea con sangría de 2 espacios; de lo contrario, el texto se guarda tal cual.| COMBO| No| `"txt"`  
+`"csv"`  
+`"md"`  
+`"json"`  
+  
+### 
+
+​
+
+Notas
+
+  * `text` es una entrada forzada y debe conectarse a otro nodo; no se puede escribir directamente.
+  * El archivo guardado se llama `<filename_prefix>_<5-digit counter>.<extension>` y se escribe en el directorio de salida de ComfyUI (en una subcarpeta derivada del prefijo).
+  * Seleccionar el formato `"json"` intenta analizar el texto como JSON. Si el análisis tiene éxito, el contenido se escribe formateado con sangría de 2 espacios; si falla, se escribe el texto sin cambios.
+  * El nodo informa el archivo guardado a la interfaz para que aparezca junto con los demás archivos de salida generados.
+
+
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`text`| El contenido de texto original que se guardó en el archivo| STRING  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/SaveText/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `09bd896cab770358132834892c1b37efd2ffa0cb0aa7b02b7ef91163331dc9b1`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/SaveText.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/SaveText)
+
+[Reemplazar texto](https://docs.comfy.org/es/built-in-nodes/ReplaceText)[Comparar](https://docs.comfy.org/es/built-in-nodes/StringCompare)

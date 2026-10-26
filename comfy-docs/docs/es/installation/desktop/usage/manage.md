@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/desktop/usage/manage/
 title: Administraci\u00f3n de instalaciones - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:48.394851+00:00
+fetched_at: 2026-10-26T14:04:03.021831+00:00
 ---
 
 # Administración de instalaciones - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:48.394851+00:00
 > Source: https://docs.comfy.org/es/installation/desktop/usage/manage/
 
 ## En esta página
+
+Volver arriba
 
   * El panel Administrar
     * Pestaña Actualizar
@@ -42,13 +44,13 @@ Copiar páginaCopiar página
 
 El panel Administrar
 
-El contenido del panel Administrar varía según el tipo de instancia. Las capturas de pantalla de esta página muestran una **instalación local independiente**. Las instancias en la nube y remotas tienen menos pestañas y configuraciones. Selecciona **Administrar** en una instalación para abrir el panel de configuraciones. ![Panel Administrar de una instancia local: Actualizar, Argumentos de inicio, Instantáneas, Almacenamiento, Terminal, Acerca de](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/instance_settings_00.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=08543aa6d8a03edc52880c0e0cecd1cb)
+El contenido del panel Administrar varía según el tipo de instancia. Las capturas de pantalla de esta página muestran una **instalación local independiente**. Las instancias en la nube y remotas tienen menos pestañas y configuraciones. Selecciona **Administrar** en una instalación para abrir el panel de configuraciones. ![Panel Administrar de una instancia local: Actualizar, Argumentos de inicio, Instantáneas, Almacenamiento, Terminal, Acerca de](https://mintcdn.com/dripart/vRAExyO06SU1Tw5X/images/desktop/usage/instance_settings_00.png?fit=max&auto=format&n=vRAExyO06SU1Tw5X&q=85&s=d5cd8f705d7b46b7145b50088f00f0e0)
 
-  * Abre la vista **Chooser** (la pantalla de inicio que muestra todas tus instancias)
+  * Abre la vista **Selector** (la pantalla de inicio que muestra todas tus instancias)
   * Haz clic en el icono ⋮ de la tarjeta de una instancia
   * Selecciona **Administrar** en el menú contextual
 
-El panel tiene seis pestañas:
+El panel tiene seis pestañas: **Actualizar** , **Argumentos de inicio** , **Instantáneas** , **Almacenamiento** , **Terminal** y **Acerca de**.
 
 ### 
 
@@ -67,7 +69,7 @@ ComfyUI
 El título es la versión de ComfyUI, con una insignia **Up to date** mientras el canal seleccionado no tenga nada más reciente. Cuando existe una versión más nueva, el título muestra esa versión con una insignia **Update available** , y la tarjeta agrega una fila **Installed Version** y una fila **Latest Version**. **Last checked** indica hace cuánto miró Comfy Desktop; pásale el cursor para ver la hora exacta.
 
   * **Update Channel** : **Stable** (versiones probadas, la predeterminada) o **Latest on GitHub** (los commits más recientes de la rama master). El desplegable marca el canal en el que está la instancia con **Current**.
-  * **Check for updates** : aparece mientras el canal seleccionado no tenga nada más reciente, y vuelve a comprobar de inmediato. Comfy Desktop también ejecuta esta comprobación por su cuenta; consulta [las preguntas frecuentes](https://docs.comfy.org/installation/desktop/faq#general-questions).
+  * **Check for updates** : aparece mientras el canal seleccionado no tenga nada más reciente, y vuelve a comprobar de inmediato. Comfy Desktop también ejecuta esta comprobación por su cuenta; consulta [las preguntas frecuentes](https://docs.comfy.org/es/installation/desktop/faq#preguntas-generales).
   * **Update Now** : aparece mientras el canal seleccionado tenga algo más reciente. La confirmación muestra las versiones entre las que se mueve, o el canal al que cambia, incluye las notas de la versión que publique el canal y apunta a la pestaña Instantáneas, porque Comfy Desktop guarda una instantánea antes de actualizar. Si la versión nueva rompe un nodo personalizado, restaura el estado anterior desde ahí.
   * **Copy & Update**: copia la instancia, actualiza la copia y deja el original intacto. Úsalo para probar una versión nueva con el conjunto de nodos que ya tienes.
   * **Switch Channel** : aparece cuando eliges un canal que no tiene nada más reciente que instalar, y mueve la instancia a ese canal sin actualizarla.
@@ -93,15 +95,15 @@ Las compilaciones nocturnas se marcan como inestables. El selector las ofrece du
 
 Pestaña Argumentos de inicio
 
-![Pestaña Argumentos de inicio del panel Administrar para los argumentos de lanzamiento de la instancia y los argumentos beta](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/instance_settings_02_startup_args.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=19f6f70ddf4ab607ccb6b649ea2a7995) Configura argumentos CLI de inicio, la política del Administrador, el modo de lanzamiento, el uso compartido de la caché del navegador, el comportamiento ante conflictos de puertos y las variables de entorno.
+![Pestaña Argumentos de inicio del panel Administrar para los argumentos de lanzamiento de la instancia y los argumentos beta](https://mintcdn.com/dripart/vRAExyO06SU1Tw5X/images/desktop/usage/instance_settings_02_startup_args.png?fit=max&auto=format&n=vRAExyO06SU1Tw5X&q=85&s=a37018a6b1b84ca859cc459ba056cffb) Configura argumentos CLI de inicio, la política ComfyUI Manager, el modo de lanzamiento, el uso compartido de la caché del navegador, el comportamiento ante conflictos de puertos y las variables de entorno.
 
   * **Argumentos de inicio** : Argumentos CLI personalizados para ComfyUI (por ejemplo, `--listen`). Haz clic en el icono de engranaje para ver las opciones categorizadas. Cuando las funciones beta están habilitadas, una etiqueta **+N beta** junto al campo enumera los argumentos beta que Comfy Desktop agregó para la sesión en ejecución, o los que son elegibles para el próximo lanzamiento.
-  * **Nivel de seguridad del Administrador** : Controla qué paquetes de nodos puede instalar ComfyUI-Manager para esta instancia. Se aplica la próxima vez que inicies. 
+  * **Nivel de seguridad ComfyUI Manager** : Controla qué paquetes de nodos puede instalar ComfyUI-Manager para esta instancia. Se aplica la próxima vez que inicies. 
     * **Estricto** : Bloquea todas las instalaciones, actualizaciones y desinstalaciones de paquetes de nodos. El Administrador es de solo lectura.
     * **Estándar (RECOMENDADO)** : Permite paquetes de nodos registrados. Bloquea las instalaciones desde fuentes no registradas (por ejemplo, URL de git arbitrarias).
     * **Relajado** : Como Estándar, pero también permite instalaciones desde fuentes no registradas mientras ComfyUI solo sea accesible desde esta máquina. `--listen` las bloquea de nuevo.
     * **Permisivo** : Permite todos los niveles de riesgo. Si ComfyUI está expuesto con `--listen`, las instalaciones aún requieren el modo de red **Personal cloud**.
-  * **Modo de red del Administrador** : Cómo se comunica el Administrador con el registro de nodos. 
+  * **Modo de red ComfyUI Manager** : Cómo se comunica ComfyUI Manager con el registro de nodos. 
     * **Público (predeterminado)** : Usa el registro público. `--listen` bloquea las instalaciones de paquetes de nodos en todos los niveles de seguridad.
     * **Privado** : Usa una base de datos de nodos privada que configuras tú mismo.
     * **Sin conexión** : Sin red externa. Las descargas no están disponibles.
@@ -123,7 +125,7 @@ Consulta la lista completa de opciones de inicio de ComfyUI disponibles para Arg
 
 Pestaña Instantáneas
 
-![Pestaña Administrar instantáneas que muestra los puntos de restauración de la instancia](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/instance_settings_03_snapshots.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=88bc650af81748f7ddaf889ec27ac755) Consulta, importa, exporta y crea instantáneas. Cada entrada muestra los cambios de versión y las estadísticas de los paquetes.
+![Pestaña Administrar instantáneas que muestra los puntos de restauración de la instancia](https://mintcdn.com/dripart/vRAExyO06SU1Tw5X/images/desktop/usage/instance_settings_03_snapshots.png?fit=max&auto=format&n=vRAExyO06SU1Tw5X&q=85&s=2b66680349e9743ef48136349420f027) Consulta, importa, exporta y crea instantáneas. Cada entrada muestra los cambios de versión y las estadísticas de los paquetes.
 
   * **Línea de tiempo** : Enumera todas las instantáneas en orden cronológico con los cambios de versión y las estadísticas.
   * **Última** : Muestra cuándo se tomó la instantánea más reciente.
@@ -148,7 +150,7 @@ Aprende acerca de las instantáneas automáticas, la comparación y la gestión 
 
 Pestaña Almacenamiento
 
-![Pestaña Almacenamiento del panel Administrar para las rutas de modelos y E/S de cada instancia](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/instance_settings_04_storage.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=193f1e10a16fca5cd4ee4962b0bb645e) Configura si esta instancia usa las carpetas compartidas globales y agrega directorios de modelos adicionales que se aplican solo a esta instancia.
+![Pestaña Almacenamiento del panel Administrar para las rutas de modelos y E/S de cada instancia](https://mintcdn.com/dripart/vRAExyO06SU1Tw5X/images/desktop/usage/instance_settings_04_storage.png?fit=max&auto=format&n=vRAExyO06SU1Tw5X&q=85&s=6112802077759ec3fd47c063b25e9cb3) Configura si esta instancia usa las carpetas compartidas globales y agrega directorios de modelos adicionales que se aplican solo a esta instancia.
 
   * **Incluir directorios compartidos** : Activa o desactiva si esta instancia escanea los directorios de modelos compartidos globales desde [Configuraciones de Escritorio → Almacenamiento](https://docs.comfy.org/es/installation/desktop/usage/settings#almacenamiento).
   * **Usar carpeta de entrada compartida** : Cuando está activada, esta instancia lee los archivos de entrada desde la carpeta de entrada compartida global. Desactívala para usar la carpeta de entrada propia de esta instancia.
@@ -164,7 +166,7 @@ Pestaña Almacenamiento
 
 Pestaña Terminal
 
-![Pestaña Terminal de Administrar que muestra la consola de la instancia](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/instance_settings_05_console.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=42b31f1f47d7b8ae1afdd70fe8165dfa) Un shell interactivo en la carpeta de esta instancia. Funciona tanto si ComfyUI está en ejecución como si está detenido.
+![Pestaña Terminal de Administrar que muestra la consola de la instancia](https://mintcdn.com/dripart/vRAExyO06SU1Tw5X/images/desktop/usage/instance_settings_05_console.png?fit=max&auto=format&n=vRAExyO06SU1Tw5X&q=85&s=90ce6384fcacf5fef329b08dc1e080e3) Un shell interactivo en la carpeta de esta instancia. Funciona tanto si ComfyUI está en ejecución como si está detenido.
 
   * Úsalo para inspeccionar los registros de inicio, los errores y la salida de Python.
   * Copiar, pegar y seleccionar todo siguen los atajos del sistema operativo. Haz clic derecho en la terminal para las mismas acciones.

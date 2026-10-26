@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/built-in-nodes/AnimaLLLiteApply/",
   "file": "built-in-nodes/AnimaLLLiteApply.md",
-  "title": "AnimaLLLiteApply - ComfyUI Built-in Node Documentation - ComfyUI",
+  "title": "Apply Anima LLLite - ComfyUI Built-in Node Documentation - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:47:20.291193+00:00",
-  "html_len": 629520,
-  "md_len": 4490,
-  "depth": 0
+  "fetched_at": "2026-10-26T14:04:10.951128+00:00"
 }

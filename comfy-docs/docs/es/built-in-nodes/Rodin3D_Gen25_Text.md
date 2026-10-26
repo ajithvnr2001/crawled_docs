@@ -1,0 +1,86 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/Rodin3D_Gen25_Text/
+title: Rodin 3D Gen-2.5 - Texto a 3D - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:24.583263+00:00
+---
+
+# Rodin 3D Gen-2.5 - Texto a 3D - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/Rodin3D_Gen25_Text/
+
+Rodin
+
+# Rodin 3D Gen-2.5 - Texto a 3D - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Genera un modelo 3D a partir de un prompt de texto usando la API de Rodin Gen-2.5.
+
+Copiar páginaCopiar página
+
+## 
+
+​
+
+Descripción general
+
+Genera un modelo 3D a partir de una descripción textual utilizando la API de Rodin Gen-2.5. Puedes elegir entre diferentes modos de calidad (Rápido, Normal o Ultra-Alto) para equilibrar la velocidad de generación y la calidad del resultado.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de Dato| Obligatorio| Rango  
+---|---|---|---|---  
+`prompt`| Descripción textual del modelo 3D que deseas generar.| STRING| Sí| Máximo 2500 caracteres  
+`modo`| Modo de calidad y velocidad de generación. “Fast” es el más rápido, “Extreme-High” produce la mayor calidad pero tarda más tiempo.| COMBO| Sí| `"Fast"`  
+`"Regular"`  
+`"Extreme-High"`  
+`material`| El estilo de material para el modelo 3D generado.| COMBO| Sí| `"PBR"`  
+`"Matte"`  
+`"Shiny"`  
+`formato_archivo_geometría`| El formato de archivo para el modelo 3D de salida.| COMBO| Sí| `"glb"`  
+`"obj"`  
+`"stl"`  
+`"usdz"`  
+`modo_textura`| Modo de generación de texturas. “None” no produce texturas, “Generated” crea texturas estándar, “Generated+HD” crea texturas de alta definición.| COMBO| Sí| `"None"`  
+`"Generated"`  
+`"Generated+HD"`  
+`semilla`| Semilla aleatoria para resultados reproducibles. Usar la misma semilla con las mismas entradas producirá la misma salida.| INT| Sí| 0 a 2147483647  
+`TAPose`| Si se debe aplicar la pose T (brazos extendidos) al modelo generado.| BOOLEAN| Sí| Verdadero / Falso  
+`textura_hd`| Si se deben generar texturas de alta definición para el modelo.| BOOLEAN| Sí| Verdadero / Falso  
+`eliminar_iluminación_textura`| Si se debe aplicar realce de textura (calidad de textura mejorada) al modelo.| BOOLEAN| Sí| Verdadero / Falso  
+`addon_highpack`| Si se debe generar una versión de alta poligonización del modelo además de la estándar.| BOOLEAN| Sí| Verdadero / Falso  
+`ancho_bbox`| El ancho de la caja delimitadora en unidades del mundo.| INT| Sí| 1 a 1000  
+`alto_bbox`| La altura de la caja delimitadora en unidades del mundo.| INT| Sí| 1 a 1000  
+`largo_bbox`| La longitud de la caja delimitadora en unidades del mundo.| INT| Sí| 1 a 1000  
+`altura_cm`| La altura del modelo generado en centímetros.| INT| Sí| 1 a 300  
+  
+**Nota:** El parámetro `prompt` debe tener entre 1 y 2500 caracteres. El parámetro `seed` tiene como valor predeterminado 0 (aleatorio) si no se especifica.
+
+## 
+
+​
+
+Salidas
+
+Nombre de Salida| Descripción| Tipo de Dato  
+---|---|---  
+`archivo_modelo`| El archivo del modelo 3D generado en el formato especificado.| FILE3DANY  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/Rodin3D_Gen25_Text/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `79fbaf466e9af88cdfdac0f9136a2df17ba4bc2e5bb65a35b9ad2b1181da94db`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/Rodin3D_Gen25_Text.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/Rodin3D_Gen25_Text)
+
+[Rodin 3D Gen-2.5 - Imagen a 3D](https://docs.comfy.org/es/built-in-nodes/Rodin3D_Gen25_Image)[Rodin 3D generar - generar regular](https://docs.comfy.org/es/built-in-nodes/Rodin3D_Regular)

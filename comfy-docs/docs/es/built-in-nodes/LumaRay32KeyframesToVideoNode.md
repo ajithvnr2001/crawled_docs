@@ -1,0 +1,67 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/LumaRay32KeyframesToVideoNode/
+title: Luma Ray 3.2 Fotogramas clave a video - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:07.905783+00:00
+---
+
+# Luma Ray 3.2 Fotogramas clave a video - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/LumaRay32KeyframesToVideoNode/
+
+Luma
+
+# Luma Ray 3.2 Fotogramas clave a video - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Este nodo genera un video que interpola a través de una secuencia de imágenes guía, cada una anclada a una posición específica en la línea de tiempo
+
+Copiar páginaCopiar página
+
+Este nodo genera un video que interpola a través de una secuencia de imágenes guía, cada una anclada a una posición específica en la línea de tiempo, usando Luma Ray 3.2. Construya la secuencia de fotogramas clave usando nodos Luma Ray 3.2 Keyframe, conectando al menos 2 fotogramas clave para definir la animación.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`prompt`| Prompt de texto para la generación del video (predeterminado: cadena vacía).| STRING| Sí| 1 a 6000 caracteres  
+`resolution`| La resolución de salida del video generado (predeterminado: “720p”).| STRING| Sí| `"360p"`  
+`"540p"`  
+`"720p"`  
+`"1080p"`  
+`duration`| La duración del video generado (predeterminado: “5s”).| STRING| Sí| `"5s"`  
+`"10s"`  
+`seed`| Semilla para la generación de números aleatorios para controlar la reproducibilidad.| INT| Sí| 0 a 4294967295  
+`keyframes`| Secuencia de fotogramas clave de los nodos Luma Ray 3.2 Keyframe (al menos 2).| LUMA_RAY32_KEYFRAME| Sí| 2 a 64 fotogramas clave  
+  
+**Nota:** La secuencia de fotogramas clave debe contener al menos 2 fotogramas clave y como máximo 64 fotogramas clave. Cada fotograma clave debe tener una posición distinta en la línea de tiempo. Las posiciones de los fotogramas clave se resuelven en índices de fotogramas de salida según la duración seleccionada (120 fotogramas para 5s, 240 fotogramas para 10s). Las posiciones de los fotogramas clave en modo de segundos no deben superar la duración total del video.
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`video`| La salida de video generada.| VIDEO  
+`generation_id`| El identificador único para la solicitud de generación.| STRING  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/LumaRay32KeyframesToVideoNode/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `28099e5990942860a20e23cfd5c71a36b23a6264b44097ca617f8bdd06e7857a`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/LumaRay32KeyframesToVideoNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/LumaRay32KeyframesToVideoNode)
+
+[Luma Ray 3.2 Fotograma Clave](https://docs.comfy.org/es/built-in-nodes/LumaRay32KeyframeNode)[Luma Ray 3.2 Texto a video](https://docs.comfy.org/es/built-in-nodes/LumaRay32TextToVideoNode)

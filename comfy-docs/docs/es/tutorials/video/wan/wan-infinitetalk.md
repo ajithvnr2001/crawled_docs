@@ -1,0 +1,206 @@
+---
+url: https://docs.comfy.org/es/tutorials/video/wan/wan-infinitetalk/
+title: Ejemplo de flujo de trabajo de ComfyUI Wan2.1 InfiniteTalk - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:04:01.341853+00:00
+---
+
+# Ejemplo de flujo de trabajo de ComfyUI Wan2.1 InfiniteTalk - ComfyUI
+
+> Source: https://docs.comfy.org/es/tutorials/video/wan/wan-infinitetalk/
+
+## En esta página
+
+Volver arriba
+
+  * Flujo de trabajo de imagen a video con InfiniteTalk
+  * Instalación de modelos
+    * Ubicación de almacenamiento de los modelos
+    * Archivos de entrada de ejemplo
+  * Pasos del flujo de trabajo
+    * Extender la duración del video
+
+
+
+Wan2.1
+
+# Ejemplo de flujo de trabajo de ComfyUI Wan2.1 InfiniteTalk
+
+Copiar páginaCopiar página
+
+InfiniteTalk es un modelo de doblaje de video de cuerpo completo impulsado por audio, basado en Wan2.1, que sincroniza labios y movimiento corporal con cualquier audio.
+
+Copiar páginaCopiar página
+
+**Wan2.1 InfiniteTalk** es un modelo de generación de video guiado por audio, de código abierto, construido sobre Wan2.1 y desarrollado por [MeiGen-AI](https://github.com/MeiGen-AI/InfiniteTalk). Te permite generar videos de una persona hablando con cuerpo completo a partir de una sola imagen de referencia y una entrada de audio. Los movimientos de la boca y del cuerpo del personaje se sincronizan automáticamente con el audio que proporcionas. **Características principales** :
+
+  * **Sincronización labial guiada por audio** : genera movimientos naturales de boca que coinciden con el audio de entrada
+  * **Movimiento de cuerpo completo** : conserva la identidad, el fondo y el movimiento de cámara mientras agrega movimiento corporal sincronizado
+  * **Doble modo** : admite escenarios de un solo personaje y de varios personajes
+  * **Nativo en ComfyUI** : incluye el nodo `WanInfiniteTalkToVideo` integrado, sin necesidad de Nodos personalizados
+
+**Enlaces relacionados** :
+
+  * [Repositorio de GitHub de InfiniteTalk](https://github.com/MeiGen-AI/InfiniteTalk)
+  * [Repositorio de código de Wan2.1](https://github.com/Wan-Video/Wan2.1)
+  * [Repositorio de modelos de Wan2.1](https://huggingface.co/Wan-AI)
+
+
+
+## Aprende sobre Subgraph
+
+Este flujo de trabajo usa nodos Subgraph para un procesamiento modular. Consulta la documentación de Subgraph para aprender a personalizar y extender el flujo de trabajo.
+
+## 
+
+​
+
+Flujo de trabajo de imagen a video con InfiniteTalk
+
+## Ejecutar en Comfy Cloud
+
+Abrir en Comfy Cloud
+
+## Descargar flujo de trabajo
+
+Descargar JSON o buscar “InfiniteTalk” en la Biblioteca de plantillas
+
+![Vista previa del flujo de trabajo Wan2.1 InfiniteTalk](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_wan2_1_infinitetalk-1.webp)
+
+  * Usuarios locales
+
+  * Usuarios de Cloud
+
+
+
+
+Asegúrate de que tu ComfyUI esté actualizado.
+
+  * [Descargar ComfyUI](https://www.comfy.org/download)
+  * [Guía de actualización](https://docs.comfy.org/es/installation/update_comfyui)
+
+Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos de trabajo](https://docs.comfy.org/es/interface/features/template). Si no los encuentras en las plantillas, es posible que tu ComfyUI esté desactualizado.Si faltan nodos al cargar un flujo de trabajo, estas son las posibles razones:
+
+  1. No estás usando la última versión de ComfyUI (versión nocturna)
+  2. Algunos nodos fallaron al importarse durante el inicio
+
+
+
+  * [Cloud](https://cloud.comfy.org) se actualizará después del lanzamiento estable de ComfyUI.
+
+Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
+
+## 
+
+​
+
+Instalación de modelos
+
+Debes descargar los siguientes modelos y colocarlos en los directorios correctos: **diffusion_models**
+
+  * [Wan2_1-I2V-14B-480p_fp8_e4m3fn_scaled_KJ.safetensors](https://huggingface.co/Kijai/WanVideo_comfy_fp8_scaled/resolve/main/I2V/Wan2_1-I2V-14B-480p_fp8_e4m3fn_scaled_KJ.safetensors)
+
+**text_encoders**
+
+  * [umt5_xxl_fp8_e4m3fn_scaled.safetensors](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors)
+
+**model_patches**
+
+  * [wan2.1_infiniteTalk_single_fp16.safetensors](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/model_patches/wan2.1_infiniteTalk_single_fp16.safetensors): Para escenarios de un solo personaje
+  * [wan2.1_infiniteTalk_multi_fp16.safetensors](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/model_patches/wan2.1_infiniteTalk_multi_fp16.safetensors): Para escenarios con varios personajes
+
+**audio_encoders**
+
+  * [wav2vec2-chinese-base_fp16.safetensors](https://huggingface.co/Kijai/wav2vec2_safetensors/resolve/main/wav2vec2-chinese-base_fp16.safetensors)
+
+**vae**
+
+  * [Wan2_1_VAE_bf16.safetensors](https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1_VAE_bf16.safetensors)
+
+**loras**
+
+  * [lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors](https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Lightx2v/lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors)
+
+
+
+### 
+
+​
+
+Ubicación de almacenamiento de los modelos
+    
+    
+    📂 ComfyUI/
+    ├── 📂 models/
+    │   ├── 📂 diffusion_models/
+    │   │   └── Wan2_1-I2V-14B-480p_fp8_e4m3fn_scaled_KJ.safetensors
+    │   ├── 📂 text_encoders/
+    │   │   └── umt5_xxl_fp8_e4m3fn_scaled.safetensors
+    │   ├── 📂 model_patches/
+    │   │   ├── wan2.1_infiniteTalk_single_fp16.safetensors
+    │   │   └── wan2.1_infiniteTalk_multi_fp16.safetensors
+    │   ├── 📂 audio_encoders/
+    │   │   └── wav2vec2-chinese-base_fp16.safetensors
+    │   ├── 📂 vae/
+    │   │   └── Wan2_1_VAE_bf16.safetensors
+    │   └── 📂 loras/
+    │       └── lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors
+    
+
+### 
+
+​
+
+Archivos de entrada de ejemplo
+
+Descarga estos archivos de entrada de ejemplo y arrástralos a los nodos correspondientes:
+
+## Descargar imagen de ejemplo
+
+Imagen de referencia del personaje
+
+## Descargar audio del hablante 1
+
+Pista de audio para el personaje 1
+
+## Descargar audio del hablante 2
+
+Pista de audio para el personaje 2
+
+## 
+
+​
+
+Pasos del flujo de trabajo
+
+  1. **Carga la imagen de entrada** : Arrastra la imagen de referencia del personaje al nodo `Load Image`. Para escenarios con varios personajes, usa el Editor de máscara para dibujar las máscaras de cada personaje.
+  2. **Carga las pistas de audio** : Conecta los archivos de audio a los nodos `Load Audio` (uno por personaje).
+  3. **Carga el modelo de difusión** : Asegúrate de que el nodo `Load Diffusion Model` use `Wan2_1-I2V-14B-480p_fp8_e4m3fn_scaled_KJ.safetensors`.
+  4. **Carga los parches del modelo** : Carga el parche de InfiniteTalk adecuado (variante `single` o `multi`) mediante el nodo `ModelPatchLoader`.
+  5. **Configura InfiniteTalk** : Ajusta los parámetros del nodo `WanInfiniteTalkToVideo`, como `length` (duración del video en fotogramas), `motion_frame_count` (fotogramas anteriores usados como contexto de movimiento) y `audio_scale`.
+  6. **Genera** : Ejecuta el flujo de trabajo. El modelo producirá un video de una persona hablando de cuerpo completo, sincronizado con el audio de entrada.
+
+
+
+### 
+
+​
+
+Extender la duración del video
+
+Cada grupo **Video Extend** extiende el video aproximadamente 3.24 segundos (81 fotogramas a 25 fps). Si tu audio es más largo, puedes:
+
+  1. Seleccionar con una caja de selección el grupo “Video Extend”
+  2. Presionar `Ctrl-C` (copiar) y luego `Ctrl-Shift-V` (pegar con conexiones)
+  3. Conectar la salida `IMAGE` del nodo anterior `InfiniteTalk (Base Generation)` a la entrada `previous_frames` del nuevo nodo `WanInfiniteTalkToVideo`
+  4. Conectar la salida `IMAGE` del nodo `Batch Images` a la entrada de imagen del nuevo nodo `Batch Images`
+
+
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/video/wan/wan-infinitetalk.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/video/wan/wan-infinitetalk)
+
+[Wan2.1](https://docs.comfy.org/es/tutorials/video/wan/wan-video)[Causal Forcing I2V](https://docs.comfy.org/es/tutorials/video/wan/wan-causal-forcing)

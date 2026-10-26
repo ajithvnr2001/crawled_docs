@@ -1,0 +1,56 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/ModelMergeBlocks/
+title: Fusionar modelo (bloques) - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:12.920849+00:00
+---
+
+# Fusionar modelo (bloques) - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/ModelMergeBlocks/
+
+Fusión
+
+# Fusionar modelo (bloques) - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+ModelMergeBlocks está diseñado para operaciones avanzadas de fusión de modelos
+
+Copiar páginaCopiar página
+
+ModelMergeBlocks está diseñado para operaciones avanzadas de fusión de modelos, permitiendo la integración de dos modelos con proporciones de mezcla personalizables para diferentes partes de los mismos. Este nodo facilita la creación de modelos híbridos al fusionar selectivamente componentes de dos modelos fuente según parámetros específicos.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de Dato  
+---|---|---  
+`modelo1`| El primer modelo a fusionar. Sirve como modelo base sobre el cual se aplican los parches del segundo modelo.| `MODEL`  
+`modelo2`| El segundo modelo del cual se extraen y aplican parches al primer modelo, según las proporciones de mezcla especificadas.| `MODEL`  
+`entrada`| Especifica la proporción de mezcla para la capa de entrada de los modelos. Determina cuánto de la capa de entrada del segundo modelo se fusiona en el primer modelo.| `FLOAT`  
+`medio`| Define la proporción de mezcla para las capas intermedias de los modelos. Este parámetro controla el nivel de integración de las capas intermedias de los modelos.| `FLOAT`  
+`salida`| Determina la proporción de mezcla para la capa de salida de los modelos. Afecta la salida final ajustando la contribución de la capa de salida del segundo modelo.| `FLOAT`  
+  
+## 
+
+​
+
+Salidas
+
+Parámetro| Descripción| Tipo de Dato  
+---|---|---  
+`model`| El modelo fusionado resultante, que es un híbrido de los dos modelos de entrada con parches aplicados según las proporciones de mezcla especificadas.| MODEL  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/ModelMergeBlocks/es.md)
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/ModelMergeBlocks.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/ModelMergeBlocks)
+
+[Fusionar modelo (sumar)](https://docs.comfy.org/es/built-in-nodes/ModelMergeAdd)[Fusionar modelo (simple)](https://docs.comfy.org/es/built-in-nodes/ModelMergeSimple)

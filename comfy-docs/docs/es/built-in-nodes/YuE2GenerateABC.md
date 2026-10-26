@@ -1,0 +1,67 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/YuE2GenerateABC/
+title: YuE2 Generar ABC - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:47.727529+00:00
+---
+
+# YuE2 Generar ABC - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/YuE2GenerateABC/
+
+Yue2
+
+# YuE2 Generar ABC - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Este nodo genera notación ABC para una canción basada en una descripción de estilo y una letra, usando un modelo de texto y letras YuE2.
+
+Copiar páginaCopiar página
+
+Este nodo genera notación ABC para una canción basada en una descripción de estilo y una letra, usando un modelo de texto y letras YuE2. La salida `abc` resultante se puede conectar al nodo YuE2 Generate Music para producir audio.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Requerido| Rango  
+---|---|---|---|---  
+`clip`| El modelo YuE2 utilizado para tokenizar el estilo y la letra y generar la notación ABC.| CLIP| Sí| -  
+`style`| Texto que describe el estilo musical de la canción. Admite entrada multilínea y prompts dinámicos.| STRING| Sí| -  
+`lyrics`| Texto que contiene la letra de la canción. Admite entrada multilínea y prompts dinámicos.| STRING| Sí| -  
+`semilla`| Semilla aleatoria utilizada para la generación. Cambiarla produce resultados diferentes. Predeterminado: 0.| INT| Sí| 0 a 18446744073709551615  
+`modo`| full: genera melodía y acordes; melody: genera solo melodía, recomendado para covers.| COMBO| Sí| ”full"  
+"melody”  
+`max_abc_tokens`| Número máximo de tokens generados para la notación ABC. Predeterminado: 8192. Ajuste avanzado.| INT| Sí| 1 a 20000  
+`temperature`| Controla la aleatoriedad de los tokens generados. Valores más altos producen salidas más variadas. Predeterminado: 0.7. Ajuste avanzado.| FLOAT| Sí| 0.0 a 5.0  
+`top_p`| Umbral de muestreo nucleus; solo se consideran los tokens cuya probabilidad acumulada está dentro de este umbral. Predeterminado: 0.9. Ajuste avanzado.| FLOAT| Sí| 0.01 a 1.0  
+`top_k`| Limita la selección de tokens a los K más probables. Predeterminado: 30. Ajuste avanzado.| INT| Sí| 1 a 32768  
+`repetition_penalty`| Penalización aplicada a los tokens repetidos durante la generación. Predeterminado: 1.005. Ajuste avanzado.| FLOAT| Sí| 0.01 a 10.0  
+`penalty_window`| Número de tokens ABC recientes usados para penalizar la repetición. Predeterminado: 100. Ajuste avanzado.| INT| Sí| 1 a 20000  
+  
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`abc`| La notación ABC generada de la canción, que se puede conectar al nodo YuE2 Generate Music.| STRING  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/YuE2GenerateABC/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `2c1bf0841a044724ff0477f920972d70bbd97de49b56fbe6213a9ac134797130`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/YuE2GenerateABC.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/YuE2GenerateABC)
+
+[SheetSage2 Audio a ABC](https://docs.comfy.org/es/built-in-nodes/SheetSage2AudioToABC)[YuE2 Generar música](https://docs.comfy.org/es/built-in-nodes/YuE2GenerateMusic)

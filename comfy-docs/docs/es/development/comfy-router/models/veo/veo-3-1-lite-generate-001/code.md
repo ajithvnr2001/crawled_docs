@@ -1,0 +1,748 @@
+---
+url: https://docs.comfy.org/es/development/comfy-router/models/veo/veo-3-1-lite-generate-001/code/
+title: Usa Veo 3.1 Lite Generate 001 con Comfy Router - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:03:21.537599+00:00
+---
+
+# Usa Veo 3.1 Lite Generate 001 con Comfy Router - ComfyUI
+
+> Source: https://docs.comfy.org/es/development/comfy-router/models/veo/veo-3-1-lite-generate-001/code/
+
+## En esta página
+
+Volver arriba
+
+  * Inicio rápido
+  * Esquema
+    * Entrada
+    * Salida
+  * Ejemplos
+    * Entrada
+    * Salida
+  * Antes de lanzar
+
+
+
+Veo
+
+# Usa Veo 3.1 Lite Generate 001 con Comfy Router
+
+Copiar páginaCopiar página
+
+Llama a veo/veo-3.1-lite-generate-001 desde Comfy Router: endpoint, forma de la solicitud y respuesta.
+
+Copiar páginaCopiar página
+
+Referencia de API para `veo/veo-3.1-lite-generate-001`, servida por Comfy Router desde Veo. **Entrada:** Texto, Imagen, Video · **Salida:** Video + Audio
+
+## 
+
+​
+
+Inicio rápido
+
+Crea una clave en [tu espacio de trabajo de Comfy](https://platform.comfy.org/profile/api-keys?onboarding=router) y expórtala como `COMFY_API_KEY`. Los fragmentos de Python y TypeScript usan los SDK de Comfy (`pip install comfy-sdk` y `npm install @comfyorg/sdk`); el fragmento de cURL es la misma llamada sobre HTTP directo. **ID del modelo:** `veo/veo-3.1-lite-generate-001` **Endpoint:** `POST https://api.comfy.org/v2/models/veo/veo-3.1-lite-generate-001`
+
+  * Esperar el resultado
+
+  * Encolar y recoger más tarde
+
+
+
+
+Python
+
+TypeScript
+
+cURL
+    
+    
+    from comfy_sdk import Comfy
+    
+    # Lee COMFY_API_KEY del entorno.
+    # El SDK crea automáticamente una clave de idempotencia y la reutiliza para los reintentos automáticos.
+    with Comfy() as client:
+        result = client.models.run(
+            "veo/veo-3.1-lite-generate-001",
+            {
+                "instances": [
+                    {
+                        "prompt": "a single red maple leaf falling onto still water, slow motion",
+                    },
+                ],
+                "parameters": {
+                    "durationSeconds": 4,
+                    "generateAudio": False,
+                    "sampleCount": 1,
+                },
+            },
+        )
+    
+    print(result)
+    
+    
+    
+    import { comfy } from "@comfyorg/sdk";
+    
+    // Lee COMFY_API_KEY del entorno.
+    // El SDK crea automáticamente una clave de idempotencia y la reutiliza para los reintentos automáticos.
+    const { data } = await comfy.models.run("veo/veo-3.1-lite-generate-001", {
+      instances: [
+        {
+          prompt: "a single red maple leaf falling onto still water, slow motion",
+        },
+      ],
+      parameters: {
+        durationSeconds: 4,
+        generateAudio: false,
+        sampleCount: 1,
+      },
+    });
+    
+    console.log(data);
+    
+    
+    
+    curl https://api.comfy.org/v2/models/veo/veo-3.1-lite-generate-001 \
+      -H "X-API-Key: $COMFY_API_KEY" \
+      -H "Idempotency-Key: $(uuidgen)" \
+      -H "Content-Type: application/json" \
+      -d "{\"instances\": [{\"prompt\":\"a single red maple leaf falling onto still water, slow motion\"}], \"parameters\": {\"durationSeconds\":4,\"generateAudio\":false,\"sampleCount\":1}}"
+    
+
+El mismo cuerpo, enviado a `POST https://api.comfy.org/v2/models/veo/veo-3.1-lite-generate-001/requests`. Router responde `201` con un `request_id` en cuanto se admite la ejecución, y el resultado se recopila cuando está listo, desde este proceso o desde otro. [Entrega en cola](https://docs.comfy.org/es/development/comfy-router/queue) explica el estado, la cancelación y la recopilación.
+
+Python
+
+TypeScript
+
+cURL
+    
+    
+    import asyncio
+    from comfy_sdk import AsyncComfy
+    
+    # Lee COMFY_API_KEY del entorno.
+    # Cada llamada a submit() genera su propia Idempotency-Key y la reutiliza para los reintentos automáticos.
+    async def main():
+        async with AsyncComfy() as client:
+            handle = await client.models.submit(
+                "veo/veo-3.1-lite-generate-001",
+                {
+                    "instances": [
+                        {
+                            "prompt": "a single red maple leaf falling onto still water, slow motion",
+                        },
+                    ],
+                    "parameters": {
+                        "durationSeconds": 4,
+                        "generateAudio": False,
+                        "sampleCount": 1,
+                    },
+                },
+            )
+            print("request_id:", handle.request_id)  # junto con el model ID, todo lo que necesita otro proceso
+    
+            # Sondea hasta que la solicitud se complete, esperando el Retry-After que indica el servidor.
+            async for update in handle.iter_events():
+                print(update.status, update.queue_position)
+    
+            # La carga propia del proveedor, el mismo valor que devuelve models.run().
+            # Una solicitud fallida o cancelada genera aquí el error tipado de Router.
+            result = await handle.get()
+    
+        print(result)
+    
+    asyncio.run(main())
+    
+    
+    
+    import { comfy } from "@comfyorg/sdk";
+    
+    // Lee COMFY_API_KEY del entorno.
+    // Cada llamada a submit() genera su propia Idempotency-Key y la reutiliza para los reintentos automáticos.
+    const handle = await comfy.models.submit("veo/veo-3.1-lite-generate-001", {
+      instances: [
+        {
+          prompt: "a single red maple leaf falling onto still water, slow motion",
+        },
+      ],
+      parameters: {
+        durationSeconds: 4,
+        generateAudio: false,
+        sampleCount: 1,
+      },
+    });
+    console.log("requestId:", handle.requestId); // junto con el model ID, todo lo que necesita otro proceso
+    
+    // Sondea hasta que la solicitud se complete, esperando el Retry-After que indica el servidor.
+    for await (const update of handle.events()) {
+      console.log(update.status, update.queuePosition);
+    }
+    
+    // El mismo resultado que devuelve models.run(). Una solicitud fallida o cancelada se rechaza aquí.
+    const result = await handle.get();
+    
+    console.log(result.data);
+    
+    
+    
+    # 1. Envía. Router responde 201 con request_id, status_url, response_url y cancel_url.
+    curl https://api.comfy.org/v2/models/veo/veo-3.1-lite-generate-001/requests \
+      -H "X-API-Key: $COMFY_API_KEY" \
+      -H "Idempotency-Key: $(uuidgen)" \
+      -H "Content-Type: application/json" \
+      -d "{\"instances\": [{\"prompt\":\"a single red maple leaf falling onto still water, slow motion\"}], \"parameters\": {\"durationSeconds\":4,\"generateAudio\":false,\"sampleCount\":1}}"
+    
+    # 2. Sondea hasta que el estado sea COMPLETED, esperando los segundos de Retry-After que indica cada respuesta.
+    REQUEST_ID="<request_id from the 201 body>"
+    curl -i https://api.comfy.org/v2/models/veo/veo-3.1-lite-generate-001/requests/$REQUEST_ID/status \
+      -H "X-API-Key: $COMFY_API_KEY"
+    
+    # 3. Recopila. 200 con la salida nativa del modelo, 202 con el cuerpo de estado mientras sigue en ejecución.
+    curl https://api.comfy.org/v2/models/veo/veo-3.1-lite-generate-001/requests/$REQUEST_ID \
+      -H "X-API-Key: $COMFY_API_KEY"
+    
+
+## 
+
+​
+
+Esquema
+
+### 
+
+​
+
+Entrada
+
+​
+
+instances
+
+object[]
+
+​
+
+instances[].cameraControl
+
+string
+
+Tipo de movimiento de cámara. Requiere que se proporcione una imagen.Valores posibles: `fixed`, `pan_left`, `pan_right`, `tilt_up`, `tilt_down`, `truck_left`, `truck_right`, `pedestal_up`, `pedestal_down`, `push_in`, `pull_out`
+
+​
+
+instances[].image
+
+object
+
+Imagen opcional del primer fotograma para guiar la generación del video
+
+​
+
+instances[].image.bytesBase64Encoded
+
+string (byte)
+
+Datos de imagen codificados en Base64Formato: `byte`
+
+​
+
+instances[].image.gcsUri
+
+string
+
+URI de Cloud Storage de la imagen. En una solicitud que no sea BYOK, un URI `gs://` (o su forma `https://storage.googleapis.com`) que nombre un bucket propiedad de Comfy se rechaza con 400, a menos que el objeto esté bajo tu propio prefijo `POST /customers/storage` o sea un video que una generación previa de Veo escribió para ti.
+
+​
+
+instances[].image.mimeType
+
+string
+
+Tipo MIME de la imagen (image/jpeg o image/png)Valores posibles: `image/jpeg`, `image/png`
+
+​
+
+instances[].lastFrame
+
+object
+
+Imagen opcional del último fotograma. Se usa junto con image para generar video entre el primer y el último fotograma. Compatible con los modelos Veo 3.0+.
+
+​
+
+instances[].lastFrame.bytesBase64Encoded
+
+string (byte)
+
+Datos de imagen codificados en Base64Formato: `byte`
+
+​
+
+instances[].lastFrame.gcsUri
+
+string
+
+URI de Cloud Storage de la imagen. En una solicitud que no sea BYOK, un URI `gs://` (o su forma `https://storage.googleapis.com`) que nombre un bucket propiedad de Comfy se rechaza con 400, a menos que el objeto esté bajo tu propio prefijo `POST /customers/storage` o sea un video que una generación previa de Veo escribió para ti.
+
+​
+
+instances[].lastFrame.mimeType
+
+string
+
+Tipo MIME de la imagen (image/jpeg o image/png)Valores posibles: `image/jpeg`, `image/png`
+
+​
+
+instances[].mask
+
+object
+
+Máscara opcional para la edición de video. Se aplica al video de entrada.
+
+​
+
+instances[].mask.bytesBase64Encoded
+
+string (byte)
+
+Bytes de la máscara codificados en Base64Formato: `byte`
+
+​
+
+instances[].mask.gcsUri
+
+string
+
+URI de Cloud Storage del archivo de máscara. En una solicitud que no sea BYOK, un URI `gs://` (o su forma `https://storage.googleapis.com`) que nombre un bucket propiedad de Comfy se rechaza con 400, a menos que el objeto esté bajo tu propio prefijo `POST /customers/storage` o sea un video que una generación previa de Veo escribió para ti.
+
+​
+
+instances[].mask.maskMode
+
+string
+
+Cómo se aplica la máscaraValores posibles: `insert`, `remove`, `remove_static`, `outpaint`
+
+​
+
+instances[].mask.mimeType
+
+string
+
+Tipo MIME de la máscara (image/png, image/jpeg, image/webp o formatos de video)
+
+​
+
+instances[].prompt
+
+string
+
+requerido
+
+Descripción textual del video que se va a generar
+
+​
+
+instances[].referenceImages
+
+object[]
+
+Imágenes de referencia opcionales para guiar la generación del video. Admite hasta 3 imágenes de recurso o 1 imagen de estilo. Compatible con los modelos Veo 3.1 (vista previa).
+
+​
+
+instances[].referenceImages[].image
+
+object
+
+requerido
+
+​
+
+instances[].referenceImages[].image.bytesBase64Encoded
+
+string (byte)
+
+Datos de imagen codificados en Base64Formato: `byte`
+
+​
+
+instances[].referenceImages[].image.gcsUri
+
+string
+
+URI de Cloud Storage de la imagen. En una solicitud que no sea BYOK, un URI `gs://` (o su forma `https://storage.googleapis.com`) que nombre un bucket propiedad de Comfy se rechaza con 400, a menos que el objeto esté bajo tu propio prefijo `POST /customers/storage` o sea un video que una generación previa de Veo escribió para ti.
+
+​
+
+instances[].referenceImages[].image.mimeType
+
+string
+
+Tipo MIME de la imagen (image/jpeg o image/png)Valores posibles: `image/jpeg`, `image/png`
+
+​
+
+instances[].referenceImages[].referenceId
+
+string
+
+Identificador opcional de la imagen de referencia
+
+​
+
+instances[].referenceImages[].referenceType
+
+string
+
+requerido
+
+Tipo de imagen de referenciaValores posibles: `asset`, `style`
+
+​
+
+instances[].video
+
+object
+
+Video de entrada opcional para extender o editar video. Es incompatible con image y referenceImages.
+
+​
+
+instances[].video.bytesBase64Encoded
+
+string (byte)
+
+Bytes del video codificados en Base64Formato: `byte`
+
+​
+
+instances[].video.gcsUri
+
+string
+
+URI de Cloud Storage del video de entrada. En una solicitud que no sea BYOK, un URI `gs://` (o su forma `https://storage.googleapis.com`) que nombre un bucket propiedad de Comfy se rechaza con 400, a menos que el objeto esté bajo tu propio prefijo `POST /customers/storage` o sea un video que una generación previa de Veo escribió para ti.
+
+​
+
+instances[].video.mimeType
+
+string
+
+Tipo MIME del videoValores posibles: `video/mov`, `video/mpeg`, `video/mp4`, `video/mpg`, `video/avi`, `video/wmv`, `video/mpegps`, `video/x-flv`
+
+​
+
+parameters
+
+object
+
+​
+
+parameters.aspectRatio
+
+string
+
+Relación de aspecto del video generado. Predeterminado: 16:9Valores posibles: `16:9`, `9:16`
+
+​
+
+parameters.compressionQuality
+
+string
+
+Calidad de compresión del video. Predeterminado: optimizedValores posibles: `optimized`, `lossless`
+
+​
+
+parameters.durationSeconds
+
+number
+
+Duración objetivo del video generado en segundos. Veo 2: 5-8. Veo 3/3.1: 4, 6 u 8. Predeterminado: 8
+
+​
+
+parameters.enhancePrompt
+
+boolean
+
+Mejora el prompt automáticamente para obtener mayor calidad. El valor predeterminado es verdadero.
+
+​
+
+parameters.fps
+
+integer
+
+Frecuencia de cuadros de los videos generados, en cuadros por segundo
+
+​
+
+parameters.generateAudio
+
+boolean
+
+Indica si se genera audio junto con el video. El valor predeterminado es verdadero. Compatible con los modelos Veo 3.0+.
+
+​
+
+parameters.negativePrompt
+
+string
+
+Texto que describe lo que se debe evitar en el video generado
+
+​
+
+parameters.personGeneration
+
+string
+
+Controla a las personas en los videos generados. Predeterminado: allow_adultValores posibles: `dont_allow`, `allow_adult`, `allowAll`
+
+​
+
+parameters.pubsubTopic
+
+string
+
+Tema de Cloud Pub/Sub para las actualizaciones de progreso (projects/{project}/topics/{topic}). No se acepta en solicitudes con credenciales de Comfy (que no son BYOK): la ruta de generación responde con 400 si está presente, porque la operación se ejecuta en el proyecto de Comfy y Vertex publicaría como el agente de servicio de Comfy. Solo se acepta en solicitudes con tu propia clave (bring-your-own-key), donde Vertex evalúa el permiso del tema en tu propio proyecto.
+
+​
+
+parameters.resizeMode
+
+string
+
+Enfoque de redimensionado para la imagen de entrada. Predeterminado: padValores posibles: `pad`, `crop`
+
+​
+
+parameters.resolution
+
+string
+
+Resolución del video de salida. Compatible con los modelos Veo 3.0+. Predeterminado: 720pValores posibles: `720p`, `1080p`, `4k`
+
+​
+
+parameters.sampleCount
+
+integer
+
+Cantidad de videos a generar. Si no se especifica, se genera 1 video.Rango: `1` a `4`
+
+​
+
+parameters.seed
+
+integer
+
+Semilla aleatoria para obtener un resultado determinista. Se usa una semilla distinta por video si sampleCount > 1.Formato: `uint32`
+
+​
+
+parameters.storageUri
+
+string
+
+Destino opcional de Cloud Storage para los videos generados, como URI `gs://`. DEBE INDICAR UN BUCKET PROPIO. Fuera de bring-your-own-key, esta ruta se ejecuta con las credenciales de Google Cloud de Comfy en lugar de las tuyas, así que un destino dentro de un bucket propiedad de Comfy sería una escritura realizada por la cuenta de servicio de Comfy, en un diseño compartido, facturada al proyecto de Comfy. Una solicitud que nombre uno de esos buckets se rechaza con un 400 y no se genera nada, con una sola excepción en una llamada síncrona de Comfy Router (`POST /v2/models/{provider}/{model}`) donde el almacenamiento de la plataforma está habilitado: un valor que nombre el propio bucket de recursos de Veo o Gemini de Router se reemplaza por un destino que Router crea bajo tu propio prefijo de plataforma para esa llamada (consulta la ruta Veo de Router), y solo se deja pasar ese destino exacto creado por Router. Un envío en cola de Router (`POST /v2/models/{provider}/{model}/requests`) no hace ese reemplazo, por lo que rechaza ese valor con un 400 igual que cualquier otro bucket propiedad de Comfy. Cualquier otro destino se reenvía a Vertex sin cambios y eres tú quien debe concederle acceso. Una llamada bring-your-own-key se ejecuta en tu propio proyecto y se reenvía tal como se envía.
+
+​
+
+parameters.task
+
+string
+
+Tipo de operación para la solicitud de generación de videoValores posibles: `textToVideo`, `imageToVideo`, `referenceToVideo`, `edit`, `extend`, `upscale`
+
+Generado a partir del esquema que Router sirve en `GET /v2/models/veo/veo-3.1-lite-generate-001/openapi.json`, el mismo documento con el que valida una llamada antes de que la solicitud llegue al proveedor.
+
+### 
+
+​
+
+Salida
+
+​
+
+done
+
+boolean
+
+Indica si la operación se ha completado
+
+​
+
+error
+
+object
+
+Detalles del error, presentes si la operación falló
+
+​
+
+error.code
+
+integer
+
+Código de error gRPC
+
+​
+
+error.message
+
+string
+
+Mensaje de error
+
+​
+
+name
+
+string
+
+Nombre del recurso de la operación
+
+​
+
+response
+
+object
+
+La respuesta de la predicción, presente cuando done es verdadero
+
+​
+
+response.@type
+
+string
+
+​
+
+response.raiMediaFilteredCount
+
+integer
+
+Número de videos filtrados por las políticas de IA responsable
+
+​
+
+response.raiMediaFilteredReasons
+
+string[]
+
+Motivos por los que se filtraron los videos por las políticas de IA responsable
+
+​
+
+response.videos
+
+object[]
+
+​
+
+response.videos[].bytesBase64Encoded
+
+string
+
+Contenido del video codificado en Base64
+
+​
+
+response.videos[].gcsUri
+
+string
+
+URI de Cloud Storage del video generado
+
+​
+
+response.videos[].mimeType
+
+string
+
+Tipo MIME del video (video/mp4)
+
+## 
+
+​
+
+Ejemplos
+
+### 
+
+​
+
+Entrada
+    
+    
+    {
+      "instances": [
+        {
+          "prompt": "a single red maple leaf falling onto still water, slow motion"
+        }
+      ],
+      "parameters": {
+        "durationSeconds": 4,
+        "generateAudio": false,
+        "sampleCount": 1
+      }
+    }
+    
+
+### 
+
+​
+
+Salida
+    
+    
+    {
+      "done": true,
+      "name": "projects/example-project/locations/us-central1/publishers/google/models/veo-3.1-fast-generate-001/operations/1a2b3c4d",
+      "response": {
+        "@type": "type.googleapis.com/cloud.ai.large_models.vision.GenerateVideoResponse",
+        "raiMediaFilteredCount": 0,
+        "videos": [
+          {
+            "gcsUri": "https://storage.googleapis.com/EXAMPLE_BUCKET/veo/USER_ID/REQUEST_ID/sample_0.mp4",
+            "mimeType": "video/mp4"
+          }
+        ]
+      }
+    }
+    
+
+## 
+
+​
+
+Antes de lanzar
+
+Los SDK crean una `Idempotency-Key` y la reutilizan para los reintentos automáticos. Para los reintentos manuales, reutiliza la clave original. Router puede mantener la conexión abierta hasta 10 minutos. Cuando una solicitud falla, Router envía un encabezado de respuesta `X-Comfy-Error-Type` que explica el motivo. Un `422` significa que Router rechazó la entrada antes de llamar al proveedor, y un `413` significa que el cuerpo de la solicitud era más grande de lo que Router acepta. Descarga los recursos generados de inmediato, porque [las URL de resultados pueden caducar](https://docs.comfy.org/es/development/comfy-router/reference#recursos-del-resultado). Cualquier límite de tamaño mencionado en la descripción de un campo más arriba es el límite propio del proveedor para ese campo, citado de la especificación del proveedor. Router aplica un tope aparte al cuerpo completo de la solicitud, con el que cuentan los medios codificados en base64: consulta [tamaño del cuerpo de la solicitud](https://docs.comfy.org/es/development/comfy-router/limitations#los-cuerpos-de-las-solicitudes-tienen-un-l%C3%ADmite). Esta página documenta un modelo socio al que se llama a través de Comfy Router. El mismo paquete `comfy-sdk` / `@comfyorg/sdk` también incluye un segundo cliente, para ejecutar todo un gráfico de flujo de trabajo de ComfyUI en Comfy Cloud: `Comfy(api_key=...)` / `new Comfy({ apiKey })`, con `client.workflows`, `client.assets` y `client.jobs`. Consulta [SDK de Comfy](https://docs.comfy.org/es/development/api-development/sdks).
+
+## Encabezados
+
+Autenticación, idempotencia, IDs de solicitud, agrupaciones de errores, ritmo de reintentos y límites de gasto.
+
+## Uso de la API de Router
+
+Descubrimiento de modelos, errores de validación, reintentos y facturación.
+
+## Limitaciones
+
+Lo que Router no hace hoy y qué usar en su lugar.
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/development/comfy-router/models/veo/veo-3-1-lite-generate-001/code.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/development/comfy-router/models/veo/veo-3-1-lite-generate-001/code)
+
+[Veo 3.1 Generate 001](https://docs.comfy.org/es/development/comfy-router/models/veo/veo-3-1-generate-001/code)[HappyHorse 1.0 I2V](https://docs.comfy.org/es/development/comfy-router/models/wan/happyhorse-1-0-i2v/code)

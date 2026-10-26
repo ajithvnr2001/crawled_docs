@@ -1,0 +1,89 @@
+---
+url: https://docs.comfy.org/es/registry/overview/
+title: Comfy Registry: publica y versiona nodos personalizados - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:03:38.892192+00:00
+---
+
+# Comfy Registry: publica y versiona nodos personalizados - ComfyUI
+
+> Source: https://docs.comfy.org/es/registry/overview/
+
+## En esta página
+
+Volver arriba
+
+  * Introducción
+  * ¿Por qué usar el Registry?
+  * Publicar nodos
+  * Preguntas frecuentes
+
+
+
+Package & Publish
+
+# Comfy Registry: publica y versiona nodos personalizados
+
+Copiar páginaCopiar página
+
+Descubre qué es el Comfy Registry, por qué se usa para versionar y proteger nodos, y cómo empezar a publicar nodos personalizados en ComfyUI-Manager.
+
+Copiar páginaCopiar página
+
+## 
+
+​
+
+Introducción
+
+El Registry es una colección pública de nodos personalizados que impulsa [ComfyUI-Manager](https://github.com/Comfy-Org/ComfyUI-Manager). Los desarrolladores pueden publicar, versionar, marcar como obsoletos y hacer seguimiento de las métricas relacionadas con sus nodos personalizados. Los usuarios de ComfyUI pueden descubrir, instalar y calificar nodos personalizados del Registry a través de ComfyUI-Manager.
+
+## 
+
+​
+
+¿Por qué usar el Registry?
+
+El Comfy Registry ayuda a la comunidad estandarizando el desarrollo de Nodos personalizados: **Versionado de nodos:** Los desarrolladores publican con frecuencia nuevas versiones de sus Nodos personalizados que a menudo rompen los flujos de trabajo que dependen de ellos. Con los nodos del registry usando [versionado semántico](https://semver.org/), los usuarios ahora pueden elegir actualizar de forma segura, deprecar o fijar las versiones de sus nodos, sabiendo de antemano cómo sus acciones afectarán sus flujos de trabajo. El JSON del flujo de trabajo almacenará la versión del nodo utilizado, así que siempre podrás reproducir tus flujos de trabajo de forma confiable. **Seguridad de nodos:** El registry servirá como backend para el [ComfyUI-manager](https://github.com/Comfy-Org/ComfyUI-Manager). Todos los nodos serán escaneados en busca de comportamientos maliciosos, como paquetes pip personalizados, llamadas arbitrarias al sistema, etc. Los nodos que pasen estas verificaciones tendrán una marca de verificación () junto a su nombre en la interfaz de ComfyUI Manager. Para ver una lista de los estándares de seguridad, consulta los [estándares](https://docs.comfy.org/es/registry/standards). **Buscar:** Busca entre todos los nodos del Registry para encontrar nodos existentes para tu flujo de trabajo.
+
+## 
+
+​
+
+Publicar nodos
+
+Empieza a publicar tu primer nodo siguiendo el [tutorial](https://docs.comfy.org/es/registry/publishing).
+
+## 
+
+​
+
+Preguntas frecuentes
+
+¿Los nodos del Registry tienen identificadores únicos?
+
+Sí, un nodo personalizado en el Registry tiene un nombre único a nivel global, y esto permite que los archivos JSON de Comfy Workflow identifiquen de forma única cualquier nodo personalizado sin colisiones.
+
+¿Existen restricciones sobre lo que puedo publicar?
+
+Consulta los [estándares](https://docs.comfy.org/es/registry/standards) para obtener más información.
+
+¿Cómo garantizan la estabilidad de los nodos?
+
+Una vez que se publica una versión de un nodo personalizado, no se puede modificar. Esto garantiza que los usuarios puedan confiar en la estabilidad del nodo personalizado con el tiempo.
+
+¿Cómo se versionan los nodos?
+
+Los nodos personalizados se versionan usando [versionado semántico](https://semver.org/). Esto permite a los usuarios entender el impacto de actualizar a una nueva versión.
+
+¿Cómo marco como obsoleta una versión de un nodo?
+
+Puedes marcar una versión como obsoleta en el sitio web de Comfy Registry haciendo clic en **More Actions > Deprecate**. A los usuarios que instalaron esta versión se les mostrará el mensaje de obsolescencia y se les animará a actualizar a una versión más reciente.Marcar versiones como obsoletas es útil cuando se descubre un problema después de publicarlas.
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/registry/overview.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/registry/overview)
+
+[Planos de subgrafos](https://docs.comfy.org/es/custom-nodes/subgraph_blueprints)[Publicar nodos](https://docs.comfy.org/es/registry/publishing)

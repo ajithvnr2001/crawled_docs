@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/
 title: Documentaci\u00f3n oficial de ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:47.856843+00:00
+fetched_at: 2026-10-26T14:04:02.780875+00:00
 ---
 
 # Documentación oficial de ComfyUI - ComfyUI
@@ -17,7 +17,7 @@ fetched_at: 2026-10-25T12:24:47.856843+00:00
 
 La aplicación de código abierto basada en nodos más potente para IA generativa
 
-## Primeros pasos
+## ¿Qué es ComfyUI y cómo creas tu primer flujo de trabajo?
 
 ## Descargar e instalar
 
@@ -33,7 +33,7 @@ Comprende los flujos de trabajo, los nodos y las conexiones
 
 ## Flujos de trabajo de Comfy
 
-Explora flujos de trabajo y plantillas de la comunidad creados por los mejores creadores
+Explora flujos de trabajo y plantillas de la comunidad hechos por creadores destacados
 
 ## Agentes de IA y MCP
 
@@ -61,7 +61,7 @@ Ejecuta flujos de trabajo en una implementación de ComfyUI desde tu aplicación
 
 ## Referencia de la API
 
-Referencia completa de los endpoints, los encabezados y los límites del Router
+Referencia completa de endpoints, encabezados y límites del Router
 
 ## Aprender y tutoriales
 
@@ -128,7 +128,7 @@ Resuelve problemas y errores comunes
 Escrito por [comfyanonymous](https://github.com/comfyanonymous) y otros [colaboradores](https://github.com/Comfy-Org/ComfyUI/graphs/contributors).
 
   * **ComfyUI** es una interfaz basada en nodos y un motor de inferencia para IA generativa
-  * Los usuarios pueden combinar diversos modelos de IA y operaciones mediante nodos para lograr una generación de contenido altamente personalizable y controlable
-  * ComfyUI es completamente de código abierto y puede ejecutarse en tu dispositivo local
+  * Puedes combinar modelos de IA y operaciones con nodos para generar contenido de forma muy personalizable y controlable
+  * ComfyUI es totalmente de código abierto y puedes ejecutarlo en tu propio dispositivo
 
 

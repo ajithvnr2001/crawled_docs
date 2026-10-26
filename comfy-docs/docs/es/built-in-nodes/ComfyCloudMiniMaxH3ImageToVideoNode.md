@@ -1,0 +1,69 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/ComfyCloudMiniMaxH3ImageToVideoNode/
+title: Comfy Cloud MiniMax H3 Imagen a v\u00eddeo [BETA] - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:01:39.235457+00:00
+---
+
+# Comfy Cloud MiniMax H3 Imagen a vídeo [BETA] - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/ComfyCloudMiniMaxH3ImageToVideoNode/
+
+Avanzado
+
+# Comfy Cloud MiniMax H3 Imagen a vídeo [BETA] - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+Ejecuta el flujo de trabajo de imagen a video MiniMax H3 en una GPU de Comfy Cloud y devuelve un video con una banda sonora coincidente.
+
+Copiar páginaCopiar página
+
+Ejecuta el flujo de trabajo de imagen a video MiniMax H3 en una GPU de Comfy Cloud y devuelve un video con una banda sonora coincidente. La imagen fija se convierte en el primer fotograma. Al reintroducir el fotograma final de un clip se continúa la secuencia, por lo que encadenar varias ejecuciones construye una toma más larga. Este es un nodo beta y se factura por segundo de GPU.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de dato| Requerido| Rango  
+---|---|---|---|---  
+`first_frame`| La imagen desde la que comienza el video. Se carga a un máximo de 2048x2048 píxeles antes de que se ejecute el flujo de trabajo.| IMAGE| Sí| -  
+`prompt`| La descripción textual del movimiento y los sonidos que debe llevar la toma. Los espacios en blanco iniciales y finales se eliminan antes del envío.| STRING| Sí| 1 a 4096 caracteres  
+`seed`| Semilla aleatoria que controla el resultado generado (predeterminado: 42).| INT| Sí| 0 a 18446744073709551615  
+`aspect_ratio`| Relación de aspecto del video generado (predeterminado: `"1:1"`).| COMBO| Sí| `"1:1"`  
+`"3:4"`  
+`"2:3"`  
+`"3:2"`  
+`"4:3"`  
+`"16:9"`  
+`"9:16"`  
+`"21:9"`  
+`resolution`| Presupuesto de tamaño de fotograma (predeterminado: `"480p"`). 720p cuesta aproximadamente el doble de segundos de GPU que 480p.| COMBO| Sí| `"480p"`  
+`"720p"`  
+`duration_seconds`| Duración en segundos (predeterminado: 5). El pipeline cuantiza en pasos de 17 fotogramas a 24 fps, por lo que el clip queda dentro de aproximadamente dos tercios de segundo de este valor.| INT| Sí| 5 a 15  
+  
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de dato  
+---|---|---  
+`VIDEO`| El video generado con su banda sonora.| VIDEO  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/ComfyCloudMiniMaxH3ImageToVideoNode/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `d3657e266f2b9f789414a106ef66b6c64ec314d27c3b6a99c3a6a9b8584abf61`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/ComfyCloudMiniMaxH3ImageToVideoNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/ComfyCloudMiniMaxH3ImageToVideoNode)
+
+[Comfy Cloud MiniMax H3 De primer y último fotograma a vídeo [BETA]](https://docs.comfy.org/es/built-in-nodes/ComfyCloudMiniMaxH3FirstLastFrameToVideoNode)[Comfy Cloud MiniMax H3 Texto a vídeo [BETA]](https://docs.comfy.org/es/built-in-nodes/ComfyCloudMiniMaxH3TextToVideoNode)

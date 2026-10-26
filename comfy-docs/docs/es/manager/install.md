@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/manager/install/
 title: Instalaci\u00f3n de ComfyUI-Manager - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:49.303879+00:00
+fetched_at: 2026-10-26T14:04:03.888564+00:00
 ---
 
 # Instalación de ComfyUI-Manager - ComfyUI
@@ -11,8 +11,10 @@ fetched_at: 2026-10-25T12:24:49.303879+00:00
 
 ## En esta página
 
+Volver arriba
+
   * Usuarios de escritorio
-  * Usuarios de la versión Portable
+  * Usuarios de Portable
   * Usuarios de instalación manual
     * Opciones de línea de comandos
     * Cambiar entre la UI nueva y la clásica
@@ -27,7 +29,7 @@ ComfyUI-Manager
 
 Copiar páginaCopiar página
 
-Instala ComfyUI-Manager en configuraciones de ComfyUI Desktop, Portable o manuales para buscar, instalar y actualizar nodos personalizados desde dentro de la aplicación.
+Instala ComfyUI-Manager en ComfyUI Desktop, Portable o manual para buscar, instalar y actualizar nodos personalizados desde la aplicación.
 
 Copiar páginaCopiar página
 
@@ -37,7 +39,7 @@ Copiar páginaCopiar página
 
 Usuarios de escritorio
 
-Comfy Desktop instala ComfyUI-Manager con cada instalación de ComfyUI y lo inicia con `--enable-manager`, así que no hay nada que instalar. El Administrador se configura por instalación desde dentro de la aplicación:
+Comfy Desktop incluye ComfyUI-Manager en cada instalación de ComfyUI y lo arranca con `--enable-manager`, así que no tienes que instalar nada aparte. Configuras el Manager por instalación desde la propia app:
 
 1
 
@@ -47,35 +49,35 @@ En Comfy Desktop, abre la instalación y ve al panel **Manage** , luego cambia a
 
 2
 
-Configura las opciones del Administrador
+Configura las opciones ComfyUI Manager
 
-  * **Manager Security Level** (nivel de seguridad del administrador) decide qué paquetes de nodos puede instalar el Administrador: **Strict** , **Standard** (recomendado), **Relaxed** o **Permissive**. Los niveles más estrictos son especialmente importantes cuando ComfyUI está expuesto a tu red con `--listen`
-  * **Manager Network Mode** (modo de red del administrador) decide cómo llega el Administrador al registro de nodos: **Public** (predeterminado), **Private** , **Offline** o **Personal cloud** (solo para una máquina que controles)
+  * **Manager Security Level** (nivel de seguridad ComfyUI Manager) decide qué paquetes de nodos puede instalar ComfyUI Manager: **Strict** , **Standard** (recomendado), **Relaxed** o **Permissive**. Los niveles más estrictos son especialmente importantes cuando ComfyUI está expuesto a tu red con `--listen`
+  * **Manager Network Mode** (modo de red ComfyUI Manager) decide cómo llega ComfyUI Manager al registro de nodos: **Public** (predeterminado), **Private** , **Offline** o **Personal cloud** (solo para una máquina que controles)
 
-Ambas opciones se aplican la próxima vez que inicies la instalación.
+Ambas opciones se aplican la próxima vez que inicies esa instalación.
 
 3
 
-Cambia los flags con los que se inicia el Administrador (opcional)
+Cambia los flags con los que se inicia ComfyUI Manager (opcional)
 
-**Startup Arguments** en la misma pestaña controla los flags con los que se inicia la instalación. Elimina `--enable-manager` para ejecutar ComfyUI sin el Administrador, o mantenlo y agrega `--disable-manager-ui` para ocultar la interfaz del Administrador mientras sus tareas en segundo plano continúan.
+**Startup Arguments** en la misma pestaña controla los flags con los que se inicia la instalación. Elimina `--enable-manager` para ejecutar ComfyUI sin ComfyUI Manager, o mantenlo y agrega `--disable-manager-ui` para ocultar la interfaz ComfyUI Manager mientras sus tareas en segundo plano continúan.
 
-Consulta la [pestaña Startup Args](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-argumentos-de-inicio) para el resto de las configuraciones por instalación y la [referencia de flags de inicio](https://docs.comfy.org/development/comfyui-server/startup-flags) para los flags del Administrador.
+Consulta la [pestaña Startup Args](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-argumentos-de-inicio) para el resto de las configuraciones por instalación y la [referencia de flags de inicio](https://docs.comfy.org/es/development/comfyui-server/startup-flags) para los flags ComfyUI Manager.
 
 ## 
 
 ​
 
-Usuarios de la versión Portable
+Usuarios de Portable
 
-Si usas la versión [Windows Portable](https://docs.comfy.org/es/installation/comfyui_portable_windows), el nuevo ComfyUI-Manager está integrado en el núcleo de ComfyUI, pero debe habilitarse.
+Si usas [Windows Portable](https://docs.comfy.org/es/installation/comfyui_portable_windows), el nuevo ComfyUI-Manager ya viene en el núcleo de ComfyUI, pero hay que habilitarlo.
 
-  1. Instala las dependencias del administrador:
+  1. Instala las dependencias ComfyUI Manager:
          
          .\python_embeded\python.exe -m pip install -r ComfyUI\manager_requirements.txt
          
 
-  2. Inicia ComfyUI con el administrador habilitado:
+  2. Inicia ComfyUI con ComfyUI Manager habilitado:
          
          .\python_embeded\python.exe -s ComfyUI\main.py --windows-standalone-build --enable-manager
          pause
@@ -90,7 +92,7 @@ Si usas la versión [Windows Portable](https://docs.comfy.org/es/installation/co
 
 Usuarios de instalación manual
 
-Para los usuarios con una [instalación manual](https://docs.comfy.org/es/installation/manual_install), el nuevo ComfyUI-Manager está integrado en el núcleo de ComfyUI, pero debe habilitarse.
+Si tienes una [instalación manual](https://docs.comfy.org/es/installation/manual_install), el nuevo ComfyUI-Manager ya viene en el núcleo de ComfyUI, pero hay que habilitarlo.
 
   1. Activa tu entorno virtual:
          
@@ -101,12 +103,12 @@ Para los usuarios con una [instalación manual](https://docs.comfy.org/es/instal
          source venv/bin/activate
          
 
-  2. Instala las dependencias del administrador:
+  2. Instala las dependencias ComfyUI Manager:
          
          pip install -r manager_requirements.txt
          
 
-  3. Habilita el administrador con el flag `--enable-manager` al ejecutar ComfyUI:
+  3. Habilita ComfyUI Manager con el flag `--enable-manager` al ejecutar ComfyUI:
          
          python main.py --enable-manager
          
@@ -123,8 +125,8 @@ Opciones de línea de comandos
 Opción (flag)| Descripción  
 ---|---  
 `--enable-manager`| Habilita ComfyUI-Manager  
-`--enable-manager-legacy-ui`| Usa la interfaz clásica del administrador en lugar de la nueva UI (requiere `--enable-manager`)  
-`--disable-manager-ui`| Deshabilita la UI y los endpoints del administrador mientras mantiene las funciones en segundo plano (requiere `--enable-manager`)  
+`--enable-manager-legacy-ui`| Usa la interfaz clásica ComfyUI Manager en lugar de la nueva UI (requiere `--enable-manager`)  
+`--disable-manager-ui`| Deshabilita la UI y los endpoints ComfyUI Manager mientras mantiene las funciones en segundo plano (requiere `--enable-manager`)  
   
 ### 
 
@@ -161,7 +163,7 @@ Los usuarios de Desktop pueden cambiar a la interfaz clásica en **Server Settin
 
 Actualizar ComfyUI-Manager
 
-ComfyUI-Manager se distribuye como su propio paquete de Python, y el núcleo de ComfyUI fija la versión con la que funciona en `manager_requirements.txt`. La forma de actualizar el Administrador depende de cómo esté instalado ComfyUI:
+ComfyUI-Manager se distribuye como su propio paquete de Python, y el núcleo de ComfyUI fija la versión con la que funciona en `manager_requirements.txt`. La forma de actualizar ComfyUI Manager depende de cómo esté instalado ComfyUI:
 
   * Desktop
 
@@ -172,9 +174,9 @@ ComfyUI-Manager se distribuye como su propio paquete de Python, y el núcleo de 
 
 
 
-Desktop incluye el Administrador y lo mantiene al día con las actualizaciones de Comfy Desktop. Actualiza el motor de ComfyUI desde el [panel Manage](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-actualizar).
+Desktop incluye ComfyUI Manager y lo mantiene al día con las actualizaciones de Comfy Desktop. Actualiza el motor de ComfyUI desde el [panel Manage](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-actualizar).
 
-Actualizar ComfyUI puede dejar sin cambios el paquete del Administrador que ya está instalado. Instala los requisitos del Administrador en el entorno desde el que inicias ComfyUI y luego reinicia ComfyUI con `--enable-manager`:
+Actualizar ComfyUI puede dejar sin cambios el paquete ComfyUI Manager que ya está instalado. Instala los requisitos ComfyUI Manager en el entorno desde el que inicias ComfyUI y luego reinicia ComfyUI con `--enable-manager`:
     
     
     # Portable (Windows)
@@ -186,7 +188,7 @@ Actualizar ComfyUI puede dejar sin cambios el paquete del Administrador que ya e
     python main.py --enable-manager
     
 
-Si clonaste el Administrador dentro de `custom_nodes` por tu cuenta:
+Si clonaste ComfyUI Manager dentro de `custom_nodes` por tu cuenta:
     
     
     cd ComfyUI/custom_nodes/comfyui-manager
@@ -211,7 +213,7 @@ Para instalar ComfyUI-Manager además de una instalación existente de ComfyUI:
          git clone https://github.com/Comfy-Org/ComfyUI-Manager comfyui-manager
          
 
-  3. Instala las dependencias del administrador: 
+  3. Instala las dependencias ComfyUI Manager: 
          
          cd comfyui-manager
          pip install -r requirements.txt
@@ -249,7 +251,7 @@ comfy-cli ofrece varias funciones para administrar ComfyUI desde la CLI.**Requis
     comfy install
     
 
-Consulta también: [documentación de comfy-cli](https://docs.comfy.org/comfy-cli/getting-started)
+Consulta también: [documentación de comfy-cli](https://docs.comfy.org/es/comfy-cli/getting-started)
 
 Método 4: Linux + venv
 

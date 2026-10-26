@@ -1,0 +1,56 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/FeatherMask/
+title: Difuminar m\u00e1scara - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:01:46.952344+00:00
+---
+
+# Difuminar máscara - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/FeatherMask/
+
+Máscara
+
+# Difuminar máscara - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+El nodo FeatherMask aplica un efecto de difuminado en los bordes de una máscara determinada
+
+Copiar páginaCopiar página
+
+El nodo `FeatherMask` aplica un efecto de difuminado en los bordes de una máscara determinada, suavizando la transición de sus bordes al ajustar su opacidad según distancias especificadas desde cada borde. Esto crea un efecto de borde más suave y difuminado.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de Dato  
+---|---|---  
+`máscara`| La máscara a la que se aplicará el efecto de difuminado. Determina el área de la imagen que se verá afectada por el difuminado.| MASK  
+`izquierda`| Especifica la distancia desde el borde izquierdo dentro de la cual se aplicará el efecto de difuminado.| INT  
+`arriba`| Especifica la distancia desde el borde superior dentro de la cual se aplicará el efecto de difuminado.| INT  
+`derecha`| Especifica la distancia desde el borde derecho dentro de la cual se aplicará el efecto de difuminado.| INT  
+`abajo`| Especifica la distancia desde el borde inferior dentro de la cual se aplicará el efecto de difuminado.| INT  
+  
+## 
+
+​
+
+Salidas
+
+Parámetro| Descripción| Tipo de Dato  
+---|---|---  
+`máscara`| La salida es una versión modificada de la máscara de entrada con un efecto de difuminado aplicado en sus bordes.| MASK  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/FeatherMask/es.md)
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/FeatherMask.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/FeatherMask)
+
+[Recortar máscara](https://docs.comfy.org/es/built-in-nodes/CropMask)[Expandir máscara](https://docs.comfy.org/es/built-in-nodes/GrowMask)

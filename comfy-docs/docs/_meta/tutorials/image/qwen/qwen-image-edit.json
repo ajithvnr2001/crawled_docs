@@ -3,8 +3,5 @@
   "file": "tutorials/image/qwen/qwen-image-edit.md",
   "title": "Qwen-Image-Edit ComfyUI Native Workflow Example - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:51:23.698221+00:00",
-  "html_len": 521724,
-  "md_len": 8861,
-  "depth": 0
+  "fetched_at": "2026-10-26T14:04:09.818064+00:00"
 }

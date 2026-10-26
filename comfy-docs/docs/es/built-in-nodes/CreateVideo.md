@@ -1,0 +1,68 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/CreateVideo/
+title: Crear video - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:01:42.786786+00:00
+---
+
+# Crear video - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/CreateVideo/
+
+Video
+
+# Crear video - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+El nodo Create Video combina una secuencia de imágenes en un video.
+
+Copiar páginaCopiar página
+
+El nodo Create Video combina una secuencia de imágenes en un video. Puedes establecer la velocidad de reproducción en fotogramas por segundo, agregar audio opcionalmente y elegir el formato de compresión, la profundidad de bits y el espacio de color del video resultante.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`imágenes`| Las imágenes a partir de las cuales crear un video.| IMAGE| Sí| -  
+`fps`| Los fotogramas por segundo para la velocidad de reproducción del video (predeterminado: 30.0).| FLOAT| Sí| 1.0 - 120.0  
+`audio`| El audio que se agregará al video.| AUDIO| No| -  
+`bit_depth`| La opción `"auto"` usa 8 bits para sRGB y 10 bits para HDR y HDR PQ. Las opciones explícitas de 8 bits y 10 bits son independientes del espacio de color. (predeterminado: “auto”)| COMBO| No| `"auto"`  
+8  
+10  
+`color_space`| Espacio de color de las imágenes de entrada. HDR selecciona BT.2020/HLG y HDR PQ selecciona BT.2020/PQ. (predeterminado: “sRGB”)| COMBO| No| `"sRGB"`  
+`"HDR"`  
+`"HDR PQ"`  
+`codec`| Opcionalmente, codifica el video de inmediato. La opción `"none"` mantiene las imágenes en forma de tensor; `"auto"` usa H.264. (predeterminado: “none”)| COMBO| No| `"none"`  
+Opciones de códec de video disponibles de la lista de códecs de video (p. ej. `"auto"` y otros códecs compatibles)  
+  
+Nota: Cuando `bit_depth` se establece en `"auto"`, el nodo usa automáticamente 10 bits para los espacios de color HDR y HDR PQ, y 8 bits para sRGB. Nota: El parámetro `codec` es una opción avanzada. Cuando se deja en `"none"`, la salida permanece en forma de tensor; seleccionar cualquier otro códec codifica el video inmediatamente.
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`output`| El video generado que contiene las imágenes de entrada y el audio opcional.| VIDEO  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/CreateVideo/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `9274559caabbafbcaad47883bf017967f9685f155ea1031e66cf22ee8d0d14c3`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/CreateVideo.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/CreateVideo)
+
+[Concatenar vídeo](https://docs.comfy.org/es/built-in-nodes/ConcatenateVideo)[Interpolar fotogramas](https://docs.comfy.org/es/built-in-nodes/FrameInterpolate)

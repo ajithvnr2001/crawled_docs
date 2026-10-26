@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/manual_install/
 title: Instalar ComfyUI manualmente (Windows, macOS, Linux) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:48.903908+00:00
+fetched_at: 2026-10-26T14:04:03.221685+00:00
 ---
 
 # Instalar ComfyUI manualmente (Windows, macOS, Linux) - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:48.903908+00:00
 > Source: https://docs.comfy.org/es/installation/manual_install/
 
 ## En esta página
+
+Volver arriba
 
   * Crear un entorno virtual
   * Clona el repositorio de código de ComfyUI
@@ -41,7 +43,7 @@ La instalación de ComfyUI se divide principalmente en varios pasos:
   3. Instalar las dependencias
   4. Iniciar ComfyUI
 
-También puedes consultar [ComfyUI CLI](https://docs.comfy.org/comfy-cli/getting-started) para instalar ComfyUI. Es una herramienta de línea de comandos que permite instalar ComfyUI y administrar sus dependencias fácilmente.
+También puedes consultar [ComfyUI CLI](https://docs.comfy.org/es/comfy-cli/getting-started) para instalar ComfyUI. Es una herramienta de línea de comandos que permite instalar ComfyUI y administrar sus dependencias fácilmente.
 
 ## 
 
@@ -162,7 +164,7 @@ Las GPU Intel Arc (Arc serie A, Arc serie B y procesadores Core Ultra con Arc Gr
     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/xpu
     
 
-Asegúrate de que tu [controlador de GPU Intel](https://www.intel.com/content/www/us/en/developer/articles/tool/pytorch-prerequisites-for-intel-gpu.html) esté instalado y actualizado. No instales los wheels de CUDA. Si ComfyUI sigue sin detectar la GPU, consulta [solución de problemas de GPU Intel](https://docs.comfy.org/troubleshooting/overview#intel-gpu-issues).
+Asegúrate de que tu [controlador de GPU Intel](https://www.intel.com/content/www/us/en/developer/articles/tool/pytorch-prerequisites-for-intel-gpu.html) esté instalado y actualizado. No instales los wheels de CUDA. Si ComfyUI sigue sin detectar la GPU, consulta [solución de problemas de GPU Intel](https://docs.comfy.org/es/troubleshooting/overview#intel-gpu-issues).
 
 2
 
@@ -184,9 +186,9 @@ Inicia la aplicación
     python main.py
     
 
-Ejecuta `python main.py --help` para ver la ayuda integrada, o consulta la [Referencia de indicadores de inicio](https://docs.comfy.org/development/comfyui-server/startup-flags) para obtener una lista completa de las opciones de línea de comandos.
+Ejecuta `python main.py --help` para ver la ayuda integrada, o consulta la [Referencia de indicadores de inicio](https://docs.comfy.org/es/development/comfyui-server/startup-flags) para obtener una lista completa de las opciones de línea de comandos.
 
-Para la configuración avanzada del servidor (puerto personalizado, acceso a la LAN, modos de VRAM y más), consulta la [referencia de indicadores de inicio](https://docs.comfy.org/development/comfyui-server/startup-flags).
+Para la configuración avanzada del servidor (puerto personalizado, acceso a la LAN, modos de VRAM y más), consulta la [referencia de flags de inicio](https://docs.comfy.org/es/development/comfyui-server/startup-flags).
 
 ## 
 

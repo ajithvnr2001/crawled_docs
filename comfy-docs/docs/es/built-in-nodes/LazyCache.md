@@ -1,0 +1,62 @@
+---
+url: https://docs.comfy.org/es/built-in-nodes/LazyCache/
+title: LazyCache - ComfyUI Built-in Node Documentation - ComfyUI
+method: scrapling+scrapegraph
+fetched_at: 2026-10-26T14:02:04.373491+00:00
+---
+
+# LazyCache - ComfyUI Built-in Node Documentation - ComfyUI
+
+> Source: https://docs.comfy.org/es/built-in-nodes/LazyCache/
+
+Depuración
+
+# LazyCache - ComfyUI Built-in Node Documentation
+
+Copiar páginaCopiar página
+
+LazyCache es una versión experimental y casera de EasyCache que agrega almacenamiento en caché durante el muestreo para reducir el cómputo.
+
+Copiar páginaCopiar página
+
+LazyCache es una versión experimental y casera de EasyCache que agrega almacenamiento en caché durante el muestreo para reducir el cómputo. Está diseñada para tener compatibilidad universal con los modelos en ComfyUI, aunque generalmente funciona peor que EasyCache y puede funcionar mejor solo en casos raros.
+
+## 
+
+​
+
+Entradas
+
+Parámetro| Descripción| Tipo de datos| Requerido| Rango  
+---|---|---|---|---  
+`modelo`| El modelo al que se le agregará LazyCache.| MODEL| Sí| -  
+`umbral_reutilización`| El umbral para reutilizar pasos en caché. Predeterminado: 0.2.| FLOAT| Sí| 0.0 - 3.0 (paso 0.01)  
+`porcentaje_inicio`| El paso de muestreo relativo para comenzar a usar LazyCache. Predeterminado: 0.15.| FLOAT| Sí| 0.0 - 1.0 (paso 0.01)  
+`porcentaje_fin`| El paso de muestreo relativo para finalizar el uso de LazyCache. Predeterminado: 0.95.| FLOAT| Sí| 0.0 - 1.0 (paso 0.01)  
+`detallado`| Si se debe registrar información detallada. Predeterminado: False.| BOOLEAN| Sí| -  
+  
+Nota: `reuse_threshold`, `start_percent`, `end_percent` y `verbose` están marcados como entradas avanzadas.
+
+## 
+
+​
+
+Salidas
+
+Nombre de salida| Descripción| Tipo de datos  
+---|---|---  
+`model`| El modelo con la funcionalidad LazyCache agregada.| MODEL  
+  
+> Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/LazyCache/es.md)
+
+* * *
+
+**Source fingerprint (SHA-256):** `78f9c13473567e068fc2be35b2f8f5aa459d43d3f13300a6ea858af98d3e2a44`
+
+¿Esta página le ayudó?
+
+SíNo
+
+[Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/LazyCache.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/LazyCache)
+
+[EasyCache](https://docs.comfy.org/es/built-in-nodes/EasyCache)[Tipo de dato de cómputo del modelo](https://docs.comfy.org/es/built-in-nodes/ModelComputeDtype)

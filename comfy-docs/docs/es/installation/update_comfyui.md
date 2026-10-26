@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/update_comfyui/
 title: C\u00f3mo actualizar ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:49.060933+00:00
+fetched_at: 2026-10-26T14:04:04.570140+00:00
 ---
 
 # Cómo actualizar ComfyUI - ComfyUI
@@ -11,17 +11,19 @@ fetched_at: 2026-10-25T12:24:49.060933+00:00
 
 ## En esta página
 
+Volver arriba
+
   * ¿Cómo actualizar ComfyUI?
   * Tipos de versión de ComfyUI
   * ¿Qué se debe actualizar al actualizar ComfyUI?
-  * Problemas comunes de actualización
-    * Frontend, plantillas de flujos de trabajo o nodos faltantes o desactualizados después de las actualizaciones
+  * Problemas comunes al actualizar
+    * Interfaz, plantillas de flujos de trabajo y nodos faltantes o desactualizados después de actualizar
     * Cómo actualizar correctamente las dependencias principales
     * Solución de problemas de actualización de dependencias principales
-    * ¿Por qué no encuentro las nuevas funciones después de actualizar?
-    * ¿Cómo cambiar entre la versión de desarrollo (nocturna) y la versión estable (release)?
-    * ¿Qué hacer cuando ocurren errores después de actualizar?
-    * ¿Cómo estar al día con las nuevas funciones?
+    * ¿Por qué no encuentro las funciones nuevas después de actualizar?
+    * ¿Cómo cambiar entre las versiones de desarrollo (Nightly) y estable (Release)?
+    * ¿Qué hacer cuando aparecen errores después de actualizar?
+    * ¿Cómo te mantienes al día con las funciones nuevas?
 
 
 
@@ -31,11 +33,11 @@ Local (autoalojado)
 
 Copiar páginaCopiar página
 
-Actualiza ComfyUI en cualquier tipo de instalación: scripts de actualización de Portable, actualizaciones de Desktop y git pull para instalaciones manuales, además de soluciones para problemas comunes de actualización.
+Actualiza ComfyUI en cualquier instalación: scripts de Portable, Desktop y git pull, además de soluciones a problemas habituales.
 
 Copiar páginaCopiar página
 
-Aunque ya hemos cubierto las actualizaciones de ComfyUI en los distintos métodos de instalación a lo largo de varias secciones, esta guía completa reúne todos los procedimientos de actualización para ayudarte a entender con claridad cómo actualizar ComfyUI.
+Aunque las actualizaciones de ComfyUI ya aparecen en varias guías de instalación, aquí reunimos todos los procedimientos en un solo sitio para que quede claro cómo actualizar.
 
 ## 
 
@@ -43,16 +45,16 @@ Aunque ya hemos cubierto las actualizaciones de ComfyUI en los distintos método
 
 ¿Cómo actualizar ComfyUI?
 
-  * Portátil
+  * Portable
 
-  * Escritorio
+  * Desktop
 
   * Instalación manual
 
 
 
 
-ComfyUI Portable incluye prácticos scripts de lote para actualizar fácilmente.
+ComfyUI Portable incluye scripts `.bat` prácticos para actualizar con facilidad.
 
 ### 
 
@@ -60,7 +62,7 @@ ComfyUI Portable incluye prácticos scripts de lote para actualizar fácilmente.
 
 Ubicación de los scripts de actualización
 
-En la carpeta `update` dentro de tu directorio de instalación portátil, encontrarás los siguientes scripts de actualización:
+En la carpeta `update` de tu instalación Portable encontrarás estos scripts:
     
     
     ComfyUI_windows_portable
@@ -99,7 +101,7 @@ Asegúrate de tener una conexión a internet estable durante las actualizaciones
 
 
 
-Comfy Desktop usa Comfy Engine como administrador de paquetes para gestionar ComfyUI. Para actualizar el motor de ComfyUI, abre el [panel Administrar](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-actualizar) y usa la pestaña Actualizar. Puedes elegir entre los canales de actualización **Estable** (predeterminado) y **Última en GitHub**.La aplicación de escritorio se actualiza automáticamente y es independiente de las actualizaciones del motor de ComfyUI.
+Para actualizar ComfyUI, abre el [panel Administrar](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-actualizar) y usa la pestaña Actualizar. Puedes elegir entre los canales de actualización **Stable** (predeterminado) y **Latest on GitHub**.La aplicación de escritorio se actualiza automáticamente y es independiente de las actualizaciones de la instancia de ComfyUI.
 
 ComfyUI instalado manualmente requiere comandos de Git para completar las actualizaciones.
 
@@ -254,7 +256,7 @@ Las actualizaciones de ComfyUI consisten principalmente en dos componentes:
   1. Actualizar el código principal de ComfyUI
   2. Actualizar las dependencias principales de ComfyUI, incluidas las dependencias necesarias de Python y los paquetes de dependencias funcionales de ComfyUI
 
-**Código principal** : Nuevos nodos, soporte para nuevos modelos, nuevas funciones, etc. **Dependencias principales** : Incluye principalmente la funcionalidad del frontend de ComfyUI, plantillas de flujo de trabajo, documentación de ayuda de nodos, etc.
+**Código principal** : Nuevos nodos, soporte para nuevos modelos, nuevas funciones, etc. **Dependencias principales** : Incluye principalmente la funcionalidad del frontend de ComfyUI, las plantillas de flujo de trabajo, la documentación de ayuda de nodos, etc.
     
     
     comfyui-frontend-package   # Funcionalidad del frontend de ComfyUI
@@ -272,28 +274,28 @@ Estas dependencias principales se mantienen en repositorios separados:
   * [comfy-kitchen](https://github.com/Comfy-Org/comfy-kitchen) \- Biblioteca de kernels rápida para inferencia de Diffusion con múltiples backends de cómputo
   * [comfy-aimdo](https://github.com/Comfy-Org/comfy-aimdo) \- Asignador de descarga bajo demanda de modelos de IA
 
-Es importante entender la diferencia entre las versiones de desarrollo (nocturnas) y las versiones estables (release):
+Es importante entender la diferencia entre las versiones de desarrollo (nightly) y las estables (release):
 
-  * **Versión de desarrollo (nocturna)** : Código del último commit, que te da acceso a las funciones más recientes, pero puede contener posibles problemas
+  * **Versión de desarrollo (nightly)** : Código del último commit, que te da acceso a las funciones más recientes, pero puede contener posibles problemas
   * **Versión estable (release)** : Basada en lanzamientos estables, normalmente va por detrás de las versiones de desarrollo, pero ofrece mayor estabilidad. Damos soporte a las versiones estables después de que las funciones se prueban y estabilizan
 
-Muchos usuarios suelen encontrarse en versiones estables (release) o versiones de escritorio durante las actualizaciones, pero descubren que las funciones que necesitan solo están disponibles en las versiones de desarrollo. En esos casos, verifica si tu archivo local `ComfyUI/requirements.txt` coincide con las [dependencias de la versión nocturna](https://github.com/Comfy-Org/ComfyUI/blob/master/requirements.txt) para determinar si todas las dependencias admiten las funciones más recientes.
+Muchos usuarios suelen encontrarse en versiones estables (release) o en el canal **Stable** predeterminado de Desktop durante las actualizaciones, pero descubren que las funciones que necesitan solo están disponibles en las compilaciones de desarrollo o nightly. En **Desktop** , cambia a **Latest on GitHub** en [Administrar → Actualizar](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-actualizar). Para instalaciones portables o manuales, verifica si tu archivo local `ComfyUI/requirements.txt` coincide con las [dependencias de la versión nightly](https://github.com/Comfy-Org/ComfyUI/blob/master/requirements.txt) para determinar si todas las dependencias admiten las funciones más recientes.
 
 ## 
 
 ​
 
-Problemas comunes de actualización
+Problemas comunes al actualizar
 
 ### 
 
 ​
 
-Frontend, plantillas de flujos de trabajo o nodos faltantes o desactualizados después de las actualizaciones
+Interfaz, plantillas de flujos de trabajo y nodos faltantes o desactualizados después de actualizar
 
   * Dependencias no actualizadas correctamente
 
-  * Fallos de actualización de dependencias
+  * Fallos en la actualización de dependencias
 
 
 
@@ -301,13 +303,13 @@ Frontend, plantillas de flujos de trabajo o nodos faltantes o desactualizados de
 Muchos usuarios solo usan el comando `git pull` para actualizar el código de ComfyUI, pero **descuidan la actualización de las dependencias principales** , lo que provoca los siguientes problemas:
 
   * Funcionalidad del frontend faltante o anómala
-  * No se encuentran las plantillas de flujo de trabajo recién agregadas
-  * Documentación de ayuda de los nodos desactualizada o faltante
+  * No se encuentran las plantillas de flujos de trabajo recién añadidas
+  * Documentación de ayuda de nodos desactualizada o faltante
   * Las nuevas funciones carecen del soporte correspondiente en el frontend
 
 Después de usar el comando `git pull`, usa el entorno de ComfyUI correspondiente para ejecutar `pip install -r requirements.txt` y actualizar las dependencias.
 
-Si fallan las actualizaciones de dependencias, suele deberse a problemas de red o de permisos del equipo. Cuando se producen fallos en las dependencias principales durante las actualizaciones, el sistema recurre a versiones anteriores. Normalmente verás registros como este durante el inicio:
+Si las actualizaciones de dependencias fallan, normalmente se debe a problemas de red o de permisos del equipo. Cuando ocurren fallos en las dependencias principales durante las actualizaciones, el sistema recurre a versiones anteriores. Por lo general verás registros como este al iniciar:
     
     
     Falling back to the default frontend.
@@ -317,8 +319,8 @@ Si fallan las actualizaciones de dependencias, suele deberse a problemas de red 
 Sigue estos pasos para solucionar problemas:
 
   1. Usa `pip list` en el entorno adecuado para ver los paquetes de dependencias instalados actualmente. Si encuentras inconsistencias de versión, usa `pip install -r requirements.txt` en el entorno de ComfyUI para intentar actualizar las dependencias de nuevo.
-  2. Si los problemas persisten después de actualizar, revisa tu conexión de red. Los usuarios en China continental pueden necesitar configurar un proxy para acceder de forma fiable a los repositorios de GitHub.
-  3. Si los problemas continúan, revisa los permisos del equipo. Si se requieren privilegios de administrador, ejecuta la línea de comandos con derechos de administrador.
+  2. Si los problemas persisten después de actualizar, revisa tu conexión de red. Los usuarios de China continental pueden necesitar configurar un proxy para acceder de forma confiable a los repositorios de GitHub.
+  3. Si los problemas continúan, revisa los permisos del equipo. Si se requieren privilegios de administrador, ejecuta la línea de comandos con permisos de administrador.
 
 
 
@@ -375,11 +377,9 @@ Actualiza las dependencias de ComfyUI. Este paso es crucial, especialmente para 
     pip install -r requirements.txt
     
 
-La versión Desktop normalmente gestiona las actualizaciones de dependencias de forma automática. Si tienes problemas:
-
-  1. **Verifica si la actualización automática** está habilitada
-  2. **Activa la actualización manualmente** : Menú → Ayuda → Buscar actualizaciones
-  3. **Reinstala la versión Desktop** (en casos extremos)
+  * **Instancia de ComfyUI + dependencias de Python:** usa [Administrar → Actualizar](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-actualizar) (**Stable** o **Latest on GitHub**). Las actualizaciones de dependencias suelen aplicarse dentro de ese flujo.
+  * **La app Desktop en sí:** usa el menú de la app **Buscar actualizaciones** (es independiente del canal de actualización de ComfyUI).
+  * Reinstala Desktop solo como último recurso.
 
 
 
@@ -389,11 +389,11 @@ La versión Desktop normalmente gestiona las actualizaciones de dependencias de 
 
 Solución de problemas de actualización de dependencias principales
 
-Si fallan las actualizaciones de las dependencias principales, sigue estos pasos para solucionar problemas:
+Si las actualizaciones de las dependencias principales fallan, sigue estos pasos para solucionar problemas:
 
 1
 
-Comprobar la conexión de red
+Revisa la conexión de red
 
 Si te encuentras en China continental, asegúrate de poder acceder a PyPI o configura un espejo nacional:
     
@@ -404,9 +404,9 @@ Si te encuentras en China continental, asegúrate de poder acceder a PyPI o conf
 
 2
 
-Instalar los paquetes principales individualmente
+Instala los paquetes principales individualmente
 
-Si falla la instalación por lotes, intenta instalar los paquetes individualmente. **Primero revisa los requisitos de versión en`ComfyUI/requirements.txt`**:**Luego instala según las versiones especificadas (usa los números de versión de tu requirements.txt):**
+Si la instalación por lotes falla, intenta instalar los paquetes individualmente. **Primero revisa los requisitos de versión en`ComfyUI/requirements.txt`**:**Luego instala según las versiones especificadas (usa los números de versión de tu requirements.txt):**
     
     
      pip install comfyui-frontend-package==<version> 
@@ -416,55 +416,55 @@ Si falla la instalación por lotes, intenta instalar los paquetes individualment
     pip install comfy-aimdo==<version>
     
 
-Se recomienda usar los números de versión exactos especificados en `ComfyUI/requirements.txt`. No actualices a las últimas versiones por tu cuenta, ya que esto puede causar problemas de compatibilidad.
+Se recomienda usar los números de versión exactos especificados en `ComfyUI/requirements.txt`. No actualices a las versiones más recientes por tu cuenta, ya que esto puede causar problemas de compatibilidad.
 
 ### 
 
 ​
 
-¿Por qué no encuentro las nuevas funciones después de actualizar?
+¿Por qué no encuentro las funciones nuevas después de actualizar?
 
 Este es uno de los problemas más comunes:
 
-  * Si usas la **versión de escritorio** , es posible que las funciones estén retrasadas porque la versión de escritorio se basa en versiones estables
-  * Asegúrate de usar la **versión de desarrollo (nocturna)** , no la **versión estable (release)**
+  * Si usas **Desktop** en el canal de actualización **Stable** , las funciones pueden ir por detrás de los commits más recientes de GitHub. Cambia el canal a **Latest on GitHub** en la pestaña [Administrar → Actualizar](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-actualizar) cuando necesites funciones más recientes (Latest puede ser menos estable).
+  * Para instalaciones Portable o manuales, asegúrate de estar en la **versión de desarrollo (nightly)** y no en la **versión estable (release)** cuando necesites los commits más recientes.
 
-Además, asegúrate de que las dependencias correspondientes se hayan actualizado correctamente durante el proceso de actualización. Si los problemas persisten después de actualizar, consulta la sección Solución de problemas de actualización de dependencias para diagnosticar los problemas.
+Además, asegúrate de que las dependencias correspondientes se hayan actualizado correctamente durante el proceso de actualización. Si los problemas persisten después de actualizar, consulta la sección Solución de problemas de actualización de dependencias para diagnosticar el problema.
 
 ### 
 
 ​
 
-¿Cómo cambiar entre la versión de desarrollo (nocturna) y la versión estable (release)?
+¿Cómo cambiar entre las versiones de desarrollo (Nightly) y estable (Release)?
 
 Diferencias entre versiones:
 
-  * Versión de desarrollo (nocturna)
+  * Versión de desarrollo (Nightly)
 
-  * Versión estable (release)
-
-
-
-
-  * **Características** : contiene el código del commit más reciente
-  * **Ventajas** : experimenta primero las últimas funciones y mejoras
-  * **Riesgos** : puede contener errores no descubiertos o factores de inestabilidad
-  * **Adecuada para** : desarrolladores, testadores y usuarios que quieran experimentar las últimas funciones
+  * Versión estable (Release)
 
 
 
-  * **Características** : código estable probado y verificado
-  * **Ventajas** : alta estabilidad, adecuada para entornos de producción
-  * **Desventajas** : las actualizaciones de funciones tienen retrasos y pueden ir por detrás de las versiones de desarrollo durante semanas o meses
-  * **Adecuada para** : usuarios que requieren estabilidad y usuarios de entornos de producción
+
+  * **Características** : Contiene el código del commit más reciente
+  * **Ventajas** : Prueba primero las funciones y mejoras más recientes
+  * **Riesgos** : Puede contener errores no descubiertos o factores de inestabilidad
+  * **Adecuada para** : Desarrolladores, testers y usuarios que quieren probar las funciones más recientes
 
 
 
-  * Portátil
+  * **Características** : Código estable probado y verificado
+  * **Ventajas** : Alta estabilidad, adecuada para entornos de producción
+  * **Desventajas** : Las actualizaciones de funciones tienen retrasos, pueden ir por detrás de las versiones de desarrollo por semanas o meses
+  * **Adecuada para** : Usuarios que requieren estabilidad, usuarios de entornos de producción
+
+
+
+  * Portable
 
   * Instalación manual
 
-  * Escritorio
+  * Desktop
 
 
 
@@ -472,7 +472,7 @@ Diferencias entre versiones:
 Usa `update_comfyui.bat` en lugar de `update_comfyui_stable.bat`:
     
     
-    # Versión de desarrollo (últimas funciones)
+    # Versión de desarrollo (funciones más recientes)
     double-click: update_comfyui.bat
     
     # Versión estable
@@ -489,24 +489,24 @@ Usa `update_comfyui.bat` en lugar de `update_comfyui_stable.bat`:
     git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
     
 
-La versión de escritorio normalmente se basa en versiones estables y actualmente no admite el cambio de versión. Si necesitas las últimas funciones, te recomendamos:
+Abre el [panel Administrar](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-actualizar) y usa la pestaña Actualizar para cambiar de canal:
 
-  1. Esperar a que se actualice la versión de escritorio
-  2. O usar la instalación portátil/manual para experimentar las últimas funciones
+  * **Stable** (predeterminado): versiones probadas, pueden ir por detrás de los commits más recientes de GitHub
+  * **Latest on GitHub** : sigue los commits más recientes de GitHub; puede ser menos estable
 
-
+Usa **Switch Channel** , **Update Now** o **Copy & Update** según si el canal seleccionado tiene una compilación más reciente. Encontrarás los detalles en la página [pestaña Actualizar del panel Administrar](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-actualizar).
 
 ### 
 
 ​
 
-¿Qué hacer cuando ocurren errores después de actualizar?
+¿Qué hacer cuando aparecen errores después de actualizar?
 
-  1. **Revisa las dependencias** : ejecuta `pip install -r requirements.txt` para asegurarte de que todas las dependencias estén actualizadas
-  2. **Revisa los nodos personalizados** : algunos nodos personalizados pueden ser incompatibles con las nuevas versiones
-  3. **Revierte la versión** : si los problemas son graves, puedes volver a una versión estable anterior
+  1. **Revisa las dependencias** : Ejecuta `pip install -r requirements.txt` para asegurarte de que todas las dependencias estén actualizadas
+  2. **Revisa los nodos personalizados** : Algunos nodos personalizados pueden ser incompatibles con las versiones nuevas
+  3. **Revierte la versión** : Si los problemas son graves, puedes volver a una versión estable anterior
 
-Si se producen problemas, consulta nuestra página de solución de problemas para encontrar soluciones.
+Si se presentan problemas, consulta nuestra página de solución de problemas para encontrar soluciones.
 
 ## Solución de problemas
 
@@ -516,11 +516,11 @@ Aprende a solucionar problemas de ComfyUI
 
 ​
 
-¿Cómo estar al día con las nuevas funciones?
+¿Cómo te mantienes al día con las funciones nuevas?
 
-  * **GitHub Releases** : consulta [ComfyUI Releases](https://github.com/Comfy-Org/ComfyUI/releases) para ver las actualizaciones de la versión estable
-  * **Commits de GitHub** : consulta los [últimos commits](https://github.com/Comfy-Org/ComfyUI/commits/master) para entender el progreso del desarrollo
-  * **Discusión de la comunidad** : sigue nuestro [blog](https://blog.comfy.org) y [Twitter](https://x.com/comfyui) para conocer las últimas novedades
+  * **GitHub Releases** : Consulta [ComfyUI Releases](https://github.com/Comfy-Org/ComfyUI/releases) para ver las actualizaciones de la versión estable
+  * **GitHub Commits** : Revisa los [commits más recientes](https://github.com/Comfy-Org/ComfyUI/commits/master) para conocer el avance del desarrollo
+  * **Discusión en la comunidad** : Sigue nuestro [blog](https://blog.comfy.org) y [Twitter](https://x.com/comfyui) para ver las novedades más recientes
 
 
 

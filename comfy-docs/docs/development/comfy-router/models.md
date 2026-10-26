@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/
 title: Comfy Router models - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:37.059295+00:00
+fetched_at: 2026-10-26T14:04:03.672955+00:00
 ---
 
 # Comfy Router models - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-23T16:38:37.059295+00:00
 > Source: https://docs.comfy.org/development/comfy-router/models/
 
 ## On this page
+
+Back to top
 
   * Find by output
   * Anthropic
@@ -294,10 +296,9 @@ Audio (41)
 
 
 
-3D (11)
+3D (10)
 
   * [Animations](https://docs.comfy.org/development/comfy-router/models/meshy/animations/code): `meshy/animations`
-  * [Meshy 5](https://docs.comfy.org/development/comfy-router/models/meshy/meshy-5/code): `meshy/meshy-5`
   * [Meshy 6](https://docs.comfy.org/development/comfy-router/models/meshy/meshy-6/code): `meshy/meshy-6`
   * [Meshy 7.1](https://docs.comfy.org/development/comfy-router/models/meshy/meshy-7-1/code): `meshy/meshy-7.1`
   * [Meshy 7](https://docs.comfy.org/development/comfy-router/models/meshy/meshy-7/code): `meshy/meshy-7`
@@ -654,7 +655,6 @@ Meshy
 Model| ID| Input| Output  
 ---|---|---|---  
 [Animations](https://docs.comfy.org/development/comfy-router/models/meshy/animations/code)| `meshy/animations`| 3D| 3D  
-[Meshy 5](https://docs.comfy.org/development/comfy-router/models/meshy/meshy-5/code)| `meshy/meshy-5`| Text| 3D  
 [Meshy 6](https://docs.comfy.org/development/comfy-router/models/meshy/meshy-6/code)| `meshy/meshy-6`| Text| 3D  
 [Meshy 7.1](https://docs.comfy.org/development/comfy-router/models/meshy/meshy-7-1/code)| `meshy/meshy-7.1`| Text| 3D  
 [Meshy 7](https://docs.comfy.org/development/comfy-router/models/meshy/meshy-7/code)| `meshy/meshy-7`| Text| 3D  
