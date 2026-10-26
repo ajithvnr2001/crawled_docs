@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/observability/pricing/
 title: Pricing \u00b7 Cloudflare Observability docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:33.578612+00:00
+fetched_at: 2026-10-26T07:34:37.471656+00:00
 ---
 
 # Pricing · Cloudflare Observability docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-16T06:38:33.578612+00:00
 
 # Pricing
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewIncluded in the new Observability pricing Plans How usage is measured Example Longer retention Existing customersLog Explorer (Legacy)
 
@@ -75,8 +75,8 @@ Suppose a Paid account uses 75 GB of ingestion and 20 GB-month of storage during
 Usage | Calculation | Additional charge  
 ---|---|---  
 Ingestion | (75 GB - 50 GB included) x $0.25 | $6.25  
-Storage | (20 GB-month - 10 GB-month included) x $0.10 | $0.80  
-Total | $6.25 + $0.80 | $7.05  
+Storage | (20 GB-month - 10 GB-month included) x $0.10 | $1.00  
+Total | $6.25 + $1.00 | $7.25  
   
 ### Longer retention
 
