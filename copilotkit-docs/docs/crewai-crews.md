@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/crewai-crews/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T08:18:49.399268+00:00
+fetched_at: 2026-10-26T08:46:21.655900+00:00
 ---
 
 # Introduction
