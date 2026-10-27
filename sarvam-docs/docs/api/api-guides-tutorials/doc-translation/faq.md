@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/faq/
 title: FAQs | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:14.422529+00:00
+fetched_at: 2026-10-27T06:38:25.780619+00:00
 ---
 
 # FAQs | Sarvam API Docs
@@ -41,7 +41,7 @@ No. Document translation is asynchronous, split across five calls: create the jo
 
 ###### Which file formats are supported?
 
-PDF (`.pdf`), Word (`.doc`, `.docx`, `.odt`), spreadsheets (`.xls`, `.xlsx`, `.ods`), presentations (`.ppt`, `.pptx`, `.odp`), and web pages (`.html`, `.xhtml`, `.mhtml`).
+PDF (`.pdf`), Word (`.doc`, `.docx`, `.odt`), spreadsheets (`.xls`, `.xlsx`, `.ods`), presentations (`.ppt`, `.pptx`, `.odp`), web pages (`.html`, `.xhtml`, `.mhtml`), Markdown (`.md`, `.markdown`), and plain text (`.txt`).
 
 ###### What keeps a job in Accepted?
 
@@ -89,6 +89,10 @@ No: export is per language. Call `POST /translate/document/jobs/{job_id}/export?
 
 The requested language’s translation isn’t `Completed` yet, or an export is already in progress for that language and format. Check the per-language `state` inside `live-status`’s `translations` array; a `job_state` of `Running` or `PartiallyCompleted` can still have individual languages ready to export.
 
+###### What are the limits on Markdown and plain-text files?
+
+`.md`, `.markdown`, and `.txt` uploads must be valid UTF-8, cap at 2 MB per file, and produce at most 500 translation chunks per job. Both caps are enforced before the job starts, so an oversized file is rejected rather than partially translated.
+
 ###### How often should I poll live-status?
 
 Every 10-15 seconds is the documented guidance. Poll from a background worker rather than an HTTP request handler, and cap total wait time.
@@ -99,7 +103,7 @@ Some target languages finished translating and others failed. Treat it as a term
 
 ###### Why don't I see page_metrics in the response?
 
-`live-status` returns one of two shapes depending on which pipeline processed your file. PDF uploads get the page-granular shape (`page_metrics`, per-language `pages_completed`/`pages_failed`). Word, spreadsheet, and presentation uploads get the document-granular shape instead (`translation_metrics`, per-language `segments_completed`/`segments_total`), with no `page_metrics` field in that shape at all, rather than a null value. See the [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview#page-granular-vs-document-granular-responses) for both response examples.
+`live-status` returns one of three shapes depending on which pipeline processed your file. PDF uploads get the page-granular shape (`page_metrics`, per-language `pages_completed`/`pages_failed`). Word, spreadsheet, and presentation uploads get the document-granular shape instead (`translation_metrics`, per-language `segments_completed`/`segments_total`). Markdown and plain-text uploads get the chunk-granular shape (`chunk_metrics`, per-language `chunks_completed`/`chunks_failed`). The other shapes’ metrics field is absent entirely, rather than a null value. See the [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview#response-granularity-by-file-type) for all three response shapes.
 
 ## Related
 
@@ -305,6 +309,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

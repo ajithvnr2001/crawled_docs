@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/translate-document/start-doc-translation/
 title: Start Job | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T06:32:47.900313+00:00
+fetched_at: 2026-10-27T06:38:11.957867+00:00
 ---
 
 # Start Job | Sarvam API Docs
@@ -92,6 +92,10 @@ Number of pages in the source document. Present for PDF jobs; omitted for Office
 warningslist of stringsOptional
 
 Server warnings (e.g. filename overridden from content detection). Omitted when empty.
+
+num_chunksintegerOptional
+
+Number of translation chunks the source file was split into. Present for Markdown / plain-text jobs; omitted for other formats.
 
 ### Errors
 
@@ -271,7 +275,9 @@ YesNo
   * [Get attempts](https://docs.sarvam.ai/api-reference/analytics/attempts)
   * [Get interactions](https://docs.sarvam.ai/api-reference/analytics/interactions)
   * [Get recordings](https://docs.sarvam.ai/api-reference/analytics/recordings)
+  * [Get forwarded recordings](https://docs.sarvam.ai/api-reference/analytics/forwarded-recordings)
   * [Get transcripts](https://docs.sarvam.ai/api-reference/analytics/transcripts)
+  * [Get traces](https://docs.sarvam.ai/api-reference/analytics/traces)
   * [Overview](https://docs.sarvam.ai/api-reference/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/api-reference/boards/sql)
   * [Best practices](https://docs.sarvam.ai/api-reference/boards/best-practices)

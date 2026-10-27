@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/poll-and-export/
 title: How to poll status and export results | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T06:33:43.101519+00:00
+fetched_at: 2026-10-27T06:38:10.582386+00:00
 ---
 
 # How to poll status and export results | Sarvam API Docs
@@ -36,20 +36,21 @@ Endpoint| Purpose
 `POST /translate/document/jobs/{job_id}/export?lang={code}`| Enqueue an async export for one target language. Returns `202 Accepted` with `export_state=Pending`. Exports in the uploaded file’s format by default.  
 `GET /translate/document/jobs/{job_id}/export/status`| Poll export status until `export_state` is `Completed`, then download from `download_url`.  
   
-**`live-status` response shapes differ by file type**, but the poll/export logic below works for both:
+**`live-status` response shapes differ by file type**, but the poll/export logic below works for all of them:
 
 Upload type| Progress tracking  
 ---|---  
 PDF| Per page (`page_metrics`)  
 Word, spreadsheet, presentation| Per segment (`translation_metrics`)  
+Markdown, plain text| Per chunk (`chunk_metrics`)  
   
-`job_state`, `translations[].state`, and `translations[].target_language_code` are present in both shapes. See [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview#page-granular-vs-document-granular-responses) for full field lists.
+`job_state`, `translations[].state`, and `translations[].target_language_code` are present in every shape. See [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview#response-granularity-by-file-type) for full field lists.
 
 **Check each language’s own`state`, not only top-level `job_state`.**
 
 A job can stay `Running` or `PartiallyCompleted` while some languages in `translations[]` are already `Completed` and ready to export. Gate your export loop on `translations[].state`, not `job_state` alone.
 
-**`format` is optional.** When omitted, the export uses the uploaded file’s native format. **PDF uploads** may optionally set `format` to `pdf`, `docx`, `html`, `txt`, or `epub`. **Microsoft Office uploads** always export in the original format only.
+**`format` is optional.** When omitted, the export uses the uploaded file’s native format. **PDF uploads** may optionally set `format` to `pdf`, `docx`, `html`, `txt`, or `epub`. **Microsoft Office uploads** always export in the original format only. **Markdown and plain-text uploads** also export in the original format only: `.md` / `.markdown` as `md` (`markdown` is accepted as an alias), `.txt` as `txt`.
 
 ## Example
 
@@ -344,6 +345,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

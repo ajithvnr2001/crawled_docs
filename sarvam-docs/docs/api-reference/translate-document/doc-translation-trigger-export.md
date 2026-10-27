@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/translate-document/doc-translation-trigger-export/
 title: Trigger Export | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T06:32:48.345822+00:00
+fetched_at: 2026-10-27T06:38:12.416069+00:00
 ---
 
 # Trigger Export | Sarvam API Docs
@@ -103,10 +103,11 @@ Optional target export format. When omitted, defaults to the uploaded file’s n
 
   * **PDF uploads:** may be set to `pdf` (default), `docx`, `html`, `txt`, or `epub`.
   * **Microsoft Office uploads** (`.doc`, `.docx`, `.xls`, `.xlsx`, `.ppt`, `.pptx`, and related formats): always export in the original format only; other values are rejected.
+  * **Markdown / plain-text uploads** (`.md`, `.markdown`, `.txt`): export in the original format only — `md` (`markdown` is accepted as an alias) or `txt`.
 
 
 
-Allowed values:pdfdocxhtmltxtepub
+Show 6 enum values
 
 fit_line_heightbooleanOptional
 
@@ -364,7 +365,9 @@ YesNo
   * [Get attempts](https://docs.sarvam.ai/api-reference/analytics/attempts)
   * [Get interactions](https://docs.sarvam.ai/api-reference/analytics/interactions)
   * [Get recordings](https://docs.sarvam.ai/api-reference/analytics/recordings)
+  * [Get forwarded recordings](https://docs.sarvam.ai/api-reference/analytics/forwarded-recordings)
   * [Get transcripts](https://docs.sarvam.ai/api-reference/analytics/transcripts)
+  * [Get traces](https://docs.sarvam.ai/api-reference/analytics/traces)
   * [Overview](https://docs.sarvam.ai/api-reference/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/api-reference/boards/sql)
   * [Best practices](https://docs.sarvam.ai/api-reference/boards/best-practices)

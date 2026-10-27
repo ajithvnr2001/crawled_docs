@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/text/transliterate-text/
 title: Transliteration | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T06:32:49.070077+00:00
+fetched_at: 2026-10-27T06:38:13.638513+00:00
 ---
 
 # Transliteration | Sarvam API Docs
@@ -366,7 +366,9 @@ YesNo
   * [Get attempts](https://docs.sarvam.ai/api-reference/analytics/attempts)
   * [Get interactions](https://docs.sarvam.ai/api-reference/analytics/interactions)
   * [Get recordings](https://docs.sarvam.ai/api-reference/analytics/recordings)
+  * [Get forwarded recordings](https://docs.sarvam.ai/api-reference/analytics/forwarded-recordings)
   * [Get transcripts](https://docs.sarvam.ai/api-reference/analytics/transcripts)
+  * [Get traces](https://docs.sarvam.ai/api-reference/analytics/traces)
   * [Overview](https://docs.sarvam.ai/api-reference/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/api-reference/boards/sql)
   * [Best practices](https://docs.sarvam.ai/api-reference/boards/best-practices)

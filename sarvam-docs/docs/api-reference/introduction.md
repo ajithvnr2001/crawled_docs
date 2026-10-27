@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/introduction/
 title: Welcome to Sarvam AI API Reference Documentation | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:13:57.262946+00:00
+fetched_at: 2026-10-27T06:38:23.957983+00:00
 ---
 
 # Welcome to Sarvam AI API Reference Documentation | Sarvam API Docs
@@ -35,7 +35,7 @@ Sarvam provides Models & APIs across the stack to help developers build powerful
 
 Available APIs: [Chat Completion](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1), [Text Translation](https://docs.sarvam.ai/api-reference/text/translate-text), [Document Translation](https://docs.sarvam.ai/api-reference/translate-document/create-doc-translation), [Speech to Text](https://docs.sarvam.ai/api-reference/speech-to-text/transcribe), [Speech to Text Translate](https://docs.sarvam.ai/api-reference/legacy/speech-to-text-translate/translate), [Text to Speech](https://docs.sarvam.ai/api-reference/text-to-speech/convert), [Instant Voice Cloning](https://docs.sarvam.ai/api-reference/voice-cloning), [Transliteration](https://docs.sarvam.ai/api-reference/text/transliterate-text), and [Language Identification](https://docs.sarvam.ai/api-reference/text/identify-language).
 
-[Chat CompletionUse the /chat/completions endpoint or the SDK to generate conversational responses. Supports 10 Indic languages along with English, delivering best-in-class multilingual performance.](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)[Translate TextUse the `/translate` endpoint or the SDK to translate text from one language to another. Supports 22 Indic languages along with English, achieving best-in-class performance.](https://docs.sarvam.ai/api-reference/text/translate-text)[Document TranslationUse the `/translate/document/jobs` endpoints or the SDK to translate whole PDF, Word, Excel, PowerPoint, and HTML files. Exports preserve layout and stay in the source format (document-to-document).](https://docs.sarvam.ai/api-reference/translate-document/create-doc-translation)[Speech to TextUse the `/speech-to-text` endpoint or the SDK to convert spoken language into written text. Output is returned in the same input language.](https://docs.sarvam.ai/api-reference/speech-to-text/transcribe)[Speech to Text TranslateUse the `/speech-to-text-translate` endpoint or the SDK to combine speech recognition and translation, allowing you to convert spoken language directly into translated text.](https://docs.sarvam.ai/api-reference/legacy/speech-to-text-translate/translate)[Text to SpeechUse the `/text-to-speech` endpoint or the SDK to convert written text into spoken words. Supports natural-sounding voices across 10 languages.](https://docs.sarvam.ai/api-reference/text-to-speech/convert)[Instant Voice CloningCreate a saved voice with `/voices/create`, then generate speech with `/voices/clone` and its `voice_id`.](https://docs.sarvam.ai/api-reference/voice-cloning)[TransliterateUse the `/transliterate` endpoint or the SDK to convert text between different scripts while maintaining the same language. Perfect for handling multiple writing systems.](https://docs.sarvam.ai/api-reference/text/transliterate-text)[Language IdentificationUse the `/text-lid` endpoint or the SDK to automatically identify the language of input text. Supports all major Indian languages with high accuracy.](https://docs.sarvam.ai/api-reference/text/identify-language)
+[Chat CompletionUse the /chat/completions endpoint or the SDK to generate conversational responses. Supports 10 Indic languages along with English, delivering best-in-class multilingual performance.](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)[Translate TextUse the `/translate` endpoint or the SDK to translate text from one language to another. Supports 22 Indic languages along with English, achieving best-in-class performance.](https://docs.sarvam.ai/api-reference/text/translate-text)[Document TranslationUse the `/translate/document/jobs` endpoints or the SDK to translate whole PDF, Word, Excel, PowerPoint, and HTML files. Exports preserve layout and stay in the source format (document-to-document).](https://docs.sarvam.ai/api-reference/translate-document/create-doc-translation)[Speech to TextUse the `/speech-to-text` endpoint or the SDK to convert spoken language into written text. Output is returned in the same input language.](https://docs.sarvam.ai/api-reference/speech-to-text/transcribe)[Speech to Text TranslateUse the `/speech-to-text-translate` endpoint or the SDK to combine speech recognition and translation, allowing you to convert spoken language directly into translated text.](https://docs.sarvam.ai/api-reference/legacy/speech-to-text-translate/translate)[Text to SpeechUse the `/text-to-speech` endpoint or the SDK to convert written text into spoken words. Supports natural-sounding voices across 10 languages.](https://docs.sarvam.ai/api-reference/text-to-speech/convert)[Instant Voice CloningCreate a saved voice with `/voices/create`, then generate speech with `/voices/clone` and its `voice_id`.](https://docs.sarvam.ai/api-reference/voice-cloning)[TransliterateUse the `/transliterate` endpoint or the SDK to convert text between different scripts while maintaining the same language. Perfect for handling multiple writing systems.](https://docs.sarvam.ai/api-reference/text/transliterate-text)[Language IdentificationUse the `/text-lid` endpoint or the SDK to automatically identify the language of input text. Supports all major Indian languages with high accuracy.](https://docs.sarvam.ai/api-reference/text/identify-language)[SplitSeparate a scanned bundle into individual documents — by fixed page groups, explicit page ranges, matching markers, or model-detected boundaries.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[ClassifyLabel a document — or each page — against the categories you define, or let the API suggest a type. Returns a decision with evidence and a review flag.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
 
 ## Getting Started
 
@@ -62,7 +62,7 @@ YesNo
 
     * [Introduction](https://docs.sarvam.ai/api-reference/introduction)
     * [Authentication](https://docs.sarvam.ai/api-reference/authentication)
-    * [Access to Beta APIs](https://docs.sarvam.ai/api-reference/beta-apis)
+    * [Beta APIs and Models](https://docs.sarvam.ai/api-reference/beta-apis)
     * [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt)
   * APIs
 
@@ -78,7 +78,7 @@ YesNo
 
     * Chat Completion
 
-    * Responses APIBeta
+    * Responses API
 
     * Content Studio - Dubbing
 
@@ -114,7 +114,7 @@ YesNo
 
   * [Introduction](https://docs.sarvam.ai/api-reference/introduction)
   * [Authentication](https://docs.sarvam.ai/api-reference/authentication)
-  * [Access to Beta APIs](https://docs.sarvam.ai/api-reference/beta-apis)
+  * [Beta APIs and Models](https://docs.sarvam.ai/api-reference/beta-apis)
   * [Meta Prompt Guide](https://docs.sarvam.ai/api-reference/metaprompt)
   * [REST](https://docs.sarvam.ai/api-reference/speech-to-text/transcribe)
   * [Batch - Initiate Job](https://docs.sarvam.ai/api-reference/speech-to-text/stt/job/initiate)
@@ -203,7 +203,9 @@ YesNo
   * [Get attempts](https://docs.sarvam.ai/api-reference/analytics/attempts)
   * [Get interactions](https://docs.sarvam.ai/api-reference/analytics/interactions)
   * [Get recordings](https://docs.sarvam.ai/api-reference/analytics/recordings)
+  * [Get forwarded recordings](https://docs.sarvam.ai/api-reference/analytics/forwarded-recordings)
   * [Get transcripts](https://docs.sarvam.ai/api-reference/analytics/transcripts)
+  * [Get traces](https://docs.sarvam.ai/api-reference/analytics/traces)
   * [Overview](https://docs.sarvam.ai/api-reference/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/api-reference/boards/sql)
   * [Best practices](https://docs.sarvam.ai/api-reference/boards/best-practices)

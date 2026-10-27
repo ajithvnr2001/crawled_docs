@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/responses/create-stream/
 title: Create Response | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T06:32:51.773675+00:00
+fetched_at: 2026-10-27T06:38:16.066880+00:00
 ---
 
 # Create Response | Sarvam API Docs
@@ -237,7 +237,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api-reference/legacy/document-intelligence/get-download-links)[IntroductionManage deployments, campaigns, outbound calls, and analytics for your voice agents over REST.Next](https://docs.sarvam.ai/api-reference/conversations)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api-reference/legacy/document-intelligence/get-download-links)[Voice Agents API: manage AI voice agents programmaticallyManage deployments, campaigns, outbound calls, and analytics for your voice agents over REST.Next](https://docs.sarvam.ai/api-reference/conversations)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * API Reference
 
@@ -385,7 +385,9 @@ YesNo
   * [Get attempts](https://docs.sarvam.ai/api-reference/analytics/attempts)
   * [Get interactions](https://docs.sarvam.ai/api-reference/analytics/interactions)
   * [Get recordings](https://docs.sarvam.ai/api-reference/analytics/recordings)
+  * [Get forwarded recordings](https://docs.sarvam.ai/api-reference/analytics/forwarded-recordings)
   * [Get transcripts](https://docs.sarvam.ai/api-reference/analytics/transcripts)
+  * [Get traces](https://docs.sarvam.ai/api-reference/analytics/traces)
   * [Overview](https://docs.sarvam.ai/api-reference/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/api-reference/boards/sql)
   * [Best practices](https://docs.sarvam.ai/api-reference/boards/best-practices)

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/
 title: AI for all from India | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:47.518138+00:00
+fetched_at: 2026-10-27T06:38:25.016265+00:00
 ---
 
 # AI for all from India | Sarvam API Docs
@@ -83,15 +83,15 @@ End-to-end projects you can run today, with the full source in each guide.
 
 [All recipes →](https://docs.sarvam.ai/api/cookbook)
 
-[Document translation APIUpload a PDF or Office file, poll job status, and download layout-preserving translations for multiple Indian languages.](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/guides/translate-a-pdf)[Call analytics pipelineTranscribe support calls, then summarise, tag, and score them into a reporting pipeline.](https://docs.sarvam.ai/api/cookbook/guides/call-analytics-pipeline)[WhatsApp botWire Sarvam speech and chat into a WhatsApp bot that answers in the user’s own language.](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)[Live video transcriptionReal-time transcription and translation with the streaming STT API, Flask-SocketIO, and the Web Audio API.](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)[Podcast generatorTurn a script into a multi-speaker podcast episode with distinct Bulbul voices.](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
+[Document translation APIUpload a PDF or Office file, poll job status, and download layout-preserving translations for multiple Indian languages.](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/guides/translate-a-pdf)[Call analytics pipelineTranscribe support calls, then summarise, tag, and score them into a reporting pipeline.](https://docs.sarvam.ai/api/cookbook/guides/call-analytics-pipeline)[WhatsApp botWire Sarvam speech and chat into a WhatsApp bot that answers in the user’s own language.](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)[Live video transcriptionReal-time transcription and translation with the streaming STT API, Flask-SocketIO, and the Web Audio API.](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)[Podcast generatorTurn a script into a multi-speaker podcast episode with distinct Bulbul voices.](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)[Support voice notesClone a support agent once, then reply to WhatsApp text and voice notes in that voice.](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
 
 ## What’s new
 
 [Full changelog →](https://docs.sarvam.ai/changelog)
 
-[October 2026Forwarded Call Recordings, Call Traces, and Provider Details in the Analytics APIDownload the recording of a transferred call’s forwarded leg, get a step-by-step event trace of any call, and match calls to your telephony provider’s records with the new provider details.Read the changelog →](https://docs.sarvam.ai/voice-agents/api/analytics/overview)
+[October 2026Optional language on Instant Voice CloningOmit `language_code` on clone, stream, and WebSocket to detect the language from the text. Pass the code when pronunciation has to be exact.Read the changelog →](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/supported-languages)
 
-[October 2026Bulbul V3 End of Life for Voice AgentsBulbul V3 reaches end of life on Voice Agents on November 10, 2026. Switch your agents to Bulbul V4 before then.](https://docs.sarvam.ai/voice-agents/build/voice-language)[October 2026Volume Adjustment for Voice AgentsA new Volume slider in the agent’s voice settings sets how loud the agent sounds, from 0.7 to 2.0.](https://docs.sarvam.ai/voice-agents/build/voice-language#volume)[October 2026Instant Voice Cloning in the sarvamai SDKsPython and TypeScript SDKs expose Instant Voice Cloning (beta) with the same convert / convertStream / WebSocket shape as Bulbul TTS.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview)
+[October 2026Forwarded Call Recordings, Call Traces, and Provider Details in the Analytics APIDownload the recording of a transferred call’s forwarded leg, get a step-by-step event trace of any call, and match calls to your telephony provider’s records with the new provider details.](https://docs.sarvam.ai/voice-agents/api/analytics/overview)[October 2026Bulbul V3 End of Life for Voice AgentsBulbul V3 reaches end of life on Voice Agents on November 10, 2026. Switch your agents to Bulbul V4 before then.](https://docs.sarvam.ai/voice-agents/build/voice-language)[October 2026Volume Adjustment for Voice AgentsA new Volume slider in the agent’s voice settings sets how loud the agent sounds, from 0.7 to 2.0.](https://docs.sarvam.ai/voice-agents/build/voice-language#volume)
 
 ## Resources
 

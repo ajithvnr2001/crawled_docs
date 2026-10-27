@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent/
 title: Hindi government scheme voice agent with LiveKit | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:05.109798+00:00
+fetched_at: 2026-10-27T06:38:25.183199+00:00
 ---
 
 # Hindi government scheme voice agent with LiveKit | Sarvam API Docs
@@ -31,7 +31,7 @@ On this page
   * Example 5: Speech-to-English Agent (Saaras)
   * Available Options
   * Language Codes
-  * Speaker Voices (Bulbul v3)
+  * Speaker Voices (Bulbul v4 Flash)
   * Pro Tips
   * Troubleshooting
   * Additional Resources
@@ -246,11 +246,11 @@ Create `scheme_awareness_agent.py`:
     
                 tts=sarvam.TTS(
     
-                    language_code="hi-IN",  # Hindi as default for wider reach
+                    target_language_code="hi-IN",  # Hindi as default for wider reach
     
                     model="bulbul:v4-flash",
     
-                    speaker="simran"  # Warm and friendly female voice
+                    speaker="simran_hi_conversation"  # Warm and friendly female voice
     
                 ),
     
@@ -323,11 +323,11 @@ For Hindi-speaking citizens:
     
     tts=sarvam.TTS(
     
-        language_code="hi-IN",
+        target_language_code="hi-IN",
     
         model="bulbul:v4-flash",
     
-        speaker="simran"  # Warm and friendly voice
+        speaker="simran_hi_conversation"  # Warm and friendly voice
     
     )
 
@@ -338,11 +338,11 @@ For Hindi-speaking citizens:
     
     tts=sarvam.TTS(
     
-        language_code="ta-IN",
+        target_language_code="ta-IN",
     
         model="bulbul:v4-flash",
     
-        speaker="priya"
+        speaker="gokul_ta_narration"
     
     )
 
@@ -353,11 +353,11 @@ For Hindi-speaking citizens:
     
     tts=sarvam.TTS(
     
-        language_code="bn-IN",
+        target_language_code="bn-IN",
     
         model="bulbul:v4-flash",
     
-        speaker="ishita"
+        speaker="roopa_bn_conversational"
     
     )
 
@@ -368,7 +368,7 @@ For citizen service centers serving diverse populations:
     
     stt=sarvam.STT(language="unknown", model="saaras:v4", mode="transcribe"),  # Auto-detects language
     
-    tts=sarvam.TTS(language_code="hi-IN", model="bulbul:v4-flash", speaker="simran")
+    tts=sarvam.TTS(target_language_code="hi-IN", model="bulbul:v4-flash", speaker="simran_hi_conversation")
 
 ### Example 5: Speech-to-English Agent (Saaras)
 
@@ -381,7 +381,7 @@ When you need to process regional language input but generate English reports. S
     
     llm=sarvam.LLM(model="sarvam-105b"),
     
-    tts=sarvam.TTS(language_code="en-IN", model="bulbul:v4-flash", speaker="priya")
+    tts=sarvam.TTS(target_language_code="en-IN", model="bulbul:v4-flash", speaker="neha_en_customer")
 
 * * *
 
@@ -404,18 +404,18 @@ Punjabi| `pa-IN`
 Odia| `od-IN`  
 Auto-detect| `unknown`  
   
-### Speaker Voices (Bulbul v3)
+### Speaker Voices (Bulbul v4 Flash)
 
-**Male (23):** Shubh (default), Aditya, Rahul, Rohan, Amit, Dev, Ratan, Varun, Manan, Sumit, Kabir, Aayan, Ashutosh, Advait, Anand, Tarun, Sunny, Mani, Gokul, Vijay, Mohit, Rehan, Soham
+`bulbul:v4-flash` takes persona IDs in the form `name_language_style`, for example `simran_hi_conversation` or `dev_en_conversational`. Pick a persona whose language matches `target_language_code`. v3 short names such as `priya` or `aditya` are rejected. Listen to every persona on the [Voices](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/voices) page.
 
-**Female (14):** Ritu, Priya, Neha, Pooja, Simran, Kavya, Ishita, Shreya, Roopa, Tanya, Shruti, Suhani, Kavitha, Rupali
+To use the short-name v3 voices instead, set `model="bulbul:v3"`.
 
 * * *
 
 ## Pro Tips
 
   * Use `language="unknown"` to serve citizens who speak different languages
-  * Use warm, friendly voices like `simran` for citizen-facing services
+  * Use warm, friendly voices like `simran_hi_conversation` for citizen-facing services
   * Sarvam’s models handle code-mixing naturally - citizens often mix Hindi with English or regional languages
   * Consider deploying region-specific agents for better language accuracy
   * Keep responses simple and avoid bureaucratic jargon
@@ -652,6 +652,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

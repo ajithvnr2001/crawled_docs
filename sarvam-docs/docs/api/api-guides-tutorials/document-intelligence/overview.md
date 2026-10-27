@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview/
 title: Document Intelligence Overview | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T06:33:42.841413+00:00
+fetched_at: 2026-10-27T06:38:24.403463+00:00
 ---
 
 # Document Intelligence Overview | Sarvam API Docs
@@ -13,7 +13,7 @@ Skip to navigation
 
 On this page
 
-  * Two ways to process a document
+  * Four ways to process a document
   * What’s new
   * Key Features
   * Supported Languages
@@ -51,9 +51,9 @@ Turn any document into structured, searchable, machine-readable data, whether yo
 
 [Sarvam Vision 1.5An upgraded Sarvam Vision, trained to do both OCR and key-value extraction. SOTA performance on global and Indic document benchmarks.](https://docs.sarvam.ai/api/getting-started/models/sarvam-vision)
 
-## Two ways to process a document
+## Four ways to process a document
 
-Document AI gives you two endpoints over the same job lifecycle. Pick based on what you need out the other end.
+Document AI gives you four operations over the same job lifecycle. Pick based on what you need out the other end.
 
 Digitise
 
@@ -61,14 +61,22 @@ Full-document OCR. Extracts all text, preserves layout and reading order, and pa
 
 Extract
 
-Schema-based key-value extraction. You define the fields you want; Sarvam Vision 1.5 returns them as structured JSON. Use when you want **specific fields** , not the whole page.
+Schema-based key-value extraction. You define the fields you want; Sarvam Vision returns them as structured JSON. Use when you want **specific fields** , not the whole page.
 
-Aspect| Digitise| Extract  
----|---|---  
-**Output**|  Full text + layout (HTML, Markdown, or JSON)| Just the fields you define (JSON / CSV / XLSX)  
-**You provide**|  A document| A document + a schema (or saved `config_id`)  
-**Best for**|  Archival, search, RAG ingestion, reading-order-faithful conversion| KYC, invoices, forms, structured data capture  
-**Endpoint**| `POST /doc-ai/v1/job/digitise`| `POST /doc-ai/v1/job/extract`  
+Split
+
+Divides a bundle of pages into separate documents. Split by fixed page groups, explicit page ranges, matching markers (QR code, barcode, blank page, text, or photo), or let the model find the boundaries. Use when one file holds **several documents**.
+
+Classify
+
+Labels a document — or each page — against the categories you define, or lets the API suggest a type. Use when you need to **route or triage** documents before processing them.
+
+Aspect| Digitise| Extract| Split| Classify  
+---|---|---|---|---  
+**Output**|  Full text + layout (HTML, Markdown, or JSON)| The fields you define (JSON / CSV / XLSX)| Child documents, each with its page ranges| A document type (or one per page), with evidence and a review flag  
+**You provide**|  A document| A document + a schema (or saved `config_id`)| A document (+ a split method)| A document (+ categories, optional)  
+**Best for**|  Archival, search, RAG ingestion, reading-order-faithful conversion| KYC, invoices, forms, structured data capture| Separating scanned bundles into individual documents| Routing and triage before downstream processing  
+**Endpoint**| `POST /doc-ai/v1/job/digitise`| `POST /doc-ai/v1/job/extract`| `POST /doc-ai/v1/job/split`| `POST /doc-ai/v1/job/classify`  
   
 ## What’s new
 
@@ -141,12 +149,12 @@ English| `en-IN`
 
 Format| Extension| Description  
 ---|---|---  
-PDF| `.pdf`| Multi-page PDF documents (max 10 pages)  
+PDF| `.pdf`| Multi-page PDF documents (max 30 pages for Digitise, 20 for Extract)  
 PNG| `.png`| Document page images  
 JPEG| `.jpg`, `.jpeg`| Document page images  
-ZIP| `.zip`| Flat archive of document page images (JPG or PNG, max 10 images)  
+ZIP| `.zip`| Flat archive of document page images (JPG or PNG, max 30 images for Digitise, 20 for Extract)  
   
-**Page Limit:** Both PDF and ZIP uploads are limited to a maximum of **10 pages**. Exceeding this limit returns a `400 Bad Request` with code `invalid_request_error`. Split larger documents into batches of 10 pages or fewer before uploading.
+**Page Limit:** PDF and ZIP uploads are limited to **30 pages for Digitise** and **20 pages for Extract**. Exceeding the limit returns a `400 Bad Request` with code `invalid_request_error`. Split larger documents into batches before uploading.
 
 For ZIP files, include only JPG and PNG document pages in a flat structure (no nested folders). The API processes all pages in the archive and maintains page order based on filename.
 
@@ -468,7 +476,7 @@ The full error-code table, retry guidance, and SDK exception reference live on t
 
 HTTP Status| Description  
 ---|---  
-`400`| Invalid request or schema (includes documents exceeding the 10-page limit)  
+`400`| Invalid request or schema (includes documents exceeding the page limit)  
 `402` / `403`| Billing or entitlement error  
 `404`| Resource unavailable (e.g. job not found)  
 `409`| Results or download requested before the job reached a terminal state  
@@ -499,8 +507,8 @@ Monitor `usage` in the status response to track progress, and handle `partially_
 
 Limit| Value  
 ---|---  
-Max pages per PDF| 10 (`400 invalid_request_error` if exceeded)  
-Max images per ZIP| 10  
+Max pages per PDF| 30 for Digitise, 20 for Extract (`400 invalid_request_error` if exceeded)  
+Max images per ZIP| 30 for Digitise, 20 for Extract  
 Max file size| 200 MB  
 Supported input formats| PDF, PNG, JPG, ZIP  
 Rate limit| Varies by plan — see [Rate Limits](https://docs.sarvam.ai/api/getting-started/ratelimits)  
@@ -702,6 +710,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/use-cases/agri-rural/
 title: Agri & Rural Voice Agents | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:19.955379+00:00
+fetched_at: 2026-10-27T06:38:26.194100+00:00
 ---
 
 # Agri & Rural Voice Agents | Sarvam API Docs
@@ -190,11 +190,11 @@ There’s no published cookbook example for this vertical yet. Here’s a comple
     
                 tts=sarvam.TTS(
     
-                    language_code="hi-IN",  # Set per deployment region
+                    target_language_code="hi-IN",  # Set per deployment region
     
                     model="bulbul:v4-flash",
     
-                    speaker="simran",
+                    speaker="simran_hi_conversation",
     
                     pace=0.9,
     
@@ -455,6 +455,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

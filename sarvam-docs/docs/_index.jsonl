@@ -1055,3 +1055,4 @@
 {"url": "https://docs.sarvam.ai/voice-agents/api/analytics/traces/", "file": "voice-agents/api/analytics/traces.md", "title": "Get trace | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api-reference/analytics/traces/", "file": "api-reference/analytics/traces.md", "title": "Get traces | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api-reference/analytics/forwarded-recordings/", "file": "api-reference/analytics/forwarded-recordings.md", "title": "Get forwarded recordings | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes/", "file": "api/cookbook/guides/support-voice-notes.md", "title": "Support Voice Notes | Sarvam API Docs", "method": "scrapling+scrapegraph"}

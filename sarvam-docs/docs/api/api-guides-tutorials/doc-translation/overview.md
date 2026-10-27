@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview/
 title: Document Translation API Overview | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T06:33:42.991054+00:00
+fetched_at: 2026-10-27T06:38:10.977535+00:00
 ---
 
 # Document Translation API Overview | Sarvam API Docs
@@ -16,9 +16,9 @@ On this page
   * What you get from one job
   * How it works
   * Quickstart
-  * Page-granular vs document-granular responses
+  * Response granularity by file type
   * Response shapes at a glance
-  * Shared fields (both response types)
+  * Shared fields (all response types)
   * Job states
   * Request parameters
   * Supported file formats
@@ -43,6 +43,8 @@ Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/api/api-guide
 This page is for Model APIs.
 
 The Document Translation API takes a source document and returns it translated into one or more Indian languages, in its original file format. The layout, formatting, and structure of the source file are preserved.
+
+Only translating **text** (a sentence, paragraph, or chat message)? Use the [Text Translation API](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/translation) instead: one request, no upload, no polling.
 
 Authentication: send your API key in the `api-subscription-key` header. Generate a key from [Key Management](https://indus.sarvam.ai/key-management?ref=docs) in the dashboard.
 
@@ -70,7 +72,7 @@ Document translation is asynchronous by design: you create a job, upload the fil
 
 ### Start the pipeline
 
-`POST /translate/document/jobs/{job_id}/start`, no request body. Runs file validation, then parsing (OCR for PDFs, structural extraction for Office and web formats), then translation, one independent branch per target language. Idempotent: calling `start` again on the same job returns the current job state instead of erroring.
+`POST /translate/document/jobs/{job_id}/start`, no request body. Runs file validation, then parsing (OCR for PDFs, structural extraction for Office and web formats, chunking for Markdown and plain text), then translation, one independent branch per target language. Idempotent: calling `start` again on the same job returns the current job state instead of erroring.
 
 [4](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview#poll-progress)
 
@@ -153,28 +155,29 @@ PythonJavaScript
 
 That job is now running. See [Poll and Export](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/poll-and-export) for the polling loop and per-language download flow.
 
-## Page-granular vs document-granular responses
+## Response granularity by file type
 
 The response format depends on the uploaded file type:
 
   * PDFs are tracked per page.
   * Word, spreadsheets, and presentations are tracked per text segment (roughly a paragraph).
+  * Markdown (`.md`, `.markdown`) and plain-text (`.txt`) files are tracked per chunk (a translation-sized piece of the source file).
 
 
 
-Both response formats share the same base fields. Only the progress-related fields differ.
+All three response formats share the same base fields. Only the progress-related fields differ.
 
 ### Response shapes at a glance
 
-| PDF uploads (per page)| Word / Spreadsheet / Presentation uploads (per segment)  
----|---|---  
-Tracking unit| Page| Segment (paragraph-sized chunk of text)  
-Start response| `num_pages`| -  
-Live status| `page_metrics`| `translation_metrics`  
-Per-language progress| `pages_completed`, `pages_failed`| `progress`, `segments_completed`, `segments_total`  
-Other metrics| `total_pages`, `pages_processed`, `pages_succeeded`, `pages_failed`| `languages_total`, `languages_completed`, `languages_failed`  
+| PDF uploads (per page)| Word / Spreadsheet / Presentation uploads (per segment)| Markdown / plain-text uploads (per chunk)  
+---|---|---|---  
+Tracking unit| Page| Segment (paragraph-sized chunk of text)| Chunk (translation-sized piece of the file)  
+Start response| `num_pages`| -| `num_chunks`  
+Live status| `page_metrics`| `translation_metrics`| `chunk_metrics`  
+Per-language progress| `pages_completed`, `pages_failed`| `progress`, `segments_completed`, `segments_total`| `chunks_completed`, `chunks_failed`  
+Other metrics| `total_pages`, `pages_processed`, `pages_succeeded`, `pages_failed`| `languages_total`, `languages_completed`, `languages_failed`| `total_chunks`, `chunks_processed`, `chunks_succeeded`, `chunks_failed`  
   
-### Shared fields (both response types)
+### Shared fields (all response types)
 
 `job_id` `job_state` `job_name` `source_language_code` `progress` `translations[]` `created_at` `updated_at`
 
@@ -225,7 +228,10 @@ Word| `.doc`, `.docx`, `.odt`
 Spreadsheets| `.xls`, `.xlsx`, `.ods`  
 Presentations| `.ppt`, `.pptx`, `.odp`  
 Web pages| `.html`, `.xhtml`, `.mhtml`  
+Markdown and plain text| `.md`, `.markdown`, `.txt`  
   
+Markdown and plain-text uploads must be valid UTF-8 and are capped at 2 MB per file and 500 translation chunks per job. See [Limits](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview#limits).
+
 ## Supported languages
 
 23 languages: English plus 22 Indic languages.
@@ -325,6 +331,8 @@ Malayalam| `ml-IN`| |
     
     }
 
+Markdown and plain-text uploads return the chunk-granular shape instead: `chunk_metrics` (`total_chunks`, `chunks_processed`, `chunks_succeeded`, `chunks_failed`) and per-language `chunks_completed` / `chunks_failed`, with no `page_metrics` field. The start response reports `num_chunks` instead of `num_pages`.
+
 `GET /translate/document/jobs/{job_id}/export/status` returns, once the export is `Completed`:
     
     
@@ -389,6 +397,8 @@ Use `genre` to tune the translation prompt for your content type. `LEGAL` for co
 Limit| Value  
 ---|---  
 Target languages per job| 1 to 12 (out of 23 total supported languages)  
+`.md` / `.markdown` / `.txt` file size| 2 MB per upload  
+`.md` / `.markdown` / `.txt` chunks| Up to 500 chunks per job  
 `job_name` length| 1-255 characters when provided; defaults to `original_filename`  
 `style_guidelines` / `language_specific_guidelines` length| ~4000 characters each  
 Signed upload URL validity| `expires_in_hours` on the create response (24 hours)  
@@ -602,6 +612,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

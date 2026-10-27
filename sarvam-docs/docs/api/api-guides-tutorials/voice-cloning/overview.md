@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview/
 title: Instant Voice Cloning API | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T06:33:39.951072+00:00
+fetched_at: 2026-10-27T06:38:23.364484+00:00
 ---
 
 # Instant Voice Cloning API | Sarvam API Docs
@@ -73,7 +73,7 @@ Send a clean reference clip to `POST /voices/create` or `client.voice_cloning.cr
 
 ### Generate speech
 
-Call `voice_cloning.convert` / `POST /voices/clone` with `text`, `language_code`, and either `voice_id` or `ref_audio`, or use [HTTP streaming](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/http-streaming) / [WebSocket](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/websocket-streaming) for progressive audio.
+Call `voice_cloning.convert` / `POST /voices/clone` with `text` and either `voice_id` or `ref_audio`. `language_code` is optional — omit it to detect the language from the text, or pass it when pronunciation has to be exact. Use [HTTP streaming](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/http-streaming) / [WebSocket](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/websocket-streaming) for progressive audio.
 
 [3](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview#decode-or-play-the-audio)
 
@@ -116,13 +116,13 @@ PythonJavaScriptcURL
     
         text="नमस्ते, मैं आपकी कैसे मदद कर सकता हूँ?",
     
-        language_code="hi-IN",
-    
     )
     
     with open("output.wav", "wb") as out:
     
         out.write(base64.b64decode(response.audio_b64 or response.audio))
+
+`language_code` is optional. These examples omit it so the service detects Hindi from the text. Pass `language_code` when pronunciation has to be exact — see [Supported languages](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/supported-languages#omitting-language_code).
 
 The one-shot response contains `audio` / `audio_b64` and `request_id`. See the [API Reference](https://docs.sarvam.ai/api-reference/voice-cloning) for the complete request and response schemas.
 
@@ -155,7 +155,7 @@ Generation is billed per character of `text`. See [Pricing](https://docs.sarvam.
 
 ## Explore
 
-[Prepare Reference AudioWhat makes a good reference clip, and what to avoid.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/prepare-reference-audio)[Clone Across LanguagesHow cross-lingual cloning works and when it shines.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/clone-across-languages)[Choose Audio FormatsInput and output codecs, sample rates, and file-size guidance.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/choose-audio-formats)[Use Quality ControlWhat QC checks on the one-shot endpoint, when to disable it, and what you’ll see.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/use-quality-control)[HTTP StreamingStream binary audio from a single POST.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/http-streaming)[WebSocket StreamingPersistent connection for incremental text and multi-turn synthesis.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/websocket-streaming)[Supported LanguagesAll language codes and native-script guidance.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/supported-languages)[FAQsQuick answers on limits, voices, streaming, and errors.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/faq)[API ReferenceEndpoint-level schemas for every request and response field.](https://docs.sarvam.ai/api-reference/voice-cloning)[Libraries & SDKsInstall `sarvamai` and call Instant Voice Cloning with the same convert / stream shape as Bulbul TTS.](https://docs.sarvam.ai/api/getting-started/sdks)
+[Prepare Reference AudioWhat makes a good reference clip, and what to avoid.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/prepare-reference-audio)[Clone Across LanguagesHow cross-lingual cloning works and when it shines.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/clone-across-languages)[Choose Audio FormatsInput and output codecs, sample rates, and file-size guidance.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/choose-audio-formats)[Use Quality ControlWhat QC checks on the one-shot endpoint, when to disable it, and what you’ll see.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/use-quality-control)[HTTP StreamingStream binary audio from a single POST.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/http-streaming)[WebSocket StreamingPersistent connection for incremental text and multi-turn synthesis.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/websocket-streaming)[Supported LanguagesAll language codes and native-script guidance.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/supported-languages)[FAQsQuick answers on limits, voices, streaming, and errors.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/faq)[API ReferenceEndpoint-level schemas for every request and response field.](https://docs.sarvam.ai/api-reference/voice-cloning)[Libraries & SDKsInstall `sarvamai` and call Instant Voice Cloning with the same convert / stream shape as Bulbul TTS.](https://docs.sarvam.ai/api/getting-started/sdks)[CookbookSupport voice notes: clone an agent, then speak WhatsApp replies in that voice.](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
 
 Need help scoping a voice-cloning integration? Reach out on [Discord](https://discord.com/invite/5rAsykttcs).
 
@@ -355,6 +355,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

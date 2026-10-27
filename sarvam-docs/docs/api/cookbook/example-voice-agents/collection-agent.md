@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent/
 title: Hindi collections voice agent with LiveKit | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:04.830101+00:00
+fetched_at: 2026-10-27T06:38:25.506690+00:00
 ---
 
 # Hindi collections voice agent with LiveKit | Sarvam API Docs
@@ -29,7 +29,7 @@ On this page
   * Example 3: Multilingual Agent (Auto-detect)
   * Available Options
   * Language Codes
-  * Speaker Voices (Bulbul v3)
+  * Speaker Voices (Bulbul v4 Flash)
   * Pro Tips
   * Troubleshooting
   * Additional Resources
@@ -245,11 +245,11 @@ Create `collection_agent.py`:
     
                 tts=sarvam.TTS(
     
-                    language_code="en-IN",
+                    target_language_code="en-IN",
     
                     model="bulbul:v4-flash",
     
-                    speaker="aditya"  # Professional male voice
+                    speaker="dev_en_recovery"  # Professional male voice
     
                 ),
     
@@ -322,11 +322,11 @@ For customers who prefer Hindi:
     
     tts=sarvam.TTS(
     
-        language_code="hi-IN",
+        target_language_code="hi-IN",
     
         model="bulbul:v4-flash",
     
-        speaker="anand"  # Professional Hindi male voice
+        speaker="anand_hi_news"  # Professional Hindi male voice
     
     )
 
@@ -337,11 +337,11 @@ For customers who prefer Hindi:
     
     tts=sarvam.TTS(
     
-        language_code="ta-IN",
+        target_language_code="ta-IN",
     
         model="bulbul:v4-flash",
     
-        speaker="priya"
+        speaker="gokul_ta_narration"
     
     )
 
@@ -350,7 +350,7 @@ For customers who prefer Hindi:
     
     stt=sarvam.STT(language="unknown", model="saaras:v4", mode="transcribe"),  # Auto-detects language
     
-    tts=sarvam.TTS(language_code="en-IN", model="bulbul:v4-flash", speaker="aditya")
+    tts=sarvam.TTS(target_language_code="en-IN", model="bulbul:v4-flash", speaker="dev_en_recovery")
 
 * * *
 
@@ -373,18 +373,18 @@ Punjabi| `pa-IN`
 Odia| `od-IN`  
 Auto-detect| `unknown`  
   
-### Speaker Voices (Bulbul v3)
+### Speaker Voices (Bulbul v4 Flash)
 
-**Male (23):** Shubh (default), Aditya, Rahul, Rohan, Amit, Dev, Ratan, Varun, Manan, Sumit, Kabir, Aayan, Ashutosh, Advait, Anand, Tarun, Sunny, Mani, Gokul, Vijay, Mohit, Rehan, Soham
+`bulbul:v4-flash` takes persona IDs in the form `name_language_style`, for example `simran_hi_conversation` or `dev_en_conversational`. Pick a persona whose language matches `target_language_code`. v3 short names such as `priya` or `aditya` are rejected. Listen to every persona on the [Voices](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/voices) page.
 
-**Female (14):** Ritu, Priya, Neha, Pooja, Simran, Kavya, Ishita, Shreya, Roopa, Tanya, Shruti, Suhani, Kavitha, Rupali
+To use the short-name v3 voices instead, set `model="bulbul:v3"`.
 
 * * *
 
 ## Pro Tips
 
   * Use `language="unknown"` to automatically detect the language - great for diverse customer bases
-  * Use a professional male voice like `aditya` or `anand` for collection calls
+  * Use a professional male voice like `dev_en_recovery` or `anand_hi_news` for collection calls
   * Sarvam’s models handle code-mixing naturally - customers can switch between languages mid-conversation
   * Always maintain compliance with collection regulations in your jurisdiction
 
@@ -429,7 +429,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)[Hindi government scheme voice agent with LiveKitNext](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)[Hindi government scheme voice agent with LiveKitNext](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 
@@ -620,6 +620,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

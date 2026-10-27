@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/use-cases/ivr-contact-center/
 title: IVR & Contact Center Voice Agents | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:21.633394+00:00
+fetched_at: 2026-10-27T06:38:25.678287+00:00
 ---
 
 # IVR & Contact Center Voice Agents | Sarvam API Docs
@@ -146,7 +146,7 @@ The [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/
     
                 llm=sarvam.LLM(model="sarvam-105b"),
     
-                tts=sarvam.TTS(language_code="en-IN", model="bulbul:v4-flash", speaker="aditya"),
+                tts=sarvam.TTS(target_language_code="en-IN", model="bulbul:v4-flash", speaker="dev_en_conversational"),
     
             )
 
@@ -362,6 +362,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

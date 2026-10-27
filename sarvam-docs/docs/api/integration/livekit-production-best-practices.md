@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/integration/livekit-production-best-practices/
 title: LiveKit in Production | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:42.438894+00:00
+fetched_at: 2026-10-27T06:38:24.927149+00:00
 ---
 
 # LiveKit in Production | Sarvam API Docs
@@ -121,9 +121,9 @@ Class| Model| Recommendation| Use for
     
             model="bulbul:v4-flash",
     
-            speaker="priya",
+            speaker="ritu_hi_customer",
     
-            language_code="hi-IN",
+            target_language_code="hi-IN",
     
             min_buffer_size=30,         # was 50, lowers TTFB
     
@@ -456,15 +456,13 @@ For confirmations, legal disclaimers, or OTP readback, disable interruptions per
     
         model="bulbul:v4-flash",                 # default: "bulbul:v3"
     
-        speaker="priya",                   # default: "shubh"
+        speaker="ritu_hi_customer",        # v4 Flash persona ID; always set it
     
-        language_code="hi-IN",      # default: "en-IN"
+        target_language_code="hi-IN",      # default: "en-IN"
     
         speech_sample_rate=24000,          # default: 22050
     
         pace=1.0,
-    
-        temperature=0.6,                   # v3 only
     
         output_audio_codec="linear16",     # default: "mp3"
     
@@ -474,13 +472,13 @@ For confirmations, legal disclaimers, or OTP readback, disable interruptions per
     
         max_chunk_length=150,              # default: 150
     
-        dict_id=None,                      # v3 only
+        dict_id=None,                      # v3 and v4 Flash
     
         send_completion_event=True,        # leave True
     
     )
 
-Use `bulbul:v4-flash` (latest) or `bulbul:v3`; `temperature` and `dict_id` are supported on both (not on `bulbul:v2`).
+Use `bulbul:v4-flash` (latest) or `bulbul:v3`. `dict_id` works on both (not on `bulbul:v2`). `temperature` applies to `bulbul:v3` only: v4 Flash ignores it, so leave it out. v4 Flash takes persona speaker IDs such as `ritu_hi_customer`, not v3 short names such as `priya`; see [Voices](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/voices) for the full list.
 
 **Validation ranges** (enforced client-side, `ValueError` unless noted): `pace` 0.3 to 3.0, `loudness` 0.5 to 2.0, `temperature` 0.01 to 2.0, `min_buffer_size` 30 to 200, `max_chunk_length` 50 to 500, `output_audio_bitrate` one of 32k/64k/96k/128k/192k, `speech_sample_rate` one of 8000/16000/22050/24000/32000/44100/48000, `output_audio_codec` one of mp3/opus/flac/aac/wav/linear16/mulaw/alaw. `pitch` (-0.75 to 0.75) is the one exception: out-of-range values are clamped with a warning instead of raising. Speaker and model compatibility is validated at construction, so an unsupported voice fails at startup rather than mid-call.
 
@@ -500,9 +498,9 @@ Lever| Default| Recommendation| Effect
     
     def setup(proc: JobProcess) -> None:
     
-        proc.userdata["tts"] = sarvam.TTS(model="bulbul:v4-flash", speaker="priya",
+        proc.userdata["tts"] = sarvam.TTS(model="bulbul:v4-flash", speaker="ritu_hi_customer",
     
-                                          language_code="hi-IN")
+                                          target_language_code="hi-IN")
     
         proc.userdata["tts"].prewarm()
     
@@ -512,7 +510,7 @@ Verify it worked: `TTSMetrics.connection_reused` should read `True` and `acquire
 
 Leave `send_completion_event=True`; setting it `False` means the receive loop never sees a completion signal and blocks until it times out as `APITimeoutError`.
 
-**Voice quality.** `pace` at 1.0 often reads slightly fast for support flows; 0.9 to 0.95 measurably helps comprehension, and intelligibility degrades above 1.15. `temperature` at 0.3 to 0.5 gives consistent delivery for regulated content (disclaimers, amounts, OTPs); 0.8 and up is more expressive, at the cost of occasional mispronunciation. `dict_id` (v3 only) is worth setting for brand names and place names that generic TTS mangles. `AgentSession` filters markdown and emoji from TTS input by default; keep both on, and instruct your LLM to produce properly punctuated sentences, since the plugin tokenizes on sentence boundaries.
+**Voice quality.** `pace` at 1.0 often reads slightly fast for support flows; 0.9 to 0.95 measurably helps comprehension, and intelligibility degrades above 1.15. On `bulbul:v3`, `temperature` at 0.3 to 0.5 gives consistent delivery for regulated content (disclaimers, amounts, OTPs); 0.8 and up is more expressive, at the cost of occasional mispronunciation. v4 Flash ignores `temperature`; pick a persona whose style fits the content instead. `dict_id` (v3 and v4 Flash) is worth setting for brand names and place names that generic TTS mangles. `AgentSession` filters markdown and emoji from TTS input by default; keep both on, and instruct your LLM to produce properly punctuated sentences, since the plugin tokenizes on sentence boundaries.
 
 * * *
 
@@ -653,7 +651,7 @@ Change one thing at a time and measure between steps.
   5. **Fix barge-in.** Raise `interruption.min_words` (0, then 1, then 2) until noise-triggered interruptions stop, watching that real single-word replies survive. Lower `false_interruption_timeout` to 1.2 to 1.5 s. For telephony, set `aec_warmup_duration=None`.
   6. **Cut TTS time-to-first-byte.** `min_buffer_size=30`, `output_audio_codec="linear16"` (or `mulaw` for 8 kHz), and `prewarm()`.
   7. **Cut LLM time-to-first-token.** Shrink the system prompt, scope the tool list to the current conversation phase, cap conversation history, and keep `max_tool_steps` low.
-  8. **Polish the voice.** `pace` 0.9 to 0.95 for support flows, lower `temperature` for regulated content, and a `dict_id` dictionary for brand and place names.
+  8. **Polish the voice.** `pace` 0.9 to 0.95 for support flows, a calmer persona style (or a lower `temperature` on `bulbul:v3`) for regulated content, and a `dict_id` dictionary for brand and place names.
   9. **Re-baseline.** Re-measure over 30-plus calls and set alerts on p95 `e2e_latency`, false-interruption rate, close code 1003, and non-fatal STT error rate.
 
 
@@ -709,9 +707,9 @@ Change one thing at a time and measure between steps.
     
             model="bulbul:v4-flash",
     
-            speaker="priya",
+            speaker="ritu_hi_customer",
     
-            language_code="hi-IN",
+            target_language_code="hi-IN",
     
             speech_sample_rate=24000,
     
@@ -722,8 +720,6 @@ Change one thing at a time and measure between steps.
             max_chunk_length=150,
     
             pace=0.95,
-    
-            temperature=0.5,
     
         )
     
@@ -832,9 +828,9 @@ Change one thing at a time and measure between steps.
     
         model="bulbul:v4-flash",
     
-        speaker="simran_en_customer",
+        speaker="simran_enhi_customer",
     
-        language_code="hi-IN",
+        target_language_code="hi-IN",
     
         speech_sample_rate=8000,       # match the carrier
     
@@ -845,8 +841,6 @@ Change one thing at a time and measure between steps.
         min_buffer_size=30,
     
         pace=0.92,                     # slower reads better on narrowband
-    
-        temperature=0.5,
     
     )
     
@@ -888,7 +882,7 @@ Change one thing at a time and measure between steps.
     
     )
 
-For compliance and audit flows, use `mode="verbatim"`, `return_timestamps=True`, a higher `vad_min_silence_ms` (around 900), a lower `temperature` (around 0.3), and disable `preemptive_generation` to avoid speculative spend; disable interruptions per-turn for disclosures. For push-to-talk or IVR, set `endpointing="manual"` on the STT and `turn_detection="manual"` on the session, then call `session.commit_user_turn()` yourself on a DTMF key or button release.
+For compliance and audit flows, use `mode="verbatim"`, `return_timestamps=True`, a higher `vad_min_silence_ms` (around 900), a lower `temperature` (around 0.3) if you use `bulbul:v3`, and disable `preemptive_generation` to avoid speculative spend; disable interruptions per-turn for disclosures. For push-to-talk or IVR, set `endpointing="manual"` on the STT and `turn_detection="manual"` on the session, then call `session.commit_user_turn()` yourself on a DTMF key or button release.
 
 * * *
 
@@ -1114,6 +1108,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

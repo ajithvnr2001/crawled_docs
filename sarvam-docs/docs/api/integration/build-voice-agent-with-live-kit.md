@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit/
 title: Build a LiveKit voice agent with Sarvam | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:03.824886+00:00
+fetched_at: 2026-10-27T06:38:25.361430+00:00
 ---
 
 # Build a LiveKit voice agent with Sarvam | Sarvam API Docs
@@ -30,7 +30,7 @@ On this page
   * Example 4: Speech-to-English Agent (Saaras)
   * Available Options
   * Language Codes
-  * Speaker Voices (Bulbul v3)
+  * Speaker Voices (Bulbul v4 Flash)
   * Pro Tips
   * Best Practices
   * 1\. Do Not Pass VAD to AgentSession
@@ -195,11 +195,11 @@ Create `agent.py`:
     
                 tts=sarvam.TTS(
     
-                    language_code="en-IN",
+                    target_language_code="en-IN",
     
                     model="bulbul:v4-flash",
     
-                    speaker="simran_en_customer"  # Female: priya, simran, ishita, kavya | Male: aditya, anand, rohan
+                    speaker="simran_en_customer"  # v4 Flash persona ID; see the Voices page for the full list
     
                 ),
     
@@ -272,11 +272,11 @@ That’s it! You’ve built your first voice agent!
     
     tts=sarvam.TTS(
     
-        language_code="hi-IN",
+        target_language_code="hi-IN",
     
         model="bulbul:v4-flash",
     
-        speaker="simran"  # Or: priya, ishita, kavya, aditya, anand, rohan
+        speaker="simran_hi_conversation"  # Or another Hindi persona, e.g. ritu_hi_customer, aditya_hi_conversational
     
     )
 
@@ -287,11 +287,11 @@ That’s it! You’ve built your first voice agent!
     
     tts=sarvam.TTS(
     
-        language_code="ta-IN",
+        target_language_code="ta-IN",
     
         model="bulbul:v4-flash",
     
-        speaker="simran_en_customer"
+        speaker="gokul_ta_narration"
     
     )
 
@@ -300,7 +300,7 @@ That’s it! You’ve built your first voice agent!
     
     stt=sarvam.STT(language="unknown", model="saaras:v4", mode="transcribe"),  # Auto-detects language
     
-    tts=sarvam.TTS(language_code="en-IN", model="bulbul:v4-flash", speaker="anand")
+    tts=sarvam.TTS(target_language_code="en-IN", model="bulbul:v4-flash", speaker="deven_en_conversation")
 
 ### Example 4: Speech-to-English Agent (Saaras)
 
@@ -313,7 +313,7 @@ That’s it! You’ve built your first voice agent!
     
     llm=sarvam.LLM(model="sarvam-105b-conversations"),
     
-    tts=sarvam.TTS(language_code="en-IN", model="bulbul:v4-flash", speaker="aditya")
+    tts=sarvam.TTS(target_language_code="en-IN", model="bulbul:v4-flash", speaker="dev_en_conversational")
 
 **Note:** Saaras v4 with `mode="translate"` automatically detects the source language (Hindi, Tamil, etc.) and translates spoken content directly to English text, making Indian language speech comprehensible to English-based LLMs.
 
@@ -338,11 +338,11 @@ Punjabi| `pa-IN`
 Odia| `od-IN`  
 Auto-detect| `unknown`  
   
-### Speaker Voices (Bulbul v3)
+### Speaker Voices (Bulbul v4 Flash)
 
-**Male (23):** Shubh (default), Aditya, Rahul, Rohan, Amit, Dev, Ratan, Varun, Manan, Sumit, Kabir, Aayan, Ashutosh, Advait, Anand, Tarun, Sunny, Mani, Gokul, Vijay, Mohit, Rehan, Soham
+`bulbul:v4-flash` takes persona IDs in the form `name_language_style`, for example `simran_hi_conversation` or `dev_en_conversational`. Pick a persona whose language matches `target_language_code`. v3 short names such as `priya` or `aditya` are rejected. Listen to every persona on the [Voices](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/voices) page.
 
-**Female (14):** Ritu, Priya, Neha, Pooja, Simran, Kavya, Ishita, Shreya, Roopa, Tanya, Shruti, Suhani, Kavitha, Rupali
+To use the short-name v3 voices instead, set `model="bulbul:v3"`.
 
 * * *
 
@@ -680,6 +680,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

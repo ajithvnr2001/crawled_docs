@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/legacy/speech-to-text-translate/translate/ws/
 title: WebSocket | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T06:32:53.169153+00:00
+fetched_at: 2026-10-27T06:38:17.888988+00:00
 ---
 
 # WebSocket | Sarvam API Docs
@@ -91,11 +91,11 @@ VAD probability threshold (0.0–1.0) below which a frame is considered silence.
 
 min_speech_framesstringOptionalDefaults to `2`
 
-Minimum number of consecutive speech frames required to start a speech segment. Overrides the server default when provided. 
+Minimum number of consecutive speech frames required to start a speech segment. Overrides the server default when provided.
 
 first_turn_min_speech_framesstringOptionalDefaults to `8`
 
-Minimum speech frames required specifically for the first user turn. Overrides the server default when provided. 
+Minimum speech frames required specifically for the first user turn. Overrides the server default when provided.
 
 negative_frames_countstringOptionalDefaults to `18`
 
@@ -115,11 +115,11 @@ Minimum speech frames required to register a barge-in / interruption. Overrides 
 
 pre_speech_pad_framesstringOptionalDefaults to `9`
 
-Number of audio frames to prepend before the detected speech onset, ensuring the beginning of speech is not clipped. Overrides the server default when provided. 
+Number of audio frames to prepend before the detected speech onset, ensuring the beginning of speech is not clipped. Overrides the server default when provided.
 
 num_initial_ignored_framesstringOptionalDefaults to `0`
 
-Number of leading audio frames to skip entirely at connection start. Useful for discarding connection setup noise. Overrides the server default when provided. 
+Number of leading audio frames to skip entirely at connection start. Useful for discarding connection setup noise. Overrides the server default when provided.
 
 vad_signalsenumOptional
 
@@ -334,7 +334,9 @@ YesNo
   * [Get attempts](https://docs.sarvam.ai/api-reference/analytics/attempts)
   * [Get interactions](https://docs.sarvam.ai/api-reference/analytics/interactions)
   * [Get recordings](https://docs.sarvam.ai/api-reference/analytics/recordings)
+  * [Get forwarded recordings](https://docs.sarvam.ai/api-reference/analytics/forwarded-recordings)
   * [Get transcripts](https://docs.sarvam.ai/api-reference/analytics/transcripts)
+  * [Get traces](https://docs.sarvam.ai/api-reference/analytics/traces)
   * [Overview](https://docs.sarvam.ai/api-reference/boards/overview)
   * [Writing board SQL](https://docs.sarvam.ai/api-reference/boards/sql)
   * [Best practices](https://docs.sarvam.ai/api-reference/boards/best-practices)
