@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-2/access-control/
 title: Access control with IAM \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:34:57.153411+00:00
+fetched_at: 2026-10-27T05:38:15.107862+00:00
 ---
 
 # Access control with IAM  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -5868,28 +5868,20 @@ The following sections describe how to enable access to Airflow UI in various sc
 
 If the **API Controls** > **Unconfigured third-party apps** > **Don't allow users to access any third-party apps** option is enabled in Google Workspace and the Apache Airflow in Managed Airflow app is not explicitly allowed, users are not able to access the Airflow UI unless they explicitly allow the application.
 
-To allow access to the Apache Airflow in Managed Airflow app, do the following:
+To allow access to the Apache Airflow in Managed Airflow app, configure a new app as follows:
 
-  1. In Admin console, go to **Menu** (menu) > **Security** > **Access and data control** > **API Controls**.
+  1. Follow the instructions provided on the [Control which apps access Google Workspace data](https://knowledge.workspace.google.com/admin/apps/control-which-apps-access-google-workspace-data#add_new_app) page.
 
-  2. Click **Manage Third-Party App Access** to view your configured apps.
+  2. When asked to enter the app's name or client ID, use the following OAuth Client ID: `431403837536-q0odo3nmtfjocv7q291cnmedr0hnlbkh.apps.googleusercontent.com`.
 
-  3. Click **Configure new app**.
+  3. Select the **Apache Airflow in Managed Airflow** app.
 
-  4. Search for the app's OAuth Client ID: `431403837536-q0odo3nmtfjocv7q291cnmedr0hnlbkh.apps.googleusercontent.com`
+  4. In the **Access to Google data** , select **Limited**.
 
-  5. Select the Apache Airflow in Managed Airflow app.
-
-  6. Select the scope of users to configure access for and click **Continue**.
-
-  7. In the **Access to Google data** , select **Limited** and click **Continue**.
-
-  8. Review the information and click **Finish**.
+  5. Configure other options as described in the provided instructions.
 
 
 
-
-For more information about configuring third-party app access, see [Control which third-party and internal apps access Google Workspace data](https://support.google.com/a/answer/7281227).
 
 ### Allow access to Airflow UI in Context-Aware Access bindings
 
@@ -5973,6 +5965,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

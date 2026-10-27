@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-regional-disk-attach/
 title: Attach a regional disk to a Compute Engine VM instance in read-write mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:50:25.208749+00:00
+fetched_at: 2026-10-27T05:38:47.715343+00:00
 ---
 
 # Attach a regional disk to a Compute Engine VM instance in read-write mode  |  Google Cloud Documentation

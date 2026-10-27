@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-route-create/
 title: Create a route in a network \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:49:44.807301+00:00
+fetched_at: 2026-10-27T05:39:59.172845+00:00
 ---
 
 # Create a route in a network  |  Compute Engine  |  Google Cloud Documentation

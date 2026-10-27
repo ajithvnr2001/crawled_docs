@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/connected-devices/
 title: Connected device architectures on Google Cloud \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:51:17.023197+00:00
+fetched_at: 2026-10-27T05:38:18.341663+00:00
 ---
 
 # Connected device architectures on Google Cloud  |  Cloud Architecture Center  |  Google Cloud Documentation

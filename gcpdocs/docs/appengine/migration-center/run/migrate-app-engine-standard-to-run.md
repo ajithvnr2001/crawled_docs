@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/migration-center/run/migrate-app-engine-standard-to-run/
 title: Deploy an App Engine app in the standard environment to Cloud Run \u00a0|\u00a0 App Engine migration center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:46:25.766748+00:00
+fetched_at: 2026-10-27T05:41:23.583639+00:00
 ---
 
 # Deploy an App Engine app in the standard environment to Cloud Run  |  App Engine migration center  |  Google Cloud Documentation
@@ -38,13 +38,11 @@ This guide describes how to deploy your existing apps in the standard environmen
 
 The steps described in this guide don't affect your existing App Engine app's functionality or traffic flow. The newly created Cloud Run service is a replica of the App Engine service that you can test independently.
 
-Cloud Run uses much of the same infrastructure as App Engine standard environment resulting in many similarities between the platforms. To learn more about the similarities and differences between App Engine and Cloud Run, including the benefits of migrating to Cloud Run, see the [comparison summary](https://docs.cloud.google.com/appengine/migration-center/run/compare-gae-with-run). 
-
-To deploy to Cloud Run, choose one of the following strategies:
+Cloud Run uses much of the same infrastructure as App Engine standard environment resulting in many similarities between the platforms. To learn more about the similarities and differences between App Engine and Cloud Run, including the benefits of migrating to Cloud Run, see the [comparison summary](https://docs.cloud.google.com/appengine/migration-center/run/compare-gae-with-run). To deploy to Cloud Run, choose one of the following strategies: 
 
   * **Use the local configuration of an`app.yaml` file (recommended)**: Choose this option to build a container image directly from your local source code and deploy it to Cloud Run. This ensures that any recent local modifications to your code or configuration are included in the new deployment.
 
-  * **Use a previously built image** : This option is useful if you don't have access to the source code. Choose this option to deploy an exact copy of a version that is already running onvApp Engine, without rebuilding the container image. This is useful if you want to verify the behavior of the active deployment without code changes.
+  * **Use a previously built image** : This option is useful if you don't have access to the source code. Choose this option to deploy an exact copy of a version that is already running on App Engine, without rebuilding the container image. This is useful if you want to verify the behavior of the active deployment without code changes. 
 
 
 
@@ -278,6 +276,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

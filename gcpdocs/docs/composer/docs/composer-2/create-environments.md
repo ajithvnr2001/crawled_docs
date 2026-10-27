@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-2/create-environments/
 title: Create Managed Service for Apache Airflow environments \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:43:50.559291+00:00
+fetched_at: 2026-10-27T05:39:21.457545+00:00
 ---
 
 # Create Managed Service for Apache Airflow environments  |  Google Cloud Documentation
@@ -150,7 +150,7 @@ Example:
     
     gcloud composer environments create example-environment \
         --location us-central1 \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --service-account "
     example-account@example-project.iam.gserviceaccount.com
     "
@@ -204,7 +204,7 @@ Example:
       "name": "projects/example-project/locations/us-central1/environments/example-environment",
       "config": {
         "softwareConfig": {
-          "imageVersion": "composer-2.17.15-airflow-2.11.1"
+          "imageVersion": "composer-2.17.16-airflow-2.11.1"
         },
         "nodeConfig": {
           "serviceAccount": "
@@ -265,7 +265,7 @@ Example:
     
       config {
         software_config {
-          image_version = "composer-2.17.15-airflow-2.11.1"
+          image_version = "composer-2.17.16-airflow-2.11.1"
         }
         node_config {
           service_account = "
@@ -507,7 +507,7 @@ For example, if you set the `--triggerer-cpu` flag to `1`, the **minimum value**
     
     gcloud composer environments create ENVIRONMENT_NAME \
         --location LOCATION \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --service-account "SERVICE_ACCOUNT" \
         --environment-size ENVIRONMENT_SIZE \
         --scheduler-count SCHEDULER_COUNT \
@@ -562,7 +562,7 @@ Example:
     
     gcloud composer environments create example-environment \
         --location us-central1 \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --service-account "
     example-account@example-project.iam.gserviceaccount.com
     " \
@@ -945,7 +945,7 @@ For more information about `--triggerer-count`, `--triggerer-cpu`, and `--trigge
     
     gcloud composer environments create ENVIRONMENT_NAME \
         --location LOCATION \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --service-account "SERVICE_ACCOUNT" \
         --enable-high-resilience \
         --enable-private-environment \
@@ -1061,7 +1061,7 @@ When you create an environment, the `--cloud-sql-preferred-zone` argument specif
     
     gcloud composer environments create ENVIRONMENT_NAME \
         --location LOCATION \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --service-account "SERVICE_ACCOUNT" \
         --cloud-sql-preferred-zone SQL_ZONE
     
@@ -1077,7 +1077,7 @@ Example:
     
     gcloud composer environments create example-environment \
         --location us-central1 \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --service-account "
     example-account@example-project.iam.gserviceaccount.com
     " \
@@ -1346,7 +1346,7 @@ Example (Private IP environment )
     
     gcloud composer environments create ENVIRONMENT_NAME \
         --location LOCATION \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --service-account "SERVICE_ACCOUNT" \
         --enable-private-environment \
         --network NETWORK_ID \
@@ -1401,7 +1401,7 @@ When you create an environment, following arguments control network tags:
     
     gcloud composer environments create ENVIRONMENT_NAME \
         --location LOCATION \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --service-account "SERVICE_ACCOUNT" \
         --tags TAGS
     
@@ -1417,7 +1417,7 @@ Example:
     
     gcloud composer environments create example-environment \
         --location us-central1 \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --tags group1,production
     
 
@@ -1556,7 +1556,7 @@ When you create an environment, following arguments control web server access le
     
     gcloud composer environments create ENVIRONMENT_NAME \
         --location LOCATION \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --web-server-allow-ip ip_range=WS_IP_RANGE,description=WS_RANGE_DESCRIPTION
     
 
@@ -1572,7 +1572,7 @@ Example:
     
     gcloud composer environments create example-environment \
         --location us-central1 \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --service-account "
     example-account@example-project.iam.gserviceaccount.com
     " \
@@ -1760,7 +1760,7 @@ Variable names may contain upper and lowercase letters, digits, and underscores,
     
     gcloud composer environments create ENVIRONMENT_NAME \
         --location LOCATION \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --service-account "SERVICE_ACCOUNT" \
         --env-variables ENV_VARS \
         --airflow-configs CONFIG_OVERRIDES
@@ -1778,7 +1778,7 @@ Example:
     
     gcloud composer environments create example-environment \
         --location us-central1 \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --service-account "
     example-account@example-project.iam.gserviceaccount.com
     " \
@@ -1966,7 +1966,7 @@ The following arguments define maintenance windows parameters:
     
     gcloud composer environments create ENVIRONMENT_NAME \
         --location LOCATION \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --service-account "SERVICE_ACCOUNT" \
         --maintenance-window-start 'DATETIME_START' \
         --maintenance-window-end 'DATETIME_END' \
@@ -1992,7 +1992,7 @@ The following example specifies a 6-hour maintenance window between 01:00 and 07
     
     gcloud composer environments create example-environment \
       --location us-central1 \
-      --image-version composer-2.17.15-airflow-2.11.1 \
+      --image-version composer-2.17.16-airflow-2.11.1 \
       --service-account "
     example-account@example-project.iam.gserviceaccount.com
     " \
@@ -2146,7 +2146,7 @@ When you create an environment, the `--disable-cloud-data-lineage-integration` a
     
     gcloud composer environments create ENVIRONMENT_NAME \
         --location LOCATION \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --service-account "SERVICE_ACCOUNT" \
         --disable-cloud-data-lineage-integration
     
@@ -2163,7 +2163,7 @@ Example:
     
     gcloud composer environments create example-environment \
         --location us-central1 \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --service-account "
     example-account@example-project.iam.gserviceaccount.com
     " \
@@ -2208,7 +2208,7 @@ When you create an environment, the `--labels` argument specifies a comma-separa
     
     gcloud composer environments create ENVIRONMENT_NAME \
         --location LOCATION \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --service-account "SERVICE_ACCOUNT" \
         --labels LABELS
     
@@ -2224,7 +2224,7 @@ Example:
     
     gcloud composer environments create example-environment \
         --location us-central1 \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --service-account "
     example-account@example-project.iam.gserviceaccount.com
     " \
@@ -2321,6 +2321,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

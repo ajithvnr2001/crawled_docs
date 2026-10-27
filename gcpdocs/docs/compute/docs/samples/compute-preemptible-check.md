@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-preemptible-check/
 title: Check if a Compute Engine instance is preemptible \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:49:23.368278+00:00
+fetched_at: 2026-10-27T05:39:58.650909+00:00
 ---
 
 # Check if a Compute Engine instance is preemptible  |  Google Cloud Documentation

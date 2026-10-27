@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-reservation-create-local-reservation/
 title: Create a local reservation \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:50:13.203469+00:00
+fetched_at: 2026-10-27T05:39:39.024381+00:00
 ---
 
 # Create a local reservation  |  Compute Engine  |  Google Cloud Documentation

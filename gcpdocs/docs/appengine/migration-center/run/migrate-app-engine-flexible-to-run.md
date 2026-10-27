@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/migration-center/run/migrate-app-engine-flexible-to-run/
 title: Deploy an App Engine app in the flexible environment to Cloud Run \u00a0|\u00a0 App Engine migration center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:46:26.122147+00:00
+fetched_at: 2026-10-27T05:41:11.110347+00:00
 ---
 
 # Deploy an App Engine app in the flexible environment to Cloud Run  |  App Engine migration center  |  Google Cloud Documentation
@@ -38,16 +38,7 @@ This guide describes how to deploy your existing apps in the flexible environmen
 
 The steps described in this guide don't affect your existing App Engine app's functionality or traffic flow. The newly created Cloud Run service is a replica of the App Engine service that you can test independently.
 
-App Engine flexible environment and Cloud Run are both fully managed, container-native application platforms, however, they differ structurally. To learn more about the similarities and differences between App Engine and Cloud Run, including the benefits of migrating to Cloud Run, see the [comparison summary](https://docs.cloud.google.com/appengine/migration-center/run/compare-gae-with-run). 
-
-To deploy to Cloud Run, choose one of the following strategies:
-
-  * **Use the local configuration of an`app.yaml` file (recommended)**: Choose this option to build a container image directly from your local source code and deploy it to Cloud Run. This ensures that any recent local modifications to your code or configuration are included in the new deployment.
-
-  * **Use a previously built image** : This option is useful if you don't have access to the source code. Choose this option to deploy an exact copy of a version that is already running onvApp Engine, without rebuilding the container image. This is useful if you want to verify the behavior of the active deployment without code changes.
-
-
-
+App Engine flexible environment and Cloud Run are both fully managed, container-native application platforms, however, they differ structurally. To learn more about the similarities and differences between App Engine and Cloud Run, including the benefits of migrating to Cloud Run, see the [comparison summary](https://docs.cloud.google.com/appengine/migration-center/run/compare-gae-with-run). To deploy to Cloud Run, use the local configuration of your `app.yaml` file. This builds a container image from your local source code, so any recent changes to your code or configuration are included in the new deployment. 
 
 ## Before you begin
 
@@ -162,42 +153,6 @@ Replace EXPORT_PATH with the directory or path where you want to save the `servi
 
 
 
-## Use a previously built image
-
-To deploy using a previously built container image from a deployed App Engine version instead of rebuilding the container image from a local `app.yaml` file, follow these steps:
-
-You don't need your application's source code for this deployment.
-
-  1. Run the following command to deploy your service to Cloud Run. This command uses the container image of an active App Engine deployment and doesn't capture recent changes from your local `app.yaml` file, which might result in an outdated deployment:
-         
-         gcloud beta app migrate-to-run --service=SERVICE --version=VERSION --from-image
-         
-
-Replace the following:
-
-     * SERVICE: the name of your App Engine service.
-     * VERSION: the version ID of your service.
-
-This command fetches the configuration of the specified service and version to generate the `service.yaml` file for Cloud Run. For more information, see [`gcloud beta app migrate-to-run`](https://docs.cloud.google.com/sdk/gcloud/reference/beta/app/migrate-to-run).
-
-     * When prompted with `Proceed with the deployment?`, enter `Y` to export your existing App Engine container image and deploy the service to Cloud Run.
-  2. Visit your deployed Cloud Run service by opening the service URL in a web browser.
-
-Optional:
-
-     * To generate the Cloud Run `service.yaml` configuration without deploying the service, run the following command:
-           
-           gcloud beta app migrate-to-run --service=SERVICE \
-               --version=VERSION \
-               --from-image \
-               --export-only=EXPORT_PATH
-           
-
-Replace EXPORT_PATH with the directory or path where you want to save the `service.yaml` file.
-
-
-
-
 ## Incompatible features
 
 The migration command fails if your `app.yaml` file contains the following unsupported configuration: 
@@ -225,6 +180,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

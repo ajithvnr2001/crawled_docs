@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-hw-scan-with-filter/
 title: Read using a filter \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:48:33.183767+00:00
+fetched_at: 2026-10-27T05:40:50.966058+00:00
 ---
 
 # Read using a filter  |  Bigtable  |  Google Cloud Documentation

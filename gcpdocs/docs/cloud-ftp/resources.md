@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cloud-ftp/resources/
 title: Resources \u00a0|\u00a0 Cloud FTP \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:35:47.166845+00:00
+fetched_at: 2026-10-27T05:39:50.948610+00:00
 ---
 
 # Resources  |  Cloud FTP  |  Google Cloud Documentation

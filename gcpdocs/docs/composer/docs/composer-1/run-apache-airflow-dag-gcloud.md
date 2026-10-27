@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-1/run-apache-airflow-dag-gcloud/
 title: Quickstart: Run an Apache Airflow DAG in Managed Airflow\u00a0(Legacy Gen\u00a01) (Google Cloud CLI) \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:35:32.517764+00:00
+fetched_at: 2026-10-27T05:38:15.761456+00:00
 ---
 
 # Quickstart: Run an Apache Airflow DAG in Managed Airflow (Legacy Gen 1) (Google Cloud CLI)  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -148,6 +148,8 @@ Create a new environment named `example-environment` in the `us-central1` region
     
 
 Replace `ENVIRONMENT_SERVICE_ACCOUNT` with the service account for your environment that you have created eariler.
+
+**Note:** The approximate time to create an environment is 25 minutes.
 
 ## Create a DAG file
 
@@ -358,6 +360,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/app-development-and-delivery-with-cloud-code-gcb-cd-and-gke/
 title: CI/CD pipeline for developing and delivering containerized apps \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:12.442514+00:00
+fetched_at: 2026-10-27T05:40:24.382003+00:00
 ---
 
 # CI/CD pipeline for developing and delivering containerized apps  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-2/configure-privately-used-public-ip/
 title: Configure privately used public IP ranges \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:45:45.249500+00:00
+fetched_at: 2026-10-27T05:39:56.459926+00:00
 ---
 
 # Configure privately used public IP ranges  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -65,7 +65,7 @@ To create subnet ranges [managed by GKE](https://docs.cloud.google.com/kubernete
     
     gcloud composer environments create ENVIRONMENT_NAME \
         --location LOCATION \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --enable-private-environment \
         --enable-privately-used-public-ips \
         --cluster-ipv4-cidr POD_IP_RANGE \
@@ -86,7 +86,7 @@ Example:
     
     gcloud composer environments create example-environment \
         --location us-central1 \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --enable-private-environment \
         --enable-privately-used-public-ips \
         --cluster-ipv4-cidr 10.3.192.0/20 \
@@ -100,7 +100,7 @@ To create [user-managed ranges](https://docs.cloud.google.com/kubernetes-engine/
     
     gcloud composer environments create ENVIRONMENT_NAME \
         --location LOCATION \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --enable-private-environment \
         --enable-privately-used-public-ips \
         --cluster-secondary-range-name POD_IP_RANGE_NAME \
@@ -121,7 +121,7 @@ Example:
     
     gcloud composer environments create example-environment \
         --location us-central1 \
-        --image-version composer-2.17.15-airflow-2.11.1 \
+        --image-version composer-2.17.16-airflow-2.11.1 \
         --enable-private-environment \
         --enable-privately-used-public-ips \
         --cluster-secondary-range-name "public-1" \
@@ -406,6 +406,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

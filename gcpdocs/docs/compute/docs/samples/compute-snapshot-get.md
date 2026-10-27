@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-snapshot-get/
 title: Get a snapshot \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:49:24.049459+00:00
+fetched_at: 2026-10-27T05:38:25.111016+00:00
 ---
 
 # Get a snapshot  |  Compute Engine  |  Google Cloud Documentation
