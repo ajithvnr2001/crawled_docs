@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/router/comfy-router/read-the-queue-state-of-one-submitted-request/
 title: Read the queue state of one submitted request. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:27.243699+00:00
+fetched_at: 2026-10-27T13:04:11.345325+00:00
 ---
 
 # Read the queue state of one submitted request. - ComfyUI
@@ -481,7 +481,7 @@ Ejemplo:
 
 application/json
 
-OK - the request's current queue state. `status` is one of the three states; `queue_position` is present while the request is still `IN_QUEUE`; `error_type` is present only on a `COMPLETED` request that failed or was cancelled.
+OK - the request's current queue state. `status` is one of the three states; `queue_position` is present while the request is still `IN_QUEUE`; `error_type` is present only on a `COMPLETED` request that failed or was cancelled. `X-Comfy-Credits-Used` is present on a request that completed successfully once its cost is known, with the value the result collect carries.
 
 One queued request's current state, composed with the same three URLs the submission returned.
 

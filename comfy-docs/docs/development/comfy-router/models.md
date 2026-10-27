@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/
 title: Comfy Router models - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:03.672955+00:00
+fetched_at: 2026-10-27T13:04:11.020574+00:00
 ---
 
 # Comfy Router models - ComfyUI
@@ -153,7 +153,7 @@ Video (78)
 
 
 
-Image (92)
+Image (91)
 
   * [SwitchX](https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code): `beeble/switchx`
   * [Erase V1](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/erase-v1/code): `bfl/erase-v1`
@@ -216,7 +216,6 @@ Image (92)
   * [Photon 1](https://docs.comfy.org/development/comfy-router/models/luma/photon-1/code): `luma/photon-1`
   * [Photon Flash 1](https://docs.comfy.org/development/comfy-router/models/luma/photon-flash-1/code): `luma/photon-flash-1`
   * [GPT Image 1.5](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-1-5/code): `openai/gpt-image-1.5`
-  * [GPT Image 1](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-1/code): `openai/gpt-image-1`
   * [GPT Image 2.5 Flare](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-5-flare/code): `openai/gpt-image-2.5-flare`
   * [GPT Image 2.5 Sunburst](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-5-sunburst/code): `openai/gpt-image-2.5-sunburst`
   * [GPT Image 2](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2/code): `openai/gpt-image-2`
@@ -311,7 +310,7 @@ Audio (41)
 
 
 
-Text (46)
+Text (42)
 
   * [Claude Fable 5.1](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5-1/code): `anthropic/claude-fable-5-1`
   * [Claude Fable 5](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5/code): `anthropic/claude-fable-5`
@@ -340,7 +339,6 @@ Text (46)
   * [Nano Banana 2](https://docs.comfy.org/development/comfy-router/models/google/nano-banana-2/code): `vertexai/gemini-3.1-flash-image`
   * [Nano Banana Pro](https://docs.comfy.org/development/comfy-router/models/google/nano-banana-pro/code): `vertexai/gemini-3-pro-image`
   * [GPT 4.1 Mini](https://docs.comfy.org/development/comfy-router/models/openai/gpt-4-1-mini/code): `openai/gpt-4.1-mini`
-  * [GPT 4.1 Nano](https://docs.comfy.org/development/comfy-router/models/openai/gpt-4-1-nano/code): `openai/gpt-4.1-nano`
   * [GPT 4.1](https://docs.comfy.org/development/comfy-router/models/openai/gpt-4-1/code): `openai/gpt-4.1`
   * [GPT 4o](https://docs.comfy.org/development/comfy-router/models/openai/gpt-4o/code): `openai/gpt-4o`
   * [GPT 5.5 Pro](https://docs.comfy.org/development/comfy-router/models/openai/gpt-5-5-pro/code): `openai/gpt-5.5-pro`
@@ -354,10 +352,7 @@ Text (46)
   * [GPT 6 Astra](https://docs.comfy.org/development/comfy-router/models/openai/gpt-6-astra/code): `openai/gpt-6-astra`
   * [GPT 6 Luna](https://docs.comfy.org/development/comfy-router/models/openai/gpt-6-luna/code): `openai/gpt-6-luna`
   * [GPT 6 Sol](https://docs.comfy.org/development/comfy-router/models/openai/gpt-6-sol/code): `openai/gpt-6-sol`
-  * [o1-pro](https://docs.comfy.org/development/comfy-router/models/openai/o1-pro/code): `openai/o1-pro`
-  * [o1](https://docs.comfy.org/development/comfy-router/models/openai/o1/code): `openai/o1`
   * [o3](https://docs.comfy.org/development/comfy-router/models/openai/o3/code): `openai/o3`
-  * [o4-mini](https://docs.comfy.org/development/comfy-router/models/openai/o4-mini/code): `openai/o4-mini`
   * [Chat Completions](https://docs.comfy.org/development/comfy-router/models/openrouter/chat-completions/code): `openrouter/chat-completions`
 
 
@@ -692,7 +687,6 @@ OpenAI
 Model| ID| Input| Output  
 ---|---|---|---  
 [GPT 4.1 Mini](https://docs.comfy.org/development/comfy-router/models/openai/gpt-4-1-mini/code)| `openai/gpt-4.1-mini`| Text, Image| Text  
-[GPT 4.1 Nano](https://docs.comfy.org/development/comfy-router/models/openai/gpt-4-1-nano/code)| `openai/gpt-4.1-nano`| Text, Image| Text  
 [GPT 4.1](https://docs.comfy.org/development/comfy-router/models/openai/gpt-4-1/code)| `openai/gpt-4.1`| Text, Image| Text  
 [GPT 4o](https://docs.comfy.org/development/comfy-router/models/openai/gpt-4o/code)| `openai/gpt-4o`| Text, Image| Text  
 [GPT 5.5 Pro](https://docs.comfy.org/development/comfy-router/models/openai/gpt-5-5-pro/code)| `openai/gpt-5.5-pro`| Text, Image| Text  
@@ -707,14 +701,10 @@ Model| ID| Input| Output
 [GPT 6 Luna](https://docs.comfy.org/development/comfy-router/models/openai/gpt-6-luna/code)| `openai/gpt-6-luna`| Text, Image| Text  
 [GPT 6 Sol](https://docs.comfy.org/development/comfy-router/models/openai/gpt-6-sol/code)| `openai/gpt-6-sol`| Text, Image| Text  
 [GPT Image 1.5](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-1-5/code)| `openai/gpt-image-1.5`| Text, Image| Image  
-[GPT Image 1](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-1/code)| `openai/gpt-image-1`| Text, Image| Image  
 [GPT Image 2.5 Flare](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-5-flare/code)| `openai/gpt-image-2.5-flare`| Text, Image| Image  
 [GPT Image 2.5 Sunburst](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2-5-sunburst/code)| `openai/gpt-image-2.5-sunburst`| Text, Image| Image  
 [GPT Image 2](https://docs.comfy.org/development/comfy-router/models/openai/gpt-image-2/code)| `openai/gpt-image-2`| Text, Image| Image  
-[o1-pro](https://docs.comfy.org/development/comfy-router/models/openai/o1-pro/code)| `openai/o1-pro`| Text, Image| Text  
-[o1](https://docs.comfy.org/development/comfy-router/models/openai/o1/code)| `openai/o1`| Text, Image| Text  
 [o3](https://docs.comfy.org/development/comfy-router/models/openai/o3/code)| `openai/o3`| Text, Image| Text  
-[o4-mini](https://docs.comfy.org/development/comfy-router/models/openai/o4-mini/code)| `openai/o4-mini`| Text, Image| Text  
   
 ## 
 

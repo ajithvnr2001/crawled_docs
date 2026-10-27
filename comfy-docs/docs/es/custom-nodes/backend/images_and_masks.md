@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/backend/images_and_masks/
 title: Im\u00e1genes, latentes y m\u00e1scaras - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:49.644024+00:00
+fetched_at: 2026-10-27T13:04:11.753417+00:00
 ---
 
 # Imágenes, latentes y máscaras - ComfyUI
@@ -28,7 +28,7 @@ Python (backend)
 
 Copiar páginaCopiar página
 
-Domina datos backend para imágenes, máscaras y latentes en nodos personalizados de Comfy. Aprende formas de tensores y conversiones PIL en la documentación.
+Domina el manejo de datos de imágenes y máscaras en el backend de nodos personalizados de Comfy: formas de tensores de PyTorch, conversiones PIL y latentes.
 
 Copiar páginaCopiar página
 

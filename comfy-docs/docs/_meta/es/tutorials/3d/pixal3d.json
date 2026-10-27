@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/es/tutorials/3d/pixal3d/",
   "file": "es/tutorials/3d/pixal3d.md",
-  "title": "Ejemplo de flujo de trabajo de Pixal3D en ComfyUI para convertir una imagen en un modelo 3D - ComfyUI",
+  "title": "Pixal3D en ComfyUI: modelos 3D PBR desde una sola imagen - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-26T14:03:40.108317+00:00"
+  "fetched_at": "2026-10-27T13:04:11.848366+00:00"
 }

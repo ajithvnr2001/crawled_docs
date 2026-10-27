@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/backend/more_on_inputs/
 title: Entradas ocultas y flexibles - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:50.438265+00:00
+fetched_at: 2026-10-27T13:04:12.397521+00:00
 ---
 
 # Entradas ocultas y flexibles - ComfyUI
@@ -31,7 +31,7 @@ Python (backend)
 
 Copiar páginaCopiar página
 
-Entradas ocultas de ComfyUI (UNIQUE_ID, PROMPT, EXTRA_PNGINFO, DYNPROMPT) y flexibles, con tipos de datos personalizados y comodines para nodos personalizados.
+Entradas ocultas de ComfyUI (UNIQUE_ID, PROMPT, EXTRA_PNGINFO, DYNPROMPT) y flexibles, con tipos de datos personalizados y comodines.
 
 Copiar páginaCopiar página
 

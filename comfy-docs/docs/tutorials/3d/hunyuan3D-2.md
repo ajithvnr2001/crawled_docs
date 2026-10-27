@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/3d/hunyuan3D-2/
-title: ComfyUI Hunyuan3D-2 Examples - ComfyUI
+title: Hunyuan3D 2.0 and 2.1 in ComfyUI: Image to 3D Mesh Workflows - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-18T12:01:23.895638+00:00
+fetched_at: 2026-10-27T13:04:13.444048+00:00
 ---
 
-# ComfyUI Hunyuan3D-2 Examples - ComfyUI
+# Hunyuan3D 2.0 and 2.1 in ComfyUI: Image to 3D Mesh Workflows - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/3d/hunyuan3D-2/
 
 ## On this page
+
+Back to top
 
   * Hunyuan3D 2.0 Introduction
   * ComfyUI Hunyuan3D-2mv Workflow Example
@@ -38,11 +40,11 @@ fetched_at: 2026-10-18T12:01:23.895638+00:00
 
 3D
 
-# ComfyUI Hunyuan3D-2 Examples
+# Hunyuan3D 2.0 and 2.1 in ComfyUI: Image to 3D Mesh Workflows
 
 Copy pageCopy page
 
-Hunyuan3D 2.0 and 2.1 in ComfyUI: generate 3D meshes from one image or several views with Tencent’s open-source 3D models.
+Generate 3D meshes in ComfyUI from a single image or four consistent views with Tencent’s open-source Hunyuan3D 2.0, 2.1, and turbo models.
 
 Copy pageCopy page
 
@@ -452,26 +454,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/3d/hunyuan3D-2.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/3d/hunyuan3D-2)
 
-[TripoSplat Image to Gaussian Splat ComfyUI Workflow ExamplePrevious](https://docs.comfy.org/tutorials/3d/triposplat)[Gemma 4 ComfyUI workflow exampleNext](https://docs.comfy.org/tutorials/llm/gemma4/gemma4)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[TripoSplat](https://docs.comfy.org/tutorials/3d/triposplat)[Gemma 4](https://docs.comfy.org/tutorials/llm/gemma4/gemma4)

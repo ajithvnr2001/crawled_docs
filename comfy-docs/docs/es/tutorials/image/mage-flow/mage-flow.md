@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/image/mage-flow/mage-flow/
-title: Mage-Flow: ejemplo de flujo de trabajo en ComfyUI - ComfyUI
+title: Mage-Flow en ComfyUI: texto a imagen y edici\u00f3n por instrucciones - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:43.733336+00:00
+fetched_at: 2026-10-27T13:04:13.538900+00:00
 ---
 
-# Mage-Flow: ejemplo de flujo de trabajo en ComfyUI - ComfyUI
+# Mage-Flow en ComfyUI: texto a imagen y edición por instrucciones - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/image/mage-flow/mage-flow/
 
@@ -26,11 +26,11 @@ Volver arriba
 
 Mage-Flow
 
-# Mage-Flow: ejemplo de flujo de trabajo en ComfyUI
+# Mage-Flow en ComfyUI: texto a imagen y edición por instrucciones
 
 Copiar páginaCopiar página
 
-Mage-Flow es el modelo compacto de 4B de Microsoft para generar imágenes a partir de texto y editar imágenes con instrucciones en ComfyUI, con resoluciones nativas de hasta 2K.
+Ejecuta el stack Mage-Flow de 4B de Microsoft en ComfyUI: texto a imagen y edición por instrucciones en resoluciones nativas de hasta 2K.
 
 Copiar páginaCopiar página
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/image/lens/lens/
-title: Ejemplo de flujo de trabajo de Lens en ComfyUI - ComfyUI
+title: Lens en ComfyUI: modelo open source de texto a imagen de 3.8B - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:44.091339+00:00
+fetched_at: 2026-10-27T13:04:12.645307+00:00
 ---
 
-# Ejemplo de flujo de trabajo de Lens en ComfyUI - ComfyUI
+# Lens en ComfyUI: modelo open source de texto a imagen de 3.8B - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/image/lens/lens/
 
@@ -25,11 +25,11 @@ Volver arriba
 
 Lens
 
-# Ejemplo de flujo de trabajo de Lens en ComfyUI
+# Lens en ComfyUI: modelo open source de texto a imagen de 3.8B
 
 Copiar páginaCopiar página
 
-Ejecuta Lens, el modelo abierto de texto a imagen de 3.8B de Microsoft, en ComfyUI: MMDiT de doble flujo, texto de GPT-OSS-20B y VAE semántico FLUX.2.
+Ejecuta Lens, el modelo open source de texto a imagen de 3.8B de Microsoft en ComfyUI, con flujos estándar y Turbo sobre MMDiT de doble flujo y VAE de FLUX.2.
 
 Copiar páginaCopiar página
 

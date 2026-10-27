@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/3d/trellis2/
-title: TRELLIS.2 Image to 3D Model ComfyUI Workflow Example - ComfyUI
+title: TRELLIS.2 in ComfyUI: Image to 3D Models With PBR Textures - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:16.174142+00:00
+fetched_at: 2026-10-27T13:04:12.987888+00:00
 ---
 
-# TRELLIS.2 Image to 3D Model ComfyUI Workflow Example - ComfyUI
+# TRELLIS.2 in ComfyUI: Image to 3D Models With PBR Textures - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/3d/trellis2/
 
 ## On this page
+
+Back to top
 
   * TRELLIS.2: Image to 3D Model
   * How it works
@@ -21,11 +23,11 @@ fetched_at: 2026-10-17T10:51:16.174142+00:00
 
 3D
 
-# TRELLIS.2 Image to 3D Model ComfyUI Workflow Example
+# TRELLIS.2 in ComfyUI: Image to 3D Models With PBR Textures
 
 Copy pageCopy page
 
-Generate high-fidelity 3D models with full PBR textures from a single image using TRELLIS.2, Microsoft’s open-source 4B-parameter image-to-3D model.
+Turn a single image into a textured 3D model in ComfyUI with Microsoft’s open 4B-parameter TRELLIS.2, bundled with Pixal3D in one workflow.
 
 Copy pageCopy page
 
@@ -167,26 +169,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/3d/trellis2.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/3d/trellis2)
 
-[Pixal3D Image to 3D Model ComfyUI Workflow ExamplePrevious](https://docs.comfy.org/tutorials/3d/pixal3d)[Gemma 4 ComfyUI workflow exampleNext](https://docs.comfy.org/tutorials/llm/gemma4/gemma4)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Pixal3D](https://docs.comfy.org/tutorials/3d/pixal3d)[TripoSplat](https://docs.comfy.org/tutorials/3d/triposplat)

@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/video/ltx/ltx-2-3/
-title: LTX-2.3: ejemplos de flujos de trabajo en ComfyUI - ComfyUI
+title: LTX-2.3 en ComfyUI: flujos de video y audio - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:59.379831+00:00
+fetched_at: 2026-10-27T13:04:12.314144+00:00
 ---
 
-# LTX-2.3: ejemplos de flujos de trabajo en ComfyUI - ComfyUI
+# LTX-2.3 en ComfyUI: flujos de video y audio - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/video/ltx/ltx-2-3/
 
@@ -53,11 +53,11 @@ Volver arriba
 
 LTX
 
-# LTX-2.3: ejemplos de flujos de trabajo en ComfyUI
+# LTX-2.3 en ComfyUI: flujos de video y audio
 
 Copiar páginaCopiar página
 
-Usa LTX-2.3 en ComfyUI con flujos de trabajo nativos para texto a video, imagen a video, FLF2V, video con audio, control IC-LoRA y personalización ID-LoRA.
+Usa LTX-2.3 en ComfyUI con flujos nativos para texto a video, imagen a video, FLF2V, video controlado por audio, control IC-LoRA y personalización ID-LoRA.
 
 Copiar páginaCopiar página
 

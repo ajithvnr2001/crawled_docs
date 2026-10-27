@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/flux/flux-1-kontext-dev/
-title: ComfyUI FLUX Kontext Dev Native Workflow Example - ComfyUI
+title: FLUX.1 Kontext Dev in ComfyUI: Local Image Editing - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:19.621882+00:00
+fetched_at: 2026-10-27T13:04:13.316739+00:00
 ---
 
-# ComfyUI FLUX Kontext Dev Native Workflow Example - ComfyUI
+# FLUX.1 Kontext Dev in ComfyUI: Local Image Editing - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/flux/flux-1-kontext-dev/
 
 ## On this page
+
+Back to top
 
   * About FLUX.1 Kontext Dev
     * Version Information
@@ -34,11 +36,11 @@ fetched_at: 2026-10-17T10:51:19.621882+00:00
 
 FLUX
 
-# ComfyUI FLUX Kontext Dev Native Workflow Example
+# FLUX.1 Kontext Dev in ComfyUI: Local Image Editing
 
 Copy pageCopy page
 
-FLUX.1 Kontext Dev workflow for ComfyUI: edit images with text and image input using Black Forest Labs’ open-source 12B multimodal editing model.
+Edit images locally in ComfyUI with FLUX.1 Kontext Dev, Black Forest Labs’ 12B model for character-consistent edits, style reference, and iterative refinement.
 
 Copy pageCopy page
 
@@ -303,26 +305,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/flux/flux-1-kontext-dev.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/flux/flux-1-kontext-dev)
 
-[FLUX.1 Krea Dev ComfyUI Workflow TutorialPrevious](https://docs.comfy.org/tutorials/flux/flux1-krea-dev)[ComfyUI Flux.1 Text-to-Image Workflow ExampleNext](https://docs.comfy.org/tutorials/flux/flux-1-text-to-image)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[FLUX.1 Krea Dev](https://docs.comfy.org/tutorials/flux/flux1-krea-dev)[Flux.1 Text-to-Image](https://docs.comfy.org/tutorials/flux/flux-1-text-to-image)

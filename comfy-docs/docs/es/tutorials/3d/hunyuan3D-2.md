@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/3d/hunyuan3D-2/
-title: Ejemplos de ComfyUI Hunyuan3D-2 - ComfyUI
+title: Hunyuan3D 2.0 y 2.1 en ComfyUI: flujos de imagen a malla 3D - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:40.607085+00:00
+fetched_at: 2026-10-27T13:04:11.667238+00:00
 ---
 
-# Ejemplos de ComfyUI Hunyuan3D-2 - ComfyUI
+# Hunyuan3D 2.0 y 2.1 en ComfyUI: flujos de imagen a malla 3D - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/3d/hunyuan3D-2/
 
@@ -40,11 +40,11 @@ Volver arriba
 
 3D
 
-# Ejemplos de ComfyUI Hunyuan3D-2
+# Hunyuan3D 2.0 y 2.1 en ComfyUI: flujos de imagen a malla 3D
 
 Copiar páginaCopiar página
 
-Hunyuan3D 2.0 y 2.1 en ComfyUI: genera mallas 3D desde una imagen o varias vistas con los modelos 3D de código abierto de Tencent.
+Genera mallas 3D en ComfyUI desde una imagen o cuatro vistas consistentes con los modelos open source Hunyuan3D 2.0, 2.1 y turbo de Tencent.
 
 Copiar páginaCopiar página
 

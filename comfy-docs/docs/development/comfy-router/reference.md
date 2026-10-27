@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/reference/
 title: Comfy Router API reference - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:54:42.463724+00:00
+fetched_at: 2026-10-27T13:04:00.648561+00:00
 ---
 
 # Comfy Router API reference - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-24T11:54:42.463724+00:00
 > Source: https://docs.comfy.org/development/comfy-router/reference/
 
 ## On this page
+
+Back to top
 
   * Endpoints
     * GET /v2/models
@@ -428,7 +430,7 @@ The request exceeded a deadline. Check the error type before retrying.Body: `Rou
 
 `POST /v2/models/{provider}/{model}/estimate`
 
-**Price a model call before running it, without running it.** Returns a pre-flight estimate, in US dollars, of what running this body on this model will cost, priced from the same rate card the run is billed against. It is an estimate, not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. The body is validated against the model’s input schema first, as a default run (no `strict_mode`, no `reject_unknown_fields`) validates it, so a body that fails the model’s schema is the same `422` here as on the run; nothing is dispatched to a provider and nothing is charged. The answer is not a price lock: it is priced at the rates in force at `pricing_as_of`, and a run is charged at the rates in force when it is rated. While the feature is rolling out the route answers `403` with `error_type: not_enabled`. **Parameters**
+**Price a model call before running it, without running it.** Returns a pre-flight estimate, in US dollars, of what running this body on this model will cost, priced from the same rate card the run is billed against (a model billed the cost its vendor reports is estimated from the vendor’s published price list instead). It is an estimate, not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. The body is validated against the model’s input schema first, as a default run (no `strict_mode`, no `reject_unknown_fields`) validates it, so a body that fails the model’s schema is the same `422` here as on the run; nothing is dispatched to a provider and nothing is charged. The answer is not a price lock: it is priced at the rates in force at `pricing_as_of`, and a run is charged at the rates in force when it is rated. While the feature is rolling out the route answers `403` with `error_type: not_enabled`. **Parameters**
 
 ​
 
@@ -1038,7 +1040,7 @@ The queued request to address - the `request_id` the submission returned in its 
 
 RouterQueueStatusResponse
 
-OK - the request’s current queue state.Body: `RouterQueueStatusResponse` — Headers: `X-Comfy-Request-Id`, `Retry-After`, `X-Comfy-Estimated-Duration-Seconds`, `X-Comfy-Estimated-Duration-P90-Seconds`, `X-Comfy-Estimate-Source`
+OK - the request’s current queue state.Body: `RouterQueueStatusResponse` — Headers: `X-Comfy-Request-Id`, `Retry-After`, `X-Comfy-Credits-Used`, `X-Comfy-Estimated-Duration-Seconds`, `X-Comfy-Estimated-Duration-P90-Seconds`, `X-Comfy-Estimate-Source`
 
 ​
 
@@ -1367,7 +1369,7 @@ The expensive-model calls the caller may still start; `0` on the `429`.
 
 Pre-flight cost estimates
 
-`POST /v2/models/{provider}/{model}/estimate` prices a body without running it, and a queued submit (`POST /v2/models/{provider}/{model}/requests`) returns the same `RouterCostEstimate` as `estimate` on its `201`. Both are priced from the rate card Comfy bills the run against. Every figure either returns is an estimate, not the final charge: the settled charge in your workspace’s usage and billing records is final. A run on your own provider key is not billed by Comfy (see below). While the estimate is rolling out, the route answers `403` with `error_type: not_enabled` and the submit response omits `estimate`. The catalog still carries no prices. Read `source` before any amount. A missing figure never means free.
+`POST /v2/models/{provider}/{model}/estimate` prices a body without running it, and a queued submit (`POST /v2/models/{provider}/{model}/requests`) returns the same `RouterCostEstimate` as `estimate` on its `201`. Both are priced from the rate card Comfy bills the run against, except a model billed the cost its vendor reports, which is `estimated` from the vendor’s published price list. Every figure either returns is an estimate, not the final charge: the settled charge in your workspace’s usage and billing records is final. A run on your own provider key is not billed by Comfy (see below). While the estimate is rolling out, the route answers `403` with `error_type: not_enabled` and the submit response omits `estimate`. The catalog still carries no prices. Read `source` before any amount. A missing figure never means free.
 
 `source`| Carries| How to read it  
 ---|---|---  
@@ -1390,8 +1392,8 @@ The models Router cannot yet price before a run are listed in [models without a 
 
 Limits of the estimate. A `200` figure is not a promise that the run is accepted, or that it is charged exactly that:
 
-  * `/estimate` takes no `strict_mode` or `reject_unknown_fields`, so it checks the model’s native contract only: a body a `strict_mode=true` run accepts in the alternate provider’s own schema can get a `422` here, and an undeclared top-level field a `reject_unknown_fields=true` run would refuse is priced here.
-  * `pricing_as_of` is when the rate card was fetched (or, when none was read, when the estimate was answered). It is not a price lock: the run is charged at the rates in force when it is rated.
+  * `/estimate` takes no `strict_mode` or `reject_unknown_fields`, so it checks the model’s native contract only: a body a `strict_mode=true` run accepts in the alternate provider’s own schema can get a `422` here, and an undeclared top-level field a `reject_unknown_fields=true` run would refuse is priced here. An Anthropic Messages model is the exception: its schema allows undeclared fields, so a `reject_unknown_fields=true` run refuses none, and the estimate prices only the undeclared top-level fields `tools`, `tool_choice`, `temperature`, `top_p`, `top_k`, `stop_sequences`, `metadata`, `thinking` and an empty `mcp_servers`. Any other undeclared top-level field makes it answer `unknown` with `reason: not_quotable`.
+  * `pricing_as_of` is when the rate card was fetched, or for an `estimated` quote taken from the vendor’s published price list, the date that list was read (when neither was read, it is when the estimate was answered). It is not a price lock: the run is charged at the rates in force when it is rated.
   * `/estimate` quotes the leg `model_provider` names, or the native provider. It takes no `fallback_provider` or `strict_mode` parameter. A synchronous run whose fallback retry lands on another provider is charged at that provider’s rate, which the estimate did not quote; `X-Comfy-Router-Fallback-Provider` on the run’s response says it happened. A queued submit has no fallback, so its `estimate` quotes the leg that runs.
   * `/estimate` and a queued submit’s `estimate` can price slightly different documents for the same body on a `model_provider` leg, or for a body that runs on a sibling operation. The submit’s `estimate` is priced on the document the run sends.
   * `/estimate` always quotes the platform charge. A run on your own provider key is not billed by Comfy, but `/estimate` does not detect that and still returns a figure; only a queued submit answers `reason: byok`.
@@ -1444,7 +1446,7 @@ Whether a content-policy refusal is charged for this model. Treat an unknown val
 
 RouterCostEstimate
 
-A pre-flight estimate of what this call will cost, in US dollars, priced before dispatch from the same rate card the run is billed against. It is not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. `X-Comfy-Credits-Used`, reported after the run, is a rounded post-hoc figure, not a receipt. `source` says how much to trust the number: `exact` carries `amount`; `estimated` carries `min_amount` and `max_amount` and no `amount`; `unknown` carries neither and a `reason`. Never read an absent `amount` as free. Not a price lock: see `pricing_as_of`. **Fields**
+A pre-flight estimate of what this call will cost, in US dollars, priced before dispatch from the same rate card the run is billed against (or, for a model billed the cost its vendor reports, estimated from the vendor’s published price list). It is not the final charge: the settled charge in your workspace’s usage and billing records is what you pay. `X-Comfy-Credits-Used`, reported after the run, is a rounded post-hoc figure, not a receipt. `source` says how much to trust the number: `exact` carries `amount`; `estimated` carries `min_amount` and `max_amount` and no `amount`; `unknown` carries neither and a `reason`. Never read an absent `amount` as free. Not a price lock: see `pricing_as_of`. **Fields**
 
 ​
 
@@ -1550,7 +1552,7 @@ string
 
 required
 
-When the rate card this quote was priced from was fetched. The estimate is not a price lock: the run is charged at the rates in force when it is rated, not at this instant. Whenever no rate card was read (`reason: pricing_unavailable`, `byok`, or a `not_quotable` call that cannot be priced from any card), this is when the quote was answered.date-time
+When the rate card this quote was priced from was fetched. The estimate is not a price lock: the run is charged at the rates in force when it is rated, not at this instant. An `estimated` quote taken from the vendor’s published price list (a model billed the cost the vendor reports) carries the date that list was read instead. Whenever no rate card was read (`reason: pricing_unavailable`, `byok`, or a `not_quotable` call that cannot be priced from any card), this is when the quote was answered.date-time
 
 ​
 

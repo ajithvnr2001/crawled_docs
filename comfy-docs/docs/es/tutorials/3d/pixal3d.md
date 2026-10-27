@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/3d/pixal3d/
-title: Ejemplo de flujo de trabajo de Pixal3D en ComfyUI para convertir una imagen en un modelo 3D - ComfyUI
+title: Pixal3D en ComfyUI: modelos 3D PBR desde una sola imagen - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:40.108125+00:00
+fetched_at: 2026-10-27T13:04:11.847959+00:00
 ---
 
-# Ejemplo de flujo de trabajo de Pixal3D en ComfyUI para convertir una imagen en un modelo 3D - ComfyUI
+# Pixal3D en ComfyUI: modelos 3D PBR desde una sola imagen - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/3d/pixal3d/
 
@@ -24,11 +24,11 @@ Volver arriba
 
 3D
 
-# Ejemplo de flujo de trabajo de Pixal3D en ComfyUI para convertir una imagen en un modelo 3D
+# Pixal3D en ComfyUI: modelos 3D PBR desde una sola imagen
 
 Copiar páginaCopiar página
 
-Genera modelos 3D de alta fidelidad con texturas PBR completas a partir de una sola imagen con Pixal3D, de Tencent ARC.
+Convierte una imagen en un modelo 3D con textura en ComfyUI con Pixal3D, el modelo de imagen a 3D de Tencent ARC con materiales PBR completos.
 
 Copiar páginaCopiar página
 

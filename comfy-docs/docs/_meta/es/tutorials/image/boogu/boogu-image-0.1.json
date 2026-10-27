@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/es/tutorials/image/boogu/boogu-image-0.1",
   "file": "es/tutorials/image/boogu/boogu-image-0.1.md",
-  "title": "Ejemplo de flujo de trabajo de Boogu-Image-0.1 en ComfyUI - ComfyUI",
+  "title": "Boogu-Image-0.1 en ComfyUI: generaci\u00f3n y edici\u00f3n de im\u00e1genes de 10B - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-26T14:03:43.315448+00:00"
+  "fetched_at": "2026-10-27T13:04:13.088542+00:00"
 }

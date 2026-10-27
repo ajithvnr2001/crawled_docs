@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/flux/flux-1-uso/
-title: ByteDance USO ComfyUI Native Workflow example - ComfyUI
+title: ByteDance USO in ComfyUI: Style and Subject Reference Workflows - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:20.245754+00:00
+fetched_at: 2026-10-27T13:04:12.021999+00:00
 ---
 
-# ByteDance USO ComfyUI Native Workflow example - ComfyUI
+# ByteDance USO in ComfyUI: Style and Subject Reference Workflows - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/flux/flux-1-uso/
 
 ## On this page
+
+Back to top
 
   * ByteDance USO ComfyUI Native Workflow
     * FLUX.1 Dev USO Reference Image Generation
@@ -22,11 +24,11 @@ fetched_at: 2026-10-17T10:51:20.245754+00:00
 
 FLUX
 
-# ByteDance USO ComfyUI Native Workflow example
+# ByteDance USO in ComfyUI: Style and Subject Reference Workflows
 
 Copy pageCopy page
 
-Unified Style and Subject-Driven Generation with ByteDance’s USO model
+Run ByteDance USO on FLUX.1-dev in ComfyUI to keep a subject’s identity, transfer an artistic style from reference images, or combine both.
 
 Copy pageCopy page
 
@@ -194,26 +196,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/flux/flux-1-uso.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/flux/flux-1-uso)
 
-[ComfyUI Flux.1 Text-to-Image Workflow ExamplePrevious](https://docs.comfy.org/tutorials/flux/flux-1-text-to-image)[ComfyUI Flux.1 fill dev ExampleNext](https://docs.comfy.org/tutorials/flux/flux-1-fill-dev)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Flux.1 Text-to-Image](https://docs.comfy.org/tutorials/flux/flux-1-text-to-image)[Flux.1 fill dev](https://docs.comfy.org/tutorials/flux/flux-1-fill-dev)

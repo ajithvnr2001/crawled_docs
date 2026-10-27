@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfyui-server/api-key-integration/
 title: Integraci\u00f3n de la clave API de la cuenta de ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:26.876723+00:00
+fetched_at: 2026-10-27T13:04:11.922117+00:00
 ---
 
 # Integración de la clave API de la cuenta de ComfyUI - ComfyUI
@@ -25,7 +25,7 @@ Self-Hosted Server API
 
 Copiar páginaCopiar página
 
-Aprende a usar la clave API de tu cuenta de ComfyUI para llamar a nodos asociados de pago en modo headless.
+Usa la clave API de tu cuenta de ComfyUI para llamar a nodos asociados de pago en modo headless.
 
 Copiar páginaCopiar página
 

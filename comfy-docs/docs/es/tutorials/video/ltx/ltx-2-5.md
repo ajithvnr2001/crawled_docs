@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/video/ltx/ltx-2-5/
-title: LTX-2.5: ejemplos de flujos de trabajo en ComfyUI - ComfyUI
+title: LTX-2.5 en ComfyUI: flujos de video, audio y multishot - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:59.600648+00:00
+fetched_at: 2026-10-27T13:04:12.163928+00:00
 ---
 
-# LTX-2.5: ejemplos de flujos de trabajo en ComfyUI - ComfyUI
+# LTX-2.5 en ComfyUI: flujos de video, audio y multishot - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/video/ltx/ltx-2-5/
 
@@ -35,11 +35,11 @@ Volver arriba
 
 LTX
 
-# LTX-2.5: ejemplos de flujos de trabajo en ComfyUI
+# LTX-2.5 en ComfyUI: flujos de video, audio y multishot
 
 Copiar páginaCopiar página
 
-Usa LTX-2.5 en ComfyUI con flujos de trabajo nativos de texto a video, imagen a video y primer-último fotograma, con audio sincronizado y escenas multicámara nativas.
+El modelo de video open source de Lightricks en ComfyUI: texto a video, imagen a video, primer-último fotograma, DFR, multishot, audio sincronizado y 4K HDR.
 
 Copiar páginaCopiar página
 

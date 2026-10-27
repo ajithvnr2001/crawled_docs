@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/image/qwen/qwen-image-2-1/
-title: Ejemplo de flujo de trabajo nativo de ComfyUI con Qwen-Image-2.1 - ComfyUI
+title: Qwen-Image-2.1 en ComfyUI: texto a imagen, edici\u00f3n y salida 2K - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:44.908690+00:00
+fetched_at: 2026-10-27T13:04:13.217863+00:00
 ---
 
-# Ejemplo de flujo de trabajo nativo de ComfyUI con Qwen-Image-2.1 - ComfyUI
+# Qwen-Image-2.1 en ComfyUI: texto a imagen, edición y salida 2K - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/image/qwen/qwen-image-2-1/
 
@@ -35,11 +35,11 @@ Volver arriba
 
 Qwen
 
-# Ejemplo de flujo de trabajo nativo de ComfyUI con Qwen-Image-2.1
+# Qwen-Image-2.1 en ComfyUI: texto a imagen, edición y salida 2K
 
 Copiar páginaCopiar página
 
-Ejecuta Qwen-Image-2.1 en ComfyUI: un modelo para generar y editar imágenes, salida 2K nativa, tipografía profesional y soporte de canal alpha.
+Un solo checkpoint de Qwen-Image-2.1 cubre texto a imagen y edición por instrucciones en ComfyUI, con salida 2K nativa, canal alfa y hasta 16 imágenes de referencia.
 
 Copiar páginaCopiar página
 

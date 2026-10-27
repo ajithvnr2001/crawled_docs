@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/registry/update-a-specific-node/
 title: Update a specific node - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:06.202536+00:00
+fetched_at: 2026-10-27T13:04:09.688689+00:00
 ---
 
 # Update a specific node - ComfyUI

@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/wavespeed/overview/
-title: Mejora de im\u00e1genes y video con WaveSpeed - ComfyUI
+title: WaveSpeed en ComfyUI: ampliaci\u00f3n de imagen y video - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:57.288320+00:00
+fetched_at: 2026-10-27T13:04:12.807982+00:00
 ---
 
-# Mejora de imágenes y video con WaveSpeed - ComfyUI
+# WaveSpeed en ComfyUI: ampliación de imagen y video - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/wavespeed/overview/
 
@@ -20,11 +20,11 @@ Volver arriba
 
 WaveSpeed
 
-# Mejora de imágenes y video con WaveSpeed
+# WaveSpeed en ComfyUI: ampliación de imagen y video
 
 Copiar páginaCopiar página
 
-Amplía video e imágenes y restaura fotos antiguas con los modelos de WaveSpeed AI: FLSH-VSR, SeedVR2 y ampliación general, todo en ComfyUI.
+Amplía video y restaura imágenes en ComfyUI con WaveSpeed: ampliación temporal de video FLSH-VSR, restauración de fotos SeedVR2 y ampliación general.
 
 Copiar páginaCopiar página
 

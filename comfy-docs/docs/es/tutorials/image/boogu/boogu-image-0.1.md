@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/image/boogu/boogu-image-0.1
-title: Ejemplo de flujo de trabajo de Boogu-Image-0.1 en ComfyUI - ComfyUI
+title: Boogu-Image-0.1 en ComfyUI: generaci\u00f3n y edici\u00f3n de im\u00e1genes de 10B - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:43.315152+00:00
+fetched_at: 2026-10-27T13:04:13.088014+00:00
 ---
 
-# Ejemplo de flujo de trabajo de Boogu-Image-0.1 en ComfyUI - ComfyUI
+# Boogu-Image-0.1 en ComfyUI: generación y edición de imágenes de 10B - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/image/boogu/boogu-image-0.1
 
@@ -24,11 +24,11 @@ Volver arriba
 
 Boogu
 
-# Ejemplo de flujo de trabajo de Boogu-Image-0.1 en ComfyUI
+# Boogu-Image-0.1 en ComfyUI: generación y edición de imágenes de 10B
 
 Copiar páginaCopiar página
 
-Boogu-Image-0.1 es una familia de modelos de generación y edición de imágenes de 10B parámetros con licencia Apache-2.0, con variantes de texto a imagen y edición guiada por instrucciones.
+Genera y edita imágenes con la familia Boogu-Image-0.1 de Apache-2.0 en ComfyUI: Turbo en 4 pasos, el modelo Base para ajuste fino y la variante Edit.
 
 Copiar páginaCopiar página
 
