@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/embeddings/
 title: Embeddings
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:43:04.358172+00:00
+fetched_at: 2026-10-27T09:34:56.037776+00:00
 ---
 
 # Embeddings
@@ -1326,7 +1326,7 @@ Property | Description
 id_cardModel code |  **Gemini API** `gemini-embedding-2`  
 saveSupported data types |  **Input** Text, image, video, audio, PDF **Output** Text embeddings  
 token_autoToken limits[[*]](https://ai.google.dev/gemini-api/docs/tokens) |  **Input token limit** 8,192 **Output dimension size** Flexible, supports: 128 - 3072, Recommended: 768, 1536, 3072  
-123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models/gemini#model-versions) for more details.
+123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models#model-versions) for more details.
 
   * Stable: `gemini-embedding-2`
 
@@ -1340,7 +1340,7 @@ Property | Description
 id_cardModel code |  **Gemini API** `gemini-embedding-001`  
 saveSupported data types |  **Input** Text **Output** Text embeddings  
 token_autoToken limits[[*]](https://ai.google.dev/gemini-api/docs/tokens) |  **Input token limit** 2,048 **Output dimension size** Flexible, supports: 128 - 3072, Recommended: 768, 1536, 3072  
-123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models/gemini#model-versions) for more details.
+123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models#model-versions) for more details.
 
   * Stable: `gemini-embedding-001`
 

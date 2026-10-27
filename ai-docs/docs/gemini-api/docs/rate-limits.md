@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/rate-limits/
 title: Rate limits
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:52.739325+00:00
+fetched_at: 2026-10-27T09:34:52.717135+00:00
 ---
 
 # Rate limits

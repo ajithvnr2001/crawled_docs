@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/antigravity-preview-09-2026/
 title: Antigravity preview
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:31.764742+00:00
+fetched_at: 2026-10-27T09:34:44.934176+00:00
 ---
 
 # Antigravity preview
@@ -24,7 +24,7 @@ Property | Description
 id_cardAgent code |  **Interactions API** `antigravity-preview-09-2026`  
 saveSupported data types |  **Input** Text, Image **Output** Text  
 token_autoToken limits[[*]](https://ai.google.dev/gemini-api/docs/tokens) |  **Input context window** 1,048,576 (compacted at ~135k) **Output token limit** 65,536  
-123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models/gemini#model-versions) for more details.
+123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models#model-versions) for more details.
 
   * Preview: `antigravity-preview-09-2026`
 

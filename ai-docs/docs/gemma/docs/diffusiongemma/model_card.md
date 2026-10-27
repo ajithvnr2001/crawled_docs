@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemma/docs/diffusiongemma/model_card/
 title: DiffusionGemma model card
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:45:48.972551+00:00
+fetched_at: 2026-10-27T09:34:54.941233+00:00
 ---
 
 # DiffusionGemma model card
@@ -36,8 +36,19 @@ During inference, DiffusionGemma leverages multi-canvas sampling. Rather than ge
 
 ### DiffusionGemma
 
-| **Total Parameters** | 25.2B | | **Active Parameters** | 3.8B | | **Layers** | 30 | | **Sliding Window** | 1024 tokens | | **Context Length** | Up to 256K tokens | | **Canvas Length** | 256 | | **Vocabulary Size** | 262K | | **Expert Count** | 8 active / 128 total and 1 shared | | **Supported Modalities** | Text, Image | | **Vision Encoder Parameters** | ~550M |
-
+Property | DiffusionGemma 26B A4B  
+---|---  
+**Total Parameters** | 25.2B  
+**Active Parameters** | 3.8B  
+**Layers** | 30  
+**Sliding Window** | 1024 tokens  
+**Context Length** | Up to 256K tokens  
+**Canvas Length** | 256  
+**Vocabulary Size** | 262K  
+**Expert Count** | 8 active / 128 total and 1 shared  
+**Supported Modalities** | Text, Image  
+**Vision Encoder Parameters** | ~550M  
+  
 ## **Benchmark Results**
 
 These models were evaluated against a large collection of different datasets and metrics to cover different aspects of text generation. Evaluation results marked in the table are for instruction-tuned models, with the recommended Entropy Bound (EB) sampler (see Best Practices below).

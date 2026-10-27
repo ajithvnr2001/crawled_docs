@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/files/
 title: Files API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:43:13.618490+00:00
+fetched_at: 2026-10-27T09:34:54.567547+00:00
 ---
 
 # Files API

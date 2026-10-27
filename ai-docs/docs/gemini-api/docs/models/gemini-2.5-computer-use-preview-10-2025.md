@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025
 title: Gemini 2.5 computer use model
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:35.509330+00:00
+fetched_at: 2026-10-27T09:34:52.496345+00:00
 ---
 
 # Gemini 2.5 computer use model
@@ -22,7 +22,7 @@ Property | Description
 id_cardModel code |  **Gemini API** `gemini-2.5-computer-use-preview-10-2025`  
 saveSupported data types |  **Input** Image, text **Output** Text  
 token_autoToken limits[[*]](https://ai.google.dev/gemini-api/docs/tokens) |  **Input token limit** 128,000 **Output token limit** 64,000  
-123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models/gemini#model-versions) for more details.
+123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models#model-versions) for more details.
 
   * Shut down: `gemini-2.5-computer-use-preview-10-2025`
 

@@ -2,14 +2,14 @@
 url: https://ai.google.dev/gemini-api/docs/generate-content/
 title: Gemini API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:43:22.642177+00:00
+fetched_at: 2026-10-27T09:34:40.063887+00:00
 ---
 
 # Gemini API
 
 > Source: https://ai.google.dev/gemini-api/docs/generate-content/
 
-The Gemini API is the fastest path from prompt to production with Gemini, Veo, Nano Banana, and more. It lets you integrate these generative models into your applications to generate text and images, analyze multimodal inputs, and build conversational agents.
+Go from a quick prompt to production apps and agents with the Gemini API. Tackle complex coding and multimodal reasoning with Gemini, or hand multi-step work to a managed agent. Stream voice and video with the Live API, or generate images with Nano Banana, video with Gemini Omni, and music with Lyria.
 
 ### Python
     

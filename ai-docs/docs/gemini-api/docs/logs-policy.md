@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/logs-policy/
 title: Data logging and sharing
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:21.978730+00:00
+fetched_at: 2026-10-27T09:34:57.123093+00:00
 ---
 
 # Data logging and sharing
@@ -13,7 +13,7 @@ This page outlines the storage and management of [Gemini API logs](https://ai.go
 
 ## Data that can be shared
 
-As a project owner you have the choice to opt-in to logging of Gemini API calls, for your own use or for feedback and sharing with Google to help us continually improve our models.
+Logging is on by default for Interactions API calls, and for Generate Content API calls in projects created on or after October 26, 2026. As a project owner, you can turn logging on or off at any time from the [Logs and Datasets](https://aistudio.google.com/logs) page in AI Studio. Logs are for your own use, and you can choose to share them with Google as feedback to help us continually improve our models.
 
 With logging enabled, you can help us build AI systems that continue to be valuable for developers across various fields and use cases by choosing to contribute the following data for product improvements and model training:
 

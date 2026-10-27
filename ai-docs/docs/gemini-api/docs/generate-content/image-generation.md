@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/generate-content/image-generation/
 title: Nano Banana image generation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:43:42.874308+00:00
+fetched_at: 2026-10-27T09:34:49.848033+00:00
 ---
 
 # Nano Banana image generation

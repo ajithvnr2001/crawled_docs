@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/libraries/
 title: Gemini API libraries
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:14.654854+00:00
+fetched_at: 2026-10-27T09:34:42.160972+00:00
 ---
 
 # Gemini API libraries

@@ -1,25 +1,13 @@
 ---
 url: https://ai.google.dev/api/
-title: Gemini API reference \u00a0|\u00a0 Google AI for Developers
+title: Gemini API reference
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T19:15:50.630668+00:00
+fetched_at: 2026-10-27T09:34:41.708324+00:00
 ---
 
-# Gemini API reference  |  Google AI for Developers
+# Gemini API reference
 
 > Source: https://ai.google.dev/api/
-
-Gemini 4 Argon is now available. [Try it out](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon). 
-
-  * [ Home ](https://ai.google.dev/)
-  * [ Gemini API ](https://ai.google.dev/gemini-api)
-  * [ API reference ](https://ai.google.dev/api)
-
-
-
-Send feedback 
-
-#  Gemini API reference
 
 This API reference describes the unary, streaming, and real-time APIs you can use to interact with the Gemini models. You can use the REST APIs in any environment that supports HTTP requests. Refer to the [Get started guide](https://ai.google.dev/gemini-api/docs/get-started) for how to get started with your first API call. If you're looking for the references for our language-specific libraries and SDKs, go to the link for that language in the left navigation under **SDK references**.
 
@@ -45,29 +33,13 @@ All requests to the Gemini API must include a `x-goog-api-key` header with your 
 The following is an example request with the API key included in the header:
     
     
-    curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+    curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
       -H "x-goog-api-key: $GEMINI_API_KEY" \
-      -H 'Content-Type: application/json' \
-      -X POST \
+      -H "Content-Type: application/json" \
       -d '{
-        "contents": [
-          {
-            "parts": [
-              {
-                "text": "Explain how AI works in a few words"
-              }
-            ]
-          }
-        ]
+        "model": "gemini-3.8-flash",
+        "input": "Explain how AI works in a few words"
       }'
     
 
 For instructions on how to pass your key to the API using Gemini SDKs, see the [Using Gemini API keys](https://ai.google.dev/gemini-api/docs/api-key) guide.
-
-Send feedback 
-
-Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-09-04 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-04 UTC."],[],[]] 

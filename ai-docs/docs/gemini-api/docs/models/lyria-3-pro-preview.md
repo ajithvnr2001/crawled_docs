@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview/
 title: Lyria 3 Pro preview
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:44.930584+00:00
+fetched_at: 2026-10-27T09:34:53.277307+00:00
 ---
 
 # Lyria 3 Pro preview
@@ -26,7 +26,7 @@ saveSupported data types |  **Inputs** Text and Image **Output** Audio (MP3), Te
 token_autoToken limits[[*]](https://ai.google.dev/gemini-api/docs/tokens) |  **Input token limit** 131,072  
 handymanCapabilities | **[Audio generation](https://ai.google.dev/gemini-api/docs/speech-generation)** Supported **[Caching](https://ai.google.dev/gemini-api/docs/caching)** Not supported **[Code execution](https://ai.google.dev/gemini-api/docs/code-execution)** Not supported **[File search](https://ai.google.dev/gemini-api/docs/file-search)** Not supported **[Function calling](https://ai.google.dev/gemini-api/docs/function-calling)** Not supported **[Grounding with Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding)** Not supported **[Image generation](https://ai.google.dev/gemini-api/docs/image-generation)** Not supported **[Live API](https://ai.google.dev/gemini-api/docs/live-api)** Not supported **[Search grounding](https://ai.google.dev/gemini-api/docs/google-search)** Not supported **[Structured outputs](https://ai.google.dev/gemini-api/docs/structured-output)** Not supported **[Thinking](https://ai.google.dev/gemini-api/docs/thinking)** Not supported **[URL context](https://ai.google.dev/gemini-api/docs/url-context)** Not supported  
 speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api)** Not supported **[Flex inference](https://ai.google.dev/gemini-api/docs/flex-inference)** Not supported **[Priority inference](https://ai.google.dev/gemini-api/docs/priority-inference)** Not supported  
-123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models/gemini#model-versions) for more details.
+123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models#model-versions) for more details.
 
   * Preview: `lyria-3-clip-preview`
   * Preview: `lyria-3-pro-preview`

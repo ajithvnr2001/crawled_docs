@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/triggers/
 title: Gemini Triggers API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T08:55:34.228286+00:00
+fetched_at: 2026-10-27T09:34:38.017441+00:00
 ---
 
 # Gemini Triggers API
@@ -78,6 +78,84 @@ The input for the interaction.
 agent_config AntigravityAgentConfig or DeepResearchAgentConfig or DynamicAgentConfig (optional)
 
 Configuration parameters for the agent interaction.
+
+#### Possible Types
+
+AntigravityAgentConfig
+
+Configuration for the Antigravity agent runtime. Provides server-side control over the agent's execution environment and tool configuration.
+
+type object (required)
+
+No description provided.
+
+Always set to `"antigravity"`.
+
+model string (optional)
+
+The model to use for agent reasoning.
+
+max_total_tokens string (optional)
+
+Max total tokens for the agent run.
+
+DeepResearchAgentConfig
+
+Configuration for the Deep Research agent.
+
+type object (required)
+
+No description provided.
+
+Always set to `"deep-research"`.
+
+thinking_summaries ThinkingSummaries (optional)
+
+Whether to include thought summaries in the response.
+
+#### Possible values
+
+  * `auto`
+
+Auto thinking summaries.
+
+  * `none`
+
+No thinking summaries.
+
+
+
+
+visualization enum (string) (optional)
+
+Whether to include visualizations in the response.
+
+Possible values:
+
+  * `off`
+
+Do not include visualizations.
+
+  * `auto`
+
+Automatically include visualizations.
+
+
+
+
+collaborative_planning boolean (optional)
+
+Enables human-in-the-loop planning for the Deep Research agent. If set to true, the Deep Research agent will provide a research plan in its response. The agent will then proceed only if the user confirms the plan in the next turn.
+
+DynamicAgentConfig
+
+Configuration for dynamic agents.
+
+type object (required)
+
+No description provided.
+
+Always set to `"dynamic"`.
 
 id string (optional)
 
@@ -692,6 +770,12 @@ Possible values:
 
 
 
+array (ResponseFormat)
+
+A list where each item is one of: `AudioResponseFormat`, `ImageResponseFormat`, `TextResponseFormat`, `VideoResponseFormat`.
+
+This type has no specific fields.
+
 previous_interaction_id string (optional)
 
 The ID of the previous interaction, if any.
@@ -700,9 +784,11 @@ environment EnvironmentConfig or string (optional)
 
 The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID.
 
-Configuration for a custom environment.
+#### Possible Types
 
-#### Fields
+EnvironmentConfig
+
+Configuration for a custom environment.
 
 type object (required)
 
@@ -759,20 +845,43 @@ network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
 
 Network configuration for the environment.
 
-Network egress configuration for the environment.
+#### Possible Types
 
-#### Fields
+EnvironmentNetworkEgressAllowlist
+
+Network egress configuration for the environment.
 
 allowlist array (EgressRule) or enum (string) (optional)
 
 List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
 
-Possible values:
+#### Possible Types
 
-  * `disabled`
+array (EgressRule)
 
-All network egress is blocked.
+A single domain allowlist rule with optional header injection.
 
+domain string (required)
+
+Domain to allow outbound requests to. Supports wildcards (e.g. '*.googleapis.com'). Use '*' to allow all domains.
+
+transform object (optional)
+
+Headers to inject into requests matching this rule. Key: header name (e.g., "Authorization"). Value: header value (e.g., "Bearer your-token").
+
+credential string (optional)
+
+Optional. Reference to a server-managed Credential resource by ID.
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
+
+
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
 
 
 
@@ -786,11 +895,17 @@ Environment variables to set in the sandbox environment.
 
 #### Possible Types
 
-object
+string
+
+A direct string value.
+
+This type has no specific fields.
 
 string
 
 A direct string value.
+
+This type has no specific fields.
 
 environment_id string (optional)
 
@@ -987,6 +1102,84 @@ agent_config AntigravityAgentConfig or DeepResearchAgentConfig or DynamicAgentCo
 
 Configuration parameters for the agent interaction.
 
+#### Possible Types
+
+AntigravityAgentConfig
+
+Configuration for the Antigravity agent runtime. Provides server-side control over the agent's execution environment and tool configuration.
+
+type object (required)
+
+No description provided.
+
+Always set to `"antigravity"`.
+
+model string (optional)
+
+The model to use for agent reasoning.
+
+max_total_tokens string (optional)
+
+Max total tokens for the agent run.
+
+DeepResearchAgentConfig
+
+Configuration for the Deep Research agent.
+
+type object (required)
+
+No description provided.
+
+Always set to `"deep-research"`.
+
+thinking_summaries ThinkingSummaries (optional)
+
+Whether to include thought summaries in the response.
+
+#### Possible values
+
+  * `auto`
+
+Auto thinking summaries.
+
+  * `none`
+
+No thinking summaries.
+
+
+
+
+visualization enum (string) (optional)
+
+Whether to include visualizations in the response.
+
+Possible values:
+
+  * `off`
+
+Do not include visualizations.
+
+  * `auto`
+
+Automatically include visualizations.
+
+
+
+
+collaborative_planning boolean (optional)
+
+Enables human-in-the-loop planning for the Deep Research agent. If set to true, the Deep Research agent will provide a research plan in its response. The agent will then proceed only if the user confirms the plan in the next turn.
+
+DynamicAgentConfig
+
+Configuration for dynamic agents.
+
+type object (required)
+
+No description provided.
+
+Always set to `"dynamic"`.
+
 id string (optional)
 
 Required. Output only. A unique identifier for the interaction completion.
@@ -1600,6 +1793,12 @@ Possible values:
 
 
 
+array (ResponseFormat)
+
+A list where each item is one of: `AudioResponseFormat`, `ImageResponseFormat`, `TextResponseFormat`, `VideoResponseFormat`.
+
+This type has no specific fields.
+
 previous_interaction_id string (optional)
 
 The ID of the previous interaction, if any.
@@ -1608,9 +1807,11 @@ environment EnvironmentConfig or string (optional)
 
 The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID.
 
-Configuration for a custom environment.
+#### Possible Types
 
-#### Fields
+EnvironmentConfig
+
+Configuration for a custom environment.
 
 type object (required)
 
@@ -1667,20 +1868,43 @@ network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
 
 Network configuration for the environment.
 
-Network egress configuration for the environment.
+#### Possible Types
 
-#### Fields
+EnvironmentNetworkEgressAllowlist
+
+Network egress configuration for the environment.
 
 allowlist array (EgressRule) or enum (string) (optional)
 
 List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
 
-Possible values:
+#### Possible Types
 
-  * `disabled`
+array (EgressRule)
 
-All network egress is blocked.
+A single domain allowlist rule with optional header injection.
 
+domain string (required)
+
+Domain to allow outbound requests to. Supports wildcards (e.g. '*.googleapis.com'). Use '*' to allow all domains.
+
+transform object (optional)
+
+Headers to inject into requests matching this rule. Key: header name (e.g., "Authorization"). Value: header value (e.g., "Bearer your-token").
+
+credential string (optional)
+
+Optional. Reference to a server-managed Credential resource by ID.
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
+
+
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
 
 
 
@@ -1694,11 +1918,17 @@ Environment variables to set in the sandbox environment.
 
 #### Possible Types
 
-object
+string
+
+A direct string value.
+
+This type has no specific fields.
 
 string
 
 A direct string value.
+
+This type has no specific fields.
 
 environment_id string (optional)
 
@@ -2200,6 +2430,84 @@ agent_config AntigravityAgentConfig or DeepResearchAgentConfig or DynamicAgentCo
 
 Configuration parameters for the agent interaction.
 
+#### Possible Types
+
+AntigravityAgentConfig
+
+Configuration for the Antigravity agent runtime. Provides server-side control over the agent's execution environment and tool configuration.
+
+type object (required)
+
+No description provided.
+
+Always set to `"antigravity"`.
+
+model string (optional)
+
+The model to use for agent reasoning.
+
+max_total_tokens string (optional)
+
+Max total tokens for the agent run.
+
+DeepResearchAgentConfig
+
+Configuration for the Deep Research agent.
+
+type object (required)
+
+No description provided.
+
+Always set to `"deep-research"`.
+
+thinking_summaries ThinkingSummaries (optional)
+
+Whether to include thought summaries in the response.
+
+#### Possible values
+
+  * `auto`
+
+Auto thinking summaries.
+
+  * `none`
+
+No thinking summaries.
+
+
+
+
+visualization enum (string) (optional)
+
+Whether to include visualizations in the response.
+
+Possible values:
+
+  * `off`
+
+Do not include visualizations.
+
+  * `auto`
+
+Automatically include visualizations.
+
+
+
+
+collaborative_planning boolean (optional)
+
+Enables human-in-the-loop planning for the Deep Research agent. If set to true, the Deep Research agent will provide a research plan in its response. The agent will then proceed only if the user confirms the plan in the next turn.
+
+DynamicAgentConfig
+
+Configuration for dynamic agents.
+
+type object (required)
+
+No description provided.
+
+Always set to `"dynamic"`.
+
 id string (optional)
 
 Required. Output only. A unique identifier for the interaction completion.
@@ -2813,6 +3121,12 @@ Possible values:
 
 
 
+array (ResponseFormat)
+
+A list where each item is one of: `AudioResponseFormat`, `ImageResponseFormat`, `TextResponseFormat`, `VideoResponseFormat`.
+
+This type has no specific fields.
+
 previous_interaction_id string (optional)
 
 The ID of the previous interaction, if any.
@@ -2821,9 +3135,11 @@ environment EnvironmentConfig or string (optional)
 
 The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID.
 
-Configuration for a custom environment.
+#### Possible Types
 
-#### Fields
+EnvironmentConfig
+
+Configuration for a custom environment.
 
 type object (required)
 
@@ -2880,20 +3196,43 @@ network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
 
 Network configuration for the environment.
 
-Network egress configuration for the environment.
+#### Possible Types
 
-#### Fields
+EnvironmentNetworkEgressAllowlist
+
+Network egress configuration for the environment.
 
 allowlist array (EgressRule) or enum (string) (optional)
 
 List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
 
-Possible values:
+#### Possible Types
 
-  * `disabled`
+array (EgressRule)
 
-All network egress is blocked.
+A single domain allowlist rule with optional header injection.
 
+domain string (required)
+
+Domain to allow outbound requests to. Supports wildcards (e.g. '*.googleapis.com'). Use '*' to allow all domains.
+
+transform object (optional)
+
+Headers to inject into requests matching this rule. Key: header name (e.g., "Authorization"). Value: header value (e.g., "Bearer your-token").
+
+credential string (optional)
+
+Optional. Reference to a server-managed Credential resource by ID.
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
+
+
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
 
 
 
@@ -2907,11 +3246,17 @@ Environment variables to set in the sandbox environment.
 
 #### Possible Types
 
-object
+string
+
+A direct string value.
+
+This type has no specific fields.
 
 string
 
 A direct string value.
+
+This type has no specific fields.
 
 environment_id string (optional)
 
@@ -3456,6 +3801,84 @@ agent_config AntigravityAgentConfig or DeepResearchAgentConfig or DynamicAgentCo
 
 Configuration parameters for the agent interaction.
 
+#### Possible Types
+
+AntigravityAgentConfig
+
+Configuration for the Antigravity agent runtime. Provides server-side control over the agent's execution environment and tool configuration.
+
+type object (required)
+
+No description provided.
+
+Always set to `"antigravity"`.
+
+model string (optional)
+
+The model to use for agent reasoning.
+
+max_total_tokens string (optional)
+
+Max total tokens for the agent run.
+
+DeepResearchAgentConfig
+
+Configuration for the Deep Research agent.
+
+type object (required)
+
+No description provided.
+
+Always set to `"deep-research"`.
+
+thinking_summaries ThinkingSummaries (optional)
+
+Whether to include thought summaries in the response.
+
+#### Possible values
+
+  * `auto`
+
+Auto thinking summaries.
+
+  * `none`
+
+No thinking summaries.
+
+
+
+
+visualization enum (string) (optional)
+
+Whether to include visualizations in the response.
+
+Possible values:
+
+  * `off`
+
+Do not include visualizations.
+
+  * `auto`
+
+Automatically include visualizations.
+
+
+
+
+collaborative_planning boolean (optional)
+
+Enables human-in-the-loop planning for the Deep Research agent. If set to true, the Deep Research agent will provide a research plan in its response. The agent will then proceed only if the user confirms the plan in the next turn.
+
+DynamicAgentConfig
+
+Configuration for dynamic agents.
+
+type object (required)
+
+No description provided.
+
+Always set to `"dynamic"`.
+
 id string (optional)
 
 Required. Output only. A unique identifier for the interaction completion.
@@ -4069,6 +4492,12 @@ Possible values:
 
 
 
+array (ResponseFormat)
+
+A list where each item is one of: `AudioResponseFormat`, `ImageResponseFormat`, `TextResponseFormat`, `VideoResponseFormat`.
+
+This type has no specific fields.
+
 previous_interaction_id string (optional)
 
 The ID of the previous interaction, if any.
@@ -4077,9 +4506,11 @@ environment EnvironmentConfig or string (optional)
 
 The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID.
 
-Configuration for a custom environment.
+#### Possible Types
 
-#### Fields
+EnvironmentConfig
+
+Configuration for a custom environment.
 
 type object (required)
 
@@ -4136,20 +4567,43 @@ network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
 
 Network configuration for the environment.
 
-Network egress configuration for the environment.
+#### Possible Types
 
-#### Fields
+EnvironmentNetworkEgressAllowlist
+
+Network egress configuration for the environment.
 
 allowlist array (EgressRule) or enum (string) (optional)
 
 List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
 
-Possible values:
+#### Possible Types
 
-  * `disabled`
+array (EgressRule)
 
-All network egress is blocked.
+A single domain allowlist rule with optional header injection.
 
+domain string (required)
+
+Domain to allow outbound requests to. Supports wildcards (e.g. '*.googleapis.com'). Use '*' to allow all domains.
+
+transform object (optional)
+
+Headers to inject into requests matching this rule. Key: header name (e.g., "Authorization"). Value: header value (e.g., "Bearer your-token").
+
+credential string (optional)
+
+Optional. Reference to a server-managed Credential resource by ID.
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
+
+
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
 
 
 
@@ -4163,11 +4617,17 @@ Environment variables to set in the sandbox environment.
 
 #### Possible Types
 
-object
+string
+
+A direct string value.
+
+This type has no specific fields.
 
 string
 
 A direct string value.
+
+This type has no specific fields.
 
 environment_id string (optional)
 
@@ -4548,6 +5008,84 @@ agent_config AntigravityAgentConfig or DeepResearchAgentConfig or DynamicAgentCo
 
 Configuration parameters for the agent interaction.
 
+#### Possible Types
+
+AntigravityAgentConfig
+
+Configuration for the Antigravity agent runtime. Provides server-side control over the agent's execution environment and tool configuration.
+
+type object (required)
+
+No description provided.
+
+Always set to `"antigravity"`.
+
+model string (optional)
+
+The model to use for agent reasoning.
+
+max_total_tokens string (optional)
+
+Max total tokens for the agent run.
+
+DeepResearchAgentConfig
+
+Configuration for the Deep Research agent.
+
+type object (required)
+
+No description provided.
+
+Always set to `"deep-research"`.
+
+thinking_summaries ThinkingSummaries (optional)
+
+Whether to include thought summaries in the response.
+
+#### Possible values
+
+  * `auto`
+
+Auto thinking summaries.
+
+  * `none`
+
+No thinking summaries.
+
+
+
+
+visualization enum (string) (optional)
+
+Whether to include visualizations in the response.
+
+Possible values:
+
+  * `off`
+
+Do not include visualizations.
+
+  * `auto`
+
+Automatically include visualizations.
+
+
+
+
+collaborative_planning boolean (optional)
+
+Enables human-in-the-loop planning for the Deep Research agent. If set to true, the Deep Research agent will provide a research plan in its response. The agent will then proceed only if the user confirms the plan in the next turn.
+
+DynamicAgentConfig
+
+Configuration for dynamic agents.
+
+type object (required)
+
+No description provided.
+
+Always set to `"dynamic"`.
+
 id string (optional)
 
 Required. Output only. A unique identifier for the interaction completion.
@@ -5161,6 +5699,12 @@ Possible values:
 
 
 
+array (ResponseFormat)
+
+A list where each item is one of: `AudioResponseFormat`, `ImageResponseFormat`, `TextResponseFormat`, `VideoResponseFormat`.
+
+This type has no specific fields.
+
 previous_interaction_id string (optional)
 
 The ID of the previous interaction, if any.
@@ -5169,9 +5713,11 @@ environment EnvironmentConfig or string (optional)
 
 The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID.
 
-Configuration for a custom environment.
+#### Possible Types
 
-#### Fields
+EnvironmentConfig
+
+Configuration for a custom environment.
 
 type object (required)
 
@@ -5228,20 +5774,43 @@ network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
 
 Network configuration for the environment.
 
-Network egress configuration for the environment.
+#### Possible Types
 
-#### Fields
+EnvironmentNetworkEgressAllowlist
+
+Network egress configuration for the environment.
 
 allowlist array (EgressRule) or enum (string) (optional)
 
 List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
 
-Possible values:
+#### Possible Types
 
-  * `disabled`
+array (EgressRule)
 
-All network egress is blocked.
+A single domain allowlist rule with optional header injection.
 
+domain string (required)
+
+Domain to allow outbound requests to. Supports wildcards (e.g. '*.googleapis.com'). Use '*' to allow all domains.
+
+transform object (optional)
+
+Headers to inject into requests matching this rule. Key: header name (e.g., "Authorization"). Value: header value (e.g., "Bearer your-token").
+
+credential string (optional)
+
+Optional. Reference to a server-managed Credential resource by ID.
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
+
+
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
 
 
 
@@ -5255,11 +5824,17 @@ Environment variables to set in the sandbox environment.
 
 #### Possible Types
 
-object
+string
+
+A direct string value.
+
+This type has no specific fields.
 
 string
 
 A direct string value.
+
+This type has no specific fields.
 
 environment_id string (optional)
 

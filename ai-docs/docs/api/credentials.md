@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/credentials/
 title: Gemini Credentials API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T08:55:34.319555+00:00
+fetched_at: 2026-10-27T09:34:38.595158+00:00
 ---
 
 # Gemini Credentials API
@@ -40,20 +40,21 @@ injection_location InjectionLocation or array (InjectionLocation) (required)
 
 Required. Locations where the environment variable can be injected in outgoing HTTP requests. Must contain at least one location. Accepts either a single location (e.g. "header") or an array of locations.
 
-#### Possible values
+#### Possible Types
 
-  * `header`
+InjectionLocation
 
-Injected into HTTP request headers.
+  * `header`: Injected into HTTP request headers. 
+  * `query`: Injected into HTTP URL query parameters. 
+  * `body`: Injected into HTTP request body. 
 
-  * `query`
 
-Injected into HTTP URL query parameters.
 
-  * `body`
+array (InjectionLocation)
 
-Injected into HTTP request body.
-
+  * `header`: Injected into HTTP request headers. 
+  * `query`: Injected into HTTP URL query parameters. 
+  * `body`: Injected into HTTP request body. 
 
 
 
@@ -373,20 +374,21 @@ injection_location InjectionLocation or array (InjectionLocation) (optional)
 
 Optional. Locations where the environment variable can be injected in outgoing HTTP requests. Accepts either a single location (e.g. "header") or an array of locations.
 
-#### Possible values
+#### Possible Types
 
-  * `header`
+InjectionLocation
 
-Injected into HTTP request headers.
+  * `header`: Injected into HTTP request headers. 
+  * `query`: Injected into HTTP URL query parameters. 
+  * `body`: Injected into HTTP request body. 
 
-  * `query`
 
-Injected into HTTP URL query parameters.
 
-  * `body`
+array (InjectionLocation)
 
-Injected into HTTP request body.
-
+  * `header`: Injected into HTTP request headers. 
+  * `query`: Injected into HTTP URL query parameters. 
+  * `body`: Injected into HTTP request body. 
 
 
 

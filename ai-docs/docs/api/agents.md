@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/agents/
 title: Gemini Agents API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T08:55:34.519823+00:00
+fetched_at: 2026-10-27T09:34:39.092657+00:00
 ---
 
 # Gemini Agents API
@@ -77,9 +77,11 @@ base_environment EnvironmentConfig or string (optional)
 
 The environment configuration for the agent.
 
-Configuration for a custom environment.
+#### Possible Types
 
-#### Fields
+EnvironmentConfig
+
+Configuration for a custom environment.
 
 type object (required)
 
@@ -136,20 +138,43 @@ network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
 
 Network configuration for the environment.
 
-Network egress configuration for the environment.
+#### Possible Types
 
-#### Fields
+EnvironmentNetworkEgressAllowlist
+
+Network egress configuration for the environment.
 
 allowlist array (EgressRule) or enum (string) (optional)
 
 List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
 
-Possible values:
+#### Possible Types
 
-  * `disabled`
+array (EgressRule)
 
-All network egress is blocked.
+A single domain allowlist rule with optional header injection.
 
+domain string (required)
+
+Domain to allow outbound requests to. Supports wildcards (e.g. '*.googleapis.com'). Use '*' to allow all domains.
+
+transform object (optional)
+
+Headers to inject into requests matching this rule. Key: header name (e.g., "Authorization"). Value: header value (e.g., "Bearer your-token").
+
+credential string (optional)
+
+Optional. Reference to a server-managed Credential resource by ID.
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
+
+
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
 
 
 
@@ -163,11 +188,17 @@ Environment variables to set in the sandbox environment.
 
 #### Possible Types
 
-object
+string
+
+A direct string value.
+
+This type has no specific fields.
 
 string
 
 A direct string value.
+
+This type has no specific fields.
 
 tools array (AgentTool) (optional)
 
@@ -351,9 +382,11 @@ base_environment EnvironmentConfig or string (optional)
 
 The environment configuration for the agent.
 
-Configuration for a custom environment.
+#### Possible Types
 
-#### Fields
+EnvironmentConfig
+
+Configuration for a custom environment.
 
 type object (required)
 
@@ -410,20 +443,43 @@ network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
 
 Network configuration for the environment.
 
-Network egress configuration for the environment.
+#### Possible Types
 
-#### Fields
+EnvironmentNetworkEgressAllowlist
+
+Network egress configuration for the environment.
 
 allowlist array (EgressRule) or enum (string) (optional)
 
 List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
 
-Possible values:
+#### Possible Types
 
-  * `disabled`
+array (EgressRule)
 
-All network egress is blocked.
+A single domain allowlist rule with optional header injection.
 
+domain string (required)
+
+Domain to allow outbound requests to. Supports wildcards (e.g. '*.googleapis.com'). Use '*' to allow all domains.
+
+transform object (optional)
+
+Headers to inject into requests matching this rule. Key: header name (e.g., "Authorization"). Value: header value (e.g., "Bearer your-token").
+
+credential string (optional)
+
+Optional. Reference to a server-managed Credential resource by ID.
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
+
+
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
 
 
 
@@ -437,11 +493,17 @@ Environment variables to set in the sandbox environment.
 
 #### Possible Types
 
-object
+string
+
+A direct string value.
+
+This type has no specific fields.
 
 string
 
 A direct string value.
+
+This type has no specific fields.
 
 tools array (AgentTool) (optional)
 
@@ -756,9 +818,11 @@ base_environment EnvironmentConfig or string (optional)
 
 The environment configuration for the agent.
 
-Configuration for a custom environment.
+#### Possible Types
 
-#### Fields
+EnvironmentConfig
+
+Configuration for a custom environment.
 
 type object (required)
 
@@ -815,20 +879,43 @@ network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
 
 Network configuration for the environment.
 
-Network egress configuration for the environment.
+#### Possible Types
 
-#### Fields
+EnvironmentNetworkEgressAllowlist
+
+Network egress configuration for the environment.
 
 allowlist array (EgressRule) or enum (string) (optional)
 
 List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
 
-Possible values:
+#### Possible Types
 
-  * `disabled`
+array (EgressRule)
 
-All network egress is blocked.
+A single domain allowlist rule with optional header injection.
 
+domain string (required)
+
+Domain to allow outbound requests to. Supports wildcards (e.g. '*.googleapis.com'). Use '*' to allow all domains.
+
+transform object (optional)
+
+Headers to inject into requests matching this rule. Key: header name (e.g., "Authorization"). Value: header value (e.g., "Bearer your-token").
+
+credential string (optional)
+
+Optional. Reference to a server-managed Credential resource by ID.
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
+
+
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
 
 
 
@@ -842,11 +929,17 @@ Environment variables to set in the sandbox environment.
 
 #### Possible Types
 
-object
+string
+
+A direct string value.
+
+This type has no specific fields.
 
 string
 
 A direct string value.
+
+This type has no specific fields.
 
 tools array (AgentTool) (optional)
 
@@ -1076,9 +1169,11 @@ base_environment EnvironmentConfig or string (optional)
 
 The environment configuration for the agent.
 
-Configuration for a custom environment.
+#### Possible Types
 
-#### Fields
+EnvironmentConfig
+
+Configuration for a custom environment.
 
 type object (required)
 
@@ -1135,20 +1230,43 @@ network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
 
 Network configuration for the environment.
 
-Network egress configuration for the environment.
+#### Possible Types
 
-#### Fields
+EnvironmentNetworkEgressAllowlist
+
+Network egress configuration for the environment.
 
 allowlist array (EgressRule) or enum (string) (optional)
 
 List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
 
-Possible values:
+#### Possible Types
 
-  * `disabled`
+array (EgressRule)
 
-All network egress is blocked.
+A single domain allowlist rule with optional header injection.
 
+domain string (required)
+
+Domain to allow outbound requests to. Supports wildcards (e.g. '*.googleapis.com'). Use '*' to allow all domains.
+
+transform object (optional)
+
+Headers to inject into requests matching this rule. Key: header name (e.g., "Authorization"). Value: header value (e.g., "Bearer your-token").
+
+credential string (optional)
+
+Optional. Reference to a server-managed Credential resource by ID.
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
+
+
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
 
 
 
@@ -1162,11 +1280,17 @@ Environment variables to set in the sandbox environment.
 
 #### Possible Types
 
-object
+string
+
+A direct string value.
+
+This type has no specific fields.
 
 string
 
 A direct string value.
+
+This type has no specific fields.
 
 tools array (AgentTool) (optional)
 

@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-overview/
 title: Gemini Robotics ER
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:43:44.106861+00:00
+fetched_at: 2026-10-27T09:34:53.843868+00:00
 ---
 
 # Gemini Robotics ER
@@ -194,7 +194,7 @@ saveSupported data types |  **Inputs** Text, images, video, audio **Output** Tex
 token_autoToken limits[[*]](https://ai.google.dev/gemini-api/docs/tokens) |  **Input token limit** 131,072 **Output token limit** 65,536  
 handymanCapabilities | **[Audio generation](https://ai.google.dev/gemini-api/docs/speech-generation)** Not supported **[Caching](https://ai.google.dev/gemini-api/docs/caching)** Supported **[Code execution](https://ai.google.dev/gemini-api/docs/code-execution)** Supported **[Computer use](https://ai.google.dev/gemini-api/docs/computer-use)** Supported **[File search](https://ai.google.dev/gemini-api/docs/file-search)** Supported **[Function calling](https://ai.google.dev/gemini-api/docs/function-calling)** Supported **[Grounding with Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding)** Supported **[Image generation](https://ai.google.dev/gemini-api/docs/image-generation)** Not supported **[Live API](https://ai.google.dev/gemini-api/docs/live-api)** Not supported **[Search grounding](https://ai.google.dev/gemini-api/docs/google-search)** Supported **[Structured outputs](https://ai.google.dev/gemini-api/docs/structured-output)** Supported **[Thinking](https://ai.google.dev/gemini-api/docs/thinking)** Supported **[URL context](https://ai.google.dev/gemini-api/docs/url-context)** Supported  
 speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api)** Supported **[Flex inference](https://ai.google.dev/gemini-api/docs/flex-inference)** Not supported **[Priority inference](https://ai.google.dev/gemini-api/docs/priority-inference)** Not supported  
-123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models/gemini#model-versions) for more details.
+123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models#model-versions) for more details.
 
   * Preview: `gemini-robotics-er-2-preview`
 
@@ -211,7 +211,7 @@ saveSupported data types |  **Inputs** Text, images, video, audio **Output** Tex
 token_autoToken limits[[*]](https://ai.google.dev/gemini-api/docs/tokens) |  **Input token limit** 131,072 **Output token limit** 65,536  
 handymanCapabilities | **[Audio generation](https://ai.google.dev/gemini-api/docs/speech-generation)** Not supported **[Caching](https://ai.google.dev/gemini-api/docs/caching)** Not supported **[Code execution](https://ai.google.dev/gemini-api/docs/code-execution)** Not supported **[Computer use](https://ai.google.dev/gemini-api/docs/computer-use)** Not supported **[File search](https://ai.google.dev/gemini-api/docs/file-search)** Not supported **[Function calling](https://ai.google.dev/gemini-api/docs/function-calling)** Supported **[Grounding with Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding)** Not supported **[Image generation](https://ai.google.dev/gemini-api/docs/image-generation)** Not supported **[Live API](https://ai.google.dev/gemini-api/docs/live-api)** Supported **[Search grounding](https://ai.google.dev/gemini-api/docs/google-search)** Supported **[Structured outputs](https://ai.google.dev/gemini-api/docs/structured-output)** Not supported **[Thinking](https://ai.google.dev/gemini-api/docs/thinking)** Supported **[URL context](https://ai.google.dev/gemini-api/docs/url-context)** Not supported  
 speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api)** Not supported **[Flex inference](https://ai.google.dev/gemini-api/docs/flex-inference)** Not supported **[Priority inference](https://ai.google.dev/gemini-api/docs/priority-inference)** Not supported  
-123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models/gemini#model-versions) for more details.
+123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models#model-versions) for more details.
 
   * Preview: `gemini-robotics-er-2-streaming-preview`
 
@@ -228,7 +228,7 @@ saveSupported data types |  **Inputs** Text, images, video, audio **Output** Tex
 token_autoToken limits[[*]](https://ai.google.dev/gemini-api/docs/tokens) |  **Input token limit** 131,072 **Output token limit** 65,536  
 handymanCapabilities | **[Audio generation](https://ai.google.dev/gemini-api/docs/speech-generation)** Not supported **[Caching](https://ai.google.dev/gemini-api/docs/caching)** Supported **[Code execution](https://ai.google.dev/gemini-api/docs/code-execution)** Supported **[Computer use](https://ai.google.dev/gemini-api/docs/computer-use)** Supported **[File search](https://ai.google.dev/gemini-api/docs/file-search)** Supported **[Function calling](https://ai.google.dev/gemini-api/docs/function-calling)** Supported **[Grounding with Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding)** Supported **[Image generation](https://ai.google.dev/gemini-api/docs/image-generation)** Not supported **[Live API](https://ai.google.dev/gemini-api/docs/live-api)** Not supported **[Search grounding](https://ai.google.dev/gemini-api/docs/google-search)** Supported **[Structured outputs](https://ai.google.dev/gemini-api/docs/structured-output)** Supported **[Thinking](https://ai.google.dev/gemini-api/docs/thinking)** Supported **[URL context](https://ai.google.dev/gemini-api/docs/url-context)** Supported  
 speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api)** Supported **[Flex inference](https://ai.google.dev/gemini-api/docs/flex-inference)** Not supported **[Priority inference](https://ai.google.dev/gemini-api/docs/priority-inference)** Not supported  
-123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models/gemini#model-versions) for more details.
+123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models#model-versions) for more details.
 
   * Shut down: `gemini-robotics-er-1.6-preview`
 

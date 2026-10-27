@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/logs-datasets/
 title: Logs and datasets
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:21.190836+00:00
+fetched_at: 2026-10-27T09:34:57.080022+00:00
 ---
 
 # Logs and datasets
@@ -15,20 +15,20 @@ All `GenerateContent`, `BatchGenerateContent`, `StreamGenerateContent` API calls
 
 ## Configure project logging
 
-By default, the API stores all interaction objects (`store=true`) in order to simplify use of server-side state management features. In contrast, the Generate Content API does not store requests by default, and requires storage to be enabled per-request or at the project-level from AI Studio.
+By default, both the [Interactions](https://ai.google.dev/gemini-api/docs/interactions) API and the Generate Content API store requests (`store=true`). For the Interactions API, this also enables server-side state management features.
 
-In Google [AI Studio](https://aistudio.google.com/logs) you can enable or disable logging for all projects or for specific projects and change these preferences at any time through the **Settings** panel in the [Logs and Datasets](https://aistudio.google.com/logs) page. Logging can be toggled on or off independently for the `generateContent` API and the [Interactions](https://ai.google.dev/gemini-api/docs/interactions) API to change the default storage behavior for a project.
+In Google [AI Studio](https://aistudio.google.com/logs) you can enable or disable storage for individual projects and change these preferences at any time through the **Settings** panel in your [Gemini API Logs Dashboard](https://aistudio.google.com/logs). You can toggle logging on or off independently for the `generateContent` API and the [Interactions](https://ai.google.dev/gemini-api/docs/interactions) API to change the default storage behavior for a project.
 
 ### Request-level logging
 
-Storage and logging behavior differs by API:
+Both APIs store requests by default (`store=true`):
 
-  * **[Interactions API](https://ai.google.dev/gemini-api/docs/interactions):** Stores requests by default (`store=true`) to simplify server-side state management.
-  * **Generate Content API (`generateContent`):** Does not store requests by default (`store=false`).
+  * **[Interactions API](https://ai.google.dev/gemini-api/docs/interactions):** Stores requests by default to simplify server-side state management.
+  * **Generate Content API (`generateContent`, `streamGenerateContent`, and `batchGenerateContent`):** Stores requests by default for projects created on or after October 26, 2026. Projects created before that date don't store requests by default (`store=false`) unless logging is enabled in AI Studio.
 
 
 
-Here is how you can set the `store` property:
+The request-level `store` property takes precedence over the project-level setting. Setting `store` on Generate Content API requests requires `google-genai` 2.33.0 or later for Python, `@google/genai` 2.31.0 or later for JavaScript, `google-genai` 1.79.0 or later for Java, and `google.golang.org/genai` 1.76.0 or later for Go. Here is how you can set the `store` property:
 
 **GenerateContent API**
 
@@ -42,7 +42,7 @@ Here is how you can set the `store` property:
     response = client.models.generate_content(
         model='gemini-3.8-flash',
         contents='Explain quantum entanglement in simple terms.',
-        config={'store': False} # Set to True to enable logging of this request
+        config={'store': True} # Set to False to disable logging of this request
     )
     
     print(response.text)
@@ -59,7 +59,7 @@ Here is how you can set the `store` property:
         model: 'gemini-3.8-flash',
         contents: 'Explain quantum entanglement in simple terms.',
         config: {
-            store: false // Set to true to enable logging of this request
+            store: true // Set to false to disable logging of this request
         }
     });
     
@@ -75,12 +75,13 @@ Here is how you can set the `store` property:
     
     Client client = new Client();
     
-    // The GenerateContent API does not store requests by default
     GenerateContentResponse response =
         client.models.generateContent(
             "gemini-3.8-flash",
             "Explain quantum entanglement in simple terms.",
-            GenerateContentConfig.builder().build());
+            GenerateContentConfig.builder()
+                .store(true) // Set to false to disable logging of this request
+                .build());
     
     System.out.println(response.text());
     
@@ -105,12 +106,13 @@ Here is how you can set the `store` property:
             log.Fatal(err)
         }
     
-        // The GenerateContent API does not store requests by default
         response, err := client.Models.GenerateContent(
             ctx,
             "gemini-3.8-flash",
             genai.Text("Explain quantum entanglement in simple terms."),
-            &genai.GenerateContentConfig{},
+            &genai.GenerateContentConfig{
+                Store: genai.Ptr(true), // Set to false to disable logging of this request
+            },
         )
         if err != nil {
             log.Fatal(err)
@@ -220,8 +222,8 @@ Here is how you can set the `store` property:
 
   1. Go to the Logs page in [AI Studio](https://aistudio.google.com/logs).
   2. Select a project from the drop-down.
-  3. Logs will appear in the table in reverse chronological order for the Interactions API, if they exist.
-  4. To observe project logs for the Generate Content API, first enable this in the settings panel.
+  3. Logs will appear in the table in reverse chronological order, if they exist.
+  4. For projects created before October 26, 2026, first enable Generate Content API logging in the settings panel to observe project logs for the Generate Content API.
 
 
 

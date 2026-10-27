@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/interactions-api-v1/
 title: Gemini Interactions API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:43.450274+00:00
+fetched_at: 2026-10-27T09:34:36.882980+00:00
 ---
 
 # Gemini Interactions API
@@ -124,6 +124,24 @@ tool_choice ToolChoiceConfig or enum (string) (optional)
 
 The tool choice configuration.
 
+#### Possible Types
+
+ToolChoiceConfig
+
+The tool choice configuration containing allowed tools.
+
+allowed_tools AllowedTools (optional)
+
+The allowed tools.
+
+The configuration for allowed tools.
+
+#### Fields
+
+mode enum (string) (optional)
+
+The mode of the tool choice.
+
 Possible values:
 
   * `auto`
@@ -142,6 +160,19 @@ No tool choice.
 
 Validated tool choice.
 
+
+
+
+tools array (string) (optional)
+
+The names of the allowed tools.
+
+enum (string)
+
+  * `auto`: Auto tool choice. 
+  * `any`: Any tool choice. 
+  * `none`: No tool choice. 
+  * `validated`: Validated tool choice. 
 
 
 
@@ -255,6 +286,18 @@ A list of tool declarations the model may call during interaction.
 response_format ResponseFormat or array (ResponseFormat) (optional)
 
 Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
+
+#### Possible Types
+
+ResponseFormat
+
+This type has no specific fields.
+
+array (ResponseFormat)
+
+A list where each item is one of: `AudioResponseFormat`, `ImageResponseFormat`, `TextResponseFormat`, `VideoResponseFormat`.
+
+This type has no specific fields.
 
 previous_interaction_id string (optional)
 
@@ -1012,6 +1055,18 @@ response_format ResponseFormat or array (ResponseFormat) (optional)
 
 Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
 
+#### Possible Types
+
+ResponseFormat
+
+This type has no specific fields.
+
+array (ResponseFormat)
+
+A list where each item is one of: `AudioResponseFormat`, `ImageResponseFormat`, `TextResponseFormat`, `VideoResponseFormat`.
+
+This type has no specific fields.
+
 previous_interaction_id string (optional)
 
 The ID of the previous interaction, if any.
@@ -1617,12 +1672,11 @@ processing MediaProcessing or enum (string) (optional)
 
 How the model processes this video for understanding.
 
-Can be a string (`"static"` | `"agentic"`) or a `StaticMediaProcessing` object:
+#### Possible Types
 
-  * `agentic`: Model-driven dynamic navigation. 
-  * `static`: Fixed-rate frame extraction. All frames placed in context. Can be passed as the string `"static"`, or as an object with the following fields: 
+MediaProcessing
 
-type string (required)
+type object (required)
 
 No description provided.
 
@@ -1640,6 +1694,10 @@ fps number (optional)
 
 Optional. Video frame-rate sampling density.
 
+enum (string)
+
+  * `static`: Fixed-rate frame extraction. All frames placed in context. 
+  * `agentic`: Model-driven dynamic navigation. 
 
 
 
@@ -3138,6 +3196,20 @@ result array (ImageContent or TextContent) or object or string (required)
 
 No description provided.
 
+#### Possible Types
+
+array (ImageContent or TextContent)
+
+A list where each item is one of: `ImageContent`, `TextContent`.
+
+This type has no specific fields.
+
+string
+
+A direct string value.
+
+This type has no specific fields.
+
 type object (required)
 
 No description provided.
@@ -3397,6 +3469,20 @@ McpServerToolResultDelta
 result array (ImageContent or TextContent) or object or string (required)
 
 No description provided.
+
+#### Possible Types
+
+array (ImageContent or TextContent)
+
+A list where each item is one of: `ImageContent`, `TextContent`.
+
+This type has no specific fields.
+
+string
+
+A direct string value.
+
+This type has no specific fields.
 
 type object (required)
 
@@ -5092,6 +5178,20 @@ result array (ImageContent or TextContent) or object or string (required)
 
 Required. The result of the tool call.
 
+#### Possible Types
+
+array (ImageContent or TextContent)
+
+A list where each item is one of: `ImageContent`, `TextContent`.
+
+This type has no specific fields.
+
+string
+
+A direct string value.
+
+This type has no specific fields.
+
 call_id string (required)
 
 Required. ID to match the ID from the function call block.
@@ -5322,6 +5422,20 @@ MCPServer tool result step.
 result array (ImageContent or TextContent) or object or string (required)
 
 Required. The output from the MCP server call. Can be simple text or rich content.
+
+#### Possible Types
+
+array (ImageContent or TextContent)
+
+A list where each item is one of: `ImageContent`, `TextContent`.
+
+This type has no specific fields.
+
+string
+
+A direct string value.
+
+This type has no specific fields.
 
 call_id string (required)
 

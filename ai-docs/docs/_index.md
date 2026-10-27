@@ -2,7 +2,7 @@
 url: https://ai.google.dev/
 title: AI for every developer
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:00:16.353895+00:00
+fetched_at: 2026-10-27T09:34:42.439978+00:00
 ---
 
 # AI for every developer
@@ -28,11 +28,11 @@ Get started building with cutting-edge AI models and tools
 
 Build with cutting-edge AI models, like Gemini, Imagen, and Veo, from Google DeepMind
 
-[ View Gemini API docs ](https://ai.google.dev/gemini-api/docs)
+[ View Gemini API docs ](https://aistudio.google.com/docs)
 
 ![Integrate Google AI models with an API key](https://ai.google.dev/static/images/landing/gemini-start-building-code.png)
 
-[ ![Integrate models into apps](https://ai.google.dev/static/images/landing/gemini-start-building-card-integrate.svg) Integrate models into apps Unlock AI capabilities for your apps with a simple call to the Gemini API. Gemini API docs ](https://ai.google.dev/gemini-api/docs) [ ![Explore AI models](https://ai.google.dev/static/images/landing/gemini-start-building-card-explore.svg) Explore AI models Quickly evaluate AI models, develop prompts, and transform ideas into code. Google AI Studio ](https://aistudio.google.com/)
+[ ![Integrate models into apps](https://ai.google.dev/static/images/landing/gemini-start-building-card-integrate.svg) Integrate models into apps Unlock AI capabilities for your apps with a simple call to the Gemini API. Gemini API docs ](https://aistudio.google.com/docs) [ ![Explore AI models](https://ai.google.dev/static/images/landing/gemini-start-building-card-explore.svg) Explore AI models Quickly evaluate AI models, develop prompts, and transform ideas into code. Google AI Studio ](https://aistudio.google.com/)
 
 ### Own your AI with Gemma open models
 

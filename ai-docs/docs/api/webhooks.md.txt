@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/webhooks.md.txt
 title: webhooks
 method: httpx-raw-text
-fetched_at: 2026-10-26T09:38:14.193066+00:00
+fetched_at: 2026-10-27T09:34:33.116323+00:00
 ---
 
 # webhooks

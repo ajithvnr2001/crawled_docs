@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemma/docs/core/huggingface_text_finetune_qlora/
 title: Fine-Tune Gemma using Hugging Face Transformers and QloRA
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:45:43.740842+00:00
+fetched_at: 2026-10-27T09:34:56.582515+00:00
 ---
 
 # Fine-Tune Gemma using Hugging Face Transformers and QloRA
@@ -63,12 +63,12 @@ Text-to-SQL can be a good use case for fine-tuning LLMs, as it is a complex task
   * Using datasets created by humans, such as [Dolly](https://huggingface.co/datasets/databricks/databricks-dolly-15k).
   * Using a combination of the methods, such as [Orca](https://huggingface.co/datasets/Open-Orca/OpenOrca)
 
-Each of the methods has its own advantages and disadvantages and depends on the budget, time, and quality requirements. For example, using an existing dataset is the easiest but might not be tailored to your specific use case, while using domain experts might be the most accurate but can be time-consuming and expensive. It is also possible to combine several methods to create an instruction dataset, as shown in [Orca: Progressive Learning from Complex Explanation Traces of GPT-4.](https://arxiv.org/abs/2306.02707) This guide uses an already existing dataset ([philschmid/gretel-synthetic-text-to-sql](https://huggingface.co/datasets/philschmid/gretel-synthetic-text-to-sql)), a high quality synthetic Text-to-SQL dataset including natural language instructions, schema definitions, reasoning and the corresponding SQL query. [Hugging Face TRL](https://huggingface.co/docs/trl/en/index) supports automatic templating of conversation dataset formats. This means you only need to convert your dataset into the right json objects, and `trl` takes care of templating and putting it into the right format.
+Each of the methods has its own advantages and disadvantages and depends on the budget, time, and quality requirements. For example, using an existing dataset is the easiest but might not be tailored to your specific use case, while using domain experts might be the most accurate but can be time-consuming and expensive. It is also possible to combine several methods to create an instruction dataset, as shown in [Orca: Progressive Learning from Complex Explanation Traces of GPT-4.](https://arxiv.org/abs/2306.02707) This guide uses an already existing dataset ([philschmid/gretel-synthetic-text-to-sql](https://huggingface.co/datasets/philschmid/gretel-synthetic-text-to-sql)), a high quality synthetic Text-to-SQL dataset including natural language instructions, schema definitions, reasoning and the corresponding SQL query. [Hugging Face TRL](https://huggingface.co/docs/trl/en/index) supports automatic templating of conversation dataset formats. This means you only need to convert your dataset into the right json objects, and `trl` takes care of templating and putting it into the right format. With the prompt-completion format below, `trl` also computes the loss on the completion only, so the model learns to write the SQL query rather than to repeat the prompt.
     
     
-    {"messages": [{"role": "system", "content": "You are..."}, {"role": "user", "content": "..."}, {"role": "assistant", "content": "..."}]}
-    {"messages": [{"role": "system", "content": "You are..."}, {"role": "user", "content": "..."}, {"role": "assistant", "content": "..."}]}
-    {"messages": [{"role": "system", "content": "You are..."}, {"role": "user", "content": "..."}, {"role": "assistant", "content": "..."}]}
+    {"prompt": [{"role": "system", "content": "You are..."}, {"role": "user", "content": "..."}], "completion": [{"role": "assistant", "content": "..."}]}
+    {"prompt": [{"role": "system", "content": "You are..."}, {"role": "user", "content": "..."}], "completion": [{"role": "assistant", "content": "..."}]}
+    {"prompt": [{"role": "system", "content": "You are..."}, {"role": "user", "content": "..."}], "completion": [{"role": "assistant", "content": "..."}]}
     
 
 The [philschmid/gretel-synthetic-text-to-sql](https://huggingface.co/datasets/philschmid/gretel-synthetic-text-to-sql) contains over 100k samples. To keep the guide small, it is downsampled to only use 10,000 samples. You can now use the Hugging Face Datasets library to load the dataset and create a prompt template to combine the natural language instruction, schema definition and add a system message for your assistant.
@@ -92,11 +92,13 @@ The [philschmid/gretel-synthetic-text-to-sql](https://huggingface.co/datasets/ph
     """
     def create_conversation(sample, idx):
       return {
-        "messages": [
+        "prompt": [
           {"role": "system", "content": system_message},
           {"role": "user", "content": user_prompt.format(question=sample["sql_prompt"], context=sample["sql_context"])},
+        ],
+        "completion": [
           {"role": "assistant", "content": sample["sql"]}
-        ]
+        ],
       }
     
     # Load dataset from the hub
@@ -109,7 +111,7 @@ The [philschmid/gretel-synthetic-text-to-sql](https://huggingface.co/datasets/ph
     dataset = dataset.train_test_split(test_size=0.2, shuffle=False)
     
     # Print formatted user prompt
-    for item in dataset["train"][0]["messages"]:
+    for item in dataset["train"][0]["prompt"] + dataset["train"][0]["completion"]:
       print(item)
     
     
@@ -129,53 +131,32 @@ You are now ready to fine-tune your model. Hugging Face TRL [SFTTrainer](https:/
   * Parameter-efficient fine-tuning (PEFT) support including QloRA
   * Preparing the model and tokenizer for conversational fine-tuning (such as adding special tokens)
 
-The following code loads the Gemma model and tokenizer from Hugging Face and initializes the quantization configuration.
+The following code defines the quantization configuration and loads the tokenizer. The `SFTTrainer` loads and quantizes the model for you.
     
     
     import torch
-    from transformers import AutoProcessor, AutoModelForMultimodalLM, BitsAndBytesConfig
-    from peft import prepare_model_for_kbit_training
+    from transformers import AutoTokenizer, BitsAndBytesConfig
     
     # Hugging Face model id
     model_id = "google/gemma-4-E2B" # @param ["google/gemma-4-E2B","google/gemma-4-E4B","google/gemma-4-12B","google/gemma-4-31B","google/gemma-4-26B-A4B"] {"allow-input":true}
     
     # Check if GPU supports bfloat16
     if torch.cuda.is_bf16_supported():
-        torch_dtype = torch.bfloat16
+        dtype = "bfloat16"
     else:
-        torch_dtype = torch.float16
-    
-    # Define model init arguments
-    model_kwargs = dict(
-        dtype=torch_dtype, # What torch dtype to use
-        device_map="auto", # Let torch decide how to load the model
-    )
+        dtype = "float16"
     
     # BitsAndBytesConfig: Enables 4-bit quantization to reduce model size/memory usage
-    model_kwargs["quantization_config"] = BitsAndBytesConfig(
+    quantization_config = BitsAndBytesConfig(
         load_in_4bit=True,
         bnb_4bit_use_double_quant=True,
         bnb_4bit_quant_type='nf4',
-        bnb_4bit_compute_dtype=torch_dtype,
-        bnb_4bit_quant_storage=torch_dtype,
+        bnb_4bit_compute_dtype=dtype,
+        bnb_4bit_quant_storage=dtype,
     )
     
-    # Load model and processor
-    model = AutoModelForMultimodalLM.from_pretrained(model_id, **model_kwargs)
-    processor = AutoProcessor.from_pretrained("google/gemma-4-E2B-it") # Load the Instruction Processor to use the official Gemma template
-    
-    # NOTE: You should call the prepare_model_for_kbit_training() function to preprocess the quantized model for training.
-    # On T4, we are skipping this step purely due to VRAM limitation and for a quick demonstration.
-    if (torch.cuda.get_device_properties(0).total_memory/1024**3) > 16:
-        model = prepare_model_for_kbit_training(model)
-    
-    
-    
-    WARNING:torchao:Failed to load /usr/local/lib/python3.12/dist-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so: Could not load this library: /usr/local/lib/python3.12/dist-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
-    WARNING:torchao:Failed to load /usr/local/lib/python3.12/dist-packages/torchao/_C_cutlass_90a.abi3.so: Could not load this library: /usr/local/lib/python3.12/dist-packages/torchao/_C_cutlass_90a.abi3.so
-    Loading weights:   0%|          | 0/1951 [00:00<?, ?it/s]
-    /usr/local/lib/python3.12/dist-packages/bitsandbytes/backends/cuda/ops.py:213: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
-      torch._check_is_size(blocksize)
+    # The base model ships no chat template, so load the tokenizer of the instruction-tuned model
+    tokenizer = AutoTokenizer.from_pretrained(f"{model_id}-it")
     
 
 The `SFTTrainer` supports a built-in integration with `peft`, which makes it straightforward to efficiently tune LLMs using QLoRA. You only need to create a `LoraConfig` and provide it to the trainer.
@@ -198,12 +179,10 @@ The `SFTTrainer` supports a built-in integration with `peft`, which makes it str
 Before you can start your training, you need to define the hyperparameter you want to use in a `SFTConfig` instance.
     
     
-    import torch
     from trl import SFTConfig
     
     args = SFTConfig(
         output_dir="gemma-text-to-sql",         # directory to save and repository id
-        max_length=512,                         # max length for model and packing of the dataset
         num_train_epochs=3,                     # number of training epochs
         per_device_train_batch_size=1,          # batch size per device during training
         per_device_eval_batch_size=1,           # batch size per device during evaluation
@@ -212,88 +191,13 @@ Before you can start your training, you need to define the hyperparameter you wa
         save_strategy="epoch",                  # save checkpoint every epoch
         eval_strategy="epoch",                  # evaluate checkpoint every epoch
         learning_rate=2e-4,                     # learning rate
-        fp16=True if torch_dtype == torch.float16 else False,  # use float16 precision
-        bf16=True if torch_dtype == torch.bfloat16 else False, # use bfloat16 precision
+        fp16=dtype == "float16",                # use float16 precision
+        bf16=dtype == "bfloat16",               # use bfloat16 precision
+        model_init_kwargs={"dtype": dtype},     # dtype of the weights that are not quantized
         lr_scheduler_type="constant",           # use constant learning rate scheduler
         push_to_hub=True,                       # push model to hub
         report_to="tensorboard",                # report metrics to tensorboard
-        dataset_kwargs={"skip_prepare_dataset": True}, # important for collator
-        remove_unused_columns = False,                 # important for collator
     )
-    
-    # Data collator
-    def collate_fn(examples):
-        texts = []
-    
-        for example in examples:
-            full_text = processor.apply_chat_template(
-                example["messages"], add_generation_prompt=False, tokenize=False
-            )
-            texts.append(full_text.strip())
-    
-        # Tokenize the texts
-        batch = processor(text=texts, return_tensors="pt", padding=True)
-    
-        # The labels are the input_ids, and we mask the padding tokens and prompt tokens in the loss computation
-        labels = batch["input_ids"].clone()
-    
-        target_tokens = [
-            processor.tokenizer.convert_tokens_to_ids("<|turn>"),
-            processor.tokenizer.convert_tokens_to_ids("model"),
-            processor.tokenizer.convert_tokens_to_ids("\n")
-        ]
-        target_len = len(target_tokens)
-    
-        for i in range(labels.size(0)):
-            row_tokens = batch["input_ids"][i].tolist()
-    
-            # Find where the assistant block begins
-            assistant_start_idx = None
-            for idx in range(len(row_tokens) - target_len + 1):
-                if row_tokens[idx : idx + target_len] == target_tokens:
-                    # We want to keep loss calculation on the assistant transcription tokens,
-                    # so we move the index right past the assistant header ('<|turn>\nmodel\n')
-                    assistant_start_idx = idx + target_len
-                    break
-    
-            if assistant_start_idx is not None:
-                # Mask everything from index 0 up to the start of the actual SQL response
-                labels[i, :assistant_start_idx] = -100
-            else:
-                # Fallback safety: if template matching fails for an anomalous row, mask padding anyway
-                print("WARNING: maybe the sample is too long, try to increase `token_limit` value.")
-                labels[i, labels[i] == processor.tokenizer.pad_token_id] = -100
-    
-            """
-            # --- DEBUG PRINT CODE ---
-            print(f"\n--- Example {i} (Split index: {assistant_start_idx}) ---")
-            debug_string = []
-            for token_id, label_id in zip(row_tokens, labels[i].tolist()):
-                # Decode token by token so we can see exactly what is masked
-                decoded_token = processor.tokenizer.decode([token_id])
-    
-                if label_id == -100:
-                    # Red text for masked tokens (ANSI Escape Code)
-                    debug_string.append(f"\033[91m{decoded_token}\033[0m")
-                else:
-                    # Green text for active loss tokens
-                    debug_string.append(f"\033[92m{decoded_token}\033[0m")
-    
-            print("".join(debug_string))
-            # ------------------------
-            """
-    
-    
-        # Mask tokens for not being used in the loss computation
-        labels[labels == processor.tokenizer.pad_token_id] = -100
-    
-        batch["labels"] = labels
-        return batch
-    
-    
-    
-    /tmp/ipykernel_164873/3952412390.py:4: FutureWarning: The default `loss_type` will change from `'nll'` to `'chunked_nll'` in TRL 1.7. For standard models this is transparent (same math, lower memory) and no action is needed — you'll get the new default automatically on upgrade. If you use a custom model, check ahead of time that `loss_type='chunked_nll'` runs and yields the same loss as `'nll'`; if it doesn't, pin `loss_type='nll'` to keep the current behavior and please open an issue at https://github.com/huggingface/trl/issues so we can address the edge case.
-      args = SFTConfig(
     
 
 You now have every building block you need to create your `SFTTrainer` to start the training of your model.
@@ -303,13 +207,13 @@ You now have every building block you need to create your `SFTTrainer` to start 
     
     # Create Trainer object
     trainer = SFTTrainer(
-        model=model,
+        model=model_id,
         args=args,
         train_dataset=dataset["train"],
         eval_dataset=dataset["test"],
+        processing_class=tokenizer,
+        quantization_config=quantization_config,
         peft_config=peft_config,
-        processing_class=processor,
-        data_collator=collate_fn,
     )
     
 
@@ -345,7 +249,6 @@ Before you can test your model, make sure to free the memory.
     
     
     # free the memory again
-    del model
     del trainer
     torch.cuda.empty_cache()
     
@@ -364,7 +267,7 @@ When using QLoRA, you only train adapters and not the full model. This means whe
     merged_model = peft_model.merge_and_unload()
     merged_model.save_pretrained("merged_model", safe_serialization=True, max_shard_size="2GB")
     
-    processor = AutoProcessor.from_pretrained("google/gemma-4-E2B-it")
+    processor = AutoProcessor.from_pretrained(f"{model_id}-it")
     processor.save_pretrained("merged_model")
     
     
@@ -415,16 +318,16 @@ Let's load a random sample from the test dataset and generate a SQL command.
     test_sample = dataset["test"][rand_idx]
     
     # Convert as test example into a prompt with the Gemma template
-    prompt = processor.tokenizer.apply_chat_template(test_sample["messages"][:2], tokenize=False, add_generation_prompt=True)
+    prompt = processor.tokenizer.apply_chat_template(test_sample["prompt"], tokenize=False, add_generation_prompt=True)
     print(prompt)
     
     # Generate our SQL query.
     outputs = pipe(text_inputs=prompt, generation_config=config)
     
     # Extract the user query and original answer
-    print(f"Context:\n", re.search(r'<SCHEMA>\n(.*?)\n</SCHEMA>', test_sample['messages'][1]['content'], re.DOTALL).group(1).strip())
-    print(f"Query:\n", re.search(r'<USER_QUERY>\n(.*?)\n</USER_QUERY>', test_sample['messages'][1]['content'], re.DOTALL).group(1).strip())
-    print(f"Original Answer:\n{test_sample['messages'][2]['content']}")
+    print(f"Context:\n", re.search(r'<SCHEMA>\n(.*?)\n</SCHEMA>', test_sample['prompt'][1]['content'], re.DOTALL).group(1).strip())
+    print(f"Query:\n", re.search(r'<USER_QUERY>\n(.*?)\n</USER_QUERY>', test_sample['prompt'][1]['content'], re.DOTALL).group(1).strip())
+    print(f"Original Answer:\n{test_sample['completion'][0]['content']}")
     print(f"Generated Answer:\n{outputs[0]['generated_text'][len(prompt):].strip().removesuffix("<turn|>")}")
     
     

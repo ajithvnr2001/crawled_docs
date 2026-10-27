@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/changelog/
 title: Release notes
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:42:56.307666+00:00
+fetched_at: 2026-10-27T09:34:57.439875+00:00
 ---
 
 # Release notes
@@ -10,6 +10,12 @@ fetched_at: 2026-10-23T11:42:56.307666+00:00
 > Source: https://ai.google.dev/gemini-api/docs/changelog/
 
 This page documents updates to the Gemini API.
+
+## October 26, 2026
+
+  * **Generate Content API storage on by default** : New projects using the Generate Content API (`generateContent`, `streamGenerateContent`, and `batchGenerateContent`) on the paid tier now store requests by default (`store=true`), matching the Interactions API. Existing projects keep their current setting. To opt out, set `store=false` on individual requests or turn off Generate Content API logging in the **Settings** panel of the [Logs and Datasets](https://aistudio.google.com/logs) dashboard. See [Logs and datasets](https://ai.google.dev/gemini-api/docs/logs-datasets#configure-logging) for details.
+
+
 
 ## October 13, 2026
 

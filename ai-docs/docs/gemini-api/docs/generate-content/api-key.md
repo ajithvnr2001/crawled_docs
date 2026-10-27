@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/generate-content/api-key/
 title: Using Gemini API keys
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:43:22.307220+00:00
+fetched_at: 2026-10-27T09:34:39.444216+00:00
 ---
 
 # Using Gemini API keys
@@ -69,6 +69,10 @@ Ask your Google Cloud project or organization administrator to grant you a role 
 
 
 If you cannot get administrative access, you can create a new Google Cloud project that is not associated with an organization to generate your keys.
+
+### Unknown keys on the Usage page
+
+The [Usage page](https://aistudio.google.com/usage) in Google AI Studio groups requests it can't match to a named API key in the project under **(unknown keys)**. This includes keys deleted more than 30 days ago, keys without a display name, and requests made with other credentials, such as OAuth.
 
 ## Creating keys in the Google Cloud console
 

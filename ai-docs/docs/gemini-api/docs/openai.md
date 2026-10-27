@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/openai/
 title: OpenAI compatibility
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:55.580162+00:00
+fetched_at: 2026-10-27T09:34:43.915694+00:00
 ---
 
 # OpenAI compatibility

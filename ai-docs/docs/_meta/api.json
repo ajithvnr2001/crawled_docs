@@ -1,10 +1,7 @@
 {
   "url": "https://ai.google.dev/api/",
   "file": "api.md",
-  "title": "Gemini API reference \u00a0|\u00a0 Google AI for Developers",
+  "title": "Gemini API reference",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-15T19:15:50.630842+00:00",
-  "html_len": 60404,
-  "md_len": 4855,
-  "depth": 0
+  "fetched_at": "2026-10-27T09:34:41.708688+00:00"
 }

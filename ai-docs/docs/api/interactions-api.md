@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/interactions-api/
 title: Gemini Interactions API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:42.879637+00:00
+fetched_at: 2026-10-27T09:34:35.957491+00:00
 ---
 
 # Gemini Interactions API
@@ -228,6 +228,24 @@ tool_choice ToolChoiceConfig or enum (string) (optional)
 
 The tool choice configuration.
 
+#### Possible Types
+
+ToolChoiceConfig
+
+The tool choice configuration containing allowed tools.
+
+allowed_tools AllowedTools (optional)
+
+The allowed tools.
+
+The configuration for allowed tools.
+
+#### Fields
+
+mode enum (string) (optional)
+
+The mode of the tool choice.
+
 Possible values:
 
   * `auto`
@@ -246,6 +264,19 @@ No tool choice.
 
 Validated tool choice.
 
+
+
+
+tools array (string) (optional)
+
+The names of the allowed tools.
+
+enum (string)
+
+  * `auto`: Auto tool choice. 
+  * `any`: Any tool choice. 
+  * `none`: No tool choice. 
+  * `validated`: Validated tool choice. 
 
 
 
@@ -352,8 +383,6 @@ mode TranscriptionMode or enum (string) (optional)
 
 Discriminated transcription mode options or enum.
 
-Configuration for transcription mode.
-
 #### Possible Types
 
 SmartTranscriptionMode
@@ -384,13 +413,22 @@ diarization_mode string (optional)
 
 Optional. Configures speaker diarization. Supported values: "speaker".
 
+enum (string)
+
+  * `verbatim`: Verbatim transcription mode. 
+  * `smart`: Smart transcription mode. 
+
+
+
 structured_speech_config SpeakerConfig or array (SpeechConfig) (optional)
 
 Speech and multi-speaker configuration.
 
-Configuration for multi-speaker and speech generation.
+#### Possible Types
 
-#### Fields
+SpeakerConfig
+
+Configuration for multi-speaker and speech generation.
 
 speakers array (SpeechConfig) (optional)
 
@@ -412,11 +450,105 @@ speaker string (optional)
 
 The speaker's name, it should match the speaker name given in the prompt.
 
+array (SpeechConfig)
+
+The configuration for speech interaction.
+
+voice string (optional)
+
+The voice of the speaker.
+
+language string (optional)
+
+The language of the speech.
+
+speaker string (optional)
+
+The speaker's name, it should match the speaker name given in the prompt.
+
 agent_config AntigravityAgentConfig or DeepResearchAgentConfig or DynamicAgentConfig (optional)
 
 **Agent Configuration**  
 Configuration for the agent.   
 _Alternative to `generation_config`. Only applicable when `agent` is set._
+
+#### Possible Types
+
+AntigravityAgentConfig
+
+Configuration for the Antigravity agent runtime. Provides server-side control over the agent's execution environment and tool configuration.
+
+type object (required)
+
+No description provided.
+
+Always set to `"antigravity"`.
+
+model string (optional)
+
+The model to use for agent reasoning.
+
+max_total_tokens string (optional)
+
+Max total tokens for the agent run.
+
+DeepResearchAgentConfig
+
+Configuration for the Deep Research agent.
+
+type object (required)
+
+No description provided.
+
+Always set to `"deep-research"`.
+
+thinking_summaries ThinkingSummaries (optional)
+
+Whether to include thought summaries in the response.
+
+#### Possible values
+
+  * `auto`
+
+Auto thinking summaries.
+
+  * `none`
+
+No thinking summaries.
+
+
+
+
+visualization enum (string) (optional)
+
+Whether to include visualizations in the response.
+
+Possible values:
+
+  * `off`
+
+Do not include visualizations.
+
+  * `auto`
+
+Automatically include visualizations.
+
+
+
+
+collaborative_planning boolean (optional)
+
+Enables human-in-the-loop planning for the Deep Research agent. If set to true, the Deep Research agent will provide a research plan in its response. The agent will then proceed only if the user confirms the plan in the next turn.
+
+DynamicAgentConfig
+
+Configuration for dynamic agents.
+
+type object (required)
+
+No description provided.
+
+Always set to `"dynamic"`.
 
 system_instruction string (optional)
 
@@ -430,6 +562,18 @@ response_format ResponseFormat or array (ResponseFormat) (optional)
 
 Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
 
+#### Possible Types
+
+ResponseFormat
+
+This type has no specific fields.
+
+array (ResponseFormat)
+
+A list where each item is one of: `AudioResponseFormat`, `ImageResponseFormat`, `TextResponseFormat`, `VideoResponseFormat`.
+
+This type has no specific fields.
+
 previous_interaction_id string (optional)
 
 The ID of the previous interaction, if any.
@@ -437,6 +581,129 @@ The ID of the previous interaction, if any.
 environment EnvironmentConfig or string (optional)
 
 The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID.
+
+#### Possible Types
+
+EnvironmentConfig
+
+Configuration for a custom environment.
+
+type object (required)
+
+No description provided.
+
+Always set to `"remote"`.
+
+sources array (Source) (optional)
+
+No description provided.
+
+A source to be mounted into the environment.
+
+#### Fields
+
+type enum (string) (optional)
+
+No description provided.
+
+Possible values:
+
+  * `gcs`
+
+A Cloud Storage bucket.
+
+  * `inline`
+
+Inline content.
+
+  * `repository`
+
+A generic repository. The protocol prefix in the source URL identifies the provider (e.g., github://, gcs://).
+
+
+
+
+source string (optional)
+
+The source of the environment. For Cloud Storage, this is the Cloud Storage path. For GitHub, this is the GitHub path.
+
+target string (optional)
+
+Where the source should appear in the environment.
+
+content string (optional)
+
+The inline content if `type` is `INLINE`.
+
+encoding string (optional)
+
+Optional encoding for inline content (e.g. `base64`).
+
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
+
+Network configuration for the environment.
+
+#### Possible Types
+
+EnvironmentNetworkEgressAllowlist
+
+Network egress configuration for the environment.
+
+allowlist array (EgressRule) or enum (string) (optional)
+
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
+
+#### Possible Types
+
+array (EgressRule)
+
+A single domain allowlist rule with optional header injection.
+
+domain string (required)
+
+Domain to allow outbound requests to. Supports wildcards (e.g. '*.googleapis.com'). Use '*' to allow all domains.
+
+transform object (optional)
+
+Headers to inject into requests matching this rule. Key: header name (e.g., "Authorization"). Value: header value (e.g., "Bearer your-token").
+
+credential string (optional)
+
+Optional. Reference to a server-managed Credential resource by ID.
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
+
+
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
+
+
+
+environment_id string (optional)
+
+Optional. The environment ID for the interaction. If specified, the request will update the existing environment instead of creating a new one.
+
+env object or string (optional)
+
+Environment variables to set in the sandbox environment.
+
+#### Possible Types
+
+string
+
+A direct string value.
+
+This type has no specific fields.
+
+string
+
+A direct string value.
+
+This type has no specific fields.
 
 service_tier ServiceTier (optional)
 
@@ -1427,6 +1694,18 @@ response_format ResponseFormat or array (ResponseFormat) (optional)
 
 Enforces that the generated response is a JSON object that complies with the JSON schema specified in this field.
 
+#### Possible Types
+
+ResponseFormat
+
+This type has no specific fields.
+
+array (ResponseFormat)
+
+A list where each item is one of: `AudioResponseFormat`, `ImageResponseFormat`, `TextResponseFormat`, `VideoResponseFormat`.
+
+This type has no specific fields.
+
 previous_interaction_id string (optional)
 
 The ID of the previous interaction, if any.
@@ -1434,6 +1713,129 @@ The ID of the previous interaction, if any.
 environment EnvironmentConfig or string (optional)
 
 The environment configuration for the interaction. Can be an object specifying remote environment sources or a string referencing an existing environment ID.
+
+#### Possible Types
+
+EnvironmentConfig
+
+Configuration for a custom environment.
+
+type object (required)
+
+No description provided.
+
+Always set to `"remote"`.
+
+sources array (Source) (optional)
+
+No description provided.
+
+A source to be mounted into the environment.
+
+#### Fields
+
+type enum (string) (optional)
+
+No description provided.
+
+Possible values:
+
+  * `gcs`
+
+A Cloud Storage bucket.
+
+  * `inline`
+
+Inline content.
+
+  * `repository`
+
+A generic repository. The protocol prefix in the source URL identifies the provider (e.g., github://, gcs://).
+
+
+
+
+source string (optional)
+
+The source of the environment. For Cloud Storage, this is the Cloud Storage path. For GitHub, this is the GitHub path.
+
+target string (optional)
+
+Where the source should appear in the environment.
+
+content string (optional)
+
+The inline content if `type` is `INLINE`.
+
+encoding string (optional)
+
+Optional encoding for inline content (e.g. `base64`).
+
+network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
+
+Network configuration for the environment.
+
+#### Possible Types
+
+EnvironmentNetworkEgressAllowlist
+
+Network egress configuration for the environment.
+
+allowlist array (EgressRule) or enum (string) (optional)
+
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
+
+#### Possible Types
+
+array (EgressRule)
+
+A single domain allowlist rule with optional header injection.
+
+domain string (required)
+
+Domain to allow outbound requests to. Supports wildcards (e.g. '*.googleapis.com'). Use '*' to allow all domains.
+
+transform object (optional)
+
+Headers to inject into requests matching this rule. Key: header name (e.g., "Authorization"). Value: header value (e.g., "Bearer your-token").
+
+credential string (optional)
+
+Optional. Reference to a server-managed Credential resource by ID.
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
+
+
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
+
+
+
+environment_id string (optional)
+
+Optional. The environment ID for the interaction. If specified, the request will update the existing environment instead of creating a new one.
+
+env object or string (optional)
+
+Environment variables to set in the sandbox environment.
+
+#### Possible Types
+
+string
+
+A direct string value.
+
+This type has no specific fields.
+
+string
+
+A direct string value.
+
+This type has no specific fields.
 
 environment_id string (optional)
 
@@ -1605,6 +2007,84 @@ Use the Antigravity managed agent to perform multi-step tasks that require reaso
 agent_config AntigravityAgentConfig or DeepResearchAgentConfig or DynamicAgentConfig (optional)
 
 Configuration parameters for the agent interaction.
+
+#### Possible Types
+
+AntigravityAgentConfig
+
+Configuration for the Antigravity agent runtime. Provides server-side control over the agent's execution environment and tool configuration.
+
+type object (required)
+
+No description provided.
+
+Always set to `"antigravity"`.
+
+model string (optional)
+
+The model to use for agent reasoning.
+
+max_total_tokens string (optional)
+
+Max total tokens for the agent run.
+
+DeepResearchAgentConfig
+
+Configuration for the Deep Research agent.
+
+type object (required)
+
+No description provided.
+
+Always set to `"deep-research"`.
+
+thinking_summaries ThinkingSummaries (optional)
+
+Whether to include thought summaries in the response.
+
+#### Possible values
+
+  * `auto`
+
+Auto thinking summaries.
+
+  * `none`
+
+No thinking summaries.
+
+
+
+
+visualization enum (string) (optional)
+
+Whether to include visualizations in the response.
+
+Possible values:
+
+  * `off`
+
+Do not include visualizations.
+
+  * `auto`
+
+Automatically include visualizations.
+
+
+
+
+collaborative_planning boolean (optional)
+
+Enables human-in-the-loop planning for the Deep Research agent. If set to true, the Deep Research agent will provide a research plan in its response. The agent will then proceed only if the user confirms the plan in the next turn.
+
+DynamicAgentConfig
+
+Configuration for dynamic agents.
+
+type object (required)
+
+No description provided.
+
+Always set to `"dynamic"`.
 
 max_total_tokens string (optional)
 
@@ -2110,12 +2590,11 @@ processing MediaProcessing or enum (string) (optional)
 
 How the model processes this video for understanding.
 
-Can be a string (`"static"` | `"agentic"`) or a `StaticMediaProcessing` object:
+#### Possible Types
 
-  * `agentic`: Model-driven dynamic navigation. 
-  * `static`: Fixed-rate frame extraction. All frames placed in context. Can be passed as the string `"static"`, or as an object with the following fields: 
+MediaProcessing
 
-type string (required)
+type object (required)
 
 No description provided.
 
@@ -2133,6 +2612,10 @@ fps number (optional)
 
 Optional. Video frame-rate sampling density.
 
+enum (string)
+
+  * `static`: Fixed-rate frame extraction. All frames placed in context. 
+  * `agentic`: Model-driven dynamic navigation. 
 
 
 
@@ -3717,6 +4200,20 @@ result array (ImageContent or TextContent) or object or string (required)
 
 No description provided.
 
+#### Possible Types
+
+array (ImageContent or TextContent)
+
+A list where each item is one of: `ImageContent`, `TextContent`.
+
+This type has no specific fields.
+
+string
+
+A direct string value.
+
+This type has no specific fields.
+
 type object (required)
 
 No description provided.
@@ -3976,6 +4473,20 @@ McpServerToolResultDelta
 result array (ImageContent or TextContent) or object or string (required)
 
 No description provided.
+
+#### Possible Types
+
+array (ImageContent or TextContent)
+
+A list where each item is one of: `ImageContent`, `TextContent`.
+
+This type has no specific fields.
+
+string
+
+A direct string value.
+
+This type has no specific fields.
 
 type object (required)
 
@@ -5764,6 +6275,20 @@ result array (ImageContent or TextContent) or object or string (required)
 
 Required. The result of the tool call.
 
+#### Possible Types
+
+array (ImageContent or TextContent)
+
+A list where each item is one of: `ImageContent`, `TextContent`.
+
+This type has no specific fields.
+
+string
+
+A direct string value.
+
+This type has no specific fields.
+
 call_id string (required)
 
 Required. ID to match the ID from the function call block.
@@ -5994,6 +6519,20 @@ MCPServer tool result step.
 result array (ImageContent or TextContent) or object or string (required)
 
 Required. The output from the MCP server call. Can be simple text or rich content.
+
+#### Possible Types
+
+array (ImageContent or TextContent)
+
+A list where each item is one of: `ImageContent`, `TextContent`.
+
+This type has no specific fields.
+
+string
+
+A direct string value.
+
+This type has no specific fields.
 
 call_id string (required)
 
@@ -6466,12 +7005,43 @@ network EnvironmentNetworkEgressAllowlist or enum (string) (optional)
 
 Network configuration for the environment.
 
-Possible values:
+#### Possible Types
 
-  * `disabled`
+EnvironmentNetworkEgressAllowlist
 
-All network egress is blocked.
+Network egress configuration for the environment.
 
+allowlist array (EgressRule) or enum (string) (optional)
+
+List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
+
+#### Possible Types
+
+array (EgressRule)
+
+A single domain allowlist rule with optional header injection.
+
+domain string (required)
+
+Domain to allow outbound requests to. Supports wildcards (e.g. '*.googleapis.com'). Use '*' to allow all domains.
+
+transform object (optional)
+
+Headers to inject into requests matching this rule. Key: header name (e.g., "Authorization"). Value: header value (e.g., "Bearer your-token").
+
+credential string (optional)
+
+Optional. Reference to a server-managed Credential resource by ID.
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
+
+
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
 
 
 
@@ -6485,11 +7055,11 @@ Environment variables to set in the sandbox environment.
 
 #### Possible Types
 
-object
-
 string
 
 A direct string value.
+
+This type has no specific fields.
 
 ### Examples
 
@@ -6575,12 +7145,27 @@ allowlist array (EgressRule) or enum (string) (optional)
 
 List of allowed domains and their configurations. Set to `"disabled"` to block all network egress.
 
-Possible values:
+#### Possible Types
 
-  * `disabled`
+array (EgressRule)
 
-All network egress is blocked.
+A single domain allowlist rule with optional header injection.
 
+domain string (required)
+
+Domain to allow outbound requests to. Supports wildcards (e.g. '*.googleapis.com'). Use '*' to allow all domains.
+
+transform object (optional)
+
+Headers to inject into requests matching this rule. Key: header name (e.g., "Authorization"). Value: header value (e.g., "Bearer your-token").
+
+credential string (optional)
+
+Optional. Reference to a server-managed Credential resource by ID.
+
+enum (string)
+
+  * `disabled`: All network egress is blocked. 
 
 
 

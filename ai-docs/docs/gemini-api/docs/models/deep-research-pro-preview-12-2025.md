@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/deep-research-pro-preview-12-2025/
 title: Deep Research Pro preview
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:34.671340+00:00
+fetched_at: 2026-10-27T09:34:53.334021+00:00
 ---
 
 # Deep Research Pro preview
@@ -22,7 +22,7 @@ Property | Description
 id_cardAgent code |  **Interactions API** `deep-research-pro-preview-12-2025`  
 saveSupported data types |  **Input** Text, Image, PDF, Audio, Video **Output** Text (Cited Reports)  
 token_autoToken limits[[*]](https://ai.google.dev/gemini-api/docs/tokens) |  **Input context window** 1,048,576 **Output token limit** 65,536  
-123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models/gemini#model-versions) for more details.
+123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models#model-versions) for more details.
 
   * Preview: `deep-research-pro-preview-12-2025`
 

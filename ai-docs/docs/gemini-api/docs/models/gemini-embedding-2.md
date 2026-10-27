@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2/
 title: Gemini Embedding 2 model
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:43.979464+00:00
+fetched_at: 2026-10-27T09:34:44.050670+00:00
 ---
 
 # Gemini Embedding 2 model
@@ -22,7 +22,7 @@ Property | Description
 id_cardModel code |  **Gemini API** `gemini-embedding-2`  
 saveSupported data types |  **Input** Text, image, video, audio, PDF **Output** Text embeddings  
 token_autoToken limits[[*]](https://ai.google.dev/gemini-api/docs/tokens) |  **Input token limit** 8,192 **Output dimension size** Flexible, supports: 128 - 3072, Recommended: 768, 1536, 3072  
-123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models/gemini#model-versions) for more details.
+123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models#model-versions) for more details.
 
   * Stable: `gemini-embedding-2`
 

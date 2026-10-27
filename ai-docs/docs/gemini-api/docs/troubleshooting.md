@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/troubleshooting/
 title: Troubleshooting guide
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:44.044156+00:00
+fetched_at: 2026-10-27T09:34:39.926670+00:00
 ---
 
 # Troubleshooting guide
@@ -46,14 +46,14 @@ Verify that your model parameters are within the following values:
 ---|---  
 Candidate count  | 1-8 (integer)  
 Temperature  | 0.0-1.0  
-Max output tokens  |  Use the [models page](https://ai.google.dev/gemini-api/docs/models/gemini) to determine the maximum number of tokens for the model you are using.   
+Max output tokens  |  Use the [models page](https://ai.google.dev/gemini-api/docs/models) to determine the maximum number of tokens for the model you are using.   
 TopP  | 0.0-1.0  
   
 In addition to checking parameter values, make sure you're using the correct [API version](https://ai.google.dev/gemini-api/docs/api-versions) (e.g., `/v1` or `/v1beta`) and model that supports the features you need. For example, if a feature is in Beta release, it will only be available in the `/v1beta` API version.
 
 ## Check if you have the right model
 
-Verify that you are using a supported model listed on our [models page](https://ai.google.dev/gemini-api/docs/models/gemini).
+Verify that you are using a supported model listed on our [models page](https://ai.google.dev/gemini-api/docs/models).
 
 ## Higher latency or token usage with thinking models
 
@@ -234,7 +234,7 @@ Read through our [Token guide](https://ai.google.dev/gemini-api/docs/tokens) to 
 
 ## Known issues
 
-  * The API supports only a number of select languages. Submitting prompts in unsupported languages can produce unexpected or even blocked responses. See [available languages](https://ai.google.dev/gemini-api/docs/models#supported-languages) for updates.
+  * The API supports only a number of select languages. Submitting prompts in unsupported languages can produce unexpected or even blocked responses. See [model detail pages](https://ai.google.dev/gemini-api/docs/models) for updates.
 
 
 

@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/voices/
 title: Gemini Voices API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T08:55:33.269313+00:00
+fetched_at: 2026-10-27T09:34:34.888803+00:00
 ---
 
 # Gemini Voices API

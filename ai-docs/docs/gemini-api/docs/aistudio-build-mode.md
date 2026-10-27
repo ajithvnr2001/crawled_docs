@@ -2,14 +2,14 @@
 url: https://ai.google.dev/gemini-api/docs/aistudio-build-mode/
 title: Build apps in Google AI Studio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:42:45.563134+00:00
+fetched_at: 2026-10-27T09:34:41.552296+00:00
 ---
 
 # Build apps in Google AI Studio
 
 > Source: https://ai.google.dev/gemini-api/docs/aistudio-build-mode/
 
-This page describes how to use Google AI Studio to quickly build (or "vibe code") and deploy apps that test out the latest capabilities of Gemini like [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation) and the [Live API](https://ai.google.dev/gemini-api/docs/live). Google AI Studio supports building **web apps** with full-stack runtimes and **native Android apps** with Kotlin and Jetpack Compose — all through natural language prompting.
+This page describes how to use Google AI Studio to quickly build (or "vibe code") and deploy apps that test out the latest capabilities of Gemini like [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation) and the [Live API](https://ai.google.dev/gemini-api/docs/live-api). Google AI Studio supports building **web apps** with full-stack runtimes and **native Android apps** with Kotlin and Jetpack Compose — all through natural language prompting.
 
 ## Get started
 

@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp/
 title: Lyria RealTime experimental
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:46.987919+00:00
+fetched_at: 2026-10-27T09:34:43.982277+00:00
 ---
 
 # Lyria RealTime experimental
@@ -24,7 +24,7 @@ Property | Description
 id_cardModel code |  **Gemini API** `lyria-realtime-exp`  
 saveSupported data types |  **Input** Text (Weighted prompts) **Output** Audio (Raw 16-bit PCM)  
 token_autoStreaming limits |  **Sample rate** 48kHz (Stereo) **Control latency** Maximum 2 seconds  
-123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models/gemini#model-versions) for more details.
+123Versions |  Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models#model-versions) for more details.
 
   * Experimental: `lyria-realtime-exp`
 

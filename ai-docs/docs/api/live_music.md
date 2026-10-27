@@ -1,27 +1,13 @@
 ---
 url: https://ai.google.dev/api/live_music/
-title: Live Music API - WebSockets API reference \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers
+title: Live Music API - WebSockets API reference
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T19:16:01.386437+00:00
+fetched_at: 2026-10-27T09:34:39.718593+00:00
 ---
 
-# Live Music API - WebSockets API reference  |  Gemini API  |  Google AI for Developers
+# Live Music API - WebSockets API reference
 
 > Source: https://ai.google.dev/api/live_music/
-
-Gemini 4 Argon is now available. [Try it out](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon). 
-
-  * [ Home ](https://ai.google.dev/)
-  * [ Gemini API ](https://ai.google.dev/gemini-api)
-  * [ API reference ](https://ai.google.dev/api)
-
-
-
-Send feedback 
-
-#  Live Music API - WebSockets API reference
-
-**Preview:** The Live Music API is in preview.
 
 Lyria RealTime music generation uses a persistent, bidirectional, low-latency streaming connection using [WebSockets](https://en.wikipedia.org/wiki/WebSocket). In this section, you'll find additional details regarding the WebSockets API.
 
@@ -40,10 +26,8 @@ A WebSocket connection establishes a session to keep a real-time communication w
 To start a session, connect to this websocket endpoint:
     
     
-    wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateMusic
+    wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateMusic
     
-
-**Note:** The URL is for version `v1alpha`.
 
 ### Session configuration
 
@@ -282,11 +266,3 @@ Union field `prompt`.`prompt` can be only one of the following:
 ## More information on types
 
 For more information on the types used by the API, see the [Python SDK](https://github.com/googleapis/python-genai/blob/main/google/genai/types.py).
-
-Send feedback 
-
-Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-09 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-09 UTC."],[],[]] 
