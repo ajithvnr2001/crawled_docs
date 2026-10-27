@@ -42,7 +42,10 @@ for i in 1 2 3 4 5; do
     sleep 10
     continue
   fi
-  if ! git rebase FETCH_HEAD >/dev/null 2>&1; then
+  # The shared checkout is always dirty from live crawler writes, so a plain
+  # rebase refuses ("cannot rebase: You have unstaged changes"). Autostash is
+  # required; it is the same mode gcp_git_ship.sh uses successfully.
+  if ! git -c rebase.autoStash=true rebase FETCH_HEAD >/dev/null 2>&1; then
     # During a rebase --theirs is OUR commit (the side being replayed).
     # Only the daily stamp files ever conflict; our copy is strictly newer.
     for f in docs/_last_verified.json docs/_manifest.json; do
