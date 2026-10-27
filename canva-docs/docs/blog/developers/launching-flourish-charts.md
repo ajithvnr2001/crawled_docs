@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/launching-flourish-charts/
 title: Launching flourishcharts, our new interactive data visualization packages for data scientists - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:06.995893+00:00
+fetched_at: 2026-10-27T15:35:53.217720+00:00
 ---
 
 # Launching flourishcharts, our new interactive data visualization packages for data scientists - Canva Developers Blog
@@ -180,7 +180,7 @@ Both the R and Python packages are currently build on the Flourish Live API, whi
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.1b60cf41.jpg)](https://www.canva.dev/blog/developers/applying-canva-brand-templates/)
 
-[connect APIApply Canva Brand templates with the Autofill APIHow to identify and consistently apply Canva Brand Templates using the Brand template API and Autofill API.](https://www.canva.dev/blog/developers/applying-canva-brand-templates/)
+[Connect APIApply Canva Brand templates with the Autofill APIHow to identify and consistently apply Canva Brand Templates using the Brand template API and Autofill API.](https://www.canva.dev/blog/developers/applying-canva-brand-templates/)
 
 Timo Bingaman, Joe RobinsonOct 9, 2024
 
@@ -190,8 +190,8 @@ Timo Bingaman, Joe RobinsonOct 9, 2024
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Feb 9, 2024
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.f388d5fa.jpg)](https://www.canva.dev/blog/developers/lambda-functions-for-canva-apps/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.2a37fda3.jpg)](https://www.canva.dev/blog/developers/canva-developers-wrapped-2024/)
 
-[lambdaGetting Started with Lambda Functions for Canva AppsLearn how to use Lambda functions](https://www.canva.dev/blog/developers/lambda-functions-for-canva-apps/)
+[2024Canva Developers 2024 WrappedAnother exciting year for Canva Developers is coming to a close. Learn about all the amazing growth our ecosystem has seen this year.](https://www.canva.dev/blog/developers/canva-developers-wrapped-2024/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Oct 4, 2023
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Dec 20, 2024

@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/canva-developers-wrapped/
 title: Canva developers wrapped - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:05.684595+00:00
+fetched_at: 2026-10-27T15:35:53.179570+00:00
 ---
 
 # Canva developers wrapped - Canva Developers Blog
@@ -76,18 +76,18 @@ If you want to stay up to date on all the latest news and updates on the Canva D
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.c59330ae.jpg)](https://www.canva.dev/blog/developers/building-with-content-publisher-part1/)
 
-[Content Publisher IntentMeet the Content Publisher Intent - Part 1Understanding data flow and structure for publishing](https://www.canva.dev/blog/developers/building-with-content-publisher-part1/)
+[Content Publisher intentMeet the Content Publisher Intent - Part 1Understanding data flow and structure for publishing](https://www.canva.dev/blog/developers/building-with-content-publisher-part1/)
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Feb 19, 2026
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.07656951.jpg)](https://www.canva.dev/blog/developers/seven-app-ideas-from-our-hackathon/)
 
-[hackathonBuilt in a day: Seven apps ideas from our HackathonHow a Canva hackathon led to some amazing ideas.](https://www.canva.dev/blog/developers/seven-app-ideas-from-our-hackathon/)
+[HackathonBuilt in a day: Seven apps ideas from our HackathonHow a Canva hackathon led to some amazing ideas.](https://www.canva.dev/blog/developers/seven-app-ideas-from-our-hackathon/)
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Apr 24, 2023
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.b66d472b.jpg)](https://www.canva.dev/blog/developers/simplebooklet-partner-solution/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.4b7da7e8.jpg)](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
 
-[Content Publisher IntentSimplebooklet partner solutionHow Simplebooklet achieved a 10x user increase with Canva's Content Publisher Intent.](https://www.canva.dev/blog/developers/simplebooklet-partner-solution/)
+[MonetizationExternal monetization for Canva AppsA community member's tips and tricks for monetizing your app](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 19, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 4, 2026

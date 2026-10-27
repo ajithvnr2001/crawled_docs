@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/canva-extend-recap-2024/
 title: Canva Extend 2024, a recap - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:05.948235+00:00
+fetched_at: 2026-10-27T15:35:53.277619+00:00
 ---
 
 # Canva Extend 2024, a recap - Canva Developers Blog
@@ -77,20 +77,20 @@ You can catch the full replay of Canva Extend, plus some exclusive online only c
 
 ## More from the Developers Blog
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.66d17e97.jpg)](https://www.canva.dev/blog/developers/building-with-content-publisher-part2/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.43feae40.jpg)](https://www.canva.dev/blog/developers/image-upscaler/)
 
-[Content Publisher IntentMeet the Content Publisher Intent - Part 2Building Settings UIs and UI patterns for asset organization](https://www.canva.dev/blog/developers/building-with-content-publisher-part2/)
+[Developer showcaseHow Image Upscaler became the top app in the Canva Apps MarketplaceWhat developers can learn from their success.](https://www.canva.dev/blog/developers/image-upscaler/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Feb 27, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 1, 2026
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.4b7da7e8.jpg)](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.d9204a0c.jpg)](https://www.canva.dev/blog/developers/canva-and-coding-agents-platforms/)
 
-[MonetizationExternal monetization for Canva AppsA community member's tips and tricks for monetizing your app](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
+[Connect APIUsing Canva with your coding agentGuidance for using Canva with coding assistants, Dev MCP, remote MCP, and the Connect APIs.](https://www.canva.dev/blog/developers/canva-and-coding-agents-platforms/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 4, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 9, 2026
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.dbaf156a.jpg)](https://www.canva.dev/blog/developers/getting-started-guide/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.a4fb80d1.jpg)](https://www.canva.dev/blog/developers/helping-your-users-write-better-prompts/)
 
-[Canva ExtendGetting Started GuideGet ready for Canva Extend by following our tips to get started.](https://www.canva.dev/blog/developers/getting-started-guide/)
+[AIHelping your users write better promptsLearn how you can lead your users to better write prompts for AI apps.](https://www.canva.dev/blog/developers/helping-your-users-write-better-prompts/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 14, 2023
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Aug 22, 2023

@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/engineering/we-put-half-a-million-files-in-one-git-repository-heres-what-we-learned/
 title: We Put Half a Million files in One git Repository, Here's What We Learned - Canva Engineering Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:28.852102+00:00
+fetched_at: 2026-10-27T15:35:51.000456+00:00
 ---
 
 # We Put Half a Million files in One git Repository, Here's What We Learned - Canva Engineering Blog
@@ -15,7 +15,7 @@ Engineering Blog
 
 Discover more
 
-[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine Learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering Practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data Platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
+[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
@@ -114,7 +114,7 @@ _Interested in optimizing developer experience?_ [_Join us!_ ⁠(opens in a new 
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.7caec38f.png)](https://www.canva.dev/blog/engineering/testing-search-engine-optimization-scalably-without-breaking-a-sweat/)
 
-[Search Engine OptimizationTesting Search Engine Optimization Scalably without Breaking a SweatScaling pre-development, rollout, and post-production SEO testing at Canva.](https://www.canva.dev/blog/engineering/testing-search-engine-optimization-scalably-without-breaking-a-sweat/)
+[Search engine optimizationTesting Search Engine Optimization Scalably without Breaking a SweatScaling pre-development, rollout, and post-production SEO testing at Canva.](https://www.canva.dev/blog/engineering/testing-search-engine-optimization-scalably-without-breaking-a-sweat/)
 
 [Siddharth Salunke⁠(opens in a new tab or window)](https://www.linkedin.com/in/siddharthsalunke/)Jun 20, 2022
 

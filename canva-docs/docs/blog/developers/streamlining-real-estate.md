@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/streamlining-real-estate/
 title: Streamlining Real Estate content creation - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:10.437266+00:00
+fetched_at: 2026-10-27T15:35:52.631541+00:00
 ---
 
 # Streamlining Real Estate content creation - Canva Developers Blog
@@ -15,7 +15,7 @@ Developers Blog
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-Real Estate
+Real estate
 
 # Streamlining Real Estate content creation
 
@@ -259,14 +259,14 @@ Ready to build your Canva app? Talk with your team about their requirements firs
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 18, 2024
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.8a859554.jpg)](https://www.canva.dev/blog/developers/searchable-list-view-config/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.7611d581.jpg)](https://www.canva.dev/blog/developers/simplifying-dx/)
 
-[App ComponentConfiguring your SearchableListViewYour guide to all of the properties of the SearchableListView app component configs](https://www.canva.dev/blog/developers/searchable-list-view-config/)
+[Developer experienceSimplifying developer experiences at scaleHow Canva is bridging the gap between complex developer experience and the simplicity our users love](https://www.canva.dev/blog/developers/simplifying-dx/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 16, 2025
+[Faria Anzum⁠(opens in a new tab or window)](https://www.linkedin.com/in/farianzum)May 20, 2025
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.02a1ad94.jpg)](https://www.canva.dev/blog/developers/building-with-content-publisher-part3/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.b66d472b.jpg)](https://www.canva.dev/blog/developers/simplebooklet-partner-solution/)
 
-[Content Publisher IntentMeet the Content Publisher Intent - Part 3Complete implementation, Preview UIs, and publishing](https://www.canva.dev/blog/developers/building-with-content-publisher-part3/)
+[Content Publisher intentSimplebooklet partner solutionHow Simplebooklet achieved a 10x user increase with Canva's Content Publisher Intent.](https://www.canva.dev/blog/developers/simplebooklet-partner-solution/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 8, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 19, 2026

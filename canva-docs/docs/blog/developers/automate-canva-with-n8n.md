@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/automate-canva-with-n8n/
 title: Automate Canva with n8n using the official Canva node - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:02.797241+00:00
+fetched_at: 2026-10-27T15:35:53.722242+00:00
 ---
 
 # Automate Canva with n8n using the official Canva node - Canva Developers Blog
@@ -15,7 +15,7 @@ Developers Blog
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-Autofill Platform
+Autofill platform
 
 # Automate Canva with n8n using the official Canva node
 
@@ -171,8 +171,8 @@ We can't wait to see what you build with Canva and n8n.
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Feb 9, 2024
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.fdb93f10.png)](https://www.canva.dev/blog/developers/launching-to-all-connect-api/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.989da67e.jpg)](https://www.canva.dev/blog/developers/launching-flourish-charts/)
 
-[Connect APILaunching to all: Connect APIsCanva Connect APIs are now open to all developers!](https://www.canva.dev/blog/developers/launching-to-all-connect-api/)
+[FlourishLaunching flourishcharts, our new interactive data visualization packages for data scientistsInteractive data visualization Python and R packages for data scientists.](https://www.canva.dev/blog/developers/launching-flourish-charts/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 18, 2024
+Zoe Meers, Alex SadleirAug 28, 2024

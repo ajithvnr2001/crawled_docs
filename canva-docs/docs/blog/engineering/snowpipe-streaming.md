@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/engineering/snowpipe-streaming/
 title: The foundations of Canva\u2019s continuous data platform with Snowpipe Streaming - Canva Engineering Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:16.893310+00:00
+fetched_at: 2026-10-27T15:35:51.142412+00:00
 ---
 
 # The foundations of Canva’s continuous data platform with Snowpipe Streaming - Canva Engineering Blog
@@ -15,11 +15,11 @@ Engineering Blog
 
 Discover more
 
-[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine Learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering Practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data Platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
+[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-snowflake
+Snowflake
 
 # The foundations of Canva’s continuous data platform with Snowpipe Streaming
 
@@ -209,13 +209,13 @@ Many thanks to the entire Product Analytics Platform team for helping to build a
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.5e886671.jpeg)](https://www.canva.dev/blog/engineering/going-deeper-with-depth-maps/)
 
-[Computer VisionGoing Deeper with Depth MapsHow we use machine learning to estimate depth and salience maps for photos in Canva.](https://www.canva.dev/blog/engineering/going-deeper-with-depth-maps/)
+[Computer visionGoing Deeper with Depth MapsHow we use machine learning to estimate depth and salience maps for photos in Canva.](https://www.canva.dev/blog/engineering/going-deeper-with-depth-maps/)
 
 [Kerry Halupka⁠(opens in a new tab or window)](https://medium.com/@kerry.halupka)Dec 15, 2021
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.f0047f36.png)](https://www.canva.dev/blog/engineering/recommender-systems-when-they-fail-who-are-you-gonna-call/)
 
-[Recommender SystemsRecommender systems: When they fail, who are you gonna call?How we deal with potential problems when running Canva's recommendation system.](https://www.canva.dev/blog/engineering/recommender-systems-when-they-fail-who-are-you-gonna-call/)
+[Recommender systemsRecommender systems: When they fail, who are you gonna call?How we deal with potential problems when running Canva's recommendation system.](https://www.canva.dev/blog/engineering/recommender-systems-when-they-fail-who-are-you-gonna-call/)
 
 [Mayur Panchal⁠(opens in a new tab or window)](https://www.linkedin.com/in/panchalm), [Thien Bui⁠(opens in a new tab or window)](https://www.linkedin.com/in/ducthienbui/)Nov 4, 2021
 

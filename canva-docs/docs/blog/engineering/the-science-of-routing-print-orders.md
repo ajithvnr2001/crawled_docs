@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/engineering/the-science-of-routing-print-orders/
 title: The science of routing print orders - Canva Engineering Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:28.707296+00:00
+fetched_at: 2026-10-27T15:35:51.186377+00:00
 ---
 
 # The science of routing print orders - Canva Engineering Blog
@@ -15,7 +15,7 @@ Engineering Blog
 
 Discover more
 
-[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine Learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering Practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data Platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
+[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
@@ -372,13 +372,13 @@ With those figures, it's easy to call Routing a success. Try it for yourself. Ch
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.e7e2d74e.jpg)](https://www.canva.dev/blog/engineering/why-we-left-manual-ui-testing-behind/)
 
-[UI TestingWhy we left manual UI testing behindHow we use visual regression testing to instill confidence in every product update.](https://www.canva.dev/blog/engineering/why-we-left-manual-ui-testing-behind/)
+[UI testingWhy we left manual UI testing behindHow we use visual regression testing to instill confidence in every product update.](https://www.canva.dev/blog/engineering/why-we-left-manual-ui-testing-behind/)
 
 [Joscha Feth⁠(opens in a new tab or window)](https://twitter.com/joschafeth)Dec 12, 2018
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.96306bd0.png)](https://www.canva.dev/blog/engineering/how-we-build-experiments-in-house/)
 
-[Engineering PracticesHow we build experiments in-houseExperimentation and experiment analysis are vital procedures at Canva to safeguard the customer experience.](https://www.canva.dev/blog/engineering/how-we-build-experiments-in-house/)
+[Engineering practicesHow we build experiments in-houseExperimentation and experiment analysis are vital procedures at Canva to safeguard the customer experience.](https://www.canva.dev/blog/engineering/how-we-build-experiments-in-house/)
 
 [Vincey Au⁠(opens in a new tab or window)](https://au.linkedin.com/in/vinceyau1)Jun 27, 2024
 

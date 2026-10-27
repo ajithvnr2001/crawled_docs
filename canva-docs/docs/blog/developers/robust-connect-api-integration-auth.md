@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/robust-connect-api-integration-auth/
 title: Robust authentication for your Connect API integration on native apps - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:07.726077+00:00
+fetched_at: 2026-10-27T15:35:52.772058+00:00
 ---
 
 # Robust authentication for your Connect API integration on native apps - Canva Developers Blog
@@ -69,20 +69,20 @@ _Special thanks to Grant Noble his review and to Jesse Birthisel for the illustr
 
 ## More from the Developers Blog
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.c59330ae.jpg)](https://www.canva.dev/blog/developers/building-with-content-publisher-part1/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.66d17e97.jpg)](https://www.canva.dev/blog/developers/building-with-content-publisher-part2/)
 
-[Content Publisher IntentMeet the Content Publisher Intent - Part 1Understanding data flow and structure for publishing](https://www.canva.dev/blog/developers/building-with-content-publisher-part1/)
+[Content Publisher intentMeet the Content Publisher Intent - Part 2Building Settings UIs and UI patterns for asset organization](https://www.canva.dev/blog/developers/building-with-content-publisher-part2/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Feb 19, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Feb 27, 2026
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.8a859554.jpg)](https://www.canva.dev/blog/developers/searchable-list-view-config/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.7611d581.jpg)](https://www.canva.dev/blog/developers/simplifying-dx/)
 
-[App ComponentConfiguring your SearchableListViewYour guide to all of the properties of the SearchableListView app component configs](https://www.canva.dev/blog/developers/searchable-list-view-config/)
+[Developer experienceSimplifying developer experiences at scaleHow Canva is bridging the gap between complex developer experience and the simplicity our users love](https://www.canva.dev/blog/developers/simplifying-dx/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 16, 2025
+[Faria Anzum⁠(opens in a new tab or window)](https://www.linkedin.com/in/farianzum)May 20, 2025
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.2a37fda3.jpg)](https://www.canva.dev/blog/developers/canva-developers-wrapped-2024/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.7785249e.jpg)](https://www.canva.dev/blog/developers/user-favorite-canva-apps/)
 
-[2024Canva Developers 2024 WrappedAnother exciting year for Canva Developers is coming to a close. Learn about all the amazing growth our ecosystem has seen this year.](https://www.canva.dev/blog/developers/canva-developers-wrapped-2024/)
+[Apps SDKWhat makes these 3 Canva apps user favorites?Uncover and apply elements that resonate with users.](https://www.canva.dev/blog/developers/user-favorite-canva-apps/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Dec 20, 2024
+[Faria Anzum⁠(opens in a new tab or window)](https://www.linkedin.com/in/farianzum)Feb 12, 2025

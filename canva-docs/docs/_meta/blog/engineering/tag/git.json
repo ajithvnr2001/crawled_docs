@@ -3,8 +3,5 @@
   "file": "blog/engineering/tag/git.md",
   "title": "Git - Canva Engineering Blog",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-21T14:20:21.967552+00:00",
-  "html_len": 30319,
-  "md_len": 1535,
-  "depth": 0
+  "fetched_at": "2026-10-27T15:35:48.337784+00:00"
 }

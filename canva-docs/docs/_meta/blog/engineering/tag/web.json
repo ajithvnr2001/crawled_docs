@@ -3,8 +3,5 @@
   "file": "blog/engineering/tag/web.md",
   "title": "Web - Canva Engineering Blog",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-21T14:20:28.147290+00:00",
-  "html_len": 29955,
-  "md_len": 1336,
-  "depth": 0
+  "fetched_at": "2026-10-27T15:35:46.522420+00:00"
 }

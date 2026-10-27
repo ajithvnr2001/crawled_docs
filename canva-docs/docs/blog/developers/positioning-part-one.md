@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/positioning-part-one/
 title: Deep Diving into Positioning, Part 1 - The Overview - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:07.246029+00:00
+fetched_at: 2026-10-27T15:35:53.047260+00:00
 ---
 
 # Deep Diving into Positioning, Part 1 - The Overview - Canva Developers Blog
@@ -15,7 +15,7 @@ Developers Blog
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-apps sdk
+Apps SDK
 
 # Deep Diving into Positioning, Part 1 - The Overview
 
@@ -161,17 +161,17 @@ In the coming weeks, as part of this series, we’ll look deeper into placement 
 
 ## More from the Developers Blog
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.b5a49b24.png)](https://www.canva.dev/blog/developers/automate-canva-with-n8n/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.58070274.jpg)](https://www.canva.dev/blog/developers/canva-mcp-ga/)
 
-[Autofill PlatformAutomate Canva with n8n using the official Canva nodeTurn structured data into editable Canva designs with Autofill, then review, share, export, and deliver creative work across your stack.](https://www.canva.dev/blog/developers/automate-canva-with-n8n/)
+[MCPCanva MCP is now generally available to developersConnect your AI assistant or platform to Canva's design capabilities with self-serve access to the Canva MCP server.](https://www.canva.dev/blog/developers/canva-mcp-ga/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Aug 26, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Oct 27, 2026
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.b66d472b.jpg)](https://www.canva.dev/blog/developers/simplebooklet-partner-solution/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.4b7da7e8.jpg)](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
 
-[Content Publisher IntentSimplebooklet partner solutionHow Simplebooklet achieved a 10x user increase with Canva's Content Publisher Intent.](https://www.canva.dev/blog/developers/simplebooklet-partner-solution/)
+[MonetizationExternal monetization for Canva AppsA community member's tips and tricks for monetizing your app](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 19, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 4, 2026
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.a4fb80d1.jpg)](https://www.canva.dev/blog/developers/helping-your-users-write-better-prompts/)
 

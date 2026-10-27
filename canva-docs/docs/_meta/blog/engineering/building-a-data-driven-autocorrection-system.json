@@ -3,8 +3,5 @@
   "file": "blog/engineering/building-a-data-driven-autocorrection-system.md",
   "title": "Building a Data-Driven Autocorrection System - Canva Engineering Blog",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-21T14:20:11.403896+00:00",
-  "html_len": 62458,
-  "md_len": 13632,
-  "depth": 0
+  "fetched_at": "2026-10-27T15:35:52.497046+00:00"
 }

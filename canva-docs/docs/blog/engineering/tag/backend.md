@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/engineering/tag/backend/
 title: Backend - Canva Engineering Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:18.549076+00:00
+fetched_at: 2026-10-27T15:35:49.564081+00:00
 ---
 
 # Backend - Canva Engineering Blog
@@ -15,7 +15,7 @@ Engineering Blog
 
 Discover more
 
-[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine Learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering Practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data Platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
+[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
@@ -44,7 +44,7 @@ Category
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.c0340f98.png)](https://www.canva.dev/blog/engineering/image-replacement-in-canva-designs-using-reverse-image-search/)
 
-[Machine LearningImage replacement in Canva designs using reverse image searchQualitative comparison of image embedding models to power a scalable similar-image replacement system for Canva designs.](https://www.canva.dev/blog/engineering/image-replacement-in-canva-designs-using-reverse-image-search/)
+[Machine learningImage replacement in Canva designs using reverse image searchQualitative comparison of image embedding models to power a scalable similar-image replacement system for Canva designs.](https://www.canva.dev/blog/engineering/image-replacement-in-canva-designs-using-reverse-image-search/)
 
 [Sam Jacobs⁠(opens in a new tab or window)](https://www.linkedin.com/in/sam-l-jacobs/)Jan 28, 2025
 
@@ -56,7 +56,7 @@ Category
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.b3659c51.png)](https://www.canva.dev/blog/engineering/realtime-mouse-pointers/)
 
-[Real-time CollaborationReal-time mouse pointersOur journey to implement and support real-time mouse pointers.](https://www.canva.dev/blog/engineering/realtime-mouse-pointers/)
+[Real-time collaborationReal-time mouse pointersOur journey to implement and support real-time mouse pointers.](https://www.canva.dev/blog/engineering/realtime-mouse-pointers/)
 
 [Anton Egorov⁠(opens in a new tab or window)](https://au.linkedin.com/in/anton-egorov), [Mark Gurevich⁠(opens in a new tab or window)](https://www.linkedin.com/in/yodairish/)Aug 15, 2024
 

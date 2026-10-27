@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/engineering/speeding-up-ui-tests-with-codeceptjs-and-playwright/
 title: Speeding up UI tests with CodeceptJS and Playwright - Canva Engineering Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:17.260790+00:00
+fetched_at: 2026-10-27T15:35:51.372025+00:00
 ---
 
 # Speeding up UI tests with CodeceptJS and Playwright - Canva Engineering Blog
@@ -15,11 +15,11 @@ Engineering Blog
 
 Discover more
 
-[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine Learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering Practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data Platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
+[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-UI Testing
+UI testing
 
 # Speeding up UI tests with CodeceptJS and Playwright
 
@@ -241,7 +241,7 @@ _Interested in UI testing infrastructure?_ [Join Us!⁠(opens in a new tab or wi
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.7349e802.png)](https://www.canva.dev/blog/engineering/search-pipeline-part-i/)
 
-[Search and RelevanceSearch Pipeline: Part IHow we are rebuilding Canva's search stack and pipeline.](https://www.canva.dev/blog/engineering/search-pipeline-part-i/)
+[Search and relevanceSearch Pipeline: Part IHow we are rebuilding Canva's search stack and pipeline.](https://www.canva.dev/blog/engineering/search-pipeline-part-i/)
 
 [Stuart Cam⁠(opens in a new tab or window)](https://www.linkedin.com/in/codebrain/)Nov 2, 2022
 

@@ -1,10 +1,7 @@
 {
   "url": "https://www.canva.dev/blog/engineering/tag/engineering-practices/",
   "file": "blog/engineering/tag/engineering-practices.md",
-  "title": "Engineering Practices - Canva Engineering Blog",
+  "title": "Engineering practices - Canva Engineering Blog",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-21T14:20:21.375539+00:00",
-  "html_len": 40598,
-  "md_len": 3739,
-  "depth": 0
+  "fetched_at": "2026-10-27T15:35:48.411917+00:00"
 }

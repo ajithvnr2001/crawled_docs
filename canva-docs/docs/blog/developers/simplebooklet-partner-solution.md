@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/simplebooklet-partner-solution/
 title: Simplebooklet partner solution - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:09.572365+00:00
+fetched_at: 2026-10-27T15:35:52.892870+00:00
 ---
 
 # Simplebooklet partner solution - Canva Developers Blog
@@ -15,7 +15,7 @@ Developers Blog
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-Content Publisher Intent
+Content Publisher intent
 
 # Simplebooklet partner solution
 
@@ -267,20 +267,20 @@ We’ve also gotten a lot of anecdotal feedback from Canva users on how much mor
 
 ## More from the Developers Blog
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.4b7da7e8.jpg)](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.d9204a0c.jpg)](https://www.canva.dev/blog/developers/canva-and-coding-agents-platforms/)
 
-[MonetizationExternal monetization for Canva AppsA community member's tips and tricks for monetizing your app](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
+[Connect APIUsing Canva with your coding agentGuidance for using Canva with coding assistants, Dev MCP, remote MCP, and the Connect APIs.](https://www.canva.dev/blog/developers/canva-and-coding-agents-platforms/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 4, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 9, 2026
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.a4fb80d1.jpg)](https://www.canva.dev/blog/developers/helping-your-users-write-better-prompts/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.6c865963.jpg)](https://www.canva.dev/blog/developers/apps-to-win-big/)
 
-[AIHelping your users write better promptsLearn how you can lead your users to better write prompts for AI apps.](https://www.canva.dev/blog/developers/helping-your-users-write-better-prompts/)
+[Apps SDKSimple apps to win big in the Canva Apps MarketplaceWhat kind of apps are we looking for for the Apps Marketplace?](https://www.canva.dev/blog/developers/apps-to-win-big/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Aug 22, 2023
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Sep 19, 2023
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.088a2bca.png)](https://www.canva.dev/blog/developers/canva-dev-mcp-server/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.3a2aa29c.jpg)](https://www.canva.dev/blog/developers/streamlining-real-estate/)
 
-[AIIntroducing the Canva Dev MCP ServerHarness the full power of AI coding agents with the Canva Dev MCP Server.](https://www.canva.dev/blog/developers/canva-dev-mcp-server/)
+[Real estateStreamlining Real Estate content creationLearn how to architect your Canva App to supercharge your real estate marketing content creation.](https://www.canva.dev/blog/developers/streamlining-real-estate/)
 
-[Anto Lepejian⁠(opens in a new tab or window)](https://www.linkedin.com/in/anto-lepejian/)Apr 16, 2025
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 6, 2025

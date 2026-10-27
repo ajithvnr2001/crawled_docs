@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/building-with-content-publisher-part2/
 title: Meet the Content Publisher Intent - Part 2 - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:05.628147+00:00
+fetched_at: 2026-10-27T15:35:53.424058+00:00
 ---
 
 # Meet the Content Publisher Intent - Part 2 - Canva Developers Blog
@@ -15,7 +15,7 @@ Developers Blog
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-Content Publisher Intent
+Content Publisher intent
 
 # Meet the Content Publisher Intent - Part 2
 
@@ -1060,11 +1060,11 @@ In Part 3, we'll complete the implementation:
 
 ## More from the Developers Blog
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.02a1ad94.jpg)](https://www.canva.dev/blog/developers/building-with-content-publisher-part3/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.b66d472b.jpg)](https://www.canva.dev/blog/developers/simplebooklet-partner-solution/)
 
-[Content Publisher IntentMeet the Content Publisher Intent - Part 3Complete implementation, Preview UIs, and publishing](https://www.canva.dev/blog/developers/building-with-content-publisher-part3/)
+[Content Publisher intentSimplebooklet partner solutionHow Simplebooklet achieved a 10x user increase with Canva's Content Publisher Intent.](https://www.canva.dev/blog/developers/simplebooklet-partner-solution/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 8, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 19, 2026
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.fc84a34d.jpg)](https://www.canva.dev/blog/developers/canva-extend-recap-2024/)
 
@@ -1074,6 +1074,6 @@ In Part 3, we'll complete the implementation:
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.8a859554.jpg)](https://www.canva.dev/blog/developers/searchable-list-view-config/)
 
-[App ComponentConfiguring your SearchableListViewYour guide to all of the properties of the SearchableListView app component configs](https://www.canva.dev/blog/developers/searchable-list-view-config/)
+[App componentConfiguring your SearchableListViewYour guide to all of the properties of the SearchableListView app component configs](https://www.canva.dev/blog/developers/searchable-list-view-config/)
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 16, 2025

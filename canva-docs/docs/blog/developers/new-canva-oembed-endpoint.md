@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/new-canva-oembed-endpoint/
 title: Canva's new oEmbed endpoint - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:08.622972+00:00
+fetched_at: 2026-10-27T15:35:52.979278+00:00
 ---
 
 # Canva's new oEmbed endpoint - Canva Developers Blog
@@ -15,7 +15,7 @@ Developers Blog
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-embed
+Embed
 
 # Canva's new oEmbed endpoint
 
@@ -38,20 +38,20 @@ We are going to keep the current endpoint operational until 30 Jun 2024.
 
 ## More from the Developers Blog
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.4b7da7e8.jpg)](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.d9204a0c.jpg)](https://www.canva.dev/blog/developers/canva-and-coding-agents-platforms/)
 
-[MonetizationExternal monetization for Canva AppsA community member's tips and tricks for monetizing your app](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
+[Connect APIUsing Canva with your coding agentGuidance for using Canva with coding assistants, Dev MCP, remote MCP, and the Connect APIs.](https://www.canva.dev/blog/developers/canva-and-coding-agents-platforms/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 4, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 9, 2026
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.f388d5fa.jpg)](https://www.canva.dev/blog/developers/lambda-functions-for-canva-apps/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.832cdac2.png)](https://www.canva.dev/blog/developers/passing-user-input-from-canva-ui-to-your-lambda-function/)
 
-[lambdaGetting Started with Lambda Functions for Canva AppsLearn how to use Lambda functions](https://www.canva.dev/blog/developers/lambda-functions-for-canva-apps/)
+[LambdaPassing User Input from Canva UI to your Lambda FunctionLearn how to pass Canva user inputs with Lambda Functions.](https://www.canva.dev/blog/developers/passing-user-input-from-canva-ui-to-your-lambda-function/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Oct 4, 2023
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Oct 20, 2023
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.ff1c5b79.png)](https://www.canva.dev/blog/developers/positioning-part-one/)
 
-[apps sdkDeep Diving into Positioning, Part 1 - The OverviewLearn about to position elements and groups in apps on Canva.](https://www.canva.dev/blog/developers/positioning-part-one/)
+[Apps SDKDeep Diving into Positioning, Part 1 - The OverviewLearn about to position elements and groups in apps on Canva.](https://www.canva.dev/blog/developers/positioning-part-one/)
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Apr 3, 2024

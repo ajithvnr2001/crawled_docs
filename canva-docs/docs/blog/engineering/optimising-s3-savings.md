@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/engineering/optimising-s3-savings/
 title: How Canva saves millions annually in Amazon S3 costs - Canva Engineering Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:15.275205+00:00
+fetched_at: 2026-10-27T15:35:51.672242+00:00
 ---
 
 # How Canva saves millions annually in Amazon S3 costs - Canva Engineering Blog
@@ -15,7 +15,7 @@ Engineering Blog
 
 Discover more
 
-[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine Learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering Practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data Platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
+[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
@@ -118,7 +118,7 @@ AWS has been a great partner through all of this work and continues to invest in
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.bc11c251.png)](https://www.canva.dev/blog/engineering/end-to-end-tracing/)
 
-[Distributed TracingEnd-to-end TracingHow Canva implemented end-to-end tracing and are using it to drive operational insights](https://www.canva.dev/blog/engineering/end-to-end-tracing/)
+[Distributed tracingEnd-to-end TracingHow Canva implemented end-to-end tracing and are using it to drive operational insights](https://www.canva.dev/blog/engineering/end-to-end-tracing/)
 
 [Ian Slesser⁠(opens in a new tab or window)](https://www.linkedin.com/in/ivslesser/)Jun 14, 2023
 

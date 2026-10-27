@@ -1,10 +1,7 @@
 {
   "url": "https://www.canva.dev/blog/engineering/tag/real-time-collaboration/",
   "file": "blog/engineering/tag/real-time-collaboration.md",
-  "title": "Real-time Collaboration - Canva Engineering Blog",
+  "title": "Real-time collaboration - Canva Engineering Blog",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-21T14:20:25.232200+00:00",
-  "html_len": 30818,
-  "md_len": 1464,
-  "depth": 0
+  "fetched_at": "2026-10-27T15:35:47.357050+00:00"
 }

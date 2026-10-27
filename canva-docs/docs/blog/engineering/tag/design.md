@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/engineering/tag/design/
 title: Design - Canva Engineering Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:20.304029+00:00
+fetched_at: 2026-10-27T15:35:48.869518+00:00
 ---
 
 # Design - Canva Engineering Blog
@@ -15,7 +15,7 @@ Engineering Blog
 
 Discover more
 
-[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine Learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering Practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data Platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
+[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
@@ -38,7 +38,7 @@ Category
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.5e886671.jpeg)](https://www.canva.dev/blog/engineering/going-deeper-with-depth-maps/)
 
-[Computer VisionGoing Deeper with Depth MapsHow we use machine learning to estimate depth and salience maps for photos in Canva.](https://www.canva.dev/blog/engineering/going-deeper-with-depth-maps/)
+[Computer visionGoing Deeper with Depth MapsHow we use machine learning to estimate depth and salience maps for photos in Canva.](https://www.canva.dev/blog/engineering/going-deeper-with-depth-maps/)
 
 [Kerry Halupka⁠(opens in a new tab or window)](https://medium.com/@kerry.halupka)Dec 15, 2021
 

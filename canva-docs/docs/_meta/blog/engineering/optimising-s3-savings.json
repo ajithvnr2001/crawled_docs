@@ -3,8 +3,5 @@
   "file": "blog/engineering/optimising-s3-savings.md",
   "title": "How Canva saves millions annually in Amazon S3 costs - Canva Engineering Blog",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-21T14:20:15.275205+00:00",
-  "html_len": 67766,
-  "md_len": 16400,
-  "depth": 0
+  "fetched_at": "2026-10-27T15:35:51.672242+00:00"
 }

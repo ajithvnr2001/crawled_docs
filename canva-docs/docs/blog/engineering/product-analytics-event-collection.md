@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/engineering/product-analytics-event-collection/
 title: How Canva collects 25 billion events per day - Canva Engineering Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:15.659653+00:00
+fetched_at: 2026-10-27T15:35:51.698720+00:00
 ---
 
 # How Canva collects 25 billion events per day - Canva Engineering Blog
@@ -15,7 +15,7 @@ Engineering Blog
 
 Discover more
 
-[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine Learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering Practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data Platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
+[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
@@ -203,13 +203,13 @@ A huge thanks to [Arthur Baudry⁠(opens in a new tab or window)](https://au.lin
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.be3489f2.png)](https://www.canva.dev/blog/engineering/supporting-gpu-accelerated-machine-learning-with-kubernetes-and-nix/)
 
-[Machine Learning InfrastructureSupporting GPU-accelerated Machine Learning with Kubernetes and NixIt ain't what you don't know that gets you into trouble — well, sometimes it is.](https://www.canva.dev/blog/engineering/supporting-gpu-accelerated-machine-learning-with-kubernetes-and-nix/)
+[Machine learning infrastructureSupporting GPU-accelerated Machine Learning with Kubernetes and NixIt ain't what you don't know that gets you into trouble — well, sometimes it is.](https://www.canva.dev/blog/engineering/supporting-gpu-accelerated-machine-learning-with-kubernetes-and-nix/)
 
 [Jonathon Belotti⁠(opens in a new tab or window)](https://github.com/thundergolfer)Jul 5, 2022
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.c69dca35.png)](https://www.canva.dev/blog/engineering/measuring-commerical-impact-at-scale/)
 
-[Data AnalyticsMeasuring Commercial Impact at Scale at CanvaHow We Built Canva's IMPACT App with Streamlit in Snowflake](https://www.canva.dev/blog/engineering/measuring-commerical-impact-at-scale/)
+[Data analyticsMeasuring Commercial Impact at Scale at CanvaHow We Built Canva's IMPACT App with Streamlit in Snowflake](https://www.canva.dev/blog/engineering/measuring-commerical-impact-at-scale/)
 
 [Jun Ye⁠(opens in a new tab or window)](https://www.linkedin.com/in/jun-ye-0798/)Jun 20, 2025
 

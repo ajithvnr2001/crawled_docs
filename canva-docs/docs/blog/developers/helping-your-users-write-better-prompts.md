@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/helping-your-users-write-better-prompts/
 title: Helping your users write better prompts - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:06.204385+00:00
+fetched_at: 2026-10-27T15:35:53.089601+00:00
 ---
 
 # Helping your users write better prompts - Canva Developers Blog
@@ -66,20 +66,20 @@ Happy AI Creating!
 
 ## More from the Developers Blog
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.4b7da7e8.jpg)](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.d9204a0c.jpg)](https://www.canva.dev/blog/developers/canva-and-coding-agents-platforms/)
 
-[MonetizationExternal monetization for Canva AppsA community member's tips and tricks for monetizing your app](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
+[Connect APIUsing Canva with your coding agentGuidance for using Canva with coding assistants, Dev MCP, remote MCP, and the Connect APIs.](https://www.canva.dev/blog/developers/canva-and-coding-agents-platforms/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 4, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 9, 2026
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.f388d5fa.jpg)](https://www.canva.dev/blog/developers/lambda-functions-for-canva-apps/)
 
-[lambdaGetting Started with Lambda Functions for Canva AppsLearn how to use Lambda functions](https://www.canva.dev/blog/developers/lambda-functions-for-canva-apps/)
+[LambdaGetting Started with Lambda Functions for Canva AppsLearn how to use Lambda functions](https://www.canva.dev/blog/developers/lambda-functions-for-canva-apps/)
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Oct 4, 2023
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.f5e81b12.png)](https://www.canva.dev/blog/developers/gen-ai-startup-solved-product-gaps-with-apps-sdk/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.ff1c5b79.png)](https://www.canva.dev/blog/developers/positioning-part-one/)
 
-[Apps SDKHow a Gen AI Startup solved its product gaps with the Canva Apps SDKHow Krikey AI developed an App on Canva to fill their product gaps.](https://www.canva.dev/blog/developers/gen-ai-startup-solved-product-gaps-with-apps-sdk/)
+[Apps SDKDeep Diving into Positioning, Part 1 - The OverviewLearn about to position elements and groups in apps on Canva.](https://www.canva.dev/blog/developers/positioning-part-one/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Mar 1, 2024
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Apr 3, 2024

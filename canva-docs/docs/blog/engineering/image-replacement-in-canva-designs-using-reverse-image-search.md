@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/engineering/image-replacement-in-canva-designs-using-reverse-image-search/
 title: Image replacement in Canva designs using reverse image search - Canva Engineering Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:14.382669+00:00
+fetched_at: 2026-10-27T15:35:51.935847+00:00
 ---
 
 # Image replacement in Canva designs using reverse image search - Canva Engineering Blog
@@ -15,11 +15,11 @@ Engineering Blog
 
 Discover more
 
-[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine Learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering Practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data Platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
+[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-Machine Learning
+Machine learning
 
 # Image replacement in Canva designs using reverse image search
 
@@ -170,19 +170,19 @@ _Want to work on powering the content engine at Canva?[Join us!⁠(opens in a ne
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.6dcc30b0.png)](https://www.canva.dev/blog/engineering/how-we-built-the-canva-apps-sdk/)
 
-[Engineering PracticesHow we built the Canva Apps SDKOur journey to empower developers to build flexible apps with a simple powerful app platform.](https://www.canva.dev/blog/engineering/how-we-built-the-canva-apps-sdk/)
+[Engineering practicesHow we built the Canva Apps SDKOur journey to empower developers to build flexible apps with a simple powerful app platform.](https://www.canva.dev/blog/engineering/how-we-built-the-canva-apps-sdk/)
 
 [Martin Cronjé⁠(opens in a new tab or window)](https://www.linkedin.com/in/mcronje/)Jul 28, 2023
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.b3659c51.png)](https://www.canva.dev/blog/engineering/realtime-mouse-pointers/)
 
-[Real-time CollaborationReal-time mouse pointersOur journey to implement and support real-time mouse pointers.](https://www.canva.dev/blog/engineering/realtime-mouse-pointers/)
+[Real-time collaborationReal-time mouse pointersOur journey to implement and support real-time mouse pointers.](https://www.canva.dev/blog/engineering/realtime-mouse-pointers/)
 
 [Anton Egorov⁠(opens in a new tab or window)](https://au.linkedin.com/in/anton-egorov), [Mark Gurevich⁠(opens in a new tab or window)](https://www.linkedin.com/in/yodairish/)Aug 15, 2024
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.68c525c0.png)](https://www.canva.dev/blog/engineering/speeding-up-ui-tests-with-codeceptjs-and-playwright/)
 
-[UI TestingSpeeding up UI tests with CodeceptJS and PlaywrightLessons learned from migrating 1000+ browser-functional tests from Chimp, WebdriverIO, and Saucelabs to CodeceptJS and Playwright.](https://www.canva.dev/blog/engineering/speeding-up-ui-tests-with-codeceptjs-and-playwright/)
+[UI testingSpeeding up UI tests with CodeceptJS and PlaywrightLessons learned from migrating 1000+ browser-functional tests from Chimp, WebdriverIO, and Saucelabs to CodeceptJS and Playwright.](https://www.canva.dev/blog/engineering/speeding-up-ui-tests-with-codeceptjs-and-playwright/)
 
 [Benjamin Sejas⁠(opens in a new tab or window)](https://www.linkedin.com/in/benjamin-sejas-49586632/), [Srini Ramasamy⁠(opens in a new tab or window)](https://www.linkedin.com/in/srini-ramasamy/)Mar 3, 2022
 

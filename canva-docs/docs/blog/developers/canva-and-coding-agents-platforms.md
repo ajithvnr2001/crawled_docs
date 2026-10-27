@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/canva-and-coding-agents-platforms/
 title: Using Canva with your coding agent - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:03.390177+00:00
+fetched_at: 2026-10-27T15:35:53.147356+00:00
 ---
 
 # Using Canva with your coding agent - Canva Developers Blog
@@ -162,8 +162,8 @@ Sidney AmaniApr 4, 2024
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Dec 20, 2024
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.fdb93f10.png)](https://www.canva.dev/blog/developers/launching-to-all-connect-api/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.989da67e.jpg)](https://www.canva.dev/blog/developers/launching-flourish-charts/)
 
-[Connect APILaunching to all: Connect APIsCanva Connect APIs are now open to all developers!](https://www.canva.dev/blog/developers/launching-to-all-connect-api/)
+[FlourishLaunching flourishcharts, our new interactive data visualization packages for data scientistsInteractive data visualization Python and R packages for data scientists.](https://www.canva.dev/blog/developers/launching-flourish-charts/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 18, 2024
+Zoe Meers, Alex SadleirAug 28, 2024

@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/simplifying-dx/
 title: Simplifying developer experiences at scale - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:09.064402+00:00
+fetched_at: 2026-10-27T15:35:52.754336+00:00
 ---
 
 # Simplifying developer experiences at scale - Canva Developers Blog
@@ -79,20 +79,20 @@ If you’ve ever wished you could craft powerful design experiences with the sam
 
 ## More from the Developers Blog
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.3a2aa29c.jpg)](https://www.canva.dev/blog/developers/streamlining-real-estate/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.8a859554.jpg)](https://www.canva.dev/blog/developers/searchable-list-view-config/)
 
-[Real EstateStreamlining Real Estate content creationLearn how to architect your Canva App to supercharge your real estate marketing content creation.](https://www.canva.dev/blog/developers/streamlining-real-estate/)
+[App componentConfiguring your SearchableListViewYour guide to all of the properties of the SearchableListView app component configs](https://www.canva.dev/blog/developers/searchable-list-view-config/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 6, 2025
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 16, 2025
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.c59330ae.jpg)](https://www.canva.dev/blog/developers/building-with-content-publisher-part1/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.66d17e97.jpg)](https://www.canva.dev/blog/developers/building-with-content-publisher-part2/)
 
-[Content Publisher IntentMeet the Content Publisher Intent - Part 1Understanding data flow and structure for publishing](https://www.canva.dev/blog/developers/building-with-content-publisher-part1/)
+[Content Publisher intentMeet the Content Publisher Intent - Part 2Building Settings UIs and UI patterns for asset organization](https://www.canva.dev/blog/developers/building-with-content-publisher-part2/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Feb 19, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Feb 27, 2026
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.19bbc178.png)](https://www.canva.dev/blog/developers/enterprise-app-launch/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.468d19cb.jpg)](https://www.canva.dev/blog/developers/new-canva-oembed-endpoint/)
 
-[EnterpriseCanva to Enterprises, 3 new apps to boardLaunching 3 new apps to improve your productivity at work](https://www.canva.dev/blog/developers/enterprise-app-launch/)
+[EmbedCanva's new oEmbed endpointCanva is changing the url of its oEmbed endpoint](https://www.canva.dev/blog/developers/new-canva-oembed-endpoint/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Apr 11, 2024
+Farnaz TavakolJun 1, 2024

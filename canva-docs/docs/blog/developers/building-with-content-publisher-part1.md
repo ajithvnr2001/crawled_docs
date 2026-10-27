@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/building-with-content-publisher-part1/
 title: Meet the Content Publisher Intent - Part 1 - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:04.098051+00:00
+fetched_at: 2026-10-27T15:35:53.917286+00:00
 ---
 
 # Meet the Content Publisher Intent - Part 1 - Canva Developers Blog
@@ -15,7 +15,7 @@ Developers Blog
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-Content Publisher Intent
+Content Publisher intent
 
 # Meet the Content Publisher Intent - Part 1
 

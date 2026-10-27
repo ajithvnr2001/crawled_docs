@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/mcp/
 title: About Canva MCP - Canva for AI assistants - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:56:06.729084+00:00
+fetched_at: 2026-10-27T15:35:53.736814+00:00
 ---
 
 # About Canva MCP - Canva for AI assistants - Canva Developers SDK Documentation
@@ -61,7 +61,7 @@ The Canva MCP server unlocks the following capabilities for AI assistants:
 ## Next steps
 
   * [Access and permissions](https://www.canva.dev/docs/apps/mcp/access/)
-  * [Quickstart](https://www.canva.dev/docs/apps/quickstart/)
+  * [Quickstart](https://www.canva.dev/docs/apps/quickstart/?app-surface=Canva%20for%20AI%20assistants)
 
 
 

@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/building-with-content-publisher-part3/
 title: Meet the Content Publisher Intent - Part 3 - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:05.039693+00:00
+fetched_at: 2026-10-27T15:35:53.700501+00:00
 ---
 
 # Meet the Content Publisher Intent - Part 3 - Canva Developers Blog
@@ -15,7 +15,7 @@ Developers Blog
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-Content Publisher Intent
+Content Publisher intent
 
 # Meet the Content Publisher Intent - Part 3
 
@@ -1909,12 +1909,12 @@ The Content Publisher intent provides a clean separation of concerns:
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.1b60cf41.jpg)](https://www.canva.dev/blog/developers/applying-canva-brand-templates/)
 
-[connect APIApply Canva Brand templates with the Autofill APIHow to identify and consistently apply Canva Brand Templates using the Brand template API and Autofill API.](https://www.canva.dev/blog/developers/applying-canva-brand-templates/)
+[Connect APIApply Canva Brand templates with the Autofill APIHow to identify and consistently apply Canva Brand Templates using the Brand template API and Autofill API.](https://www.canva.dev/blog/developers/applying-canva-brand-templates/)
 
 Timo Bingaman, Joe RobinsonOct 9, 2024
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.2a37fda3.jpg)](https://www.canva.dev/blog/developers/canva-developers-wrapped-2024/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.7785249e.jpg)](https://www.canva.dev/blog/developers/user-favorite-canva-apps/)
 
-[2024Canva Developers 2024 WrappedAnother exciting year for Canva Developers is coming to a close. Learn about all the amazing growth our ecosystem has seen this year.](https://www.canva.dev/blog/developers/canva-developers-wrapped-2024/)
+[Apps SDKWhat makes these 3 Canva apps user favorites?Uncover and apply elements that resonate with users.](https://www.canva.dev/blog/developers/user-favorite-canva-apps/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Dec 20, 2024
+[Faria Anzum⁠(opens in a new tab or window)](https://www.linkedin.com/in/farianzum)Feb 12, 2025

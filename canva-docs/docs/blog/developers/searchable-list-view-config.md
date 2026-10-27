@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/searchable-list-view-config/
 title: Configuring your SearchableListView - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:08.509976+00:00
+fetched_at: 2026-10-27T15:35:52.949751+00:00
 ---
 
 # Configuring your SearchableListView - Canva Developers Blog
@@ -15,7 +15,7 @@ Developers Blog
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-App Component
+App component
 
 # Configuring your SearchableListView
 
@@ -569,11 +569,11 @@ Copy
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 1, 2026
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.3a2aa29c.jpg)](https://www.canva.dev/blog/developers/streamlining-real-estate/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.7611d581.jpg)](https://www.canva.dev/blog/developers/simplifying-dx/)
 
-[Real EstateStreamlining Real Estate content creationLearn how to architect your Canva App to supercharge your real estate marketing content creation.](https://www.canva.dev/blog/developers/streamlining-real-estate/)
+[Developer experienceSimplifying developer experiences at scaleHow Canva is bridging the gap between complex developer experience and the simplicity our users love](https://www.canva.dev/blog/developers/simplifying-dx/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 6, 2025
+[Faria Anzum⁠(opens in a new tab or window)](https://www.linkedin.com/in/farianzum)May 20, 2025
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.dbaf156a.jpg)](https://www.canva.dev/blog/developers/getting-started-guide/)
 

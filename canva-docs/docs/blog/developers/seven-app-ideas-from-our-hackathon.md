@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/seven-app-ideas-from-our-hackathon/
 title: Built in a day: Seven apps ideas from our Hackathon - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:07.837649+00:00
+fetched_at: 2026-10-27T15:35:52.968377+00:00
 ---
 
 # Built in a day: Seven apps ideas from our Hackathon - Canva Developers Blog
@@ -15,7 +15,7 @@ Developers Blog
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-hackathon
+Hackathon
 
 # Built in a day: Seven apps ideas from our Hackathon
 
@@ -87,11 +87,11 @@ While many of them were hacks, plenty of these types of apps can be built now! W
 
 ## More from the Developers Blog
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.2a37fda3.jpg)](https://www.canva.dev/blog/developers/canva-developers-wrapped-2024/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.7785249e.jpg)](https://www.canva.dev/blog/developers/user-favorite-canva-apps/)
 
-[2024Canva Developers 2024 WrappedAnother exciting year for Canva Developers is coming to a close. Learn about all the amazing growth our ecosystem has seen this year.](https://www.canva.dev/blog/developers/canva-developers-wrapped-2024/)
+[Apps SDKWhat makes these 3 Canva apps user favorites?Uncover and apply elements that resonate with users.](https://www.canva.dev/blog/developers/user-favorite-canva-apps/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Dec 20, 2024
+[Faria Anzum⁠(opens in a new tab or window)](https://www.linkedin.com/in/farianzum)Feb 12, 2025
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.b1a6fec5.jpg)](https://www.canva.dev/blog/developers/robust-connect-api-integration-auth/)
 
@@ -99,8 +99,8 @@ While many of them were hacks, plenty of these types of apps can be built now! W
 
 Sidney AmaniApr 4, 2024
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.b5a49b24.png)](https://www.canva.dev/blog/developers/automate-canva-with-n8n/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.58070274.jpg)](https://www.canva.dev/blog/developers/canva-mcp-ga/)
 
-[Autofill PlatformAutomate Canva with n8n using the official Canva nodeTurn structured data into editable Canva designs with Autofill, then review, share, export, and deliver creative work across your stack.](https://www.canva.dev/blog/developers/automate-canva-with-n8n/)
+[MCPCanva MCP is now generally available to developersConnect your AI assistant or platform to Canva's design capabilities with self-serve access to the Canva MCP server.](https://www.canva.dev/blog/developers/canva-mcp-ga/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Aug 26, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Oct 27, 2026

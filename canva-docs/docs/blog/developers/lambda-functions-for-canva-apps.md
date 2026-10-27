@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/lambda-functions-for-canva-apps/
 title: Getting Started with Lambda Functions for Canva Apps - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:06.574505+00:00
+fetched_at: 2026-10-27T15:35:53.123572+00:00
 ---
 
 # Getting Started with Lambda Functions for Canva Apps - Canva Developers Blog
@@ -15,7 +15,7 @@ Developers Blog
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-lambda
+Lambda
 
 # Getting Started with Lambda Functions for Canva Apps
 
@@ -275,17 +275,17 @@ In our next Blog Post, you can learn about how to pass data from User Inputs in 
 
 ## More from the Developers Blog
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.02a1ad94.jpg)](https://www.canva.dev/blog/developers/building-with-content-publisher-part3/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.b66d472b.jpg)](https://www.canva.dev/blog/developers/simplebooklet-partner-solution/)
 
-[Content Publisher IntentMeet the Content Publisher Intent - Part 3Complete implementation, Preview UIs, and publishing](https://www.canva.dev/blog/developers/building-with-content-publisher-part3/)
+[Content Publisher intentSimplebooklet partner solutionHow Simplebooklet achieved a 10x user increase with Canva's Content Publisher Intent.](https://www.canva.dev/blog/developers/simplebooklet-partner-solution/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 8, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 19, 2026
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.d9204a0c.jpg)](https://www.canva.dev/blog/developers/canva-and-coding-agents-platforms/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.b5a49b24.png)](https://www.canva.dev/blog/developers/automate-canva-with-n8n/)
 
-[Connect APIUsing Canva with your coding agentGuidance for using Canva with coding assistants, Dev MCP, remote MCP, and the Connect APIs.](https://www.canva.dev/blog/developers/canva-and-coding-agents-platforms/)
+[Autofill platformAutomate Canva with n8n using the official Canva nodeTurn structured data into editable Canva designs with Autofill, then review, share, export, and deliver creative work across your stack.](https://www.canva.dev/blog/developers/automate-canva-with-n8n/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 9, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Aug 26, 2026
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.f9835b74.jpg)](https://www.canva.dev/blog/developers/welcome-to-the-brand-new-era/)
 

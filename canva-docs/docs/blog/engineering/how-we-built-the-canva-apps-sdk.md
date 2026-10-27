@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/engineering/how-we-built-the-canva-apps-sdk/
 title: How we built the Canva Apps SDK - Canva Engineering Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:14.718664+00:00
+fetched_at: 2026-10-27T15:35:52.025322+00:00
 ---
 
 # How we built the Canva Apps SDK - Canva Engineering Blog
@@ -15,11 +15,11 @@ Engineering Blog
 
 Discover more
 
-[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine Learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering Practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data Platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
+[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-Engineering Practices
+Engineering practices
 
 # How we built the Canva Apps SDK
 
@@ -208,13 +208,13 @@ Thank you to [Anto Lepejian⁠(opens in a new tab or window)](https://www.linked
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.7a551639.png)](https://www.canva.dev/blog/engineering/service-aligned-data-platform-architecture/)
 
-[Data PlatformService-aligned Data Platform ArchitectureHow the data analytics platform team scaled data ingestion from various services at Canva.](https://www.canva.dev/blog/engineering/service-aligned-data-platform-architecture/)
+[Data platformService-aligned Data Platform ArchitectureHow the data analytics platform team scaled data ingestion from various services at Canva.](https://www.canva.dev/blog/engineering/service-aligned-data-platform-architecture/)
 
 [Jaskirat Grover⁠(opens in a new tab or window)](https://www.linkedin.com/in/jaskiratgrover/), [Justin Ty⁠(opens in a new tab or window)](https://www.linkedin.com/in/justinty/)Jun 9, 2022
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.059f71b8.png)](https://www.canva.dev/blog/engineering/how-canva-combined-modern-image-processing-with-150-year-old-optics-for-a-new-approach-to-camera/)
 
-[Computer VisionCombining Classic and Modern: A New Approach to Camera SimulationApplying classic principles from physics and optics to build the best possible camera effects at Canva.](https://www.canva.dev/blog/engineering/how-canva-combined-modern-image-processing-with-150-year-old-optics-for-a-new-approach-to-camera/)
+[Computer visionCombining Classic and Modern: A New Approach to Camera SimulationApplying classic principles from physics and optics to build the best possible camera effects at Canva.](https://www.canva.dev/blog/engineering/how-canva-combined-modern-image-processing-with-150-year-old-optics-for-a-new-approach-to-camera/)
 
 [Bhautik Joshi⁠(opens in a new tab or window)](https://bhautik.org)Nov 18, 2021
 

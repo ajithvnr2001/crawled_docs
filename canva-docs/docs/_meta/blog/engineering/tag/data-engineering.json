@@ -1,10 +1,7 @@
 {
   "url": "https://www.canva.dev/blog/engineering/tag/data-engineering/",
   "file": "blog/engineering/tag/data-engineering.md",
-  "title": "Data Engineering - Canva Engineering Blog",
+  "title": "Data engineering - Canva Engineering Blog",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-21T14:20:19.618020+00:00",
-  "html_len": 31705,
-  "md_len": 1657,
-  "depth": 0
+  "fetched_at": "2026-10-27T15:35:49.113014+00:00"
 }

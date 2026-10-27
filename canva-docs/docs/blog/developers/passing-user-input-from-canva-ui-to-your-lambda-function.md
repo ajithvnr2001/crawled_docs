@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/passing-user-input-from-canva-ui-to-your-lambda-function/
 title: Passing User Input from Canva UI to your Lambda Function - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:07.610377+00:00
+fetched_at: 2026-10-27T15:35:53.024797+00:00
 ---
 
 # Passing User Input from Canva UI to your Lambda Function - Canva Developers Blog
@@ -15,7 +15,7 @@ Developers Blog
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-lambda
+Lambda
 
 # Passing User Input from Canva UI to your Lambda Function
 
@@ -282,14 +282,14 @@ You’ve successfully passed data provided by a user to your Lambda function and
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Feb 9, 2024
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.2a37fda3.jpg)](https://www.canva.dev/blog/developers/canva-developers-wrapped-2024/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.7785249e.jpg)](https://www.canva.dev/blog/developers/user-favorite-canva-apps/)
 
-[2024Canva Developers 2024 WrappedAnother exciting year for Canva Developers is coming to a close. Learn about all the amazing growth our ecosystem has seen this year.](https://www.canva.dev/blog/developers/canva-developers-wrapped-2024/)
+[Apps SDKWhat makes these 3 Canva apps user favorites?Uncover and apply elements that resonate with users.](https://www.canva.dev/blog/developers/user-favorite-canva-apps/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Dec 20, 2024
+[Faria Anzum⁠(opens in a new tab or window)](https://www.linkedin.com/in/farianzum)Feb 12, 2025
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.088a2bca.png)](https://www.canva.dev/blog/developers/canva-dev-mcp-server/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.3a2aa29c.jpg)](https://www.canva.dev/blog/developers/streamlining-real-estate/)
 
-[AIIntroducing the Canva Dev MCP ServerHarness the full power of AI coding agents with the Canva Dev MCP Server.](https://www.canva.dev/blog/developers/canva-dev-mcp-server/)
+[Real estateStreamlining Real Estate content creationLearn how to architect your Canva App to supercharge your real estate marketing content creation.](https://www.canva.dev/blog/developers/streamlining-real-estate/)
 
-[Anto Lepejian⁠(opens in a new tab or window)](https://www.linkedin.com/in/anto-lepejian/)Apr 16, 2025
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 6, 2025

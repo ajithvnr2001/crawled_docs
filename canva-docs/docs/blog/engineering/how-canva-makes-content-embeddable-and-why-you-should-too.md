@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/engineering/how-canva-makes-content-embeddable-and-why-you-should-too/
 title: How Canva makes content embeddable (and why you should too) - Canva Engineering Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:13.829684+00:00
+fetched_at: 2026-10-27T15:35:52.209893+00:00
 ---
 
 # How Canva makes content embeddable (and why you should too) - Canva Engineering Blog
@@ -15,11 +15,11 @@ Engineering Blog
 
 Discover more
 
-[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine Learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering Practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data Platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
+[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-Embeddable Content
+Embeddable content
 
 # How Canva makes content embeddable (and why you should too)
 
@@ -355,13 +355,13 @@ Embeds are set to become more important in the future, as they embrace the idea 
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.7a551639.png)](https://www.canva.dev/blog/engineering/service-aligned-data-platform-architecture/)
 
-[Data PlatformService-aligned Data Platform ArchitectureHow the data analytics platform team scaled data ingestion from various services at Canva.](https://www.canva.dev/blog/engineering/service-aligned-data-platform-architecture/)
+[Data platformService-aligned Data Platform ArchitectureHow the data analytics platform team scaled data ingestion from various services at Canva.](https://www.canva.dev/blog/engineering/service-aligned-data-platform-architecture/)
 
 [Jaskirat Grover⁠(opens in a new tab or window)](https://www.linkedin.com/in/jaskiratgrover/), [Justin Ty⁠(opens in a new tab or window)](https://www.linkedin.com/in/justinty/)Jun 9, 2022
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.a37b15f6.png)](https://www.canva.dev/blog/engineering/from-zero-to-50-million-uploads-per-day-scaling-media-at-canva/)
 
-[Backend EngineeringFrom Zero to 50 Million Uploads per Day: Scaling Media at CanvaThe evolution of media persistence during hypergrowth at Canva](https://www.canva.dev/blog/engineering/from-zero-to-50-million-uploads-per-day-scaling-media-at-canva/)
+[Backend engineeringFrom Zero to 50 Million Uploads per Day: Scaling Media at CanvaThe evolution of media persistence during hypergrowth at Canva](https://www.canva.dev/blog/engineering/from-zero-to-50-million-uploads-per-day-scaling-media-at-canva/)
 
 [Jacky Chen⁠(opens in a new tab or window)](https://au.linkedin.com/in/junjie-chen-78b1a796), [Robert Sharp⁠(opens in a new tab or window)](https://au.linkedin.com/in/robertnsharp)Nov 29, 2022
 

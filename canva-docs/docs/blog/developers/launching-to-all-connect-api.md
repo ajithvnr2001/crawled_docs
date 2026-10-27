@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/launching-to-all-connect-api/
 title: Launching to all: Connect APIs - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:06.924605+00:00
+fetched_at: 2026-10-27T15:35:53.073844+00:00
 ---
 
 # Launching to all: Connect APIs - Canva Developers Blog
@@ -88,11 +88,11 @@ Don’t want to miss out on any future releases? Make sure to join the [Canva De
 
 ## More from the Developers Blog
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.b66d472b.jpg)](https://www.canva.dev/blog/developers/simplebooklet-partner-solution/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.4b7da7e8.jpg)](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
 
-[Content Publisher IntentSimplebooklet partner solutionHow Simplebooklet achieved a 10x user increase with Canva's Content Publisher Intent.](https://www.canva.dev/blog/developers/simplebooklet-partner-solution/)
+[MonetizationExternal monetization for Canva AppsA community member's tips and tricks for monetizing your app](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)May 19, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 4, 2026
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.b1a6fec5.jpg)](https://www.canva.dev/blog/developers/robust-connect-api-integration-auth/)
 

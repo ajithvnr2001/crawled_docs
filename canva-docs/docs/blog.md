@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/
 title: Canva Engineering Blog
 method: crawl4ai+scrapegraph
-fetched_at: 2026-10-21T14:20:18.327951+00:00
+fetched_at: 2026-10-27T15:35:57.475402+00:00
 ---
 
 # Canva Engineering Blog
@@ -14,7 +14,7 @@ fetched_at: 2026-10-21T14:20:18.327951+00:00
 Engineering Blog
 [Overview](https://www.canva.dev/blog/engineering/)[Subscribe](https://www.canva.dev/blog/subscribe/)
 Discover more
-[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine Learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering Practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data Platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
+[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 # Canva Engineering Blog
 The technology behind Canva. We're sharing how we solve complex engineering problems to empower everyone in the world to design.
@@ -32,19 +32,19 @@ The technology behind Canva. We're sharing how we solve complex engineering prob
 [ Draw tool From Intern Project to Production: How I Shipped the Draw Tool for Canva's Present Mode Overview of the technical hurdles I overcame to evolve my intern project into a new feature for users. ](https://www.canva.dev/blog/engineering/draw-in-present-mode/)
 [Edwina Adisusila⁠(opens in a new tab or window)](https://www.linkedin.com/in/edwina-adisusila/)Aug 6, 2025
 [![](https://www.canva.dev/_next/static/media/thumbnail.c69dca35.png)](https://www.canva.dev/blog/engineering/measuring-commerical-impact-at-scale/)
-[ Data Analytics Measuring Commercial Impact at Scale at Canva How We Built Canva's IMPACT App with Streamlit in Snowflake ](https://www.canva.dev/blog/engineering/measuring-commerical-impact-at-scale/)
+[ Data analytics Measuring Commercial Impact at Scale at Canva How We Built Canva's IMPACT App with Streamlit in Snowflake ](https://www.canva.dev/blog/engineering/measuring-commerical-impact-at-scale/)
 [Jun Ye⁠(opens in a new tab or window)](https://www.linkedin.com/in/jun-ye-0798/)Jun 20, 2025
 [![](https://www.canva.dev/_next/static/media/thumbnail.1c7590f6.png)](https://www.canva.dev/blog/engineering/yes-you-can-use-ai-in-our-interviews/)
 [ Interviews Yes, You Can Use AI in Our Interviews. In fact, we insist How We Redesigned Technical Interviews for the AI Era ](https://www.canva.dev/blog/engineering/yes-you-can-use-ai-in-our-interviews/)
 [Simon Newton⁠(opens in a new tab or window)](https://www.linkedin.com/in/nomis52/)Jun 11, 2025
 [![](https://www.canva.dev/_next/static/media/thumbnail.5df784be.png)](https://www.canva.dev/blog/engineering/behind-the-scenes-of-canvas-designdna-campaign/)
-[ Machine Learning Behind the scenes of Canva's DesignDNA campaign How we used generative AI to build our year-in-review campaign ](https://www.canva.dev/blog/engineering/behind-the-scenes-of-canvas-designdna-campaign/)
+[ Machine learning Behind the scenes of Canva's DesignDNA campaign How we used generative AI to build our year-in-review campaign ](https://www.canva.dev/blog/engineering/behind-the-scenes-of-canvas-designdna-campaign/)
 [Divya Patel⁠(opens in a new tab or window)](https://www.linkedin.com/in/divyapat1/)Feb 24, 2025
 [![](https://www.canva.dev/_next/static/media/thumbnail.c0340f98.png)](https://www.canva.dev/blog/engineering/image-replacement-in-canva-designs-using-reverse-image-search/)
-[ Machine Learning Image replacement in Canva designs using reverse image search Qualitative comparison of image embedding models to power a scalable similar-image replacement system for Canva designs. ](https://www.canva.dev/blog/engineering/image-replacement-in-canva-designs-using-reverse-image-search/)
+[ Machine learning Image replacement in Canva designs using reverse image search Qualitative comparison of image embedding models to power a scalable similar-image replacement system for Canva designs. ](https://www.canva.dev/blog/engineering/image-replacement-in-canva-designs-using-reverse-image-search/)
 [Sam Jacobs⁠(opens in a new tab or window)](https://www.linkedin.com/in/sam-l-jacobs/)Jan 28, 2025
 [![](https://www.canva.dev/_next/static/media/thumbnail.8b5eeae7.png)](https://www.canva.dev/blog/engineering/snowpipe-streaming/)
-[ snowflake The foundations of Canva’s continuous data platform with Snowpipe Streaming Leveraging Snowpipe Streaming to build a continuous data platform. ](https://www.canva.dev/blog/engineering/snowpipe-streaming/)
+[ Snowflake The foundations of Canva’s continuous data platform with Snowpipe Streaming Leveraging Snowpipe Streaming to build a continuous data platform. ](https://www.canva.dev/blog/engineering/snowpipe-streaming/)
   * JC
 
 

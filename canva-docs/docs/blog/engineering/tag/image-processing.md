@@ -1,11 +1,11 @@
 ---
 url: https://www.canva.dev/blog/engineering/tag/image-processing/
-title: Image Processing - Canva Engineering Blog
+title: Image processing - Canva Engineering Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:22.282559+00:00
+fetched_at: 2026-10-27T15:35:48.173700+00:00
 ---
 
-# Image Processing - Canva Engineering Blog
+# Image processing - Canva Engineering Blog
 
 > Source: https://www.canva.dev/blog/engineering/tag/image-processing/
 
@@ -15,13 +15,13 @@ Engineering Blog
 
 Discover more
 
-[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine Learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering Practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data Platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
+[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
 Category
 
-# Image Processing
+# Image processing
 
 * * *
 
@@ -38,6 +38,6 @@ Category
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.059f71b8.png)](https://www.canva.dev/blog/engineering/how-canva-combined-modern-image-processing-with-150-year-old-optics-for-a-new-approach-to-camera/)
 
-[Computer VisionCombining Classic and Modern: A New Approach to Camera SimulationApplying classic principles from physics and optics to build the best possible camera effects at Canva.](https://www.canva.dev/blog/engineering/how-canva-combined-modern-image-processing-with-150-year-old-optics-for-a-new-approach-to-camera/)
+[Computer visionCombining Classic and Modern: A New Approach to Camera SimulationApplying classic principles from physics and optics to build the best possible camera effects at Canva.](https://www.canva.dev/blog/engineering/how-canva-combined-modern-image-processing-with-150-year-old-optics-for-a-new-approach-to-camera/)
 
 [Bhautik Joshi⁠(opens in a new tab or window)](https://bhautik.org)Nov 18, 2021

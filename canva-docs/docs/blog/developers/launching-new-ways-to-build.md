@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/launching-new-ways-to-build/
 title: Unlock new ways to build for Canva Apps Marketplace - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:06.745194+00:00
+fetched_at: 2026-10-27T15:35:52.992396+00:00
 ---
 
 # Unlock new ways to build for Canva Apps Marketplace - Canva Developers Blog
@@ -82,7 +82,7 @@ Remember to join the [Canva Developer Community⁠(opens in a new tab or window)
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.07656951.jpg)](https://www.canva.dev/blog/developers/seven-app-ideas-from-our-hackathon/)
 
-[hackathonBuilt in a day: Seven apps ideas from our HackathonHow a Canva hackathon led to some amazing ideas.](https://www.canva.dev/blog/developers/seven-app-ideas-from-our-hackathon/)
+[HackathonBuilt in a day: Seven apps ideas from our HackathonHow a Canva hackathon led to some amazing ideas.](https://www.canva.dev/blog/developers/seven-app-ideas-from-our-hackathon/)
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Apr 24, 2023
 

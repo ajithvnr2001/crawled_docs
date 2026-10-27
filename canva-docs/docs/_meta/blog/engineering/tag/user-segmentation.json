@@ -1,10 +1,7 @@
 {
   "url": "https://www.canva.dev/blog/engineering/tag/user-segmentation/",
   "file": "blog/engineering/tag/user-segmentation.md",
-  "title": "User Segmentation - Canva Engineering Blog",
+  "title": "User segmentation - Canva Engineering Blog",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-21T14:20:27.919135+00:00",
-  "html_len": 31542,
-  "md_len": 1687,
-  "depth": 0
+  "fetched_at": "2026-10-27T15:35:46.632224+00:00"
 }

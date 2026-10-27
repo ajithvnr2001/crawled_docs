@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/engineering/simple-fast-and-scalable-reverse-image-search-using-perceptual-hashes-and-dynamodb/
 title: Simple, Fast, and Scalable Reverse Image Search Using Perceptual Hashes and DynamoDB - Canva Engineering Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:16.546924+00:00
+fetched_at: 2026-10-27T15:35:51.400398+00:00
 ---
 
 # Simple, Fast, and Scalable Reverse Image Search Using Perceptual Hashes and DynamoDB - Canva Engineering Blog
@@ -15,11 +15,11 @@ Engineering Blog
 
 Discover more
 
-[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine Learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering Practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data Platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
+[UI/UX](https://www.canva.dev/blog/engineering/tag/ui-ux/)[Backend](https://www.canva.dev/blog/engineering/tag/backend/)[Machine learning](https://www.canva.dev/blog/engineering/tag/machine-learning/)[Infrastructure](https://www.canva.dev/blog/engineering/tag/infrastructure/)[Security](https://www.canva.dev/blog/engineering/tag/security/)[Engineering practices](https://www.canva.dev/blog/engineering/tag/engineering-practices/)[Data platform](https://www.canva.dev/blog/engineering/tag/data-platform/)
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-Image Hashing
+Image hashing
 
 # Simple, Fast, and Scalable Reverse Image Search Using Perceptual Hashes and DynamoDB
 
@@ -166,7 +166,7 @@ _Want to work on scaling media storage and access at Canva?_ [_Join us!_ ⁠(ope
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.5df784be.png)](https://www.canva.dev/blog/engineering/behind-the-scenes-of-canvas-designdna-campaign/)
 
-[Machine LearningBehind the scenes of Canva's DesignDNA campaignHow we used generative AI to build our year-in-review campaign](https://www.canva.dev/blog/engineering/behind-the-scenes-of-canvas-designdna-campaign/)
+[Machine learningBehind the scenes of Canva's DesignDNA campaignHow we used generative AI to build our year-in-review campaign](https://www.canva.dev/blog/engineering/behind-the-scenes-of-canvas-designdna-campaign/)
 
 [Divya Patel⁠(opens in a new tab or window)](https://www.linkedin.com/in/divyapat1/)Feb 24, 2025
 
@@ -178,7 +178,7 @@ _Want to work on scaling media storage and access at Canva?_ [_Join us!_ ⁠(ope
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.b4b4f550.jpg)](https://www.canva.dev/blog/engineering/how-we-get-things-done/)
 
-[Engineering PracticesHow we get things doneThis post is our attempt to describe the practices we've found help us work more efficiently as a team.](https://www.canva.dev/blog/engineering/how-we-get-things-done/)
+[Engineering practicesHow we get things doneThis post is our attempt to describe the practices we've found help us work more efficiently as a team.](https://www.canva.dev/blog/engineering/how-we-get-things-done/)
 
 David HearndenAug 25, 2015
 

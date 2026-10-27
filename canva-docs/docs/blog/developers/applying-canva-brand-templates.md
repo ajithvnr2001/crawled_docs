@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/applying-canva-brand-templates/
 title: Apply Canva Brand templates with the Autofill API - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:03.260552+00:00
+fetched_at: 2026-10-27T15:35:53.787993+00:00
 ---
 
 # Apply Canva Brand templates with the Autofill API - Canva Developers Blog
@@ -15,7 +15,7 @@ Developers Blog
 
 [About Canva⁠(opens in a new tab or window)](https://www.canva.com/about/)
 
-connect API
+Connect API
 
 # Apply Canva Brand templates with the Autofill API
 
@@ -420,11 +420,11 @@ Remember, you can try out the Canva APIs in [the Connect API documentation](http
 
 ## More from the Developers Blog
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.f15531a9.jpg)](https://www.canva.dev/blog/developers/festive-fun-with-shapes-with-fill/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.70260422.png)](https://www.canva.dev/blog/developers/canva-developers-wrapped/)
 
-[ChristmasAdd some Festive Fun to your App with Shapes with FillCreate some Christmas designs with our these shapes](https://www.canva.dev/blog/developers/festive-fun-with-shapes-with-fill/)
+[2023Canva developers wrappedA whole year of Canva developers!](https://www.canva.dev/blog/developers/canva-developers-wrapped/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Dec 8, 2023
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Dec 22, 2023
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.a4fb80d1.jpg)](https://www.canva.dev/blog/developers/helping-your-users-write-better-prompts/)
 

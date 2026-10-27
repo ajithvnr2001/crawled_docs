@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/enterprise-app-launch/
 title: Canva to Enterprises, 3 new apps to board - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:05.747327+00:00
+fetched_at: 2026-10-27T15:35:53.244576+00:00
 ---
 
 # Canva to Enterprises, 3 new apps to board - Canva Developers Blog
@@ -54,20 +54,20 @@ These exciting new apps and integrations were built with teams in mind, but are 
 
 ## More from the Developers Blog
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.4b7da7e8.jpg)](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.d9204a0c.jpg)](https://www.canva.dev/blog/developers/canva-and-coding-agents-platforms/)
 
-[MonetizationExternal monetization for Canva AppsA community member's tips and tricks for monetizing your app](https://www.canva.dev/blog/developers/external-monetization-community-tips/)
+[Connect APIUsing Canva with your coding agentGuidance for using Canva with coding assistants, Dev MCP, remote MCP, and the Connect APIs.](https://www.canva.dev/blog/developers/canva-and-coding-agents-platforms/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 4, 2026
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 9, 2026
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.050298fa.jpg)](https://www.canva.dev/blog/developers/launching-new-ways-to-build/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.c59330ae.jpg)](https://www.canva.dev/blog/developers/building-with-content-publisher-part1/)
 
-[Apps SDKUnlock new ways to build for Canva Apps MarketplaceLaunching Data Connectors and Design Editing to enable more complex app use cases.](https://www.canva.dev/blog/developers/launching-new-ways-to-build/)
+[Content Publisher intentMeet the Content Publisher Intent - Part 1Understanding data flow and structure for publishing](https://www.canva.dev/blog/developers/building-with-content-publisher-part1/)
 
-[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Jun 25, 2025
+[Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Feb 19, 2026
 
 [![](https://www.canva.dev/_next/static/media/thumbnail.07656951.jpg)](https://www.canva.dev/blog/developers/seven-app-ideas-from-our-hackathon/)
 
-[hackathonBuilt in a day: Seven apps ideas from our HackathonHow a Canva hackathon led to some amazing ideas.](https://www.canva.dev/blog/developers/seven-app-ideas-from-our-hackathon/)
+[HackathonBuilt in a day: Seven apps ideas from our HackathonHow a Canva hackathon led to some amazing ideas.](https://www.canva.dev/blog/developers/seven-app-ideas-from-our-hackathon/)
 
 [Meredith Hassett⁠(opens in a new tab or window)](https://www.linkedin.com/in/meredith-hassett/)Apr 24, 2023
