@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/client-tools/
 title: Client Tools - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:40.736654+00:00
+fetched_at: 2026-10-27T13:26:24.106060+00:00
 ---
 
 # Client Tools - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:40.736654+00:00
 > Source: https://docs.fish.audio/agents/build/client-tools/
 
 ## On this page
+
+Back to top
 
   * How it works
   * Declare a client tool
@@ -46,7 +48,7 @@ How it works
 
 Declare the tool on the agent
 
-Add a tool of type `client` to the agent’s tool list, alongside any webhook tools. The name, description, and arguments tell the model what the tool does and when to call it.
+Add a tool of type `client` to the agent’s tool list, alongside any webhook tools. The name, description, and parameters tell the model what the tool does and when to call it.
 
 2
 
@@ -81,9 +83,15 @@ Tool definition
       "tool_type": "client",
       "name": "highlight_product",
       "description": "Visually highlight a product on the page the user is viewing.",
-      "arguments": [
-        { "name": "product_id", "description": "ID of the product to highlight." }
-      ],
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "product_id": { "type": "string", "description": "ID of the product to highlight.", "minLength": 1 }
+        },
+        "required": ["product_id"],
+        "additionalProperties": false
+      },
+      "parameter_mode": "strict",
       "expects_response": true
     }
     
@@ -92,9 +100,12 @@ Field| Description
 ---|---  
 `name`| How the model refers to the tool. Must match the name you register in the SDK exactly  
 `description`| Tells the model what the tool does and when to use it  
-`arguments`| Named inputs the model fills in; delivered to your handler as one JSON object  
+`parameters`| A JSON Schema object describing the inputs the model fills in, delivered to your handler as one JSON object. Same shape and rules as for [webhook tools](https://docs.fish.audio/agents/build/webhook-tools#parameters-and-validation)  
+`parameter_mode`| `strict` checks every call against `parameters` before it reaches your handler, `legacy` passes the call through as the model made it  
 `expects_response`| Whether the agent waits for your handler’s return value before continuing  
   
+A parameter that is not in `required` may be missing from the call altogether, so read it defensively in your handler. To always receive a key, give it a `default`, which the platform fills in before the call reaches you when the tool is `strict`.
+
 ### 
 
 ​

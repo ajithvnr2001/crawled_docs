@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/tools/
 title: Tools - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:40.842077+00:00
+fetched_at: 2026-10-27T13:26:24.183739+00:00
 ---
 
 # Tools - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:40.842077+00:00
 > Source: https://docs.fish.audio/agents/build/tools/
 
 ## On this page
+
+Back to top
 
   * Choose a tool type
   * Where tools live
@@ -29,7 +31,7 @@ Give your agent the ability to act during a conversation: call your backend, tri
 
 Copy pageCopy page
 
-Out of the box, an agent can only talk. Tools let it act: fetch an order status mid-call, open a page in your app, or hang up when the conversation is over. You describe what a tool does and what arguments it takes; the agent decides when to call it.
+Out of the box, an agent can only talk. Tools let it act: fetch an order status mid-call, open a page in your app, or hang up when the conversation is over. You describe what a tool does and what parameters it takes, and the agent decides when to call it.
 
 ## Webhook tools
 
@@ -55,7 +57,7 @@ Type| Executed by| Use it for
 [Client](https://docs.fish.audio/agents/build/client-tools)| Your app: the SDK hands the call to code you register| Navigation, UI updates, device actions, and anything else only the client can do  
 [System](https://docs.fish.audio/agents/build/system-tools)| The platform: no code involved| Hanging up the call  
   
-Webhook and client tools are **custom tools** : you define a name, a description, and arguments, and the agent fills in the argument values when it calls. System tools are ready-made. Enable them with a switch on each agent.
+Webhook and client tools are **custom tools** : you define a name, a description, and parameters, and the agent fills in the parameter values when it calls. A tool can check every call against its parameter schema before it runs, see [Parameters and validation](https://docs.fish.audio/agents/build/webhook-tools#parameters-and-validation). System tools are ready-made. Enable them with a switch on each agent.
 
 ## 
 
@@ -110,16 +112,21 @@ Create a webhook tool:
         "tool_type": "webhook",
         "name": "lookup_order",
         "description": "Look up the status of a customer order.",
-        "arguments": [
-          { "name": "order_number", "description": "The order number the caller provides." }
-        ],
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "order_number": { "type": "string", "description": "The order number the caller provides.", "minLength": 1 }
+          },
+          "required": ["order_number"],
+          "additionalProperties": false
+        },
         "method": "GET",
         "url": "https://api.example.com/orders/{{order_number}}",
         "timeout_seconds": 10
       }'
     
 
-Arguments can be referenced anywhere in the request with `{{name}}` placeholders. Before deleting a tool, check which agents depend on it:
+Parameters can be referenced anywhere in the request with `{{name}}` placeholders. A tool created with `parameters` validates every call before it runs. The older `arguments` list is still accepted and creates an unvalidated tool whose arguments are all required strings. Before deleting a tool, check which agents depend on it:
     
     
     curl https://api.fish.audio/v1/agent/tools/{tool_id}/agents \

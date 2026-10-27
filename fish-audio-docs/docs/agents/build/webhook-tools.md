@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/webhook-tools/
 title: Webhook Tools - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:27:49.157680+00:00
+fetched_at: 2026-10-27T13:26:24.316303+00:00
 ---
 
 # Webhook Tools - Fish Audio
@@ -14,6 +14,7 @@ fetched_at: 2026-10-26T14:27:49.157680+00:00
 Back to top
 
   * Create a webhook tool
+  * Parameters and validation
   * Argument templating
     * Values in a JSON body
   * Authentication headers
@@ -39,7 +40,7 @@ Let your agent call your HTTP endpoints in the middle of a conversation
 
 Copy pageCopy page
 
-A webhook tool lets your agent call an HTTP endpoint mid-conversation (look up an order, create a ticket, check availability) and use the response in its next reply. You declare the arguments; the agent fills them in from the conversation and the platform makes the request.
+A webhook tool lets your agent call an HTTP endpoint mid-conversation (look up an order, create a ticket, check availability) and use the response in its next reply. You declare the parameters, the agent fills them in from the conversation, and the platform makes the request.
 
 Tools are workspace-level resources shared across agents. Removing a tool from an agent **detaches** it: the tool stays in your workspace and remains attached to other agents. Editing a tool updates every agent that uses it, and those agents show unpublished changes until you [publish](https://docs.fish.audio/agents/deploy/versions-publishing).
 
@@ -59,9 +60,9 @@ The model decides when to call a tool based on its name and description. Write t
 
 2
 
-Declare arguments
+Declare parameters
 
-Each argument is a name plus a description. Arguments are exposed to the agent as tool parameters. The description tells the model what value to extract from the conversation.
+Each parameter has a name, a type (string, number, integer, boolean, or a fixed set of values), a description, and three switches: **Required** , **Non-empty** , and **Nullable**. The description tells the model what value to extract from the conversation. Switch the editor to **JSON** to write the schema yourself. See Parameters and validation.
 
 3
 
@@ -91,9 +92,53 @@ Choose a timeout (1–120 seconds, or up to 300 for background tools; default 30
 
 ​
 
+Parameters and validation
+
+A tool’s parameters are a [JSON Schema](https://json-schema.org/) object (draft 2020-12) with the standard meaning of every keyword. The Builder form and the JSON editor produce the same schema, so the form covers flat parameters and you switch to JSON for `pattern`, `default`, nested objects, or arrays.
+
+Parameters
+    
+    
+    {
+      "type": "object",
+      "properties": {
+        "callback_number": { "type": "string", "description": "Best number to call back, digits only.", "minLength": 1 },
+        "medication": { "type": ["string", "null"], "description": "Refill only: the medication name." },
+        "urgency": { "type": "string", "enum": ["routine", "urgent"], "default": "routine" }
+      },
+      "required": ["callback_number"],
+      "additionalProperties": false
+    }
+    
+
+Keyword| At call time  
+---|---  
+`required`| The key must be present in the call. It says nothing about the value: an empty string satisfies it  
+`type` with `"null"`| The model may send `null` for the parameter (**Nullable** in the form)  
+`minLength: 1`| A string must not be empty (**Non-empty** in the form). The Builder ticks it along with **Required** for string parameters  
+`enum`, `pattern`, `minimum`, `maximum`| The value must match. Patterns use JavaScript syntax  
+`default`| Filled in when the model leaves the key out, so your endpoint always receives it  
+  
+Whether any of this is enforced is the tool’s **Validate parameters during calls** switch, `parameter_mode` over the API:
+
+Mode| Before the tool runs| What the model is told  
+---|---|---  
+`legacy`| Nothing. The arguments run as the model sent them, and the schema is only a hint| Nothing  
+`strict`| The arguments are checked against the schema, and a call that fails never reaches your endpoint| A tool error naming every problem, for example `Tool call rejected: "callback_number" is required and must be a non-empty string. Do not retry with empty or invented values. Ask the caller for the missing information first.`  
+  
+A rejected call appears in the conversation’s tool-call history as a failed call, and in the [session history API](https://docs.fish.audio/agents/monitor/conversation-history#item-types) its `tool_result` carries `rejected_by: "parameter_validation"`, apart from calls your endpoint failed. The model then asks the caller for what is missing instead of calling again with an empty or invented value. In `strict` mode the platform also asks the language model to constrain its output to the schema where the model supports it. OpenAI models and a [custom LLM endpoint](https://docs.fish.audio/agents/build/custom-llm) receive each strict tool with `strict: true`, and Gemini models served on Fish Audio’s own channel run function calling in validated mode when every custom tool on the agent is strict. One `legacy` tool on the agent keeps Gemini on its ordinary mode, since its schema marks every parameter required. Other models receive no flag. Provider constraints are a first line only: none of them enforce `minLength`, so the platform checks every strict call itself.
+
+Tools created before validation existed keep the schema they always had, with every parameter required, and run in `legacy` mode, so nothing about them changes. To turn validation on for one of them, first untick **Required** on the parameters that are actually optional. Most calls of existing tools leave some parameter empty, so turning validation on with everything required rejects those calls at once. The Builder asks you to confirm in that case. Changing the schema never changes the mode, and the mode can be changed on its own.
+
+Over the API, send the schema as `parameters`. The older `arguments` list is still accepted: each entry becomes a required string parameter and the tool stays in `legacy` mode. A tool created with `parameters` starts in `strict` mode unless you set `parameter_mode` yourself. Reads return both `parameters` and `arguments`, and a single request cannot carry both.
+
+## 
+
+​
+
 Argument templating
 
-Reference any declared argument with `{{name}}`: in the URL, in header values, or in the body template. The platform substitutes the values the agent supplies before sending the request. [Dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables#custom-variables-in-webhook-tools) work in the same places: your custom variables, such as a customer id returned by the inbound call webhook, and system variables such as `{{system.session_id}}`, `{{system.caller_number}}` or `{{system.today}}`. They are filled when the session starts, before the agent supplies any argument. An argument wins over a custom variable of the same name.
+Reference any declared parameter with `{{name}}`: in the URL, in header values, or in the body template. The platform substitutes the values the agent supplies before sending the request. [Dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables#custom-variables-in-webhook-tools) work in the same places: your custom variables, such as a customer id returned by the inbound call webhook, and system variables such as `{{system.session_id}}`, `{{system.caller_number}}` or `{{system.today}}`. They are filled when the session starts, before the agent supplies any argument. An argument wins over a custom variable of the same name.
 
 Endpoint URL
     
@@ -234,10 +279,15 @@ Create a webhook tool
         "tool_type": "webhook",
         "name": "create_ticket",
         "description": "Open a support ticket. Use when the issue cannot be resolved in conversation.",
-        "arguments": [
-          { "name": "subject", "description": "One-line summary of the issue." },
-          { "name": "details", "description": "Full description of the problem." }
-        ],
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "subject": { "type": "string", "description": "One-line summary of the issue.", "minLength": 1 },
+            "details": { "type": "string", "description": "Full description of the problem." }
+          },
+          "required": ["subject"],
+          "additionalProperties": false
+        },
         "method": "POST",
         "url": "https://api.example.com/tickets",
         "content_type": "application/json",
@@ -290,8 +340,8 @@ Field| Limit
 ---|---  
 `name`| 1–120 characters. Display text; the model-facing function name is derived from it. [Client tool names](https://docs.fish.audio/agents/build/client-tools#naming-rules) are stricter: a 64-character pattern, since the SDK registers handlers by exact name  
 `description`| up to 2,000 characters  
-Argument `name`| 1–64 characters  
-Argument `description`| up to 500 characters  
+Parameter name| letters, digits, `_` or `-`, starting with a letter or `_`, 1–64 characters  
+`parameters`| up to 100,000 characters of JSON  
 `url`| up to 4,000 characters  
 `body_template`| up to 100,000 characters  
 Mock response `body`| up to 100,000 characters  
