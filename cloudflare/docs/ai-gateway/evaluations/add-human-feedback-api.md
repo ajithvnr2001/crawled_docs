@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/evaluations/add-human-feedback-api/
 title: Add Human Feedback using API \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:29.082869+00:00
+fetched_at: 2026-10-27T07:31:32.229951+00:00
 ---
 
 # Add Human Feedback using API · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:29.082869+00:00
 
 # Add Human Feedback using API
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/evaluations/add-human-feedback-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview1\. Create an API Token2\. Retrieve the cf-aig-log-id Method 1: Locate the cf-aig-log-id in the request response Method 2: Retrieve the cf-aig-log-id via API (GET request) Method 3: Retrieve the cf-aig-log-id via a binding3\. Submit feedback via PATCH request4\. Verify the feedback submission
 
@@ -55,13 +55,15 @@ The steps below outline how to do this.
 
 
 
-In the example below, the `cf-aig-log-id` is `01JADMCQQQBWH3NXZ5GCRN98DP`.
+Treat the log ID as an opaque string. Newer logs use lowercase UUIDv7 IDs, and older logs use 26-character ULIDs. The logs API accepts both.
+
+In the example below, the `cf-aig-log-id` is `019a7b3e-5f2c-7c41-9d3e-2b8f6a1c4e07`.
     
     
     {
     	"status": "success",
     	"headers": {
-    		"cf-aig-log-id": "01JADMCQQQBWH3NXZ5GCRN98DP"
+    		"cf-aig-log-id": "019a7b3e-5f2c-7c41-9d3e-2b8f6a1c4e07"
     	},
     	"data": {
     		"response": "Sample response data"
@@ -92,7 +94,7 @@ List Gateway Logsbash
     {
     	"result": [
     		{
-    			"id": "01JADMCQQQBWH3NXZ5GCRN98DP",
+    			"id": "019a7b3e-5f2c-7c41-9d3e-2b8f6a1c4e07",
     			"cached": true,
     			"created_at": "2019-08-24T14:15:22Z",
     			"custom_cost": true,

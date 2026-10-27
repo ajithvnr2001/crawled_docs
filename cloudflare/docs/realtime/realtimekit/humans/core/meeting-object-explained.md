@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/realtimekit/humans/core/meeting-object-explained/
 title: Meeting Object Explained \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:56:44.369345+00:00
+fetched_at: 2026-10-27T07:31:34.327095+00:00
 ---
 
 # Meeting Object Explained · Cloudflare Realtime docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-20T06:56:44.369345+00:00
 
 # Meeting Object Explained
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewMeeting Object Structure Self/Local ParticipantRemote participants meeting.participants - All Remote ParticipantsMeeting metadata meeting.meta - Meeting MetadataChat meeting.chat - Chat MessagesPolls meeting.polls - PollsPlugins meeting.plugins - PluginsAI features meeting.ai - AI FeaturesUnderstanding IDsBest PracticesNext Steps
 
@@ -1304,7 +1304,7 @@ The [`meeting.polls`](https://developers.cloudflare.com/realtime/realtimekit/hum
 
 ### `meeting.plugins` \- Plugins
 
-The [`meeting.plugins`](https://developers.cloudflare.com/realtime/realtimekit/humans/core/plugins/) manages meeting plugins (collaborative apps). Activation lives on the `Plugin` object.
+The [`meeting.plugins`](https://developers.cloudflare.com/realtime/realtimekit/humans/core/plugins/) property manages meeting plugins (collaborative apps). Activation lives on the `Plugin` object.
     
     
     // Get all available plugins
@@ -1319,7 +1319,7 @@ The [`meeting.plugins`](https://developers.cloudflare.com/realtime/realtimekit/h
     // Deactivate a plugin for all participants
     await meeting.plugins.all.get(pluginId).deactivate();
 
-The [`meeting.plugins`](https://developers.cloudflare.com/realtime/realtimekit/humans/core/plugins/) manages meeting plugins (collaborative apps). Activation lives on the `Plugin` object.
+The [`meeting.plugins`](https://developers.cloudflare.com/realtime/realtimekit/humans/core/plugins/) property manages meeting plugins (collaborative apps). Activation lives on the `Plugin` object.
     
     
     // Get all available plugins
@@ -1334,7 +1334,7 @@ The [`meeting.plugins`](https://developers.cloudflare.com/realtime/realtimekit/h
     // Deactivate a plugin for all participants
     await meeting.plugins.all.get(pluginId).deactivate();
 
-The [`meeting.plugins`](https://developers.cloudflare.com/realtime/realtimekit/humans/core/plugins/) manages meeting plugins (collaborative apps). Activation lives on the `Plugin` object.
+The [`meeting.plugins`](https://developers.cloudflare.com/realtime/realtimekit/humans/core/plugins/) property manages meeting plugins (collaborative apps). Activation lives on the `Plugin` object.
     
     
     // Get all available plugins
@@ -1349,7 +1349,7 @@ The [`meeting.plugins`](https://developers.cloudflare.com/realtime/realtimekit/h
     // Deactivate a plugin for all participants
     await meeting.plugins.all.get(pluginId).deactivate();
 
-The `meeting.plugins` manages meeting plugins (collaborative apps).
+The [`meeting.plugins`](https://developers.cloudflare.com/realtime/realtimekit/humans/core/plugins/) property manages meeting plugins (collaborative apps). To exchange messages between your app and a plugin, refer to [Exchange messages with a plugin](https://developers.cloudflare.com/realtime/realtimekit/humans/core/plugins/#exchange-messages-with-a-plugin).
     
     
     // Get all available plugins
@@ -1404,7 +1404,7 @@ The `meeting.plugins` manages meeting plugins (collaborative apps).
     
     meeting.addPluginsEventListener(pluginsEventListener)
 
-The `meeting.plugins` manages meeting plugins (collaborative apps).
+The [`meeting.plugins`](https://developers.cloudflare.com/realtime/realtimekit/humans/core/plugins/) property manages meeting plugins (collaborative apps). To exchange messages between your app and a plugin, refer to [Exchange messages with a plugin](https://developers.cloudflare.com/realtime/realtimekit/humans/core/plugins/#exchange-messages-with-a-plugin).
     
     
     // Get all available plugins
@@ -1450,9 +1450,9 @@ The `meeting.plugins` manages meeting plugins (collaborative apps).
     }
     
     // Add listener
-    meeting.addPluginsEventListener(self)
+    meeting.addPluginsEventListener(pluginsEventListener: self)
 
-The [`meeting.plugins`](https://developers.cloudflare.com/realtime/realtimekit/humans/core/api-reference/rtkplugins/) manages meeting plugins (collaborative apps).
+The [`meeting.plugins`](https://developers.cloudflare.com/realtime/realtimekit/humans/core/api-reference/rtkplugins/) property manages meeting plugins (collaborative apps).
     
     
     // Get all available plugins

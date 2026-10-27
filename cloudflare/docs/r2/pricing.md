@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/pricing/
 title: Pricing \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:48.215884+00:00
+fetched_at: 2026-10-27T07:31:32.169118+00:00
 ---
 
 # Pricing · Cloudflare R2 docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-08T07:12:48.215884+00:00
 
 # Pricing
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/r2/pricing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewR2 pricing Free tier Storage usage Class A operations Class B operations Free operations Data retrieval Minimum storage durationBasin Catalog pricingData migration pricing Super Slurper SippyPricing calculatorR2 billing examples Standard storage example Infrequent access example Asset hostingCloudflare billing policyFrequently asked questions Will I be charged for unauthorized requests to my R2 bucket?
+OverviewR2 pricing Free tier Storage usage Class A operations Class B operations Free operations Data retrieval Minimum storage durationBasin Catalog pricingData migration pricing Super Slurper SippyPricing calculatorR2 billing examples Standard storage example Infrequent access example Asset hostingCloudflare billing policyFrequently asked questions Will I be charged for failed requests to my R2 bucket?
 
 R2 charges based on the total volume of data stored, along with two classes of operations on that data:
 
@@ -179,9 +179,22 @@ To learn more about how usage is billed, refer to [Cloudflare Billing Policy](ht
 
 ## Frequently asked questions
 
-### Will I be charged for unauthorized requests to my R2 bucket?
+### Will I be charged for failed requests to my R2 bucket?
 
-No. You are not charged for operations when the caller does not have permission to make the request (HTTP 401 `Unauthorized` response status code).
+Requests that fail during authentication or authorization are not charged. This includes:
+
+  * HTTP 401 (`Unauthorized`) — missing or invalid credentials.
+  * HTTP 403 when caused by an authentication failure such as `SignatureDoesNotMatch`, `ExpiredRequest`, or `RequestTimeTooSkewed`.
+  * HTTP 403 (`AccessDenied`) when valid credentials do not have permission to perform the operation.
+
+
+
+Some requests that pass authentication and authorization but fail for other reasons are counted and billed according to the operation's class. For example:
+
+  * A `PutObject` returning HTTP 412 (`PreconditionFailed`) due to a conditional header like `If-None-Match` counts as a Class A operation.
+  * A `PutObject` returning HTTP 400 (`BadDigest`) due to a mismatched `Content-MD5` counts as a Class A operation.
+
+
 
 ## Footnotes
 

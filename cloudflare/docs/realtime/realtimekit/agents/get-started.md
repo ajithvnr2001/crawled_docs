@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/realtimekit/agents/get-started/
 title: Build an agent \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:56:40.457815+00:00
+fetched_at: 2026-10-27T07:31:34.879290+00:00
 ---
 
 # Build an agent · Cloudflare Realtime docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-20T06:56:40.457815+00:00
 
 # Build an agent
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChoose an agent pattern Hidden agent Visible agentRequirements1\. Configure an agent preset2\. Create a meeting and a participant token for your agent3\. Connect to the Agent's WebSocket URL4\. Set connection parameters5\. Run the agent in a Durable ObjectBilling and ending the sessionConnection reference Requests Reconnect Errors LimitsSend events
 
@@ -210,7 +210,7 @@ Add a participantbash
     		"custom_participant_id": "notes-bot"
     	}'
 
-The response `data.token` is the agent's participant token. Reuse the same participant for every session of the meeting. A [participant token](https://developers.cloudflare.com/realtime/realtimekit/concepts/participant/#participant-tokens) is valid for 100 days.
+The response `data.token` is the agent's participant token. Reuse the same participant for every session of the meeting. A [participant token](https://developers.cloudflare.com/realtime/realtimekit/concepts/participant/#participant-tokens) is valid for 100 days by default.
 
 ## 3\. Connect to the Agent's WebSocket URL
 
@@ -256,7 +256,7 @@ A Durable Object fits the agent: one instance per meeting, a long-lived outbound
          	"name": "meeting-agent",
          	"main": "src/index.ts",
          	// Set this to today's date
-         	"compatibility_date": "2026-10-20",
+         	"compatibility_date": "2026-10-27",
          	"vars": {
          		"ACCOUNT_ID": "<ACCOUNT_ID>",
          		"APP_ID": "<APP_ID>",
@@ -276,7 +276,7 @@ A Durable Object fits the agent: one instance per meeting, a long-lived outbound
          name = "meeting-agent"
          main = "src/index.ts"
          # Set this to today's date
-         compatibility_date = "2026-10-20"
+         compatibility_date = "2026-10-27"
          
          [vars]
          ACCOUNT_ID = "<ACCOUNT_ID>"

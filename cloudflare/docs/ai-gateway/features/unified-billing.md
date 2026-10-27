@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/features/unified-billing/
 title: Unified Billing \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:30.501700+00:00
+fetched_at: 2026-10-27T07:31:30.721748+00:00
 ---
 
 # Unified Billing · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:30.501700+00:00
 
 # Unified Billing
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/features/unified-billing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPre-requisitesLoad credits Auto-top upCredential precedencePrevent Unified Billing fallback for BYOK third-party providersUse Unified Billing AI binding HTTP API Spend limits Zero Data Retention (ZDR)
 
@@ -81,11 +81,27 @@ When your balance falls below the set threshold, AI Gateway will automatically a
 
 When a request reaches AI Gateway, credentials are resolved in this order:
 
-  1. **Provider key on the request** — if the request carries provider authentication (for example, an `Authorization` header), AI Gateway forwards it to the provider unchanged. BYOK and Unified Billing are not consulted.
+  1. **Provider key on the request** — if the request carries credentials AI Gateway recognizes for the provider and endpoint, AI Gateway uses those credentials. BYOK and Unified Billing are not consulted.
   2. **BYOK (stored key)** — if no provider key is on the request and the gateway has a [stored key](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/) for the provider under the `default` alias, that key is used.
-  3. **Unified Billing** — if neither of the above applies, the request is served with Cloudflare-managed credentials and billed against your Cloudflare credit balance.
+  3. **Unified Billing** — if neither of the above applies and Unified Billing fallback is allowed, the request is served with Cloudflare-managed credentials and billed against your Cloudflare credit balance.
 
 
+
+For third-party providers supported by Unified Billing, AI Gateway recognizes the following request credentials on [provider-native endpoints](https://developers.cloudflare.com/ai-gateway/usage/providers/):
+
+Provider | Endpoint | Request credentials  
+---|---|---  
+Anthropic | Messages (`/anthropic/v1/messages`) | `x-api-key: <PROVIDER_API_KEY>`  
+Anthropic | Chat completions (`/anthropic/v1/chat/completions`) | `Authorization: Bearer <PROVIDER_API_KEY>`  
+Google AI Studio | Native `:generateContent`, `:streamGenerateContent`, and `:embedContent` | `key` URL query parameter  
+Google AI Studio | Chat completions and OpenAI-compatible embeddings | `Authorization: Bearer <PROVIDER_API_KEY>`  
+Google AI Studio | Other endpoints | `x-goog-api-key: <PROVIDER_API_KEY>`  
+Google Vertex AI | Provider-native endpoints | `Authorization: Bearer <ACCESS_TOKEN>` or [service account credentials](https://developers.cloudflare.com/ai-gateway/usage/providers/vertex/) in `Authorization`  
+OpenAI, Groq, and xAI | Provider-native endpoints | `Authorization: Bearer <PROVIDER_API_KEY>`  
+  
+For Anthropic Messages, send your provider key in `x-api-key`. AI Gateway does not recognize `Authorization: Bearer` as provider credentials on this endpoint. A bearer header alone does not prevent stored-key lookup or Unified Billing fallback.
+
+To prevent Unified Billing fallback, require provider credentials. If AI Gateway cannot find applicable request or stored credentials, it returns [error `2044`](https://developers.cloudflare.com/ai-gateway/reference/troubleshooting/#400-provider-credentials-required-2044).
 
 Note
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/realtimekit/faq/
 title: FAQ \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:57:47.285500+00:00
+fetched_at: 2026-10-27T07:31:34.460942+00:00
 ---
 
 # FAQ · Cloudflare Realtime docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-20T06:57:47.285500+00:00
 
 # FAQ
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview API token APIs Auth tokens Meetings Participants Presets Client Side SDKs Camera Microphone Screen Share Chat Notifications Recording Network access Demo App Billing
 
@@ -69,7 +69,7 @@ If you need a new token after the previous token expires, use the [Refresh Parti
 
 How long is an auth token valid?
 
-An auth token is a JSON Web Token (JWT) that is valid for 100 days. It contains `meetingId` and `participantId` fields that tie the token to a specific participant in a specific meeting. The token does not grant access to other meetings. If you need a new token after the previous token expires, use the [Refresh Participant Token](https://developers.cloudflare.com/api/resources/realtime_kit/subresources/meetings/methods/refresh_participant_token/) endpoint. For more information, refer to [Participant tokens](https://developers.cloudflare.com/realtime/realtimekit/concepts/participant/#participant-tokens).
+By default, an auth token is a JSON Web Token (JWT) that is valid for 100 days from when it is issued. To set a shorter validity window, refer to [Token validity and refresh](https://developers.cloudflare.com/realtime/realtimekit/concepts/participant/#token-validity-and-refresh). The token contains `meetingId` and `participantId` fields that tie it to a specific participant in a specific meeting. The token does not grant access to other meetings. If you need a new token after the previous token expires, use the [Refresh Participant Token](https://developers.cloudflare.com/api/resources/realtime_kit/subresources/meetings/methods/refresh_participant_token/) endpoint. For more information, refer to [Participant tokens](https://developers.cloudflare.com/realtime/realtimekit/concepts/participant/#participant-tokens).
 
 Can I refresh an auth token before it expires?
 
@@ -77,19 +77,15 @@ Yes. You can call the [Refresh Participant Token](https://developers.cloudflare.
 
 Can the auth token lifespan be configured?
 
-No. The auth token APIs do not support custom start or expiration dates. Tokens created through the [Add Participant](https://developers.cloudflare.com/api/resources/realtime_kit/subresources/meetings/methods/add_participant/) or [Refresh Participant Token](https://developers.cloudflare.com/api/resources/realtime_kit/subresources/meetings/methods/refresh_participant_token/) flow become valid when issued and expire 100 days later.
-
-If you need scheduled access, implement time-based access controls in your own system. RealtimeKit SDKs do not manage scheduling or duration logic.
+Yes. When you call the [Add Participant](https://developers.cloudflare.com/api/resources/realtime_kit/subresources/meetings/methods/add_participant/) or [Refresh Participant Token](https://developers.cloudflare.com/api/resources/realtime_kit/subresources/meetings/methods/refresh_participant_token/) endpoint, you can pass `not_before` and `expires_on` timestamps to set when the token becomes valid and when it expires. The validity window cannot be longer than 100 days. For more information, refer to [Token validity and refresh](https://developers.cloudflare.com/realtime/realtimekit/concepts/participant/#token-validity-and-refresh).
 
 Does generating a new auth token invalidate the previous token?
 
-No. Generating a new token, including through the refresh flow, does not invalidate an existing token. Each token remains valid and expires independently at its own expiration time.
+No. Generating a new token, including through the refresh flow, does not invalidate an existing token. Each token remains valid and expires independently at its own expiration time. To invalidate a specific token, [revoke it](https://developers.cloudflare.com/realtime/realtimekit/concepts/participant/#revoke-tokens).
 
 Does deleting a participant revoke all previously issued tokens?
 
-Yes. The [Delete Participant](https://developers.cloudflare.com/api/resources/realtime_kit/subresources/meetings/methods/delete_meeting_participant/) endpoint immediately revokes all tokens issued to that participant for the meeting.
-
-Before deleting the participant, use the [Kick Participants](https://developers.cloudflare.com/api/resources/realtime_kit/subresources/active-session/methods/kick_participants/) endpoint to safely remove the participant from any active session. Then, delete the participant to revoke their tokens.
+Yes. The [Delete Participant](https://developers.cloudflare.com/api/resources/realtime_kit/subresources/meetings/methods/delete_meeting_participant/) endpoint immediately revokes all tokens issued to that participant for the meeting. It also removes the participant from the active session of the meeting, if one exists.
 
 What happens if a participant uses an expired or invalidated auth token?
 
@@ -117,11 +113,11 @@ While RealtimeKit does not include a built-in scheduling system, you can impleme
 
 
 
+To limit when a participant can join, set `not_before` and `expires_on` on their [auth token](https://developers.cloudflare.com/realtime/realtimekit/concepts/participant/#token-validity-and-refresh) to match the schedule.
+
 How do I prevent participants from joining a meeting after a specific date or time?
 
-At the required time, first call the [Kick All Participants](https://developers.cloudflare.com/api/resources/realtime_kit/subresources/active-session/methods/kick_all_participants/) endpoint if the meeting has an active session. This removes all participants and properly ends the session.
-
-Then, call the [Update Meeting](https://developers.cloudflare.com/api/resources/realtime_kit/subresources/meetings/methods/update_meeting_by_id/) endpoint to set the meeting status to `INACTIVE`. This prevents participants from joining the meeting and prevents new sessions from starting.
+At the required time, call the [Update Meeting](https://developers.cloudflare.com/api/resources/realtime_kit/subresources/meetings/methods/update_meeting_by_id/) endpoint to set the meeting status to `INACTIVE`. This removes all participants from the active session, if one exists, and prevents participants from joining the meeting or starting new sessions.
     
     
     curl https://api.cloudflare.com/client/v4/accounts/{ACCOUNT_ID}/realtime/kit/{APP_ID}/meetings/{MEETING_ID} \
@@ -129,6 +125,8 @@ Then, call the [Update Meeting](https://developers.cloudflare.com/api/resources/
     --header "Authorization: Bearer <CLOUDFLARE_API_TOKEN>" \
     --header "Content-Type: application/json" \
     --data '{ "status": "INACTIVE" }'
+
+To control access for individual participants, set `expires_on` on their auth tokens instead. For more information, refer to [Token validity and refresh](https://developers.cloudflare.com/realtime/realtimekit/concepts/participant/#token-validity-and-refresh).
 
 ### Participants
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/framework-guides/automatic-configuration/
 title: Deploy an existing project \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:28.123587+00:00
+fetched_at: 2026-10-27T07:31:33.982875+00:00
 ---
 
 # Deploy an existing project · Cloudflare Workers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-13T08:48:28.123587+00:00
 
 # Deploy an existing project
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewHow it worksSupported frameworksFiles created and modified wrangler.jsonc package.json .gitignore .assetsignoreUsing automatic configuration Deploy with automatic configuration Configure without deploying Preview changes with dry runNon-interactive modeImporting a repository from the dashboardSkipping automatic configurationNext.js configurationTroubleshooting Multiple frameworks detected Framework not detected Configuration already exists Workspaces
+OverviewHow it worksSupported frameworksFiles created and modified wrangler.jsonc package.json .gitignore .assetsignoreUsing automatic configuration Deploy with automatic configuration Configure without deploying Preview changes with dry runSkip configuration confirmationImporting a repository from the dashboardSkipping automatic configurationNext.js configurationTroubleshooting Multiple frameworks detected Framework not detected Configuration already exists Workspaces
 
 Wrangler can automatically detect your framework and configure your project for Cloudflare Workers. This allows you to deploy existing projects with a single command, without manually setting up configuration files or installing adapters.
 
@@ -78,7 +78,7 @@ A new Wrangler configuration file is created with settings appropriate for your 
     	"main": "dist/_worker.js/index.js",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-10-27",
     	"compatibility_flags": ["nodejs_compat"],
     	"assets": {
     		"binding": "ASSETS",
@@ -95,7 +95,7 @@ A new Wrangler configuration file is created with settings appropriate for your 
     main = "dist/_worker.js/index.js"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-27"
     compatibility_flags = [ "nodejs_compat" ]
     
     [assets]
@@ -142,7 +142,7 @@ For frameworks that generate worker files in the output directory, an `.assetsig
 
 ### Deploy with automatic configuration
 
-To deploy an existing project, run [`wrangler deploy`](https://developers.cloudflare.com/workers/wrangler/commands/general/#deploy) in your project directory:
+To deploy an existing project, run [`wrangler deploy`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#deploy) in your project directory:
 
 npmyarnpnpm
     
@@ -159,7 +159,7 @@ Wrangler will detect your framework, show the configuration it will apply, and p
 
 ### Configure without deploying
 
-To configure your project without deploying, use [`wrangler setup`](https://developers.cloudflare.com/workers/wrangler/commands/general/#setup):
+To configure your project without deploying, use [`wrangler setup`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#setup):
 
 npmyarnpnpm
     
@@ -191,22 +191,37 @@ npmyarnpnpm
 
 This outputs a summary of the configuration that would be generated.
 
-## Non-interactive mode
+## Skip configuration confirmation
 
-To skip the confirmation prompts, use the [`--yes` flag](https://developers.cloudflare.com/workers/wrangler/commands/general/#deploy):
+To apply the detected configuration without confirming it, pass `--yes` to [`wrangler setup`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#setup):
 
 npmyarnpnpm
     
     
-    npx wrangler deploy --yes
+    npx wrangler setup --yes
     
     
-    yarn wrangler deploy --yes
+    yarn wrangler setup --yes
     
     
-    pnpm wrangler deploy --yes
+    pnpm wrangler setup --yes
 
-This applies the configuration automatically using sensible defaults. This is useful in CI/CD environments or when you want to accept the detected settings without reviewing them.
+This is useful in CI/CD environments, or when you want to accept the detected settings without reviewing them.
+
+When setup finishes, Wrangler prints the command to deploy with. In a project with a `package.json`, use the generated `deploy` script:
+
+npmyarnpnpm
+    
+    
+    npm run deploy
+    
+    
+    yarn run deploy
+    
+    
+    pnpm run deploy
+
+If Wrangler detected a build command, the generated script runs it before deploying. In a project without a `package.json`, run `wrangler deploy`.
 
 ## Importing a repository from the dashboard
 

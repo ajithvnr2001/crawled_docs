@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/observability/logging/logpush/
 title: Logpush \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:29.324558+00:00
+fetched_at: 2026-10-27T07:31:32.683703+00:00
 ---
 
 # Logpush · Cloudflare AI Gateway docs
@@ -22,7 +22,7 @@ Observability
 
 # Logpush
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow logs are encryptedConfigure Logpush1\. Generate an RSA key pair locally2\. Upload public key to gateway settings3\. Set up Logpush4\. Receive encrypted logs5\. Decrypt logs
 
@@ -30,13 +30,11 @@ AI Gateway allows you to securely export logs to an external storage location, w
 
 This guide explains how to set up Logpush for AI Gateway, generate an RSA key pair for encryption, and decrypt the logs once they are received.
 
-For Legacy Logs on Workers Paid, you can store 10 million logs per gateway. If saving stops at this limit, logs are not saved or exported. Delete older logs or turn on automatic deletion to resume exports.
-
 Logpush supports four jobs per account. Each exported log can be up to 1 MB.
 
 Note
 
-To export logs using Logpush, you must have logs turned on for the gateway.
+Logpush exports logs whether or not logs are turned on for the gateway. The `cf-aig-collect-log` and `cf-aig-collect-log-payload` headers do not change what Logpush exports.
 
 Need a higher limit?
 
@@ -98,11 +96,11 @@ Run the script by executing the below code on your terminal. Replace `file name`
 
 ## 2\. Upload public key to gateway settings
 
-Once you have generated the key pair, upload the public key to your AI Gateway settings. This key will be used to encrypt your logs. In order to enable Logpush, you will need logs enabled for that gateway.
+Once you have generated the key pair, upload the public key to your AI Gateway settings. This key will be used to encrypt your logs.
 
 ## 3\. Set up Logpush
 
-Uploading your public key enables Logpush for the gateway, but logs will not be exported until you also create and enable a Logpush job that specifies where to send them. Both steps are required.
+Uploading your public key and turning on Logpush in your gateway settings enables Logpush for the gateway, but logs will not be exported until you also create and enable a Logpush job that specifies where to send them. All three are required.
 
 To create the Logpush job, choose your destination and follow the steps in the [Enable destinations](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/) documentation. For example, to export logs to Cloudflare R2, refer to [Enable Cloudflare R2](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/r2/). When configuring the job, select the AI Gateway dataset.
 

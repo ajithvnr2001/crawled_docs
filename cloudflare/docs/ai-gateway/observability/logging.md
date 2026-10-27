@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/observability/logging/
 title: Logging \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:32.005087+00:00
+fetched_at: 2026-10-27T07:31:32.769065+00:00
 ---
 
 # Logging · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:32.005087+00:00
 
 # Logging
 
-Last updated Sep 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/observability/logging/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDefault configurationPer-request logging Collect logs (cf-aig-collect-log) Collect log payload (cf-aig-collect-log-payload)DLP fields in logs
 
@@ -57,6 +57,8 @@ To change the default log configuration in the dashboard:
 ## Per-request logging
 
 To override the default logging behavior set in the settings tab, you can define headers on a per-request basis.
+
+These headers only control the logs that AI Gateway stores. They do not change what [Logpush](https://developers.cloudflare.com/ai-gateway/observability/logging/logpush/) exports.
 
 ### Collect logs (`cf-aig-collect-log`)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/models/ai-sdk/
 title: AI SDK \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:09.982205+00:00
+fetched_at: 2026-10-27T07:31:32.554169+00:00
 ---
 
 # AI SDK · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:40:09.982205+00:00
 
 # AI SDK
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/models/ai-sdk/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstallUse an account id and API tokenCall a Workers AI modelCall an AI Gateway catalog modelCall a dynamic routeCall a vendor's model object Unified billing and BYOKStream, call tools, and return structured outputResume a dropped streamUse it in ThinkCache responsesTag requests for logs and analyticsFall back to another modelSet optionsRead gateway metadataHandle errorsUse other modalitiesUse a provider registryLimitationsRelated resources
 
@@ -540,7 +540,7 @@ Every result, and every stream's `finish` part, carries `providerMetadata.cloudf
     //   model: "claude-opus-5-5",
     //   provider: "anthropic",
     //   gateway: "default",
-    //   logId: "01M1KZWN069WWNPC18V05NKHSS",
+    //   logId: "019a7b3e-5f2c-7c41-9d3e-2b8f6a1c4e07",
     //   cacheStatus: "MISS",
     //   ...
     // }

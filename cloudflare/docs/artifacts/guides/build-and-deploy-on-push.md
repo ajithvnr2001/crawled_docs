@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/artifacts/guides/build-and-deploy-on-push/
 title: Build and deploy Artifacts repos \u00b7 Cloudflare Artifacts docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:33.796473+00:00
+fetched_at: 2026-10-27T07:31:31.746003+00:00
 ---
 
 # Build and deploy Artifacts repos · Cloudflare Artifacts docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:33.796473+00:00
 
 # Build and deploy Artifacts repos
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it works Run the CI WorkflowStart a build when code changes View build statusDeploy the applicationRun one workflow for every repo in a namespace
 
@@ -252,15 +252,17 @@ This guide defines those CI steps in a Workflow class named `CIWorkflow`. To sta
         "events": [
           {
             "type": "cf.artifacts.repo.pushed",
-            // filter is optional. If you don't set repoName we will run the same workflow for every push on any repo in your Artifacts namespace
+            // filter is optional. If you don't set repo_name, the same Workflow runs for every push to any repo in your Artifacts namespace
             "filter": {
               "namespace": "CI",
-              "repoName": "my-repo"
+              "repo_name": "my-repo"
             },
-            "target": {
-              "scriptName": "<worker-name>",
-              "workflowName": "<workflow-name>"
-            }
+            "targets": [
+              {
+                "type": "workflow",
+                "workflow_name": "<workflow-name>"
+              }
+            ]
           }
         ]
       },
@@ -312,21 +314,17 @@ This guide defines those CI steps in a Workflow class named `CIWorkflow`. To sta
     
       [triggers.events.filter]
       namespace = "CI"
-      repoName = "my-repo"
+      repo_name = "my-repo"
     
-      [triggers.events.target]
-      scriptName = "<worker-name>"
-      workflowName = "<workflow-name>"
+      [[triggers.events.targets]]
+      type = "workflow"
+      workflow_name = "<workflow-name>"
     
     [observability]
     enabled = true
     
       [observability.logs]
       enabled = true
-
-Note
-
-If you are running CI for a User Worker, include `"dispatch_namespace": "<DISPATCH_NAMESPACE>"` in your trigger target.
 
 ### View build status
 
@@ -344,7 +342,7 @@ To deploy a User Worker, pass `wrangler deploy --dispatch_namespace <DISPATCH_NA
 
 ## Run one workflow for every repo in a namespace
 
-The `filter` in your trigger is optional. When you set `repoName`, only pushes to that specific repo start the Workflow. When you omit `repoName`, Cloudflare runs the same Workflow for every push to any repo in your Artifacts namespace.
+The `filter` in your trigger is optional. When you set `repo_name`, only pushes to that specific repo start the Workflow. When you omit `repo_name`, Cloudflare runs the same Workflow for every push to any repo in your Artifacts namespace.
 
 This is useful for platforms that author and own a single CI Workflow and want to apply it uniformly across every customer repo in a namespace. Instead of maintaining a separate trigger per repo, one shared Workflow builds, checks, and deploys each repo on push.
 
@@ -376,7 +374,7 @@ deploy E
 
 deploy per repo
 
-To run the same Workflow for every repo in a namespace, drop `repoName` from the trigger `filter` and keep only the `namespace`:
+To run the same Workflow for every repo in a namespace, drop `repo_name` from the trigger `filter` and keep only the `namespace`:
     
     
     {
@@ -387,10 +385,12 @@ To run the same Workflow for every repo in a namespace, drop `repoName` from the
     				"filter": {
     					"namespace": "CI"
     				},
-    				"target": {
-    					"scriptName": "my-ci-worker",
-    					"workflowName": "ci-workflow"
-    				}
+    				"targets": [
+    					{
+    						"type": "workflow",
+    						"workflow_name": "ci-workflow"
+    					}
+    				]
     			}
     		]
     	}
@@ -403,9 +403,9 @@ To run the same Workflow for every repo in a namespace, drop `repoName` from the
       [triggers.events.filter]
       namespace = "CI"
     
-      [triggers.events.target]
-      scriptName = "my-ci-worker"
-      workflowName = "ci-workflow"
+      [[triggers.events.targets]]
+      type = "workflow"
+      workflow_name = "ci-workflow"
 
 Each push still starts its own Workflow instance for the repo, branch, and commit that changed, so you can deploy a separate Worker per repo from the same shared Workflow definition.
 

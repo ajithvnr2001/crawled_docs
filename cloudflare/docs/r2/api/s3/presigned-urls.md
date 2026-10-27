@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/api/s3/presigned-urls/
 title: Presigned URLs \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:43.295808+00:00
+fetched_at: 2026-10-27T07:31:31.533890+00:00
 ---
 
 # Presigned URLs · Cloudflare R2 docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:12:43.295808+00:00
 
 # Presigned URLs
 
-Last updated Aug 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/r2/api/s3/presigned-urls/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChoosing an approachGenerate a presigned URL Prerequisites SDK examples Best practicesUsing a presigned URLPresigned URL exampleSupported operationsSecurity considerationsCustom domainsRelated resources
 
@@ -58,6 +58,10 @@ Presigned URLs (this page) | A single S3 operation on a single object | Granting
   * AWS SDK or compatible S3 client library
 
 
+
+Generating presigned URLs from a Worker
+
+The [R2 Workers API binding](https://developers.cloudflare.com/r2/api/workers/workers-api-reference/) cannot generate presigned URLs, so you must sign them with an S3 client. Inside a Worker, you can use [`aws4fetch`](https://developers.cloudflare.com/r2/examples/aws/aws4fetch/#generate-presigned-urls), a small library built on `fetch` and `SubtleCrypto`, or the [AWS SDK for JavaScript v3](https://developers.cloudflare.com/r2/examples/aws/aws-sdk-js-v3/) with `nodejs_compat` enabled.
 
 ### SDK examples
     
@@ -95,6 +99,82 @@ Presigned URLs (this page) | A single S3 operation on a single object | Granting
     	}),
     	{ expiresIn: 3600 },
     );
+
+src/index.jsjs
+    
+    
+    import { AwsClient } from "aws4fetch";
+    
+    export default {
+    	async fetch(request, env) {
+    		const client = new AwsClient({
+    			service: "s3",
+    			region: "auto",
+    			// Store your S3 API credentials as secrets (see: https://developers.cloudflare.com/r2/api/tokens)
+    			accessKeyId: env.R2_ACCESS_KEY_ID,
+    			secretAccessKey: env.R2_SECRET_ACCESS_KEY,
+    		});
+    
+    		const R2_URL = `https://${env.ACCOUNT_ID}.r2.cloudflarestorage.com`;
+    
+    		const getUrl = (
+    			await client.sign(
+    				new Request(`${R2_URL}/my-bucket/image.png?X-Amz-Expires=3600`),
+    				{ aws: { signQuery: true } },
+    			)
+    		).url.toString();
+    
+    		const putUrl = (
+    			await client.sign(
+    				new Request(`${R2_URL}/my-bucket/image.png?X-Amz-Expires=3600`, {
+    					method: "PUT",
+    					headers: { "Content-Type": "image/png" },
+    				}),
+    				{ aws: { signQuery: true, allHeaders: true } },
+    			)
+    		).url.toString();
+    
+    		return Response.json({ getUrl, putUrl });
+    	},
+    };
+
+src/index.tsts
+    
+    
+    import { AwsClient } from "aws4fetch";
+    
+    export default {
+    	async fetch(request, env): Promise<Response> {
+    		const client = new AwsClient({
+    			service: "s3",
+    			region: "auto",
+    			// Store your S3 API credentials as secrets (see: https://developers.cloudflare.com/r2/api/tokens)
+    			accessKeyId: env.R2_ACCESS_KEY_ID,
+    			secretAccessKey: env.R2_SECRET_ACCESS_KEY,
+    		});
+    
+    		const R2_URL = `https://${env.ACCOUNT_ID}.r2.cloudflarestorage.com`;
+    
+    		const getUrl = (
+    			await client.sign(
+    				new Request(`${R2_URL}/my-bucket/image.png?X-Amz-Expires=3600`),
+    				{ aws: { signQuery: true } },
+    			)
+    		).url.toString();
+    
+    		const putUrl = (
+    			await client.sign(
+    				new Request(`${R2_URL}/my-bucket/image.png?X-Amz-Expires=3600`, {
+    					method: "PUT",
+    					headers: { "Content-Type": "image/png" },
+    				}),
+    				{ aws: { signQuery: true, allHeaders: true } },
+    			)
+    		).url.toString();
+    
+    		return Response.json({ getUrl, putUrl });
+    	},
+    } satisfies ExportedHandler<Env>;
     
     
     import boto3
@@ -144,7 +224,8 @@ Presigned URLs (this page) | A single S3 operation on a single object | Granting
 
 For complete examples and additional operations, refer to the SDK-specific documentation:
 
-  * [AWS SDK for JavaScript](https://developers.cloudflare.com/r2/examples/aws/aws-sdk-js-v3/#generate-presigned-urls)
+  * [AWS SDK for JavaScript (Node.js)](https://developers.cloudflare.com/r2/examples/aws/aws-sdk-js-v3/#generate-presigned-urls)
+  * [aws4fetch (Workers)](https://developers.cloudflare.com/r2/examples/aws/aws4fetch/#generate-presigned-urls)
   * [AWS SDK for Python (Boto3)](https://developers.cloudflare.com/r2/examples/aws/boto3/#generate-presigned-urls)
   * [AWS CLI](https://developers.cloudflare.com/r2/examples/aws/aws-cli/#generate-presigned-urls)
   * [AWS SDK for Go](https://developers.cloudflare.com/r2/examples/aws/aws-sdk-go/#generate-presigned-urls)
@@ -156,7 +237,7 @@ For complete examples and additional operations, refer to the SDK-specific docum
 
 When generating presigned URLs, you can limit abuse and misuse by:
 
-  * **Restricting Content-Type** : Specify the allowed `Content-Type` in your SDK's parameters. The signature will include this header, so uploads will fail with a `403/SignatureDoesNotMatch` error if the client sends a different `Content-Type` for an upload request.
+  * **Restricting Content-Type** : Specify the allowed `Content-Type` in your SDK's parameters. The signature will include this header, so uploads will fail with a `403/SignatureDoesNotMatch` error if the client sends a different `Content-Type` for an upload request. When using aws4fetch, set `allHeaders: true` so the `Content-Type` header is signed, and send the same `Content-Type` with the upload.
   * **Configuring CORS** : If your presigned URLs will be used from a browser, set up [CORS rules](https://developers.cloudflare.com/r2/buckets/cors/#use-cors-with-a-presigned-url) on your bucket to control which origins can make requests.
 
 

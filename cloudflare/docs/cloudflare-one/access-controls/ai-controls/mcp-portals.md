@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/
 title: MCP server portals \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:58.713840+00:00
+fetched_at: 2026-10-27T07:31:31.388373+00:00
 ---
 
 # MCP server portals · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-23T16:39:58.713840+00:00
 
 # MCP server portals
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewKey featuresHow it works Transport Client identity header Built-in portal tools Session lifecycle NamingPrerequisitesAdd an MCP server Connect a private MCP server Configure manual OAuth credentials MCP Apps Server status Reauthenticate the MCP server Synchronize the MCP server Upstream OAuth callback URLsCreate a portal Customize login settingsManage tools and prompts Turn off individual tools or prompts Use an allowlist pattern Rename tools and prompts with aliases Tool and prompt namespacing Portal-native toolsManage portals via API List portals Create a portal List MCP servers Create an MCP server View tool-call analytics Force sync an MCP server Delete a portalConfigure via TerraformCode Mode Code Mode policies Upstream servers with Code Mode turned on Configure a Code Mode policy Connect with Code ModeRoute portal traffic through Gateway How Gateway routing works TLS decryption Supported transports Enable Gateway routing Example Gateway policy What happens when a request is blocked LimitationsConnect to a portal Portal homepage Sign out of a portal Connect with a service token Device authenticationOptimize context Minimize tools Search and executeManage portal sessions Return to the server selection page Enable or disable a server inline Reauthenticate a server Authorize new serversView portal logs Log fields Export logs with LogpushKnown limitationsPolicy limitationsTroubleshooting Portal creation fails because of a zone hold After authenticating to the portal, my user receives the error No allowed servers available, check your Zero Trust Policies. The portal URL does not prompt for authentication when it is added to an MCP client. The portal returns a 522 error. An MCP server is stuck in Waiting status. An MCP server shows Stale status. Tool calls fail with an unauthorized error. OAuth authentication fails with a redirect URI error when connecting to an upstream MCP server. Tool calls fail when Gateway routing is turned on. Users cannot connect from an MCP client The portal homepage shows the wrong name or domain.
 
@@ -787,34 +787,98 @@ To manually trigger a synchronization of tools and prompts from an upstream MCP 
 
 ## Configure via Terraform
 
-You can manage MCP server portals using the [Cloudflare Terraform provider ↗︎](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs). Use the `cloudflare_zero_trust_access_mcp_server_portal` resource to create and configure portals programmatically.
+You can manage MCP servers and portals using the Cloudflare Terraform provider. Use the [`cloudflare_zero_trust_access_ai_controls_mcp_server` ↗︎](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/zero_trust_access_ai_controls_mcp_server) and [`cloudflare_zero_trust_access_ai_controls_mcp_portal` ↗︎](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/zero_trust_access_ai_controls_mcp_portal) resources.
 
 Caution
 
 Unlike the dashboard, the Terraform provider does not automatically create DNS records for your portal hostname. You must create a CNAME record that points your portal subdomain to `gateway.agents.cloudflare.com`. Without this record, the portal will return `522` errors.
 
-The following example creates an MCP server portal with a CNAME record:
+The following example creates an unauthenticated upstream MCP server, a portal, and the Access resources required for a service token to use the server through the portal:
 
-MCP server portal with DNS recordhcl
+MCP server portal with service token accesshcl
     
     
-    # Create the MCP server portal
-    resource "cloudflare_zero_trust_access_mcp_server_portal" "example" {
+    resource "cloudflare_zero_trust_access_service_token" "mcp_bot" {
       account_id = var.cloudflare_account_id
-      name       = "Engineering Portal"
-      hostname   = "mcp.example.com"
+      name       = "MCP bot"
+      duration   = "8760h"
     }
     
-    # Required: Create the CNAME record for the portal hostname
+    resource "cloudflare_zero_trust_access_policy" "mcp_bot" {
+      account_id = var.cloudflare_account_id
+      name       = "Allow MCP bot"
+      decision   = "non_identity"
+    
+      include = [{
+        service_token = {
+          token_id = cloudflare_zero_trust_access_service_token.mcp_bot.id
+        }
+      }]
+    }
+    
+    resource "cloudflare_zero_trust_access_ai_controls_mcp_server" "docs" {
+      account_id = var.cloudflare_account_id
+      id         = "cloudflare-docs"
+      name       = "Cloudflare documentation"
+      hostname   = "https://docs.mcp.cloudflare.com/mcp"
+      auth_type  = "unauthenticated"
+    }
+    
+    resource "cloudflare_zero_trust_access_application" "docs" {
+      account_id = var.cloudflare_account_id
+      name       = "Cloudflare documentation"
+      type       = "mcp"
+    
+      destinations = [{
+        type          = "via_mcp_server_portal"
+        mcp_server_id = cloudflare_zero_trust_access_ai_controls_mcp_server.docs.id
+      }]
+    
+      policies = [{
+        id         = cloudflare_zero_trust_access_policy.mcp_bot.id
+        precedence = 1
+      }]
+    }
+    
+    resource "cloudflare_zero_trust_access_ai_controls_mcp_portal" "engineering" {
+      account_id = var.cloudflare_account_id
+      id         = "engineering"
+      name       = "Engineering Portal"
+      hostname   = "mcp.example.com"
+    
+      servers = [{
+        server_id = cloudflare_zero_trust_access_ai_controls_mcp_server.docs.id
+        on_behalf = false
+      }]
+    }
+    
+    resource "cloudflare_zero_trust_access_application" "engineering" {
+      account_id = var.cloudflare_account_id
+      name       = "Engineering Portal"
+      type       = "mcp_portal"
+      domain     = cloudflare_zero_trust_access_ai_controls_mcp_portal.engineering.hostname
+    
+      destinations = [{
+        type = "public"
+        uri  = cloudflare_zero_trust_access_ai_controls_mcp_portal.engineering.hostname
+      }]
+    
+      policies = [{
+        id         = cloudflare_zero_trust_access_policy.mcp_bot.id
+        precedence = 1
+      }]
+    }
+    
     resource "cloudflare_dns_record" "mcp_portal" {
       zone_id = var.cloudflare_zone_id
       name    = "mcp"
       content = "gateway.agents.cloudflare.com"
       type    = "CNAME"
       proxied = true
+      ttl     = 1
     }
 
-For the full list of supported resource arguments, refer to the [Terraform provider documentation ↗︎](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs).
+The provider marks the service token's `client_secret` as sensitive, but Terraform still stores it in state. Store Terraform state securely and pass the credentials to your MCP client through a secret manager or environment variables.
 
 ## Code Mode
 
@@ -1064,14 +1128,19 @@ If a linked MCP server does not have a Service Auth policy matching the token, t
 
 
 
-For a CLI client, set the headers directly:
+To configure this flow with the API, set `servers[].on_behalf` to `false` in the [MCP portal request](https://developers.cloudflare.com/api/resources/zero_trust/subresources/access/subresources/ai_controls/subresources/mcp/subresources/portals/methods/create/). Create a `non_identity` Access policy with a `service_token` include rule. Attach the policy to the portal and each linked server Access application. For a complete Terraform example, refer to Configure via Terraform.
+
+To verify the connection, send an MCP `initialize` request with the service token headers:
     
     
     curl https://<subdomain>.<domain>/mcp \
       -H "CF-Access-Client-Id: <CLIENT_ID>" \
-      -H "CF-Access-Client-Secret: <CLIENT_SECRET>"
+      -H "CF-Access-Client-Secret: <CLIENT_SECRET>" \
+      -H "Content-Type: application/json" \
+      -H "Accept: application/json, text/event-stream" \
+      --data '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-11-25","capabilities":{},"clientInfo":{"name":"service-token-test","version":"1.0.0"}}}'
 
-For clients that support custom headers, configure the service token directly:
+For `mcp-remote`, pass the credentials through environment variables instead of storing them in the MCP client configuration:
 
 MCP client configuration for service token connectionsjson
     
@@ -1079,10 +1148,19 @@ MCP client configuration for service token connectionsjson
     {
     	"mcpServers": {
     		"example-portal": {
-    			"url": "https://<subdomain>.<domain>/mcp",
-    			"headers": {
-    				"CF-Access-Client-Id": "<CLIENT_ID>",
-    				"CF-Access-Client-Secret": "<CLIENT_SECRET>"
+    			"command": "npx",
+    			"args": [
+    				"-y",
+    				"mcp-remote@latest",
+    				"https://<subdomain>.<domain>/mcp",
+    				"--header",
+    				"CF-Access-Client-Id:${ACCESS_CLIENT_ID}",
+    				"--header",
+    				"CF-Access-Client-Secret:${ACCESS_CLIENT_SECRET}"
+    			],
+    			"env": {
+    				"ACCESS_CLIENT_ID": "<CLIENT_ID>",
+    				"ACCESS_CLIENT_SECRET": "<CLIENT_SECRET>"
     			}
     		}
     	}

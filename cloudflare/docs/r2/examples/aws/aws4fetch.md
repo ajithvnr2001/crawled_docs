@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/examples/aws/aws4fetch/
 title: aws4fetch \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:46.036716+00:00
+fetched_at: 2026-10-27T07:31:31.002708+00:00
 ---
 
 # aws4fetch · Cloudflare R2 docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:12:46.036716+00:00
 
 # aws4fetch
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/r2/examples/aws/aws4fetch/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGenerate presigned URLsRestrict uploads with CORS and Content-Type
 
@@ -32,6 +32,8 @@ You must [generate an Access Key](https://developers.cloudflare.com/r2/api/token
 
 
 JavaScript or TypeScript users may continue to use the [`aws4fetch` ↗︎](https://www.npmjs.com/package/aws4fetch) npm package as per normal. This package uses the `fetch` and `SubtleCrypto` APIs which you will be familiar with when working in browsers or with Cloudflare Workers.
+
+`aws4fetch` is a lightweight option for [Workers](https://developers.cloudflare.com/workers/) because it has no Node.js dependencies. You can also use it to generate presigned URLs from a Worker.
 
 You must pass in the R2 configuration credentials when instantiating your `S3` service client:
     

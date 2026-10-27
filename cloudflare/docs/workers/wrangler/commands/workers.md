@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/wrangler/commands/workers/
 title: Workers \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T07:11:10.796166+00:00
+fetched_at: 2026-10-27T07:31:33.545075+00:00
 ---
 
 # Workers · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-19T07:11:10.796166+00:00
 
 # Workers
 
-Last updated Oct 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overviewinitdevdeploypreviewdeletesecretversionstriggersdeploymentsrollbacktypes Multi-environment support Optionscheck startup
 
@@ -308,9 +308,6 @@ Workers Sites is deprecated. Please use [Workers Assets](https://developers.clou
   * `--message` `string` optional
 
     * A descriptive message for this Worker version and deployment. Matches the behavior of `wrangler versions upload --message`. The message is also applied to the deployment.
-  * `--yes` `boolean` (default: false) optional
-
-    * Skip confirmation prompts and run [automatic project configuration](https://developers.cloudflare.com/workers/framework-guides/automatic-configuration/) non-interactively using detected settings. Only applicable when no Wrangler configuration file exists in your project.
   * `--temporary` `boolean` optional
 
     * Deploy with a temporary preview account when no Cloudflare credentials are available. Requires Wrangler 4.102.0 or later. Wrangler prints a claim URL that lets you claim the deployment within 60 minutes. This is intended for AI agents and other first-time deployment flows. If Wrangler can already use OAuth, `CLOUDFLARE_API_TOKEN`, or a global API key, this flag returns an error. For more information, refer to [Claim deployments](https://developers.cloudflare.com/workers/platform/claim-deployments/).

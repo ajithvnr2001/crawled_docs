@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/security/
 title: Overview \u00b7 Security dashboard docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:30.174736+00:00
+fetched_at: 2026-10-27T07:31:32.603322+00:00
 ---
 
 # Overview · Security dashboard docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-08T07:15:30.174736+00:00
 
 # Application security dashboard
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/security/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFeaturesMore resources
 
@@ -32,17 +32,7 @@ Cloudflare is gradually making the new **Security** dashboard available by defau
 
 
 
-To opt out of the new security dashboard:
-
-  1. In the Cloudflare dashboard, go to the Security **Settings** page.
-
-[ Go to **Settings** ↗ ](https://dash.cloudflare.com/?to=/:account/:zone/security/settings)
-  2. Turn off the setting **New application security dashboard**.
-
-
-
-
-The opt-out option will be available for a limited time.
+Once you have opted in to the new dashboard, the opt-out option is no longer available. The new dashboard is a one-way migration.
 
 ## Features
 

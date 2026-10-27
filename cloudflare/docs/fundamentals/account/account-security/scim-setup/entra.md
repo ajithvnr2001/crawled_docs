@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/account/account-security/scim-setup/entra/
 title: Provision with Microsoft Entra \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:20.171384+00:00
+fetched_at: 2026-10-27T07:31:32.298768+00:00
 ---
 
 # Provision with Microsoft Entra · Cloudflare Fundamentals docs
@@ -22,7 +22,7 @@ AccountsAccount security
 
 # Provision with Microsoft Entra
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/account/account-security/scim-setup/entra/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up the Enterprise applicationProvision the Enterprise applicationConfigure user and group synchronization(Optional) Automate Cloudflare's SCIM integration
 
@@ -45,7 +45,7 @@ Once you have [gathered the required data](https://developers.cloudflare.com/fun
 
   1. Inside the newly created application under **Manage** from the sidebar menu, select **Provisioning**.
   2. Select **New configuration** and enter the **Tenant URL** : `https://api.cloudflare.com/client/v4/accounts/<ACCOUNT_ID>/scim/v2`. Replace `<ACCOUNT_ID>` with your own account ID.
-  3. Paste the SCIM provisioning API token value as **Secret token**.
+  3. Retrieve the SCIM provisioning API token [previously generated](https://developers.cloudflare.com/fundamentals/account/account-security/scim-setup/#create-an-api-token) and paste its value as **Secret token**.
   4. Select **Test Connection** then **Save** the configuration.
 
 

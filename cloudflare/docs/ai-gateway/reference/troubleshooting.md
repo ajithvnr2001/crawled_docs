@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/reference/troubleshooting/
 title: Troubleshooting \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:32.535602+00:00
+fetched_at: 2026-10-27T07:31:31.442172+00:00
 ---
 
 # Troubleshooting · Cloudflare AI Gateway docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:04:32.535602+00:00
 
 # Troubleshooting
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/reference/troubleshooting/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewAuthentication errors 401 or unauthenticated errorsDLP issuesRequest failures Requests timing out Requests returning errors from the providerCaching issues Requests not being cached Unexpected cache hits or misses
+OverviewAuthentication errors 401 or unauthenticated errors 400: Provider credentials required (2044)DLP issuesRequest failures Requests timing out Requests returning errors from the providerCaching issues Requests not being cached Unexpected cache hits or misses
 
 This page covers common issues when using AI Gateway. For provider-specific troubleshooting, refer to the relevant provider documentation.
 
@@ -30,7 +30,7 @@ This page covers common issues when using AI Gateway. For provider-specific trou
 
 If you receive authentication errors from your AI provider, AI Gateway did not pass valid credentials upstream. Check the following:
 
-  1. **Verify header placement** : Make sure your Cloudflare token is in `cf-aig-authorization`, not `Authorization`. The `Authorization` header is reserved for provider credentials.
+  1. **Verify header placement** : On provider-native endpoints, put your Cloudflare token in `cf-aig-authorization`. Supply provider credentials in the [format AI Gateway recognizes for the provider and endpoint](https://developers.cloudflare.com/ai-gateway/features/unified-billing/#credential-precedence). For example, Anthropic Messages requires `x-api-key`, while OpenAI uses `Authorization: Bearer`.
 
   2. **Check your configuration based on endpoint type** :
 
@@ -48,6 +48,20 @@ If you receive authentication errors from your AI provider, AI Gateway did not p
 For provider-specific authentication issues:
 
   * [Google Vertex AI troubleshooting](https://developers.cloudflare.com/ai-gateway/usage/providers/vertex/#troubleshooting)
+
+
+
+### 400: Provider credentials required (2044)
+
+AI Gateway returns HTTP `400` with error code `2044` and the message `Customer-provided provider credentials are required for this request` when it cannot find applicable provider credentials and Unified Billing fallback is blocked.
+
+Fallback is blocked when **Require provider credentials** is on for the gateway or the request includes `cf-aig-no-wholesale: true`. Credentials supplied with the request or an applicable stored BYOK key can satisfy this requirement.
+
+To resolve the error:
+
+  * Supply your provider key using the [recognized credential format](https://developers.cloudflare.com/ai-gateway/features/unified-billing/#credential-precedence).
+  * For Anthropic Messages (`/anthropic/v1/messages`), send `x-api-key: <PROVIDER_API_KEY>`. AI Gateway does not recognize `Authorization: Bearer` as provider credentials on this endpoint.
+  * If using [stored BYOK keys](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/), verify gateway authentication and the key alias. Use `default`, or select an applicable alias with `cf-aig-byok-alias` on provider-native requests.
 
 
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/claude-desktop/
 title: Claude Desktop \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:31.484968+00:00
+fetched_at: 2026-10-27T07:31:32.080444+00:00
 ---
 
 # Claude Desktop · Cloudflare AI Gateway docs
@@ -22,22 +22,26 @@ Integrations
 
 # Claude Desktop
 
-Last updated Aug 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/claude-desktop/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewPrerequisites
+OverviewPrerequisitesUse with a gateway tokenUse with Cloudflare Access
 
-By pointing [Claude Desktop ↗︎](https://claude.ai/download) at AI Gateway instead of Anthropic directly, you get observability, caching, and centralized credentials for your Anthropic requests, without changing how you use Claude Desktop. Claude Desktop can send third-party inference requests to a custom gateway; this configuration sends those requests to AI Gateway's [Anthropic endpoint](https://developers.cloudflare.com/ai-gateway/usage/providers/anthropic/), authenticated with your Cloudflare gateway token. AI Gateway can supply the Anthropic credentials for you through [Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/) or a [stored provider key (BYOK)](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/).
+By pointing [Claude Desktop ↗︎](https://claude.ai/download) at AI Gateway instead of Anthropic directly, you get observability, caching, and centralized credentials for your Anthropic requests, without changing how you use Claude Desktop. Claude Desktop can send third-party inference requests to a custom gateway; this configuration sends those requests to AI Gateway's [Anthropic endpoint](https://developers.cloudflare.com/ai-gateway/usage/providers/anthropic/), authenticated with your Cloudflare gateway token or Cloudflare Access. AI Gateway can supply the Anthropic credentials for you through [Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/) or a [stored provider key (BYOK)](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/).
+
+If your gateway is protected by Cloudflare Access, refer to Use with Cloudflare Access.
 
 ## Prerequisites
 
 Before you start, you need:
 
-  * An [authenticated gateway](https://developers.cloudflare.com/ai-gateway/configuration/authentication/) and its [gateway token](https://developers.cloudflare.com/ai-gateway/configuration/authentication/#setting-up-authenticated-gateway-using-the-dashboard). The gateway token must have `Run` permissions.
-  * Your Cloudflare account ID. To find it, refer to [Find your account and zone IDs](https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/).
+  * For gateway-token authentication, an [authenticated gateway](https://developers.cloudflare.com/ai-gateway/configuration/authentication/) and its [gateway token](https://developers.cloudflare.com/ai-gateway/configuration/authentication/#setting-up-authenticated-gateway-using-the-dashboard). The gateway token must have `Run` permissions.
+  * For gateway-token authentication, your Cloudflare account ID. To find it, refer to [Find your account and zone IDs](https://developers.cloudflare.com/fundamentals/account/find-account-and-zone-ids/).
   * Credentials for Anthropic requests. Use either [Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/) credits or an Anthropic API key stored in AI Gateway as a [provider key (BYOK)](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/).
   * Claude Desktop installed and updated to the latest version.
 
 
+
+## Use with a gateway token
 
 Note
 
@@ -80,9 +84,47 @@ Tier alias | `sonnet`
 
 
 
+## Use with Cloudflare Access
+
+If your gateway is protected by [Cloudflare Access](https://developers.cloudflare.com/ai-gateway/configuration/cloudflare-access/), Claude Desktop can authenticate with a short-lived Access token instead of a gateway token. Use a local helper script to fetch the token with `cloudflared`.
+
+Before you start, [set up a custom domain protected by Access](https://developers.cloudflare.com/ai-gateway/configuration/cloudflare-access/#set-up-access-on-a-gateway) with a policy that allows your identity. [Install `cloudflared`](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/downloads/) on the machine running Claude Desktop.
+
+  1. Create a local helper script, replacing `ai-gateway.example.com` with your gateway's custom domain:
+
+aig-access.shsh
+         
+         #!/bin/sh
+         exec cloudflared access login --no-verbose --app https://ai-gateway.example.com
+
+The `--no-verbose` flag prints only the JSON Web Token (JWT) to standard output, as the helper requires. If Claude Desktop cannot find `cloudflared`, replace it in the script with the full path returned by `command -v cloudflared`.
+
+  2. Make the script executable:
+         
+         chmod +x aig-access.sh
+
+  3. In Claude Desktop, select **Help** > **Troubleshooting** > **Enable Developer Mode**.
+
+  4. Select **Developer** > **Configure Third-Party Inference**.
+
+  5. In **Connection** , set the connection type to _Gateway_.
+
+  6. In **Gateway credentials** , set **Credential kind** to _Helper script_ and **Gateway auth scheme** to _Bearer_.
+
+  7. Set the gateway base URL to `https://ai-gateway.example.com/anthropic`, replacing `ai-gateway.example.com` with your gateway's custom domain.
+
+  8. In **Helper Script** , set the path to your local `aig-access.sh` script. Use the full path to the file.
+
+  9. In **Models** , add the Claude model you want to use.
+
+  10. In **Gateway credentials** , select **Test connection**. Complete the Access login flow when prompted, then start a Claude Desktop conversation.
+
+
+
+
 To confirm traffic reaches AI Gateway, refer to [Verify it works](https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/#verify-it-works).
 
-[PreviousClaude Code](https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/claude-code/)[NextGitHub Copilot CLI](https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/github-copilot-cli/)
+[PreviousClaude Code](https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/claude-code/)[NextCursor](https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/cursor/)
 
 Was this helpful?
 

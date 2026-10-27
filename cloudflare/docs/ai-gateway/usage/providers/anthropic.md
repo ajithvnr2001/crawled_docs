@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/usage/providers/anthropic/
 title: Anthropic \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:33.027693+00:00
+fetched_at: 2026-10-27T07:31:30.797939+00:00
 ---
 
 # Anthropic · Cloudflare AI Gateway docs
@@ -22,7 +22,7 @@ Using AI Gateway
 
 # Anthropic
 
-Last updated Jul 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-gateway/usage/providers/anthropic/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEndpointExamples cURL Anthropic SDKOpenAI-Compatible Endpoint
 
@@ -34,6 +34,10 @@ OverviewEndpointExamples cURL Anthropic SDKOpenAI-Compatible Endpoint
     
     
     https://gateway.ai.cloudflare.com/v1/{account_id}/{gateway_id}/anthropic
+
+When supplying a provider key to `/anthropic/v1/messages`, send it in `x-api-key`. AI Gateway does not recognize `Authorization: Bearer` as provider credentials on this endpoint. Authenticate to AI Gateway separately with `cf-aig-authorization`.
+
+For stored keys and Unified Billing, refer to [credential precedence](https://developers.cloudflare.com/ai-gateway/features/unified-billing/#credential-precedence). If provider credentials are required but AI Gateway cannot find them, refer to [error `2044`](https://developers.cloudflare.com/ai-gateway/reference/troubleshooting/#400-provider-credentials-required-2044).
 
 ## Examples
 
@@ -85,18 +89,23 @@ With Stored Keys (BYOK) / Unified Billing
 
 ### Anthropic SDK
 
+Set `x-api-key` explicitly when supplying your Anthropic key. SDK authentication headers can differ between versions. Setting `Authorization` to `null` removes the SDK-generated bearer header. Use `cf-aig-authorization` separately to authenticate to AI Gateway.
+
 With Key in Request
     
     
     import Anthropic from "@anthropic-ai/sdk";
     
     const baseURL = `https://gateway.ai.cloudflare.com/v1/{accountId}/{gatewayId}/anthropic`;
+    const providerKey = "{ANTHROPIC_API_KEY}";
     
     const anthropic = new Anthropic({
-    	apiKey: "{ANTHROPIC_API_KEY}",
+    	apiKey: providerKey,
     	baseURL,
     	defaultHeaders: {
-    		Authorization: `Bearer {cf_api_token}`,
+    		"x-api-key": providerKey,
+    		"cf-aig-authorization": "Bearer {CF_AIG_TOKEN}",
+    		Authorization: null,
     	},
     });
     
@@ -110,10 +119,15 @@ With Key in Request
     import Anthropic from "@anthropic-ai/sdk";
     
     const baseURL = `https://gateway.ai.cloudflare.com/v1/{accountId}/{gatewayId}/anthropic`;
+    const providerKey = "{ANTHROPIC_API_KEY}";
     
     const anthropic = new Anthropic({
-    	apiKey: "{ANTHROPIC_API_KEY}",
+    	apiKey: providerKey,
     	baseURL,
+    	defaultHeaders: {
+    		"x-api-key": providerKey,
+    		Authorization: null,
+    	},
     });
     
     const message = await anthropic.messages.create({
@@ -130,10 +144,12 @@ With Stored Keys (BYOK) / Unified Billing
     const baseURL = `https://gateway.ai.cloudflare.com/v1/{accountId}/{gatewayId}/anthropic`;
     
     const anthropic = new Anthropic({
-    	apiKey: "placeholder", // Ignored by AI Gateway when using BYOK or Unified Billing, but the SDK requires a value.
+    	apiKey: "placeholder",
     	baseURL,
     	defaultHeaders: {
-    		Authorization: `Bearer {cf_api_token}`,
+    		"cf-aig-authorization": "Bearer {CF_AIG_TOKEN}",
+    		"x-api-key": null,
+    		Authorization: null,
     	},
     });
     
@@ -145,7 +161,9 @@ With Stored Keys (BYOK) / Unified Billing
 
 Note
 
-When using BYOK or Unified Billing, do not set `x-api-key` in `defaultHeaders`. AI Gateway supplies the Anthropic key for you, and adding your own `x-api-key` header will cause the request to fail. The `apiKey` value in the example is a placeholder to satisfy the Anthropic SDK, which requires either the `apiKey` option or the `ANTHROPIC_API_KEY` environment variable to be set.
+The placeholder satisfies the SDK's credential configuration. The `null` headers remove SDK-generated provider credentials before sending the request. AI Gateway uses an applicable stored BYOK key, or falls back to Unified Billing when allowed. If **Require provider credentials** is on and no applicable stored key exists, the request returns [error `2044`](https://developers.cloudflare.com/ai-gateway/reference/troubleshooting/#400-provider-credentials-required-2044).
+
+Supplying a real key in `x-api-key` instead selects request-key authentication. This bypasses stored keys and Unified Billing.
 
 ## OpenAI-Compatible Endpoint
 

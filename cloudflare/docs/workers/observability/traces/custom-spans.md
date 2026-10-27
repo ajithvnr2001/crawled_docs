@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/observability/traces/custom-spans/
 title: Custom spans \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:36.909187+00:00
+fetched_at: 2026-10-27T07:31:32.018209+00:00
 ---
 
 # Custom spans · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:17:36.909187+00:00
 
 # Custom spans
 
-Last updated Sep 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/observability/traces/custom-spans/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEnable tracingCreate a custom spanAPI reference tracing.enterSpan(name, callback, ...args) tracing.startActiveSpan(name, callback, ...args) tracing.startSpan(name) tracing.getActiveSpan() SpanNested spansLogging within spansTypeScript typesChoosing a span creation methodData limitsLimitations
 
@@ -445,9 +445,147 @@ Recording an exception does not end the span or change how it ends. It also does
     span.recordException("Upstream returned an empty body");
     span.recordException({ code: "RATE_LIMITED", message: "Too many requests" });
 
+#### `span.setStatus(status)`
+
+Sets the status of the span. Span status follows the [OpenTelemetry span status ↗︎](https://opentelemetry.io/docs/specs/otel/trace/api/#set-status) model. Use it to mark an operation as failed or explicitly successful.
+
+Parameter | Type | Description  
+---|---|---  
+`status` | `SpanStatus` | The status to set on the span.  
+  
+`SpanStatus` is an object with the following fields:
+
+Field | Type | Description  
+---|---|---  
+`code` | `"unset" | "ok" | "error"` | The status code. Every span starts as `"unset"`.  
+`message` | `string` (optional) | A developer-facing description of the error. Only kept when `code` is `"error"`.  
+  
+**Returns:** The same `Span`, so you can chain calls.
+
+**Behavior:**
+
+  * `"ok"` is final. After you set a span's status to `"ok"`, later `setStatus` calls on that span are ignored.
+  * Setting `"unset"` has no effect. It does not clear an earlier `"error"` status.
+  * `message` is dropped unless `code` is `"error"`.
+  * Calls after the span has ended are ignored.
+  * Any other `code` value throws a `TypeError`. Codes are lowercase, so `"OK"` is not valid.
+  * Setting the status does not end the span or record an exception. To record the error details as well, call `recordException`.
+
+
+    
+    
+    await tracing.startActiveSpan("chargeCard", async (span) => {
+    	try {
+    		const result = await chargeCard(token, amount);
+    		span.setStatus({ code: "ok" });
+    		return result;
+    	} catch (err) {
+    		span.recordException(err as Error);
+    		span.setStatus({ code: "error", message: "Card payment failed" });
+    		throw err;
+    	} finally {
+    		span.end();
+    	}
+    });
+
+Span status is included in traces that you [export to an OpenTelemetry destination](https://developers.cloudflare.com/workers/observability/opentelemetry-export/). The Workers Observability dashboard does not display span status yet, and you cannot query or filter traces by span status.
+
+#### `span.updateName(name)`
+
+Changes the name of the span. Use this when the best name for an operation is not known until after the span starts, such as after you match a request to a route.
+
+Parameter | Type | Description  
+---|---|---  
+`name` | `string` | The new name of the span. Like names passed to the span creation methods, it is truncated to 64 bytes.  
+  
+**Returns:** The same `Span`, so you can chain calls.
+
+**Behavior:**
+
+  * The new name replaces the original name everywhere the span appears, including in exported traces.
+  * Calls after the span has ended are ignored. The span keeps the last name it had before `end()` was called.
+  * You can also rename the invocation's root span returned by `getActiveSpan()`.
+
+
+    
+    
+    // Rename the invocation's root span to include the matched route
+    const route = router.match(request);
+    tracing.getActiveSpan()?.updateName(`${request.method} ${route.pattern}`);
+    
+    const span = tracing.startSpan("job");
+    span.updateName(`job ${job.type}`);
+    await runJob(job);
+    span.end();
+    
+    span.updateName("ignored"); // No effect, the span has already ended
+
+#### `span.spanContext()`
+
+Returns the identity of the span: its trace ID, span ID, and trace flags. The fields match the required fields of an OpenTelemetry [`SpanContext` ↗︎](https://opentelemetry.io/docs/specs/otel/trace/api/#spancontext).
+
+**Returns:** A `SpanContext` object with the following fields:
+
+Field | Type | Description  
+---|---|---  
+`traceId` | `string` | The trace ID, as 32 lowercase hexadecimal characters. Every span in an invocation has the same trace ID.  
+`spanId` | `string` | The span ID, as 16 lowercase hexadecimal characters.  
+`traceFlags` | `number` | The [W3C trace flags ↗︎](https://www.w3.org/TR/trace-context/#trace-flags) for the span.  
+  
+**Behavior:**
+
+  * The trace ID and span ID are the same IDs that appear for the trace and span in Workers Observability and in traces exported to OpenTelemetry destinations.
+  * `spanContext()` still returns the span's IDs after the span has ended.
+  * For the root span returned by `getActiveSpan()` outside any custom span, `spanContext()` returns the invocation's trace ID and root span ID.
+  * If observability is disabled for the Worker, `traceId` and `spanId` are all zeros (`"00000000000000000000000000000000"` and `"0000000000000000"`).
+  * If traces are disabled or the request is not sampled for tracing, but [Workers Logs](https://developers.cloudflare.com/workers/observability/logs/workers-logs/) is enabled, `spanContext()` still returns non-zero IDs. The trace ID matches the one attached to the invocation's logs, but no spans are stored for it.
+  * `traceFlags` does not currently indicate whether the request is sampled for tracing. Do not use it to decide whether to record telemetry, or to build a `traceparent` header for downstream services.
+
+
+
+Use `spanContext()` to correlate a request with its trace, for example by logging the trace ID or returning it to the client:
+
+src/index.jsjs
+    
+    
+    import { tracing } from "cloudflare:workers";
+    
+    export default {
+    	async fetch(request, env, ctx) {
+    		const { traceId } = tracing.getActiveSpan()?.spanContext() ?? {};
+    
+    		const response = await handleRequest(request, env);
+    
+    		// Return the trace ID so that it can be looked up later
+    		const headers = new Headers(response.headers);
+    		if (traceId) headers.set("x-trace-id", traceId);
+    		return new Response(response.body, { status: response.status, headers });
+    	},
+    };
+
+src/index.tsts
+    
+    
+    import { tracing } from "cloudflare:workers";
+    
+    export default {
+    	async fetch(request: Request, env: Env, ctx: ExecutionContext) {
+    		const { traceId } = tracing.getActiveSpan()?.spanContext() ?? {};
+    
+    		const response = await handleRequest(request, env);
+    
+    		// Return the trace ID so that it can be looked up later
+    		const headers = new Headers(response.headers);
+    		if (traceId) headers.set("x-trace-id", traceId);
+    		return new Response(response.body, { status: response.status, headers });
+    	},
+    };
+
 #### `span.isTraced`
 
-A `readonly boolean` indicating whether this invocation is being traced. When the request is not sampled (based on your [`head_sampling_rate`](https://developers.cloudflare.com/workers/observability/traces/#sampling)), `isTraced` is `false` and `enterSpan` still runs the callback but does not record any telemetry.
+A `readonly boolean` indicating whether this invocation is being traced. `isTraced` is `false` when observability is disabled for the Worker, and after the span has ended. When `isTraced` is `false`, `enterSpan` still runs the callback but does not record any telemetry.
+
+`isTraced` does not currently account for [head sampling](https://developers.cloudflare.com/workers/observability/traces/#sampling). A request that is not sampled for tracing can still report `true`, and its spans are discarded after the invocation.
 
 You can use this to skip expensive attribute computation when the request is not being traced:
     
@@ -587,6 +725,18 @@ The full type declarations for the custom spans API:
     		| { code?: string | number; name: string; message?: string; stack?: string }
     		| { code?: string | number; name?: string; message: string; stack?: string };
     
+    	type SpanStatus = {
+    		code: "unset" | "ok" | "error";
+    		/** A developer-facing error message. Ignored unless code is "error". */
+    		message?: string;
+    	};
+    
+    	type SpanContext = {
+    		traceId: string;
+    		spanId: string;
+    		traceFlags: number;
+    	};
+    
     	class Span {
     		readonly isTraced: boolean;
     		setAttribute(key: string, value: string | number | boolean): this;
@@ -594,6 +744,9 @@ The full type declarations for the custom spans API:
     			attributes: Record<string, string | number | boolean | undefined>,
     		): this;
     		recordException(exception: Exception): void;
+    		setStatus(status: SpanStatus): this;
+    		updateName(name: string): this;
+    		spanContext(): SpanContext;
     		end(): void;
     	}
     }
@@ -630,8 +783,8 @@ Attribute | Value
 ## Limitations
 
   * **No manual parent-child wiring.** Parent-child relationships are determined by the JavaScript async context automatically.
-  * **No`spanContext()` (trace/span IDs) yet.** Access to trace and span identifiers for manual propagation across boundaries is planned for a future release.
-  * **No`setStatus` yet.** Setting span status is planned for a future release.
+  * **Sampling decisions are not visible to your code.** `span.isTraced` and `spanContext().traceFlags` do not reflect head sampling. Trace context is also not propagated automatically. Refer to [known limitations](https://developers.cloudflare.com/workers/observability/traces/known-limitations/).
+  * **Span status is not shown in the dashboard.** Status set with `setStatus()` is included in exported traces, but the Workers Observability dashboard does not display it yet, and you cannot query or filter by it.
 
 
 

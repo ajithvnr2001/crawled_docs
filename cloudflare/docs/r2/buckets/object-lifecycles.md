@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/buckets/object-lifecycles/
 title: Object lifecycles \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:44.566432+00:00
+fetched_at: 2026-10-27T07:31:31.618784+00:00
 ---
 
 # Object lifecycles · Cloudflare R2 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:44.566432+00:00
 
 # Object lifecycles
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/r2/buckets/object-lifecycles/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBehaviorConfigure lifecycle rules for your bucket Dashboard Wrangler S3 APIGet lifecycle rules for your bucket Wrangler S3 APIDelete lifecycle rules from your bucket Dashboard Wrangler S3 API
 
@@ -92,7 +92,12 @@ Below is an example of configuring a lifecycle configuration (a collection of li
 Configure the S3 client to interact with R2js
     
     
-    const client = new S3({
+    import {
+    	S3Client,
+    	PutBucketLifecycleConfigurationCommand,
+    } from "@aws-sdk/client-s3";
+    
+    const client = new S3Client({
     	endpoint: "https://<account_id>.r2.cloudflarestorage.com",
     	credentials: {
     		accessKeyId: "<access_key_id>",
@@ -104,8 +109,8 @@ Configure the S3 client to interact with R2js
 Set the lifecycle configuration for a bucketjavascript
     
     
-    await client
-    	.putBucketLifecycleConfiguration({
+    await client.send(
+    	new PutBucketLifecycleConfigurationCommand({
     		Bucket: "testBucket",
     		LifecycleConfiguration: {
     			Rules: [
@@ -168,8 +173,8 @@ Set the lifecycle configuration for a bucketjavascript
     				},
     			],
     		},
-    	})
-    	.promise();
+    	}),
+    );
 
 ## Get lifecycle rules for your bucket
 
@@ -183,10 +188,13 @@ To get the list of lifecycle rules associated with your bucket, run the [`r2 buc
 ### S3 API
     
     
-    import S3 from "aws-sdk/clients/s3.js";
+    import {
+    	S3Client,
+    	GetBucketLifecycleConfigurationCommand,
+    } from "@aws-sdk/client-s3";
     
     // Configure the S3 client to talk to R2.
-    const client = new S3({
+    const client = new S3Client({
     	endpoint: "https://<account_id>.r2.cloudflarestorage.com",
     	credentials: {
     		accessKeyId: "<access_key_id>",
@@ -197,11 +205,11 @@ To get the list of lifecycle rules associated with your bucket, run the [`r2 buc
     
     // Get lifecycle configuration for bucket
     console.log(
-    	await client
-    		.getBucketLifecycleConfiguration({
+    	await client.send(
+    		new GetBucketLifecycleConfigurationCommand({
     			Bucket: "bucketName",
-    		})
-    		.promise(),
+    		}),
+    	),
     );
 
 ## Delete lifecycle rules from your bucket
@@ -232,10 +240,10 @@ To remove a specific lifecycle rule from your bucket, run the [`r2 bucket lifecy
 ### S3 API
     
     
-    import S3 from "aws-sdk/clients/s3.js";
+    import { S3Client, DeleteBucketLifecycleCommand } from "@aws-sdk/client-s3";
     
     // Configure the S3 client to talk to R2.
-    const client = new S3({
+    const client = new S3Client({
     	endpoint: "https://<account_id>.r2.cloudflarestorage.com",
     	credentials: {
     		accessKeyId: "<access_key_id>",
@@ -245,11 +253,11 @@ To remove a specific lifecycle rule from your bucket, run the [`r2 bucket lifecy
     });
     
     // Delete lifecycle configuration for bucket
-    await client
-    	.deleteBucketLifecycle({
+    await client.send(
+    	new DeleteBucketLifecycleCommand({
     		Bucket: "bucketName",
-    	})
-    	.promise();
+    	}),
+    );
 
 [PreviousEvent notifications](https://developers.cloudflare.com/r2/buckets/event-notifications/)[NextStorage classes](https://developers.cloudflare.com/r2/buckets/storage-classes/)
 

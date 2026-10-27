@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/reference-architecture/architectures/email-security-deployments/
 title: Understanding Email Security Deployments \u00b7 Cloudflare Reference Architecture docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:36.905368+00:00
+fetched_at: 2026-10-27T07:31:32.373023+00:00
 ---
 
 # Understanding Email Security Deployments · Cloudflare Reference Architecture docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:36.905368+00:00
 
 # Understanding Email Security Deployments
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewIntroductionStrengthen your email infrastructure with Cloudflare Email security Who is this reference architecture for and what will you learn?Email security deployment optionsChoose a deployment modelDeployment options Inline API BCC/Journaling MixedAutomated Post Delivery Submission HandlingSummary
 
@@ -83,7 +83,7 @@ Before you choose a deployment option, it is important to consider your needs an
 
 
 
-If those needs are not important or you are using layered security that does not include another API-based solution, then our API method is quick and efficient to deploy with no changes to your mail flow. If you want the benefits of API without the risk of API Throttling, then Journal/BCC is the best choice as the ingestion method does not use API calls. However, if you want the protection of an MX deployment along with the benefits of API for internal messaging, then our mixed deployment is ideal.
+If those needs are not important or you are using layered security that does not include another API-based solution, then our API method is quick and efficient to deploy with no changes to your mail flow. Journal/BCC reduces API usage by ingesting messages through SMTP. API-based remediation remains subject to provider throttling. However, if you want the protection of an MX deployment along with the benefits of API for internal messaging, then our mixed deployment is ideal.
 
 Should your needs change, know that you have the flexibility to change deployment methods as you see fit without having to repurchase our solution. The only caveat is that Advantage and CyberSafe customers are limited to Inline deployments while Enterprise licensing benefits from all capabilities.
 
@@ -188,17 +188,20 @@ Under normal circumstances, this process is typically performed in less than 2-3
 Before deploying Email security via [API deployment](https://developers.cloudflare.com/cloudflare-one/email-security/setup/post-delivery-deployment/api/m365-api/), you will need to consider the following:
 
   * Depending on the API infrastructure, Microsoft 365 or Google outages and maintenance windows will increase message dwell time in the inbox as emails cannot be scanned or remediated until after delivery to the user. This is a limitation of all API vendors.
-  * Microsoft 365 may throttle API requests to the Graph API on a Service by Service basis. The Mail API with Graph is within the Outlook Services section. These limits could be abused by a threat actor to functionally disable any API based deployment granting an additional window for attack. The limits are as follows: 
-    * 10,000 API requests in a 10 minute period
+  * Microsoft Graph applies both global and service-specific throttling limits. The Mail API is subject to Outlook service limits. Throttling can delay message retrieval and remediation, increasing message dwell time. The following Outlook limits apply to each application ID and mailbox combination: 
+    * 10,000 API requests in a 10-minute period
     * Four concurrent requests
-    * 150 megabytes (MB) upload (PATCH, POST, PUT) in a five-minute period
-    * Refer to [Outlook service limits ↗︎](https://learn.microsoft.com/en-us/graph/throttling-limits#outlook-service-limits)
-  * The Gmail API is subject to a daily usage limit that applies to all requests made from your application, and per-user rate limits. Each limit is identified in terms of quota units, or an abstract unit of measurement representing Gmail resource usage. The main request limits are described as follows: 
-    * Per user rate limit of 250 quota units per user per second, moving average (allows short bursts).
-    * Per-method Quota Usage is based on the number of quota units consumed by a request depending on the method called.
-    * For example, `messages.get` and `messages.attachments.get` consume five quota units. Refer to [Per-method quota usage ↗︎](https://developers.google.com/gmail/api/reference/quota#per-method_quota_usage)
+    * 150 megabytes (MB) upload (`PATCH`, `POST`, `PUT`) in a five-minute period
+    * Exceeding these limits for one mailbox does not affect access to another mailbox. Other Graph limits can also trigger throttling. Refer to [Outlook service limits ↗︎](https://learn.microsoft.com/en-us/graph/throttling-limits#outlook-service-limits).
+    * Throttled requests return HTTP `429`. Microsoft recommends honoring the `Retry-After` response header, or exponential backoff when that header is absent. Refer to [Microsoft Graph throttling guidance ↗︎](https://learn.microsoft.com/en-us/graph/throttling#best-practices-to-handle-throttling).
+  * The Gmail API uses quota units to measure API usage. For projects subject to Google's updated quotas, the published limits and method costs are: 
+    * 1,200,000 quota units per minute per project
+    * 6,000 quota units per minute per user per project
+    * `messages.get` consumes 20 quota units, or 60 with `format=full`, `format=raw`, or `format=html`. `messages.attachments.get` consumes 20 quota units. Remediation also consumes quota: `messages.modify` uses five units and `messages.batchModify` uses 50. Refer to [Gmail API usage limits ↗︎](https://developers.google.com/workspace/gmail/api/reference/quota#per-method-quota).
+    * Google documents different quotas for new and existing projects during its quota transition. Check the integration project's effective quotas in Google Cloud. Google also documents an 80,000,000-quota-unit daily billing threshold per project, with billing rollout subject to advance notice. Refer to [Google Workspace API quota and billing changes ↗︎](https://developers.google.com/workspace/tools-safety).
+    * Per-user bandwidth and concurrent request limits also apply. These are shared across Gmail API clients accessing the same user. Quota limits can produce HTTP `403` errors. Bandwidth or concurrency limits can produce HTTP `429` errors. Google recommends exponential backoff for retryable failures. Refer to [Resolve Gmail API errors ↗︎](https://developers.google.com/workspace/gmail/api/guides/handle-errors).
   * Requires read/write access into mailboxes which some security/email teams may not allow.
-  * Only Microsoft 365 has true API support. Google allows for API remediation but still requires a Compliance Rule to deliver emails using SMTP for scanning. On-prem Exchange requires PowerShell and does not have APIs for auto-moves.
+  * Cloudflare uses Microsoft Graph for Microsoft 365 API ingestion and remediation. For Google Workspace, Cloudflare uses a compliance rule to deliver emails through SMTP for scanning and the Gmail API for remediation. On-prem Exchange requires PowerShell and does not have APIs for auto-moves.
   * Messages cannot be modified after delivery as per Microsoft 365/Google requirements. This means we cannot perform URL Rewriting to Cloudflare [email link isolation](https://developers.cloudflare.com/cloudflare-one/email-security/investigation/search-email/#open-links) or append text to the email subject or body. Those features are only available using an Inline deployment.
 
 
@@ -207,7 +210,7 @@ Before deploying Email security via [API deployment](https://developers.cloudfla
 
 BCC/Journaling is very similar to API deployments with the exception of how emails are delivered to Cloudflare. As with API the email is delivered to the mailbox first, but at the same time an account specific email address is added to the email so a copy is transmitted via SMTP to Cloudflare for evaluation.
 
-Once Cloudflare receives the email, it will scan and determine the [disposition](https://developers.cloudflare.com/cloudflare-one/email-security/reference/dispositions-and-attributes/#dispositions) of the email. Once an email has a disposition our solution will look at the API authorizations and [auto-move](https://developers.cloudflare.com/cloudflare-one/email-security/settings/detection-settings/auto-moves/) policy and perform the desired action. This method is less at risk to API Throttling as the APIs for Microsoft 365 and Google are only used to remediate emails.
+Once Cloudflare receives the email, it will scan and determine the [disposition](https://developers.cloudflare.com/cloudflare-one/email-security/reference/dispositions-and-attributes/#dispositions) of the email. Once an email has a disposition our solution will look at the API authorizations and [auto-move](https://developers.cloudflare.com/cloudflare-one/email-security/settings/detection-settings/auto-moves/) policy and perform the desired action. SMTP ingestion reduces API usage, but API-based remediation remains subject to Microsoft 365 and Google throttling limits.
 
 ![BCC/Journaling deployment](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=512,height=522,format=svg/_astro/Journaling_Diagram.yvbQDbEw.svg)
 
@@ -228,7 +231,7 @@ During a proof of value, this deployment can be configured with any Email securi
 
 Before deploying Email security via BCC/Journaling deployment, you will need to consider the following:
 
-  * Same limitations of API.
+  * API-based remediation has the same provider throttling limits as API deployment. Message ingestion uses SMTP instead of API requests.
   * Depends on Google or Microsoft 365 to deliver messages via SMTP.
   * May require a Connector in Microsoft 365 to facilitate direct communication.
   * Messages cannot be modified after delivery as per Microsoft 365/Google requirements. This means we cannot perform URL Rewriting to Cloudflare Email Link Isolation or append text to the email Subject or Body. Those features are only available using an Inline deployment.

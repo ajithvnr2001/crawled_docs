@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/account/account-security/zone-holds/
 title: Zone holds \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:19.798632+00:00
+fetched_at: 2026-10-27T07:31:32.941816+00:00
 ---
 
 # Zone holds · Cloudflare Fundamentals docs
@@ -22,7 +22,7 @@ Accounts
 
 # Zone holds
 
-Last updated Aug 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/account/account-security/zone-holds/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAvailabilityEnable zone holdsRelease zone holds
 
@@ -57,9 +57,13 @@ To enable a zone hold:
 
 You also have the option to **Also prevent subdomains** , which prevents anyone in your organization from creating subdomains or custom hostnames related to your zone.
 
+Note
+
+A zone hold also blocks operations such as adding a [Pages custom domain](https://developers.cloudflare.com/pages/configuration/custom-domains/) or custom hostname for a hostname under the hold, even within the same Cloudflare account. To configure a custom domain on a held zone or subdomain, temporarily release the zone hold during setup.
+
 ## Release zone holds
 
-You may want to temporarily release a zone hold to allow another team to [register a subdomain](https://developers.cloudflare.com/dns/zone-setups/subdomain-setup/) in a separate Cloudflare account, such as `docs.example.com`.
+You may want to temporarily release a zone hold to allow another team to [register a subdomain](https://developers.cloudflare.com/dns/zone-setups/subdomain-setup/) in a separate Cloudflare account (such as `docs.example.com`), or to add a [Pages custom domain](https://developers.cloudflare.com/pages/configuration/custom-domains/) under a held domain.
 
 To release a zone hold:
 
